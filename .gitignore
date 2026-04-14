@@ -1,3 +1,11 @@
 /node_modules/
+lib/
+.bs/
+.rescript/
+*.bs.js
+*.mjs
+*.cjs
+.DS_Store
+/
 /lib/
 .bsb.lock

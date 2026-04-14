@@ -1,0 +1,31 @@
+{
+  "name": "@juspay/rescript-blend",
+  "version": "0.1.0",
+  "description": "ReScript bindings for @juspay/blend-design-system",
+  "main": "index.js",
+  "scripts": {
+    "build": "rescript",
+    "clean": "rescript clean",
+    "watch": "rescript build -w",
+    "generate": "node scripts/generate-bindings.mjs"
+  },
+  "keywords": [
+    "rescript",
+    "juspay",
+    "blend-design-system",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@rescript/react": ">=0.12.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@juspay/neurolink": "^9.50.1",
+    "@roshan84ya/rescript": "12.0.1",
+    "@juspay/blend-design-system": "latest",
+    "@rescript/react": "^0.13.0"
+  }
+}
