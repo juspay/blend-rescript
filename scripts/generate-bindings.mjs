@@ -137,13 +137,30 @@ class BindingsGenerator {
         return files
     }
 
-    verifyCompilation() {
+    verifyCompilation(componentName) {
         try {
             execSync('npm run build', { stdio: 'pipe' })
             return { success: true }
         } catch (error) {
             const output = (error.stdout ? error.stdout.toString() : '') + (error.stderr ? error.stderr.toString() : '');
-            return { success: false, errorOutput: output }
+            
+            // Isolate errors to only the current component to avoid AI context stacking
+            const blocks = output.split(/Error in/g);
+            let relevantError = "";
+            for (const block of blocks) {
+                if (block.includes(`src/${componentName}.res:`)) {
+                    relevantError += "Error in" + block;
+                }
+            }
+
+            if (!relevantError.trim()) {
+                return { 
+                    success: false, 
+                    errorOutput: `FATAL: Global compilation proxy failed. Another broken file in your src/ directory is blocking compilation for ${componentName}.res.` 
+                }
+            }
+
+            return { success: false, errorOutput: relevantError.trim() }
         }
     }
 
@@ -185,6 +202,10 @@ ${fileContext}
 
 Please return the output as a JSON object matching the requested format.
 `
+        let isSuccessState = false;
+        const destPath = join(BINDINGS_DIR, `${componentName}.res`)
+        const failedPath = join(BINDINGS_DIR, `${componentName}.failed.res`)
+
         const MAX_RETRIES = 3;
         for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
             this.log('info', `Attempt ${attempt}/${MAX_RETRIES} to generate bindings for ${componentName}...`)
@@ -200,11 +221,10 @@ Please return the output as a JSON object matching the requested format.
                 const parsed = this.parseJSON(result.content)
 
                 if (parsed.success && parsed.rescriptCode) {
-                    const destPath = join(BINDINGS_DIR, `${componentName}.res`)
                     writeFileSync(destPath, parsed.rescriptCode.trim(), 'utf-8')
                     
                     this.log('phase', `Validating compilation for ${componentName}...`)
-                    const validation = this.verifyCompilation()
+                    const validation = this.verifyCompilation(componentName)
                     
                     if (validation.success) {
                         this.log('success', `Generated and compiled bindings for ${componentName} -> ${destPath}`)
@@ -213,19 +233,16 @@ Please return the output as a JSON object matching the requested format.
                             fs.appendFileSync(ERRORS_FILE, `\n- [Auto-Learned]: ${parsed.learnedErrorsToDocument}\n`, 'utf-8');
                             this.log('info', `Appended new learned rule to known-errors: ${parsed.learnedErrorsToDocument}`);
                         }
-                        return true
+                        isSuccessState = true;
+                        break;
                     } else {
                         this.log('warn', `Compilation failed on attempt ${attempt}.`)
                         if (attempt === MAX_RETRIES) {
-                            const failedPath = join(BINDINGS_DIR, `${componentName}.failed.res`)
-                            renameSync(destPath, failedPath)
-                            this.log('error', `Max retries reached. Renamed broken binding to ${failedPath}.\nCompilation errors:\n${validation.errorOutput}`)
+                            this.log('error', `Max retries reached. Failing component ${componentName}.\nCompilation errors:\n${validation.errorOutput}`)
                             
-                            // Log raw failure to known-errors
                             const fs = await import('fs');
                             fs.appendFileSync(ERRORS_FILE, `\n- [Unresolved Failure] ${componentName}: Failed compilation because: \n${validation.errorOutput.split('\\n').slice(0, 5).join('\\n')}\n`, 'utf-8');
-
-                            return false;
+                            break;
                         } else {
                             this.log('phase', 'Injecting compiler feedback loop...')
                             currentPrompt = `The previous code you generated failed to compile.
@@ -246,13 +263,25 @@ CRITICAL: Include the "learnedErrorsToDocument" field in your JSON documenting w
                     }
                 } else {
                     this.log('error', `Failed to parse generated JSON bindings for ${componentName}: ${parsed.error || 'Missing rescriptCode'}`)
-                    return false
+                    break;
                 }
             } catch (e) {
                 this.log('error', `AI generation failed for ${componentName}: ${e.message}`)
-                return false
+                break;
             }
         }
+
+        // Cleanup any failed files safely
+        if (!isSuccessState) {
+            import('fs').then(fs => {
+                if (fs.existsSync(destPath)) {
+                    fs.renameSync(destPath, failedPath)
+                }
+            });
+            return false;
+        }
+
+        return true;
     }
 
     async run() {
