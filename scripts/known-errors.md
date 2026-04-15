@@ -71,3 +71,5 @@ Error in @subham_/rescript-blend:
 
 Incremental build failed. Error: [2K  Could not parse Source Files
 
+
+- [Auto-Learned]: Polymorphic variants in ReScript use simple `#Tag` syntax without `@as` decorators - `@as` is only for regular variants, not polymorphic variants. For union types like `boolean | "indeterminate"`, use `[#Bool(bool) | #Indeterminate]` format without any decorators.

@@ -221,7 +221,11 @@ Please return the output as a JSON object matching the requested format.
                 const parsed = this.parseJSON(result.content)
 
                 if (parsed.success && parsed.rescriptCode) {
-                    writeFileSync(destPath, parsed.rescriptCode.trim(), 'utf-8')
+                    let finalCode = parsed.rescriptCode.trim()
+                    // Fix double-escaped payload from LLM JSON payloads
+                    finalCode = finalCode.replace(/\\n/g, '\n').replace(/\\r/g, '\r').replace(/\\t/g, '\t').replace(/\\"/g, '"')
+                    
+                    writeFileSync(destPath, finalCode, 'utf-8')
                     
                     this.log('phase', `Validating compilation for ${componentName}...`)
                     const validation = this.verifyCompilation(componentName)
