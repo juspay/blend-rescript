@@ -1,3 +1,5 @@
+.env
+scripts/
 node_modules/
 lib/
 .bs/
@@ -5,3 +7,5 @@ lib/
 *.bs.js
 *.mjs
 *.cjs
+src/*.js
+.DS_Store
