@@ -23,9 +23,12 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@juspay/neurolink": "^9.50.1",
-    "@roshan84ya/rescript": "12.0.1",
     "@juspay/blend-design-system": "latest",
-    "@rescript/react": "^0.13.0"
+    "@juspay/neurolink": "^9.50.1",
+    "@rescript/react": "^0.13.0",
+    "@roshan84ya/rescript": "12.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }

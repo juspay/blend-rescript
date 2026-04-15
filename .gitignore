@@ -3,7 +3,7 @@ lib/
 .bs/
 .rescript/
 *.bs.js
-*.mjs
+.env
 *.cjs
 .DS_Store
 /
