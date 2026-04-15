@@ -1,5 +1,5 @@
 // Import necessary types from ChartBindings
-open ChartBindings
+open Chart
 
 // Use modules for separate components
 module ChartLegends = {

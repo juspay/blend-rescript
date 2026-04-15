@@ -14,7 +14,8 @@
   ],
   "suffix": ".js",
   "dependencies": [
-    "@rescript/react"
+    "@rescript/react",
+    "rescript-webapi"
   ],
   "warnings": {
     "error": "+101"

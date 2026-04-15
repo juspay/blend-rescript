@@ -1,5 +1,5 @@
 // Import necessary types from ChartBindings
-open ChartBindings
+open Chart
 
 // Utility functions for chart operations
 @module("@juspay/blend-design-system/dist/components/Charts/ChartUtils")

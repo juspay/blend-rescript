@@ -1,5 +1,5 @@
 // CoreChart component binding for granular charts
-open ChartBindings
+open Chart
 
 type dimension =
   | @as("String") String(string)

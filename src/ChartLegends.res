@@ -1,5 +1,5 @@
 // ChartLegends component binding
-open ChartBindings
+open Chart
 
 @module("@juspay/blend-design-system") @react.component
 external make: (

@@ -21,7 +21,7 @@ type skeletonProps = {
 }
 
 // Import button types from ButtonBinding
-open ButtonBinding
+open Button
 
 // Button props from ButtonBinding
 type buttonV2Props = {

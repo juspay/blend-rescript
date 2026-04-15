@@ -1,4 +1,4 @@
-open ChartBindings
+open Chart
 
 module RenderChart = {
   @module("@juspay/blend-design-system/dist/components/Charts/renderChart") @react.component

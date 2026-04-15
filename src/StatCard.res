@@ -50,7 +50,7 @@ type statCardAxisConfig = {
   hour12?: bool,
 }
 
-// Import SingleSelect props from SingleSelectBinding
+// Import SingleSelect props from SingleSelect
 type singleSelectProps = {
   label?: string,
   subLabel?: string,
@@ -58,9 +58,9 @@ type singleSelectProps = {
   required?: bool,
   helpIconText?: string,
   placeholder: string,
-  size?: SingleSelectBinding.selectMenuSize,
-  items: array<SingleSelectBinding.selectMenuGroupType>,
-  variant?: SingleSelectBinding.selectMenuVariant,
+  size?: SingleSelect.selectMenuSize,
+  items: array<SingleSelect.selectMenuGroupType>,
+  variant?: SingleSelect.selectMenuVariant,
   selected: string,
   onSelect: string => unit,
   enableSearch?: bool,
@@ -70,8 +70,8 @@ type singleSelectProps = {
   name?: string,
   customTrigger?: React.element,
   useDrawerOnMobile?: bool,
-  alignment?: MultiSelectBindings.selectMenuItemAlignment,
-  side?: MultiSelectBindings.selectMenuItemSide,
+  alignment?: MultiSelect.selectMenuItemAlignment,
+  side?: MultiSelect.selectMenuItemSide,
   sideOffset?: int,
   alignOffset?: int,
   minWidth?: int,

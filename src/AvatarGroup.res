@@ -1,5 +1,5 @@
 // Import types from AvatarBinding
-open AvatarBinding
+open Avatar
 
 // Avatar data type for avatar group items
 type avatarData = {

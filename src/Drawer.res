@@ -26,7 +26,7 @@ type mobileOffset = {
   right?: string,
 }
 
-// Button props type (referencing from existing ButtonBinding)
+// Button props type (referencing from existing Button)
 type buttonV2Props = {
   buttonType?: buttonType,
   size?: buttonSize,
@@ -34,7 +34,7 @@ type buttonV2Props = {
   onClick?: unit => unit,
   isDisabled?: bool,
   disabled?: bool,
-  state?: ButtonBinding.buttonState,
+  state?: Button.buttonState,
 }
 
 // Select drawer item type
@@ -247,7 +247,7 @@ let makeButtonV2Props = (
   ~onClick: option<unit => unit>=?,
   ~isDisabled: option<bool>=?,
   ~disabled: option<bool>=?,
-  ~state: option<ButtonBinding.buttonState>=?,
+  ~state: option<Button.buttonState>=?,
   (),
 ): buttonV2Props => {
   ?buttonType,

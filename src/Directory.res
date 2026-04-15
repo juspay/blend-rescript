@@ -2,7 +2,7 @@
 // This is the pure navigation component without layout
 
 // Re-use the existing types from SidebarBinding since they're compatible
-open SidebarBinding
+open Sidebar
 
 // External binding to the Directory component from Blend
 @module("@juspay/blend-design-system/dist/components/Directory") @react.component
