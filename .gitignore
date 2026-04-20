@@ -1,12 +1,13 @@
-/.env
-/node_modules/
+node_modules/
 lib/
 .bs/
 .rescript/
-*.bs.js
-.env
-*.cjs
-.DS_Store
-/
-/lib/
 .bsb.lock
+.env
+.DS_Store
+*.bs.js
+*.cjs
+*.tgz
+
+# Note: we intentionally commit src/*.js (ReScript-emitted output).
+# Consumers can use the package without installing rescript.

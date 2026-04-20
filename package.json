@@ -8,14 +8,33 @@
     "watch": "rescript build -w",
     "generate": "node scripts/generate-bindings.mjs"
   },
+  "files": [
+    "src/**/*.res",
+    "src/**/*.resi",
+    "src/**/*.js",
+    "rescript.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "keywords": [
     "rescript",
     "juspay",
     "blend-design-system",
     "react"
   ],
-  "author": "",
+  "author": "Juspay Technologies",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juspay/blend-rescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juspay/blend-rescript/issues"
+  },
+  "homepage": "https://github.com/juspay/blend-rescript#readme",
   "peerDependencies": {
     "@rescript/react": ">=0.12.0",
     "react": ">=18.0.0",
@@ -26,9 +45,7 @@
     "@juspay/neurolink": "^9.50.1",
     "@rescript/react": "^0.13.0",
     "@roshan84ya/rescript": "12.0.1",
+    "dotenv": "^17.4.2",
     "rescript-webapi": "^0.9.1"
-  },
-  "dependencies": {
-    "dotenv": "^17.4.2"
   }
 }
