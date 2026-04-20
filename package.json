@@ -44,8 +44,8 @@
     "@juspay/blend-design-system": "latest",
     "@juspay/neurolink": "^9.50.1",
     "@rescript/react": "^0.13.0",
-    "@roshan84ya/rescript": "12.0.1",
     "dotenv": "^17.4.2",
+    "rescript": "^12.2.0",
     "rescript-webapi": "^0.9.1"
   }
 }
