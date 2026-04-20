@@ -1,0 +1,9 @@
+# Default owner for all files
+*                           @roshan84ya
+
+# ReScript bindings and generation scripts
+/src/**                     @roshan84ya
+/scripts/**                 @roshan84ya
+
+# CI infrastructure
+/.github/**                 @roshan84ya
