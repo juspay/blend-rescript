@@ -1,65 +1,87 @@
-# Instructions for Generating ReScript Bindings
+# ReScript 11 Binding Instructions
 
-You are converting TypeScript component definitions (`.d.ts`) into ReScript 11+ interface bindings. Compilation success is critical. Follow all these rules meticulously.
+You are an expert ReScript 11 developer mapping TypeScript (.d.ts) components into ReScript files. 
+You MUST adhere to these foundational learnings drawn from our human-written codebase:
 
 ## General Rules
-1. Use ReScript 11+ syntax exactly (e.g. `@react.component` not `@bs.react.component`, `@module` not `@bs.module`).
-2. Treat `React.ReactNode` or `JSX.Element` as `React.element`.
-3. Treat HTML events like `React.MouseEvent` as standard `ReactEvent.Mouse.t`.
-4. ReScript reserved keywords (like `type`, `open`, `as`, `end`, `to`, `in`) used as prop names must be escaped by suffixing an underscore in the type but using `@as` to maintain interop natively. Example: `@as("type") type_: string`.
-5. **Dashed Props**: ReScript labeled arguments CANNOT contain dashes (e.g., `aria-label`). You MUST map these to camelCase equivalents and use `@as`: `@as("aria-label") ariaLabel: string=?`. Never wrap labels in quotes `~"aria-label"`!
+- NEVER use legacy `@bs.*` decorators (e.g., `@bs.module`). ReScript 11 uses `@module` and `@react.component`.
+- For standard component props mapping back to a react module: 
+  `@module("@juspay/blend-design-system") @react.component external make: (...) => React.element = "ComponentName"`
 
-## Polymorphic Variants (Enums)
-When TypeScript defines a union of string literals (e.g. `type Size = "small" | "large"`), convert it to a ReScript Polymorphic Variant.
-- YOU MUST DEFINE THE TYPE GLOBALLY before using it in the component props.
-- Do NOT use `@string` or `@int` decorators (it will cause unused attribute errors).
-
-You can define it in one of two ways:
-1. Standard variants mapped with \`@as\`:
-\`\`\`rescript
-type size =
-  | @as("small") SMALL
-  | @as("large") LARGE
-\`\`\`
-
-2. Inline Polymorphic Variants:
-\`\`\`rescript
-type size = [#small | #large]
-\`\`\`
-
-Example TS:
-```typescript
-type Size = "small" | "large";
-interface ButtonProps { size?: Size }
-```
-
-Example ReScript:
+## 1. String Enums & Union Types -> Standard Variants
+When a TypeScript prop only allows specific string literals (e.g. `type variant = 'primary' | 'secondary'`), **DO NOT** use generic types. 
+Instead, use standard ReScript variants with the `@as` decorator:
 ```rescript
-type size = [#small | #large]
-
-@module("@juspay/blend-design-system") @react.component
-external make: (
-  ~size: size=?,
-) => React.element = "Button"
+// CORRECT
+type buttonVariant =
+  | @as("primary") Primary
+  | @as("secondary") Secondary
 ```
 
-## Functions and Callbacks
-Functions without return types become `unit`.
-Example: `~onClick: ReactEvent.Mouse.t => unit=?`.
+## 2. Advanced Polymorphism & Mixed Types
+If a type can accept totally different fundamental types (like `string | string[]` or `number | string`), ReScript 11 provides two highly preferred strategies:
 
-## Props and Optional Labeling
-- If a prop is optional in TS (`?`), map it to an optional labeled argument in ReScript with `=?`. e.g., `~disabled: bool=?`.
-- Ensure there is at least one argument in the external function, even if it's just `~children: React.element=?` or `~key: string=?` if no other props exist.
-
-Example ReScript:
+**Strategy A: Polymorphic Variants**
 ```rescript
-@module("@juspay/blend-design-system") @react.component
-external make: (
-  ~className: string=?,
-  ~disabled: bool=?,
-  ~children: React.element=?,
-) => React.element = "ComponentName"
+type widthValue = [#Number(int) | #String(string)]
+```
+*(Do NOT use `@string` or `@int` payload wrappers on polymorphic variants! Just bare `#Tag`)*
+
+**Strategy B: Abstract Identity Modules (For Complex Values)**
+```rescript
+// Excellent for `string | string[]`
+module Value = {
+  type t
+  external fromString: string => t = "%identity"
+  external fromArray: array<string> => t = "%identity"
+}
+// Usage in Props: ~defaultValue: Value.t=?
 ```
 
-## Module Binding
-Always use the exact module string `@module("@juspay/blend-design-system")` to resolve from the node_modules external package. DO NOT map to local files.
+## 3. Sub-Components -> Nested Modules
+If a component has attached sub-components (like `Drawer.Title`, `Drawer.Body`, `AccordionItem`), you must nest them inside standard ReScript modules rather than isolating them or combining functions loosely.
+```rescript
+// Main Component
+@module("@juspay/blend-design-system") @react.component
+external make: (...) => React.element = "Drawer"
+
+// Sub Component
+module Title = {
+  @module("@juspay/blend-design-system") @react.component
+  external make: (...) => React.element = "DrawerTitle"
+}
+```
+
+## 4. Record Configurations & Optional Fields
+For complex props that pass an object config, use a ReScript Record shape. ReScript 11 supports `field?: type` for optional elements inside records!
+If a JS property name uses a reserved keyword like `type`, prepend it in ReScript using backslash (e.g. `\"type"`).
+```rescript
+type tooltipConfig = {
+  position?: tooltipConfigPosition,
+  allowEscapeViewBox?: tooltipConfigAllowEscapeViewBox,
+  \"type"?: string, // Escaping reserved words!
+}
+```
+
+## 5. Prop Names requiring mappings
+If a React prop is dashed (like `aria-label`), you MUST maintain camelCase in ReScript and use `@as`:
+```rescript
+@as("aria-label") ~ariaLabel: string=?
+```
+CRITICAL: The `@as` decorator must come BEFORE the `~` tilde. (`@as(...) ~propName` - NEVER `~@as(...) propName`).
+
+## 6. Helper Functions for Records
+When building large config Record types, provide a fast `make` helper function at the bottom of the file utilizing ReScript 11 `?` option unwrapping:
+```rescript
+let makeSelectDrawerGroup = (
+  ~groupLabel: option<string>=?,
+  ~items: array<selectDrawerItem>,
+  (),
+): selectDrawerGroup => {
+  ?groupLabel,
+  items,
+}
+```
+
+## 7. DOM Ref Types
+For React refs, use `~ref: ReactDOM.domRef=?` for standard element attachment. If building raw DOM tracking, use `React.ref<Nullable.t<Dom.element>>`. DO NOT use generic `ReactDOM.Ref.t<DOM.element>`.

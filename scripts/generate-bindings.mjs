@@ -249,6 +249,15 @@ Please return the output as a JSON object matching the requested format.
                             break;
                         } else {
                             this.log('phase', 'Injecting compiler feedback loop...')
+                            
+                            // Inject actual human context dynamically to rescue failing generation
+                            let goldenExample = "";
+                            const fs = await import('fs');
+                            const goldenPath = join(BINDINGS_DIR, 'Card.res');
+                            if (fs.existsSync(goldenPath)) {
+                                goldenExample = `\n\nREFERENCE EXAMPLE:\nTo help you, here is a perfectly formatted, highly advanced human codebase file (Card.res) for you to mimic:\n\`\`\`rescript\n${fs.readFileSync(goldenPath, 'utf-8')}\n\`\`\`\n`;
+                            }
+
                             currentPrompt = `The previous code you generated failed to compile.
 Here was the generated code:
 \`\`\`rescript
@@ -261,7 +270,7 @@ ${validation.errorOutput}
 \`\`\`
 
 Please fix the compilation errors and return the corrected ReScript bindings as a JSON object matching the requested format. Follow the instruction rules meticulously, specially around polymoprhic variants and react components! 
-CRITICAL: Include the "learnedErrorsToDocument" field in your JSON documenting what rule must be followed to avoid this specific error.
+CRITICAL: Include the "learnedErrorsToDocument" field in your JSON documenting what rule must be followed to avoid this specific error.${goldenExample}
 `
                         }
                     }
