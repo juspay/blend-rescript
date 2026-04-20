@@ -1,12 +1,11 @@
-/.env
-/node_modules/
+.env
+scripts/
+node_modules/
 lib/
 .bs/
 .rescript/
 *.bs.js
-.env
+*.mjs
 *.cjs
+src/*.js
 .DS_Store
-/
-/lib/
-.bsb.lock

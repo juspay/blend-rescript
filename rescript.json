@@ -1,0 +1,23 @@
+{
+  "name": "@subham_/rescript-blend",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "esmodule",
+      "in-source": true
+    }
+  ],
+  "suffix": ".js",
+  "dependencies": [
+    "@rescript/react",
+    "rescript-webapi"
+  ],
+  "warnings": {
+    "error": "+101"
+  }
+}
