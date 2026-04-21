@@ -1,0 +1,109 @@
+name: Sync bindings with upstream blend
+
+# Manual-only by design. We only regenerate bindings when a stable
+# @juspay/blend-design-system is published and a maintainer decides to adopt it.
+# Prerelease versions (-beta, -alpha, -rc) are refused below as a safety net.
+on:
+  workflow_dispatch:
+    inputs:
+      blend_version:
+        description: 'Version spec to install (e.g. "latest", "1.2.3", or a pkg.pr.new URL for local testing only)'
+        required: false
+        default: 'latest'
+        type: string
+      allow_prerelease:
+        description: 'Allow -beta / -alpha / -rc versions (for testing only — do NOT merge the resulting PR)'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: sync-bindings
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Regenerate bindings
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install target blend version
+        run: npm install --no-save "@juspay/blend-design-system@${{ inputs.blend_version }}"
+
+      - name: Resolve installed blend version
+        id: blend
+        run: |
+          V=$(node -p "require('@juspay/blend-design-system/package.json').version")
+          echo "version=$V" >> $GITHUB_OUTPUT
+          echo "Resolved blend version: $V"
+
+      - name: Refuse prerelease versions (unless explicitly allowed)
+        run: |
+          V="${{ steps.blend.outputs.version }}"
+          if [[ "$V" =~ -(beta|alpha|rc) ]]; then
+            if [[ "${{ inputs.allow_prerelease }}" != "true" ]]; then
+              echo "Refusing to sync against prerelease version $V."
+              echo "This workflow only accepts stable releases by default."
+              echo "If you are testing a pkg.pr.new URL or beta, re-run with allow_prerelease=true"
+              echo "but do NOT merge the resulting PR."
+              exit 1
+            else
+              echo "::warning::Proceeding against prerelease $V because allow_prerelease=true. Do not merge the PR."
+            fi
+          fi
+
+      - name: Regenerate all bindings
+        env:
+          LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+          TEST_KEY: ${{ secrets.TEST_KEY }}
+        run: npm run generate -- --all
+
+      - name: Build to confirm green
+        run: npm run build
+
+      - name: Pin blend version in devDependencies
+        if: inputs.allow_prerelease != true
+        run: |
+          V="${{ steps.blend.outputs.version }}"
+          node -e "const p=require('./package.json'); p.devDependencies['@juspay/blend-design-system']='^'+'$V'; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n');"
+          npm install --package-lock-only
+
+      - name: Open PR with regenerated bindings
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync/blend-${{ steps.blend.outputs.version }}
+          title: 'chore(sync): regenerate bindings for @juspay/blend-design-system@${{ steps.blend.outputs.version }}'
+          commit-message: |
+            chore(sync): regenerate bindings for @juspay/blend-design-system@${{ steps.blend.outputs.version }}
+          body: |
+            Regenerates ReScript bindings against `@juspay/blend-design-system@${{ steps.blend.outputs.version }}`.
+
+            **Reviewer checklist**
+            - [ ] `npm run build` is green (CI will block if not)
+            - [ ] No `src/*.failed.res` files present
+            - [ ] Diff looks sensible — especially prop/variant renames that could break downstream consumers
+            - [ ] Decide on a version bump for this package once merged (patch/minor/major based on the delta)
+
+            _Triggered manually via `workflow_dispatch` — `${{ github.actor }}` requested spec `${{ inputs.blend_version }}`._
+          labels: |
+            automated
+            sync
+          add-paths: |
+            src/**
+            package.json
+            package-lock.json
