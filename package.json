@@ -11,7 +11,6 @@
   "files": [
     "src/**/*.res",
     "src/**/*.resi",
-    "src/**/*.js",
     "rescript.json",
     "README.md",
     "LICENSE"
@@ -38,16 +37,17 @@
   "peerDependencies": {
     "@rescript/react": ">=0.12.0",
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "rescript": ">=12.0.0"
   },
   "dependencies": {
-    "@juspay/blend-design-system": "latest"
+    "@juspay/blend-design-system": "latest",
+    "rescript-webapi": "^0.9.1"
   },
   "devDependencies": {
     "@juspay/neurolink": "^9.50.1",
     "@rescript/react": "^0.13.0",
     "dotenv": "^17.4.2",
-    "rescript": "^12.2.0",
-    "rescript-webapi": "^0.9.1"
+    "rescript": "^12.2.0"
   }
 }
