@@ -31,10 +31,6 @@ const BLEND_ROOT = join(__dirname, '..')
 // Explicitly load .env from the package root
 dotenv.config({ path: join(BLEND_ROOT, '.env') })
 
-console.log('\n')
-console.log('kwebfkwf', process.env.TEST_KEY)
-console.log('\n')
-
 // Ensure paths are relative to the script location assuming it's in packages/blend/scripts
 const COMPONENTS_DIR = join(BLEND_ROOT, 'node_modules', '@juspay', 'blend-design-system', 'dist', 'components')
 const BINDINGS_DIR = join(BLEND_ROOT, 'src')
