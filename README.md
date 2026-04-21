@@ -12,8 +12,6 @@ Install the package via NPM:
 npm install @subham_/rescript-blend
 ```
 
-*(Note: you'll also need the core library installed in your project: `npm install @juspay/blend-design-system`)*
-
 ## ⚙️ Configuration
 
 In your project's `rescript.json` (or `bsconfig.json`), add `@subham_/rescript-blend` to the `bs-dependencies`:
