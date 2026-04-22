@@ -9,6 +9,5 @@ lib/
 *.cjs
 *.tgz
 
-# Note: src/*.js (ReScript-emitted output) is committed for PR review visibility.
-# It is NOT shipped to consumers — the "files" allowlist in package.json ships
-# only .res/.resi sources, and consumers compile via their own rescript install.
+# Never commit ReScript-emitted JS — source of truth is .res/.resi.
+src/**/*.js
