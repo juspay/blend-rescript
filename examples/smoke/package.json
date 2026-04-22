@@ -1,0 +1,19 @@
+{
+  "name": "blend-rescript-smoke",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Smoke test that consumes @subham_/rescript-blend as an external package and compiles a few bindings via rescript.",
+  "scripts": {
+    "build": "rescript",
+    "clean": "rescript clean"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.13.0",
+    "@subham_/rescript-blend": "file:../..",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "rescript": "^12.2.0"
+  }
+}

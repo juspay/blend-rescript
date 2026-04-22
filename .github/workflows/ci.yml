@@ -36,3 +36,27 @@ jobs:
             ls src/*.failed.res
             exit 1
           fi
+
+  smoke:
+    name: Build smoke example (external consumer)
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install parent dependencies
+        run: npm ci
+
+      - name: Install smoke example dependencies
+        working-directory: examples/smoke
+        run: npm install
+
+      - name: Build smoke example
+        working-directory: examples/smoke
+        run: npm run build
