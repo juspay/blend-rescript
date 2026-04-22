@@ -1,5 +1,6 @@
 {
   "name": "@subham_/rescript-blend",
+  "namespace": true,
   "sources": [
     {
       "dir": "src",
