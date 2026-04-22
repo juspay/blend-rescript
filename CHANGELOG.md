@@ -6,7 +6,6 @@ All notable changes to this project are documented here. Format based on [Keep a
 
 ### Added
 - `.github/workflows/ci.yml` — ReScript build validation on push/PR to `main`.
-- `.github/workflows/pkg-pr-new.yml` — per-PR preview publishing via [pkg.pr.new](https://pkg.pr.new).
 - `.github/workflows/publish-npm.yml` — NPM publish triggered by GitHub Releases.
 - `.github/workflows/sync-bindings.yml` — manual binding regeneration against upstream `@juspay/blend-design-system`; rejects prerelease versions by default.
 - `.github/CODEOWNERS`, PR/issue templates, `dependabot.yml`.
