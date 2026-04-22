@@ -5,6 +5,7 @@ All notable changes to this project are documented here. Format based on [Keep a
 ## [Unreleased]
 
 ### Added
+- `.github/workflows/release-mirror.yml` — manual workflow that mirrors each `@juspay/blend-design-system` version (stable or pkg.pr.new URL) to a matching `@subham_/rescript-blend` release, with a `.d.ts`-diff safety net that opens a correction PR when `regenerate=no` is picked on a release that actually changed the public API. See #47 for the full design.
 - `.github/workflows/ci.yml` — ReScript build validation on push/PR to `main`.
 - `.github/workflows/publish-npm.yml` — NPM publish triggered by GitHub Releases.
 - `.github/workflows/sync-bindings.yml` — manual binding regeneration against upstream `@juspay/blend-design-system`; rejects prerelease versions by default.
@@ -14,6 +15,7 @@ All notable changes to this project are documented here. Format based on [Keep a
 - `.nvmrc` pinning Node 20.
 
 ### Changed
+- `package.json` `@juspay/blend-design-system` pinned to an exact version (`0.0.36`) instead of `"latest"`. Going forward, each release of this package is locked to a specific blend version chosen by the release-mirror workflow. Consumers should not install `@juspay/blend-design-system` directly.
 - `package.json` `license` corrected from `ISC` to `MIT` to match `LICENSE`.
 - `dotenv` moved from `dependencies` to `devDependencies` (used only by the maintainer generation script).
 

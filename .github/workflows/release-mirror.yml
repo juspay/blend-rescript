@@ -1,0 +1,242 @@
+name: Release mirror
+
+# Manual-only. Maintainer picks the blend version (or pkg.pr.new URL) and
+# whether to regenerate bindings. Workflow pins, optionally regenerates,
+# verifies the maintainer's yes/no against the actual .d.ts diff, and
+# either publishes a matching version of this package to NPM or opens
+# a correction PR when the maintainer's `no` doesn't match reality.
+#
+# Full design and rationale: https://github.com/juspay/blend-rescript/issues/47
+
+on:
+  workflow_dispatch:
+    inputs:
+      blend_version:
+        description: 'Blend version or pkg.pr.new URL to pin (e.g. "0.0.36" or "https://pkg.pr.new/@juspay/blend-design-system@<sha>")'
+        required: true
+        type: string
+      regenerate:
+        description: 'Regenerate bindings? Pick "yes" if blend added/removed/renamed/retyped any public API. Pick "no" for internal fixes, perf, CSS, or docs.'
+        required: true
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+
+concurrency:
+  group: release-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    name: Mirror blend release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Baseline step — snapshot the .d.ts files from the currently-pinned blend
+      # BEFORE we touch anything. This is the "old world" for the diff.
+      - name: Install baseline blend
+        run: npm ci
+
+      - name: Snapshot baseline .d.ts files
+        run: |
+          mkdir -p /tmp/baseline
+          if [ -d node_modules/@juspay/blend-design-system/dist/components ]; then
+            cp -r node_modules/@juspay/blend-design-system/dist/components /tmp/baseline/
+          fi
+
+      # Pin step — switch the dependency to whatever the maintainer typed.
+      # This mutates package.json and the lockfile in the working tree.
+      - name: Pin blend to requested version
+        run: |
+          npm pkg set "dependencies.@juspay/blend-design-system=${{ inputs.blend_version }}"
+          npm install
+
+      - name: Snapshot new .d.ts files
+        run: |
+          mkdir -p /tmp/new
+          if [ -d node_modules/@juspay/blend-design-system/dist/components ]; then
+            cp -r node_modules/@juspay/blend-design-system/dist/components /tmp/new/
+          fi
+
+      # Diff — this is the objective "did the API actually change?" signal.
+      # Used below to verify the maintainer's yes/no flag.
+      - name: Compute .d.ts diff
+        id: diff
+        run: |
+          # -rq lists files that differ without showing content; we filter to .d.ts
+          # lines only, which also catches "Only in ..." entries for added/removed files.
+          diff -rq /tmp/baseline/components /tmp/new/components 2>/dev/null \
+            | grep '\.d\.ts' > /tmp/dts.diff || true
+
+          if [ -s /tmp/dts.diff ]; then
+            echo "Diff NOT empty — blend public API changed:"
+            cat /tmp/dts.diff
+            echo "empty=false" >> "$GITHUB_OUTPUT"
+            {
+              echo 'details<<EOF'
+              cat /tmp/dts.diff
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "Diff empty — blend public API is unchanged."
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ─── Safety-net gate ───────────────────────────────────────────────
+      # If the maintainer picked "no" but the diff shows the API changed,
+      # we DO NOT publish. Instead we run the regen anyway and open a
+      # correction PR for a human to review. Everything after this block
+      # assumes we're on the "safe to publish" path.
+
+      - name: Correction path — regenerate bindings for the PR
+        if: inputs.regenerate == 'no' && steps.diff.outputs.empty == 'false'
+        env:
+          LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+          TEST_KEY: ${{ secrets.TEST_KEY }}
+        run: |
+          echo "::warning::regenerate=no was selected, but blend changed the API. Opening a correction PR."
+          npm run generate -- --all
+          npx rescript format -c
+          npm run build
+          if ls src/*.failed.res 1> /dev/null 2>&1; then
+            echo "::error::Regen left .failed.res files — manual intervention needed"
+            ls src/*.failed.res
+            exit 1
+          fi
+
+      - name: Correction path — open correction PR
+        if: inputs.regenerate == 'no' && steps.diff.outputs.empty == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: correction/blend-${{ inputs.blend_version }}
+          base: main
+          title: 'correction: blend ${{ inputs.blend_version }} changed .d.ts, regen needed'
+          commit-message: |
+            chore(correction): regen bindings against blend ${{ inputs.blend_version }}
+          body: |
+            The release-mirror workflow was run with `regenerate=no` for blend `${{ inputs.blend_version }}`, but the `.d.ts` diff detected actual API changes.
+
+            No version has been published. This PR contains the regenerated bindings that would have been produced if `regenerate=yes` had been selected.
+
+            ### Changed `.d.ts` files
+            ```
+            ${{ steps.diff.outputs.details }}
+            ```
+
+            ### Next steps
+            1. Review the regenerated `src/*.res` in this PR.
+            2. Merge if correct.
+            3. Re-run the release-mirror workflow with `blend_version=${{ inputs.blend_version }}` and `regenerate=yes`.
+
+            Triggered by @${{ github.actor }} via [run ${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+          labels: |
+            automated
+            correction
+          assignees: ${{ github.actor }}
+          add-paths: |
+            package.json
+            package-lock.json
+            src/**
+
+      - name: Correction path — fail the run
+        if: inputs.regenerate == 'no' && steps.diff.outputs.empty == 'false'
+        run: |
+          echo "::error::blend ${{ inputs.blend_version }} changed the API but regenerate=no was picked. A correction PR has been opened. Review, merge, then re-run with regenerate=yes."
+          exit 1
+
+      # ─── Happy path — either `yes` always, or `no` with matching diff ──
+      # Everything below only runs when we're safe to publish.
+
+      - name: Regenerate bindings (yes path)
+        if: inputs.regenerate == 'yes'
+        env:
+          LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+          TEST_KEY: ${{ secrets.TEST_KEY }}
+        run: |
+          if [ "${{ steps.diff.outputs.empty }}" = "true" ]; then
+            echo "::warning::regenerate=yes was selected, but no .d.ts changed. Regen will run but is not strictly required — consider picking 'no' next time for faster releases."
+          fi
+          npm run generate -- --all
+          if ls src/*.failed.res 1> /dev/null 2>&1; then
+            echo "::error::Regen left .failed.res files"
+            ls src/*.failed.res
+            exit 1
+          fi
+
+      - name: Compile gates
+        if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
+        run: |
+          npx rescript format -c
+          npm run build
+
+      # Compute the target version for this package.
+      # For a stable blend version string, mirror 1:1.
+      # For a pkg.pr.new URL, base the prerelease on the current package version and the short SHA from the URL.
+      - name: Compute target version
+        id: version
+        if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
+        run: |
+          INPUT='${{ inputs.blend_version }}'
+          if [[ "$INPUT" == https://* ]]; then
+            SHA_PART="${INPUT##*@}"
+            SHORT_SHA="${SHA_PART:0:7}"
+            CURRENT=$(node -p "require('./package.json').version")
+            BASE="${CURRENT%%-*}"
+            TARGET="${BASE}-preview.${SHORT_SHA}"
+          else
+            TARGET="$INPUT"
+          fi
+          echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "Target mirror version: $TARGET"
+
+      - name: Bump package version to mirror blend
+        if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
+        run: npm pkg set "version=${{ steps.version.outputs.target }}"
+
+      - name: Commit and tag
+        if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json src/
+          if git diff --cached --quiet; then
+            echo "No changes to commit — version bump only on package.json"
+            git add package.json
+          fi
+          git commit -m "chore(release): mirror blend ${{ inputs.blend_version }} as ${{ steps.version.outputs.target }}" \
+            -m "regenerate=${{ inputs.regenerate }}  diff_empty=${{ steps.diff.outputs.empty }}"
+          git tag "v${{ steps.version.outputs.target }}"
+          git push origin HEAD:main
+          git push origin "v${{ steps.version.outputs.target }}"
+
+      - name: Create GitHub Release (fires publish-npm.yml)
+        if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.target }}
+          name: v${{ steps.version.outputs.target }}
+          prerelease: ${{ contains(steps.version.outputs.target, '-') }}
+          body: |
+            Automated mirror of `@juspay/blend-design-system@${{ inputs.blend_version }}`.
+
+            - `regenerate` input: `${{ inputs.regenerate }}`
+            - `.d.ts` diff detected: `${{ steps.diff.outputs.empty == 'false' }}`
+            - Triggered by @${{ github.actor }} via [run ${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})

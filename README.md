@@ -12,7 +12,7 @@ Install the package via NPM:
 npm install @subham_/rescript-blend
 ```
 
-The core design system (`@juspay/blend-design-system`) is included automatically as a dependency.
+The core design system (`@juspay/blend-design-system`) is pinned to an exact version inside this package and installed transitively. **Do not add `@juspay/blend-design-system` to your own `package.json` directly** — each release of `@subham_/rescript-blend` locks to the specific blend version its bindings were generated against, and adding your own copy risks duplicate installs where runtime ends up with two different blend trees.
 
 > **Note:** This package ships ReScript source files (`.res`/`.resi`) only. Your project must have the ReScript compiler (`rescript >= 12.0.0`) installed to compile the bindings.
 
