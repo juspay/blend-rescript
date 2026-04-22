@@ -1,5 +1,5 @@
 {
-  "name": "@subham_/rescript-blend",
+  "name": "rescript-blend",
   "namespace": true,
   "sources": [
     {
