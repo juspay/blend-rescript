@@ -18,11 +18,11 @@ The core design system (`@juspay/blend-design-system`) is included automatically
 
 ## ⚙️ Configuration
 
-In your project's `rescript.json` (or `bsconfig.json`), add `@subham_/rescript-blend` to the `bs-dependencies`:
+In your project's `rescript.json`, add `@subham_/rescript-blend` to the `dependencies`:
 
 ```json
 {
-  "bs-dependencies": [
+  "dependencies": [
     "@rescript/react",
     "@subham_/rescript-blend"
   ]
@@ -31,20 +31,53 @@ In your project's `rescript.json` (or `bsconfig.json`), add `@subham_/rescript-b
 
 ## 🚀 Usage
 
-Since ReScript module resolution handles scopes internally, you simply use the design system modules globally anywhere in your project as if you wrote them locally. No relative import blocks necessary!
+All components are namespaced under `RescriptBlend` to avoid module name collisions. Access them with qualified names or open the module:
 
 ```rescript
 @react.component
 let make = () => {
-  <Accordion 
+  // Qualified access
+  <RescriptBlend.Accordion 
     isMultiple=true 
-    defaultValue={Multiple(["panel-1"])}
+    defaultValue={RescriptBlend.Accordion.Value.fromArray(["panel-1"])}
   >
+    <RescriptBlend.Button ariaLabel="Submit Form" disabled=false> 
+      {React.string("Continue")} 
+    </RescriptBlend.Button>
+  </RescriptBlend.Accordion>
+}
+
+// Or use `open` for cleaner syntax
+@react.component
+let make = () => {
+  open RescriptBlend
+  
+  <Accordion isMultiple=true defaultValue={Accordion.Value.fromArray(["panel-1"])}>
     <Button ariaLabel="Submit Form" disabled=false> 
       {React.string("Continue")} 
     </Button>
   </Accordion>
 }
+```
+
+### Sub-components
+
+Sub-components are accessed via the parent module namespace:
+
+```rescript
+open RescriptBlend
+
+// Accordion.Item
+<Accordion>
+  <Accordion.Item value="1" title={React.string("Title")}>
+    {React.string("Content")}
+  </Accordion.Item>
+</Accordion>
+
+// Modal with helper function
+<Modal
+  primaryAction={Modal.makeButtonAction(~text="Confirm", ~buttonType=#Primary, ())}
+/>
 ```
 
 *(All React types, Polymorphic Variants, and callback Uncurries map 1:1 with ReScript 11 standards).*

@@ -1,6 +1,6 @@
 {
   "name": "@subham_/rescript-blend",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "ReScript bindings for @juspay/blend-design-system",
   "scripts": {
     "build": "rescript",
