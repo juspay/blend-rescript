@@ -6,6 +6,8 @@
     "build": "rescript",
     "clean": "rescript clean",
     "watch": "rescript build -w",
+    "format": "rescript format",
+    "format:check": "rescript format -c",
     "generate": "node scripts/generate-bindings.mjs"
   },
   "files": [
