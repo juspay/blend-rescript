@@ -58,7 +58,6 @@ Stable releases of `@juspay/blend-design-system` drive sync. The CI workflow `sy
 
 1. Update `package.json` version, merge to `main`.
 2. Cut a GitHub Release with tag `v<version>` — this triggers `publish-npm.yml` which verifies the tag matches `package.json` and publishes to NPM.
-3. `pkg-pr-new.yml` also publishes a preview on every PR and push to `main`, so consumers can test unreleased changes via `https://pkg.pr.new/<owner>/<repo>@<sha>`.
 
 ## Checklist before opening a PR
 
