@@ -9,5 +9,5 @@ lib/
 *.cjs
 *.tgz
 
-# Note: we intentionally commit src/*.js (ReScript-emitted output).
-# Consumers can use the package without installing rescript.
+# Never commit ReScript-emitted JS — source of truth is .res/.resi.
+src/**/*.js
