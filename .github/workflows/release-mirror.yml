@@ -240,3 +240,12 @@ jobs:
             - `regenerate` input: `${{ inputs.regenerate }}`
             - `.d.ts` diff detected: `${{ steps.diff.outputs.empty == 'false' }}`
             - Triggered by @${{ github.actor }} via [run ${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+      # Additional distribution channel for preview versions only.
+      # Stable releases are already on npm via publish-npm.yml above; pkg.pr.new
+      # is specifically for sha-anchored preview URLs that auto-expire alongside
+      # their source commits. Requires the pkg.pr.new GitHub App to be installed
+      # on this repo (see https://github.com/apps/pkg-pr-new).
+      - name: Publish preview to pkg.pr.new
+        if: (inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true') && contains(steps.version.outputs.target, '-preview.')
+        run: npx pkg-pr-new publish

@@ -5,7 +5,7 @@ All notable changes to this project are documented here. Format based on [Keep a
 ## [Unreleased]
 
 ### Added
-- `.github/workflows/release-mirror.yml` — manual workflow that mirrors each `@juspay/blend-design-system` version (stable or pkg.pr.new URL) to a matching `@subham_/rescript-blend` release, with a `.d.ts`-diff safety net that opens a correction PR when `regenerate=no` is picked on a release that actually changed the public API. See #47 for the full design.
+- `.github/workflows/release-mirror.yml` — manual workflow that mirrors each `@juspay/blend-design-system` version (stable or pkg.pr.new URL) to a matching `@subham_/rescript-blend` release, with a `.d.ts`-diff safety net that opens a correction PR when `regenerate=no` is picked on a release that actually changed the public API. Preview versions (those with a `-preview.<sha>` suffix) additionally publish to `pkg.pr.new` so consumers can install a SHA-anchored URL alongside the npm prerelease tag. See #47 for the full design.
 - `.github/workflows/ci.yml` — ReScript build validation on push/PR to `main`.
 - `.github/workflows/publish-npm.yml` — NPM publish triggered by GitHub Releases.
 - `.github/workflows/sync-bindings.yml` — manual binding regeneration against upstream `@juspay/blend-design-system`; rejects prerelease versions by default.
