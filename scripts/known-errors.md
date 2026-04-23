@@ -73,3 +73,5 @@ Incremental build failed. Error: [2K  Could not parse Source Files
 
 
 - [Auto-Learned]: Polymorphic variants in ReScript use simple `#Tag` syntax without `@as` decorators - `@as` is only for regular variants, not polymorphic variants. For union types like `boolean | "indeterminate"`, use `[#Bool(bool) | #Indeterminate]` format without any decorators.
+
+- [Auto-Learned]: When a component exports types used by other files in the codebase, the type names must remain consistent across modules. For Button components, the visual style type should be named `buttonVariant` (not `buttonType`) and the HTML button attribute type should be `buttonType`, matching the convention expected by consuming files like Card.res.
