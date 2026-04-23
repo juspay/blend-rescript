@@ -24,6 +24,18 @@ All notable changes to this project are documented here. Format based on [Keep a
 - Stale `main: "index.js"` pointing at a non-existent file.
 - Debug `console.log` in `scripts/generate-bindings.mjs` that leaked `TEST_KEY` to stdout.
 
-## [0.1.2] — 2026-xx-xx
+## [0.0.37-beta.2] — 2026-04-23
 
-Initial published version. See commit history for details.
+### Changed
+- **BREAKING**: Reset versioning strategy to mirror `@juspay/blend-design-system` versions exactly
+- Package version now tracks upstream: `0.0.37-beta.2` ↔ `blend-design-system@0.0.37-beta.2`
+- Deprecated all 0.1.x versions in favor of mirrored versioning
+- Updated dependencies to match blend-design-system 0.0.37-beta.2
+
+## [0.1.6] — 2026-04-23 (DEPRECATED)
+
+Last version before version mirroring strategy. Deprecated in favor of 0.0.37-beta.2+.
+
+## [0.1.2] — 2026-xx-xx (DEPRECATED)
+
+Initial published version. See commit history for details. Deprecated.

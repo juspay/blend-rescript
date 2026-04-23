@@ -6,15 +6,27 @@ This package bridges the gap between the Blend Design System created in React/TS
 
 ## 📦 Installation
 
-Install the package via NPM:
+This package **mirrors the version of `@juspay/blend-design-system`** exactly. Install the version that matches your blend dependency:
 
 ```bash
-npm install @subham_/rescript-blend
+# If your project uses blend-design-system@0.0.37-beta.2:
+npm install @subham_/rescript-blend@0.0.37-beta.2
+
+# For the latest stable release:
+npm install @subham_/rescript-blend@latest
 ```
 
-The core design system (`@juspay/blend-design-system`) is pinned to an exact version inside this package and installed transitively. **Do not add `@juspay/blend-design-system` to your own `package.json` directly** — each release of `@subham_/rescript-blend` locks to the specific blend version its bindings were generated against, and adding your own copy risks duplicate installs where runtime ends up with two different blend trees.
+> **Version Mirroring Convention**  
+> Package versions ≥ 0.0.37-beta.2 track `@juspay/blend-design-system` versions 1:1.  
+> Examples:  
+> - `blend-design-system@0.0.37-beta.2` → `rescript-blend@0.0.37-beta.2`  
+> - `blend-design-system@0.0.38` → `rescript-blend@0.0.38`
+
+The core design system (`@juspay/blend-design-system`) is included automatically as a dependency.
 
 > **Note:** This package ships ReScript source files (`.res`/`.resi`) only. Your project must have the ReScript compiler (`rescript >= 12.0.0`) installed to compile the bindings.
+
+> **Previous versions (0.1.x) are deprecated** in favor of the version-mirrored strategy starting at 0.0.37-beta.2.
 
 ## ⚙️ Configuration
 
