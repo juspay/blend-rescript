@@ -83,7 +83,7 @@ jobs:
           npm install --package-lock-only
 
       - name: Open PR with regenerated bindings
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: sync/blend-${{ steps.blend.outputs.version }}
