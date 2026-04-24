@@ -305,10 +305,11 @@ These secrets must be configured in GitHub Settings â†’ Secrets and variables â†
 
 | Secret | Used By | Purpose |
 |--------|---------|---------|
-| `NPM_TOKEN` | `publish-npm.yml` | npm authentication for publishing |
 | `LITELLM_BASE_URL` | `sync-bindings.yml`, `release-mirror.yml` | LLM API endpoint for binding generation |
 | `LITELLM_API_KEY` | `sync-bindings.yml`, `release-mirror.yml` | LLM API key for binding generation |
 | `TEST_KEY` | `sync-bindings.yml`, `release-mirror.yml` | Test key for NeuroLink |
+
+`publish-npm.yml` uses **OIDC trusted publishing** instead of a long-lived token. No `NPM_TOKEN` secret is required; the workflow exchanges its short-lived OIDC token with npm at publish time. The package must have a trusted publisher configured on npmjs.com pointing at this repo + `publish-npm.yml` + the `npm` environment.
 
 ---
 
