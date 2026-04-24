@@ -18,6 +18,7 @@ All notable changes to this project are documented here. Format based on [Keep a
 - `package.json` `@juspay/blend-design-system` pinned to an exact version (`0.0.36`) instead of `"latest"`. Going forward, each release of this package is locked to a specific blend version chosen by the release-mirror workflow. Consumers should not install `@juspay/blend-design-system` directly.
 - `package.json` `license` corrected from `ISC` to `MIT` to match `LICENSE`.
 - `dotenv` moved from `dependencies` to `devDependencies` (used only by the maintainer generation script).
+- `.github/workflows/publish-npm.yml` switched from long-lived `NPM_TOKEN` to OIDC trusted publishing. Node bumped to 22 and `npm` upgraded to latest to meet the OIDC minimum. Requires a matching trusted-publisher config on npmjs.com for `@subham_/rescript-blend`. See #52.
 
 ### Removed
 - Committed build artifact `juspay-rescript-blend-0.1.0.tgz`.
