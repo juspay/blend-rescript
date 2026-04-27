@@ -45,7 +45,7 @@
   "dependencies": {
     "@juspay/blend-design-system": "0.0.37-beta.2",
     "rescript-webapi": "^0.10.0",
-    "undici": "7.25.0"
+    "undici": "8.1.0"
   },
   "devDependencies": {
     "@juspay/neurolink": "^9.50.1",
