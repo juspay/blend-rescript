@@ -29,22 +29,20 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      # Node 24 ships npm 11.12.1+, which clears the >= 11.5.1 floor that npm
+      # OIDC trusted publishing requires (https://docs.npmjs.com/trusted-publishers).
+      # Staying on Node 22 is not an option: its bundled npm is 10.x, and
+      # `npm install -g npm@latest` on the 22.22.2 runner image fails with
+      # MODULE_NOT_FOUND on `promise-retry` (actions/runner-images#13883).
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
           cache: npm
 
-      # OIDC trusted publishing requires npm >= 11.5.1
-      # (https://docs.npmjs.com/trusted-publishers). Node 22 still ships npm
-      # 10.x, so we must upgrade explicitly — without this the publish step
-      # cannot exchange the OIDC token for a registry credential and fails
-      # with E404 on PUT.
       - name: Ensure npm supports OIDC trusted publishing
-        run: |
-          npm install -g npm@latest
-          npm --version
+        run: npm --version
 
       - name: Install dependencies
         run: npm ci
