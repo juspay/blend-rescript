@@ -77,18 +77,35 @@ jobs:
             echo "already_published=false" >> $GITHUB_OUTPUT
           fi
 
+      # Determine the npm dist-tag based on version (prerelease vs stable)
+      # Prereleases (e.g., 0.0.37-beta.2) are tagged with their prerelease identifier
+      # Stable releases are tagged as 'latest'
+      - name: Determine publish tag
+        id: dist_tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" =~ -([a-zA-Z]+) ]]; then
+            TAG="${BASH_REMATCH[1]}"
+            echo "tag=$TAG" >> $GITHUB_OUTPUT
+            echo "Publishing prerelease version $VERSION with tag '$TAG'"
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+            echo "Publishing stable version $VERSION with tag 'latest'"
+          fi
+
       # Uses OIDC trusted publishing — no long-lived NPM_TOKEN required.
-      # Prereq: the `@subham_/rescript-blend` package must have a trusted
+      # Prereq: the `@juspay/rescript-blend` package must have a trusted
       # publisher configured on npmjs.com pointing at this repo + workflow +
       # environment (`juspay/blend-rescript` / `publish-npm.yml` / `npm`).
       # The `id-token: write` permission on this job supplies the OIDC token
       # that the npm CLI picks up automatically.
       - name: Publish
         if: steps.check.outputs.already_published == 'false' && inputs.dry_run != 'true'
-        run: npm publish --access public --provenance
+        run: npm publish --access public --provenance --tag ${{ steps.dist_tag.outputs.tag }}
 
       - name: Dry run summary
         if: inputs.dry_run == 'true'
         run: |
           echo "Dry run — skipping actual publish"
-          npm publish --dry-run --access public
+          echo "Would publish with tag: ${{ steps.dist_tag.outputs.tag }}"
+          npm publish --dry-run --access public --tag ${{ steps.dist_tag.outputs.tag }}

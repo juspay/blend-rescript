@@ -10,10 +10,10 @@ This package **mirrors the version of `@juspay/blend-design-system`** exactly. I
 
 ```bash
 # If your project uses blend-design-system@0.0.37-beta.2:
-npm install @subham_/rescript-blend@0.0.37-beta.2
+npm install @juspay/rescript-blend@0.0.37-beta.2
 
 # For the latest stable release:
-npm install @subham_/rescript-blend@latest
+npm install @juspay/rescript-blend@latest
 ```
 
 > **Version Mirroring Convention**  
@@ -30,13 +30,13 @@ The core design system (`@juspay/blend-design-system`) is included automatically
 
 ## ⚙️ Configuration
 
-In your project's `rescript.json`, add `@subham_/rescript-blend` to the `dependencies`:
+In your project's `rescript.json`, add `@juspay/rescript-blend` to the `dependencies`:
 
 ```json
 {
   "dependencies": [
     "@rescript/react",
-    "@subham_/rescript-blend"
+    "@juspay/rescript-blend"
   ]
 }
 ```
