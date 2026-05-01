@@ -4,21 +4,24 @@ All notable changes to this project are documented here. Format based on [Keep a
 
 ## [Unreleased]
 
+## [1.0.0] — 2026-05-01
+
+First stable release under the `@juspay/rescript-blend` package name. Marks the transition from upstream version mirroring to independent SemVer; the package is now versioned on its own cadence and pins the upstream `@juspay/blend-design-system` it was generated against.
+
+### Changed
+- **BREAKING**: Package renamed from `@subham_/rescript-blend` to `@juspay/rescript-blend`. Consumers must update their dependency.
+- **BREAKING**: Abandoned 1:1 version mirroring with `@juspay/blend-design-system`. This package now follows independent SemVer; the bundled blend version is pinned in `dependencies` and bumped explicitly per release.
+- `rescript.json` `name` aligned to `@juspay/rescript-blend` to match `package.json` and avoid ReScript package-resolution warnings.
+
 ### Added
 - `.github/workflows/release-mirror.yml` — manual workflow that mirrors each `@juspay/blend-design-system` version (stable or pkg.pr.new URL) to a matching `@juspay/rescript-blend` release, with a `.d.ts`-diff safety net that opens a correction PR when `regenerate=no` is picked on a release that actually changed the public API. Preview versions (those with a `-preview.<sha>` suffix) additionally publish to `pkg.pr.new` so consumers can install a SHA-anchored URL alongside the npm prerelease tag. See #47 for the full design.
 - `.github/workflows/ci.yml` — ReScript build validation on push/PR to `main`.
-- `.github/workflows/publish-npm.yml` — NPM publish triggered by GitHub Releases.
+- `.github/workflows/publish-npm.yml` — NPM publish triggered by GitHub Releases, using OIDC trusted publishing.
 - `.github/workflows/sync-bindings.yml` — manual binding regeneration against upstream `@juspay/blend-design-system`; rejects prerelease versions by default.
 - `.github/CODEOWNERS`, PR/issue templates, `dependabot.yml`.
 - `CONTRIBUTING.md` and this `CHANGELOG.md`.
 - `package.json`: `files` allowlist, `engines.node >= 20`, `author`, `repository`, `bugs`, `homepage` metadata.
 - `.nvmrc` pinning Node 20.
-
-### Changed
-- `package.json` `@juspay/blend-design-system` pinned to an exact version (`0.0.36`) instead of `"latest"`. Going forward, each release of this package is locked to a specific blend version chosen by the release-mirror workflow. Consumers should not install `@juspay/blend-design-system` directly.
-- `package.json` `license` corrected from `ISC` to `MIT` to match `LICENSE`.
-- `dotenv` moved from `dependencies` to `devDependencies` (used only by the maintainer generation script).
-- `.github/workflows/publish-npm.yml` switched from long-lived `NPM_TOKEN` to OIDC trusted publishing. Node bumped to 22 and `npm` upgraded to latest to meet the OIDC minimum. Requires a matching trusted-publisher config on npmjs.com for `@juspay/rescript-blend`. See #52.
 
 ### Removed
 - Committed build artifact `juspay-rescript-blend-0.1.0.tgz`.

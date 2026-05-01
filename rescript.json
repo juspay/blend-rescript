@@ -1,5 +1,5 @@
 {
-  "name": "rescript-blend",
+  "name": "@juspay/rescript-blend",
   "namespace": true,
   "sources": [
     {
