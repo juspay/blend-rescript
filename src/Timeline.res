@@ -172,11 +172,8 @@ module Root = {
 // Timeline Label component
 module Label = {
   @module("@juspay/blend-design-system") @react.component
-  external make: (
-    ~text: string,
-    ~className: string=?,
-    ~style: JsxDOM.style=?,
-  ) => React.element = "TimelineLabel"
+  external make: (~text: string, ~className: string=?, ~style: JsxDOM.style=?) => React.element =
+    "TimelineLabel"
 }
 
 // Timeline Header component

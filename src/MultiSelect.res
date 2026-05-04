@@ -22,15 +22,15 @@ type selectionTagType =
   | @as("count") Count
   | @as("text") Text
 
-type skeletonVariant = 
+type skeletonVariant =
   | @as("pulse") Pulse
   | @as("wave") Wave
   | @as("shimmer") Shimmer
 
 type multiSelectSkeletonProps = {
-    count?: int,
-    show?: bool,
-    variant?: skeletonVariant
+  count?: int,
+  show?: bool,
+  variant?: skeletonVariant,
 }
 
 type rec selectMenuItemType = {
@@ -119,5 +119,5 @@ external make: (
   ~onClearAllClick: unit => unit=?,
   ~enableVirtualization: bool=?,
   ~virtualListItemHeight: int=?,
-  ~skeleton: multiSelectSkeletonProps=?
+  ~skeleton: multiSelectSkeletonProps=?,
 ) => React.element = "MultiSelect"
