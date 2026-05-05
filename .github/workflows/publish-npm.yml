@@ -99,9 +99,18 @@ jobs:
       # environment (`juspay/blend-rescript` / `publish-npm.yml` / `npm`).
       # The `id-token: write` permission on this job supplies the OIDC token
       # that the npm CLI picks up automatically.
-      - name: Publish
+      - name: Publish with OIDC
+        id: publish_oidc
         if: steps.check.outputs.already_published == 'false' && inputs.dry_run != 'true'
+        continue-on-error: true
         run: npm publish --access public --provenance --tag ${{ steps.dist_tag.outputs.tag }}
+
+      # Fallback: Use NPM_TOKEN if OIDC fails (e.g., trusted publisher not configured)
+      - name: Publish with NPM_TOKEN
+        if: steps.check.outputs.already_published == 'false' && inputs.dry_run != 'true' && steps.publish_oidc.outcome == 'failure'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --tag ${{ steps.dist_tag.outputs.tag }}
 
       - name: Dry run summary
         if: inputs.dry_run == 'true'
