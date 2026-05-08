@@ -211,7 +211,7 @@ jobs:
         if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
         run: npm pkg set "version=${{ steps.version.outputs.target }}"
 
-      - name: Commit and tag
+      - name: Commit version bump
         if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
         run: |
           git config user.name "github-actions[bot]"
@@ -222,30 +222,33 @@ jobs:
             git add package.json
           fi
           git commit -m "chore(release): mirror blend ${{ inputs.blend_version }} as ${{ steps.version.outputs.target }}" \
-            -m "regenerate=${{ inputs.regenerate }}  diff_empty=${{ steps.diff.outputs.empty }}"
-          git tag "v${{ steps.version.outputs.target }}"
+            -m "regenerate=${{ inputs.regenerate }}  diff_empty=${{ steps.diff.outputs.empty }}" \
+            -m "[skip ci]"
           git push origin HEAD:main
-          git push origin "v${{ steps.version.outputs.target }}"
 
-      - name: Create GitHub Release (fires publish-npm.yml)
+      # Note: We no longer create tags/releases here. 
+      # The new release.yml workflow triggers on push to main and uses semantic-release
+      # to automatically create tags, releases, and publish to npm with OIDC provenance.
+      - name: Summary
         if: inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true'
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ steps.version.outputs.target }}
-          name: v${{ steps.version.outputs.target }}
-          prerelease: ${{ contains(steps.version.outputs.target, '-') }}
-          body: |
-            Automated mirror of `@juspay/blend-design-system@${{ inputs.blend_version }}`.
-
-            - `regenerate` input: `${{ inputs.regenerate }}`
-            - `.d.ts` diff detected: `${{ steps.diff.outputs.empty == 'false' }}`
-            - Triggered by @${{ github.actor }} via [run ${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+        run: |
+          echo "✅ Blend mirror complete!"
+          echo ""
+          echo "Version bumped to: ${{ steps.version.outputs.target }}"
+          echo "Pushed to main branch"
+          echo ""
+          echo "The release.yml workflow will now trigger automatically and:"
+          echo "  - Run tests"
+          echo "  - Use semantic-release to create the GitHub release"
+          echo "  - Publish to npm with OIDC provenance"
+          echo "  - Publish to GitHub Packages"
 
       # Additional distribution channel for preview versions only.
-      # Stable releases are already on npm via publish-npm.yml above; pkg.pr.new
-      # is specifically for sha-anchored preview URLs that auto-expire alongside
-      # their source commits. Requires the pkg.pr.new GitHub App to be installed
-      # on this repo (see https://github.com/apps/pkg-pr-new).
+      # Stable releases are published via release.yml workflow using semantic-release
+      # with OIDC provenance; pkg.pr.new is specifically for sha-anchored preview 
+      # URLs that auto-expire alongside their source commits. 
+      # Requires the pkg.pr.new GitHub App to be installed on this repo 
+      # (see https://github.com/apps/pkg-pr-new).
       - name: Publish preview to pkg.pr.new
         if: (inputs.regenerate == 'yes' || steps.diff.outputs.empty == 'true') && contains(steps.version.outputs.target, '-preview.')
         run: npx pkg-pr-new publish
