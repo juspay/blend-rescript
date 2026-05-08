@@ -83,11 +83,22 @@ jobs:
             exit 1
           fi
 
+      # semantic-release handles version bumping, changelog generation, and GitHub release.
+      # We removed @semantic-release/npm plugin since it doesn't support OIDC authentication.
       - name: Release with semantic-release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: "0" # Disable git hooks during automated release commits
+
+      # Publish separately with OIDC provenance (no NPM_TOKEN needed)
+      - name: Publish to npm with OIDC provenance
+        run: |
+          echo "📦 Publishing to npm with OIDC provenance..."
+          npm publish --provenance --access public
+          echo "✅ Published to npm successfully!"
+        env:
+          # No NPM_TOKEN needed - uses OIDC via id-token: write permission
 
       - name: Setup Node for GitHub Packages
         uses: actions/setup-node@v4
