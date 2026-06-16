@@ -53,16 +53,27 @@ function resolveBlendVersion() {
 const version = resolveBlendVersion();
 const onlyComp = flag("--only");
 
+// The version installed in node_modules, if any.
+let installedVersion;
+try {
+  installedVersion = readJson(join(ROOT, "node_modules", PKG, "package.json")).version;
+} catch {}
+
 // Prefer the pinned devDependency (deterministic per the lockfile); fall back to
 // npx fetching the latest only when the package isn't installed.
 const localBin = join(ROOT, "node_modules", ".bin", "rescript-bindgen");
 const useLocal = existsSync(localBin);
 const cmd = useLocal ? localBin : "npx";
 
+// When the target version is the one already installed, bind it offline from
+// node_modules (matches `generate:raw`); otherwise let bindgen fetch it.
+const offline = version === installedVersion;
+
 const cliArgs = [
   ...(useLocal ? [] : ["--yes", "@juspay/rescript-bindgen"]),
   "--pkg",
   `${PKG}@${version}`,
+  ...(offline ? ["--node-modules", join(ROOT, "node_modules"), "--no-install"] : []),
   "--out",
   SRC,
   "--project",

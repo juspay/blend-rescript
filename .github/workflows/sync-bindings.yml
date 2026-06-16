@@ -147,6 +147,5 @@ jobs:
             sync
           add-paths: |
             src/**
-            src/_REPORT.md
             package.json
             package-lock.json

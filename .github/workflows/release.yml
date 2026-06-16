@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           cache: "npm"
@@ -51,13 +51,13 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
@@ -72,48 +72,63 @@ jobs:
       - name: Build package
         run: npm run build
 
-      # 1:1 version comes from package.json. Skip publishing if this exact version
-      # is already on npm (e.g. a non-version-bumping commit landed on main).
-      - name: Decide whether to publish
-        id: gate
+      # 1:1 version comes from package.json. Each registry is gated independently
+      # against its OWN published state, so a failure on one never permanently
+      # skips the other on later runs.
+      - name: Resolve package name + version
+        id: meta
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          NAME=$(node -p "require('./package.json').name")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
-            echo "$NAME@$VERSION already published — skipping."
-            echo "publish=false" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+
+      - name: Check npm registry
+        id: npm
+        run: |
+          if npm view "${{ steps.meta.outputs.name }}@${{ steps.meta.outputs.version }}" version >/dev/null 2>&1; then
+            echo "${{ steps.meta.outputs.name }}@${{ steps.meta.outputs.version }} already on npm — skipping."
+            echo "exists=true" >> $GITHUB_OUTPUT
           else
-            echo "Will publish $NAME@$VERSION."
-            echo "publish=true" >> $GITHUB_OUTPUT
+            echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create git tag
-        if: steps.gate.outputs.publish == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag "v${{ steps.gate.outputs.version }}"
-          git push origin "v${{ steps.gate.outputs.version }}"
-
       - name: Publish to npm with OIDC provenance
-        if: steps.gate.outputs.publish == 'true'
+        if: steps.npm.outputs.exists == 'false'
         run: |
-          echo "Publishing ${{ steps.gate.outputs.version }} to npm with OIDC provenance..."
+          echo "Publishing ${{ steps.meta.outputs.version }} to npm with OIDC provenance..."
           npm publish --provenance --access public
           echo "Published to npm successfully!"
 
+      # Tag AFTER a successful npm publish, and tolerate an existing tag, so a
+      # mid-run failure can't leave a pushed tag that permanently breaks re-runs.
+      - name: Create git tag
+        if: steps.npm.outputs.exists == 'false'
+        run: |
+          V="v${{ steps.meta.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --tags origin "$V" | grep -q "$V"; then
+            echo "Tag $V already exists — skipping."
+          else
+            git tag "$V"
+            git push origin "$V"
+          fi
+
       - name: Setup Node for GitHub Packages
-        if: steps.gate.outputs.publish == 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
           scope: "@juspay"
 
+      # Gated on GitHub Packages' own state (not the npm check) and idempotent —
+      # so it retries on a later run if a previous run published to npm but failed here.
       - name: Publish to GitHub Packages
-        if: steps.gate.outputs.publish == 'true'
         run: |
+          NAME="${{ steps.meta.outputs.name }}"; VERSION="${{ steps.meta.outputs.version }}"
+          if npm view "$NAME@$VERSION" version --registry https://npm.pkg.github.com >/dev/null 2>&1; then
+            echo "$NAME@$VERSION already on GitHub Packages — skipping."
+            exit 0
+          fi
           echo "Publishing to GitHub Packages..."
           npm publish --access public --no-git-checks --registry https://npm.pkg.github.com
           echo "Published to GitHub Packages successfully!"
