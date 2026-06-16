@@ -30,6 +30,23 @@ npm run generate -- --blend 0.0.36 --set-version
 npm run generate -- --only Button
 ```
 
+### Calling the CLI directly (`generate:raw`)
+
+`npm run generate` is a thin wrapper (`scripts/generate.mjs`) that resolves the version, runs the CLI, formats, and gates on broken components. To see/run the underlying [`@juspay/rescript-bindgen`](https://www.npmjs.com/package/@juspay/rescript-bindgen) command with nothing in between:
+
+```bash
+npm run generate:raw
+```
+
+which is exactly:
+
+```bash
+rescript-bindgen --pkg @juspay/blend-design-system --node-modules ./node_modules --no-install \
+  --out src --project . --webapi --report --json-summary src/_bindgen-summary.json --clean --yes
+```
+
+It binds the locally-installed (pinned) Blend version with no network. Note it does **not** run `rescript format` or the broken-component gate afterward — run `npm run format` yourself, or just use `npm run generate`, before committing.
+
 ### Output
 
 Each run writes the `*.res` bindings into `src/`, plus:

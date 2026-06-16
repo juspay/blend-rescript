@@ -8,7 +8,8 @@
     "watch": "rescript build -w",
     "format": "rescript format",
     "format:check": "rescript format -c",
-    "generate": "node scripts/generate.mjs"
+    "generate": "node scripts/generate.mjs",
+    "generate:raw": "rescript-bindgen --pkg @juspay/blend-design-system --node-modules ./node_modules --no-install --out src --project . --webapi --report --json-summary src/_bindgen-summary.json --clean --yes"
   },
   "files": [
     "src/**/*.res",
