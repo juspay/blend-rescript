@@ -91,11 +91,15 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
+      # --tag latest is REQUIRED: with 1:1 versioning the version (e.g. 0.0.36) is
+      # lower than the legacy 1.0.2 already on npm, so npm refuses to move the
+      # `latest` dist-tag implicitly. We set it explicitly — 0.0.x is the current
+      # line; the old 1.x is superseded (deprecate it separately if desired).
       - name: Publish to npm with OIDC provenance
         if: steps.npm.outputs.exists == 'false'
         run: |
           echo "Publishing ${{ steps.meta.outputs.version }} to npm with OIDC provenance..."
-          npm publish --provenance --access public
+          npm publish --provenance --access public --tag latest
           echo "Published to npm successfully!"
 
       # Tag AFTER a successful npm publish, and tolerate an existing tag, so a
@@ -130,7 +134,7 @@ jobs:
             exit 0
           fi
           echo "Publishing to GitHub Packages..."
-          npm publish --access public --no-git-checks --registry https://npm.pkg.github.com
+          npm publish --access public --no-git-checks --tag latest --registry https://npm.pkg.github.com
           echo "Published to GitHub Packages successfully!"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
