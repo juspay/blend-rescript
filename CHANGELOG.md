@@ -4,6 +4,22 @@ All notable changes to this project are documented here. Format based on [Keep a
 
 ## [Unreleased]
 
+### Changed
+- **BREAKING**: Bindings are now generated **deterministically** by [`@juspay/rescript-bindgen`](https://www.npmjs.com/package/@juspay/rescript-bindgen) instead of an LLM. Same Blend version → byte-identical output, no secrets, no network. The binding surface changes: richer record-props (`type props = {...HtmlAttrs.x}` + `React.component<props>`) and shared `*Types`/`CommonTypes`/`HtmlAttrs` modules referenced qualified. Consumers must update call sites.
+- **BREAKING**: Re-adopted **1:1 versioning** — `@juspay/rescript-blend@X` ships bindings for `@juspay/blend-design-system@X`. `@juspay/blend-design-system` moved from `dependencies` to a **peer dependency**. Binding-only re-releases use a `-N` suffix (`0.0.36` → `0.0.36-1`).
+- `sync-bindings.yml` now polls npm **daily** for a new stable Blend and regenerates deterministically (plus manual dispatch); no LLM secrets.
+- `release.yml` publishes the `package.json` version directly (skipping if already on npm); **semantic-release removed**.
+
+### Removed
+- LLM generation: `scripts/generate-bindings.mjs`, `scripts/bindings-instructions.md`, `scripts/known-errors.md`, and the `@juspay/neurolink` / `dotenv` / `undici` dependencies and `LITELLM_*` / `TEST_KEY` secrets.
+- `semantic-release` and all `@semantic-release/*` packages plus the embedded `release` config.
+- `.github/workflows/release-mirror.yml` (superseded by the daily poll + deterministic generation).
+- The `.failed.res` gates across CI/release (bindgen flags issues inline + in `src/_REPORT.md`; a broken component fails generation outright).
+
+### Added
+- `scripts/generate.mjs` — thin wrapper around the `@juspay/rescript-bindgen` CLI (`--blend`, `--set-version`, `--only`); writes `src/_REPORT.md`.
+- `@juspay/rescript-bindgen` dev dependency.
+
 ## [1.0.0] — 2026-05-01
 
 First stable release under the `@juspay/rescript-blend` package name. Marks the transition from upstream version mirroring to independent SemVer; the package is now versioned on its own cadence and pins the upstream `@juspay/blend-design-system` it was generated against.

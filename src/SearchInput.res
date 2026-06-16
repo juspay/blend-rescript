@@ -1,11 +1,14 @@
-@module("@juspay/blend-design-system") @react.component
-external make: (
-  ~leftSlot: React.element=?,
-  ~rightSlot: React.element=?,
-  ~error: bool=?,
-  ~disabled: bool=?,
-  ~placeholder: string=?,
-  ~value: string=?,
-  ~onChange: ReactEvent.Form.t => unit=?,
-  ~name: string=?,
-) => React.element = "SearchInput"
+type props = {
+  ...HtmlAttrs.inputHTMLAttributesOmitClassNameOnChangeSizeStyleValue,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  error?: bool,
+  value?: string,
+  onChange?: ReactEvent.Form.t => unit,
+  allowClear?: bool,
+  onClear?: unit => unit,
+  clearIcon?: React.element,
+}
+
+@module("@juspay/blend-design-system")
+external make: React.component<props> = "SearchInput"

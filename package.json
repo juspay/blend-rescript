@@ -1,6 +1,6 @@
 {
   "name": "@juspay/rescript-blend",
-  "version": "1.0.2",
+  "version": "0.0.36",
   "description": "ReScript bindings for @juspay/blend-design-system",
   "scripts": {
     "build": "rescript",
@@ -8,7 +8,7 @@
     "watch": "rescript build -w",
     "format": "rescript format",
     "format:check": "rescript format -c",
-    "generate": "node scripts/generate-bindings.mjs"
+    "generate": "node scripts/generate.mjs"
   },
   "files": [
     "src/**/*.res",
@@ -36,50 +36,24 @@
     "url": "https://github.com/juspay/blend-rescript/issues"
   },
   "homepage": "https://github.com/juspay/blend-rescript#readme",
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/github",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ]
-    ]
-  },
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
   "peerDependencies": {
+    "@juspay/blend-design-system": ">=0.0.36",
     "@rescript/react": ">=0.12.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "rescript": ">=12.0.0"
   },
   "dependencies": {
-    "@juspay/blend-design-system": "0.0.37-beta.2",
-    "rescript-webapi": "^0.10.0",
-    "undici": "7.25.0"
+    "rescript-webapi": "^0.10.0"
   },
   "devDependencies": {
-    "@juspay/neurolink": "^9.50.1",
+    "@juspay/blend-design-system": "0.0.36",
+    "@juspay/rescript-bindgen": "^1.1.0",
     "@rescript/react": "^0.15.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.2.6",
-    "dotenv": "^17.4.2",
-    "rescript": "^12.2.0",
-    "semantic-release": "^22.0.12"
+    "rescript": "^12.2.0"
   }
 }

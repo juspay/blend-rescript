@@ -1,88 +1,3 @@
-// Button type for modal actions (from Button component)
-type buttonType =
-  | @as("primary") Primary
-  | @as("secondary") Secondary
-  | @as("danger") Danger
-  | @as("success") Success
-
-// Modal button action type - matches Omit<ButtonProps, 'buttonGroupPosition'>
-type modalButtonAction = {
-  // Core Button props from Blend API
-  buttonType?: Button.buttonVariant,
-  size?: Button.buttonSize,
-  subType?: Button.buttonSubType,
-  text?: string,
-  leadingIcon?: React.element,
-  trailingIcon?: React.element,
-  isLoading?: bool,
-  isDisabled?: bool,
-  disabled?: bool,
-  state?: Button.buttonState,
-  onClick?: unit => unit,
-  loading?: bool,
-  // buttonGroupPosition is omitted as per TypeScript definition
-  fullWidth?: bool,
-  justifyContent?: string,
-  // HTML Button attributes
-  id?: string,
-  className?: string,
-  style?: JsxDOM.style,
-  type_?: Button.buttonType,
-  name?: string,
-  value?: string,
-  autoFocus?: bool,
-  form?: string,
-  formAction?: string,
-  formEncType?: string,
-  formMethod?: string,
-  formNoValidate?: bool,
-  formTarget?: string,
-  onBlur?: ReactEvent.Focus.t => unit,
-  onFocus?: ReactEvent.Focus.t => unit,
-  onMouseDown?: ReactEvent.Mouse.t => unit,
-  onMouseUp?: ReactEvent.Mouse.t => unit,
-  onMouseEnter?: ReactEvent.Mouse.t => unit,
-  onMouseLeave?: ReactEvent.Mouse.t => unit,
-  onKeyDown?: ReactEvent.Keyboard.t => unit,
-  onKeyUp?: ReactEvent.Keyboard.t => unit,
-  tabIndex?: int,
-  title?: string,
-  role?: string,
-  ariaLabel?: string,
-  ariaDescribedBy?: string,
-  ariaExpanded?: bool,
-  ariaHaspopup?: bool,
-  ariaPressed?: bool,
-  dataTestId?: string,
-  children?: React.element,
-}
-
-// Modal props type
-type modalProps = {
-  isOpen: bool,
-  isCustom?: bool,
-  onClose: unit => unit,
-  title?: string,
-  subtitle?: string,
-  children: React.element,
-  primaryAction?: modalButtonAction,
-  secondaryAction?: modalButtonAction,
-  className?: string,
-  showCloseButton?: bool,
-  showHeader?: bool,
-  showFooter?: bool,
-  closeOnBackdropClick?: bool,
-  customHeader?: React.element,
-  customFooter?: React.element,
-  headerRightSlot?: React.element,
-  showDivider?: bool,
-  showSkeleton?: bool,
-  minWidth?: string,
-  maxWidth?: string,
-  useDrawerOnMobile?: bool,
-}
-
-// External binding to the Modal component
 @module("@juspay/blend-design-system") @react.component
 external make: (
   ~isOpen: bool,
@@ -91,9 +6,8 @@ external make: (
   ~title: string=?,
   ~subtitle: string=?,
   ~children: React.element,
-  ~primaryAction: modalButtonAction=?,
-  ~secondaryAction: modalButtonAction=?,
-  ~className: string=?,
+  ~primaryAction: ModalTypes.modalButtonAction=?,
+  ~secondaryAction: ModalTypes.modalButtonAction=?,
   ~showCloseButton: bool=?,
   ~showHeader: bool=?,
   ~showFooter: bool=?,
@@ -102,41 +16,10 @@ external make: (
   ~customFooter: React.element=?,
   ~headerRightSlot: React.element=?,
   ~showDivider: bool=?,
-  ~showSkeleton: bool=?,
   ~minWidth: string=?,
-  ~maxWidth: string=?,
   ~useDrawerOnMobile: bool=?,
-  ~minHeight: string=?,
+  ~skeleton: ModalTypes.modalSkeletonProps=?,
+  ~maxWidth: string=?,
   ~maxHeight: string=?,
+  ~minHeight: string=?,
 ) => React.element = "Modal"
-// Helper function to create modal button actions easily
-let makeButtonAction = (
-  ~text: string,
-  ~onClick: option<unit => unit>=?,
-  ~isDisabled: option<bool>=?,
-  ~buttonType: option<Button.buttonVariant>=?,
-  ~size: option<Button.buttonSize>=?,
-  ~subType: option<Button.buttonSubType>=?,
-  ~leadingIcon: option<React.element>=?,
-  ~trailingIcon: option<React.element>=?,
-  ~loading: option<bool>=?,
-  ~disabled: option<bool>=?,
-  ~state: option<Button.buttonState>=?,
-  ~fullWidth: option<bool>=?,
-  ~className: option<string>=?,
-  (),
-): modalButtonAction => {
-  text,
-  ?onClick,
-  ?isDisabled,
-  ?buttonType,
-  ?size,
-  ?subType,
-  ?leadingIcon,
-  ?trailingIcon,
-  ?loading,
-  ?disabled,
-  ?state,
-  ?fullWidth,
-  ?className,
-}

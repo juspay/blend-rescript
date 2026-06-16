@@ -11,3 +11,8 @@ lib/
 
 # Never commit ReScript-emitted JS — source of truth is .res/.resi.
 src/**/*.js
+
+# bindgen run scratch — regenerated on every `npm run generate`.
+# (src/_REPORT.md IS committed, as a human-readable review artifact.)
+src/_bindgen-summary.json
+src/.bindgen-manifest.json

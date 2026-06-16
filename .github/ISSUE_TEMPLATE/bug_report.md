@@ -19,4 +19,4 @@ labels: bug
 
 - Node version:
 - `@juspay/blend-design-system` version:
-- `@subham_/rescript-blend` version:
+- `@juspay/rescript-blend` version:
