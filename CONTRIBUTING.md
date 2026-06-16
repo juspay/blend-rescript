@@ -61,15 +61,24 @@ The wrapper formats the output (`rescript format`) and **fails the run if any co
 
 The workflow `sync-bindings.yml`:
 
-- Runs **daily on a schedule** — polls npm for a newer **stable** Blend version and, if found, regenerates and opens a PR with the matching version bump.
+- Runs **daily on a schedule** — polls npm for a newer **stable** Blend version and, if found, regenerates and opens a PR with the matching version bump. Stable releases are fully automatic; just review and merge the PR.
 - Also runs manually via `Actions → Sync bindings with upstream blend → Run workflow` for a specific version.
-- Refuses prerelease versions (`-beta`, `-alpha`, `-rc`) unless you tick `allow_prerelease`.
+- Refuses prerelease versions (`-beta`, `-alpha`, `-rc`) on the auto path; you must tick `allow_prerelease` to sync one.
 
-**Rule:** if you tick `allow_prerelease` to test a beta, **do not merge** the resulting PR.
+### Cutting a beta release (manual)
+
+Betas are **on-demand**, not automatic:
+
+1. `Actions → Sync bindings with upstream blend → Run workflow`.
+2. Set `blend_version` to the beta (e.g. `0.0.37-beta.6`, or `beta` for the current beta dist-tag).
+3. Tick **`allow_prerelease`**.
+4. Review the generated PR and **merge it** — merging is expected for betas.
+
+On merge, `release.yml` publishes it under the npm **`beta`** dist-tag, so it never moves `latest`. Consumers opt in with `npm install @juspay/rescript-blend@beta`; a plain `npm install` still resolves to the newest stable.
 
 ## Release flow
 
-Merging a sync PR to `main` runs `release.yml`, which publishes the `package.json` version (= Blend version) to npm with OIDC provenance and to GitHub Packages. It tags `v<version>` and **skips publishing if that version is already on npm**, so chore/docs commits don't trigger a duplicate-publish failure. (No semantic-release.)
+Merging a sync PR to `main` runs `release.yml`, which publishes the `package.json` version (= Blend version) to npm with OIDC provenance and to GitHub Packages. The dist-tag is derived from the version: **stable → `latest`, prerelease → `beta`**. It tags `v<version>` and **skips publishing if that version is already on npm**, so chore/docs commits don't trigger a duplicate-publish failure. (No semantic-release.)
 
 ## Checklist before opening a PR
 

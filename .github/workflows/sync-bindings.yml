@@ -18,7 +18,7 @@ on:
         default: 'latest'
         type: string
       allow_prerelease:
-        description: 'Allow -beta / -alpha / -rc versions (for testing only — do NOT merge the resulting PR)'
+        description: 'Allow -beta / -alpha / -rc versions. Required to cut a beta release; the merged PR publishes under the npm `beta` dist-tag (never `latest`).'
         required: false
         default: false
         type: boolean
@@ -95,12 +95,12 @@ jobs:
           if [[ "$V" =~ -(beta|alpha|rc) ]]; then
             if [[ "${{ inputs.allow_prerelease }}" != "true" ]]; then
               echo "Refusing to sync against prerelease version $V."
-              echo "This workflow only accepts stable releases by default."
-              echo "If you are testing a pkg.pr.new URL or beta, re-run with allow_prerelease=true"
-              echo "but do NOT merge the resulting PR."
+              echo "The daily/auto path only accepts stable releases."
+              echo "To cut a beta release, re-run this workflow with allow_prerelease=true;"
+              echo "the merged PR publishes under the npm 'beta' dist-tag (never 'latest')."
               exit 1
             else
-              echo "::warning::Proceeding against prerelease $V because allow_prerelease=true. Do not merge the PR."
+              echo "::warning::Proceeding against prerelease $V (allow_prerelease=true). On merge this publishes under the 'beta' dist-tag."
             fi
           fi
 

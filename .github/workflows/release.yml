@@ -79,11 +79,24 @@ jobs:
       # 1:1 version comes from package.json. Each registry is gated independently
       # against its OWN published state, so a failure on one never permanently
       # skips the other on later runs.
-      - name: Resolve package name + version
+      - name: Resolve package name + version + dist-tag
         id: meta
         run: |
-          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          # Dist-tag policy:
+          #  - Prerelease (e.g. 0.0.37-beta.6) → `beta`, so a manually-synced beta
+          #    NEVER moves `latest` onto an unstable version.
+          #  - Stable (e.g. 0.0.37) → `latest`, set EXPLICITLY because with 1:1
+          #    versioning the 0.0.x line is lower than the legacy 1.0.2 still on npm,
+          #    so npm won't move `latest` implicitly.
+          if [[ "$VERSION" =~ -(beta|alpha|rc) ]]; then
+            echo "tag=beta" >> $GITHUB_OUTPUT
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+          fi
+          echo "Resolved dist-tag for $VERSION"
 
       - name: Check npm registry
         id: npm
@@ -95,15 +108,11 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      # --tag latest is REQUIRED: with 1:1 versioning the version (e.g. 0.0.36) is
-      # lower than the legacy 1.0.2 already on npm, so npm refuses to move the
-      # `latest` dist-tag implicitly. We set it explicitly — 0.0.x is the current
-      # line; the old 1.x is superseded (deprecate it separately if desired).
       - name: Publish to npm with OIDC provenance
         if: steps.npm.outputs.exists == 'false'
         run: |
-          echo "Publishing ${{ steps.meta.outputs.version }} to npm with OIDC provenance..."
-          npm publish --provenance --access public --tag latest
+          echo "Publishing ${{ steps.meta.outputs.version }} to npm under dist-tag '${{ steps.meta.outputs.tag }}'..."
+          npm publish --provenance --access public --tag "${{ steps.meta.outputs.tag }}"
           echo "Published to npm successfully!"
 
       # Tag AFTER a successful npm publish, and tolerate an existing tag, so a
@@ -138,7 +147,7 @@ jobs:
             exit 0
           fi
           echo "Publishing to GitHub Packages..."
-          npm publish --access public --no-git-checks --tag latest --registry https://npm.pkg.github.com
+          npm publish --access public --no-git-checks --tag "${{ steps.meta.outputs.tag }}" --registry https://npm.pkg.github.com
           echo "Published to GitHub Packages successfully!"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
