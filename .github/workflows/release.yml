@@ -1,5 +1,10 @@
 name: Release and Publish
 
+# 1:1 versioning: @juspay/rescript-blend@X ships bindings for @juspay/blend-design-system@X.
+# The version lives in package.json (set by the sync PR). On push to main we publish
+# that version — but only if it isn't already on npm, so docs/chore commits don't
+# trigger a duplicate-publish failure. (Replaces semantic-release.)
+
 on:
   push:
     branches:
@@ -17,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           cache: "npm"
@@ -35,14 +40,6 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-      - name: Fail if any .failed.res files exist
-        run: |
-          if ls src/*.failed.res 1> /dev/null 2>&1; then
-            echo "Build left .failed.res files — cannot release"
-            ls src/*.failed.res
-            exit 1
-          fi
-
   release:
     runs-on: ubuntu-latest
     needs: test
@@ -54,13 +51,13 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
@@ -75,39 +72,65 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Fail if any .failed.res files exist
+      # 1:1 version comes from package.json. Each registry is gated independently
+      # against its OWN published state, so a failure on one never permanently
+      # skips the other on later runs.
+      - name: Resolve package name + version
+        id: meta
         run: |
-          if ls src/*.failed.res 1> /dev/null 2>&1; then
-            echo "Refusing to publish — .failed.res files present"
-            ls src/*.failed.res
-            exit 1
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+
+      - name: Check npm registry
+        id: npm
+        run: |
+          if npm view "${{ steps.meta.outputs.name }}@${{ steps.meta.outputs.version }}" version >/dev/null 2>&1; then
+            echo "${{ steps.meta.outputs.name }}@${{ steps.meta.outputs.version }} already on npm — skipping."
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Release with semantic-release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HUSKY: "0"
-
       - name: Publish to npm with OIDC provenance
+        if: steps.npm.outputs.exists == 'false'
         run: |
-          echo "Publishing to npm with OIDC provenance..."
+          echo "Publishing ${{ steps.meta.outputs.version }} to npm with OIDC provenance..."
           npm publish --provenance --access public
           echo "Published to npm successfully!"
 
+      # Tag AFTER a successful npm publish, and tolerate an existing tag, so a
+      # mid-run failure can't leave a pushed tag that permanently breaks re-runs.
+      - name: Create git tag
+        if: steps.npm.outputs.exists == 'false'
+        run: |
+          V="v${{ steps.meta.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --tags origin "$V" | grep -q "$V"; then
+            echo "Tag $V already exists — skipping."
+          else
+            git tag "$V"
+            git push origin "$V"
+          fi
+
       - name: Setup Node for GitHub Packages
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
           scope: "@juspay"
 
+      # Gated on GitHub Packages' own state (not the npm check) and idempotent —
+      # so it retries on a later run if a previous run published to npm but failed here.
       - name: Publish to GitHub Packages
         run: |
-          if [ -f "package.json" ]; then
-            echo "Publishing to GitHub Packages..."
-            npm publish --access public --no-git-checks --registry https://npm.pkg.github.com
-            echo "Published to GitHub Packages successfully!"
+          NAME="${{ steps.meta.outputs.name }}"; VERSION="${{ steps.meta.outputs.version }}"
+          if npm view "$NAME@$VERSION" version --registry https://npm.pkg.github.com >/dev/null 2>&1; then
+            echo "$NAME@$VERSION already on GitHub Packages — skipping."
+            exit 0
           fi
+          echo "Publishing to GitHub Packages..."
+          npm publish --access public --no-git-checks --registry https://npm.pkg.github.com
+          echo "Published to GitHub Packages successfully!"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

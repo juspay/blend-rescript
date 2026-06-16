@@ -1,2 +1,7 @@
-@module("@juspay/blend-design-system") @react.component
-external make: (~children: React.element) => React.element = "ChartContainerV2"
+type props = {
+  ...HtmlAttrs.htmlAttributesOmitChildrenClassNameStyle,
+  children: React.element,
+}
+
+@module("@juspay/blend-design-system")
+external make: React.component<props> = "ChartContainerV2"

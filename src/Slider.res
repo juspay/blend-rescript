@@ -1,100 +1,76 @@
-// Slider variant enum
-type sliderVariant =
-  | @as("primary") Primary
-  | @as("secondary") Secondary
-
-// Slider size enum
-type sliderSize =
-  | @as("sm") Small
-  | @as("md") Medium
-  | @as("lg") Large
-
-// Slider value type enum
-type sliderValueType =
-  | @as("number") Number
-  | @as("percentage") Percentage
-  | @as("decimal") Decimal
-
-// Label position type
-type sliderLabelPosition =
-  | @as("top") Top
-  | @as("bottom") Bottom
-  | @as("inline") Inline
-
-// Value format configuration record
-type sliderValueFormatConfig = {
-  @as("type") type_: sliderValueType,
-  decimalPlaces?: int,
-  prefix?: string,
-  suffix?: string,
-  showLabels?: bool,
-  formatter?: float => string,
-}
-
-// Helper functions to create format configs
-let makeValueFormatConfig = (
-  ~type_: sliderValueType,
-  ~decimalPlaces: option<int>=?,
-  ~prefix: option<string>=?,
-  ~suffix: option<string>=?,
-  ~showLabels: option<bool>=?,
-  ~formatter: option<float => string>=?,
-  (),
-): sliderValueFormatConfig => {
-  type_,
-  ?decimalPlaces,
-  ?prefix,
-  ?suffix,
-  ?showLabels,
-  ?formatter,
-}
-
-// Simple Slider component binding
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~variant: sliderVariant=?,
-  ~size: sliderSize=?,
-  ~valueFormat: sliderValueFormatConfig=?,
-  ~showValueLabels: bool=?,
-  ~labelPosition: sliderLabelPosition=?,
-  ~value: array<float>=?,
-  ~defaultValue: array<float>=?,
-  ~min: float=?,
-  ~max: float=?,
-  ~step: float=?,
-  ~onValueChange: array<float> => unit=?,
-  ~onValueChangeComplete: array<float> => unit=?,
-  ~disabled: bool=?,
-  ~orientation: [#horizontal | #vertical]=?,
-  ~label: string=?,
-  ~name: string=?,
-  ~id: string=?,
-  ~className: string=?,
   ~style: JsxDOM.style=?,
-  ~dataTestId: string=?,
+  ~className: string=?,
+  ~disabled: bool=?,
+  ~form: string=?,
+  ~name: string=?,
+  ~value: array<float>=?,
+  ~defaultChecked: bool=?,
+  ~defaultValue: array<float>=?,
+  ~autoFocus: bool=?,
+  ~dir: DistTypes.direction2=?,
+  ~hidden: bool=?,
+  ~id: string=?,
+  ~tabIndex: int=?,
+  ~title: string=?,
+  ~role: string=?,
+  ~rel: string=?,
+  @as("aria-checked") ~ariaChecked: [#"true" | #"false" | #mixed]=?,
+  @as("aria-controls") ~ariaControls: string=?,
+  @as("aria-current")
+  ~ariaCurrent: [#page | #step | #location | #date | #time | #"true" | #"false"]=?,
+  @as("aria-describedby") ~ariaDescribedby: string=?,
+  @as("aria-disabled") ~ariaDisabled: bool=?,
+  @as("aria-expanded") ~ariaExpanded: bool=?,
+  @as("aria-haspopup")
+  ~ariaHaspopup: [#menu | #listbox | #tree | #grid | #dialog | #"true" | #"false"]=?,
+  @as("aria-hidden") ~ariaHidden: bool=?,
+  @as("aria-invalid") ~ariaInvalid: [#grammar | #"false" | #spelling | #"true"]=?,
+  @as("aria-label") ~ariaLabel: string=?,
+  @as("aria-labelledby") ~ariaLabelledby: string=?,
+  @as("aria-live") ~ariaLive: [#off | #polite | #assertive | #rude]=?,
+  @as("aria-pressed") ~ariaPressed: [#"true" | #"false" | #mixed]=?,
+  @as("aria-required") ~ariaRequired: bool=?,
+  @as("aria-selected") ~ariaSelected: bool=?,
   ~children: React.element=?,
+  ~onCopy: ReactEvent.Clipboard.t => unit=?,
+  ~onCut: ReactEvent.Clipboard.t => unit=?,
+  ~onPaste: ReactEvent.Clipboard.t => unit=?,
+  ~onFocus: ReactEvent.Focus.t => unit=?,
+  ~onBlur: ReactEvent.Focus.t => unit=?,
+  ~onChange: ReactEvent.Form.t => unit=?,
+  ~onInput: ReactEvent.Form.t => unit=?,
+  ~onSubmit: ReactEvent.Form.t => unit=?,
+  ~onKeyDown: ReactEvent.Keyboard.t => unit=?,
+  ~onKeyPress: ReactEvent.Keyboard.t => unit=?,
+  ~onKeyUp: ReactEvent.Keyboard.t => unit=?,
+  ~onClick: ReactEvent.Mouse.t => unit=?,
+  ~onContextMenu: ReactEvent.Mouse.t => unit=?,
+  ~onDoubleClick: ReactEvent.Mouse.t => unit=?,
+  ~onDrag: ReactEvent.Mouse.t => unit=?,
+  ~onDrop: ReactEvent.Mouse.t => unit=?,
+  ~onMouseDown: ReactEvent.Mouse.t => unit=?,
+  ~onMouseEnter: ReactEvent.Mouse.t => unit=?,
+  ~onMouseLeave: ReactEvent.Mouse.t => unit=?,
+  ~onMouseMove: ReactEvent.Mouse.t => unit=?,
+  ~onMouseOut: ReactEvent.Mouse.t => unit=?,
+  ~onMouseOver: ReactEvent.Mouse.t => unit=?,
+  ~onMouseUp: ReactEvent.Mouse.t => unit=?,
+  ~onScroll: ReactEvent.UI.t => unit=?,
+  ~onWheel: ReactEvent.Wheel.t => unit=?,
+  ~size: SliderTypes.sliderSize=?,
+  ~asChild: bool=?,
+  ~onValueChange: array<float> => unit=?,
+  ~orientation: TabsTypes.orientation=?,
+  ~step: float=?,
+  ~variant: SliderTypes.sliderVariant=?,
+  ~max: float=?,
+  ~min: float=?,
+  ~valueFormat: SliderTypes.sliderValueFormatConfig=?,
+  ~showValueLabels: bool=?,
+  ~labelPosition: SliderTypes.sliderLabelPosition=?,
+  ~inverted: bool=?,
+  ~minStepsBetweenThumbs: float=?,
+  ~onValueCommit: array<float> => unit=?,
 ) => React.element = "Slider"
-
-// Convenience constants for easier usage
-module SliderVariant = {
-  let primary = Primary
-  let secondary = Secondary
-}
-
-module SliderSize = {
-  let small = Small
-  let medium = Medium
-  let large = Large
-}
-
-module SliderValueType = {
-  let number = Number
-  let percentage = Percentage
-  let decimal = Decimal
-}
-
-module SliderLabelPosition = {
-  let top = Top
-  let bottom = Bottom
-  let inline = Inline
-}

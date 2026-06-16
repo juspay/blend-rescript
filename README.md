@@ -1,101 +1,89 @@
 # ReScript Blend Design System
 
-Fully typed, production-ready ReScript 11 bindings for the [@juspay/blend-design-system](https://www.npmjs.com/package/@juspay/blend-design-system).
+Fully typed, production-ready ReScript bindings for [@juspay/blend-design-system](https://www.npmjs.com/package/@juspay/blend-design-system).
 
-This package bridges the gap between the Blend Design System created in React/TS and your ReScript-based architecture by exposing strict, type-safe interfaces for the components. Best of all, these bindings are maintained autonomically!
+This package bridges the Blend Design System (authored in React/TS) and your ReScript codebase by exposing strict, type-safe interfaces for the components. The bindings are generated **deterministically** from Blend's shipped TypeScript declarations by [@juspay/rescript-bindgen](https://www.npmjs.com/package/@juspay/rescript-bindgen) — no hand-editing, no AI, no guesswork.
 
 ## 📦 Installation
 
 ```bash
-npm install @juspay/rescript-blend
+npm install @juspay/rescript-blend @juspay/blend-design-system
 ```
 
-The core design system (`@juspay/blend-design-system`) is bundled as a regular dependency and pinned per release — you don't need to install it separately.
+`@juspay/blend-design-system` is a **peer dependency** — install the version that matches this package (see versioning below). You also need the ReScript compiler (`rescript >= 12.0.0`) and `@rescript/react` to compile the bindings.
 
-> **Versioning**  
-> Starting at `1.0.0`, this package follows its own SemVer cadence under the `@juspay/rescript-blend` name. Each release pins the `@juspay/blend-design-system` version it was generated against in `dependencies`; check the [CHANGELOG](./CHANGELOG.md) to see which upstream version any given release ships with.
+> **1:1 Versioning**
+> `@juspay/rescript-blend@X` ships the bindings for `@juspay/blend-design-system@X` — the version numbers match exactly. To find the right Blend version for a release, just read this package's version. A binding-only re-release for an unchanged Blend version (e.g. a generator upgrade) uses a `-N` suffix: `0.0.36` → `0.0.36-1`.
 
-> **Note:** This package ships ReScript source files (`.res`/`.resi`) only. Your project must have the ReScript compiler (`rescript >= 12.0.0`) installed to compile the bindings.
+> **Note:** This package ships ReScript source files (`.res`/`.resi`) only. The matching `.js` is emitted by your own ReScript build.
 
 ## ⚙️ Configuration
 
-In your project's `rescript.json`, add `@juspay/rescript-blend` to the `dependencies`:
+In your project's `rescript.json`, add `@juspay/rescript-blend` to `dependencies`:
 
 ```json
 {
   "dependencies": [
     "@rescript/react",
+    "rescript-webapi",
     "@juspay/rescript-blend"
   ]
 }
 ```
 
+`rescript-webapi` is required because some component props are typed with `Webapi.*` (e.g. `File` / `FileList`).
+
 ## 🚀 Usage
 
-All components are namespaced under `RescriptBlend` to avoid module name collisions. Access them with qualified names or open the module:
+All modules are namespaced under `RescriptBlend`. Access them with qualified names or `open` the module. Components come in two shapes depending on their upstream signature:
+
+- **Record props** (components that extend HTML attributes, e.g. `Button`) — props are a record type spread from `HtmlAttrs`.
+- **Labeled args** (e.g. `Accordion`, `Alert`) — props are labeled arguments.
+
+Both are written the same way in JSX:
 
 ```rescript
 @react.component
 let make = () => {
-  // Qualified access
-  <RescriptBlend.Accordion 
-    isMultiple=true 
-    defaultValue={RescriptBlend.Accordion.Value.fromArray(["panel-1"])}
-  >
-    <RescriptBlend.Button ariaLabel="Submit Form" disabled=false> 
-      {React.string("Continue")} 
-    </RescriptBlend.Button>
-  </RescriptBlend.Accordion>
-}
-
-// Or use `open` for cleaner syntax
-@react.component
-let make = () => {
   open RescriptBlend
-  
-  <Accordion isMultiple=true defaultValue={Accordion.Value.fromArray(["panel-1"])}>
-    <Button ariaLabel="Submit Form" disabled=false> 
-      {React.string("Continue")} 
-    </Button>
+
+  <Accordion isMultiple=true defaultValue={CommonTypes.Str("panel-1")}>
+    <Button text="Continue" buttonType=ButtonSharedTypes.Primary disabled=false />
   </Accordion>
 }
 ```
 
+Shared enums and union types live in dedicated modules (`ButtonSharedTypes`, `AccordionTypes`, `CommonTypes`, …) and are referenced qualified, e.g. `ButtonSharedTypes.Primary` or `CommonTypes.Str("panel-1")`.
+
 ### Sub-components
 
-Sub-components are accessed via the parent module namespace:
+Sub-components are exposed as their own top-level modules (the generator flattens the export surface), e.g. `AccordionItem`:
 
 ```rescript
 open RescriptBlend
 
-// Accordion.Item
 <Accordion>
-  <Accordion.Item value="1" title={React.string("Title")}>
-    {React.string("Content")}
-  </Accordion.Item>
+  <AccordionItem value="1" title="Title"> {React.string("Content")} </AccordionItem>
 </Accordion>
-
-// Modal with helper function
-<Modal
-  primaryAction={Modal.makeButtonAction(~text="Confirm", ~buttonType=#Primary, ())}
-/>
 ```
 
-*(All React types, Polymorphic Variants, and callback Uncurries map 1:1 with ReScript 11 standards).*
+The exact prop surface for every component is the source of truth — read the component's `.res` file under `src/`. `src/_REPORT.md` lists every component, its readiness, and any props that were loosely typed or flagged.
 
-## 🧠 Autonomic Generation
+## 🔧 Generation (maintainers)
 
-To maintain 100% interoperability without manual intervention, this library employs an LLM-powered autonomous feedback loop that connects strictly to the external `node_modules` TS declarations files.
+Bindings are generated deterministically — the same Blend version always produces byte-identical output, with no secrets or network LLM calls.
 
-If you are a maintainer looking to generate new bindings directly:
-1. Provide a `.env` file holding your `LITELLM_BASE_URL`, `TEST_KEY`, and `LITELLM_API_KEY`.
-2. Generate an individual missing component:
-   ```bash
-   npm run generate -- --component Button
-   ```
-3. Or synchronize the entire design system at once:
-   ```bash
-   npm run generate -- --all
-   ```
+```bash
+# Bind the Blend version pinned in package.json
+npm run generate
 
-The script natively compiles your ReScript code on generation and features an auto-correction feedback loop up to 3 times per component! Failures are pruned into `.failed.res` so downstream configurations are never broken.
+# Bind a specific version (and set package.json version to match, 1:1)
+npm run generate -- --blend 0.0.36 --set-version
+
+# Debug a single component
+npm run generate -- --only Button
+```
+
+This wraps the `@juspay/rescript-bindgen` CLI, writes `src/_REPORT.md` (per-component readiness) alongside the bindings, formats the output, and fails if any component is flagged broken.
+
+New Blend releases are picked up automatically: a daily scheduled job (`.github/workflows/sync-bindings.yml`) polls npm for a newer **stable** Blend version, regenerates, and opens a PR with the matching version bump for review. Merging to `main` publishes that version (`.github/workflows/release.yml`).

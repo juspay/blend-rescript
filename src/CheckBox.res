@@ -1,27 +1,17 @@
-// Type definitions
-type checkboxSize =
-  | @as("sm") Sm
-  | @as("md") Md
-
-type checkboxState =
-  | @as("true") Checked
-  | @as("false") Unchecked
-  | @as("indeterminate") Indeterminate
-
-// Checkbox binding for the design system
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~id: string=?,
   ~label: string=?,
-  ~value: string=?,
-  ~checked: 'a=?,
+  ~id: string=?,
+  ~name: string=?,
+  ~checked: CommonTypes.boolOrIndeterminate=?,
   ~defaultChecked: bool=?,
-  ~onCheckedChange: 'a => unit=?,
+  ~onCheckedChange: CommonTypes.boolOrIndeterminate => unit=?,
   ~disabled: bool=?,
   ~required: bool=?,
   ~error: bool=?,
-  ~size: checkboxSize=?,
+  ~size: CheckboxTypes.checkboxSize=?,
   ~children: React.element=?,
   ~subtext: string=?,
   ~slot: React.element=?,
+  ~maxLength: CheckboxTypes.maxLengthConfig=?,
 ) => React.element = "Checkbox"

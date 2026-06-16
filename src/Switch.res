@@ -1,46 +1,17 @@
-// Type definitions
-type switchSize =
-  | @as("sm") Sm
-  | @as("md") Md
-
-type maxLength = {
-  label?: int,
-  subtext?: int,
-}
-
-// Switch binding for the design system
 @module("@juspay/blend-design-system") @react.component
 external make: (
   ~id: string=?,
-  ~label: string=?,
   ~checked: bool=?,
   ~defaultChecked: bool=?,
+  ~onChange: bool => unit=?,
   ~disabled: bool=?,
   ~required: bool=?,
   ~error: bool=?,
-  ~size: switchSize=?,
-  ~onChange: bool => unit=?,
-  ~value: string=?,
-  ~children: string=?,
+  ~size: SwitchTypes.switchSize=?,
+  ~label: string=?,
   ~subtext: string=?,
   ~slot: React.element=?,
   ~name: string=?,
-  ~className: string=?,
-  ~maxLength: maxLength=?,
+  ~value: string=?,
+  ~maxLength: CheckboxTypes.maxLengthConfig=?,
 ) => React.element = "Switch"
-
-// SwitchGroup binding
-module Group = {
-  @module("@juspay/blend-design-system") @react.component
-  external make: (
-    ~id: string=?,
-    ~label: string=?,
-    ~name: string=?,
-    ~children: React.element,
-    ~disabled: bool=?,
-    ~value: array<string>=?,
-    ~defaultValue: array<string>=?,
-    ~onChange: array<string> => unit=?,
-    ~className: string=?,
-  ) => React.element = "SwitchGroup"
-}

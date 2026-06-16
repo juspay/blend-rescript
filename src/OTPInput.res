@@ -1,30 +1,18 @@
-@module("@juspay/blend-design-system") @react.component
-external make: (
-  ~label: string=?,
-  ~sublabel: string=?,
-  ~helpIconHintText: string=?,
-  ~name: string=?,
-  ~required: bool=?,
-  ~error: bool=?,
-  ~errorMessage: string=?,
-  ~hintText: string=?,
-  ~disabled: bool=?,
-  ~value: string=?,
-  ~onChange: string => unit=?,
-  ~onKeyDown: ReactEvent.Keyboard.t => unit=?,
-  ~onFocus: ReactEvent.Focus.t => unit=?,
-  ~onBlur: ReactEvent.Focus.t => unit=?,
-  ~onKeyUp: ReactEvent.Keyboard.t => unit=?,
-  ~onPaste: ReactEvent.Clipboard.t => unit=?,
-  ~form: string=?,
-  ~length: int=?,
-  ~autoFocus: bool=?,
-  ~autoComplete: string=?,
-  ~placeholder: string=?,
-  ~readOnly: bool=?,
-  ~tabIndex: int=?,
-  ~className: string=?,
-  ~style: JsxDOM.style=?,
-  ~id: string=?,
-  ~dataTestId: string=?,
-) => React.element = "OTPInput"
+type props = {
+  ...HtmlAttrs.inputHTMLAttributesOmitAutoFocusClassNameFormOnChangePlaceholderSizeStyleValue,
+  label?: string,
+  sublabel?: string,
+  helpIconHintText?: string,
+  error?: bool,
+  errorMessage?: string,
+  hintText?: string,
+  value?: string,
+  length?: float,
+  autoFocus?: bool,
+  onChange?: string => unit,
+  form?: string,
+  placeholder?: string,
+}
+
+@module("@juspay/blend-design-system")
+external make: React.component<props> = "OTPInput"
