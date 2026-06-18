@@ -4,33 +4,27 @@ type accordionType =
 type accordionChevronPosition =
   | @as("left") Left
   | @as("right") Right
-type slotRenderProps = {
-  isExpanded: bool,
-  toggle: unit => unit,
-  value: string,
-  isDisabled: bool,
-}
 type accordionGapConfig = {
   border: string,
   noBorder: string,
 }
 type accordionBorderConfig = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
+  disabled: string,
   @as("open") open_: string,
-  active: string,
 }
 type accordionBackgroundColorConfig = {
   border: accordionBorderConfig,
   noBorder: accordionBorderConfig,
 }
 type accordionColorConfig = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
+  disabled: string,
   @as("open") open_: string,
-  active: string,
 }
 type accordionTitleConfig = {
   fontSize: string,
@@ -68,4 +62,10 @@ type accordionTokenType = {
 type responsiveAccordionTokens = {
   sm: accordionTokenType,
   lg: accordionTokenType,
+}
+type slotRenderProps = {
+  isExpanded: bool,
+  toggle: unit => unit,
+  value: string,
+  isDisabled: bool,
 }

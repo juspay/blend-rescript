@@ -1,3 +1,6 @@
+type activationMode =
+  | @as("manual") Manual
+  | @as("automatic") Automatic
 type tabsVariant =
   | @as("boxed") Boxed
   | @as("floating") Floating
@@ -7,22 +10,15 @@ type tabsSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type tabItem = {
-  value: string,
-  label: string,
-  content: React.element,
-  disable?: bool,
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-  leftSlot?: React.element,
-  rightSlot?: React.element,
-  newItem?: bool,
-}
+type type_2 =
+  | @as("button") Button
+  | @as("reset") Reset
+  | @as("submit") Submit
 type tabsBoxedConfig = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
-  active: string,
+  disabled: string,
 }
 type tabsBackgroundColorConfig = {
   boxed: tabsBoxedConfig,
@@ -85,10 +81,10 @@ type tabsActiveIndicatorConfig = {
   color: string,
 }
 type tabsBoxedConfig4 = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
-  active: string,
+  disabled: string,
 }
 type tabsColorConfig = {
   boxed: tabsBoxedConfig4,
@@ -124,4 +120,15 @@ type tabsTokensType = {
 type responsiveTabsTokens = {
   sm: tabsTokensType,
   lg: tabsTokensType,
+}
+type tabItem = {
+  value: string,
+  label: string,
+  content: React.element,
+  disable?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  newItem?: bool,
 }

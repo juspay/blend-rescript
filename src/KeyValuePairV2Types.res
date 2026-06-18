@@ -5,21 +5,17 @@ type keyValuePairV2Size =
 type keyValuePairV2StateType =
   | @as(0) Vertical
   | @as(1) Horizontal
-type textOverflowMode =
+type keyValuePairV2TextOverflowMode =
   | @as("wrap") Wrap
   | @as("truncate") Truncate
   | @as("wrap-clamp") WrapClamp
-type keyValuePairV2ValueConfig = {
-  left?: React.element,
-  right?: React.element,
-}
-type keyValuePairV2SlotsConfig = {
-  key?: React.element,
-  value?: keyValuePairV2ValueConfig,
-}
+type keyValuePairV2TextOverflowMode2 =
+  | @as("wrap") Wrap
+  | @as("truncate") Truncate
+  | @as("wrap-clamp") WrapClamp
 type keyValuePairV2GapConfig = {
-  horizontal: string,
   vertical: string,
+  horizontal: string,
 }
 type keyValuePairV2KeyConfig = {
   color: string,
@@ -32,7 +28,7 @@ type keyValuePairV2FontSizeConfig = {
   md: string,
   lg: string,
 }
-type keyValuePairV2ValueConfig2 = {
+type keyValuePairV2ValueConfig = {
   color: string,
   fontSize: keyValuePairV2FontSizeConfig,
   fontWeight: string,
@@ -41,9 +37,17 @@ type keyValuePairV2ValueConfig2 = {
 type keyValuePairV2TokensType = {
   gap: keyValuePairV2GapConfig,
   key: keyValuePairV2KeyConfig,
-  value: keyValuePairV2ValueConfig2,
+  value: keyValuePairV2ValueConfig,
 }
 type responsiveKeyValuePairV2Tokens = {
   sm: keyValuePairV2TokensType,
   lg: keyValuePairV2TokensType,
+}
+type keyValuePairV2ValueConfig2 = {
+  left?: React.element,
+  right?: React.element,
+}
+type keyValuePairV2SlotsConfig = {
+  key?: React.element,
+  value?: keyValuePairV2ValueConfig2,
 }

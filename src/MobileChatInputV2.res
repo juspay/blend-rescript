@@ -6,13 +6,13 @@ type props = {
   topContent?: React.element,
   secondaryAction?: React.element,
   placeholder?: string,
-  attachedFiles?: array<InputsV2SharedTypes.attachedFile>,
+  attachedFiles?: array<EditorSharedTypes.chatInputV2AttachedFile>,
   handleAttachClick?: unit => unit,
   onFileRemove?: string => unit,
-  onFileClick?: InputsV2SharedTypes.attachedFile => unit,
+  onFileClick?: EditorSharedTypes.chatInputV2AttachedFile => unit,
   onSecondaryActionClick?: unit => unit,
   id?: string,
-  webTokens: InputsV2SharedTypes.chatInputV2TokensType,
+  webTokens: EditorSharedTypes.chatInputV2TokensType,
   onEnter?: unit => unit,
 }
 

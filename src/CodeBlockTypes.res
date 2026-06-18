@@ -6,23 +6,19 @@ type diffLineType =
   | @as("added") Added
   | @as("removed") Removed
   | @as("unchanged") Unchanged
-type supportedLanguage2 =
-  | @as("html") Html
+type supportedLanguage =
   | @as("javascript") Javascript
   | @as("typescript") Typescript
   | @as("jsx") Jsx
   | @as("tsx") Tsx
   | @as("json") Json
   | @as("css") Css
+  | @as("html") Html
   | @as("markdown") Markdown
   | @as("yaml") Yaml
   | @as("python") Python
   | @as("rust") Rust
   | @as("haskell") Haskell
-type diffLine = {
-  content: string,
-  @as("type") type_: diffLineType,
-}
 type codeBlockPaddingConfig = {
   x: string,
   y: string,
@@ -122,4 +118,8 @@ type codeBlockTokenType = {
 type responsiveCodeBlockTokens = {
   sm: codeBlockTokenType,
   lg: codeBlockTokenType,
+}
+type diffLine = {
+  content: string,
+  @as("type") type_: diffLineType,
 }

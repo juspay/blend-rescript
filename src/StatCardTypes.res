@@ -12,33 +12,6 @@ type statCardVariant =
 type statCardDirection =
   | @as("vertical") Vertical
   | @as("horizontal") Horizontal
-type statCardChange = {
-  value?: Nullable.t<float>,
-  valueType: changeType,
-  arrowDirection?: statCardArrowDirection,
-  tooltip?: React.element,
-}
-type chartDataPoint = {
-  value: float,
-  name: string,
-}
-type statCardAxisConfig = {
-  @as("type") type_?: ChartsTypes.axisType,
-  tickFormatter?: CommonTypes.stringOrNumber => string,
-  dateOnly?: bool,
-  useUTC?: bool,
-  formatString?: string,
-  timeOnly?: bool,
-  showYear?: bool,
-  smartDateTimeFormat?: bool,
-}
-type statCardSkeletonProps = {
-  variant: SkeletonTypes.skeletonVariant,
-  show: bool,
-  height?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
-}
 type statCardPaddingConfig = {
   x: string,
   y: string,
@@ -170,4 +143,31 @@ type statCardTokenType = {
 type responsiveStatCardTokens = {
   sm: statCardTokenType,
   lg: statCardTokenType,
+}
+type statCardChange = {
+  value?: Nullable.t<float>,
+  valueType: changeType,
+  arrowDirection?: statCardArrowDirection,
+  tooltip?: React.element,
+}
+type chartDataPoint = {
+  value: float,
+  name: string,
+}
+type statCardAxisConfig = {
+  @as("type") type_?: ChartsTypes.axisType,
+  tickFormatter?: CommonTypes.stringOrNumber => string,
+  dateOnly?: bool,
+  useUTC?: bool,
+  formatString?: string,
+  timeOnly?: bool,
+  showYear?: bool,
+  smartDateTimeFormat?: bool,
+}
+type statCardSkeletonProps = {
+  variant: SkeletonTypes.skeletonVariant,
+  show: bool,
+  height?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
 }

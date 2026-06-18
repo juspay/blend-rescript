@@ -1,44 +1,13 @@
 type drawerDirection =
-  | @as("left") Left
-  | @as("right") Right
-  | @as("bottom") Bottom
   | @as("top") Top
+  | @as("left") Left
+  | @as("bottom") Bottom
+  | @as("right") Right
 type overflowY =
-  | @as("hidden") Hidden
   | @as("auto") Auto
+  | @as("hidden") Hidden
   | @as("scroll") Scroll
   | @as("visible") Visible
-type drawerMobileOffsetConfig = {
-  top?: string,
-  bottom?: string,
-  left?: string,
-  right?: string,
-}
-type selectDrawerItem = {
-  value: string,
-  label: string,
-  subLabel?: string,
-  slot1?: React.element,
-  disabled?: bool,
-}
-type selectDrawerGroup = {
-  groupLabel?: string,
-  items: array<selectDrawerItem>,
-  showSeparator?: bool,
-}
-type drawerItemsConfig2 = {
-  value: string,
-  label: string,
-  subLabel?: string,
-  slot1?: React.element,
-  disabled?: bool,
-  nestedItems?: array<selectDrawerGroup>,
-}
-type drawerItemsConfig = {
-  groupLabel?: string,
-  items: array<drawerItemsConfig2>,
-  showSeparator?: bool,
-}
 type drawerBorderRadiusConfig = {
   topLeft: string,
   topRight: string,
@@ -78,4 +47,35 @@ type drawerTokensType = {
 type responsiveDrawerTokens = {
   sm: drawerTokensType,
   lg: drawerTokensType,
+}
+type drawerMobileOffsetConfig = {
+  top?: string,
+  bottom?: string,
+  left?: string,
+  right?: string,
+}
+type selectDrawerItem = {
+  value: string,
+  label: string,
+  subLabel?: string,
+  slot1?: React.element,
+  disabled?: bool,
+}
+type selectDrawerGroup = {
+  groupLabel?: string,
+  items: array<selectDrawerItem>,
+  showSeparator?: bool,
+}
+type drawerItemsConfig2 = {
+  value: string,
+  label: string,
+  subLabel?: string,
+  slot1?: React.element,
+  disabled?: bool,
+  nestedItems?: array<selectDrawerGroup>,
+}
+type drawerItemsConfig = {
+  groupLabel?: string,
+  items: array<drawerItemsConfig2>,
+  showSeparator?: bool,
 }

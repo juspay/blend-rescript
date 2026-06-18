@@ -1,4 +1,4 @@
-type color3 =
+type color2 =
   | @as("neutral") Neutral
   | @as("primary") Primary
   | @as("success") Success

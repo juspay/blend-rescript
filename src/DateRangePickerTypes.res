@@ -34,74 +34,15 @@ type dateFormatPreset =
 type timeFormat =
   | @as("12h") V12h
   | @as("24h") V24h
-type dateRange = {
-  startDate: Date.t,
-  endDate?: Date.t,
-  showTimePicker?: bool,
-}
-type presetSelectionData = {
-  preset: dateRangePreset,
-  label: string,
-  dateRange: dateRange,
-  formattedStartDate: string,
-  formattedEndDate: string,
-  formattedStartTime: string,
-  formattedEndTime: string,
-}
-type customPresetConfig = {
-  preset: dateRangePreset,
-  label?: string,
-  visible?: bool,
-}
-type customPresetDefinition = {
-  id: string,
-  label: string,
-  getDateRange: unit => dateRange,
-  visible?: bool,
-}
-type customRangeConfig = {
-  calculateEndDate?: (Date.t, option<dateRange>) => Nullable.t<Date.t>,
-  fixedDayRange?: float,
-  referenceRange?: dateRange,
-  backwardDays?: float,
-  allowManualEndDateSelection?: bool,
-  applyToPresets?: bool,
-}
-type dateRangePickerCustomFormatConfig = {
-  includeTime?: bool,
-  includeYear?: bool,
-  separator?: string,
-  locale?: string,
-}
-type dateFormatConfig = {
-  preset?: dateFormatPreset,
-  customFormat?: (dateRange, option<dateRangePickerCustomFormatConfig>) => string,
-  includeTime?: bool,
-  includeYear?: bool,
-  separator?: string,
-  locale?: string,
-  timeFormat?: timeFormat,
-}
-type dateRangePickerRenderTriggerConfig = {
-  selectedRange?: dateRange,
-  isOpen: bool,
-  isDisabled: bool,
-  formattedValue: string,
-  onClick: unit => unit,
-}
-type triggerConfig = {
-  element?: React.element,
-  placeholder?: string,
-  showIcon?: bool,
-  icon?: React.element,
-  style?: JsxDOM.style,
-  renderTrigger?: dateRangePickerRenderTriggerConfig => React.element,
-}
-type dateRangePickerPopoverConfig = {
-  side?: DrawerV2Types.direction,
-  align?: MenuV2Types.alignment,
-  sideOffset?: float,
-}
+type side =
+  | @as("top") Top
+  | @as("left") Left
+  | @as("bottom") Bottom
+  | @as("right") Right
+type align =
+  | @as("center") Center
+  | @as("end") End
+  | @as("start") Start
 type dateRangePickerBorderRadiusConfig = {
   topLeft: string,
   topRight: string,
@@ -114,25 +55,25 @@ type dateRangePickerSmConfig = {
 }
 type dateRangePickerPaddingConfig = {
   sm: dateRangePickerSmConfig,
-  md: dateRangePickerSmConfig,
   lg: dateRangePickerSmConfig,
+  md: dateRangePickerSmConfig,
 }
-type dateRangePickerDisabledConfig = {
+type dateRangePickerActiveConfig = {
   left: string,
   top: string,
   bottom: string,
   right: string,
 }
 type dateRangePickerBorderConfig = {
-  disabled: dateRangePickerDisabledConfig,
-  default: dateRangePickerDisabledConfig,
-  hover: dateRangePickerDisabledConfig,
-  active: dateRangePickerDisabledConfig,
+  active: dateRangePickerActiveConfig,
+  default: dateRangePickerActiveConfig,
+  hover: dateRangePickerActiveConfig,
+  disabled: dateRangePickerActiveConfig,
 }
 type dateRangePickerFontSizeConfig = {
   sm: string,
-  md: string,
   lg: string,
+  md: string,
 }
 type dateRangePickerTextConfig = {
   color: string,
@@ -158,10 +99,10 @@ type dateRangePickerTextConfig2 = {
   fontWeight: string,
 }
 type dateRangePickerBorderConfig2 = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
-  active: string,
+  disabled: string,
 }
 type dateRangePickerDateInputConfig = {
   borderRadius: dateRangePickerBorderRadiusConfig2,
@@ -276,6 +217,74 @@ type calendarTokenType = {
 type responsiveCalendarTokens = {
   sm: calendarTokenType,
   lg: calendarTokenType,
+}
+type dateRange = {
+  startDate: Date.t,
+  endDate?: Date.t,
+  showTimePicker?: bool,
+}
+type presetSelectionData = {
+  preset: dateRangePreset,
+  label: string,
+  dateRange: dateRange,
+  formattedStartDate: string,
+  formattedEndDate: string,
+  formattedStartTime: string,
+  formattedEndTime: string,
+}
+type customPresetConfig = {
+  preset: dateRangePreset,
+  label?: string,
+  visible?: bool,
+}
+type customPresetDefinition = {
+  id: string,
+  label: string,
+  getDateRange: unit => dateRange,
+  visible?: bool,
+}
+type customRangeConfig = {
+  calculateEndDate?: (Date.t, option<dateRange>) => Nullable.t<Date.t>,
+  fixedDayRange?: float,
+  referenceRange?: dateRange,
+  backwardDays?: float,
+  allowManualEndDateSelection?: bool,
+  applyToPresets?: bool,
+}
+type dateRangePickerCustomFormatConfig = {
+  includeTime?: bool,
+  includeYear?: bool,
+  separator?: string,
+  locale?: string,
+}
+type dateFormatConfig = {
+  preset?: dateFormatPreset,
+  customFormat?: (dateRange, option<dateRangePickerCustomFormatConfig>) => string,
+  includeTime?: bool,
+  includeYear?: bool,
+  separator?: string,
+  locale?: string,
+  timeFormat?: timeFormat,
+}
+type dateRangePickerRenderTriggerConfig = {
+  selectedRange?: dateRange,
+  isOpen: bool,
+  isDisabled: bool,
+  formattedValue: string,
+  onClick: unit => unit,
+}
+type triggerConfig = {
+  element?: React.element,
+  placeholder?: string,
+  showIcon?: bool,
+  icon?: React.element,
+  style?: JsxDOM.style,
+  renderTrigger?: dateRangePickerRenderTriggerConfig => React.element,
+}
+type dateRangePickerPopoverConfig = {
+  side?: side,
+  align?: align,
+  sideOffset?: float,
 }
 module PresetsConfig = {
   type t

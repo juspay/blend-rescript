@@ -18,17 +18,9 @@ type avatarV2StatusPosition =
   | @as("bottomRight") BottomRight
   | @as("topLeft") TopLeft
   | @as("bottomLeft") BottomLeft
-type variant =
+type variant2 =
   | @as("pulse") Pulse
   | @as("wave") Wave
-type avatarV2StatusConfig = {
-  @as("type") type_: avatarV2Status,
-  position?: avatarV2StatusPosition,
-}
-type avatarV2SkeletonConfig = {
-  show: bool,
-  variant?: variant,
-}
 type avatarV2WidthConfig = {
   sm: string,
   regular: string,
@@ -57,18 +49,24 @@ type avatarV2BackgroundColorConfig = {
   away: string,
   busy: string,
 }
+type avatarV2ValueConfig = {
+  top?: string,
+  right?: string,
+  bottom?: string,
+  left?: string,
+}
 type avatarV2CircularConfig = {
-  sm: string,
-  regular: string,
-  md: string,
-  lg: string,
-  xl: string,
+  sm: avatarV2ValueConfig,
+  regular: avatarV2ValueConfig,
+  md: avatarV2ValueConfig,
+  lg: avatarV2ValueConfig,
+  xl: avatarV2ValueConfig,
 }
 type avatarV2PositionConfig = {
   circular: avatarV2CircularConfig,
   rounded: avatarV2CircularConfig,
 }
-type avatarV2StatusConfig2 = {
+type avatarV2StatusConfig = {
   width: avatarV2WidthConfig,
   height: avatarV2WidthConfig,
   border: avatarV2WidthConfig,
@@ -84,7 +82,7 @@ type avatarV2ContainerConfig = {
   borderRadius: avatarV2BorderRadiusConfig,
   image: avatarV2ImageConfig,
   fallbackText: avatarV2FallbackTextConfig,
-  status: avatarV2StatusConfig2,
+  status: avatarV2StatusConfig,
 }
 type avatarV2SlotConfig = {
   height: string,
@@ -99,18 +97,26 @@ type responsiveAvatarV2Tokens = {
   sm: avatarV2TokensType,
   lg: avatarV2TokensType,
 }
+type avatarV2StatusConfig2 = {
+  @as("type") type_: avatarV2Status,
+  position?: avatarV2StatusPosition,
+}
+type avatarV2SkeletonConfig = {
+  show: bool,
+  variant?: variant2,
+}
 type avatarV2AvatarPropsConfig = {
-  disabled?: bool,
   width?: string,
-  size?: avatarV2Size,
-  alt?: string,
-  height?: string,
   backgroundColor?: string,
-  shape?: avatarV2Shape,
-  status?: avatarV2StatusConfig,
-  skeleton?: avatarV2SkeletonConfig,
+  height?: string,
+  disabled?: bool,
   leftSlot?: React.element,
   rightSlot?: React.element,
+  size?: avatarV2Size,
+  alt?: string,
+  shape?: avatarV2Shape,
+  skeleton?: avatarV2SkeletonConfig,
+  status?: avatarV2StatusConfig2,
   onImageError?: JsError.t => unit,
   onImageLoad?: unit => unit,
 }

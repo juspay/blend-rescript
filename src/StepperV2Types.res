@@ -9,9 +9,9 @@ type stepperV2Type =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
 type stepperV2DefaultConfig = {
-  disabled: string,
   default: string,
   hover: string,
+  disabled: string,
   focus: string,
 }
 type stepperV2CircleConfig = {
@@ -95,7 +95,7 @@ type responsiveStepperV2Tokens = {
   sm: stepperV2TokensType,
   lg: stepperV2TokensType,
 }
-type subStep2 = {
+type stepperV2SubStep = {
   id: float,
   title: string,
   status?: stepperV2StepStatus,
@@ -108,7 +108,7 @@ type stepperV2Step = {
   disabled?: bool,
   description?: string,
   icon?: React.element,
-  substeps?: array<subStep2>,
+  substeps?: array<stepperV2SubStep>,
   isExpandable?: bool,
   isExpanded?: bool,
 }

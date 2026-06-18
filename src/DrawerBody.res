@@ -5,5 +5,5 @@ external make: (
   ~overflowY: DrawerTypes.overflowY=?,
   ~noPadding: bool=?,
   ~hasFooter: bool=?,
-  ~direction: DrawerV2Types.direction=?,
+  ~direction: DateRangePickerTypes.side=?,
 ) => React.element = "DrawerBody"

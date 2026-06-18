@@ -5,13 +5,13 @@ type keyValuePairSize =
 type keyValuePairStateType =
   | @as(0) Vertical
   | @as(1) Horizontal
-type textOverflowMode2 =
+type textOverflowMode =
   | @as("wrap") Wrap
   | @as("truncate") Truncate
   | @as("wrap-clamp") WrapClamp
 type keyValuePairGapConfig = {
-  horizontal: string,
   vertical: string,
+  horizontal: string,
 }
 type keyValuePairKeyConfig = {
   color: string,

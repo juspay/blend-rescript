@@ -11,7 +11,7 @@ type props = {
   loading?: bool,
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
-  buttonGroupPosition?: ButtonV2Types.buttonGroupPosition,
+  buttonGroupPosition?: ButtonTypes.buttonGroupPosition,
   fullWidth?: bool,
   width?: CommonTypes.stringOrNumber,
   justifyContent?: string,

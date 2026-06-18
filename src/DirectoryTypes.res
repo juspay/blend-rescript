@@ -1,19 +1,3 @@
-type rec navbarItem = {
-  label: string,
-  items?: array<navbarItem>,
-  leftSlot?: React.element,
-  rightSlot?: React.element,
-  onClick?: unit => unit,
-  href?: string,
-  isSelected?: bool,
-  showOnMobile?: bool,
-}
-type directoryData = {
-  label?: string,
-  items?: array<navbarItem>,
-  isCollapsible?: bool,
-  defaultOpen?: bool,
-}
 type directoryPaddingConfig = {
   x: string,
   y: string,
@@ -43,9 +27,9 @@ type directoryIconOnlyPaddingConfig = {
   paddingRight: string,
 }
 type directoryBackgroundColorConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type directoryIconConfig = {
   width: string,
@@ -96,4 +80,20 @@ type directoryTokenType = {
 type responsiveDirectoryTokens = {
   sm: directoryTokenType,
   lg: directoryTokenType,
+}
+type rec navbarItem = {
+  label: string,
+  items?: array<navbarItem>,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  onClick?: unit => unit,
+  href?: string,
+  isSelected?: bool,
+  showOnMobile?: bool,
+}
+type directoryData = {
+  label?: string,
+  items?: array<navbarItem>,
+  isCollapsible?: bool,
+  defaultOpen?: bool,
 }

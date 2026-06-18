@@ -1,3 +1,18 @@
+type badgeSize =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type color =
+  | @as("alert") Alert
+  | @as("neutral") Neutral
+  | @as("warning") Warning
+  | @as("primary") Primary
+  | @as("success") Success
+type badgePosition =
+  | @as("top-right") TopRight
+  | @as("top-left") TopLeft
+  | @as("bottom-right") BottomRight
+  | @as("bottom-left") BottomLeft
 type badgeWidthConfig = {
   sm: string,
   md: string,

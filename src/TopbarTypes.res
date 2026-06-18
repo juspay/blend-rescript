@@ -1,7 +1,7 @@
 type topbarBackgroundColorConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type topbarIconConfig = {
   size: string,

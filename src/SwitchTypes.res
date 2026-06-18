@@ -1,23 +1,19 @@
 type switchSize =
   | @as("sm") Sm
   | @as("md") Md
-type switch_MaxLengthConfig = {
-  label?: float,
-  subtext?: float,
-}
 type switch_HeightConfig = {
   sm: string,
   md: string,
 }
-type switch_InactiveConfig = {
-  disabled: string,
+type switch_ActiveConfig = {
   default: string,
   hover: string,
+  disabled: string,
   error: string,
 }
 type switch_BackgroundColorConfig = {
-  inactive: switch_InactiveConfig,
-  active: switch_InactiveConfig,
+  active: switch_ActiveConfig,
+  inactive: switch_ActiveConfig,
 }
 type switch_BorderConfig = {
   color: string,
@@ -51,13 +47,13 @@ type switch_SwitchContainerConfig = {
   thumb: switch_ThumbConfig,
 }
 type switch_LabelConfig = {
-  color: switch_InactiveConfig,
+  color: switch_ActiveConfig,
   fontSize: switch_HeightConfig,
   fontWeight: switch_HeightConfig,
   gap: string,
 }
 type switch_SubtextConfig = {
-  color: switch_InactiveConfig,
+  color: switch_ActiveConfig,
   fontSize: switch_HeightConfig,
   fontWeight: switch_HeightConfig,
 }
@@ -83,4 +79,8 @@ type switchTokensType = {
 type responsiveSwitchTokens = {
   sm: switchTokensType,
   lg: switchTokensType,
+}
+type switch_MaxLengthConfig = {
+  label?: float,
+  subtext?: float,
 }

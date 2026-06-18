@@ -19,7 +19,7 @@ external make: (
   ~onSidebarStateChange: SidebarV2Types.onSidebarStateChange => unit=?,
   ~defaultIsExpanded: bool=?,
   ~showMobilePrimaryActionButton: bool=?,
-  ~mobilePrimaryActionButtonProps: ReactTypes.reactTriggerPropsConfig=?,
+  ~mobilePrimaryActionButtonProps: ReactTypes.reactPrimaryActionButtonPropsConfig=?,
   ~activeItem: Nullable.t<string>=?,
   ~onActiveItemChange: Nullable.t<string> => unit=?,
   ~defaultActiveItem: Nullable.t<string>=?,

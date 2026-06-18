@@ -10,7 +10,7 @@ external make: (
   ~headerRightSlot: React.element=?,
   ~showLeftIcon: bool=?,
   ~showCopyButton: bool=?,
-  ~language: CodeBlockTypes.supportedLanguage2=?,
+  ~language: CodeBlockTypes.supportedLanguage=?,
   ~placeholder: string=?,
   ~readOnly: bool=?,
   ~disabled: bool=?,

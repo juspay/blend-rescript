@@ -7,7 +7,7 @@ type props = {
   label?: string,
   subLabel?: string,
   size?: SelectorV2Types.selectorV2Size,
-  slot?: SelectorV2Types.selectorV2SlotConfig,
+  slot?: SelectorV2Types.selectorV2SlotConfig2,
   maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
 }
 

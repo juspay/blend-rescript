@@ -1,8 +1,8 @@
 type props = {
   ...HtmlAttrs.textareaHTMLAttributesOmitClassNameColsDisabledOnBlurOnChangeOnFocusPlaceholderStyleValue,
   value?: string,
-  topQueries?: array<InputsV2SharedTypes.topQuery>,
-  onTopQuerySelect?: InputsV2SharedTypes.topQuery => unit,
+  topQueries?: array<EditorSharedTypes.chatInputV2TopQuery>,
+  onTopQuerySelect?: EditorSharedTypes.chatInputV2TopQuery => unit,
   placeholder?: string,
   onChange: string => unit,
   topContent?: React.element,
@@ -11,10 +11,10 @@ type props = {
   topQueriesMaxHeight?: float,
   textareaMaxHeight?: float,
   disabled?: bool,
-  attachedFiles?: array<InputsV2SharedTypes.attachedFile>,
+  attachedFiles?: array<EditorSharedTypes.chatInputV2AttachedFile>,
   onAttachFiles?: array<Webapi.File.t> => unit,
   onFileRemove?: string => unit,
-  onFileClick?: InputsV2SharedTypes.attachedFile => unit,
+  onFileClick?: EditorSharedTypes.chatInputV2AttachedFile => unit,
   onEnter?: unit => unit,
 }
 
