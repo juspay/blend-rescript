@@ -68,6 +68,7 @@ type tokensFontSizeConfig = {
   @as("28") _28: string,
   @as("32") _32: string,
   @as("36") _36: string,
+  @as("38") _38: string,
   @as("40") _40: string,
   @as("44") _44: string,
   @as("48") _48: string,
@@ -95,6 +96,7 @@ type tokensLineHeightConfig = {
   @as("28") _28: string,
   @as("32") _32: string,
   @as("36") _36: string,
+  @as("38") _38: string,
   @as("40") _40: string,
   @as("44") _44: string,
   @as("48") _48: string,
@@ -222,6 +224,7 @@ type tokensZIndexConfig = {
   @as("1000") _1000: string,
   @as("1100") _1100: string,
   @as("1200") _1200: string,
+  @as("101") _101: string,
 }
 type foundationTokenType = {
   shadows: tokensShadowsConfig,

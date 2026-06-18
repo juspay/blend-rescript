@@ -25,6 +25,9 @@ type modalSkeletonProps = {
   variant?: SkeletonTypes.skeletonVariant,
   bodySkeletonProps?: bodySkeletonProps,
 }
+type modalOverlayConfig = {
+  backgroundColor: string,
+}
 type modalPaddingConfig = {
   x: string,
   y: string,
@@ -60,6 +63,7 @@ type modalCloseButtonConfig = {
 type modalTokensType = {
   boxShadow: string,
   borderRadius: string,
+  overlay: modalOverlayConfig,
   header: modalHeaderConfig,
   body: modalBodyConfig,
   footer: modalFooterConfig,

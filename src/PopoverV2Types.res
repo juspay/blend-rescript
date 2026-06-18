@@ -1,3 +1,16 @@
+type popoverV2Side =
+  | @as("top") Top
+  | @as("right") Right
+  | @as("bottom") Bottom
+  | @as("left") Left
+type popoverV2Align =
+  | @as("start") Start
+  | @as("center") Center
+  | @as("end") End
+type popoverV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
 type popoverV2GapConfig = {
   sm: string,
   md: string,
@@ -49,4 +62,30 @@ type popoverV2TokenType = {
 type responsivePopoverV2Tokens = {
   sm: popoverV2TokenType,
   lg: popoverV2TokenType,
+}
+type popoverV2ActionType = {
+  disabled?: bool,
+  onClick?: option<ReactEvent.Mouse.t> => unit,
+  justifyContent?: string,
+  width?: CommonTypes.stringOrNumber,
+  size?: ButtonTypes.buttonSize,
+  text?: string,
+  buttonType?: ButtonTypes.buttonType,
+  leadingIcon?: React.element,
+  trailingIcon?: React.element,
+  loading?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  fullWidth?: bool,
+  state?: ButtonTypes.buttonState,
+}
+type bodySkeletonV2Props = {
+  show?: bool,
+  width?: string,
+  height?: CommonTypes.stringOrNumber,
+}
+type popoverV2SkeletonProps = {
+  show?: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+  bodySkeletonProps?: bodySkeletonV2Props,
 }
