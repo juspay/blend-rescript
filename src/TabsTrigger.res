@@ -38,7 +38,7 @@ external make: (
   @as("aria-pressed") ~ariaPressed: [#"true" | #"false" | #mixed]=?,
   @as("aria-required") ~ariaRequired: bool=?,
   @as("aria-selected") ~ariaSelected: bool=?,
-  ~children: React.element,
+  ~children: CommonTypes.stringOrNumber,
   ~onCopy: ReactEvent.Clipboard.t => unit=?,
   ~onCut: ReactEvent.Clipboard.t => unit=?,
   ~onPaste: ReactEvent.Clipboard.t => unit=?,
@@ -76,5 +76,5 @@ external make: (
   ~isOverlay: bool=?,
   ~tabsGroupId: string=?,
   ~showSkeleton: bool=?,
-  ~skeletonVariant: ButtonSharedTypes.skeletonVariant=?,
+  ~skeletonVariant: SkeletonTypes.skeletonVariant=?,
 ) => React.element = "TabsTrigger"

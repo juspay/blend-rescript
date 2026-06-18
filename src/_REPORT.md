@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.36`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.0`
 
-**94** components · ✅ **94** usable · 🔍 **0** need review · 🛑 **0** broken
+**95** components · ✅ **95** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**50** function binding(s) → `BlendDesignSystemBindings.res`.
+**52** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**1151** shared types deduplicated into **57** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**1346** shared types deduplicated into **61** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -56,6 +56,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getSliderLabelStyles`
 - `getProgressBarTokens`
 - `getStepperTokens`
+- `useSkeletonBase`
 - `getSkeletonState`
 - `mergeSkeletonProps`
 - `getSkeletonDefaults`
@@ -64,6 +65,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getUploadTokens`
 - `getChatInputTokens`
 - `useTheme`
+- `useShadowRoot`
 - `getChartV2Tokens`
 - `getTimelineTokens`
 - `getAlertV2Tokens`
@@ -134,6 +136,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SankeyLink
 - SankeyNode
 - SearchInput
+- ShadowAware
 - Sidebar
 - SingleSelect
 - SingleSelectDrawer
