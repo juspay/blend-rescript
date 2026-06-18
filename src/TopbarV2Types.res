@@ -3,9 +3,9 @@ type topbarV2SeparatorConfig = {
   color: string,
 }
 type topbarV2BackgroundColorConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type topbarV2IconConfig = {
   size: string,

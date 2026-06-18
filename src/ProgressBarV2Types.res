@@ -61,3 +61,30 @@ type responsiveProgressBarV2Tokens = {
   sm: progressBarV2TokenType,
   lg: progressBarV2TokenType,
 }
+type progressBarV2ValueConfig = {
+  min: float,
+  max: float,
+}
+type progressBarV2ValueConfig2 = {
+  rangeMin: float,
+  rangeMax: float,
+  clampedValue: float,
+  percentage: float,
+}
+type progressBarV2ValueConfig3 = {
+  @as("aria-label") ariaLabel?: string,
+  @as("aria-labelledby") ariaLabelledby?: string,
+  restProps: Dict.t<JSON.t>,
+}
+type progressBarV2ValueConfig4 = {
+  circularSize: string,
+  sizeNum: float,
+  strokeWidth: float,
+  radius: float,
+  circumference: float,
+  center: float,
+}
+type progressBarV2ValueConfig5 = {
+  strokeDasharray: string,
+  strokeDashoffset: float,
+}

@@ -18,7 +18,7 @@ external make: (
   ~modal: bool=?,
   ~nested: bool=?,
   ~onClose: unit => unit=?,
-  ~direction: DrawerV2Types.direction=?,
+  ~direction: DateRangePickerTypes.side=?,
   ~defaultOpen: bool=?,
   ~disablePreventScroll: bool=?,
   ~repositionInputs: bool=?,

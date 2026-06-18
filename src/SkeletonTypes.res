@@ -3,11 +3,11 @@ type skeletonVariant =
   | @as("wave") Wave
   | @as("shimmer") Shimmer
 type as_ =
-  | @as("label") Label
-  | @as("main") Main
-  | @as("button") Button
   | @as("article") Article
+  | @as("button") Button
+  | @as("main") Main
   | @as("div") Div
+  | @as("label") Label
   | @as("nav") Nav
   | @as("span") Span
   | @as("footer") Footer
@@ -15,22 +15,16 @@ type as_ =
   | @as("hr") Hr
   | @as("section") Section
 type skeletonShape =
-  | @as("rectangle") Rectangle
   | @as("circle") Circle
+  | @as("rectangle") Rectangle
   | @as("rounded") Rounded
 type size =
   | @as("sm") Sm
-  | @as("md") Md
   | @as("lg") Lg
+  | @as("md") Md
 type shape =
-  | @as("square") Square
   | @as("circle") Circle
-type skeletonValueConfig = {
-  shouldRender: bool,
-  fallback: React.element,
-  tokens: string,
-  prefersReducedMotion: bool,
-}
+  | @as("square") Square
 type skeletonAnimationConfig = {
   duration: string,
   timingFunction: string,
@@ -60,14 +54,10 @@ type skeletonAvatarConfig = {
   md: string,
   lg: string,
 }
-type skeletonSmConfig = {
-  height: string,
-  minWidth: string,
-}
 type skeletonButtonConfig = {
-  sm: skeletonSmConfig,
-  md: skeletonSmConfig,
-  lg: skeletonSmConfig,
+  sm: skeletonTextConfig,
+  md: skeletonTextConfig,
+  lg: skeletonTextConfig,
 }
 type skeletonSizesConfig = {
   text: skeletonTextConfig,
@@ -81,6 +71,16 @@ type skeletonTokensType = {
   spacing: skeletonSpacingConfig,
   sizes: skeletonSizesConfig,
 }
+type responsiveSkeletonTokens = {
+  sm: skeletonTokensType,
+  lg: skeletonTokensType,
+}
+type skeletonValueConfig = {
+  shouldRender: bool,
+  fallback: React.element,
+  tokens: string,
+  prefersReducedMotion: bool,
+}
 type skeletonValueConfig2 = {
   shouldRender: bool,
   fallback: string,
@@ -90,8 +90,4 @@ type skeletonValueConfig2 = {
 type skeletonValueConfig3 = {
   shouldShowSkeleton: bool,
   shouldShowContent: bool,
-}
-type responsiveSkeletonTokens = {
-  sm: skeletonTokensType,
-  lg: skeletonTokensType,
 }

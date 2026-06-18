@@ -15,5 +15,5 @@ external make: (
   ~sideOffset: float=?,
   ~alignOffset: float=?,
   ~collisionBoundaryRef: MenuV2Types.CollisionBoundaryRef.t=?, // ⓘ was `HTMLElement | HTMLElement[]` — opaque; build with CollisionBoundaryRef.fromHTMLElement / CollisionBoundaryRef.fromHTMLElements
-  ~triggerProps: ReactTypes.reactTriggerPropsConfig=?,
+  ~triggerProps: ReactTypes.reactPrimaryActionButtonPropsConfig=?,
 ) => React.element = "MenuV2"

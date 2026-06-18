@@ -14,12 +14,20 @@ type operator =
   | @as("endsWith") EndsWith
   | @as("startsWith") StartsWith
   | @as("contains") Contains
-  | @as("range") Range
   | @as("equals") Equals
   | @as("gt") Gt
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
+  | @as("range") Range
+type pivotAggregationType =
+  | @as("sum") Sum
+  | @as("count") Count
+  | @as("average") Average
+  | @as("mean") Mean
+  | @as("median") Median
+  | @as("min") Min
+  | @as("max") Max
 type columnType =
   | @as("text") Text
   | @as("number") Number
@@ -36,114 +44,15 @@ type columnType =
   | @as("custom") Custom
 type filterComponent =
   | @as("search") Search
-  | @as("select") Select
   | @as("slider") Slider
+  | @as("select") Select
   | @as("multiselect") Multiselect
   | @as("dateRange") DateRange
   | @as("numberRange") NumberRange
-type dataTableDescriptionTooltipPropsConfig = {
-  side?: TooltipTypes.tooltipSide,
-  align?: TooltipTypes.tooltipAlign,
-  size?: TooltipTypes.tooltipSize,
-  showArrow?: bool,
-  delayDuration?: float,
-  offset?: float,
-}
-type sortConfig = {
-  field: string,
-  direction: sortDirection,
-  sortType?: string,
-}
-type searchConfig = {
-  query: string,
-  caseSensitive?: bool,
-  searchFields?: array<string>,
-}
-type advancedFilterProps = {
-  filters: array<JSON.t>,
-  onFiltersChange: array<JSON.t> => unit,
-  onClearFilters: unit => unit,
-}
-type dataTableValueConfig = {
-  min: float,
-  max: float,
-}
-@unboxed
-type stringOrStringArrayOrDataTableValueConfig =
-  Str(string) | StrArr(array<string>) | DataTableValueConfig(dataTableValueConfig)
-type columnFilter = {
-  field: string,
-  @as("type") type_: filterType,
-  value: stringOrStringArrayOrDataTableValueConfig,
-  operator: operator,
-}
-type dataTableColumnManagerPrimaryActionConfig = {
-  text: string,
-  onClick: array<string> => unit,
-  disabled?: bool,
-  loading?: bool,
-}
-type dataTableColumnManagerSecondaryActionConfig = {
-  text: string,
-  onClick: unit => unit,
-  disabled?: bool,
-  loading?: bool,
-}
-type paginationConfig = {
-  currentPage: float,
-  pageSize: float,
-  totalRows: float,
-  pageSizeOptions?: array<float>,
-}
-type dataTableRenderExpandedRowConfig<'a> = {
-  row: 'a,
-  index: int,
-  isExpanded: bool,
-  toggleExpansion: unit => unit,
-}
-type rowSelectionConfig<'a> = {
-  isDisabled?: ('a, float) => bool,
-  disabledText?: ('a, float) => string,
-}
-type bulkActionsConfig = {
-  showSelectAll?: bool,
-  showDeselectAll?: bool,
-  onSelectAll?: unit => unit,
-  onDeselectAll?: unit => unit,
-  customActions?: React.element,
-  showExport?: bool,
-}
-type rowActionConfig<'a> = {
-  id: string,
-  text?: string,
-  buttonType?: ButtonTypes.buttonType,
-  size?: ButtonTypes.buttonSize,
-  subType?: ButtonTypes.buttonSubType,
-  leadingIcon?: React.element,
-  trailingIcon?: React.element,
-  disabled?: CommonTypes.disabled<'a>,
-  hidden?: CommonTypes.hidden<'a>,
-  onClick: ('a, float) => unit,
-}
-type rowActionsConfig<'a> = {
-  showEditAction?: bool,
-  slot1?: rowActionConfig<'a>,
-  slot2?: rowActionConfig<'a>,
-}
-type columnFilterOption = {
-  id: string,
-  label: string,
-  value: string,
-}
-type columnTypeConfig = {
-  @as("type") type_: columnType,
-  filterType: filterType,
-  filterOptions?: array<columnFilterOption>,
-  supportsSorting: bool,
-  supportsFiltering: bool,
-  enableSearch?: bool,
-  filterComponent?: filterComponent,
-}
+type pivotRowType =
+  | @as("data") Data
+  | @as("subtotal") Subtotal
+  | @as("grand_total") GrandTotal
 type dataTableTitleConfig = {
   fontSize: string,
   fontWeight: string,
@@ -363,4 +272,145 @@ type tableTokenType = {
 type responsiveTableTokens = {
   sm: tableTokenType,
   lg: tableTokenType,
+}
+type dataTableDescriptionTooltipPropsConfig = {
+  side?: TooltipTypes.tooltipSide,
+  align?: TooltipTypes.tooltipAlign,
+  size?: TooltipTypes.tooltipSize,
+  showArrow?: bool,
+  delayDuration?: float,
+  offset?: float,
+}
+type sortConfig = {
+  field: string,
+  direction: sortDirection,
+  sortType?: string,
+}
+type searchConfig = {
+  query: string,
+  caseSensitive?: bool,
+  searchFields?: array<string>,
+}
+type advancedFilterProps = {
+  filters: array<JSON.t>,
+  onFiltersChange: array<JSON.t> => unit,
+  onClearFilters: unit => unit,
+}
+type dataTableValueConfig = {
+  min: float,
+  max: float,
+}
+@unboxed
+type stringOrStringArrayOrDataTableValueConfig =
+  Str(string) | StrArr(array<string>) | DataTableValueConfig(dataTableValueConfig)
+type columnFilter = {
+  field: string,
+  @as("type") type_: filterType,
+  value: stringOrStringArrayOrDataTableValueConfig,
+  operator: operator,
+}
+type dataTableColumnManagerPrimaryActionConfig = {
+  text: string,
+  onClick: array<string> => unit,
+  disabled?: bool,
+  loading?: bool,
+}
+type dataTableColumnManagerSecondaryActionConfig = {
+  text: string,
+  onClick: unit => unit,
+  disabled?: bool,
+  loading?: bool,
+}
+type paginationConfig = {
+  currentPage: float,
+  pageSize: float,
+  totalRows: float,
+  pageSizeOptions?: array<float>,
+}
+type dataTableRenderExpandedRowConfig<'a> = {
+  row: 'a,
+  index: int,
+  isExpanded: bool,
+  toggleExpansion: unit => unit,
+}
+type rowSelectionConfig<'a> = {
+  isDisabled?: ('a, float) => bool,
+  disabledText?: ('a, float) => string,
+}
+type bulkActionsConfig = {
+  showSelectAll?: bool,
+  showDeselectAll?: bool,
+  onSelectAll?: unit => unit,
+  onDeselectAll?: unit => unit,
+  customActions?: React.element,
+  showExport?: bool,
+}
+type rowActionConfig<'a> = {
+  id: string,
+  text?: string,
+  buttonType?: ButtonTypes.buttonType,
+  size?: ButtonTypes.buttonSize,
+  subType?: ButtonTypes.buttonSubType,
+  leadingIcon?: React.element,
+  trailingIcon?: React.element,
+  disabled?: CommonTypes.disabled<'a>,
+  hidden?: CommonTypes.hidden<'a>,
+  onClick: ('a, float) => unit,
+}
+type rowActionsConfig<'a> = {
+  showEditAction?: bool,
+  slot1?: rowActionConfig<'a>,
+  slot2?: rowActionConfig<'a>,
+}
+type dataTableValuesConfig = {
+  field: string,
+  aggregation: pivotAggregationType,
+}
+type dataTableInitialConfigConfig = {
+  rows?: array<string>,
+  columns?: array<string>,
+  values?: array<dataTableValuesConfig>,
+}
+type dataTablePreviewColumnsConfig = {
+  key: string,
+  label: string,
+}
+type dataTablePreviewRowsConfig = {
+  __pivotId: string,
+}
+type dataTableOnConfigChangeConfig = {
+  rows: array<string>,
+  columns: array<string>,
+  values: array<dataTableValuesConfig>,
+}
+type dataTablePivotTableConfigConfig = {
+  triggerButton?: React.element,
+  triggerSlot?: CommonTypes.v1OrV2OrV3,
+  title?: string,
+  description?: string,
+  showExport?: bool,
+  initialConfig?: dataTableInitialConfigConfig,
+  previewColumns?: array<dataTablePreviewColumnsConfig>,
+  previewRows?: array<dataTablePreviewRowsConfig>,
+  availableAggregations?: array<pivotAggregationType>,
+  onConfigChange?: dataTableOnConfigChangeConfig => unit,
+  onExport?: dataTableOnConfigChangeConfig => unit,
+}
+type columnFilterOption = {
+  id: string,
+  label: string,
+  value: string,
+}
+type columnTypeConfig = {
+  @as("type") type_: columnType,
+  filterType: filterType,
+  filterOptions?: array<columnFilterOption>,
+  supportsSorting: bool,
+  supportsFiltering: bool,
+  enableSearch?: bool,
+  filterComponent?: filterComponent,
+}
+type pivotPreviewRow = {
+  __pivotId: string,
+  __pivotRowType?: pivotRowType,
 }

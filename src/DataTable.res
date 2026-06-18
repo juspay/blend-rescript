@@ -46,10 +46,12 @@ external make: (
   ~headerSlot1: React.element=?,
   ~headerSlot2: React.element=?,
   ~enableInlineEdit: bool=?,
+  ~showActionsColumn: bool=?,
   ~onRowSave: (JSON.t, 'a) => unit=?,
   ~onRowCancel: JSON.t => unit=?,
   ~onRowClick: ('a, float) => unit=?,
   ~onFieldChange: (JSON.t, 'c, JSON.t) => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onHeaderChange: ('d, string) => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
   ~enableRowExpansion: bool=?,
   ~renderExpandedRow: DataTableTypes.dataTableRenderExpandedRowConfig<'a> => React.element=?,
   ~isRowExpandable: ('a, float) => bool=?,
@@ -60,11 +62,13 @@ external make: (
   ~onRowSelectionChange: (array<string>, bool, string, 'a) => unit=?,
   ~bulkActions: DataTableTypes.bulkActionsConfig=?,
   ~rowActions: DataTableTypes.rowActionsConfig<'a>=?,
-  ~onOperations: 'd => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
-  ~onInsertLeft: 'e => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
-  ~onInsertRight: 'f => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
-  ~onDeleteColumn: 't6 => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onOperations: 'e => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onInsertLeft: 'f => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onInsertRight: 't6 => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onDeleteColumn: 't7 => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
   ~getRowStyle: ('a, float) => JsxDOM.style=?,
   ~tableBodyHeight: CommonTypes.stringOrNumber=?,
   ~mobileColumnsToShow: float=?,
+  ~enablePivotTable: bool=?,
+  ~pivotTableConfig: DataTableTypes.dataTablePivotTableConfigConfig=?,
 ) => React.element = "DataTable"

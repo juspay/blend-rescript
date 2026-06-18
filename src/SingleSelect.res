@@ -7,7 +7,7 @@ type props = {
   helpIconText?: string,
   placeholder: string,
   size?: SingleSelectTypes.selectMenuSize,
-  items: array<SingleSelectTypes.selectMenuGroupType>,
+  items: array<SingleSelectTypes.selectMenuGroupType2>,
   variant?: SingleSelectTypes.selectMenuVariant,
   selected: string,
   onSelect: string => unit,
@@ -41,7 +41,7 @@ type props = {
   minTriggerWidth?: float,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonV2Types.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
   allowDeselect?: bool,
 }
 

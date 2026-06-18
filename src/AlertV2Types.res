@@ -12,23 +12,6 @@ type alertV2SubType =
 type alertV2ActionPosition =
   | @as("bottom") Bottom
   | @as("right") Right
-type alertV2SlotConfig = {
-  slot: React.element,
-  maxHeight?: string,
-}
-type alertV2Action = {
-  text: string,
-  onClick: ReactEvent.Mouse.t => unit,
-}
-type alertV2Actions = {
-  position?: alertV2ActionPosition,
-  primaryAction?: alertV2Action,
-  secondaryAction?: alertV2Action,
-}
-type alertV2CloseButtonConfig = {
-  show?: bool,
-  onClick?: ReactEvent.Mouse.t => unit,
-}
 type alertV2PrimaryConfig = {
   subtle: string,
   noFill: string,
@@ -52,7 +35,7 @@ type alertV2GapConfig = {
   bottom: string,
   right: string,
 }
-type alertV2SlotConfig2 = {
+type alertV2SlotConfig = {
   maxHeight: string,
 }
 type alertV2ColorConfig = {
@@ -85,7 +68,7 @@ type alertV2ContentConfig = {
   textContainer: alertV2TextContainerConfig,
   actionContainer: alertV2ActionContainerConfig,
 }
-type alertV2CloseButtonConfig2 = {
+type alertV2CloseButtonConfig = {
   color: alertV2ColorConfig,
   height: string,
   width: string,
@@ -93,7 +76,7 @@ type alertV2CloseButtonConfig2 = {
 type alertV2MainContainerConfig = {
   gap: string,
   content: alertV2ContentConfig,
-  closeButton: alertV2CloseButtonConfig2,
+  closeButton: alertV2CloseButtonConfig,
 }
 type alertV2TokensType = {
   width: string,
@@ -104,10 +87,27 @@ type alertV2TokensType = {
   backgroundColor: alertV2BorderConfig,
   padding: alertV2PaddingConfig,
   gap: alertV2GapConfig,
-  slot: alertV2SlotConfig2,
+  slot: alertV2SlotConfig,
   mainContainer: alertV2MainContainerConfig,
 }
 type responsiveAlertV2Tokens = {
   sm: alertV2TokensType,
   lg: alertV2TokensType,
+}
+type alertV2SlotConfig2 = {
+  slot: React.element,
+  maxHeight?: string,
+}
+type alertV2Action = {
+  text: string,
+  onClick: ReactEvent.Mouse.t => unit,
+}
+type alertV2Actions = {
+  position?: alertV2ActionPosition,
+  primaryAction?: alertV2Action,
+  secondaryAction?: alertV2Action,
+}
+type alertV2CloseButtonConfig2 = {
+  show?: bool,
+  onClick?: ReactEvent.Mouse.t => unit,
 }

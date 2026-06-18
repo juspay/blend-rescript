@@ -10,9 +10,9 @@ type statCardV2ArrowDirection =
   | @as("down") Down
 type setState =
   | @as("") Value
-  | @as("hover") Hover
-  | @as("inactive") Inactive
   | @as("normal") Normal
+  | @as("inactive") Inactive
+  | @as("hover") Hover
   | @as("select") Select
 type position3d =
   | @as("offset") Offset
@@ -29,32 +29,14 @@ type scope =
 type where =
   | @as("all") All
   | @as("end") End
-type hangingSide =
-  | @as("left") Left
-  | @as("right") Right
-type type_ =
+type type_3 =
   | @as("straight") Straight
   | @as("curved") Curved
   | @as("orthogonal") Orthogonal
 type nodeAlignment =
-  | @as("center") Center
-  | @as("bottom") Bottom
   | @as("top") Top
-type statCardV2Change = {
-  value: string,
-  changeType: statCardV2ChangeType,
-  leftSymbol?: string,
-  rightSymbol?: string,
-  arrowDirection?: statCardV2ArrowDirection,
-  tooltip?: React.element,
-}
-type statCardV2SkeletonProps = {
-  variant: SkeletonTypes.skeletonVariant,
-  show: bool,
-  height?: string,
-  maxWidth?: string,
-  minWidth?: string,
-}
+  | @as("bottom") Bottom
+  | @as("center") Center
 type statCardV2TitleConfig = {
   fontSize: string,
   fontWeight: string,
@@ -120,4 +102,25 @@ type statCardV2TokensType = {
 type responsiveStatCardV2Tokens = {
   sm: statCardV2TokensType,
   lg: statCardV2TokensType,
+}
+type statCardV2Change = {
+  value: string,
+  changeType: statCardV2ChangeType,
+  leftSymbol?: string,
+  rightSymbol?: string,
+  arrowDirection?: statCardV2ArrowDirection,
+  tooltip?: React.element,
+}
+type statCardV2SkeletonProps = {
+  variant: SkeletonTypes.skeletonVariant,
+  show: bool,
+  height?: string,
+  maxWidth?: string,
+  minWidth?: string,
+}
+type statCardV2ParamsConfig = {
+  title?: string,
+  value?: string,
+  subtitle?: string,
+  change?: statCardV2Change,
 }

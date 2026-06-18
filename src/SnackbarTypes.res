@@ -10,20 +10,6 @@ type snackbarVariant =
   | @as("success") Success
   | @as("warning") Warning
   | @as("error") Error
-type snackbarActionButtonConfig = {
-  label: string,
-  onClick: unit => unit,
-  autoDismiss?: bool,
-}
-type addToastOptions = {
-  header: string,
-  description?: string,
-  variant?: snackbarVariant,
-  onClose?: unit => unit,
-  actionButton?: snackbarActionButtonConfig,
-  duration?: float,
-  position?: snackbarPosition,
-}
 type snackbarColorConfig = {
   info: string,
   success: string,
@@ -81,4 +67,18 @@ type snackbarSmConfig = {
 type responsiveSnackbarTokens = {
   sm: snackbarSmConfig,
   lg: snackbarSmConfig,
+}
+type snackbarActionButtonConfig = {
+  label: string,
+  onClick: unit => unit,
+  autoDismiss?: bool,
+}
+type addToastOptions = {
+  header: string,
+  description?: string,
+  variant?: snackbarVariant,
+  onClose?: unit => unit,
+  actionButton?: snackbarActionButtonConfig,
+  duration?: float,
+  position?: snackbarPosition,
 }

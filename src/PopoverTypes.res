@@ -2,39 +2,13 @@ type popoverSize =
   | @as("small") Small
   | @as("medium") Medium
 type shadow =
-  | @as("xs") Xs
   | @as("sm") Sm
-  | @as("md") Md
   | @as("lg") Lg
+  | @as("xs") Xs
+  | @as("md") Md
   | @as("xl") Xl
   | @as("2xl") V2xl
   | @as("full") Full
-type popoverActionType = {
-  disabled?: bool,
-  onClick?: option<ReactEvent.Mouse.t> => unit,
-  width?: CommonTypes.stringOrNumber,
-  size?: ButtonTypes.buttonSize,
-  text?: string,
-  justifyContent?: string,
-  buttonType?: ButtonTypes.buttonType,
-  leadingIcon?: React.element,
-  trailingIcon?: React.element,
-  loading?: bool,
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-  fullWidth?: bool,
-  state?: ButtonTypes.buttonState,
-}
-type bodySkeletonProps2 = {
-  show?: bool,
-  width?: string,
-  height?: CommonTypes.stringOrNumber,
-}
-type popoverSkeletonProps = {
-  show?: bool,
-  variant?: SkeletonTypes.skeletonVariant,
-  bodySkeletonProps?: bodySkeletonProps2,
-}
 type popoverGapConfig = {
   small: string,
   medium: string,
@@ -61,7 +35,7 @@ type popoverFooterConfig = {
 type popoverTokenType = {
   background: string,
   border: string,
-  shadow: TokensTypes.tokensShadowsConfig,
+  shadow: TokensTypes.tokensShadowConfig,
   gap: popoverGapConfig,
   zIndex: string,
   borderRadius: popoverGapConfig,
@@ -72,4 +46,30 @@ type popoverTokenType = {
 type responsivePopoverTokens = {
   sm: popoverTokenType,
   lg: popoverTokenType,
+}
+type popoverActionType = {
+  width?: CommonTypes.stringOrNumber,
+  text?: string,
+  disabled?: bool,
+  justifyContent?: string,
+  size?: ButtonTypes.buttonSize,
+  onClick?: option<ReactEvent.Mouse.t> => unit,
+  buttonType?: ButtonTypes.buttonType,
+  leadingIcon?: React.element,
+  trailingIcon?: React.element,
+  loading?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  fullWidth?: bool,
+  state?: ButtonTypes.buttonState,
+}
+type bodySkeletonProps2 = {
+  show?: bool,
+  width?: string,
+  height?: CommonTypes.stringOrNumber,
+}
+type popoverSkeletonProps = {
+  show?: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+  bodySkeletonProps?: bodySkeletonProps2,
 }

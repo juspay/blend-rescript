@@ -2,6 +2,84 @@ type onSidebarStateChange =
   | @as("expanded") Expanded
   | @as("collapsed") Collapsed
   | @as("intermediate") Intermediate
+type sidebarV2ContainerConfig = {
+  zIndex: string,
+  backgroundColor: string,
+  background?: string,
+  border: string,
+  borderWidth: string,
+  borderRadius: string,
+  backdropFilter: string,
+  transition: string,
+}
+type sidebarV2LayoutConfig = {
+  safeAreaOffset: string,
+  floatingPadding: string,
+  primaryActionMarginX: string,
+  itemLabelMarginTop: string,
+  itemLabelLineHeight: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  gap: string,
+  rowPaddingTop: string,
+  rowPaddingBottom: string,
+  rowPaddingLeft: string,
+  rowPaddingRight: string,
+  rowGap: string,
+}
+type sidebarV2BackgroundColorConfig = {
+  active: string,
+  default: string,
+}
+type sidebarV2IconConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  transition: string,
+  strokeWidth: float,
+}
+type sidebarV2TextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  textAlign: string,
+}
+type sidebarV2ItemConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  gap: string,
+  backgroundColor: sidebarV2BackgroundColorConfig,
+  color: sidebarV2BackgroundColorConfig,
+  fontWeight: string,
+  icon: sidebarV2IconConfig,
+  text: sidebarV2TextConfig,
+}
+type sidebarV2IconConfig2 = {
+  width: string,
+  height: string,
+  strokeWidth: float,
+}
+type sidebarV2PrimaryActionConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  background: string,
+  boxShadow: string,
+  color: string,
+  icon: sidebarV2IconConfig2,
+}
+type mobileNavigationV2TokenType = {
+  container: sidebarV2ContainerConfig,
+  layout: sidebarV2LayoutConfig,
+  item: sidebarV2ItemConfig,
+  primaryAction: sidebarV2PrimaryActionConfig,
+}
+type responsiveMobileNavigationV2Tokens = {
+  sm: mobileNavigationV2TokenType,
+  lg: mobileNavigationV2TokenType,
+}
 type sidebarV2HoverPreviewConfig = {
   boxShadow: string,
 }
@@ -10,7 +88,7 @@ type sidebarV2MaxWidthConfig = {
   withoutLeftPanel: string,
   iconOnly: string,
 }
-type sidebarV2ContainerConfig = {
+type sidebarV2ContainerConfig2 = {
   zIndex: string,
   backgroundColor: string,
   borderRight: string,
@@ -18,11 +96,11 @@ type sidebarV2ContainerConfig = {
   maxWidth: sidebarV2MaxWidthConfig,
 }
 type sidebarV2BorderConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
-type sidebarV2ItemConfig = {
+type sidebarV2ItemConfig2 = {
   width: string,
   borderRadius: string,
   border: sidebarV2BorderConfig,
@@ -37,7 +115,7 @@ type sidebarV2LeftPanelConfig = {
   paddingLeft: string,
   paddingRight: string,
   gap: string,
-  item: sidebarV2ItemConfig,
+  item: sidebarV2ItemConfig2,
 }
 type sidebarV2ToggleButtonConfig = {
   borderRadius: string,
@@ -79,7 +157,7 @@ type sidebarV2FooterConfig = {
 type sidebarV2PrimarySidebarConfig = {
   width: string,
 }
-type sidebarV2ItemConfig2 = {
+type sidebarV2ItemConfig3 = {
   width: string,
   height: string,
   borderRadius: string,
@@ -95,10 +173,10 @@ type sidebarV2SecondarySidebarConfig = {
   paddingBottom: string,
   paddingLeft: string,
   paddingRight: string,
-  item: sidebarV2ItemConfig2,
+  item: sidebarV2ItemConfig3,
 }
 type sidebarV2TokensType = {
-  container: sidebarV2ContainerConfig,
+  container: sidebarV2ContainerConfig2,
   leftPanel: sidebarV2LeftPanelConfig,
   header: sidebarV2HeaderConfig,
   directory: sidebarV2DirectoryConfig,
@@ -110,84 +188,6 @@ type responsiveSidebarV2Tokens = {
   sm: sidebarV2TokensType,
   lg: sidebarV2TokensType,
 }
-type sidebarV2ContainerConfig2 = {
-  zIndex: string,
-  backgroundColor: string,
-  background?: string,
-  border: string,
-  borderWidth: string,
-  borderRadius: string,
-  backdropFilter: string,
-  transition: string,
-}
-type sidebarV2LayoutConfig = {
-  safeAreaOffset: string,
-  floatingPadding: string,
-  primaryActionMarginX: string,
-  itemLabelMarginTop: string,
-  itemLabelLineHeight: string,
-  paddingTop: string,
-  paddingBottom: string,
-  paddingLeft: string,
-  paddingRight: string,
-  gap: string,
-  rowPaddingTop: string,
-  rowPaddingBottom: string,
-  rowPaddingLeft: string,
-  rowPaddingRight: string,
-  rowGap: string,
-}
-type sidebarV2BackgroundColorConfig = {
-  default: string,
-  active: string,
-}
-type sidebarV2IconConfig = {
-  width: string,
-  height: string,
-  borderRadius: string,
-  transition: string,
-  strokeWidth: float,
-}
-type sidebarV2TextConfig = {
-  fontSize: string,
-  fontWeight: string,
-  textAlign: string,
-}
-type sidebarV2ItemConfig3 = {
-  width: string,
-  height: string,
-  borderRadius: string,
-  gap: string,
-  backgroundColor: sidebarV2BackgroundColorConfig,
-  color: sidebarV2BackgroundColorConfig,
-  fontWeight: string,
-  icon: sidebarV2IconConfig,
-  text: sidebarV2TextConfig,
-}
-type sidebarV2IconConfig2 = {
-  width: string,
-  height: string,
-  strokeWidth: float,
-}
-type sidebarV2PrimaryActionConfig = {
-  width: string,
-  height: string,
-  borderRadius: string,
-  background: string,
-  boxShadow: string,
-  color: string,
-  icon: sidebarV2IconConfig2,
-}
-type mobileNavigationV2TokenType = {
-  container: sidebarV2ContainerConfig2,
-  layout: sidebarV2LayoutConfig,
-  item: sidebarV2ItemConfig3,
-  primaryAction: sidebarV2PrimaryActionConfig,
-}
-type responsiveMobileNavigationV2Tokens = {
-  sm: mobileNavigationV2TokenType,
-  lg: mobileNavigationV2TokenType,
-}
 type secondarySidebarItem = {
   label: string,
   value: string,
@@ -197,7 +197,7 @@ type secondarySidebarInfo = {
   items: array<secondarySidebarItem>,
   selected: string,
   onSelect: string => unit,
-  buttonProps?: ReactTypes.reactTriggerPropsConfig,
+  buttonProps?: ReactTypes.reactPrimaryActionButtonPropsConfig,
   footerSlot?: React.element,
 }
 type sidebarV2ItemsConfig = {
@@ -209,4 +209,15 @@ type sidebarV2MerchantInfoConfig = {
   items: array<sidebarV2ItemsConfig>,
   selected: string,
   onSelect: string => unit,
+}
+type sidebarV2MobileNavigationItem = {
+  label: string,
+  items?: array<DirectoryTypes.navbarItem>,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  onClick?: unit => unit,
+  href?: string,
+  isSelected?: bool,
+  showOnMobile?: bool,
+  sectionLabel?: string,
 }

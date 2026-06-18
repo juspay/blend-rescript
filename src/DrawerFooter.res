@@ -2,5 +2,5 @@
 external make: (
   ~children: React.element,
   ~className: string=?,
-  ~direction: DrawerV2Types.direction=?,
+  ~direction: DateRangePickerTypes.side=?,
 ) => React.element = "DrawerFooter"

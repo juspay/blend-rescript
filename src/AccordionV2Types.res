@@ -12,22 +12,22 @@ type accordionV2ContentConfig = {
   gap: string,
 }
 type accordionV2BorderConfig = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
+  disabled: string,
   @as("open") open_: string,
-  active: string,
 }
 type accordionV2BackgroundColorConfig = {
   border: accordionV2BorderConfig,
   noBorder: accordionV2BorderConfig,
 }
 type accordionV2ColorConfig = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
+  disabled: string,
   @as("open") open_: string,
-  active: string,
 }
 type accordionV2TitleConfig = {
   fontSize: string,

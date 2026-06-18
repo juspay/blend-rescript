@@ -6,35 +6,6 @@ type uploadState =
 type status =
   | @as("error") Error
   | @as("success") Success
-type uploadFile = {
-  file: Webapi.File.t,
-  progress: float,
-  status: uploadState,
-  id: string,
-  error?: string,
-}
-type uploadedFileWithStatus = {
-  file: Webapi.File.t,
-  id: string,
-  status: status,
-  error?: string,
-}
-type uploadErrorsConfig = {
-  code: string,
-  message: string,
-}
-type fileRejection = {
-  file: Webapi.File.t,
-  errors: array<uploadErrorsConfig>,
-}
-type uploadOnStateChangeConfig = {
-  state: uploadState,
-  hasError: bool,
-  hasSuccess: bool,
-  hasUploading: bool,
-  errorFiles: array<uploadedFileWithStatus>,
-  successfulFiles: array<uploadedFileWithStatus>,
-}
 type uploadTextConfig = {
   fontSize: string,
   fontWeight: string,
@@ -110,6 +81,35 @@ type uploadTokenType = {
 type responsiveUploadTokens = {
   sm: uploadTokenType,
   lg: uploadTokenType,
+}
+type uploadFile = {
+  file: Webapi.File.t,
+  progress: float,
+  status: uploadState,
+  id: string,
+  error?: string,
+}
+type uploadedFileWithStatus = {
+  file: Webapi.File.t,
+  id: string,
+  status: status,
+  error?: string,
+}
+type uploadErrorsConfig = {
+  code: string,
+  message: string,
+}
+type fileRejection = {
+  file: Webapi.File.t,
+  errors: array<uploadErrorsConfig>,
+}
+type uploadOnStateChangeConfig = {
+  state: uploadState,
+  hasError: bool,
+  hasSuccess: bool,
+  hasUploading: bool,
+  errorFiles: array<uploadedFileWithStatus>,
+  successfulFiles: array<uploadedFileWithStatus>,
 }
 module UploadFormValue = {
   type t

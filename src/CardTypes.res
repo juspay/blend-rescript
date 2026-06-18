@@ -1,16 +1,10 @@
-type variant2 =
+type variant =
   | @as("default") Default
   | @as("aligned") Aligned
   | @as("custom") Custom
 type cardAlignment =
   | @as("vertical") Vertical
   | @as("horizontal") Horizontal
-type cardSkeletonProps = {
-  variant: SkeletonTypes.skeletonVariant,
-  show: bool,
-  height?: string,
-  width?: string,
-}
 type cardDefaultConfig = {
   x: string,
   y: string,
@@ -103,4 +97,10 @@ type cardTokenType = {
 type responsiveCardTokens = {
   sm: cardTokenType,
   lg: cardTokenType,
+}
+type cardSkeletonProps = {
+  variant: SkeletonTypes.skeletonVariant,
+  show: bool,
+  height?: string,
+  width?: string,
 }

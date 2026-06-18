@@ -1,30 +1,3 @@
-type modalButtonAction = {
-  disabled?: bool,
-  onClick?: option<ReactEvent.Mouse.t> => unit,
-  width?: CommonTypes.stringOrNumber,
-  size?: ButtonTypes.buttonSize,
-  text?: string,
-  justifyContent?: string,
-  buttonType?: ButtonTypes.buttonType,
-  subType?: ButtonTypes.buttonSubType,
-  leadingIcon?: React.element,
-  trailingIcon?: React.element,
-  loading?: bool,
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-  fullWidth?: bool,
-  state?: ButtonTypes.buttonState,
-}
-type bodySkeletonProps = {
-  show?: bool,
-  width?: string,
-  height?: string,
-}
-type modalSkeletonProps = {
-  show?: bool,
-  variant?: SkeletonTypes.skeletonVariant,
-  bodySkeletonProps?: bodySkeletonProps,
-}
 type modalOverlayConfig = {
   backgroundColor: string,
 }
@@ -72,4 +45,31 @@ type modalTokensType = {
 type responsiveModalTokens = {
   sm: modalTokensType,
   lg: modalTokensType,
+}
+type modalButtonAction = {
+  width?: CommonTypes.stringOrNumber,
+  text?: string,
+  disabled?: bool,
+  justifyContent?: string,
+  size?: ButtonTypes.buttonSize,
+  onClick?: option<ReactEvent.Mouse.t> => unit,
+  buttonType?: ButtonTypes.buttonType,
+  subType?: ButtonTypes.buttonSubType,
+  leadingIcon?: React.element,
+  trailingIcon?: React.element,
+  loading?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  fullWidth?: bool,
+  state?: ButtonTypes.buttonState,
+}
+type bodySkeletonProps = {
+  show?: bool,
+  width?: string,
+  height?: string,
+}
+type modalSkeletonProps = {
+  show?: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+  bodySkeletonProps?: bodySkeletonProps,
 }

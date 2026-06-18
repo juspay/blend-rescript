@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.3`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.4`
 
-**162** components · ✅ **161** usable · 🔍 **1** need review · 🛑 **0** broken
+**209** components · ✅ **208** usable · 🔍 **1** need review · 🛑 **0** broken
 
-**84** function binding(s) → `BlendDesignSystemBindings.res`.
+**224** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2588** shared types deduplicated into **73** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2867** shared types deduplicated into **71** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -17,35 +17,8 @@
 
 Standalone function exports, emitted as positional `@module external` bindings in `BlendDesignSystemBindings.res`.
 
-- `addSnackbarV2`
-- `getButtonV2Tokens`
-- `getAccordionV2Tokens`
-- `getAlertV2Tokens`
-- `getAvatarV2Tokens`
-- `getBreadcrumbV2Tokens`
-- `getChartV2Tokens`
-- `getCheckboxV2Tokens`
-- `getCodeEditorV2Tokens`
-- `getKeyValuePairV2Tokens`
-- `getMenuV2Tokens`
-- `getMultiSelectV2Tokens`
-- `getPopoverV2Tokens`
-- `getProgressBarV2Tokens`
-- `getRadioV2Tokens`
-- `getSingleSelectV2Tokens`
-- `getSwitchV2Tokens`
-- `getSnackbarV2Tokens`
-- `getStatCardV2Tokens`
-- `getTabsV2Tokens`
-- `getTagV2Tokens`
-- `getTextInputV2Tokens`
-- `getTimelineTokens`
-- `getTooltipV2Tokens`
-- `getSidebarV2Tokens`
-- `getMobileNavigationV2Tokens`
-- `getTopbarTokens`
-- `getSidebarTokens`
-- `getMobileNavigationTokens`
+- `useTheme`
+- `useShadowRoot`
 - `getAccordionToken`
 - `getAlertTokens`
 - `getAvatarTokens`
@@ -72,6 +45,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getMultiSelectTokens`
 - `getPopoverTokens`
 - `getProgressBarTokens`
+- `getSidebarTokens`
 - `useSkeletonBase`
 - `getSkeletonState`
 - `mergeSkeletonProps`
@@ -92,14 +66,180 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getTagTokens`
 - `getTooltipTokens`
 - `getUploadTokens`
-- `useTheme`
-- `useShadowRoot`
+- `getButtonV2Tokens`
+- `getButtonV2BorderRadius`
+- `createButtonClickHandler`
+- `getButtonHeight`
+- `getIconMaxHeight`
+- `getButtonStatus`
+- `getButtonTabIndex`
+- `getSkeletonBorderRadius`
+- `getSkeletonWidth`
+- `getButtonBorderStyles`
+- `getButtonStyles`
+- `getIconColor`
+- `getTextColor`
+- `getButtonPadding`
+- `getButtonLineHeight`
+- `getAlertV2Tokens`
+- `getTagV2Tokens`
+- `getTagBorderRadius`
+- `getAccessibleName`
+- `createKeyboardHandler`
+- `getCheckboxV2Tokens`
+- `getCheckboxDataState`
+- `getCheckboxIconColor`
+- `getCheckboxTextColor`
+- `getCheckboxSubtextColor`
+- `getCheckboxTextProps`
+- `getCheckboxSubtextProps`
+- `getCheckboxLabelStyles`
+- `getAccessibilityAttributes`
+- `getSubtextId`
+- `mergeCheckboxV2AriaDescribedBy`
+- `handleCheckboxKeyDown`
+- `getCheckboxState`
+- `getRadioV2Tokens`
+- `getSwitchV2Tokens`
+- `getBreadcrumbV2Tokens`
+- `getPlainTextFromReactNode`
+- `filterBreadcrumbItemChildren`
+- `indexBreadcrumbChildren`
+- `computeBreadcrumbOverflowLayout`
+- `resolveBreadcrumbItemActive`
+- `createStubNativeClickEvent`
+- `createStubAnchorClickEvent`
+- `getAvatarV2Tokens`
+- `getInitialsFromText`
+- `sanitizeTextForLabel`
+- `renderFallbackContent`
+- `getColorFromText`
+- `getAccessibleLabel`
+- `getAriaLiveValue`
+- `getStatusPositionStyles`
+- `createAvatarKeyboardHandler`
+- `isInteractive`
+- `getTooltipV2Tokens`
+- `getProgressBarV2Tokens`
+- `normalizeRange`
+- `clampValue`
+- `getProgressBarValueState`
+- `calculatePercentage`
+- `parseTokenValue`
+- `extractProgressBarV2AriaProps`
+- `generateDefaultAriaLabel`
+- `getCircularDimensions`
+- `parseCircularDashToken`
+- `calculateCircularProgressStroke`
+- `renderVariantFallbackValue`
+- `buildStatCardV2ChartOptions`
+- `getStatCardV2Tokens`
+- `buildStatCardV2AriaLabel`
+- `getAccordionV2Tokens`
+- `getTextInputV2Tokens`
+- `toEmbeddedSingleSelectV2Props`
+- `getInputState`
+- `getVerticalInputPadding`
+- `getTextAreaV2Tokens`
+- `useTabsV2Context`
+- `TabsV2Context`
+- `getTabsV2Tokens`
+- `processTabsWithConcatenation`
+- `prepareDropdownItems`
+- `calculateTabIndicatorPosition`
+- `getActualTabValue`
+- `isConcatenatedTab`
+- `extractOriginalValues`
+- `mergeItemsWithDefaultOrdering`
+- `applyTabItemDisplayDefaults`
+- `useChartLegend`
+- `useChartLegendHover`
+- `useChartRefs`
+- `getLegendItems`
+- `applyHoverState`
+- `mergeChartOptions`
+- `getChartV2Tokens`
+- `getButtonGroupPosition`
+- `getButtonGroupGap`
+- `getPopoverV2Tokens`
+- `getSidebarV2Tokens`
+- `isControlledSidebarV2`
+- `getSidebarV2Status`
+- `announceSidebarV2StateChange`
+- `getTopbarV2Styles`
+- `getSidebarV2MobileNavigationItems`
+- `useTopbarV2AutoHide`
 - `getStepperV2Tokens`
+- `scheduleLiveRegionAnnouncement`
+- `getStepState`
+- `getTimelineTokens`
 - `getTopbarV2Tokens`
+- `useSelectV2MenuBehavior`
 - `getMultiValueInputV2Tokens`
 - `getNumberInputV2Tokens`
 - `getOTPInputV2Tokens`
 - `getSearchInputV2Tokens`
+- `addSnackbarV2`
+- `getSnackbarV2Tokens`
+- `getCodeEditorV2Tokens`
+- `getEditorMetrics`
+- `getContainerDimensions`
+- `getPlaceholderPosition`
+- `configureLanguageDefaults`
+- `blurMonacoEditorDom`
+- `getMonacoViewModeOptions`
+- `syncDiffEditorPaneViewMode`
+- `getMountEditorOptions`
+- `getUpdateEditorOptions`
+- `getDiffEditorOptions`
+- `getInitialEditorOptions`
+- `copyToClipboardWithTemporaryFeedback`
+- `shouldShowLineNumbers`
+- `isDiffEditorMode`
+- `getCodeEditorV2ContainerStyles`
+- `toCssValue`
+- `toNumericValue`
+- `getKeyValuePairV2Tokens`
+- `getKeyValuePairV2ContainerStyles`
+- `getLayoutStyles`
+- `getSlotStyles`
+- `getMenuV2Tokens`
+- `getItemSlots`
+- `filterMenuV2Item`
+- `getMenuItemBackgroundColor`
+- `getMenuItemOptionColor`
+- `getMenuItemDescriptionColor`
+- `flattenMenuV2Groups`
+- `filterMenuV2Groups`
+- `getMultiSelectV2Tokens`
+- `getMultiSelectBorderRadius`
+- `getMultiSelectCrossBorderRadius`
+- `getSelectAllState`
+- `getMultiSelectV2ValueLabelMap`
+- `getFilteredMenuItem`
+- `filterMultiSelectV2MenuGroups`
+- `getAllAvailableValues`
+- `handleSelectAll`
+- `flattenMenuGroups`
+- `getTriggerLeftPadding`
+- `getTriggerTopPadding`
+- `getTriggerHorizontalPadding`
+- `getTriggerVerticalPadding`
+- `getSingleSelectV2Tokens`
+- `getSingleSelectV2BorderRadius`
+- `getSingleSelectV2ValueLabelMap`
+- `flattenGroups`
+- `filterSingleSelectV2MenuGroups`
+- `filterSingleSelectV2Item`
+- `isTooltipWrappingTrigger`
+- `getMenuItemIndex`
+- `getVirtualRowEstimate`
+- `getItemOrdinalIndex`
+- `generateAccessibilityIds`
+- `extractSingleSelectV2AriaProps`
+- `mergeSingleSelectV2AriaDescribedBy`
+- `buildAriaAttributes`
+- `setupAccessibility`
 - `getChatInputV2Tokens`
 
 ## ✅ Usable
@@ -110,16 +250,25 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - Accordion
 - AccordionItem
 - AccordionV2
+- AccordionV2Chevron
 - AccordionV2Item
+- AccordionV2TriggerContent
 - Alert
 - AlertV2
 - Avatar
 - AvatarGroup
 - AvatarV2
+- Badge
 - BlendChartContainer
 - BlendChartHeader
 - Breadcrumb
 - BreadcrumbV2
+- BreadcrumbV2Icon
+- BreadcrumbV2Item
+- BreadcrumbV2List
+- BreadcrumbV2OverflowMenu
+- BreadcrumbV2Page
+- BreadcrumbV2Separator
 - Button
 - ButtonGroup
 - ButtonGroupV2
@@ -131,15 +280,19 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeaderV2
 - ChartLegends
 - Charts
+- ChartV2Fullscreen
+- ChartV2Legend
 - ChartV2NoData
 - ChartV2Skeleton
 - ChatInput
 - ChatInputV2
 - Checkbox
 - CheckboxV2
+- CircularProgressBarV2
 - CodeBlock
 - CodeEditor
 - CodeEditorV2
+- CodeEditorV2Header
 - CoreChart
 - DataTable  _(3 loose)_
 - DateRangePicker
@@ -168,9 +321,14 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - DrawerV2Title
 - DrawerV2Trigger
 - DropdownInput
+- IconButton
 - KeyValuePair
+- KeyValuePairLayout
 - KeyValuePairV2
+- LinearProgressBarV2
+- LinkButton
 - Menu
+- MenuItem
 - MenuV2
 - MenuV2Content
 - MenuV2Item
@@ -187,10 +345,13 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - MultiSelectV2Menu
 - MultiSelectV2MenuActions
 - MultiSelectV2MenuHeader
+- MultiSelectV2MenuItem
 - MultiSelectV2MenuItems
 - MultiSelectV2MenuSearch
 - MultiSelectV2MenuVirtualList
+- MultiSelectV2SelectAllItem
 - MultiSelectV2Skeleton
+- MultiSelectV2SubMenu
 - MultiSelectV2Trigger
 - MultiValueInput
 - MultiValueInputV2
@@ -200,6 +361,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - NumberInputV2
 - OTPInput
 - OTPInputV2
+- PivotTableModal  _(1 loose)_
 - Popover
 - PopoverV2
 - ProgressBar
@@ -207,14 +369,20 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - Radio
 - RadioGroup
 - RadioV2
+- RadioV2Content
+- renderButtonContent
+- ResponsiveText
 - SankeyLink
 - SankeyNode
 - SearchInput
 - SearchInputV2
+- SecondarySidebar
 - SelectItemV2
 - ShadowAware
 - Sidebar
 - SidebarV2
+- SidebarV2Footer
+- SidebarV2Header
 - SidebarV2Panel
 - SingleSelect
 - SingleSelectDrawer
@@ -235,9 +403,24 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SplitTag
 - StatCard
 - StatCardV2
+- StatCardV2Change
+- StatCardV2NoData  _(1 loose)_
+- StatCardV2Skeleton
+- StatCardV2Subtitle
+- StatCardV2Title
+- StatCardV2Value
 - StatusDrawer
 - Stepper
 - StepperV2
+- StyledCheckboxIndicator  _(4 loose)_
+- StyledCheckboxRoot  _(4 loose)_
+- StyledRadioV2Root  _(4 loose)_
+- StyledTabsContent  _(4 loose)_
+- StyledTabsList  _(4 loose)_
+- StyledTabsRoot  _(4 loose)_
+- StyledTabsTrigger  _(4 loose)_
+- StyledToast
+- SubMenu
 - Switch
 - SwitchGroup
 - SwitchV2
@@ -247,12 +430,16 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TabsTrigger
 - TabsV2
 - TabsV2Content
+- TabsV2IconContainer  _(4 loose)_
 - TabsV2List
+- TabsV2Provider
 - TabsV2Trigger
 - Tag
 - TagGroupV2
+- TagSkeleton
 - TagV2
 - TextArea
+- TextAreaV2
 - TextInput
 - ThemeProvider
 - Timeline
@@ -275,9 +462,42 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 | Resolved TypeScript type | → emitted | count | example props |
 |--------------------------|-----------|-------|---------------|
-| `ColumnDefinition<T>[]` | `string` | 1 | columns |
+| `ColumnDefinition<T>[]` | `string` | 2 | columns |
 | `keyof T` | `string` | 1 | idField |
 | `(keyof T)[]` | `string` | 1 | columnManagerAlwaysSelected |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
+| `{} \| Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>[string] \| CSSPropertiesWithVars` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...>` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> &` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substit` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Su` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>` | `string` | 1 | filteredProps |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...; }` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> &` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...>` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & {` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| "$variant" \| "$size" \| "$expanded" \| "$fitContent" \| "$hideIndicator">` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| "$variant" \| "$size" \| "$expanded" \| "$fitContent" \| "$hideIndicator"> &` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| ... 4 more ... \| "$hideIndicator"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| ... 4 more ... \| "$hideIndicator"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| "$variant" \| "$size" \| "$isOverlay"> & { ...; }, Substitute<...>` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| "$variant" \| "$size" \| "$isOverlay"> & { ...; }, Substitute<...>>,` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| ... 2 more ... \| "$isOverlay"> & { ...; }, Substitute<...>>` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| ... 2 more ... \| "$isOverlay"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProp` | `string` | 1 | theme |
+| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps>` | `string` | 1 | as |
+| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof Executio` | `string` | 1 | forwardedAs |
+| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
 
 ## 🔍 Needs review
 

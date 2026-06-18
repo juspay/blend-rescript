@@ -11,23 +11,19 @@ type buttonV2SubType =
   | @as("default") Default
   | @as("iconOnly") IconOnly
   | @as("inline") Inline
-type buttonGroupPosition =
-  | @as("center") Center
-  | @as("left") Left
-  | @as("right") Right
 type buttonV2State =
   | @as("default") Default
   | @as("hover") Hover
   | @as("active") Active
   | @as("disabled") Disabled
-type buttonSlot = {
-  slot: React.element,
-  maxHeight?: CommonTypes.stringOrNumber,
-}
-type buttonSkeleton = {
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-}
+type value =
+  | @as("disabled") Disabled
+  | @as("loading") Loading
+  | @as("enabled") Enabled
+type buttonGroupPosition2 =
+  | @as("left") Left
+  | @as("center") Center
+  | @as("right") Right
 type buttonV2DefaultConfig = {
   default: string,
   hover: string,
@@ -124,15 +120,50 @@ type responsiveButtonV2Tokens = {
   sm: buttonV2SmConfig,
   lg: buttonV2SmConfig,
 }
+type buttonSlot = {
+  slot: React.element,
+  maxHeight?: CommonTypes.stringOrNumber,
+}
+type buttonSkeleton = {
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+}
+type buttonV2ValueConfig = {
+  border?: string,
+  borderTop?: string,
+  borderRight?: string,
+  borderBottom?: string,
+  borderLeft?: string,
+}
+type buttonStylesReturn = {
+  background?: string,
+  color?: string,
+  border?: string,
+  borderTop?: string,
+  borderBottom?: string,
+  borderLeft?: string,
+  borderRight?: string,
+  cursor?: string,
+  _active?: Dict.t<CommonTypes.stringOrNumber>,
+  _hover?: Dict.t<CommonTypes.stringOrNumber>,
+  _focusVisible?: Dict.t<CommonTypes.stringOrNumber>,
+  _disabled?: Dict.t<CommonTypes.stringOrNumber>,
+}
+type buttonV2ValueConfig2 = {
+  top: string,
+  right: string,
+  bottom: string,
+  left: string,
+}
 type buttonV2ButtonPropsConfig = {
-  width?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
   minWidth?: CommonTypes.stringOrNumber,
-  size?: buttonV2Size,
-  skeleton?: buttonSkeleton,
+  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber,
   leftSlot?: buttonSlot,
   rightSlot?: buttonSlot,
-  buttonGroupPosition?: buttonGroupPosition,
+  size?: buttonV2Size,
+  skeleton?: buttonSkeleton,
+  buttonGroupPosition?: ButtonTypes.buttonGroupPosition,
   buttonType?: buttonV2Type,
   subType?: buttonV2SubType,
   loading?: bool,
