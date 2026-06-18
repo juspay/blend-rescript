@@ -71,3 +71,52 @@ type responsiveTextInputV2Tokens = {
   sm: textInputV2TokensType,
   lg: textInputV2TokensType,
 }
+type inputsV2PlaceholderColorConfig = {
+  default: string,
+  focus: string,
+  hover: string,
+  error: string,
+  disabled: string,
+}
+type inputsV2CloseButtonConfig = {
+  width: string,
+}
+type inputsV2LeftSlotConfig = {
+  width: string,
+  height: string,
+}
+type inputsV2SlotAlignTopConfig = {
+  withTags: string,
+  withoutTags: string,
+}
+type inputsV2InputContainerConfig2 = {
+  offSet: float,
+  fontSize: inputsV2FontSizeConfig,
+  fontWeight: inputsV2FontSizeConfig,
+  gap: string,
+  borderRadius?: string,
+  boxShadow: inputsV2ColorConfig,
+  paddingTop: inputsV2FontSizeConfig,
+  paddingRight: inputsV2FontSizeConfig,
+  paddingBottom: inputsV2FontSizeConfig,
+  paddingLeft: inputsV2FontSizeConfig,
+  border: inputsV2ColorConfig,
+  color: inputsV2ColorConfig,
+  placeholderColor: inputsV2PlaceholderColorConfig,
+  backgroundColor: inputsV2ColorConfig,
+  closeButton: inputsV2CloseButtonConfig,
+  leftSlot: inputsV2LeftSlotConfig,
+  rightSlot: inputsV2LeftSlotConfig,
+  slotAlignTop: inputsV2SlotAlignTopConfig,
+}
+type multiValueInputV2TokensType = {
+  gap: string,
+  borderRadius: string,
+  topContainer: inputsV2TopContainerConfig,
+  inputContainer: inputsV2InputContainerConfig2,
+  bottomContainer: inputsV2BottomContainerConfig,
+}
+type responsiveMultiValueInputV2Tokens = {
+  sm: multiValueInputV2TokensType,
+  lg: multiValueInputV2TokensType,
+}

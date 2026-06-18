@@ -308,6 +308,8 @@ type componentTokenType = {
   @as("BREADCRUMBV2") bREADCRUMBV2?: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
   @as("CODEEDITORV2") cODEEDITORV2?: CodeEditorV2Types.responsiveCodeEditorV2Tokens,
   @as("PROGRESS_BARV2") pROGRESS_BARV2?: ProgressBarV2Types.responsiveProgressBarV2Tokens,
+  @as("MULTI_VALUE_INPUT_V2")
+  mULTI_VALUE_INPUT_V2?: InputsV2Types.responsiveMultiValueInputV2Tokens,
 }
 type contextComponentTokensConfig = {
   @as("TAGS") tAGS: TagsTypes.responsiveTagTokens,
@@ -376,6 +378,7 @@ type contextComponentTokensConfig = {
   @as("BREADCRUMBV2") bREADCRUMBV2: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
   @as("CODEEDITORV2") cODEEDITORV2: CodeEditorV2Types.responsiveCodeEditorV2Tokens,
   @as("PROGRESS_BARV2") pROGRESS_BARV2: ProgressBarV2Types.responsiveProgressBarV2Tokens,
+  @as("MULTI_VALUE_INPUT_V2") mULTI_VALUE_INPUT_V2: InputsV2Types.responsiveMultiValueInputV2Tokens,
 }
 type themeContextType = {
   foundationTokens: TokensTypes.foundationTokenType,
