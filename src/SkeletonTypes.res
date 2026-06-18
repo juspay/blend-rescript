@@ -6,8 +6,8 @@ type as_ =
   | @as("article") Article
   | @as("button") Button
   | @as("main") Main
-  | @as("div") Div
   | @as("label") Label
+  | @as("div") Div
   | @as("nav") Nav
   | @as("span") Span
   | @as("footer") Footer

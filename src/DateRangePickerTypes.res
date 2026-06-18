@@ -286,9 +286,3 @@ type dateRangePickerPopoverConfig = {
   align?: align,
   sideOffset?: float,
 }
-module PresetsConfig = {
-  type t
-  external fromDateRangePreset: dateRangePreset => t = "%identity"
-  external fromCustomPresetConfig: customPresetConfig => t = "%identity"
-  external fromCustomPresetDefinition: customPresetDefinition => t = "%identity"
-}

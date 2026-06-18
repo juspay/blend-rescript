@@ -43,12 +43,12 @@ module ElementType = {
     | #html
     | #select
     | #data
+    | #label
     | #a
     | #div
     | #h2
     | #h3
     | #input
-    | #label
     | #li
     | #nav
     | #ol

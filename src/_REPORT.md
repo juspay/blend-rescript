@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.4`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.5`
 
 **209** components · ✅ **208** usable · 🔍 **1** need review · 🛑 **0** broken
 
-**224** function binding(s) → `BlendDesignSystemBindings.res`.
+**225** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2867** shared types deduplicated into **71** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2868** shared types deduplicated into **71** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -24,6 +24,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getAvatarTokens`
 - `getAvatarGroupTokens`
 - `getBreadcrumbTokens`
+- `normalizeBreadcrumbItems`
 - `getButtonTokens`
 - `getCardTokens`
 - `getChartTokens`
@@ -295,7 +296,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - CodeEditorV2Header
 - CoreChart
 - DataTable  _(3 loose)_
-- DateRangePicker
+- DateRangePicker  _(1 loose)_
 - Directory
 - Drawer
 - DrawerBody
@@ -465,6 +466,7 @@ These resolved to a real but complex type and were widened to `string` (they com
 | `ColumnDefinition<T>[]` | `string` | 2 | columns |
 | `keyof T` | `string` | 1 | idField |
 | `(keyof T)[]` | `string` | 1 | columnManagerAlwaysSelected |
+| `PresetsConfig` | `string` | 1 | customPresets |
 | `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |

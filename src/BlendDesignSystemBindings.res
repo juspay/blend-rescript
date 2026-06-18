@@ -17,6 +17,10 @@ external getAvatarGroupTokens: 'a => AvatarGroupTypes.responsiveAvatarGroupToken
 external getBreadcrumbTokens: TokensTypes.foundationTokenType => BreadcrumbTypes.responsiveBreadcrumbTokens =
   "getBreadcrumbTokens"
 @module("@juspay/blend-design-system")
+external normalizeBreadcrumbItems: array<BreadcrumbTypes.breadcrumbItemType> => array<
+  BreadcrumbTypes.breadcrumbItemType,
+> = "normalizeBreadcrumbItems"
+@module("@juspay/blend-design-system")
 external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.responsiveButtonTokens =
   "getButtonTokens"
 @module("@juspay/blend-design-system")
