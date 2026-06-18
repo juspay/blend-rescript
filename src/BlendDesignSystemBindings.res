@@ -1,5 +1,5 @@
 @module("@juspay/blend-design-system")
-external getButtonTokens: TokensTypes.foundationTokenType => ButtonSharedTypes.responsiveButtonTokens =
+external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.responsiveButtonTokens =
   "getButtonTokens"
 @module("@juspay/blend-design-system")
 external getTabsTokens: TokensTypes.foundationTokenType => TabsTypes.responsiveTabsTokens =
@@ -88,10 +88,10 @@ external getSidebarTokens: TokensTypes.foundationTokenType => SidebarTypes.respo
 external getDirectoryTokens: TokensTypes.foundationTokenType => DirectoryTypes.responsiveDirectoryTokens =
   "getDirectoryTokens"
 @module("@juspay/blend-design-system")
-external getMultiSelectTokens: TokensTypes.foundationTokenType => MultiSelectSharedTypes.responsiveMultiSelectTokens =
+external getMultiSelectTokens: TokensTypes.foundationTokenType => MultiSelectTypes.responsiveMultiSelectTokens =
   "getMultiSelectTokens"
 @module("@juspay/blend-design-system")
-external getSingleSelectTokens: TokensTypes.foundationTokenType => MultiSelectSharedTypes.responsiveSingleSelectTokens =
+external getSingleSelectTokens: TokensTypes.foundationTokenType => SingleSelectTypes.responsiveSingleSelectTokens =
   "getSingleSelectTokens"
 @module("@juspay/blend-design-system")
 external getSliderTokenStyles: (
@@ -115,11 +115,11 @@ external createSliderRange: (
   float,
   float,
   SliderTypes.sliderValueType,
-  ~options: SliderTypes.optionsConfig=?,
+  ~options: SliderTypes.sliderOptionsConfig=?,
   unit,
-) => SliderTypes.valueConfig3 = "createSliderRange"
+) => SliderTypes.sliderValueConfig = "createSliderRange"
 @module("@juspay/blend-design-system")
-external buildThumbAriaAttributes: SliderTypes.optionsConfig2 => Dict.t<string> =
+external buildThumbAriaAttributes: SliderTypes.sliderOptionsConfig2 => Dict.t<string> =
   "buildThumbAriaAttributes"
 @module("@juspay/blend-design-system")
 external getSliderLabelStyles: (
@@ -132,15 +132,18 @@ external getProgressBarTokens: TokensTypes.foundationTokenType => ProgressBarTyp
 @module("@juspay/blend-design-system")
 external getStepperTokens: TokensTypes.foundationTokenType => StepperTypes.responsiveStepperTokens =
   "getStepperTokens"
+// ⚪ loose: `useSkeletonBase` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external getSkeletonState: bool => ButtonSharedTypes.valueConfig4 = "getSkeletonState"
+external useSkeletonBase: (bool, ~children: React.element=?, unit) => string = "useSkeletonBase"
+@module("@juspay/blend-design-system")
+external getSkeletonState: bool => SkeletonTypes.skeletonValueConfig3 = "getSkeletonState"
 @module("@juspay/blend-design-system")
 external mergeSkeletonProps: ('a, ~skeletonProps: JSON.t=?, unit) => JSON.t = "mergeSkeletonProps"
 // ⚪ loose: `getSkeletonDefaults` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
 external getSkeletonDefaults: ('a, Dict.t<string>) => 'a = "getSkeletonDefaults"
 @module("@juspay/blend-design-system")
-external getSkeletonTokens: TokensTypes.foundationTokenType => ButtonSharedTypes.responsiveSkeletonTokens =
+external getSkeletonTokens: TokensTypes.foundationTokenType => SkeletonTypes.responsiveSkeletonTokens =
   "getSkeletonTokens"
 @module("@juspay/blend-design-system")
 external getKeyValuePairTokens: TokensTypes.foundationTokenType => KeyValuePairTypes.responsiveKeyValuePairTokens =
@@ -153,6 +156,8 @@ external getChatInputTokens: TokensTypes.foundationTokenType => ChatInputTypes.r
   "getChatInputTokens"
 @module("@juspay/blend-design-system")
 external useTheme: unit => MultiSelectV2SharedTypes.themeContextType = "useTheme"
+@module("@juspay/blend-design-system")
+external useShadowRoot: unit => MultiSelectV2SharedTypes.shadowRootContextType = "useShadowRoot"
 @module("@juspay/blend-design-system")
 external getChartV2Tokens: (
   TokensTypes.foundationTokenType,

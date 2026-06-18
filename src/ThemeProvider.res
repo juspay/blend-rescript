@@ -5,4 +5,5 @@ external make: (
   ~breakpoints: BreakpointsTypes.breakpointType=?,
   ~theme: CommonTypes.themeOrString=?,
   ~children: React.element,
+  ~target: Dom.element=?,
 ) => React.element = "ThemeProvider"
