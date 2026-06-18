@@ -14,4 +14,5 @@ external make: (
   ~isDiffUnchangedCollapsed: bool=?,
   ~diffContextLines: float=?,
   ~diffExpandChunk: float=?,
+  ~maxHeight: string=?,
 ) => React.element = "CodeBlock"
