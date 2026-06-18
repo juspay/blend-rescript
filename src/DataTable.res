@@ -55,6 +55,7 @@ external make: (
   ~isRowExpandable: ('a, float) => bool=?,
   ~onRowExpansionChange: (JSON.t, bool, 'a) => unit=?,
   ~enableRowSelection: bool=?,
+  ~rowSelectionConfig: DataTableTypes.rowSelectionConfig<'a>=?,
   ~showBulkActionBar: bool=?,
   ~onRowSelectionChange: (array<string>, bool, string, 'a) => unit=?,
   ~bulkActions: DataTableTypes.bulkActionsConfig=?,

@@ -1,13 +1,3 @@
-type topbarItemsConfig = {
-  label: string,
-  value: string,
-  icon?: React.element,
-}
-type merchantInfo = {
-  items: array<topbarItemsConfig>,
-  selected: string,
-  onSelect: string => unit,
-}
 type topbarBackgroundColorConfig = {
   default: string,
   hover: string,
@@ -75,4 +65,14 @@ type topbarTokenType = {
 type responsiveTopbarTokens = {
   sm: topbarTokenType,
   lg: topbarTokenType,
+}
+type topbarItemsConfig = {
+  label: string,
+  value: string,
+  icon?: React.element,
+}
+type merchantInfo = {
+  items: array<topbarItemsConfig>,
+  selected: string,
+  onSelect: string => unit,
 }

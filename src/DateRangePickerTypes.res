@@ -97,6 +97,11 @@ type triggerConfig = {
   style?: JsxDOM.style,
   renderTrigger?: dateRangePickerRenderTriggerConfig => React.element,
 }
+type dateRangePickerPopoverConfig = {
+  side?: DrawerV2Types.direction,
+  align?: MenuV2Types.alignment,
+  sideOffset?: float,
+}
 type dateRangePickerBorderRadiusConfig = {
   topLeft: string,
   topRight: string,
@@ -109,8 +114,8 @@ type dateRangePickerSmConfig = {
 }
 type dateRangePickerPaddingConfig = {
   sm: dateRangePickerSmConfig,
-  lg: dateRangePickerSmConfig,
   md: dateRangePickerSmConfig,
+  lg: dateRangePickerSmConfig,
 }
 type dateRangePickerDisabledConfig = {
   left: string,
@@ -126,8 +131,8 @@ type dateRangePickerBorderConfig = {
 }
 type dateRangePickerFontSizeConfig = {
   sm: string,
-  lg: string,
   md: string,
+  lg: string,
 }
 type dateRangePickerTextConfig = {
   color: string,

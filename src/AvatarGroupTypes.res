@@ -3,13 +3,13 @@ type avatarData = {
   alt?: string,
   fallback?: React.element,
   size?: AvatarTypes.avatarSize,
-  shape?: AvatarTypes.avatarShape,
-  online?: bool,
   src?: string,
+  shape?: AvatarTypes.avatarShape,
+  skeleton?: AvatarTypes.avatarSkeletonConfig,
+  online?: bool,
   onlinePosition?: AvatarTypes.avatarOnlinePosition,
   leadingSlot?: React.element,
   trailingSlot?: React.element,
-  skeleton?: AvatarTypes.avatarSkeletonConfig,
 }
 type avatarGroupSkeletonConfig = {
   show: bool,

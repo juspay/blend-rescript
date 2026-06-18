@@ -1,11 +1,60 @@
+type type_3 =
+  | @as("item") Item
+  | @as("label") Label
+  | @as("separator") Separator
+type rec singleSelectV2ItemType = {
+  label: string,
+  value: string,
+  checked?: bool,
+  subLabel?: string,
+  slot1?: React.element,
+  slot2?: React.element,
+  slot3?: React.element,
+  slot4?: React.element,
+  disabled?: bool,
+  onClick?: unit => unit,
+  tooltip?: React.element,
+  tooltipProps?: SelectV2Types.selectV2TooltipProps,
+  disableTruncation?: bool,
+  subMenu?: array<singleSelectV2ItemType>,
+}
+type singleSelectV2GroupType = {
+  groupLabel?: string,
+  items: array<singleSelectV2ItemType>,
+  showSeparator?: bool,
+}
+type selectV2SearchConfig = {
+  show?: bool,
+  placeholder?: string,
+}
+type selectV2MenuPosition = {
+  alignment?: SelectV2Types.selectV2Alignment,
+  side?: SelectV2Types.selectV2Side,
+  sideOffset?: float,
+  alignOffset?: float,
+}
+type selectV2MenuDimensions = {
+  minWidth?: string,
+  maxWidth?: string,
+  maxHeight?: string,
+}
+type selectV2TriggerDimensions = {
+  minWidth?: string,
+  maxWidth?: string,
+  width?: string,
+}
+type selectV2ErrorState = {
+  show?: bool,
+  message?: string,
+}
 type stateToken2 = {
   disabled: string,
   default: string,
-  hover: string,
-  active: string,
-  focus: string,
-  focusVisible: string,
   selected: string,
+  hover: string,
+  focus: string,
+  active: string,
+  focusVisible: string,
 }
 type singleSelectV2LabelConfig = {
   fontSize: string,
@@ -46,10 +95,10 @@ type sizeToken2 = {
 }
 type triggerStateToken = {
   hover: string,
-  @as("open") open_: string,
   focus: string,
-  closed: string,
+  @as("open") open_: string,
   error: string,
+  closed: string,
 }
 type variantToken3 = {
   container: triggerStateToken,
@@ -168,7 +217,24 @@ type singleSelectV2TokensType = {
   menu: singleSelectV2MenuConfig,
   mobilePanel: singleSelectV2MobilePanelConfig,
 }
+type flattenedItem = {
+  id: string,
+  @as("type") type_: type_3,
+  item?: singleSelectV2ItemType,
+  label?: string,
+  groupId?: float,
+}
+type virtualItemShape = {
+  key: string,
+  index: int,
+  start: float,
+}
 type responsiveSingleSelectV2Tokens = {
   sm: singleSelectV2TokensType,
   lg: singleSelectV2TokensType,
+}
+module CollisionBoundary = {
+  type t
+  external fromElement: Dom.element => t = "%identity"
+  external fromElements: array<Dom.element> => t = "%identity"
 }

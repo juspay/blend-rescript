@@ -10,7 +10,7 @@ external make: (
   ~diffLines: array<CodeBlockTypes.diffLine>=?,
   ~showCopyButton: bool=?,
   ~autoFormat: bool=?,
-  ~language: CodeBlockTypes.supportedLanguage=?,
+  ~language: CodeBlockTypes.supportedLanguage2=?,
   ~isDiffUnchangedCollapsed: bool=?,
   ~diffContextLines: float=?,
   ~diffExpandChunk: float=?,

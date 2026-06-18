@@ -1,3 +1,18 @@
+type orientation =
+  | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
+type activationMode =
+  | @as("manual") Manual
+  | @as("automatic") Automatic
+type tabsV2Variant =
+  | @as("boxed") Boxed
+  | @as("floating") Floating
+  | @as("underline") Underline
+  | @as("pills") Pills
+type tabsV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
 type tabsV2BackgroundColorConfig = {
   boxed: string,
   floating: string,
@@ -5,6 +20,7 @@ type tabsV2BackgroundColorConfig = {
   pills: string,
 }
 type tabsV2BorderRadiusConfig = {
+  sm: tabsV2BackgroundColorConfig,
   md: tabsV2BackgroundColorConfig,
   lg: tabsV2BackgroundColorConfig,
 }
@@ -14,15 +30,16 @@ type tabsV2BoxedConfig = {
   bottom: string,
   left: string,
 }
-type tabsV2MdConfig = {
+type tabsV2SmConfig = {
   boxed: tabsV2BoxedConfig,
   floating: tabsV2BoxedConfig,
   underline: tabsV2BoxedConfig,
   pills: tabsV2BoxedConfig,
 }
 type tabsV2PaddingConfig = {
-  md: tabsV2MdConfig,
-  lg: tabsV2MdConfig,
+  sm: tabsV2SmConfig,
+  md: tabsV2SmConfig,
+  lg: tabsV2SmConfig,
 }
 type tabsV2PositionConfig = {
   bottom: string,
@@ -53,22 +70,24 @@ type tabsV2BackgroundColorConfig2 = {
   underline: tabsV2BoxedConfig2,
   pills: tabsV2BoxedConfig2,
 }
-type tabsV2MdConfig2 = {
+type tabsV2SmConfig2 = {
   boxed: string,
   floating: string,
   underline: string,
   pills: string,
 }
 type tabsV2BorderRadiusConfig2 = {
-  md: tabsV2MdConfig2,
-  lg: tabsV2MdConfig2,
+  sm: tabsV2SmConfig2,
+  md: tabsV2SmConfig2,
+  lg: tabsV2SmConfig2,
 }
 type tabsV2FontSizeConfig = {
+  sm: string,
   md: string,
   lg: string,
 }
 type tabsV2TextConfig = {
-  color: tabsV2MdConfig2,
+  color: tabsV2SmConfig2,
   fontSize: tabsV2FontSizeConfig,
   fontWeight: tabsV2FontSizeConfig,
 }

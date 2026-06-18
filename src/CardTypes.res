@@ -1,4 +1,4 @@
-type variant =
+type variant2 =
   | @as("default") Default
   | @as("aligned") Aligned
   | @as("custom") Custom

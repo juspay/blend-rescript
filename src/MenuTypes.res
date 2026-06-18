@@ -47,10 +47,34 @@ type menuGroupType = {
   items: array<menuItemType>,
   showSeparator?: bool,
 }
+@unboxed type menuItemTypeVirtualItemHeight = Num(float) | Fn((menuItemType, float) => float)
 type menuSkeletonProps = {
   count?: int,
   show?: bool,
   variant?: SkeletonTypes.skeletonVariant,
+}
+type menuOverflowMenuPropsConfig = {
+  trigger?: React.element,
+  items?: array<menuGroupType>,
+  maxHeight?: float,
+  minHeight?: float,
+  maxWidth?: float,
+  minWidth?: float,
+  enableSearch?: bool,
+  searchPlaceholder?: string,
+  enableVirtualScrolling?: bool,
+  virtualItemHeight?: menuItemTypeVirtualItemHeight,
+  virtualOverscan?: float,
+  virtualScrollThreshold?: float,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  asModal?: bool,
+  alignment?: menuAlignment,
+  side?: menuSide,
+  sideOffset?: float,
+  alignOffset?: float,
+  collisonBoundaryRef?: SingleSelectV2Types.CollisionBoundary.t,
+  skeleton?: menuSkeletonProps,
 }
 type menuPaddingConfig = {
   x: string,
@@ -60,8 +84,8 @@ type menuEnabledConfig = {
   disabled: string,
   default: string,
   hover: string,
-  active: string,
   focus: string,
+  active: string,
   focusVisible: string,
 }
 type menuDefaultConfig = {
@@ -127,33 +151,4 @@ type menuTokensType = {
 type responsiveMenuTokensType = {
   sm: menuTokensType,
   lg: menuTokensType,
-}
-@unboxed type menuItemTypeVirtualItemHeight = Num(float) | Fn((menuItemType, float) => float)
-module CollisonBoundaryRef = {
-  type t
-  external fromElement: Dom.element => t = "%identity"
-  external fromElements: array<Dom.element> => t = "%identity"
-}
-type menuOverflowMenuPropsConfig = {
-  trigger?: React.element,
-  items?: array<menuGroupType>,
-  maxHeight?: float,
-  minHeight?: float,
-  maxWidth?: float,
-  minWidth?: float,
-  enableSearch?: bool,
-  searchPlaceholder?: string,
-  enableVirtualScrolling?: bool,
-  virtualItemHeight?: menuItemTypeVirtualItemHeight,
-  virtualOverscan?: float,
-  virtualScrollThreshold?: float,
-  @as("open") open_?: bool,
-  onOpenChange?: bool => unit,
-  asModal?: bool,
-  alignment?: menuAlignment,
-  side?: menuSide,
-  sideOffset?: float,
-  alignOffset?: float,
-  collisonBoundaryRef?: CollisonBoundaryRef.t,
-  skeleton?: menuSkeletonProps,
 }

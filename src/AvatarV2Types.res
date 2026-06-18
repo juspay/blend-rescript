@@ -4,6 +4,9 @@ type avatarV2Size =
   | @as("md") Md
   | @as("lg") Lg
   | @as("xl") Xl
+type avatarV2Shape =
+  | @as("circular") Circular
+  | @as("rounded") Rounded
 type avatarV2Status =
   | @as("none") None
   | @as("online") Online
@@ -15,9 +18,17 @@ type avatarV2StatusPosition =
   | @as("bottomRight") BottomRight
   | @as("topLeft") TopLeft
   | @as("bottomLeft") BottomLeft
-type avatarV2Shape =
-  | @as("circular") Circular
-  | @as("rounded") Rounded
+type variant =
+  | @as("pulse") Pulse
+  | @as("wave") Wave
+type avatarV2StatusConfig = {
+  @as("type") type_: avatarV2Status,
+  position?: avatarV2StatusPosition,
+}
+type avatarV2SkeletonConfig = {
+  show: bool,
+  variant?: variant,
+}
 type avatarV2WidthConfig = {
   sm: string,
   regular: string,
@@ -57,7 +68,7 @@ type avatarV2PositionConfig = {
   circular: avatarV2CircularConfig,
   rounded: avatarV2CircularConfig,
 }
-type avatarV2StatusConfig = {
+type avatarV2StatusConfig2 = {
   width: avatarV2WidthConfig,
   height: avatarV2WidthConfig,
   border: avatarV2WidthConfig,
@@ -73,7 +84,7 @@ type avatarV2ContainerConfig = {
   borderRadius: avatarV2BorderRadiusConfig,
   image: avatarV2ImageConfig,
   fallbackText: avatarV2FallbackTextConfig,
-  status: avatarV2StatusConfig,
+  status: avatarV2StatusConfig2,
 }
 type avatarV2SlotConfig = {
   height: string,
@@ -88,26 +99,18 @@ type responsiveAvatarV2Tokens = {
   sm: avatarV2TokensType,
   lg: avatarV2TokensType,
 }
-type avatarV2StatusConfig2 = {
-  @as("type") type_: avatarV2Status,
-  position?: avatarV2StatusPosition,
-}
-type avatarV2SkeletonConfig = {
-  show: bool,
-  variant?: TimelineTypes.variant2,
-}
 type avatarV2AvatarPropsConfig = {
   disabled?: bool,
   width?: string,
   size?: avatarV2Size,
+  alt?: string,
   height?: string,
-  status?: avatarV2StatusConfig2,
   backgroundColor?: string,
   shape?: avatarV2Shape,
+  status?: avatarV2StatusConfig,
+  skeleton?: avatarV2SkeletonConfig,
   leftSlot?: React.element,
   rightSlot?: React.element,
-  alt?: string,
-  skeleton?: avatarV2SkeletonConfig,
   onImageError?: JsError.t => unit,
   onImageLoad?: unit => unit,
 }

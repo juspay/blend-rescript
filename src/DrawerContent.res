@@ -6,7 +6,7 @@ external make: (
   @as("aria-label") ~ariaLabel: string=?,
   @as("aria-describedby") ~ariaDescribedby: string=?,
   ~fullScreen: bool=?,
-  ~direction: PopoverTypes.side=?,
+  ~direction: DrawerV2Types.direction=?,
   ~showHandle: bool=?,
   ~handle: React.element=?,
   ~hasSnapPoints: bool=?,

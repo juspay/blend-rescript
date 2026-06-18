@@ -27,6 +27,7 @@ external make: (
   ~size: DateRangePickerTypes.dateRangePickerSize=?,
   ~formatConfig: DateRangePickerTypes.dateFormatConfig=?,
   ~triggerConfig: DateRangePickerTypes.triggerConfig=?,
+  ~popoverConfig: DateRangePickerTypes.dateRangePickerPopoverConfig=?,
   ~maxMenuHeight: float=?,
   ~showPreset: bool=?,
   ~timezone: string=?,

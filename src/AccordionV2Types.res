@@ -1,3 +1,9 @@
+type accordionV2Type =
+  | @as("border") Border
+  | @as("noBorder") NoBorder
+type accordionV2ChevronPosition =
+  | @as("left") Left
+  | @as("right") Right
 type accordionV2GapConfig = {
   border: string,
   noBorder: string,
@@ -9,8 +15,8 @@ type accordionV2BorderConfig = {
   disabled: string,
   default: string,
   hover: string,
-  active: string,
   @as("open") open_: string,
+  active: string,
 }
 type accordionV2BackgroundColorConfig = {
   border: accordionV2BorderConfig,
@@ -20,8 +26,8 @@ type accordionV2ColorConfig = {
   disabled: string,
   default: string,
   hover: string,
-  active: string,
   @as("open") open_: string,
+  active: string,
 }
 type accordionV2TitleConfig = {
   fontSize: string,

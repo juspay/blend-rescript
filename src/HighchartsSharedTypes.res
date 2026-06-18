@@ -1,9 +1,5 @@
 @@warning("-30")
 
-type optionsBoostBlendingValue =
-  | @as("add") Add
-  | @as("darken") Darken
-  | @as("multiply") Multiply
 type dashStyleValue =
   | @as("Dash") Dash
   | @as("DashDot") DashDot
@@ -16,6 +12,164 @@ type dashStyleValue =
   | @as("ShortDashDotDot") ShortDashDotDot
   | @as("ShortDot") ShortDot
   | @as("Solid") Solid
+type cursorValue =
+  | @as("none") None
+  | @as("auto") Auto
+  | @as("alias") Alias
+  | @as("all-scroll") AllScroll
+  | @as("cell") Cell
+  | @as("col-resize") ColResize
+  | @as("context-menu") ContextMenu
+  | @as("copy") Copy
+  | @as("crosshair") Crosshair
+  | @as("default") Default
+  | @as("e-resize") EResize
+  | @as("ew-resize") EwResize
+  | @as("grab") Grab
+  | @as("grabbing") Grabbing
+  | @as("help") Help
+  | @as("move") Move
+  | @as("n-resize") NResize
+  | @as("ne-resize") NeResize
+  | @as("nesw-resize") NeswResize
+  | @as("no-drop") NoDrop
+  | @as("not-allowed") NotAllowed
+  | @as("ns-resize") NsResize
+  | @as("nw-resize") NwResize
+  | @as("nwse-resize") NwseResize
+  | @as("pointer") Pointer
+  | @as("progress") Progress
+  | @as("row-resize") RowResize
+  | @as("s-resize") SResize
+  | @as("se-resize") SeResize
+  | @as("sw-resize") SwResize
+  | @as("text") Text
+  | @as("vertical-text") VerticalText
+  | @as("w-resize") WResize
+  | @as("wait") Wait
+  | @as("zoom-in") ZoomIn
+  | @as("zoom-out") ZoomOut
+type optionsModeValue =
+  | @as("normal") Normal
+  | @as("serialize") Serialize
+type optionsLandmarkVerbosityValue =
+  | @as("disabled") Disabled
+  | @as("all") All
+  | @as("one") One
+type annotationDraggableValue =
+  | @as("") Value
+  | @as("x") X
+  | @as("xy") Xy
+  | @as("y") Y
+type alignValue =
+  | @as("center") Center
+  | @as("left") Left
+  | @as("right") Right
+type optionsOverflowValue =
+  | @as("allow") Allow
+  | @as("justify") Justify
+type verticalAlignValue =
+  | @as("bottom") Bottom
+  | @as("middle") Middle
+  | @as("top") Top
+type optionsPanKeyValue =
+  | @as("alt") Alt
+  | @as("shift") Shift
+  | @as("ctrl") Ctrl
+  | @as("meta") Meta
+type optionsChartPanningTypeValue =
+  | @as("x") X
+  | @as("xy") Xy
+  | @as("y") Y
+type optionsPosition3dValue =
+  | @as("offset") Offset
+  | @as("chart") Chart
+  | @as("flap") Flap
+  | @as("ortho") Ortho
+type optionsMinorTickPositionValue =
+  | @as("inside") Inside
+  | @as("outside") Outside
+type optionsGridLineInterpolationValue =
+  | @as("polygon") Polygon
+  | @as("circle") Circle
+type dataLabelsOverflowValue =
+  | @as("allow") Allow
+  | @as("justify") Justify
+type optionsTickmarkPlacementValue =
+  | @as("between") Between
+  | @as("on") On
+type optionsTickPositionValue =
+  | @as("inside") Inside
+  | @as("outside") Outside
+type axisTitleAlignValue =
+  | @as("middle") Middle
+  | @as("high") High
+  | @as("low") Low
+type axisTypeValue =
+  | @as("category") Category
+  | @as("datetime") Datetime
+  | @as("linear") Linear
+  | @as("logarithmic") Logarithmic
+  | @as("treegrid") Treegrid
+type buttonRelativeToValue =
+  | @as("plotBox") PlotBox
+  | @as("spacingBox") SpacingBox
+type optionsKeyValue =
+  | @as("alt") Alt
+  | @as("shift") Shift
+  | @as("ctrl") Ctrl
+  | @as("meta") Meta
+type optionsPinchTypeValue =
+  | @as("x") X
+  | @as("xy") Xy
+  | @as("y") Y
+type optionsChartZoomingTypeValue =
+  | @as("x") X
+  | @as("xy") Xy
+  | @as("y") Y
+type optionsDataClassColorValue =
+  | @as("category") Category
+  | @as("tween") Tween
+type colorAxisTypeValue =
+  | @as("linear") Linear
+  | @as("logarithmic") Logarithmic
+type optionsColumnTypesValue =
+  | @as("string") String
+  | @as("number") Number
+  | @as("date") Date
+  | @as("float") Float
+type optionsDateFormatValue =
+  | @as("dd/mm/YY") DdMmYY
+  | @as("dd/mm/YYYY") DdMmYYYY
+  | @as("mm/dd/YY") MmDdYY
+  | @as("mm/dd/YYYY") MmDdYYYY
+  | @as("YYYY/mm/dd") YYYYMmDd
+type exportingMimeTypeValue =
+  | @as("application/pdf") ApplicationPdf
+  | @as("image/jpeg") ImageJpeg
+  | @as("image/png") ImagePng
+  | @as("image/svg+xml") ImageSvgXml
+type bubbleSizeByValue =
+  | @as("width") Width
+  | @as("area") Area
+type optionsLayoutValue =
+  | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
+  | @as("proximate") Proximate
+type mapViewInsetOptionsRelativeToValue =
+  | @as("plotBox") PlotBox
+  | @as("mapBoundingBox") MapBoundingBox
+type optionsUnitsValue =
+  | @as("percent") Percent
+  | @as("pixels") Pixels
+type paneBackgroundShapeValue =
+  | @as("arc") Arc
+  | @as("circle") Circle
+  | @as("solid") Solid
+type optionsBoostBlendingValue =
+  | @as("add") Add
+  | @as("darken") Darken
+  | @as("multiply") Multiply
 type optionsFindNearestPointByValue =
   | @as("x") X
   | @as("xy") Xy
@@ -26,41 +180,51 @@ type optionsLegendSymbolValue =
   | @as("rectangle") Rectangle
   | @as("areaMarker") AreaMarker
   | @as("lineMarker") LineMarker
+type sonifcationTypeValue =
+  | @as("instrument") Instrument
+  | @as("speech") Speech
+type optionsValueMapFunctionValue =
+  | @as("linear") Linear
+  | @as("logarithmic") Logarithmic
+type optionsAlgorithmValue =
+  | @as("middle") Middle
+  | @as("first") First
+  | @as("firstlast") Firstlast
+  | @as("last") Last
+  | @as("minmax") Minmax
 type optionsStepValue =
   | @as("center") Center
   | @as("left") Left
   | @as("right") Right
+type optionsRelativeToValue =
+  | @as("pane") Pane
+  | @as("chart") Chart
+  | @as("plotBox") PlotBox
+  | @as("spacingBox") SpacingBox
 type optionsCompareValue =
   | @as("value") Value
   | @as("percent") Percent
-type linkColorMode =
-  | @as("from") From
-  | @as("gradient") Gradient
-  | @as("to") To
 type optionsPointIntervalUnitValue =
   | @as("day") Day
   | @as("month") Month
   | @as("year") Year
 type optionsStackingValue =
   | @as("normal") Normal
-  | @as("stream") Stream
   | @as("percent") Percent
   | @as("null") Null
   | @as("overlap") Overlap
-type bubbleSizeByValue =
-  | @as("width") Width
-  | @as("area") Area
+  | @as("stream") Stream
 type optionsPointValKeyValue =
-  | @as("open") Open
   | @as("close") Close
   | @as("high") High
   | @as("low") Low
-type optionsOnKeyValue =
   | @as("open") Open
+type optionsOnKeyValue =
   | @as("y") Y
   | @as("close") Close
   | @as("high") High
   | @as("low") Low
+  | @as("open") Open
 type flagsShapeValue =
   | @as("circlepin") Circlepin
   | @as("flag") Flag
@@ -69,29 +233,58 @@ type optionsTextAlignValue =
   | @as("center") Center
   | @as("left") Left
   | @as("right") Right
+type svgPathCommand =
+  | @as("a") A
+  | @as("c") C
+  | @as("h") H
+  | @as("l") L
+  | @as("m") M
+  | @as("q") Q
+  | @as("s") S
+  | @as("t") T
+  | @as("v") V
+  | @as("z") Z
+  | @as("A") A2
+  | @as("C") C2
+  | @as("H") H2
+  | @as("L") L2
+  | @as("M") M2
+  | @as("Q") Q2
+  | @as("S") S2
+  | @as("T") T2
+  | @as("V") V2
+  | @as("Z") Z2
 type optionsHLCPointValKeyValue =
   | @as("close") Close
   | @as("high") High
   | @as("low") Low
+type optionsApproximationValue =
+  | @as("none") None
+  | @as("barnes-hut") BarnesHut
+type optionsIntegrationValue =
+  | @as("euler") Euler
+  | @as("verlet") Verlet
 type organizationHangingIndentTranslationValue =
   | @as("inherit") Inherit
   | @as("cumulative") Cumulative
   | @as("shrink") Shrink
-type nodeAlignment =
-  | @as("center") Center
-  | @as("bottom") Bottom
-  | @as("top") Top
 type optionsLinecapValue =
   | @as("round") Round
   | @as("square") Square
+type optionsRotationModeValue =
+  | @as("auto") Auto
+  | @as("circular") Circular
+  | @as("parallel") Parallel
+  | @as("perpendicular") Perpendicular
+type optionsUnitValue =
+  | @as("percentage") Percentage
+  | @as("pixels") Pixels
+  | @as("weight") Weight
 type tilemapShapeValue =
-  | @as("circle") Circle
   | @as("square") Square
+  | @as("circle") Circle
   | @as("diamond") Diamond
   | @as("hexagon") Hexagon
-type optionsNodeSizeByValue =
-  | @as("group") Group
-  | @as("leaf") Leaf
 type optionsLayoutAlgorithmValue =
   | @as("squarified") Squarified
   | @as("strip") Strip
@@ -100,9 +293,12 @@ type optionsLayoutAlgorithmValue =
 type optionsLayoutStartingDirectionValue =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
+type optionsNodeSizeByValue =
+  | @as("group") Group
+  | @as("leaf") Leaf
 type variablePieSizeByValue =
-  | @as("radius") Radius
   | @as("area") Area
+  | @as("radius") Radius
 type optionsRotationOriginValue =
   | @as("center") Center
   | @as("end") End
@@ -114,93 +310,82 @@ type optionsSpiralValue =
   | @as("square") Square
   | @as("archimedean") Archimedean
   | @as("rectangular") Rectangular
-type setState =
-  | @as("") Value
-  | @as("normal") Normal
-  | @as("select") Select
-  | @as("hover") Hover
-  | @as("inactive") Inactive
-type chartsV2PaddingConfig = {
-  top: string,
-  right: string,
-  bottom: string,
-  left: string,
+type rangeSelectorButtonTypeValue =
+  | @as("all") All
+  | @as("day") Day
+  | @as("month") Month
+  | @as("year") Year
+  | @as("hour") Hour
+  | @as("minute") Minute
+  | @as("second") Second
+  | @as("millisecond") Millisecond
+  | @as("week") Week
+  | @as("ytd") Ytd
+type optionsDropdownValue =
+  | @as("always") Always
+  | @as("never") Never
+  | @as("responsive") Responsive
+type optionsOrderValue =
+  | @as("sequential") Sequential
+  | @as("simultaneous") Simultaneous
+type chart = {
+  axes: string,
+  chartHeight: string,
+  chartWidth: string,
+  container: string,
+  credits: string,
+  hoverPoint: string,
+  hoverPoints: string,
+  hoverSeries: string,
+  index: string,
+  inverted?: string,
+  legend: string,
+  numberFormatter: string,
+  options: string,
+  plotHeight: string,
+  plotLeft: string,
+  plotTop: string,
+  plotWidth: string,
+  pointer: string,
+  renderer: string,
+  series: string,
+  styledMode: string,
+  subtitle: string,
+  time: string,
+  title: string,
+  tooltip: string,
+  userOptions: string,
+  xAxis: string,
+  yAxis: string,
+  addAxis: string,
+  addColorAxis: string,
+  addCredits: string,
+  addSeries: string,
+  destroy: string,
+  get: string,
+  getOptions: string,
+  getSelectedPoints: string,
+  getSelectedSeries: string,
+  hideLoading: string,
+  init: string,
+  isInsidePlot: string,
+  redraw: string,
+  reflow: string,
+  setCaption: string,
+  setClassName: string,
+  setSize: string,
+  setSubtitle: string,
+  setTitle: string,
+  showLoading: string,
+  showResetZoom: string,
+  update: string,
+  zoomOut: string,
 }
-type chartsV2HeaderConfig = {
-  padding: chartsV2PaddingConfig,
-  backgroundColor: string,
-  borderBottom: string,
-}
-type chartsV2ShapeConfig = {
-  width: string,
-  height: string,
-  borderRadius: string,
-}
-type chartsV2NameConfig = {
-  fontSize: string,
-  fontWeight: string,
-  lineHeight: string,
-  color: string,
-}
-type chartsV2SeparatorConfig = {
-  color: string,
-  width: string,
-  height: string,
-}
-type chartsV2TextConfig = {
-  gap: string,
-  name: chartsV2NameConfig,
-  value: chartsV2NameConfig,
-  separator: chartsV2SeparatorConfig,
-}
-type chartsV2LegendItemConfig = {
-  gap: string,
-  shape: chartsV2ShapeConfig,
-  text: chartsV2TextConfig,
-}
-type chartsV2LegendsConfig = {
-  gap: string,
-  legendItem: chartsV2LegendItemConfig,
-}
-type chartsV2TitleConfig = {
-  fontSize: string,
-  color: string,
-  fontWeight: string,
-  lineHeight: string,
-}
-type chartsV2LineConfig = {
-  width: string,
-  color: string,
-}
-type chartsV2XAxisConfig = {
-  title: chartsV2TitleConfig,
-  labels: chartsV2TitleConfig,
-  line: chartsV2LineConfig,
-  gridLine: chartsV2LineConfig,
-}
-type chartsV2ChartConfig = {
-  backgroundColor: string,
-  xAxis: chartsV2XAxisConfig,
-  yAxis: chartsV2XAxisConfig,
-}
-type chartV2TokensType = {
-  border: string,
-  borderRadius: string,
-  boxShadow: string,
-  backgroundColor: string,
-  header: chartsV2HeaderConfig,
-  legends: chartsV2LegendsConfig,
-  chart: chartsV2ChartConfig,
-}
-type responsiveChartV2Tokens = {
-  sm: chartV2TokensType,
-  lg: chartV2TokensType,
-}
-type chartV2CustomLegendItem = {
-  key: string,
-  name: string,
-  color?: string,
-  value?: CommonTypes.stringOrNumber,
+type legendItemObject = {
+  item?: Dom.element,
+  label?: Dom.element,
+  line?: Dom.element,
+  symbol?: Dom.element,
 }
 type axis = {
   categories: string,
@@ -250,367 +435,277 @@ type axis = {
   toValue: string,
   update: string,
 }
-type pointOptionsObject = {
-  accessibility?: string,
-  borderColor?: string,
-  borderWidth?: string,
-  boxDashStyle?: string,
-  className?: string,
-  close?: string,
-  collapseButton?: string,
-  collapsed?: string,
+type rec series = {
+  area?: Dom.element,
+  center: array<string>,
+  chart: chart,
   color?: string,
-  colorIndex?: string,
-  colorValue?: string,
+  data: array<string>,
+  dataMax?: float,
+  dataMin?: float,
+  index: int,
+  legendItem?: legendItemObject,
+  linkedParent: series,
+  linkedSeries: array<series>,
+  name: string,
+  options: string,
+  points: array<string>,
+  selected: bool,
+  @as("type") type_: string,
+  userOptions: string,
+  visible: bool,
+  xAxis: axis,
+  yAxis: axis,
+  addPoint: (string, option<string>, option<string>, option<string>, option<string>) => unit,
+  animate: option<string> => unit,
+  drawPoints: unit => unit,
+  getName: unit => string,
+  getPlotBox: unit => unit,
+  getValidPoints: (option<string>, option<string>, option<string>) => string,
+  hide: unit => unit,
+  is: string => string,
+  markerAttribs: (string, option<string>) => string,
+  onMouseOut: unit => unit,
+  onMouseOver: unit => unit,
+  remove: (option<string>, option<string>, option<string>) => unit,
+  removePoint: (string, option<string>, option<string>) => unit,
+  render: unit => unit,
+  searchPoint: (string, option<string>) => string,
+  select: option<string> => unit,
+  setData: (string, option<string>, option<string>, option<string>) => unit,
+  setState: (option<string>, option<string>) => unit,
+  setVisible: (option<string>, option<string>) => unit,
+  show: unit => unit,
+  translate: unit => unit,
+  update: (string, option<string>) => unit,
+}
+type gradientColorObject = {
+  linearGradient?: string,
+  radialGradient?: string,
+  stops: string,
+}
+type patternObject = {
+  animation?: string,
+  pattern: string,
+  patternIndex?: string,
+}
+module ColorType = {
+  type t
+  external fromString: string => t = "%identity"
+  external fromGradientColorObject: gradientColorObject => t = "%identity"
+  external fromPatternObject: patternObject => t = "%identity"
+}
+type pointAccessibilityOptionsObject = {
+  description?: string,
+  enabled?: bool,
+}
+type dragDropHandleOptionsObject = {
+  className?: string,
+  color?: ColorType.t,
+  cursor?: string,
+  lineColor?: string,
+  lineWidth?: float,
+  pathFormatter?: string,
+  zIndex?: int,
+}
+type seriesLineDataDragDropOptions = {
+  draggableX?: bool,
+  draggableY?: bool,
+  dragHandle?: dragDropHandleOptionsObject,
+  dragMaxX?: CommonTypes.stringOrNumber,
+  dragMaxY?: float,
+  dragMinX?: CommonTypes.stringOrNumber,
+  dragMinY?: float,
+  dragPrecisionX?: float,
+  dragPrecisionY?: float,
+  dragSensitivity?: float,
+  groupBy?: string,
+  guideBox?: string,
+  liveRedraw?: bool,
+}
+type pointEventsOptionsObject = {
+  click?: string,
+  drag?: string,
+  dragStart?: string,
+  drop?: string,
+  legendItemClick?: string,
+  mouseOut?: string,
+  mouseOver?: string,
+  remove?: string,
+  select?: string,
+  unselect?: string,
+  update?: string,
+}
+type pointMarkerOptionsObject = {
+  animation?: string,
+  color?: string,
+  enabled?: string,
+  enabledThreshold?: string,
+  fillColor?: string,
+  fillOpacity?: string,
+  height?: string,
+  lineColor?: string,
+  lineWidth?: string,
+  radius?: string,
+  states?: string,
+  symbol?: string,
+  width?: string,
+}
+type seriesStatesOptionsObject = {
+  hover?: string,
+  inactive?: string,
+  normal?: string,
+  select?: string,
+}
+type seriesBulletDataTargetOptions = {
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  color?: ColorType.t,
+  height?: float,
+  width?: CommonTypes.stringOrNumber,
+}
+type pointOptionsObject = {
+  accessibility?: pointAccessibilityOptionsObject,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  boxDashStyle?: dashStyleValue,
+  className?: string,
+  close?: float,
+  collapseButton?: string,
+  collapsed?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorValue?: float,
   connectorColor?: string,
-  connectorWidth?: string,
-  custom?: string,
-  dashStyle?: string,
+  connectorWidth?: float,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
   dataLabels?: string,
   description?: string,
-  direction?: string,
-  dragDrop?: string,
+  direction?: float,
+  dragDrop?: seriesLineDataDragDropOptions,
   drilldown?: string,
-  events?: string,
-  fillColor?: string,
+  events?: pointEventsOptionsObject,
+  fillColor?: ColorType.t,
   from?: string,
-  gradientForSides?: string,
-  high?: string,
+  gradientForSides?: bool,
+  high?: float,
   id?: string,
   innerRadius?: string,
-  isIntermediateSum?: string,
-  isSum?: string,
+  isIntermediateSum?: bool,
+  isSum?: bool,
   label?: string,
-  labelrank?: string,
-  legendIndex?: string,
-  length?: string,
-  low?: string,
-  lowColor?: string,
-  marker?: string,
-  median?: string,
-  medianDashStyle?: string,
+  labelrank?: float,
+  legendIndex?: float,
+  length?: float,
+  low?: float,
+  lowColor?: ColorType.t,
+  marker?: pointMarkerOptionsObject,
+  median?: float,
+  medianDashStyle?: dashStyleValue,
   name?: string,
-  @as("open") open_?: string,
+  @as("open") open_?: float,
   parent?: string,
-  pointPadding?: string,
-  pointWidth?: string,
-  q1?: string,
-  q3?: string,
+  pointPadding?: float,
+  pointWidth?: float,
+  q1?: float,
+  q3?: float,
   radius?: string,
-  selected?: string,
-  sets?: string,
-  sliced?: string,
-  states?: string,
-  stemDashStyle?: string,
-  target?: string,
-  targetOptions?: string,
+  selected?: bool,
+  sets?: array<string>,
+  sliced?: bool,
+  states?: seriesStatesOptionsObject,
+  stemDashStyle?: dashStyleValue,
+  target?: float,
+  targetOptions?: seriesBulletDataTargetOptions,
   text?: string,
   title?: string,
   @as("to") to_?: string,
-  value?: string,
-  weight?: string,
-  whiskerDashStyle?: string,
-  x?: string,
-  y?: string,
-  z?: string,
+  value?: float,
+  weight?: float,
+  whiskerDashStyle?: dashStyleValue,
+  x?: CommonTypes.stringOrNumber,
+  y?: float,
+  z?: float,
 }
 type highchartsShapeArgsConfig = {
-  d?: string,
-  dx?: string,
-  dy?: string,
-  fill?: string,
-  inverted?: string,
-  matrix?: string,
-  rotation?: string,
-  rotationOriginX?: string,
-  rotationOriginY?: string,
-  scaleX?: string,
-  scaleY?: string,
-  stroke?: string,
+  d?: CommonTypes.stringOrValueArray,
+  dx?: float,
+  dy?: float,
+  fill?: ColorType.t,
+  inverted?: bool,
+  matrix?: array<string>,
+  rotation?: float,
+  rotationOriginX?: float,
+  rotationOriginY?: float,
+  scaleX?: float,
+  scaleY?: float,
+  stroke?: ColorType.t,
   style?: string,
-  translateX?: string,
-  translateY?: string,
-  zIndex?: string,
+  translateX?: float,
+  translateY?: float,
+  zIndex?: int,
 }
-type legendOptions = {
-  accessibility?: string,
-  align?: string,
-  alignColumns?: string,
-  backgroundColor?: string,
-  borderColor?: string,
-  borderRadius?: string,
-  borderWidth?: string,
-  bubbleLegend?: string,
+type seriesZonesOptionsObject = {
   className?: string,
-  enabled?: string,
-  events?: string,
-  floating?: string,
-  itemCheckboxStyle?: string,
-  itemDistance?: string,
-  itemHiddenStyle?: string,
-  itemHoverStyle?: string,
-  itemMarginBottom?: string,
-  itemMarginTop?: string,
-  itemStyle?: string,
-  itemWidth?: string,
-  labelFormat?: string,
-  labelFormatter?: string,
-  layout?: string,
-  margin?: string,
-  maxHeight?: string,
-  maxWidth?: string,
-  navigation?: string,
-  padding?: string,
-  reversed?: string,
-  rtl?: string,
-  shadow?: string,
-  squareSymbol?: string,
-  symbolHeight?: string,
-  symbolPadding?: string,
-  symbolRadius?: string,
-  symbolWidth?: string,
-  title?: string,
-  useHTML?: string,
-  valueDecimals?: string,
-  valueSuffix?: string,
-  verticalAlign?: string,
-  width?: string,
-  x?: string,
-  y?: string,
+  color?: ColorType.t,
+  dashStyle?: dashStyleValue,
+  fillColor?: ColorType.t,
+  value?: float,
 }
-type accessibilityOptions = {
-  announceNewData?: string,
-  customComponents?: string,
-  description?: string,
-  enabled?: string,
-  highContrastMode?: string,
-  highContrastTheme?: string,
-  keyboardNavigation?: string,
-  landmarkVerbosity?: string,
-  linkedDescription?: string,
-  point?: string,
-  screenReaderSection?: string,
-  series?: string,
-  typeDescription?: string,
+type pointerEventObject = {
+  ...JsxDOM.domProps,
+  chartX: float,
+  chartY: float,
 }
-type boostOptions = {
-  allowForce?: string,
-  chunkSize?: string,
-  debug?: string,
-  enabled?: string,
-  pixelRatio?: string,
-  seriesThreshold?: string,
-  useGPUTranslations?: string,
-  usePreallocated?: string,
+type rec point = {
+  category: CommonTypes.stringOrNumber,
+  color?: ColorType.t,
+  colorIndex?: float,
+  graphic?: Dom.element,
+  graphics?: array<Dom.element>,
+  index: int,
+  key: CommonTypes.stringOrNumber,
+  name: string,
+  options: pointOptionsObject,
+  percentage?: float,
+  plotX?: float,
+  plotY?: float,
+  points?: array<point>,
+  selected: bool,
+  series: series,
+  shapeArgs?: highchartsShapeArgsConfig,
+  sliced?: bool,
+  tooltipPos?: array<float>,
+  total?: float,
+  visible: bool,
+  x: float,
+  y?: float,
+  getClassName: unit => string,
+  getZone: unit => seriesZonesOptionsObject,
+  haloPath: float => array<string>,
+  onMouseOut: unit => unit,
+  onMouseOver: option<pointerEventObject> => unit,
+  optionsToObject: string => Dict.t<string>,
+  pos: (bool, float) => array<string>,
+  remove: (option<bool>, option<string>) => unit,
+  select: (option<bool>, option<bool>) => unit,
+  setNestedProperty: (string, string, string) => string,
+  setState: (option<StatCardV2Types.setState>, option<bool>) => unit,
+  setVisible: (option<bool>, option<bool>) => unit,
+  tooltipFormatter: string => string,
+  update: (string, option<bool>, option<string>) => unit,
 }
-type captionOptions = {
-  align?: string,
-  floating?: string,
-  margin?: string,
-  style?: string,
-  text?: string,
-  useHTML?: string,
-  verticalAlign?: string,
-  x?: string,
-  y?: string,
-}
-type chartOptions = {
-  alignThresholds?: string,
-  alignTicks?: string,
-  allowMutatingData?: string,
-  animation?: string,
-  axisLayoutRuns?: string,
-  backgroundColor?: string,
-  borderColor?: string,
-  borderRadius?: string,
-  borderWidth?: string,
-  className?: string,
-  colorCount?: string,
-  displayErrors?: string,
-  events?: string,
-  height?: string,
-  ignoreHiddenSeries?: string,
-  inverted?: string,
-  map?: string,
-  mapTransforms?: string,
-  margin?: string,
-  marginBottom?: string,
-  marginLeft?: string,
-  marginRight?: string,
-  marginTop?: string,
-  numberFormatter?: string,
-  options3d?: string,
-  panKey?: string,
-  panning?: string,
-  parallelAxes?: string,
-  parallelCoordinates?: string,
-  plotBackgroundColor?: string,
-  plotBackgroundImage?: string,
-  plotBorderColor?: string,
-  plotBorderWidth?: string,
-  plotShadow?: string,
-  polar?: string,
-  proj4?: string,
-  reflow?: string,
-  renderTo?: string,
-  resetZoomButton?: string,
-  scrollablePlotArea?: string,
-  selectionMarkerFill?: string,
-  seriesGroupShadow?: string,
-  shadow?: string,
-  showAxes?: string,
-  spacing?: string,
-  spacingBottom?: string,
-  spacingLeft?: string,
-  spacingRight?: string,
-  spacingTop?: string,
-  style?: string,
-  styledMode?: string,
-  @as("type") type_?: string,
-  width?: string,
-  zooming?: string,
-}
-type connectorsOptions = {
-  algorithmMargin?: string,
-  dashStyle?: string,
-  enabled?: string,
-  endMarker?: string,
-  lineColor?: string,
-  lineWidth?: string,
-  marker?: string,
-  radius?: string,
-  startMarker?: string,
-  @as("type") type_?: string,
-}
-type creditsOptions = {
-  enabled?: string,
-  href?: string,
-  mapText?: string,
-  mapTextFull?: string,
-  position?: string,
-  style?: string,
-  text?: string,
-}
-type dataOptions = {
-  beforeParse?: string,
-  columns?: string,
-  columnsURL?: string,
-  columnTypes?: string,
-  complete?: string,
-  csv?: string,
-  csvURL?: string,
-  dataRefreshRate?: string,
-  dateFormat?: string,
-  decimalPoint?: string,
-  enablePolling?: string,
-  endColumn?: string,
-  endRow?: string,
-  firstRowAsNames?: string,
-  googleAPIKey?: string,
-  googleSpreadsheetKey?: string,
-  googleSpreadsheetRange?: string,
-  itemDelimiter?: string,
-  lineDelimiter?: string,
-  parsed?: string,
-  parseDate?: string,
-  rows?: string,
-  rowsURL?: string,
-  seriesMapping?: string,
-  startColumn?: string,
-  startRow?: string,
-  switchRowsAndColumns?: string,
-  table?: string,
-}
-type drilldownOptions = {
-  activeAxisLabelStyle?: string,
-  activeDataLabelStyle?: string,
-  allowPointDrilldown?: string,
-  animation?: string,
-  breadcrumbs?: string,
-  drillUpButton?: string,
-  mapZooming?: string,
-  series?: string,
-}
-type exportingOptions = {
-  accessibility?: string,
-  allowHTML?: string,
-  allowTableSorting?: string,
-  applyStyleSheets?: string,
-  buttons?: string,
-  chartOptions?: string,
-  csv?: string,
-  enabled?: string,
-  error?: string,
-  fallbackToExportServer?: string,
-  fetchOptions?: string,
-  filename?: string,
-  libURL?: string,
-  local?: string,
-  menuItemDefinitions?: string,
-  pdfFont?: string,
-  printMaxWidth?: string,
-  scale?: string,
-  showExportInProgress?: string,
-  showTable?: string,
-  sourceHeight?: string,
-  sourceWidth?: string,
-  tableCaption?: string,
-  @as("type") type_?: string,
-  url?: string,
-  useMultiLevelHeaders?: string,
-  useRowspanHeaders?: string,
-  width?: string,
-}
-type globalOptions = {
-  buttonTheme?: string,
-}
-type langOptions = {
-  accessibility?: string,
-  chartTitle?: string,
-  contextButtonTitle?: string,
-  decimalPoint?: string,
-  downloadCSV?: string,
-  downloadJPEG?: string,
-  downloadMIDI?: string,
-  downloadPDF?: string,
-  downloadPNG?: string,
-  downloadSVG?: string,
-  downloadXLS?: string,
-  drillUpText?: string,
-  exitFullscreen?: string,
-  exportData?: string,
-  exportInProgress?: string,
-  hideData?: string,
-  invalidDate?: string,
-  loading?: string,
-  locale?: string,
-  mainBreadcrumb?: string,
-  months?: string,
-  navigation?: string,
-  noData?: string,
-  numericSymbolMagnitude?: string,
-  numericSymbols?: string,
-  pieSliceName?: string,
-  playAsSound?: string,
-  printChart?: string,
-  rangeSelector?: string,
-  rangeSelectorFrom?: string,
-  rangeSelectorTo?: string,
-  rangeSelectorZoom?: string,
-  resetZoom?: string,
-  resetZoomTitle?: string,
-  seriesName?: string,
-  shortMonths?: string,
-  shortWeekdays?: string,
-  stockTools?: string,
-  thousandsSep?: string,
-  viewData?: string,
-  viewFullscreen?: string,
-  weekdays?: string,
-  weekFrom?: string,
-  yAxisTitle?: string,
-  zoomIn?: string,
-  zoomOut?: string,
+type accessibilityAnnounceNewDataOptionsObject = {
+  announcementFormatter?: (
+    array<series>,
+    option<series>,
+    option<point>,
+  ) => CommonTypes.boolOrString,
+  enabled?: bool,
+  interruptUser?: bool,
+  minAnnounceInterval?: float,
 }
 type cssObject = {
   background?: string,
@@ -618,14 +713,14 @@ type cssObject = {
   border?: string,
   borderRadius?: string,
   color?: string,
-  cursor?: string,
+  cursor?: cursorValue,
   fontFamily?: string,
-  fontSize?: string,
+  fontSize?: CommonTypes.stringOrNumber,
   fontWeight?: string,
-  height?: string,
-  lineClamp?: string,
-  lineWidth?: string,
-  opacity?: string,
+  height?: float,
+  lineClamp?: float,
+  lineWidth?: float,
+  opacity?: float,
   padding?: string,
   pointerEvents?: string,
   position?: string,
@@ -636,330 +731,2034 @@ type cssObject = {
   top?: string,
   transition?: string,
   whiteSpace?: string,
-  width?: string,
+  width?: float,
 }
-type loadingOptions = {
-  hideDuration?: float,
-  labelStyle?: cssObject,
-  showDuration?: float,
+type keyboardNavigationFocusBorderOptionsObject = {
+  enabled?: bool,
+  hideBrowserFocusOutline?: bool,
+  margin?: float,
   style?: cssObject,
 }
-type mapNavigationOptions = {
-  buttonOptions?: string,
-  buttons?: string,
-  enableButtons?: string,
-  enabled?: string,
-  enableDoubleClickZoom?: string,
-  enableDoubleClickZoomTo?: string,
-  enableMouseWheelZoom?: string,
-  enableTouchZoom?: string,
-  mouseWheelSensitivity?: string,
+type keyboardNavigationSeriesNavigationOptionsObject = {
+  mode?: optionsModeValue,
+  pointNavigationEnabledThreshold?: CommonTypes.boolOrNumber,
+  rememberPointFocus?: bool,
+  skipNullPoints?: string,
 }
-type mapViewOptions = {
-  center?: string,
-  fitToGeometry?: string,
-  insetOptions?: string,
-  insets?: string,
-  maxZoom?: string,
-  padding?: string,
-  projection?: string,
-  zoom?: string,
+type keyboardNavigationOptionsObject = {
+  enabled?: bool,
+  focusBorder?: keyboardNavigationFocusBorderOptionsObject,
+  order?: array<string>,
+  seriesNavigation?: keyboardNavigationSeriesNavigationOptionsObject,
+  wrapAround?: bool,
 }
-type navigationOptions = {
-  annotationsOptions?: string,
-  bindings?: string,
-  bindingsClassName?: string,
-  breadcrumbs?: string,
-  buttonOptions?: string,
-  events?: string,
-  iconsURL?: string,
-  menuItemHoverStyle?: string,
-  menuItemStyle?: string,
-  menuStyle?: string,
+type accessibilityPointOptions = {
+  dateFormat?: string,
+  dateFormatter?: (point, option<string>) => string,
+  describeNull?: bool,
+  descriptionFormat?: string,
+  descriptionFormatter?: (point, option<string>) => string,
+  valueDecimals?: float,
+  valueDescriptionFormat?: string,
+  valuePrefix?: string,
+  valueSuffix?: string,
 }
-type navigatorOptions = {
-  accessibility?: string,
-  adaptToUpdatedData?: string,
-  enabled?: string,
-  handles?: string,
-  height?: string,
-  margin?: string,
-  maskFill?: string,
-  maskInside?: string,
-  opposite?: string,
-  outlineColor?: string,
-  outlineWidth?: string,
-  series?: string,
-  stickToMax?: string,
-  xAxis?: string,
-  yAxis?: string,
+type accessibilityScreenReaderSectionOptions = {
+  afterChartFormat?: string,
+  afterChartFormatter?: (chart, option<string>) => string,
+  axisRangeDateFormat?: string,
+  beforeChartFormat?: string,
+  beforeChartFormatter?: (chart, option<string>) => string,
+  onPlayAsSoundClick?: (ReactEvent.Mouse.t, option<chart>, option<string>) => unit,
+  onViewDataTableClick?: (ReactEvent.Mouse.t, option<chart>, option<string>) => unit,
 }
-type noDataOptions = {
-  attr?: string,
-  position?: string,
-  style?: string,
-  useHTML?: string,
+type accessibilitySeriesOptions = {
+  describeSingleSeries?: bool,
+  descriptionFormat?: string,
+  descriptionFormatter?: (series, option<string>) => string,
+  pointDescriptionEnabledThreshold?: CommonTypes.boolOrNumber,
 }
-type plotOptions = {
-  abands?: string,
-  ad?: string,
-  ao?: string,
-  apo?: string,
-  arcdiagram?: string,
-  area?: string,
-  arearange?: string,
-  areaspline?: string,
-  areasplinerange?: string,
-  aroon?: string,
-  aroonoscillator?: string,
-  atr?: string,
-  bar?: string,
-  bb?: string,
-  bellcurve?: string,
-  boxplot?: string,
-  bubble?: string,
-  bullet?: string,
-  candlestick?: string,
-  cci?: string,
-  chaikin?: string,
-  cmf?: string,
-  cmo?: string,
-  column?: string,
-  columnpyramid?: string,
-  columnrange?: string,
-  contour?: string,
-  cylinder?: string,
-  dema?: string,
-  dependencywheel?: string,
-  disparityindex?: string,
-  dmi?: string,
-  dpo?: string,
-  dumbbell?: string,
-  ema?: string,
-  errorbar?: string,
-  flags?: string,
-  flowmap?: string,
-  funnel?: string,
-  funnel3d?: string,
-  gantt?: string,
-  gauge?: string,
-  geoheatmap?: string,
-  heatmap?: string,
-  heikinashi?: string,
-  histogram?: string,
-  hlc?: string,
-  hollowcandlestick?: string,
-  ikh?: string,
-  item?: string,
-  keltnerchannels?: string,
-  klinger?: string,
-  line?: string,
-  linearregression?: string,
-  linearregressionangle?: string,
-  linearregressionintercept?: string,
-  linearregressionslope?: string,
-  lollipop?: string,
-  macd?: string,
-  map?: string,
-  mapbubble?: string,
-  mapline?: string,
-  mappoint?: string,
-  mfi?: string,
-  momentum?: string,
-  natr?: string,
-  networkgraph?: string,
-  obv?: string,
-  ohlc?: string,
-  organization?: string,
-  packedbubble?: string,
-  pareto?: string,
-  pc?: string,
-  pictorial?: string,
-  pie?: string,
-  pivotpoints?: string,
-  pointandfigure?: string,
-  polygon?: string,
-  ppo?: string,
-  priceenvelopes?: string,
-  psar?: string,
-  pyramid?: string,
-  pyramid3d?: string,
-  renko?: string,
-  roc?: string,
-  rsi?: string,
-  sankey?: string,
-  scatter?: string,
-  scatter3d?: string,
-  series?: string,
-  slowstochastic?: string,
-  sma?: string,
-  solidgauge?: string,
-  spline?: string,
-  stochastic?: string,
-  streamgraph?: string,
-  sunburst?: string,
-  supertrend?: string,
-  tema?: string,
-  tiledwebmap?: string,
-  tilemap?: string,
-  timeline?: string,
-  treegraph?: string,
-  treemap?: string,
-  trendline?: string,
-  trix?: string,
-  variablepie?: string,
-  variwide?: string,
-  vbp?: string,
-  vector?: string,
-  venn?: string,
-  vwap?: string,
-  waterfall?: string,
-  williamsr?: string,
-  windbarb?: string,
-  wma?: string,
-  wordcloud?: string,
-  xrange?: string,
-  zigzag?: string,
+type accessibilityOptions = {
+  announceNewData?: accessibilityAnnounceNewDataOptionsObject,
+  customComponents?: string,
+  description?: string,
+  enabled?: bool,
+  highContrastMode?: string,
+  highContrastTheme?: string,
+  keyboardNavigation?: keyboardNavigationOptionsObject,
+  landmarkVerbosity?: optionsLandmarkVerbosityValue,
+  linkedDescription?: string,
+  point?: accessibilityPointOptions,
+  screenReaderSection?: accessibilityScreenReaderSectionOptions,
+  series?: accessibilitySeriesOptions,
+  typeDescription?: string,
 }
-type rangeSelectorOptions = {
-  allButtonsEnabled?: string,
-  buttonPosition?: string,
-  buttons?: string,
-  buttonSpacing?: string,
-  buttonTheme?: string,
-  dropdown?: string,
-  enabled?: string,
-  floating?: string,
-  inputBoxBorderColor?: string,
-  inputBoxHeight?: string,
-  inputBoxWidth?: string,
-  inputDateFormat?: string,
-  inputDateParser?: string,
-  inputEditDateFormat?: string,
-  inputEnabled?: string,
-  inputPosition?: string,
-  inputSpacing?: string,
-  inputStyle?: string,
-  labelStyle?: string,
-  selected?: string,
-  verticalAlign?: string,
-  x?: string,
-  y?: string,
+type highchartsAnimationConfig = {
+  complete?: string,
+  defer?: float,
+  duration?: float,
+  easing?: string,
+  step?: string,
 }
-type responsiveOptions = {
-  rules?: string,
+type annotationsAnimationOptions = {
+  defer?: float,
 }
-type linearGradientColorObject = {
-  x1: float,
-  x2: float,
-  y1: float,
-  y2: float,
+module Animation = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromAnnotationsAnimationOptions: annotationsAnimationOptions => t = "%identity"
 }
-type radialGradientColorObject = {
-  cx: float,
-  cy: float,
-  r: float,
+type positionObject = {
+  x: float,
+  y: float,
 }
-type gradientColorObject = {
-  linearGradient?: linearGradientColorObject,
-  radialGradient?: radialGradientColorObject,
-  stops: array<string>,
+type annotationsControlPointStyleOptions = {
+  cursor?: string,
+  fill?: string,
+  stroke?: string,
+  @as("stroke-width") strokeWidth?: float,
 }
-type patternOptionsObject = {
-  anchorToPoint?: bool,
-  aspectRatio?: float,
-  backgroundColor?: string,
-  color?: string,
-  height?: float,
-  id?: string,
-  image?: string,
-  opacity?: float,
-  path?: string,
-  patternTransform?: string,
-  width?: float,
+module Style = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowInfinityLineAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowRayAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsArrowSegmentAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCircleAnnotationAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked3AnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsCrooked5AnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott3AnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsElliott5AnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsEllipseAnnotationAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsFibonacciTimeZonesAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsHorizontalLineAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsInfinityLineAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsLabelAnnotationAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureXYAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsMeasureYAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsParallelChannelAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsPitchforkAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRayAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsRectangleAnnotationAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsSegmentAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsTimeCyclesAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalArrowAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalCounterAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLabelAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsShapesControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesCrookedLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesElliottWaveControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesFibonacciControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesFibonacciTimeZonesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesInfinityLineControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesMeasureControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesPitchforkControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesTimeCyclesControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesTunnelControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+  external fromNavigationBindingsVerticalLineAnnotationsTypesTunnelTypeHeightControlPointStyleOptions: annotationsControlPointStyleOptions => t =
+    "%identity"
+}
+type annotationLabelAccessibilityOptionsObject = {
+  description?: string,
+}
+type annotationsLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<point> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
   x?: float,
   y?: float,
 }
-type patternObject = {
-  animation?: string,
-  pattern: patternOptionsObject,
-  patternIndex?: float,
+type annotationsLabelsOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  controlPoints?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<point> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  point?: string,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
 }
-module ColorType = {
-  type t
-  external fromString: string => t = "%identity"
-  external fromGradientColorObject: gradientColorObject => t = "%identity"
-  external fromPatternObject: patternObject => t = "%identity"
-}
-type scrollbarOptions = {
-  barBackgroundColor?: ColorType.t,
-  barBorderColor?: ColorType.t,
-  barBorderRadius?: float,
-  barBorderWidth?: float,
-  buttonArrowColor?: ColorType.t,
-  buttonBackgroundColor?: ColorType.t,
-  buttonBorderColor?: ColorType.t,
-  buttonBorderRadius?: float,
-  buttonBorderWidth?: float,
-  buttonsEnabled?: bool,
-  enabled?: bool,
+type annotationsShapeOptions = {
+  dashStyle?: dashStyleValue,
+  fill?: ColorType.t,
   height?: float,
-  liveRedraw?: bool,
-  margin?: float,
-  minWidth?: float,
-  rifleColor?: ColorType.t,
-  showFull?: bool,
-  trackBackgroundColor?: ColorType.t,
-  trackBorderColor?: ColorType.t,
-  trackBorderRadius?: float,
-  trackBorderWidth?: float,
+  r?: float,
+  ry?: float,
+  snap?: float,
+  src?: string,
+  stroke?: ColorType.t,
+  strokeWidth?: float,
+  @as("type") type_?: string,
+  width?: float,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsShapesOptions = {
+  controlPoints?: string,
+  dashStyle?: dashStyleValue,
+  fill?: ColorType.t,
+  height?: float,
+  markerEnd?: string,
+  markerStart?: string,
+  point?: string,
+  points?: array<string>,
+  r?: float,
+  ry?: float,
+  snap?: float,
+  src?: string,
+  stroke?: ColorType.t,
+  strokeWidth?: float,
+  @as("type") type_?: string,
+  width?: float,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypeOptions = {
+  background?: annotationsShapeOptions,
+  height?: float,
+  line?: annotationsShapeOptions,
+  point?: string,
+  points?: array<string>,
+  @as("type") type_?: string,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesCrookedLineLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<string> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type annotationsTypesCrookedLineTypeLineOptions = {
+  fill?: string,
+}
+type annotationsTypesCrookedLineTypeOptions = {
+  line?: annotationsTypesCrookedLineTypeLineOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesElliottWaveLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: string,
+  allowOverlap?: bool,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<string> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  text?: string,
+  @as("type") type_?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type annotationsTypesElliottWaveTypeLineOptions = {
+  fill?: string,
+  strokeWidth?: float,
+}
+type annotationsTypesElliottWaveTypeOptions = {
+  line?: annotationsTypesElliottWaveTypeLineOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesFibonacciLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: string,
+  allowOverlap?: bool,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<string> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+type annotationsTypesFibonacciTypeOptions = {
+  backgroundColors?: string,
+  height?: float,
+  labels?: array<string>,
+  line?: annotationsTypesCrookedLineTypeLineOptions,
+  lineColor?: string,
+  lineColors?: string,
+  points?: array<string>,
+  reversed?: bool,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesFibonacciTimeZonesTypeControlPointOptions = {
+  events?: string,
+}
+type annotationsTypesFibonacciTimeZonesTypeLineOptions = {
+  fill?: string,
+  stroke?: string,
+  strokeWidth?: float,
+}
+type annotationsTypesFibonacciTimeZonesTypeOptions = {
+  controlPointOptions?: annotationsTypesFibonacciTimeZonesTypeControlPointOptions,
+  line?: annotationsTypesFibonacciTimeZonesTypeLineOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesMeasureTypeCrosshairXOptions = {
+  dashStyle?: dashStyleValue,
+  enabled?: bool,
+  markerEnd?: string,
   zIndex?: int,
 }
-type sonificationOptions = {
-  afterSeriesWait?: string,
-  defaultInstrumentOptions?: string,
-  defaultSpeechOptions?: string,
-  duration?: string,
+type annotationsTypesMeasureTypeLabelOptions = {
   enabled?: string,
-  events?: string,
-  globalContextTracks?: string,
-  globalTracks?: string,
-  masterVolume?: string,
-  order?: string,
-  pointGrouping?: string,
-  showCrosshair?: string,
-  showTooltip?: string,
-  updateInterval?: string,
+  formatter?: string,
+  style?: string,
 }
-type stockToolsOptions = {
-  gui?: string,
+type annotationsTypesMeasureTypeOptions = {
+  background?: annotationsTypesFibonacciTimeZonesTypeLineOptions,
+  crosshairX?: annotationsTypesMeasureTypeCrosshairXOptions,
+  crosshairY?: annotationsTypesMeasureTypeCrosshairXOptions,
+  label?: annotationsTypesMeasureTypeLabelOptions,
+  line?: annotationsTypesCrookedLineTypeLineOptions,
+  points?: array<string>,
+  selectType?: string,
+  xAxis?: float,
+  yAxis?: float,
 }
-type subtitleOptions = {
-  align?: string,
-  floating?: string,
+type annotationsTypesPitchforkTypeInnerBackgroundOptions = {
+  dashStyle?: dashStyleValue,
+  fill?: string,
+  ry?: float,
+  snap?: float,
+  src?: string,
+  stroke?: ColorType.t,
+  strokeWidth?: float,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesPitchforkTypeOptions = {
+  innerBackground?: annotationsTypesPitchforkTypeInnerBackgroundOptions,
+  outerBackground?: annotationsTypesPitchforkTypeInnerBackgroundOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesVerticalLineLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<string> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
   style?: string,
   text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type annotationsTypesVerticalLineTypeConnectorOptions = {
+  dashStyle?: dashStyleValue,
+  fill?: ColorType.t,
+  markerEnd?: string,
+  ry?: float,
+  snap?: float,
+  src?: string,
+  stroke?: ColorType.t,
+  strokeWidth?: float,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesVerticalLineTypeLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<point> => string,
+  includeInDataExport?: bool,
+  offset?: float,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type annotationsTypesVerticalLineTypeOptions = {
+  connector?: annotationsTypesVerticalLineTypeConnectorOptions,
+  label?: annotationsTypesVerticalLineTypeLabelOptions,
+  line?: annotationsTypesCrookedLineTypeLineOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+type annotationsTypesVerticalLineOptions = {
+  labelOptions?: annotationsTypesVerticalLineLabelOptions,
+  typeOptions?: annotationsTypesVerticalLineTypeOptions,
+}
+type rec annotationsTypesTunnelTypeOptions<'a> = {
+  background?: string,
+  height?: float,
+  heightControlPoint?: annotationControlPointOptionsObject<'a>,
+  line?: annotationsTypesElliottWaveTypeLineOptions,
+  points?: array<string>,
+  xAxis?: float,
+  yAxis?: float,
+}
+and annotationsTypesTunnelOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesCrookedLineLabelOptions,
+  typeOptions?: annotationsTypesTunnelTypeOptions<'a>,
+}
+and annotationsTypesTimeCyclesOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  typeOptions?: annotationsTypesCrookedLineTypeOptions,
+}
+and annotationsTypesPitchforkOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesCrookedLineLabelOptions,
+  typeOptions?: annotationsTypesPitchforkTypeOptions,
+}
+and annotationsTypesMeasureOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  typeOptions?: annotationsTypesMeasureTypeOptions,
+}
+and annotationsTypesFibonacciTimeZonesOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesCrookedLineLabelOptions,
+  typeOptions?: annotationsTypesFibonacciTimeZonesTypeOptions,
+}
+and annotationsTypesFibonacciOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesFibonacciLabelOptions,
+  typeOptions?: annotationsTypesFibonacciTypeOptions,
+}
+and annotationsTypesElliottWaveOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesElliottWaveLabelOptions,
+  typeOptions?: annotationsTypesElliottWaveTypeOptions,
+}
+and annotationsTypesCrookedLineOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: annotationsTypesCrookedLineLabelOptions,
+  typeOptions?: annotationsTypesCrookedLineTypeOptions,
+}
+and annotationsTypesOptions<'a> = {
+  crookedLine?: annotationsTypesCrookedLineOptions<'a>,
+  elliottWave?: annotationsTypesElliottWaveOptions<'a>,
+  fibonacci?: annotationsTypesFibonacciOptions<'a>,
+  fibonacciTimeZones?: annotationsTypesFibonacciTimeZonesOptions<'a>,
+  infinityLine?: annotationsTypesCrookedLineOptions<'a>,
+  measure?: annotationsTypesMeasureOptions<'a>,
+  pitchfork?: annotationsTypesPitchforkOptions<'a>,
+  timeCycles?: annotationsTypesTimeCyclesOptions<'a>,
+  tunnel?: annotationsTypesTunnelOptions<'a>,
+  verticalLine?: annotationsTypesVerticalLineOptions,
+}
+and annotationsEventsOptions<'a> = {
+  add?: (option<string>, option<annotation<'a>>) => bool,
+  afterUpdate?: (option<string>, option<annotation<'a>>) => bool,
+  click?: (option<string>, option<annotation<'a>>) => bool,
+  drag?: (option<string>, option<annotation<'a>>) => bool,
+  remove?: (option<string>, option<annotation<'a>>) => bool,
+}
+and annotation<'a> = {
+  chart: chart,
+  group: Dom.element,
+  labelsGroup: Dom.element,
+  options: annotationsOptions<'a>,
+  points: array<point>,
+  shapesGroup: Dom.element,
+  userOptions: annotationsOptions<'a>,
+  update: (annotationsOptions<'a>, option<bool>) => unit,
+}
+and annotationControllable<'a> = {
+  annotation: annotation<'a>,
+  chart: chart,
+  collection: string,
+  points: array<string>,
+}
+and annotationControlPointOptionsObject<'a> = {
+  events?: 'a,
+  height?: float,
+  positioner?: annotationControllable<'a> => positionObject,
+  style?: Style.t,
+  symbol?: string,
+  visible?: bool,
+  width?: float,
+}
+and annotationsOptions<'a> = {
+  animation?: Animation.t,
+  className?: string,
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  crop?: bool,
+  draggable?: annotationDraggableValue,
+  events?: annotationsEventsOptions<'a>,
+  id?: CommonTypes.stringOrNumber,
+  labelOptions?: annotationsLabelOptions,
+  labels?: array<annotationsLabelsOptions>,
+  shapeOptions?: annotationsShapeOptions,
+  shapes?: array<annotationsShapesOptions>,
+  @as("type") type_?: string,
+  typeOptions?: annotationsTypeOptions,
+  types?: annotationsTypesOptions<'a>,
+  visible?: bool,
+  zIndex?: int,
+}
+type boostDebugOptions = {
+  showSkipSummary?: bool,
+  timeBufferCopy?: bool,
+  timeKDTree?: bool,
+  timeRendering?: bool,
+  timeSeriesProcessing?: bool,
+  timeSetup?: bool,
+}
+type boostOptions = {
+  allowForce?: bool,
+  chunkSize?: float,
+  debug?: boostDebugOptions,
+  enabled?: bool,
+  pixelRatio?: float,
+  seriesThreshold?: float,
+  useGPUTranslations?: bool,
+  usePreallocated?: bool,
+}
+type captionStyleOptions = {
+  color?: string,
+  fontSize?: CommonTypes.stringOrNumber,
+}
+module Style2 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromCaptionStyleOptions: captionStyleOptions => t = "%identity"
+}
+type captionOptions = {
+  align?: alignValue,
+  floating?: bool,
+  margin?: float,
+  style?: Style2.t,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type exportingAccessibilityOptions = {
+  enabled?: bool,
+}
+type plotAbandsAccessibilityPointOptions = {
+  dateFormat?: string,
+  dateFormatter?: (string, option<string>) => string,
+  describeNull?: bool,
+  descriptionFormat?: string,
+  descriptionFormatter?: (string, option<string>) => string,
+  valueDecimals?: float,
+  valueDescriptionFormat?: string,
+  valuePrefix?: string,
+  valueSuffix?: string,
+}
+type plotAdAccessibilityPointOptions = {
+  dateFormat?: string,
+  dateFormatter?: (string, option<string>) => string,
+  describeNull?: bool,
+  descriptionFormat?: string,
+  descriptionFormatter?: (string, option<string>) => string,
+  valueDecimals?: float,
+  valueDescriptionFormat?: string,
+  valuePrefix?: string,
+  valueSuffix?: string,
+}
+module Point = {
+  type t
+  external fromPlotAbandsAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAdAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotAoAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotApoAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotArcdiagramAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAreaAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotArearangeAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAreasplineAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAreasplinerangeAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAroonAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAroonoscillatorAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotAtrAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotBarAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotBbAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotBellcurveAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotBoxplotAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotBubbleAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotBulletAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotCandlestickAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotCciAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotChaikinAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotCmfAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotCmoAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotColumnAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotColumnpyramidAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotColumnrangeAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotContourAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotCylinderAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotDemaAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotDependencywheelAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotDisparityindexAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotDmiAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotDpoAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotDumbbellAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotEmaAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotErrorbarAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotFlagsAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotFlowmapAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotFunnel3dAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotFunnelAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotGanttAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotGaugeAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotGeoheatmapAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotHeatmapAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotHeikinashiAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotHistogramAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotHlcAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotHollowcandlestickAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotIkhAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotItemAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotKeltnerchannelsAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotKlingerAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotLineAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotLinearregressionAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotLinearregressionangleAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotLinearregressioninterceptAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotLinearregressionslopeAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotLollipopAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotMacdAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotMapAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotMapbubbleAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotMaplineAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotMappointAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotMfiAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotMomentumAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotNatrAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotNetworkgraphAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotObvAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotOhlcAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotOrganizationAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPackedbubbleAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotParetoAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPcAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotPictorialAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPieAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotPivotpointsAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPointandfigureAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPolygonAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPpoAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotPriceenvelopesAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPsarAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotPyramid3dAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotPyramidAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotRenkoAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotRocAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotRsiAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotSankeyAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotScatter3dAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotScatterAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSeriesAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSlowstochasticAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSmaAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotSolidgaugeAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSplineAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotStochasticAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotStreamgraphAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSunburstAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotSupertrendAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTemaAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTiledwebmapAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTilemapAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTimelineAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTreegraphAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTreemapAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTrendlineAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotTrixAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotVariablepieAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotVariwideAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotVbpAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotVectorAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotVennAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotVwapAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotWaterfallAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotWilliamsrAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotWindbarbAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotWmaAccessibilityPointOptions: plotAdAccessibilityPointOptions => t = "%identity"
+  external fromPlotWordcloudAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotXrangeAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+  external fromPlotZigzagAccessibilityPointOptions: plotAdAccessibilityPointOptions => t =
+    "%identity"
+}
+type seriesAccessibilityOptionsObject = {
+  description?: string,
+  descriptionFormat?: string,
+  enabled?: bool,
+  exposeAsGroupOnly?: bool,
+  keyboardNavigation?: exportingAccessibilityOptions,
+  point?: Point.t,
+}
+type plotAbandsBottomLineStylesOptions = {
+  lineWidth?: float,
+}
+type plotAbandsBottomLineOptions = {
+  styles?: plotAbandsBottomLineStylesOptions,
+}
+type dataGroupingOptionsObject = {
+  anchor?: string,
+  approximation?: string,
+  dateTimeLabelFormats?: string,
+  enabled?: bool,
+  firstAnchor?: string,
+  forced?: bool,
+  groupAll?: bool,
+  groupPixelWidth?: float,
+  lastAnchor?: string,
+  units?: array<(string, string)>,
+}
+type plotAbandsDataLabelsAnimationOptions = {
+  defer?: float,
+}
+module Animation3 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAbandsDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type dataLabelsFilterOptionsObject = {
+  operator?: string,
+  property?: string,
+  value?: string,
+}
+type dataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: string,
+  animation?: string,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  color?: string,
+  crop?: string,
+  defer?: string,
+  enabled?: string,
+  filter?: string,
+  format?: string,
+  formatter?: string,
+  inside?: string,
+  labelrank?: string,
+  nullFormat?: string,
+  nullFormatter?: string,
+  overflow?: string,
+  padding?: string,
+  position?: string,
+  rotation?: string,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  textPath?: string,
   useHTML?: string,
   verticalAlign?: string,
   x?: string,
+  xHigh?: string,
+  xLow?: string,
   y?: string,
+  yHigh?: string,
+  yLow?: string,
 }
-type timeOptions = {
-  @as("Date") date?: string,
-  timezone?: string,
-  timezoneOffset?: float,
+type dataLabelsTextPathOptionsObject = {
+  attributes?: string,
+  enabled?: string,
 }
-type titleOptions = {
-  align?: string,
-  floating?: string,
-  margin?: string,
-  minScale?: string,
-  style?: string,
+type plotAbandsDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation3.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels2 = {
+  type t
+  external fromPlotAbandsDataLabelsOptions: plotAbandsDataLabelsOptions => t = "%identity"
+  external fromPlotAbandsDataLabelsOptionss: array<plotAbandsDataLabelsOptions> => t = "%identity"
+}
+type dataSortingOptionsObject = {
+  enabled?: bool,
+  matchByName?: bool,
+  sortKey?: string,
+}
+module DataSorting = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAbandsDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type seriesAfterAnimateEventObject = {
+  target: series,
+  @as("type") type_: string,
+}
+type seriesCheckboxClickEventObject = {
+  checked: bool,
+  item: series,
+  target: series,
+  @as("type") type_: string,
+}
+type seriesClickEventObject = {
+  ...JsxDOM.domProps,
+  point: point,
+}
+type seriesLegendItemClickEventObject = {
+  browserEvent: Dom.event,
+  defaultPrevented?: bool,
+  preventDefault: string,
+  target: series,
+  @as("type") type_: string,
+}
+type seriesEventsOptionsObject = {
+  afterAnimate?: seriesAfterAnimateEventObject => unit,
+  checkboxClick?: seriesCheckboxClickEventObject => string,
+  click?: seriesClickEventObject => unit,
+  hide?: Dom.event => unit,
+  legendItemClick?: seriesLegendItemClickEventObject => unit,
+  mouseOut?: Dom.event => unit,
+  mouseOver?: Dom.event => unit,
+  setRootNode?: string,
+  show?: Dom.event => unit,
+}
+type rGBA = {
+  ...JsxDOM.domProps,
+  length: string,
+}
+type rec color2 = {
+  rgba: rGBA,
+  brighten: float => color2,
+  get: option<string> => ColorType.t,
+  setOpacity: float => color2,
+  tweenTo: (color2, float) => ColorType.t,
+}
+type labelIntersectBoxObject = {
+  bottom: float,
+  left: float,
+  right: float,
+  top: float,
+}
+type plotAbandsLabelStyleOptions = {
+  fontSize?: CommonTypes.stringOrNumber,
+}
+type colorAxisLabelsStyleOptions = {
+  fontSize?: CommonTypes.stringOrNumber,
+}
+module Style16 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotAbandsLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotAdLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotAoLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotApoLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotArcdiagramLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotAreaLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotArearangeLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotAreasplineLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotAreasplinerangeLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotAroonLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotAroonoscillatorLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotAtrLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotBarLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotBbLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotBellcurveLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotBoxplotLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotBubbleLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotBulletLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotCandlestickLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotCciLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotChaikinLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotCmfLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotCmoLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotColumnLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotColumnpyramidLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotColumnrangeLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotContourLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotCylinderLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotDemaLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotDependencywheelLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotDisparityindexLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotDmiLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotDpoLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotDumbbellLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotEmaLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotErrorbarLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotFlagsLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotFunnel3dLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotGanttLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotGaugeLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotHeatmapLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotHeikinashiLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotHistogramLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotHlcLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotHollowcandlestickLabelStyleOptions: colorAxisLabelsStyleOptions => t =
+    "%identity"
+  external fromPlotIkhLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotKeltnerchannelsLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotKlingerLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotLinearregressionangleLabelStyleOptions: colorAxisLabelsStyleOptions => t =
+    "%identity"
+  external fromPlotLinearregressioninterceptLabelStyleOptions: colorAxisLabelsStyleOptions => t =
+    "%identity"
+  external fromPlotLinearregressionLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotLinearregressionslopeLabelStyleOptions: colorAxisLabelsStyleOptions => t =
+    "%identity"
+  external fromPlotLineLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotLollipopLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotMacdLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotMfiLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotMomentumLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotNatrLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotObvLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotOhlcLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotOrganizationLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotPackedbubbleLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotParetoLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPcLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPictorialLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPivotpointsLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPointandfigureLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotPolygonLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPpoLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPriceenvelopesLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotPsarLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotPyramid3dLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotRenkoLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotRocLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotRsiLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotSankeyLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotScatter3dLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotScatterLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotSeriesLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotSlowstochasticLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotSmaLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotSolidgaugeLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotSplineLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotStochasticLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotStreamgraphLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotSupertrendLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotTemaLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTilemapLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTimelineLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTreegraphLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTreemapLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTrendlineLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotTrixLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotVariwideLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotVbpLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotVectorLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotVwapLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotWaterfallLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotWilliamsrLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotWindbarbLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
+  external fromPlotWmaLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotWordcloudLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotXrangeLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+  external fromPlotZigzagLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+}
+type seriesLabelOptionsObject = {
+  boxesToAvoid?: array<labelIntersectBoxObject>,
+  connectorAllowed?: bool,
+  connectorNeighbourDistance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: option<series> => string,
+  maxFontSize?: float,
+  minFontSize?: float,
+  onArea?: bool,
+  style?: Style16.t,
+  useHTML?: bool,
+}
+type seriesLastPriceLabelOptionsObject = {
+  align?: alignValue,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: (float, option<axis>) => string,
+  padding?: float,
+  shape?: string,
+  style?: cssObject,
+}
+type seriesLastPriceOptionsObject = {
+  color?: string,
+  dashStyle?: dashStyleValue,
+  enabled?: bool,
+  label?: seriesLastPriceLabelOptionsObject,
+  width?: float,
+}
+type plotAbandsParamsOptions = {
+  index?: int,
+  period?: float,
+}
+type plotSeriesPointOptions = {
+  events?: pointEventsOptionsObject,
+}
+type sonificationInstrumentMappingOptions = {
+  frequency?: string,
+  gapBetweenNotes?: string,
+  highpass?: string,
+  lowpass?: string,
+  noteDuration?: string,
+  pan?: string,
+  pitch?: string,
+  playDelay?: string,
+  rate?: string,
   text?: string,
-  useHTML?: string,
-  verticalAlign?: string,
-  x?: string,
-  y?: string,
+  time?: string,
+  tremolo?: string,
+  volume?: string,
+}
+type sonificationInstrumentPointGroupingOptions = {
+  algorithm?: string,
+  enabled?: bool,
+  groupTimespan?: float,
+  prop?: string,
+}
+type seriesSonificationContextTracksOptions = {
+  activeWhen?: string,
+  instrument?: string,
+  mapping?: sonificationInstrumentMappingOptions,
+  midiName?: string,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  roundToMusicalNotes?: bool,
+  showPlayMarker?: bool,
+  timeInterval?: float,
+  @as("type") type_?: sonifcationTypeValue,
+  valueInterval?: float,
+  valueMapFunction?: optionsValueMapFunctionValue,
+  valueProp?: string,
+}
+type seriesSonificationInstrumentOptions = {
+  activeWhen?: string,
+  instrument?: string,
+  mapping?: sonificationInstrumentMappingOptions,
+  midiName?: string,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  roundToMusicalNotes?: bool,
+  showPlayMarker?: bool,
+  @as("type") type_?: sonifcationTypeValue,
+}
+type sonificationSpeechMappingOptions = {
+  pitch?: string,
+  playDelay?: string,
+  rate?: string,
+  text?: string,
+  time?: string,
+  volume?: string,
+}
+type seriesSonificationSpeechOptions = {
+  activeWhen?: string,
+  language?: string,
+  mapping?: sonificationSpeechMappingOptions,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  preferredVoice?: string,
+  showPlayMarker?: bool,
+  @as("type") type_?: sonifcationTypeValue,
+}
+type seriesSonificationPointGroupingOptions = {
+  algorithm?: optionsAlgorithmValue,
+  enabled?: bool,
+  groupTimespan?: float,
+  prop?: string,
+}
+type seriesSonificationOptions = {
+  contextTracks?: array<seriesSonificationContextTracksOptions>,
+  defaultInstrumentOptions?: seriesSonificationInstrumentOptions,
+  defaultSpeechOptions?: seriesSonificationSpeechOptions,
+  enabled?: bool,
+  pointGrouping?: seriesSonificationPointGroupingOptions,
+  tracks?: array<seriesSonificationInstrumentOptions>,
+}
+type sankeyNodeObject = {
+  color: ColorType.t,
+  colorIndex: float,
+  column: float,
+  id: string,
+  name: string,
+  offset: CommonTypes.stringOrNumber,
+  offsetHorizontal: CommonTypes.stringOrNumber,
+  offsetVertical: CommonTypes.stringOrNumber,
+  category: CommonTypes.stringOrNumber,
+  graphic?: Dom.element,
+  graphics?: array<string>,
+  index: int,
+  key: CommonTypes.stringOrNumber,
+  options: pointOptionsObject,
+  percentage?: float,
+  plotX?: float,
+  plotY?: float,
+  points?: array<string>,
+  selected: bool,
+  series: series,
+  shapeArgs?: highchartsShapeArgsConfig,
+  sliced?: bool,
+  tooltipPos?: array<string>,
+  total?: float,
+  visible: bool,
+  x: float,
+  y?: float,
+  getClassName: unit => string,
+  getZone: unit => string,
+  haloPath: string => string,
+  onMouseOut: unit => unit,
+  onMouseOver: option<string> => unit,
+  optionsToObject: string => string,
+  pos: (string, string) => string,
+  remove: (option<string>, option<string>) => unit,
+  select: (option<string>, option<string>) => unit,
+  setNestedProperty: (string, string, string) => string,
+  setState: (option<string>, option<string>) => unit,
+  setVisible: (option<string>, option<string>) => unit,
+  tooltipFormatter: string => string,
+  update: (string, option<string>, option<string>) => unit,
 }
 type tooltipOptions = {
   animation?: string,
@@ -1004,376 +2803,255 @@ type tooltipOptions = {
   valueSuffix?: string,
   xDateFormat?: string,
 }
-type options = {
-  accessibility?: accessibilityOptions,
-  annotations?: array<string>,
-  boost?: boostOptions,
-  caption?: captionOptions,
-  chart?: chartOptions,
-  colorAxis?: string,
-  colors?: array<string>,
-  connectors?: connectorsOptions,
-  credits?: creditsOptions,
-  data?: dataOptions,
-  defs?: string,
-  drilldown?: drilldownOptions,
-  exporting?: exportingOptions,
-  global?: globalOptions,
-  lang?: langOptions,
-  legend?: legendOptions,
-  loading?: loadingOptions,
-  mapNavigation?: mapNavigationOptions,
-  mapView?: mapViewOptions,
-  navigation?: navigationOptions,
-  navigator?: navigatorOptions,
-  noData?: noDataOptions,
-  pane?: string,
-  plotOptions?: plotOptions,
-  rangeSelector?: rangeSelectorOptions,
-  responsive?: responsiveOptions,
-  scrollbar?: scrollbarOptions,
-  series?: array<string>,
-  sonification?: sonificationOptions,
-  stockTools?: stockToolsOptions,
-  subtitle?: subtitleOptions,
-  time?: timeOptions,
-  title?: titleOptions,
-  tooltip?: tooltipOptions,
-  xAxis?: string,
-  yAxis?: string,
-  zAxis?: string,
-}
-type pointer = {
-  destroy: unit => unit,
-  findNearestKDPoint: (string, string, string) => string,
-  getChartPosition: unit => string,
-  getCoordinates: string => string,
-  inClass: (string, string) => string,
-  normalize: (string, option<string>) => string,
-  reset: (option<string>, option<string>) => unit,
-}
-type symbolDictionary = {
-  arc?: string,
-  callout?: string,
-  circle?: string,
-  diamond?: string,
-  square?: string,
-  triangle?: string,
-}
 type svgRenderer = {
-  box: Dom.element,
-  boxWrapper: Dom.element,
-  defs: Dom.element,
-  @as("Element") element: Dom.element,
-  escapes: Dict.t<string>,
-  forExport?: bool,
-  symbols: symbolDictionary,
+  box: string,
+  boxWrapper: string,
+  defs: string,
+  @as("Element") element: string,
+  escapes: string,
+  forExport?: string,
+  symbols: string,
   arc: string,
-  button: (
-    string,
-    string,
-    string,
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => string,
+  button: string,
   circle: string,
-  clipRect: (option<string>, option<string>, option<string>, option<string>) => string,
-  createElement: string => string,
-  crispLine: (string, string) => string,
-  definition: string => string,
-  destroy: unit => string,
-  draw: unit => unit,
-  fontMetrics: string => string,
-  g: option<string> => string,
-  getContrast: string => string,
-  image: (
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => string,
-  init: (
-    string,
-    string,
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => unit,
-  isHidden: unit => string,
-  label: (
-    string,
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => string,
+  clipRect: string,
+  createElement: string,
+  crispLine: string,
+  definition: string,
+  destroy: string,
+  draw: string,
+  fontMetrics: string,
+  g: string,
+  getContrast: string,
+  image: string,
+  init: string,
+  isHidden: string,
+  label: string,
   path: string,
   rect: string,
-  roundedRect: string => string,
-  setSize: (string, string, option<string>) => unit,
-  setStyle: string => unit,
-  symbol: (
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => string,
-  text: (option<string>, option<string>, option<string>, option<string>) => string,
+  roundedRect: string,
+  setSize: string,
+  setStyle: string,
+  symbol: string,
+  text: string,
 }
-type subtitleObject = {
-  update: (string, option<string>) => unit,
-  element: Dom.element,
-  renderer: svgRenderer,
-  add: option<string> => string,
-  addClass: (string, option<string>) => string,
-  align: (option<string>, option<string>, option<string>, option<string>) => string,
-  animate: (string, option<string>, option<string>) => string,
-  attr: string,
-  clip: option<string> => string,
-  crisp: (string, option<string>) => string,
-  css: string => string,
+type rec tooltip = {
+  chart: chart,
+  container?: Dom.element,
+  options: tooltipOptions,
+  outside: bool,
+  renderer?: svgRenderer,
+  shared?: bool,
+  split?: bool,
+  defaultFormatter: tooltip => string,
   destroy: unit => unit,
-  getBBox: (option<string>, option<string>) => string,
-  getBBoxCacheKey: unit => string,
-  getStyle: string => string,
-  hasClass: string => string,
-  hide: unit => string,
-  init: (string, string) => unit,
-  on: (string, string) => string,
-  removeClass: string => string,
-  setRadialReference: string => string,
-  shadow: option<string> => string,
-  show: option<string> => string,
-  strokeWidth: unit => string,
-  toFront: unit => string,
-  translate: (string, string) => string,
+  getClassName: unit => string,
+  getLabel: unit => string,
+  getPosition: (string, string, string) => string,
+  hide: option<string> => unit,
+  refresh: (string, option<string>) => unit,
+  update: string => unit,
 }
-type time = {
-  dateFormat: (string, option<string>, option<string>) => string,
-  getTimeTicks: (string, option<string>, option<string>, option<string>) => string,
-  getTimezoneOffset: string => string,
-  makeTime: (
-    string,
-    string,
-    option<string>,
-    option<string>,
-    option<string>,
-    option<string>,
-  ) => string,
-  parse: string => string,
-  toParts: option<string> => string,
+type plotAbandsTooltipPositionOptions = {
+  align?: alignValue,
+  relativeTo?: optionsRelativeToValue,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
 }
-type colorAxisOptions = {
-  accessibility?: string,
-  allowDecimals?: string,
-  angle?: string,
-  ceiling?: string,
-  className?: string,
-  crossing?: string,
-  dataClassColor?: string,
-  dataClasses?: string,
-  endOnTick?: string,
-  events?: string,
-  floor?: string,
-  gridLineColor?: string,
-  gridLineDashStyle?: string,
-  gridLineInterpolation?: string,
-  gridLineWidth?: string,
-  gridZIndex?: string,
-  height?: string,
-  id?: string,
-  labels?: string,
-  layout?: string,
-  lineColor?: string,
-  margin?: string,
-  marker?: string,
-  max?: string,
-  maxColor?: string,
-  maxPadding?: string,
-  maxRange?: string,
-  min?: string,
-  minColor?: string,
-  minorGridLineColor?: string,
-  minorGridLineDashStyle?: string,
-  minorGridLineWidth?: string,
-  minorTickColor?: string,
-  minorTickInterval?: string,
-  minorTickLength?: string,
-  minorTickPosition?: string,
-  minorTicks?: string,
-  minorTicksPerMajor?: string,
-  minorTickWidth?: string,
-  minPadding?: string,
-  ordinal?: string,
-  overscroll?: string,
-  panningEnabled?: string,
-  range?: string,
-  reversed?: string,
-  showFirstLabel?: string,
-  showInLegend?: string,
-  showLastLabel?: string,
-  softMax?: string,
-  softMin?: string,
-  startOfWeek?: string,
-  startOnTick?: string,
-  staticScale?: string,
-  stops?: string,
-  tickAmount?: string,
-  tickColor?: string,
-  tickInterval?: string,
-  tickLength?: string,
-  tickmarkPlacement?: string,
-  tickPixelInterval?: string,
-  tickPosition?: string,
-  tickPositioner?: string,
-  tickPositions?: string,
-  tickWidth?: string,
-  title?: string,
-  @as("type") type_?: string,
-  uniqueNames?: string,
-  units?: string,
-  visible?: string,
-  width?: string,
-  zIndex?: string,
+type plotAdTooltipPositionOptions = {
+  align?: alignValue,
+  relativeTo?: optionsRelativeToValue,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
 }
-type legendItemObject = {
-  item?: Dom.element,
-  label?: Dom.element,
-  line?: Dom.element,
-  symbol?: Dom.element,
-}
-type seriesAccessibilityOptionsObject = {
-  description?: string,
-  descriptionFormat?: string,
-  enabled?: string,
-  exposeAsGroupOnly?: string,
-  keyboardNavigation?: string,
-  point?: string,
-}
-type plotAbandsBottomLineOptions = {
-  styles?: string,
-}
-type dataGroupingOptionsObject = {
-  anchor?: string,
-  approximation?: string,
-  dateTimeLabelFormats?: string,
-  enabled?: bool,
-  firstAnchor?: string,
-  forced?: bool,
-  groupAll?: bool,
-  groupPixelWidth?: float,
-  lastAnchor?: string,
-  units?: array<(string, array<float>)>,
-}
-type seriesEventsOptionsObject = {
-  afterAnimate?: string,
-  checkboxClick?: string,
-  click?: string,
-  hide?: string,
-  legendItemClick?: string,
-  mouseOut?: string,
-  mouseOver?: string,
-  setRootNode?: string,
-  show?: string,
-}
-type color2 = {
-  rgba: string,
-  brighten: string,
-  get: string,
-  setOpacity: string,
-  tweenTo: string,
-}
-type seriesLabelOptionsObject = {
-  boxesToAvoid?: string,
-  connectorAllowed?: string,
-  connectorNeighbourDistance?: string,
-  enabled?: string,
-  format?: string,
-  formatter?: string,
-  maxFontSize?: string,
-  minFontSize?: string,
-  onArea?: string,
-  style?: string,
-  useHTML?: string,
-}
-type seriesLastPriceOptionsObject = {
-  color?: string,
-  dashStyle?: string,
-  enabled?: string,
-  label?: string,
-  width?: string,
-}
-type pointMarkerOptionsObject = {
-  animation?: string,
-  color?: string,
-  enabled?: string,
-  enabledThreshold?: string,
-  fillColor?: string,
-  fillOpacity?: string,
-  height?: string,
-  lineColor?: string,
-  lineWidth?: string,
-  radius?: string,
-  states?: string,
-  symbol?: string,
-  width?: string,
-}
-type plotAbandsParamsOptions = {
-  index?: int,
-  period?: float,
-}
-type plotSeriesPointOptions = {
-  events?: string,
-}
-type seriesSonificationOptions = {
-  contextTracks?: string,
-  defaultInstrumentOptions?: string,
-  defaultSpeechOptions?: string,
-  enabled?: string,
-  pointGrouping?: string,
-  tracks?: string,
-}
-type seriesStatesOptionsObject = {
-  hover?: string,
-  inactive?: string,
-  normal?: string,
-  select?: string,
+module Position7 = {
+  type t
+  external fromPlotAbandsTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotAdTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotAoTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotApoTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotArcdiagramTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotArearangeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotAreasplinerangeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotAreasplineTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotAreaTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotAroonoscillatorTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotAroonTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotAtrTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotBarTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotBbTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotBellcurveTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotBoxplotTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotBubbleTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotBulletTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotCandlestickTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotCciTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotChaikinTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotCmfTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotCmoTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotColumnpyramidTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotColumnrangeTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotColumnTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotContourTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotCylinderTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotDemaTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotDependencywheelTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotDisparityindexTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotDmiTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotDpoTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotDumbbellTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotEmaTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotErrorbarTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotFlagsTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotFlowmapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotFunnel3dTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotFunnelTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotGanttTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotGaugeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotGeoheatmapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotHeatmapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotHeikinashiTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotHistogramTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotHlcTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotHollowcandlestickTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotIkhTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotItemTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotKeltnerchannelsTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotKlingerTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotLinearregressionangleTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotLinearregressioninterceptTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotLinearregressionslopeTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotLinearregressionTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotLineTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotLollipopTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotMacdTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotMapbubbleTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotMaplineTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotMappointTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotMapTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotMfiTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotMomentumTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotNatrTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotNetworkgraphTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotObvTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotOhlcTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotOrganizationTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPackedbubbleTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotParetoTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotPcTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotPictorialTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPieTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotPivotpointsTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPointandfigureTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPolygonTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPpoTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotPriceenvelopesTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotPsarTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotPyramid3dTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotPyramidTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotRenkoTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotRocTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotRsiTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotSankeyTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotScatter3dTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotScatterTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotSeriesTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotSlowstochasticTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotSmaTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotSolidgaugeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotSplineTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotStochasticTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotStreamgraphTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotSunburstTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotSupertrendTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotTemaTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotTilemapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotTimelineTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotTreegraphTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotTreemapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotTrendlineTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotTrixTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotVariablepieTooltipPositionOptions: plotAdTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotVariwideTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotVbpTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotVectorTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotVennTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotVwapTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotWaterfallTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotWilliamsrTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotWindbarbTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotWmaTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
+  external fromPlotWordcloudTooltipPositionOptions: plotAbandsTooltipPositionOptions => t =
+    "%identity"
+  external fromPlotXrangeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
+  external fromPlotZigzagTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
 }
 type seriesTooltipOptionsObject = {
-  changeDecimals?: string,
+  changeDecimals?: float,
   clusterFormat?: string,
-  dateTimeLabelFormats?: string,
-  distance?: string,
-  followPointer?: string,
-  followTouchMove?: string,
+  dateTimeLabelFormats?: Dict.t<string>,
+  distance?: float,
+  followPointer?: bool,
+  followTouchMove?: bool,
   footerFormat?: string,
   format?: string,
   headerFormat?: string,
   linkFormat?: string,
   nodeFormat?: string,
-  nodeFormatter?: string,
+  nodeFormatter?: option<sankeyNodeObject> => string,
   nullFormat?: string,
-  nullFormatter?: string,
+  nullFormatter?: (tooltip, option<point>) => CommonTypes.boolOrStringOrStringArray,
   pointFormat?: string,
-  pointFormatter?: string,
-  position?: string,
-  showDelay?: string,
-  valueDecimals?: string,
+  pointFormatter?: option<point> => string,
+  position?: Position7.t,
+  showDelay?: float,
+  valueDecimals?: float,
   valuePrefix?: string,
   valueSuffix?: string,
   xDateFormat?: string,
@@ -1406,8 +3084,8 @@ type seriesAbandsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels2.t,
+  dataSorting?: DataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -1453,7 +3131,7 @@ type seriesAbandsOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1463,6 +3141,64 @@ type seriesAbandsOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+type plotAdDataLabelsAnimationOptions = {
+  defer?: float,
+}
+module Animation4 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAdDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
+}
+type plotAdDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation4.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels3 = {
+  type t
+  external fromPlotAdDataLabelsOptions: plotAdDataLabelsOptions => t = "%identity"
+  external fromPlotAdDataLabelsOptionss: array<plotAdDataLabelsOptions> => t = "%identity"
+}
+type plotAdDataSortingOptions = {
+  enabled?: bool,
+  matchByName?: bool,
+  sortKey?: string,
+}
+module DataSorting2 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAdDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotAdParamsOptions = {
   index?: string,
@@ -1497,8 +3233,8 @@ type seriesAdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels3.t,
+  dataSorting?: DataSorting2.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -1542,7 +3278,7 @@ type seriesAdOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1552,6 +3288,61 @@ type seriesAdOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation5 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAoDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation5.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels4 = {
+  type t
+  external fromPlotAoDataLabelsOptions: plotAoDataLabelsOptions => t = "%identity"
+  external fromPlotAoDataLabelsOptionss: array<plotAoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting3 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotAoParamsOptions = {
+  index?: string,
+  period?: string,
 }
 type seriesAoOptions = {
   allAreas?: string,
@@ -1582,8 +3373,8 @@ type seriesAoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels4.t,
+  dataSorting?: DataSorting3.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -1610,7 +3401,7 @@ type seriesAoOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAbandsParamsOptions,
+  params?: plotAoParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -1631,7 +3422,7 @@ type seriesAoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1641,6 +3432,57 @@ type seriesAoOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation6 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotApoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotApoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation6.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels5 = {
+  type t
+  external fromPlotApoDataLabelsOptions: plotApoDataLabelsOptions => t = "%identity"
+  external fromPlotApoDataLabelsOptionss: array<plotApoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting4 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotApoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotApoParamsOptions = {
   index?: int,
@@ -1676,8 +3518,8 @@ type seriesApoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels5.t,
+  dataSorting?: DataSorting4.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -1721,7 +3563,7 @@ type seriesApoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1735,186 +3577,320 @@ type seriesApoOptions = {
 type seriesArcdiagramOptions = {
   centerInCategory?: string,
   curveFactor?: string,
-  data?: array<string>,
-  linkRadius?: float,
-  linkWeight?: float,
+  data?: string,
+  linkRadius?: string,
+  linkWeight?: string,
   nodePadding?: string,
-  nodes?: array<string>,
+  nodes?: string,
   offset?: string,
   stack?: string,
   @as("type") type_: string,
   xAxis?: string,
   yAxis?: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  centeredLinks?: bool,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  equalNodes?: bool,
-  events?: seriesEventsOptionsObject,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  levels?: array<string>,
-  linkColorMode?: linkColorMode,
-  linkedTo?: string,
-  linkOpacity?: float,
-  marker?: pointMarkerOptionsObject,
-  minLinkWidth?: float,
-  nodeDistance?: CommonTypes.stringOrNumber,
-  nodeWidth?: CommonTypes.stringOrNumber,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  reversed?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  zIndex?: int,
-}
-type seriesDragDropOptionsObject = {
-  draggableClose?: string,
-  draggableEnd?: string,
-  draggableHigh?: string,
-  draggableLow?: string,
-  draggableOpen?: string,
-  draggableQ1?: string,
-  draggableQ3?: string,
-  draggableStart?: string,
-  draggableTarget?: string,
-  draggableX?: string,
-  draggableX1?: string,
-  draggableX2?: string,
-  draggableY?: string,
-  dragHandle?: string,
-  dragMaxX?: string,
-  dragMaxY?: string,
-  dragMinX?: string,
-  dragMinY?: string,
-  dragPrecisionX?: string,
-  dragPrecisionY?: string,
-  dragSensitivity?: string,
-  groupBy?: string,
-  guideBox?: string,
-  liveRedraw?: string,
-}
-type rec plotSeriesOptions = {
   accessibility?: string,
   allowPointSelect?: string,
   animation?: string,
-  animationLimit?: string,
-  boostBlending?: string,
-  boostThreshold?: string,
   borderColor?: string,
   borderWidth?: string,
+  centeredLinks?: string,
   className?: string,
   clip?: string,
   color?: string,
-  colorAxis?: string,
+  colorByPoint?: string,
   colorIndex?: string,
-  colorKey?: string,
-  compare?: string,
-  compareBase?: string,
-  compareStart?: string,
-  connectEnds?: string,
-  connectNulls?: string,
-  connectors?: string,
-  crisp?: string,
-  cropThreshold?: string,
-  cumulative?: string,
-  cumulativeStart?: string,
+  colors?: string,
   cursor?: string,
   custom?: string,
   dashStyle?: string,
-  dataGrouping?: string,
   dataLabels?: string,
-  dataSorting?: string,
   description?: string,
-  dragDrop?: string,
   enableMouseTracking?: string,
+  equalNodes?: string,
   events?: string,
-  findNearestPointBy?: string,
-  gapSize?: string,
-  gapUnit?: string,
-  getExtremesFromAll?: string,
   inactiveOtherPoints?: string,
   includeInDataExport?: string,
-  joinBy?: string,
   keys?: string,
   label?: string,
-  lastPrice?: string,
-  lastVisiblePrice?: string,
   legendSymbol?: string,
-  legendSymbolColor?: string,
-  linecap?: string,
-  lineWidth?: string,
+  levels?: string,
+  linkColorMode?: string,
   linkedTo?: string,
+  linkOpacity?: string,
   marker?: string,
-  navigatorOptions?: plotSeriesOptions,
-  negativeColor?: string,
+  minLinkWidth?: string,
+  nodeDistance?: string,
+  nodeWidth?: string,
   nullInteraction?: string,
   onPoint?: string,
   opacity?: string,
   point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointInterval?: string,
-  pointIntervalUnit?: string,
-  pointPlacement?: string,
-  pointRange?: string,
-  pointStart?: string,
-  relativeXValue?: string,
+  reversed?: string,
   selected?: string,
-  shadow?: string,
   showCheckbox?: string,
   showInLegend?: string,
-  showInNavigator?: string,
   skipKeyboardNavigation?: string,
-  softThreshold?: string,
   sonification?: string,
-  stacking?: string,
   states?: string,
-  step?: string,
   stickyTracking?: string,
-  threshold?: string,
   tooltip?: string,
   turboThreshold?: string,
   visible?: string,
-  zIndex?: string,
-  zoneAxis?: string,
-  zones?: string,
   zoomEnabled?: string,
+  id?: string,
+  index?: string,
+  legendIndex?: string,
+  mapData?: string,
+  name?: string,
+  zIndex?: string,
+}
+module Animation8 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAreaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAreaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation8.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels7 = {
+  type t
+  external fromPlotAreaDataLabelsOptions: plotAreaDataLabelsOptions => t = "%identity"
+  external fromPlotAreaDataLabelsOptionss: array<plotAreaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting5 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAreaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type seriesDragDropOptionsObject = {
+  draggableClose?: bool,
+  draggableEnd?: bool,
+  draggableHigh?: bool,
+  draggableLow?: bool,
+  draggableOpen?: bool,
+  draggableQ1?: bool,
+  draggableQ3?: bool,
+  draggableStart?: bool,
+  draggableTarget?: bool,
+  draggableX?: bool,
+  draggableX1?: bool,
+  draggableX2?: bool,
+  draggableY?: bool,
+  dragHandle?: dragDropHandleOptionsObject,
+  dragMaxX?: CommonTypes.stringOrNumber,
+  dragMaxY?: float,
+  dragMinX?: CommonTypes.stringOrNumber,
+  dragMinY?: float,
+  dragPrecisionX?: float,
+  dragPrecisionY?: float,
+  dragSensitivity?: float,
+  groupBy?: string,
+  guideBox?: string,
+  liveRedraw?: bool,
+}
+type connectorsAnimationOptionsObject = {
+  reversed?: bool,
+}
+type connectorsEndMarkerOptions = {
+  align?: string,
+  color?: ColorType.t,
+  enabled?: bool,
+  height?: float,
+  inside?: bool,
+  lineColor?: string,
+  lineWidth?: float,
+  radius?: float,
+  symbol?: string,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+}
+type connectorsMarkerOptions = {
+  align?: alignValue,
+  color?: ColorType.t,
+  enabled?: bool,
+  height?: float,
+  inside?: bool,
+  lineColor?: string,
+  lineWidth?: float,
+  radius?: float,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+}
+type seriesConnectorsOptionsObject = {
+  animation?: connectorsAnimationOptionsObject,
+  dashStyle?: dashStyleValue,
+  endMarker?: connectorsEndMarkerOptions,
+  lineColor?: string,
+  lineWidth?: float,
+  marker?: connectorsMarkerOptions,
+  radius?: float,
+  startMarker?: connectorsEndMarkerOptions,
+  @as("type") type_?: string,
+}
+type plotSeriesDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: string => string,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: string => string,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels8 = {
+  type t
+  external fromPlotSeriesDataLabelsOptions: plotSeriesDataLabelsOptions => t = "%identity"
+  external fromPlotSeriesDataLabelsOptionss: array<plotSeriesDataLabelsOptions> => t = "%identity"
+}
+module DataSorting6 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSeriesDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type rec plotSeriesOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  connectors?: seriesConnectorsOptionsObject,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels8.t,
+  dataSorting?: DataSorting6.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zIndex?: int,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
 }
 type seriesAreaOptions = {
   data?: array<string>,
@@ -1947,8 +3923,8 @@ type seriesAreaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels7.t,
+  dataSorting?: DataSorting5.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -2005,7 +3981,7 @@ type seriesAreaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2016,6 +3992,72 @@ type seriesAreaOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation9 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotArearangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotAreasplinerangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotColumnrangeDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotDumbbellDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotLollipopDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type seriesAreaRangeDataLabelsOptionsObject = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation9.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  xHigh?: float,
+  xLow?: float,
+  y?: float,
+  yHigh?: float,
+  yLow?: float,
+}
+module DataLabels9 = {
+  type t
+  external fromSeriesAreaRangeDataLabelsOptionsObject: seriesAreaRangeDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesAreaRangeDataLabelsOptionsObjects: array<
+    seriesAreaRangeDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+module DataSorting7 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotArearangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesArearangeOptions = {
   data?: array<string>,
@@ -2048,8 +4090,8 @@ type seriesArearangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting7.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -2106,7 +4148,7 @@ type seriesArearangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2116,6 +4158,58 @@ type seriesArearangeOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation10 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAreasplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAreasplineDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation10.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels10 = {
+  type t
+  external fromPlotAreasplineDataLabelsOptions: plotAreasplineDataLabelsOptions => t = "%identity"
+  external fromPlotAreasplineDataLabelsOptionss: array<plotAreasplineDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting8 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAreasplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesAreasplineOptions = {
   data?: array<string>,
@@ -2145,8 +4239,8 @@ type seriesAreasplineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels10.t,
+  dataSorting?: DataSorting8.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -2202,7 +4296,7 @@ type seriesAreasplineOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2213,6 +4307,11 @@ type seriesAreasplineOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module DataSorting9 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAreasplinerangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesAreasplinerangeOptions = {
   data?: array<string>,
@@ -2243,8 +4342,8 @@ type seriesAreasplinerangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting9.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -2300,7 +4399,7 @@ type seriesAreasplinerangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2311,8 +4410,67 @@ type seriesAreasplinerangeOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+type plotAroonAroonDownStylesOptions = {
+  lineColor?: string,
+  lineWidth?: float,
+}
 type plotAroonAroonDownOptions = {
-  styles?: string,
+  styles?: plotAroonAroonDownStylesOptions,
+}
+module Animation11 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAroonDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAroonDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation11.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels11 = {
+  type t
+  external fromPlotAroonDataLabelsOptions: plotAroonDataLabelsOptions => t = "%identity"
+  external fromPlotAroonDataLabelsOptionss: array<plotAroonDataLabelsOptions> => t = "%identity"
+}
+module DataSorting10 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAroonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotAroonParamsOptions = {
+  index?: string,
+  period?: float,
 }
 type seriesAroonOptions = {
   allAreas?: string,
@@ -2342,8 +4500,8 @@ type seriesAroonOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels11.t,
+  dataSorting?: DataSorting10.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -2367,7 +4525,7 @@ type seriesAroonOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAbandsParamsOptions,
+  params?: plotAroonParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -2387,7 +4545,7 @@ type seriesAroonOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2397,6 +4555,60 @@ type seriesAroonOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation12 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAroonoscillatorDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAroonoscillatorDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation12.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels12 = {
+  type t
+  external fromPlotAroonoscillatorDataLabelsOptions: plotAroonoscillatorDataLabelsOptions => t =
+    "%identity"
+  external fromPlotAroonoscillatorDataLabelsOptionss: array<
+    plotAroonoscillatorDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting11 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAroonoscillatorDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotAroonoscillatorParamsOptions = {
   index?: string,
@@ -2430,8 +4642,8 @@ type seriesAroonoscillatorOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels12.t,
+  dataSorting?: DataSorting11.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -2475,7 +4687,7 @@ type seriesAroonoscillatorOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2486,89 +4698,56 @@ type seriesAroonoscillatorOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type seriesAtrOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+module Animation14 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBarDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotBarDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation14.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels14 = {
+  type t
+  external fromPlotBarDataLabelsOptions: plotBarDataLabelsOptions => t = "%identity"
+  external fromPlotBarDataLabelsOptionss: array<plotBarDataLabelsOptions> => t = "%identity"
+}
+module DataSorting13 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotBarDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesBarOptions = {
   data?: array<string>,
@@ -2592,14 +4771,14 @@ type seriesBarOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels14.t,
+  dataSorting?: DataSorting13.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -2651,7 +4830,7 @@ type seriesBarOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2662,6 +4841,56 @@ type seriesBarOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation15 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBbDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
+}
+type plotBbDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation15.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels15 = {
+  type t
+  external fromPlotBbDataLabelsOptions: plotBbDataLabelsOptions => t = "%identity"
+  external fromPlotBbDataLabelsOptionss: array<plotBbDataLabelsOptions> => t = "%identity"
+}
+module DataSorting14 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotBbDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotBbParamsOptions = {
   index?: int,
@@ -2697,8 +4926,8 @@ type seriesBbOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels15.t,
+  dataSorting?: DataSorting14.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -2744,7 +4973,7 @@ type seriesBbOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2754,6 +4983,58 @@ type seriesBbOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation16 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBellcurveDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotBellcurveDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation16.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels16 = {
+  type t
+  external fromPlotBellcurveDataLabelsOptions: plotBellcurveDataLabelsOptions => t = "%identity"
+  external fromPlotBellcurveDataLabelsOptionss: array<plotBellcurveDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting15 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotBellcurveDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesBellcurveOptions = {
   baseSeries?: CommonTypes.stringOrNumber,
@@ -2777,8 +5058,8 @@ type seriesBellcurveOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels16.t,
+  dataSorting?: DataSorting15.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -2827,7 +5108,7 @@ type seriesBellcurveOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2838,6 +5119,57 @@ type seriesBellcurveOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation17 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBoxplotDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotBoxplotDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation17.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels17 = {
+  type t
+  external fromPlotBoxplotDataLabelsOptions: plotBoxplotDataLabelsOptions => t = "%identity"
+  external fromPlotBoxplotDataLabelsOptionss: array<plotBoxplotDataLabelsOptions> => t = "%identity"
+}
+module DataSorting16 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotBoxplotDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesBoxplotOptions = {
   data?: array<string>,
@@ -2858,14 +5190,14 @@ type seriesBoxplotOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels17.t,
+  dataSorting?: DataSorting16.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -2927,7 +5259,7 @@ type seriesBoxplotOptions = {
   whiskerLength?: CommonTypes.stringOrNumber,
   whiskerWidth?: float,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2937,6 +5269,57 @@ type seriesBoxplotOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation18 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBubbleDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotBubbleDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation18.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels18 = {
+  type t
+  external fromPlotBubbleDataLabelsOptions: plotBubbleDataLabelsOptions => t = "%identity"
+  external fromPlotBubbleDataLabelsOptionss: array<plotBubbleDataLabelsOptions> => t = "%identity"
+}
+module DataSorting17 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotBubbleDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type plotBubbleJitterOptions = {
   x?: float,
@@ -2972,8 +5355,8 @@ type seriesBubbleOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels18.t,
+  dataSorting?: DataSorting17.t,
   description?: string,
   displayNegative?: bool,
   dragDrop?: seriesDragDropOptionsObject,
@@ -3030,7 +5413,7 @@ type seriesBubbleOptions = {
   zMax?: float,
   zMin?: float,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   zThreshold?: float,
   id?: string,
@@ -3041,6 +5424,52 @@ type seriesBubbleOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation19 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotBulletDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotBulletDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation19.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels19 = {
+  type t
+  external fromPlotBulletDataLabelsOptions: plotBulletDataLabelsOptions => t = "%identity"
+  external fromPlotBulletDataLabelsOptionss: array<plotBulletDataLabelsOptions> => t = "%identity"
 }
 type plotBulletTargetOptions = {
   borderColor?: string,
@@ -3069,13 +5498,13 @@ type seriesBulletOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels19.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -3128,7 +5557,7 @@ type seriesBulletOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3139,6 +5568,58 @@ type seriesBulletOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation20 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotCandlestickDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotCandlestickDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation20.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels20 = {
+  type t
+  external fromPlotCandlestickDataLabelsOptions: plotCandlestickDataLabelsOptions => t = "%identity"
+  external fromPlotCandlestickDataLabelsOptionss: array<plotCandlestickDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting18 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotCandlestickDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesCandlestickOptions = {
   data?: array<string>,
@@ -3159,7 +5640,7 @@ type seriesCandlestickOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -3170,8 +5651,8 @@ type seriesCandlestickOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels20.t,
+  dataSorting?: DataSorting18.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -3227,7 +5708,7 @@ type seriesCandlestickOptions = {
   upLineColor?: ColorType.t,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3238,6 +5719,57 @@ type seriesCandlestickOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation21 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotCciDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotCciDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation21.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels21 = {
+  type t
+  external fromPlotCciDataLabelsOptions: plotCciDataLabelsOptions => t = "%identity"
+  external fromPlotCciDataLabelsOptionss: array<plotCciDataLabelsOptions> => t = "%identity"
+}
+module DataSorting19 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotCciDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesCciOptions = {
   dataParser?: string,
@@ -3267,8 +5799,8 @@ type seriesCciOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels21.t,
+  dataSorting?: DataSorting19.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -3312,7 +5844,7 @@ type seriesCciOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3323,96 +5855,56 @@ type seriesCciOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type plotChaikinParamsOptions = {
-  index?: string,
-  period?: float,
-  periods?: array<float>,
-  volumeSeriesID?: string,
+module Animation23 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotCmfDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
 }
-type seriesChaikinOptions = {
-  allAreas?: string,
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+type plotCmfDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation23.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotChaikinParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels23 = {
+  type t
+  external fromPlotCmfDataLabelsOptions: plotCmfDataLabelsOptions => t = "%identity"
+  external fromPlotCmfDataLabelsOptionss: array<plotCmfDataLabelsOptions> => t = "%identity"
+}
+module DataSorting21 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotCmfDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesCmfOptions = {
   dataParser?: string,
@@ -3441,8 +5933,8 @@ type seriesCmfOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels23.t,
+  dataSorting?: DataSorting21.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -3486,7 +5978,7 @@ type seriesCmfOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3497,89 +5989,56 @@ type seriesCmfOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type seriesCmoOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+module Animation25 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotColumnDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotColumnDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation25.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAbandsParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels25 = {
+  type t
+  external fromPlotColumnDataLabelsOptions: plotColumnDataLabelsOptions => t = "%identity"
+  external fromPlotColumnDataLabelsOptionss: array<plotColumnDataLabelsOptions> => t = "%identity"
+}
+module DataSorting23 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotColumnDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesColumnOptions = {
   data?: array<string>,
@@ -3603,7 +6062,7 @@ type seriesColumnOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -3615,8 +6074,8 @@ type seriesColumnOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels25.t,
+  dataSorting?: DataSorting23.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -3672,7 +6131,7 @@ type seriesColumnOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3683,6 +6142,59 @@ type seriesColumnOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation26 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotColumnpyramidDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotColumnpyramidDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation26.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels26 = {
+  type t
+  external fromPlotColumnpyramidDataLabelsOptions: plotColumnpyramidDataLabelsOptions => t =
+    "%identity"
+  external fromPlotColumnpyramidDataLabelsOptionss: array<plotColumnpyramidDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting24 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotColumnpyramidDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesColumnpyramidOptions = {
   data?: array<string>,
@@ -3703,7 +6215,7 @@ type seriesColumnpyramidOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -3714,8 +6226,8 @@ type seriesColumnpyramidOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels26.t,
+  dataSorting?: DataSorting24.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -3774,6 +6286,27 @@ type seriesColumnpyramidOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+type borderRadiusOptionsObject = {
+  radius: CommonTypes.stringOrNumber,
+  scope: StatCardV2Types.scope,
+  where: StatCardV2Types.where,
+}
+type plotColumnrangeBorderRadiusOptions = {
+  where?: string,
+}
+module BorderRadius = {
+  type t
+  external fromString: string => t = "%identity"
+  external fromNumber: float => t = "%identity"
+  external fromBorderRadiusOptionsObject: borderRadiusOptionsObject => t = "%identity"
+  external fromPlotColumnrangeBorderRadiusOptions: plotColumnrangeBorderRadiusOptions => t =
+    "%identity"
+}
+module DataSorting25 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotColumnrangeDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type seriesColumnrangeOptions = {
   data?: array<string>,
   dataParser?: string,
@@ -3787,7 +6320,7 @@ type seriesColumnrangeOptions = {
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
   borderColor?: ColorType.t,
-  borderRadius?: string,
+  borderRadius?: BorderRadius.t,
   borderWidth?: float,
   centerInCategory?: bool,
   className?: string,
@@ -3797,7 +6330,7 @@ type seriesColumnrangeOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -3809,8 +6342,8 @@ type seriesColumnrangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting25.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -3862,7 +6395,7 @@ type seriesColumnrangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3874,7 +6407,7 @@ type seriesColumnrangeOptions = {
   zIndex?: int,
 }
 type seriesContourOptions = {
-  data?: array<string>,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   grouping?: string,
@@ -3883,71 +6416,123 @@ type seriesContourOptions = {
   jitter?: string,
   stack?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
+  boostBlending?: string,
+  boostThreshold?: string,
+  borderColor?: string,
+  borderWidth?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorAxis?: string,
+  colorIndex?: string,
   colorKey?: string,
-  contourInterval?: float,
-  contourOffset?: float,
-  crisp?: bool,
+  contourInterval?: string,
+  contourOffset?: string,
+  crisp?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
+  custom?: string,
   dataLabels?: string,
   dataSorting?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  joinBy?: CommonTypes.stringOrStringArray,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  lineWidth?: float,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  gapSize?: string,
+  gapUnit?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  joinBy?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  lineWidth?: string,
   linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
+  marker?: string,
+  negativeColor?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  smoothColoring?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zIndex?: int,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  smoothColoring?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zIndex?: string,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
+  xAxis?: string,
+  yAxis?: string,
+}
+module Animation28 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotCylinderDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotCylinderDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation28.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels28 = {
+  type t
+  external fromPlotCylinderDataLabelsOptions: plotCylinderDataLabelsOptions => t = "%identity"
+  external fromPlotCylinderDataLabelsOptionss: array<plotCylinderDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting27 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotCylinderDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesCylinderOptions = {
   allAreas?: string,
@@ -3967,14 +6552,14 @@ type seriesCylinderOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels28.t,
+  dataSorting?: DataSorting27.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -4025,7 +6610,7 @@ type seriesCylinderOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4036,6 +6621,61 @@ type seriesCylinderOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation29 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotDemaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotDemaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation29.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels29 = {
+  type t
+  external fromPlotDemaDataLabelsOptions: plotDemaDataLabelsOptions => t = "%identity"
+  external fromPlotDemaDataLabelsOptionss: array<plotDemaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting28 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotDemaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotDemaParamsOptions = {
+  index?: int,
+  period?: float,
 }
 type seriesDemaOptions = {
   allAreas?: string,
@@ -4064,8 +6704,8 @@ type seriesDemaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels29.t,
+  dataSorting?: DataSorting28.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4089,7 +6729,7 @@ type seriesDemaOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
+  params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -4109,7 +6749,7 @@ type seriesDemaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4121,73 +6761,127 @@ type seriesDemaOptions = {
   zIndex?: int,
 }
 type seriesDependencywheelOptions = {
-  data?: array<string>,
-  nodes?: array<string>,
+  data?: string,
+  nodes?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  borderColor?: ColorType.t,
+  borderColor?: string,
   borderRadius?: string,
-  borderWidth?: float,
-  center?: array<string>,
-  centerInCategory?: bool,
+  borderWidth?: string,
+  center?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colors?: string,
   cursor?: string,
-  curveFactor?: float,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  curveFactor?: string,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  levels?: array<string>,
-  linkColorMode?: linkColorMode,
+  enableMouseTracking?: string,
+  events?: string,
+  getExtremesFromAll?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  levels?: string,
+  linkColorMode?: string,
   linkedTo?: string,
-  linkOpacity?: float,
-  minLinkWidth?: float,
-  nodePadding?: float,
-  nodeWidth?: CommonTypes.stringOrNumber,
-  nullInteraction?: bool,
+  linkOpacity?: string,
+  minLinkWidth?: string,
+  nodePadding?: string,
+  nodeWidth?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  size?: CommonTypes.stringOrNumber,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  startAngle?: float,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  size?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  startAngle?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+module Animation30 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotDisparityindexDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotDisparityindexDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation30.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels31 = {
+  type t
+  external fromPlotDisparityindexDataLabelsOptions: plotDisparityindexDataLabelsOptions => t =
+    "%identity"
+  external fromPlotDisparityindexDataLabelsOptionss: array<
+    plotDisparityindexDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting29 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotDisparityindexDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotDisparityindexParamsOptions = {
   average?: string,
@@ -4223,8 +6917,8 @@ type seriesDisparityindexOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels31.t,
+  dataSorting?: DataSorting29.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4268,7 +6962,7 @@ type seriesDisparityindexOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4278,6 +6972,64 @@ type seriesDisparityindexOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation31 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotDmiDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotDmiDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation31.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels32 = {
+  type t
+  external fromPlotDmiDataLabelsOptions: plotDmiDataLabelsOptions => t = "%identity"
+  external fromPlotDmiDataLabelsOptionss: array<plotDmiDataLabelsOptions> => t = "%identity"
+}
+module DataSorting30 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotDmiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotDmiPlusDILineStylesOptions = {
+  lineColor?: string,
+  lineWidth?: float,
+}
+type plotDmiPlusDILineOptions = {
+  styles?: plotDmiPlusDILineStylesOptions,
 }
 type seriesDmiOptions = {
   allAreas?: string,
@@ -4308,8 +7060,8 @@ type seriesDmiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels32.t,
+  dataSorting?: DataSorting30.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4334,8 +7086,8 @@ type seriesDmiOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAbandsParamsOptions,
-  plusDILine?: plotAbandsBottomLineOptions,
+  params?: plotAroonParamsOptions,
+  plusDILine?: plotDmiPlusDILineOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -4355,7 +7107,7 @@ type seriesDmiOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4365,6 +7117,57 @@ type seriesDmiOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation32 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotDpoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotDpoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation32.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels33 = {
+  type t
+  external fromPlotDpoDataLabelsOptions: plotDpoDataLabelsOptions => t = "%identity"
+  external fromPlotDpoDataLabelsOptionss: array<plotDpoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting31 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotDpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesDpoOptions = {
   allAreas?: string,
@@ -4393,8 +7196,8 @@ type seriesDpoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels33.t,
+  dataSorting?: DataSorting31.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4418,7 +7221,7 @@ type seriesDpoOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
+  params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -4438,7 +7241,7 @@ type seriesDpoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4448,6 +7251,11 @@ type seriesDpoOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module DataSorting32 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotDumbbellDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesDumbbellOptions = {
   data?: array<string>,
@@ -4478,8 +7286,8 @@ type seriesDumbbellOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting32.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -4534,7 +7342,7 @@ type seriesDumbbellOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4546,9 +7354,60 @@ type seriesDumbbellOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+module Animation35 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotFlagsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotFlagsDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation35.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels36 = {
+  type t
+  external fromPlotFlagsDataLabelsOptions: plotFlagsDataLabelsOptions => t = "%identity"
+  external fromPlotFlagsDataLabelsOptionss: array<plotFlagsDataLabelsOptions> => t = "%identity"
+}
+module DataSorting35 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotFlagsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type seriesFlagsOptions = {
   colorByPoint?: string,
-  data?: array<string>,
+  data?: array<pointOptionsObject>,
   dataParser?: string,
   dataURL?: string,
   pointPadding?: string,
@@ -4569,7 +7428,7 @@ type seriesFlagsOptions = {
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -4579,8 +7438,8 @@ type seriesFlagsOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels36.t,
+  dataSorting?: DataSorting35.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -4642,7 +7501,7 @@ type seriesFlagsOptions = {
   width?: float,
   y?: float,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4676,7 +7535,7 @@ type seriesFlowmapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   cursor?: string,
   curveFactor?: float,
   custom?: Dict.t<string>,
@@ -4722,97 +7581,156 @@ type seriesFlowmapOptions = {
 }
 type seriesFunnel3dOptions = {
   allAreas?: string,
-  data?: array<string>,
+  data?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: bool,
-  animationLimit?: float,
-  borderColor?: ColorType.t,
+  accessibility?: string,
+  allowPointSelect?: string,
+  animation?: string,
+  animationLimit?: string,
+  borderColor?: string,
   borderRadius?: string,
-  borderWidth?: float,
-  centerInCategory?: bool,
+  borderWidth?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
   colorKey?: string,
-  colors?: array<string>,
-  crisp?: bool,
-  cropThreshold?: float,
+  colors?: string,
+  crisp?: string,
+  cropThreshold?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
-  depth?: float,
+  depth?: string,
   description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
+  dragDrop?: string,
   edgeColor?: string,
-  edgeWidth?: float,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  getExtremesFromAll?: bool,
-  gradientForSides?: bool,
-  grouping?: bool,
-  groupPadding?: float,
-  groupZPadding?: float,
-  height?: CommonTypes.stringOrNumber,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
+  edgeWidth?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  getExtremesFromAll?: string,
+  gradientForSides?: string,
+  grouping?: string,
+  groupPadding?: string,
+  groupZPadding?: string,
+  height?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  legendSymbolColor?: string,
   linkedTo?: string,
-  maxPointWidth?: float,
-  minPointLength?: float,
-  neckHeight?: CommonTypes.stringOrNumber,
-  neckWidth?: CommonTypes.stringOrNumber,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
+  maxPointWidth?: string,
+  minPointLength?: string,
+  neckHeight?: string,
+  neckWidth?: string,
+  negativeColor?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointPadding?: float,
-  pointPlacement?: CommonTypes.stringOrNumber,
-  pointRange?: float,
-  pointStart?: CommonTypes.stringOrNumber,
-  pointWidth?: float,
-  relativeXValue?: bool,
-  reversed?: bool,
-  selected?: bool,
+  pointInterval?: string,
+  pointIntervalUnit?: string,
+  pointPadding?: string,
+  pointPlacement?: string,
+  pointRange?: string,
+  pointStart?: string,
+  pointWidth?: string,
+  relativeXValue?: string,
+  reversed?: string,
+  selected?: string,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: optionsStackingValue,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  width?: CommonTypes.stringOrNumber,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  softThreshold?: string,
+  sonification?: string,
+  stacking?: string,
+  states?: string,
+  stickyTracking?: string,
+  threshold?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  width?: string,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+module Animation36 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotFunnelDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotItemDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotPieDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotPyramidDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotVariablepieDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type seriesPieDataLabelsOptionsObject = {
+  alignTo?: string,
+  animation?: Animation36.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  connectorPadding?: float,
+  connectorShape?: string,
+  connectorWidth?: float,
+  crookDistance?: string,
+  crop?: bool,
+  defer?: bool,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  softConnector?: bool,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels37 = {
+  type t
+  external fromSeriesPieDataLabelsOptionsObject: seriesPieDataLabelsOptionsObject => t = "%identity"
+  external fromSeriesPieDataLabelsOptionsObjects: array<seriesPieDataLabelsOptionsObject> => t =
+    "%identity"
 }
 type seriesFunnelOptions = {
   data?: array<string>,
@@ -4828,18 +7746,18 @@ type seriesFunnelOptions = {
   borderColor?: ColorType.t,
   borderRadius?: float,
   borderWidth?: float,
-  center?: array<string>,
+  center?: array<CommonTypes.stringOrNumber>,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels37.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -4889,97 +7807,130 @@ type seriesFunnelOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesConnectorsOptionsObject = {
-  animation?: string,
-  dashStyle?: string,
-  endMarker?: string,
-  lineColor?: string,
-  lineWidth?: string,
-  marker?: string,
-  radius?: string,
-  startMarker?: string,
-  @as("type") type_?: string,
-}
-type plotGanttPartialFillOptions = {
-  fill?: ColorType.t,
-}
 type seriesGanttOptions = {
-  data?: array<string>,
+  data?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  animationLimit?: float,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  centerInCategory?: bool,
+  animationLimit?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
-  connectors?: seriesConnectorsOptionsObject,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colors?: string,
+  connectors?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  grouping?: bool,
-  groupPadding?: float,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
+  dragDrop?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  grouping?: string,
+  groupPadding?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
   linkedTo?: string,
-  maxPointWidth?: float,
-  minPointLength?: float,
+  maxPointWidth?: string,
+  minPointLength?: string,
   onPoint?: string,
-  opacity?: float,
-  partialFill?: plotGanttPartialFillOptions,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  partialFill?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointPadding?: float,
-  pointRange?: float,
-  pointWidth?: float,
-  selected?: bool,
+  pointPadding?: string,
+  pointRange?: string,
+  pointWidth?: string,
+  selected?: string,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+module Animation39 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotGaugeDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotGaugeDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation39.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
   zIndex?: int,
 }
+module DataLabels40 = {
+  type t
+  external fromPlotGaugeDataLabelsOptions: plotGaugeDataLabelsOptions => t = "%identity"
+  external fromPlotGaugeDataLabelsOptionss: array<plotGaugeDataLabelsOptions> => t = "%identity"
+}
 type plotGaugeDialOptions = {
-  backgroundColor?: string,
+  backgroundColor?: ColorType.t,
   baseLength?: string,
-  baseWidth?: string,
-  borderColor?: string,
-  borderWidth?: string,
-  path?: string,
+  baseWidth?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  path?: array<string>,
   radius?: string,
   rearLength?: string,
-  topWidth?: string,
+  topWidth?: float,
 }
 type plotGaugePivotOptions = {
   backgroundColor?: ColorType.t,
@@ -5003,7 +7954,7 @@ type seriesGaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels40.t,
   description?: string,
   dial?: plotGaugeDialOptions,
   enableMouseTracking?: bool,
@@ -5052,137 +8003,189 @@ type seriesGaugeOptions = {
 }
 type seriesGeoheatmapOptions = {
   allAreas?: string,
-  data?: array<string>,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   mapData?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  affectsMapView?: bool,
-  allowPointSelect?: bool,
-  animation?: bool,
-  animationLimit?: float,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
+  accessibility?: string,
+  affectsMapView?: string,
+  allowPointSelect?: string,
+  animation?: string,
+  animationLimit?: string,
+  borderColor?: string,
+  borderWidth?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorByPoint?: bool,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorAxis?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
   colorKey?: string,
-  colors?: array<string>,
-  colsize?: float,
+  colors?: string,
+  colsize?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
+  enableMouseTracking?: string,
+  events?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
   interpolation?: string,
-  keys?: array<string>,
-  legendSymbol?: optionsLegendSymbolValue,
+  keys?: string,
+  legendSymbol?: string,
   linecap?: string,
   nullColor?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  rowsize?: float,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  visible?: bool,
-  zIndex?: int,
-  zoomEnabled?: bool,
+  rowsize?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  visible?: string,
+  zIndex?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
 }
 type seriesHeatmapOptions = {
-  data?: array<string>,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   stack?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: bool,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+  accessibility?: string,
+  allowPointSelect?: string,
+  animation?: string,
+  boostBlending?: string,
+  boostThreshold?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  clip?: string,
+  color?: string,
+  colorAxis?: string,
+  colorIndex?: string,
+  colorKey?: string,
+  colsize?: string,
+  crisp?: string,
+  cursor?: string,
+  custom?: string,
+  dataLabels?: string,
+  dataSorting?: string,
+  description?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  gapSize?: string,
+  gapUnit?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  interpolation?: string,
+  joinBy?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  linkedTo?: string,
+  marker?: string,
+  negativeColor?: string,
+  nullColor?: string,
+  nullInteraction?: string,
+  onPoint?: string,
+  opacity?: string,
+  point?: string,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: string,
+  relativeXValue?: string,
+  rowsize?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zIndex?: string,
+  zoneAxis?: string,
+  zones?: string,
+  zoomEnabled?: string,
+  id?: string,
+  index?: string,
+  legendIndex?: string,
+  mapData?: string,
+  name?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+module Animation43 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotHistogramDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotHistogramDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation43.t,
+  backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
   borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
-  colorKey?: string,
-  colsize?: float,
-  crisp?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  interpolation?: bool,
-  joinBy?: CommonTypes.stringOrStringArray,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  negativeColor?: ColorType.t,
-  nullColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  pointPadding?: float,
-  relativeXValue?: bool,
-  rowsize?: float,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zIndex?: int,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels44 = {
+  type t
+  external fromPlotHistogramDataLabelsOptions: plotHistogramDataLabelsOptions => t = "%identity"
+  external fromPlotHistogramDataLabelsOptionss: array<plotHistogramDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting38 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotHistogramDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesHistogramOptions = {
   baseSeries?: CommonTypes.stringOrNumber,
@@ -5207,14 +8210,14 @@ type seriesHistogramOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels44.t,
+  dataSorting?: DataSorting38.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -5262,7 +8265,7 @@ type seriesHistogramOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5273,6 +8276,57 @@ type seriesHistogramOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation44 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotHlcDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotHlcDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation44.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels45 = {
+  type t
+  external fromPlotHlcDataLabelsOptions: plotHlcDataLabelsOptions => t = "%identity"
+  external fromPlotHlcDataLabelsOptionss: array<plotHlcDataLabelsOptions> => t = "%identity"
+}
+module DataSorting39 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotHlcDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesHlcOptions = {
   data?: array<string>,
@@ -5293,7 +8347,7 @@ type seriesHlcOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -5304,8 +8358,8 @@ type seriesHlcOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels45.t,
+  dataSorting?: DataSorting39.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -5357,7 +8411,7 @@ type seriesHlcOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5368,6 +8422,60 @@ type seriesHlcOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation45 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotHollowcandlestickDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotHollowcandlestickDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation45.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels46 = {
+  type t
+  external fromPlotHollowcandlestickDataLabelsOptions: plotHollowcandlestickDataLabelsOptions => t =
+    "%identity"
+  external fromPlotHollowcandlestickDataLabelsOptionss: array<
+    plotHollowcandlestickDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting40 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotHollowcandlestickDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesHollowcandlestickOptions = {
   data?: array<string>,
@@ -5388,7 +8496,7 @@ type seriesHollowcandlestickOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -5399,8 +8507,8 @@ type seriesHollowcandlestickOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels46.t,
+  dataSorting?: DataSorting40.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -5456,7 +8564,7 @@ type seriesHollowcandlestickOptions = {
   upLineColor?: ColorType.t,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5467,6 +8575,57 @@ type seriesHollowcandlestickOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation46 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotIkhDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotIkhDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation46.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels47 = {
+  type t
+  external fromPlotIkhDataLabelsOptions: plotIkhDataLabelsOptions => t = "%identity"
+  external fromPlotIkhDataLabelsOptionss: array<plotIkhDataLabelsOptions> => t = "%identity"
+}
+module DataSorting41 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotIkhDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type plotIkhParamsOptions = {
   index?: string,
@@ -5488,7 +8647,7 @@ type seriesIkhOptions = {
   animationLimit?: float,
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
-  chikouLine?: plotAbandsBottomLineOptions,
+  chikouLine?: plotDmiPlusDILineOptions,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
@@ -5505,8 +8664,8 @@ type seriesIkhOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels47.t,
+  dataSorting?: DataSorting41.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5538,8 +8697,8 @@ type seriesIkhOptions = {
   relativeXValue?: bool,
   selected?: bool,
   senkouSpan?: plotIkhSenkouSpanOptions,
-  senkouSpanA?: plotAbandsBottomLineOptions,
-  senkouSpanB?: plotAbandsBottomLineOptions,
+  senkouSpanA?: plotDmiPlusDILineOptions,
+  senkouSpanB?: plotDmiPlusDILineOptions,
   shadow?: string,
   showCheckbox?: bool,
   showInLegend?: bool,
@@ -5549,13 +8708,13 @@ type seriesIkhOptions = {
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
-  tenkanLine?: plotAbandsBottomLineOptions,
+  tenkanLine?: plotDmiPlusDILineOptions,
   threshold?: float,
   tooltip?: seriesTooltipOptionsObject,
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5578,18 +8737,18 @@ type seriesItemOptions = {
   allowPointSelect?: bool,
   animation?: string,
   borderRadius?: string,
-  center?: (string, string),
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels37.t,
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
@@ -5636,6 +8795,60 @@ type seriesItemOptions = {
   name?: string,
   zIndex?: int,
 }
+module Animation47 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotKeltnerchannelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotKeltnerchannelsDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation47.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels48 = {
+  type t
+  external fromPlotKeltnerchannelsDataLabelsOptions: plotKeltnerchannelsDataLabelsOptions => t =
+    "%identity"
+  external fromPlotKeltnerchannelsDataLabelsOptionss: array<
+    plotKeltnerchannelsDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting42 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotKeltnerchannelsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type seriesKeltnerchannelsOptions = {
   allAreas?: string,
   dataParser?: string,
@@ -5664,8 +8877,8 @@ type seriesKeltnerchannelsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels48.t,
+  dataSorting?: DataSorting42.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5690,7 +8903,7 @@ type seriesKeltnerchannelsOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
+  params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -5711,7 +8924,7 @@ type seriesKeltnerchannelsOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5721,6 +8934,57 @@ type seriesKeltnerchannelsOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation48 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotKlingerDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotKlingerDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation48.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels49 = {
+  type t
+  external fromPlotKlingerDataLabelsOptions: plotKlingerDataLabelsOptions => t = "%identity"
+  external fromPlotKlingerDataLabelsOptionss: array<plotKlingerDataLabelsOptions> => t = "%identity"
+}
+module DataSorting43 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotKlingerDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type plotKlingerParamsOptions = {
   fastAvgPeriod?: float,
@@ -5756,8 +9020,8 @@ type seriesKlingerOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels49.t,
+  dataSorting?: DataSorting43.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5790,7 +9054,7 @@ type seriesKlingerOptions = {
   shadow?: string,
   showCheckbox?: bool,
   showInLegend?: bool,
-  signalLine?: plotAbandsBottomLineOptions,
+  signalLine?: plotDmiPlusDILineOptions,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
   sonification?: seriesSonificationOptions,
@@ -5802,7 +9066,7 @@ type seriesKlingerOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5813,267 +9077,56 @@ type seriesKlingerOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type plotLinearregressionangleParamsOptions = {
-  index?: int,
-  period?: float,
-  xAxisUnit?: float,
+module Animation49 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotLineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
 }
-type seriesLinearregressionangleOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+type plotLineDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation49.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotLinearregressionangleParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
 }
-type seriesLinearregressioninterceptOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotLinearregressionangleParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+module DataLabels50 = {
+  type t
+  external fromPlotLineDataLabelsOptions: plotLineDataLabelsOptions => t = "%identity"
+  external fromPlotLineDataLabelsOptionss: array<plotLineDataLabelsOptions> => t = "%identity"
 }
-type plotLinearregressionParamsOptions = {
-  index?: int,
-  period?: float,
-  xAxisUnit?: float,
-}
-type seriesLinearregressionOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotLinearregressionParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+module DataSorting44 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesLineOptions = {
   data?: array<string>,
@@ -6105,8 +9158,8 @@ type seriesLineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels50.t,
+  dataSorting?: DataSorting44.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -6159,7 +9212,7 @@ type seriesLineOptions = {
   useOhlcData?: bool,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6170,6 +9223,11 @@ type seriesLineOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module DataSorting49 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLollipopDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesLollipopOptions = {
   data?: array<string>,
@@ -6200,8 +9258,8 @@ type seriesLollipopOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting49.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -6255,7 +9313,7 @@ type seriesLollipopOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6267,9 +9325,60 @@ type seriesLollipopOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+module Animation54 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMacdDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMacdDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation54.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels55 = {
+  type t
+  external fromPlotMacdDataLabelsOptions: plotMacdDataLabelsOptions => t = "%identity"
+  external fromPlotMacdDataLabelsOptionss: array<plotMacdDataLabelsOptions> => t = "%identity"
+}
+module DataSorting50 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotMacdDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type plotMacdMacdLineOptions = {
-  styles?: string,
-  zones?: string,
+  styles?: plotAroonAroonDownStylesOptions,
+  zones?: array<seriesZonesOptionsObject>,
 }
 type plotMacdParamsOptions = {
   index?: int,
@@ -6306,8 +9415,8 @@ type seriesMacdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels55.t,
+  dataSorting?: DataSorting50.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6356,7 +9465,7 @@ type seriesMacdOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6366,6 +9475,53 @@ type seriesMacdOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation56 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMapbubbleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMapbubbleDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation56.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels57 = {
+  type t
+  external fromPlotMapbubbleDataLabelsOptions: plotMapbubbleDataLabelsOptions => t = "%identity"
+  external fromPlotMapbubbleDataLabelsOptionss: array<plotMapbubbleDataLabelsOptions> => t =
+    "%identity"
 }
 type seriesMapbubbleOptions = {
   data?: array<string>,
@@ -6389,7 +9545,7 @@ type seriesMapbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels57.t,
   description?: string,
   displayNegative?: bool,
   dragDrop?: seriesDragDropOptionsObject,
@@ -6433,6 +9589,52 @@ type seriesMapbubbleOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
+module Animation57 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMaplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMaplineDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation57.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: bool,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels58 = {
+  type t
+  external fromPlotMaplineDataLabelsOptions: plotMaplineDataLabelsOptions => t = "%identity"
+  external fromPlotMaplineDataLabelsOptionss: array<plotMaplineDataLabelsOptions> => t = "%identity"
+}
 type seriesMaplineOptions = {
   data?: array<string>,
   dataParser?: string,
@@ -6453,11 +9655,11 @@ type seriesMaplineOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels58.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6497,6 +9699,52 @@ type seriesMaplineOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
+module Animation55 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation55.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: bool,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels56 = {
+  type t
+  external fromPlotMapDataLabelsOptions: plotMapDataLabelsOptions => t = "%identity"
+  external fromPlotMapDataLabelsOptionss: array<plotMapDataLabelsOptions> => t = "%identity"
+}
 type seriesMapOptions = {
   data?: array<string>,
   dataParser?: string,
@@ -6517,11 +9765,11 @@ type seriesMapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels56.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6559,341 +9807,178 @@ type seriesMapOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
-type plotMappointClusterOptions = {
-  allowOverlap?: string,
-  animation?: string,
-  dataLabels?: string,
-  drillToCluster?: string,
-  enabled?: string,
-  events?: string,
-  layoutAlgorithm?: string,
-  marker?: string,
-  minimumClusterSize?: string,
-  states?: string,
-  zones?: string,
-}
 type seriesMappointOptions = {
-  data?: array<string>,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+  animationLimit?: string,
+  boostBlending?: string,
+  boostThreshold?: string,
   className?: string,
-  clip?: bool,
-  cluster?: plotMappointClusterOptions,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
-  colorKey?: string,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  joinBy?: CommonTypes.stringOrStringArray,
-  keys?: array<string>,
-  legendSymbol?: optionsLegendSymbolValue,
-  linecap?: string,
-  marker?: pointMarkerOptionsObject,
-  negativeColor?: ColorType.t,
-  onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  visible?: bool,
-  zIndex?: int,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-}
-type plotMfiParamsOptions = {
-  decimals?: float,
-  index?: string,
-  period?: float,
-  volumeSeriesID?: string,
-}
-type seriesMfiOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotMfiParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type plotNetworkgraphLayoutAlgorithmOptions = {
-  approximation?: string,
-  attractiveForce?: string,
-  enableSimulation?: string,
-  friction?: string,
-  gravitationalConstant?: string,
-  initialPositionRadius?: string,
-  initialPositions?: string,
-  integration?: string,
-  linkLength?: string,
-  maxIterations?: string,
-  maxSpeed?: string,
-  repulsiveForce?: string,
-  theta?: string,
-  @as("type") type_?: string,
-}
-type plotNetworkgraphLinkOptions = {
+  clip?: string,
+  cluster?: string,
   color?: string,
+  colorAxis?: string,
+  colorIndex?: string,
+  colorKey?: string,
+  cursor?: string,
+  custom?: string,
   dashStyle?: string,
-  opacity?: float,
-  width?: float,
+  dataLabels?: string,
+  description?: string,
+  dragDrop?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  joinBy?: string,
+  keys?: string,
+  legendSymbol?: string,
+  linecap?: string,
+  marker?: string,
+  negativeColor?: string,
+  onPoint?: string,
+  opacity?: string,
+  point?: string,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  visible?: string,
+  zIndex?: string,
+  zoomEnabled?: string,
+  id?: string,
+  index?: string,
+  legendIndex?: string,
+  mapData?: string,
+  name?: string,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
 }
 type seriesNetworkgraphOptions = {
   data?: string,
-  nodes?: array<string>,
+  nodes?: string,
   stack?: string,
   @as("type") type_: string,
   xAxis?: string,
   yAxis?: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  crisp?: bool,
+  clip?: string,
+  color?: string,
+  colorIndex?: string,
+  crisp?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  draggable?: bool,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  layoutAlgorithm?: plotNetworkgraphLayoutAlgorithmOptions,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  lineWidth?: float,
-  link?: plotNetworkgraphLinkOptions,
+  draggable?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  gapSize?: string,
+  gapUnit?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  layoutAlgorithm?: string,
+  legendSymbol?: string,
+  legendSymbolColor?: string,
+  lineWidth?: string,
+  link?: string,
   linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  nullInteraction?: bool,
+  marker?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  relativeXValue?: string,
+  selected?: string,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  zIndex?: int,
-}
-type plotObvParamsOptions = {
   index?: string,
-  period?: string,
-  volumeSeriesID?: string,
-}
-type seriesObvOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotObvParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
+  legendIndex?: string,
   mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  name?: string,
+  zIndex?: string,
+}
+module Animation63 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotOhlcDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotOhlcDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation63.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels64 = {
+  type t
+  external fromPlotOhlcDataLabelsOptions: plotOhlcDataLabelsOptions => t = "%identity"
+  external fromPlotOhlcDataLabelsOptionss: array<plotOhlcDataLabelsOptions> => t = "%identity"
+}
+module DataSorting55 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotOhlcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesOhlcOptions = {
   data?: array<string>,
@@ -6914,7 +9999,7 @@ type seriesOhlcOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -6925,8 +10010,8 @@ type seriesOhlcOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels64.t,
+  dataSorting?: DataSorting55.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -6979,7 +10064,7 @@ type seriesOhlcOptions = {
   upColor?: ColorType.t,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6990,100 +10075,169 @@ type seriesOhlcOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
-}
-type plotOrganizationLinkOptions = {
-  color?: string,
-  lineWidth?: string,
-  radius?: string,
-  @as("type") type_?: string,
 }
 type seriesOrganizationOptions = {
-  data?: array<string>,
-  nodes?: array<string>,
+  data?: string,
+  nodes?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
+  accessibility?: string,
   animation?: string,
   borderColor?: string,
-  borderRadius?: float,
-  borderWidth?: float,
-  centerInCategory?: bool,
+  borderRadius?: string,
+  borderWidth?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colors?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  getExtremesFromAll?: bool,
-  hangingIndent?: float,
-  hangingIndentTranslation?: organizationHangingIndentTranslationValue,
-  hangingSide?: TagsTypes.splitTagPosition,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  levels?: array<string>,
-  link?: plotOrganizationLinkOptions,
-  linkColorMode?: linkColorMode,
+  enableMouseTracking?: string,
+  events?: string,
+  getExtremesFromAll?: string,
+  hangingIndent?: string,
+  hangingIndentTranslation?: string,
+  hangingSide?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  levels?: string,
+  link?: string,
+  linkColorMode?: string,
   linkedTo?: string,
-  linkOpacity?: float,
-  minLinkWidth?: float,
-  minNodeLength?: float,
-  nodeAlignment?: nodeAlignment,
-  nodeDistance?: CommonTypes.stringOrNumber,
-  nodePadding?: float,
-  nodeWidth?: float,
-  nullInteraction?: bool,
+  linkOpacity?: string,
+  minLinkWidth?: string,
+  minNodeLength?: string,
+  nodeAlignment?: string,
+  nodeDistance?: string,
+  nodePadding?: string,
+  nodeWidth?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+module Animation65 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPackedbubbleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPackedbubbleDataLabelsStyleOptions = {
+  transition?: string,
+}
+module Style19 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotPackedbubbleDataLabelsStyleOptions: plotPackedbubbleDataLabelsStyleOptions => t =
+    "%identity"
+}
+type seriesPackedBubbleDataLabelsOptionsObject = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation65.t,
+  attributes?: highchartsShapeArgsConfig,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  parentNodeFormat?: string,
+  parentNodeFormatter?: string,
+  parentNodeTextPath?: exportingAccessibilityOptions,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style19.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels66 = {
+  type t
+  external fromSeriesPackedBubbleDataLabelsOptionsObject: seriesPackedBubbleDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesPackedBubbleDataLabelsOptionsObjects: array<
+    seriesPackedBubbleDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotPackedbubbleLayoutAlgorithmParentNodeOptions = {
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
+  initialPositions?: string,
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  marker?: pointMarkerOptionsObject,
+  maxIterations?: float,
+  maxSpeed?: float,
+  seriesInteraction?: bool,
+  @as("type") type_?: string,
 }
 type plotPackedbubbleLayoutAlgorithmOptions = {
-  bubblePadding?: string,
-  dragBetweenSeries?: string,
-  enableSimulation?: string,
-  friction?: string,
-  gravitationalConstant?: string,
-  initialPositionRadius?: string,
+  bubblePadding?: float,
+  dragBetweenSeries?: bool,
+  enableSimulation?: bool,
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
   initialPositions?: string,
-  integration?: string,
-  linkLength?: string,
-  maxIterations?: string,
-  maxSpeed?: string,
-  parentNodeLimit?: string,
-  parentNodeOptions?: string,
-  seriesInteraction?: string,
-  splitSeries?: string,
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  maxIterations?: float,
+  maxSpeed?: float,
+  parentNodeLimit?: bool,
+  parentNodeOptions?: plotPackedbubbleLayoutAlgorithmParentNodeOptions,
+  seriesInteraction?: bool,
+  splitSeries?: bool,
   @as("type") type_?: string,
 }
 type plotPackedbubbleParentNodeOptions = {
@@ -7109,7 +10263,7 @@ type seriesPackedbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels66.t,
   description?: string,
   displayNegative?: bool,
   draggable?: bool,
@@ -7160,7 +10314,7 @@ type seriesPackedbubbleOptions = {
   zMax?: float,
   zMin?: float,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   zThreshold?: float,
   id?: string,
@@ -7173,242 +10327,156 @@ type seriesPackedbubbleOptions = {
   zIndex?: int,
 }
 type seriesParetoOptions = {
-  baseSeries?: CommonTypes.stringOrNumber,
-  data?: array<string>,
+  baseSeries?: string,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  animationLimit?: float,
+  animationLimit?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorIndex?: string,
   colorKey?: string,
-  connectEnds?: bool,
-  connectNulls?: bool,
-  cropThreshold?: float,
+  connectEnds?: string,
+  connectNulls?: string,
+  cropThreshold?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   dataSorting?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
+  enableMouseTracking?: string,
+  events?: string,
+  getExtremesFromAll?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  label?: string,
+  legendSymbol?: string,
+  legendSymbolColor?: string,
   linecap?: string,
-  lineWidth?: float,
+  lineWidth?: string,
   linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  nullInteraction?: bool,
+  marker?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type seriesPcOptions = {
-  allAreas?: string,
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  bottomLine?: plotAroonAroonDownOptions,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  fillColor?: color2,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  topLine?: plotAroonAroonDownOptions,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
 }
 type seriesPictorialOptions = {
   borderRadius?: string,
   centerInCategory?: string,
-  data?: array<string>,
+  data?: string,
   dataAsColumns?: string,
   dataParser?: string,
   dataURL?: string,
-  paths?: array<string>,
+  paths?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
+  animationLimit?: string,
+  boostBlending?: string,
+  boostThreshold?: string,
+  borderColor?: string,
+  borderWidth?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
-  cropThreshold?: float,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colors?: string,
+  cropThreshold?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
+  custom?: string,
   dataLabels?: string,
-  depth?: float,
+  depth?: string,
   description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
+  dragDrop?: string,
   edgeColor?: string,
-  edgeWidth?: float,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  getExtremesFromAll?: bool,
-  grouping?: bool,
-  groupPadding?: float,
-  groupZPadding?: float,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
+  edgeWidth?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  getExtremesFromAll?: string,
+  grouping?: string,
+  groupPadding?: string,
+  groupZPadding?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  legendSymbolColor?: string,
   linkedTo?: string,
-  maxPointWidth?: float,
-  minPointLength?: float,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  maxPointWidth?: string,
+  minPointLength?: string,
+  negativeColor?: string,
+  nullInteraction?: string,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointPadding?: float,
-  pointPlacement?: CommonTypes.stringOrNumber,
-  pointRange?: float,
-  pointStart?: CommonTypes.stringOrNumber,
-  pointWidth?: float,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: optionsStackingValue,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
+  pointInterval?: string,
+  pointIntervalUnit?: string,
+  pointPadding?: string,
+  pointPlacement?: string,
+  pointRange?: string,
+  pointStart?: string,
+  pointWidth?: string,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  softThreshold?: string,
+  sonification?: string,
+  stacking?: string,
+  states?: string,
+  stickyTracking?: string,
+  threshold?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
 }
 type seriesPieOptions = {
   data?: array<string>,
@@ -7424,18 +10492,18 @@ type seriesPieOptions = {
   borderColor?: ColorType.t,
   borderRadius?: string,
   borderWidth?: float,
-  center?: (string, string),
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels37.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -7483,97 +10551,59 @@ type seriesPieOptions = {
   mapData?: string,
   name?: string,
 }
-type plotPivotpointsParamsOptions = {
-  algorithm?: string,
-  index?: string,
-  period?: float,
+module Animation70 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPointandfigureDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
 }
-type seriesPivotpointsOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+type plotPointandfigureDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation70.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotPivotpointsParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type plotPointandfigureDataGroupingOptions = {
+  crop?: bool,
+  defer?: bool,
   enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels71 = {
+  type t
+  external fromPlotPointandfigureDataLabelsOptions: plotPointandfigureDataLabelsOptions => t =
+    "%identity"
+  external fromPlotPointandfigureDataLabelsOptionss: array<
+    plotPointandfigureDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting59 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPointandfigureDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotPointandfigureJitterOptions = {
   x?: float,
@@ -7598,9 +10628,9 @@ type seriesPointandfigureOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: plotPointandfigureDataGroupingOptions,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataGrouping?: exportingAccessibilityOptions,
+  dataLabels?: DataLabels71.t,
+  dataSorting?: DataSorting59.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -7653,7 +10683,7 @@ type seriesPointandfigureOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7664,6 +10694,57 @@ type seriesPointandfigureOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation71 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPolygonDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPolygonDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation71.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels72 = {
+  type t
+  external fromPlotPolygonDataLabelsOptions: plotPolygonDataLabelsOptions => t = "%identity"
+  external fromPlotPolygonDataLabelsOptionss: array<plotPolygonDataLabelsOptions> => t = "%identity"
+}
+module DataSorting60 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPolygonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesPolygonOptions = {
   data?: array<string>,
@@ -7693,8 +10774,8 @@ type seriesPolygonOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels72.t,
+  dataSorting?: DataSorting60.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -7742,7 +10823,7 @@ type seriesPolygonOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7752,6 +10833,60 @@ type seriesPolygonOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation73 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPriceenvelopesDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPriceenvelopesDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation73.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels74 = {
+  type t
+  external fromPlotPriceenvelopesDataLabelsOptions: plotPriceenvelopesDataLabelsOptions => t =
+    "%identity"
+  external fromPlotPriceenvelopesDataLabelsOptionss: array<
+    plotPriceenvelopesDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting62 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPriceenvelopesDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type plotPriceenvelopesParamsOptions = {
   bottomBand?: float,
@@ -7769,7 +10904,7 @@ type seriesPriceenvelopesOptions = {
   animationLimit?: float,
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
-  bottomLine?: plotAbandsBottomLineOptions,
+  bottomLine?: plotDmiPlusDILineOptions,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
@@ -7788,8 +10923,8 @@ type seriesPriceenvelopesOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels74.t,
+  dataSorting?: DataSorting62.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -7830,103 +10965,11 @@ type seriesPriceenvelopesOptions = {
   stickyTracking?: bool,
   threshold?: float,
   tooltip?: seriesTooltipOptionsObject,
-  topLine?: plotAbandsBottomLineOptions,
+  topLine?: plotDmiPlusDILineOptions,
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type plotPsarParamsOptions = {
-  decimals?: float,
-  increment?: float,
-  index?: int,
-  initialAccelerationFactor?: float,
-  maxAccelerationFactor?: float,
-  period?: string,
-}
-type seriesPsarOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotPsarParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7939,96 +10982,96 @@ type seriesPsarOptions = {
 }
 type seriesPyramid3dOptions = {
   allAreas?: string,
-  data?: array<string>,
+  data?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: bool,
-  animationLimit?: float,
-  borderColor?: ColorType.t,
+  accessibility?: string,
+  allowPointSelect?: string,
+  animation?: string,
+  animationLimit?: string,
+  borderColor?: string,
   borderRadius?: string,
-  borderWidth?: float,
-  centerInCategory?: bool,
+  borderWidth?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
   colorKey?: string,
-  colors?: array<string>,
-  crisp?: bool,
-  cropThreshold?: float,
+  colors?: string,
+  crisp?: string,
+  cropThreshold?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
-  depth?: float,
+  depth?: string,
   description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
+  dragDrop?: string,
   edgeColor?: string,
-  edgeWidth?: float,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  getExtremesFromAll?: bool,
-  gradientForSides?: bool,
-  grouping?: bool,
-  groupPadding?: float,
-  groupZPadding?: float,
-  height?: CommonTypes.stringOrNumber,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
+  edgeWidth?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  getExtremesFromAll?: string,
+  gradientForSides?: string,
+  grouping?: string,
+  groupPadding?: string,
+  groupZPadding?: string,
+  height?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
   linkedTo?: string,
-  maxPointWidth?: float,
-  minPointLength?: float,
-  neckHeight?: float,
-  neckWidth?: float,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
+  maxPointWidth?: string,
+  minPointLength?: string,
+  neckHeight?: string,
+  neckWidth?: string,
+  negativeColor?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointPadding?: float,
-  pointPlacement?: CommonTypes.stringOrNumber,
-  pointRange?: float,
-  pointStart?: CommonTypes.stringOrNumber,
-  pointWidth?: float,
-  relativeXValue?: bool,
-  reversed?: bool,
-  selected?: bool,
+  pointInterval?: string,
+  pointIntervalUnit?: string,
+  pointPadding?: string,
+  pointPlacement?: string,
+  pointRange?: string,
+  pointStart?: string,
+  pointWidth?: string,
+  relativeXValue?: string,
+  reversed?: string,
+  selected?: string,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: optionsStackingValue,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  width?: CommonTypes.stringOrNumber,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  softThreshold?: string,
+  sonification?: string,
+  stacking?: string,
+  states?: string,
+  stickyTracking?: string,
+  threshold?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  width?: string,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
 }
 type seriesPyramidOptions = {
   data?: array<string>,
@@ -8044,18 +11087,18 @@ type seriesPyramidOptions = {
   borderColor?: ColorType.t,
   borderRadius?: float,
   borderWidth?: float,
-  center?: array<string>,
+  center?: array<CommonTypes.stringOrNumber>,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels37.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -8105,6 +11148,70 @@ type seriesPyramidOptions = {
   name?: string,
   zIndex?: int,
 }
+type plotRenkoBorderRadiusOptions = {
+  where?: string,
+}
+module BorderRadius2 = {
+  type t
+  external fromString: string => t = "%identity"
+  external fromNumber: float => t = "%identity"
+  external fromBorderRadiusOptionsObject: borderRadiusOptionsObject => t = "%identity"
+  external fromPlotRenkoBorderRadiusOptions: plotRenkoBorderRadiusOptions => t = "%identity"
+}
+module Animation76 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotRenkoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotRenkoDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation76.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels77 = {
+  type t
+  external fromPlotRenkoDataLabelsOptions: plotRenkoDataLabelsOptions => t = "%identity"
+  external fromPlotRenkoDataLabelsOptionss: array<plotRenkoDataLabelsOptions> => t = "%identity"
+}
+type plotRenkoNavigatorOptions = {
+  @as("type") type_?: string,
+}
+module NavigatorOptions = {
+  type t
+  external fromPlotSeriesOptions: plotSeriesOptions => t = "%identity"
+  external fromPlotRenkoNavigatorOptions: plotRenkoNavigatorOptions => t = "%identity"
+}
 type seriesRenkoOptions = {
   boost?: string,
   data?: array<string>,
@@ -8116,7 +11223,7 @@ type seriesRenkoOptions = {
   animation?: string,
   animationLimit?: float,
   borderColor?: ColorType.t,
-  borderRadius?: string,
+  borderRadius?: BorderRadius2.t,
   borderWidth?: float,
   boxSize?: float,
   className?: string,
@@ -8124,12 +11231,12 @@ type seriesRenkoOptions = {
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels77.t,
   description?: string,
   downColor?: string,
   enableMouseTracking?: bool,
@@ -8149,7 +11256,7 @@ type seriesRenkoOptions = {
   lineWidth?: float,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string,
+  navigatorOptions?: NavigatorOptions.t,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string,
@@ -8175,186 +11282,13 @@ type seriesRenkoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
   legendIndex?: float,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type seriesRocOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAbandsParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type plotRsiParamsOptions = {
-  decimals?: float,
-  index?: int,
-  period?: float,
-}
-type seriesRsiOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotRsiParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -8362,7 +11296,7 @@ type seriesRsiOptions = {
 }
 type seriesSankeyOptions = {
   borderRadius?: string,
-  data?: array<JSON.t>,
+  data?: string,
   dataParser?: string,
   dataURL?: string,
   depth?: string,
@@ -8372,161 +11306,249 @@ type seriesSankeyOptions = {
   groupPadding?: string,
   groupZPadding?: string,
   maxPointWidth?: string,
-  nodes?: array<string>,
+  nodes?: string,
   pointPadding?: string,
   pointWidth?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  centerInCategory?: bool,
+  borderColor?: string,
+  borderWidth?: string,
+  centerInCategory?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorByPoint?: bool,
-  colorIndex?: float,
-  colors?: array<string>,
+  clip?: string,
+  color?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colors?: string,
   cursor?: string,
-  curveFactor?: float,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  curveFactor?: string,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  levels?: array<string>,
-  linkColorMode?: linkColorMode,
+  enableMouseTracking?: string,
+  events?: string,
+  getExtremesFromAll?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
+  levels?: string,
+  linkColorMode?: string,
   linkedTo?: string,
-  linkOpacity?: float,
-  minLinkWidth?: float,
-  nodeAlignment?: nodeAlignment,
-  nodeDistance?: CommonTypes.stringOrNumber,
-  nodePadding?: float,
-  nodeWidth?: CommonTypes.stringOrNumber,
-  nullInteraction?: bool,
+  linkOpacity?: string,
+  minLinkWidth?: string,
+  nodeAlignment?: string,
+  nodeDistance?: string,
+  nodePadding?: string,
+  nodeWidth?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoomEnabled?: bool,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
 }
 type seriesScatter3dOptions = {
-  data?: array<string>,
+  data?: string,
   @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
+  accessibility?: string,
+  allowPointSelect?: string,
   animation?: string,
-  animationLimit?: float,
+  animationLimit?: string,
   className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
+  clip?: string,
+  color?: string,
+  colorAxis?: string,
+  colorIndex?: string,
   colorKey?: string,
-  connectEnds?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
+  connectEnds?: string,
+  connectNulls?: string,
+  crisp?: string,
   cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
+  custom?: string,
+  dashStyle?: string,
   dataLabels?: string,
   dataSorting?: string,
   description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  jitter?: plotBubbleJitterOptions,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
+  enableMouseTracking?: string,
+  events?: string,
+  findNearestPointBy?: string,
+  gapSize?: string,
+  gapUnit?: string,
+  getExtremesFromAll?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  jitter?: string,
+  keys?: string,
+  label?: string,
+  legendSymbol?: string,
   linecap?: string,
-  lineWidth?: float,
+  lineWidth?: string,
   linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
+  marker?: string,
+  negativeColor?: string,
+  nullInteraction?: string,
   onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
+  opacity?: string,
+  point?: string,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointStart?: CommonTypes.stringOrNumber,
-  relativeXValue?: bool,
-  selected?: bool,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: optionsStackingValue,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
+  pointInterval?: string,
+  pointIntervalUnit?: string,
+  pointStart?: string,
+  relativeXValue?: string,
+  selected?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  skipKeyboardNavigation?: string,
+  softThreshold?: string,
+  sonification?: string,
+  stacking?: string,
+  states?: string,
+  step?: string,
+  stickyTracking?: string,
+  threshold?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
+  zones?: string,
+  zoomEnabled?: string,
   id?: string,
-  index?: int,
-  legendIndex?: float,
+  index?: string,
+  legendIndex?: string,
   mapData?: string,
   name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+type plotScatterClusterDataLabelsOptions = {
+  style?: string,
+}
+module DataLabels80 = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotScatterClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
+}
+type pointClickEventObject = {
+  ...JsxDOM.domProps,
+  point: point,
+  chartX: float,
+  chartY: float,
+}
+type plotScatterClusterEventsOptions = {
+  drillToCluster?: pointClickEventObject => unit,
+}
+type plotScatterClusterLayoutAlgorithmOptions = {
+  distance?: CommonTypes.stringOrNumber,
+  gridSize?: CommonTypes.stringOrNumber,
+  iterations?: float,
+  kmeansThreshold?: float,
+  @as("type") type_?: string,
+}
+type plotScatterClusterStatesHoverOptions = {
+  fillColor?: ColorType.t,
+}
+type plotScatterClusterStatesOptions = {
+  hover?: plotScatterClusterStatesHoverOptions,
+}
+type plotScatterClusterZonesOptions = {
+  className?: string,
+  from?: float,
+  marker?: pointMarkerOptionsObject,
+  @as("to") to_?: float,
 }
 type plotScatterClusterOptions = {
-  allowOverlap?: string,
+  allowOverlap?: bool,
   animation?: string,
-  dataLabels?: string,
-  drillToCluster?: string,
-  enabled?: string,
-  events?: string,
-  layoutAlgorithm?: string,
-  marker?: string,
-  minimumClusterSize?: string,
-  states?: string,
-  zones?: string,
+  dataLabels?: DataLabels80.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
+}
+module Animation79 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotScatterDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotScatterDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation79.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels81 = {
+  type t
+  external fromPlotScatterDataLabelsOptions: plotScatterDataLabelsOptions => t = "%identity"
+  external fromPlotScatterDataLabelsOptionss: array<plotScatterDataLabelsOptions> => t = "%identity"
+}
+module DataSorting66 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotScatterDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesScatterOptions = {
   data?: array<string>,
@@ -8559,8 +11581,8 @@ type seriesScatterOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels81.t,
+  dataSorting?: DataSorting66.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -8610,7 +11632,7 @@ type seriesScatterOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8621,6 +11643,60 @@ type seriesScatterOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation81 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSlowstochasticDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotSlowstochasticDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation81.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels83 = {
+  type t
+  external fromPlotSlowstochasticDataLabelsOptions: plotSlowstochasticDataLabelsOptions => t =
+    "%identity"
+  external fromPlotSlowstochasticDataLabelsOptionss: array<
+    plotSlowstochasticDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting68 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSlowstochasticDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type plotSlowstochasticParamsOptions = {
   index?: string,
@@ -8654,8 +11730,8 @@ type seriesSlowstochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels83.t,
+  dataSorting?: DataSorting68.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8689,7 +11765,7 @@ type seriesSlowstochasticOptions = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  smoothedLine?: plotAbandsBottomLineOptions,
+  smoothedLine?: plotDmiPlusDILineOptions,
   softThreshold?: bool,
   sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
@@ -8700,7 +11776,7 @@ type seriesSlowstochasticOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8710,6 +11786,57 @@ type seriesSlowstochasticOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation82 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSmaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotSmaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation82.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels84 = {
+  type t
+  external fromPlotSmaDataLabelsOptions: plotSmaDataLabelsOptions => t = "%identity"
+  external fromPlotSmaDataLabelsOptionss: array<plotSmaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting69 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type seriesSmaOptions = {
   dataParser?: string,
@@ -8740,8 +11867,8 @@ type seriesSmaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels84.t,
+  dataSorting?: DataSorting69.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8765,7 +11892,7 @@ type seriesSmaOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
+  params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -8785,7 +11912,7 @@ type seriesSmaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8795,6 +11922,54 @@ type seriesSmaOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation83 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSolidgaugeDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotSolidgaugeDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation83.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+module DataLabels85 = {
+  type t
+  external fromPlotSolidgaugeDataLabelsOptions: plotSolidgaugeDataLabelsOptions => t = "%identity"
+  external fromPlotSolidgaugeDataLabelsOptionss: array<plotSolidgaugeDataLabelsOptions> => t =
+    "%identity"
 }
 type seriesSolidgaugeOptions = {
   data?: array<string>,
@@ -8817,7 +11992,7 @@ type seriesSolidgaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels85.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8865,6 +12040,57 @@ type seriesSolidgaugeOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+module Animation84 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotSplineDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation84.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels86 = {
+  type t
+  external fromPlotSplineDataLabelsOptions: plotSplineDataLabelsOptions => t = "%identity"
+  external fromPlotSplineDataLabelsOptionss: array<plotSplineDataLabelsOptions> => t = "%identity"
+}
+module DataSorting70 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type seriesSplineOptions = {
   data?: array<string>,
   dataParser?: string,
@@ -8893,8 +12119,8 @@ type seriesSplineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels86.t,
+  dataSorting?: DataSorting70.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -8945,7 +12171,7 @@ type seriesSplineOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8956,6 +12182,63 @@ type seriesSplineOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module Animation85 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotStochasticDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotStochasticDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation85.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels87 = {
+  type t
+  external fromPlotStochasticDataLabelsOptions: plotStochasticDataLabelsOptions => t = "%identity"
+  external fromPlotStochasticDataLabelsOptionss: array<plotStochasticDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting71 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotStochasticDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotStochasticParamsOptions = {
+  index?: string,
+  period?: string,
+  periods?: (float, float),
 }
 type seriesStochasticOptions = {
   allAreas?: string,
@@ -8986,8 +12269,8 @@ type seriesStochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels87.t,
+  dataSorting?: DataSorting71.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9011,7 +12294,7 @@ type seriesStochasticOptions = {
   nullInteraction?: bool,
   onPoint?: string,
   opacity?: float,
-  params?: plotApoParamsOptions,
+  params?: plotStochasticParamsOptions,
   point?: plotSeriesPointOptions,
   pointDescriptionFormat?: string,
   pointDescriptionFormatter?: string,
@@ -9032,7 +12315,7 @@ type seriesStochasticOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9043,122 +12326,148 @@ type seriesStochasticOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type seriesStreamgraphOptions = {
-  data?: array<string>,
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  connectEnds?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  fillColor?: ColorType.t,
-  fillOpacity?: float,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  navigatorOptions?: plotSeriesOptions,
-  negativeColor?: ColorType.t,
-  negativeFillColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointPlacement?: CommonTypes.stringOrNumber,
-  pointRange?: float,
-  pointStart?: CommonTypes.stringOrNumber,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  showInNavigator?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: string,
-  states?: seriesStatesOptionsObject,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  trackByArea?: bool,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+type plotSunburstBreadcrumbsButtonThemeStyleOptions = {
+  color?: string,
+}
+type plotSunburstBreadcrumbsButtonThemeOptions = {
+  style?: plotSunburstBreadcrumbsButtonThemeStyleOptions,
+}
+module ButtonTheme3 = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromPlotSunburstBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
+    "%identity"
+}
+type breadcrumbOptions = {
+  level: int,
+  levelOptions: string,
+}
+type drilldownBreadcrumbsEventsOptions = {
+  click?: (Dom.event, breadcrumbOptions) => unit,
+}
+type breadcrumbsAlignOptions = {
+  align: alignValue,
+  verticalAlign: verticalAlignValue,
+  x: float,
+  y: float,
+}
+type drilldownBreadcrumbsPositionOptions = {
+  align?: alignValue,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module Position8 = {
+  type t
+  external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
+  external fromPlotSunburstBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
+    "%identity"
+}
+type plotSunburstBreadcrumbsSeparatorStyleOptions = {
+  color?: string,
+  fontSize?: float,
+}
+module Style20 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotSunburstBreadcrumbsSeparatorStyleOptions: plotSunburstBreadcrumbsSeparatorStyleOptions => t =
+    "%identity"
+}
+type plotSunburstBreadcrumbsSeparatorOptions = {
+  style?: Style20.t,
+  text?: string,
 }
 type plotSunburstBreadcrumbsOptions = {
-  buttonSpacing?: string,
-  buttonTheme?: string,
-  events?: string,
-  floating?: string,
+  buttonSpacing?: float,
+  buttonTheme?: ButtonTheme3.t,
+  events?: drilldownBreadcrumbsEventsOptions,
+  floating?: bool,
   format?: string,
-  formatter?: string,
-  position?: string,
-  relativeTo?: string,
-  rtl?: string,
-  separator?: string,
-  showFullPath?: string,
-  style?: string,
-  useHTML?: string,
-  zIndex?: string,
+  formatter?: breadcrumbOptions => string,
+  position?: Position8.t,
+  relativeTo?: buttonRelativeToValue,
+  rtl?: bool,
+  separator?: plotSunburstBreadcrumbsSeparatorOptions,
+  showFullPath?: bool,
+  style?: highchartsShapeArgsConfig,
+  useHTML?: bool,
+  zIndex?: int,
+}
+module Animation87 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSunburstDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotSunburstLevelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type seriesSunburstDataLabelsOptionsObject = {
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation87.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  connectorPadding?: float,
+  connectorShape?: string,
+  connectorWidth?: float,
+  crookDistance?: string,
+  crop?: bool,
+  defer?: bool,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  rotationMode?: optionsRotationModeValue,
+  shadow?: string,
+  shape?: string,
+  softConnector?: bool,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels89 = {
+  type t
+  external fromSeriesSunburstDataLabelsOptionsObject: seriesSunburstDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesSunburstDataLabelsOptionsObjects: array<
+    seriesSunburstDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotSunburstLevelsColorVariationOptions = {
+  key?: string,
+  @as("to") to_?: float,
+}
+type plotSunburstLevelsOptions = {
+  borderColor?: string,
+  borderDashStyle?: dashStyleValue,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorVariation?: plotSunburstLevelsColorVariationOptions,
+  dataLabels?: DataLabels89.t,
+  level?: int,
+  levelSize?: string,
 }
 type plotSunburstLevelSizeOptions = {
-  unit?: string,
-  value?: string,
+  unit?: optionsUnitValue,
+  value?: float,
 }
 type seriesSunburstOptions = {
   data?: array<string>,
@@ -9174,17 +12483,17 @@ type seriesSunburstOptions = {
   borderRadius?: string,
   borderWidth?: float,
   breadcrumbs?: plotSunburstBreadcrumbsOptions,
-  center?: array<string>,
+  center?: array<CommonTypes.stringOrNumber>,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels89.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9195,7 +12504,7 @@ type seriesSunburstOptions = {
   legendSymbol?: optionsLegendSymbolValue,
   legendSymbolColor?: ColorType.t,
   levelIsConstant?: bool,
-  levels?: array<string>,
+  levels?: array<plotSunburstLevelsOptions>,
   levelSize?: plotSunburstLevelSizeOptions,
   nullInteraction?: bool,
   onPoint?: string,
@@ -9229,6 +12538,66 @@ type seriesSunburstOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+type plotSupertrendChangeTrendLineStylesOptions = {
+  dashStyle?: dashStyleValue,
+  lineColor?: string,
+  lineWidth?: float,
+}
+type plotSupertrendChangeTrendLineOptions = {
+  styles?: plotSupertrendChangeTrendLineStylesOptions,
+}
+module Animation88 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotSupertrendDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotSupertrendDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation88.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels90 = {
+  type t
+  external fromPlotSupertrendDataLabelsOptions: plotSupertrendDataLabelsOptions => t = "%identity"
+  external fromPlotSupertrendDataLabelsOptionss: array<plotSupertrendDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting73 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSupertrendDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type plotSupertrendParamsOptions = {
   index?: string,
   multiplier?: float,
@@ -9246,7 +12615,7 @@ type seriesSupertrendOptions = {
   animationLimit?: float,
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
-  changeTrendLine?: plotAroonAroonDownOptions,
+  changeTrendLine?: plotSupertrendChangeTrendLineOptions,
   className?: string,
   clip?: bool,
   color?: ColorType.t,
@@ -9264,8 +12633,8 @@ type seriesSupertrendOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels90.t,
+  dataSorting?: DataSorting73.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9309,90 +12678,7 @@ type seriesSupertrendOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type seriesTemaOptions = {
-  allAreas?: string,
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAbandsParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9446,6 +12732,52 @@ type seriesTiledwebmapOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
+module Animation90 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTilemapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotTilemapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation90.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels92 = {
+  type t
+  external fromPlotTilemapDataLabelsOptions: plotTilemapDataLabelsOptions => t = "%identity"
+  external fromPlotTilemapDataLabelsOptionss: array<plotTilemapDataLabelsOptions> => t = "%identity"
+}
 type seriesTilemapOptions = {
   allAreas?: string,
   data?: array<string>,
@@ -9470,7 +12802,7 @@ type seriesTilemapOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels92.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9508,7 +12840,7 @@ type seriesTilemapOptions = {
   visible?: bool,
   zIndex?: int,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9517,8 +12849,60 @@ type seriesTilemapOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
+module Animation91 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTimelineDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type timelineDataLabelsOptionsObject = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  alternate?: bool,
+  animation?: Animation91.t,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: string,
+  connectorColor?: ColorType.t,
+  connectorWidth?: float,
+  crop?: bool,
+  defer?: bool,
+  distance?: string,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+  x?: float,
+  y?: float,
+}
+module DataLabels93 = {
+  type t
+  external fromTimelineDataLabelsOptionsObject: timelineDataLabelsOptionsObject => t = "%identity"
+  external fromTimelineDataLabelsOptionsObjects: array<timelineDataLabelsOptionsObject> => t =
+    "%identity"
+}
 type seriesTimelineOptions = {
-  data?: array<string>,
+  data?: array<pointOptionsObject>,
   dataParser?: string,
   dataURL?: string,
   stack?: string,
@@ -9536,7 +12920,7 @@ type seriesTimelineOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels93.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -9581,31 +12965,119 @@ type seriesTimelineOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+type plotTreegraphCollapseButtonStyleOptions = {
+  cursor?: string,
+  fontSize?: float,
+  fontWeight?: string,
+}
 type plotTreegraphCollapseButtonOptions = {
-  enabled?: string,
-  height?: string,
-  lineWidth?: string,
-  onlyOnHover?: string,
+  enabled?: bool,
+  height?: float,
+  lineWidth?: float,
+  onlyOnHover?: bool,
   shape?: string,
-  style?: string,
-  width?: string,
-  x?: string,
-  y?: string,
+  style?: plotTreegraphCollapseButtonStyleOptions,
+  width?: float,
+  x?: float,
+  y?: float,
+}
+module Animation92 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTreegraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromPlotTreegraphLevelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotTreegraphDataLabelsStyleOptions = {
+  textOverflow?: string,
+}
+type plotTreegraphLevelsDataLabelsStyleOptions = {
+  textOverflow?: string,
+}
+module Style21 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotTreegraphDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
+    "%identity"
+  external fromPlotTreegraphLevelsDataLabelsStyleOptions: plotTreegraphLevelsDataLabelsStyleOptions => t =
+    "%identity"
+}
+type seriesTreegraphDataLabelsOptionsObject = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation92.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  headers?: bool,
+  inside?: bool,
+  labelrank?: float,
+  linkTextPath?: dataLabelsTextPathOptionsObject,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  pointFormat?: string,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style21.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels94 = {
+  type t
+  external fromSeriesTreegraphDataLabelsOptionsObject: seriesTreegraphDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesTreegraphDataLabelsOptionsObjects: array<
+    seriesTreegraphDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotTreegraphLevelsColorVariationOptions = {
+  key?: string,
+  @as("to") to_?: float,
+}
+type plotTreegraphLevelsOptions = {
+  borderColor?: string,
+  borderDashStyle?: dashStyleValue,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorVariation?: plotTreegraphLevelsColorVariationOptions,
+  dataLabels?: DataLabels94.t,
+  layoutAlgorithm?: optionsLayoutAlgorithmValue,
+  layoutStartingDirection?: optionsLayoutStartingDirectionValue,
+  level?: int,
 }
 type plotTreegraphLinkOptions = {
-  bendAt?: string,
+  bendAt?: CommonTypes.stringOrNumber,
   color?: string,
   cursor?: string,
-  curveFactor?: string,
-  lineWidth?: string,
-  radius?: string,
-  @as("type") type_?: string,
+  curveFactor?: float,
+  lineWidth?: float,
+  radius?: float,
+  @as("type") type_?: StatCardV2Types.type_,
 }
 type seriesTreegraphOptions = {
   allowDrillToNode?: string,
   centerInCategory?: string,
   curveFactor?: string,
-  data?: array<string>,
+  data?: array<pointOptionsObject>,
   headers?: string,
   layout?: string,
   nodePadding?: string,
@@ -9626,12 +13098,12 @@ type seriesTreegraphOptions = {
   color?: ColorType.t,
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels94.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9644,7 +13116,7 @@ type seriesTreegraphOptions = {
   keys?: array<string>,
   label?: seriesLabelOptionsObject,
   legendSymbol?: optionsLegendSymbolValue,
-  levels?: array<string>,
+  levels?: array<plotTreegraphLevelsOptions>,
   link?: plotTreegraphLinkOptions,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
@@ -9684,17 +13156,128 @@ type seriesTreegraphOptions = {
   name?: string,
   zIndex?: int,
 }
+module ButtonTheme4 = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromPlotTreemapBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
+    "%identity"
+}
+module Position9 = {
+  type t
+  external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
+  external fromPlotTreemapBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
+    "%identity"
+}
+module Style22 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotTreemapBreadcrumbsSeparatorStyleOptions: plotSunburstBreadcrumbsSeparatorStyleOptions => t =
+    "%identity"
+}
+type plotTreemapBreadcrumbsSeparatorOptions = {
+  style?: Style22.t,
+  text?: string,
+}
+type plotTreemapBreadcrumbsOptions = {
+  buttonSpacing?: float,
+  buttonTheme?: ButtonTheme4.t,
+  events?: drilldownBreadcrumbsEventsOptions,
+  floating?: bool,
+  format?: string,
+  formatter?: breadcrumbOptions => string,
+  position?: Position9.t,
+  relativeTo?: buttonRelativeToValue,
+  rtl?: bool,
+  separator?: plotTreemapBreadcrumbsSeparatorOptions,
+  showFullPath?: bool,
+  style?: highchartsShapeArgsConfig,
+  useHTML?: bool,
+  zIndex?: int,
+}
+type plotTreemapClusterLayoutAlgorithmOptions = {
+  distance?: float,
+  gridSize?: float,
+  kmeansThreshold?: float,
+}
+type plotTreemapClusterMarkerOptions = {
+  lineWidth?: float,
+  radius?: float,
+}
 type plotTreemapClusterOptions = {
   className?: string,
-  color?: string,
-  enabled?: string,
-  layoutAlgorithm?: string,
-  marker?: string,
-  minimumClusterSize?: string,
+  color?: ColorType.t,
+  enabled?: bool,
+  layoutAlgorithm?: plotTreemapClusterLayoutAlgorithmOptions,
+  marker?: plotTreemapClusterMarkerOptions,
+  minimumClusterSize?: float,
   name?: string,
-  pixelHeight?: string,
-  pixelWidth?: string,
-  reductionFactor?: string,
+  pixelHeight?: float,
+  pixelWidth?: float,
+  reductionFactor?: float,
+}
+module Animation93 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTreemapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+module Style23 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotTreemapDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
+    "%identity"
+}
+type plotTreemapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation93.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  headers?: bool,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style23.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels95 = {
+  type t
+  external fromPlotTreemapDataLabelsOptions: plotTreemapDataLabelsOptions => t = "%identity"
+  external fromPlotTreemapDataLabelsOptionss: array<plotTreemapDataLabelsOptions> => t = "%identity"
+}
+type plotTreemapLevelsOptions = {
+  borderColor?: string,
+  borderDashStyle?: dashStyleValue,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorVariation?: plotTreegraphLevelsColorVariationOptions,
+  dataLabels?: string,
+  layoutAlgorithm?: optionsLayoutAlgorithmValue,
+  layoutStartingDirection?: optionsLayoutStartingDirectionValue,
+  level?: int,
 }
 type seriesTreemapOptions = {
   data?: array<string>,
@@ -9711,7 +13294,7 @@ type seriesTreemapOptions = {
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
   borderRadius?: float,
-  breadcrumbs?: plotSunburstBreadcrumbsOptions,
+  breadcrumbs?: plotTreemapBreadcrumbsOptions,
   className?: string,
   clip?: bool,
   cluster?: plotTreemapClusterOptions,
@@ -9720,13 +13303,13 @@ type seriesTreemapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels95.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -9745,7 +13328,7 @@ type seriesTreemapOptions = {
   layoutStartingDirection?: optionsLayoutStartingDirectionValue,
   legendSymbol?: optionsLegendSymbolValue,
   levelIsConstant?: bool,
-  levels?: array<string>,
+  levels?: array<plotTreemapLevelsOptions>,
   linecap?: string,
   lineWidth?: float,
   linkedTo?: string,
@@ -9778,7 +13361,7 @@ type seriesTreemapOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9803,18 +13386,18 @@ type seriesVariablepieOptions = {
   borderColor?: ColorType.t,
   borderRadius?: string,
   borderWidth?: float,
-  center?: (string, string),
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
   className?: string,
   clip?: bool,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
+  dataLabels?: DataLabels37.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -9866,6 +13449,58 @@ type seriesVariablepieOptions = {
   name?: string,
   zIndex?: int,
 }
+module Animation96 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotVariwideDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotVariwideDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation96.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels98 = {
+  type t
+  external fromPlotVariwideDataLabelsOptions: plotVariwideDataLabelsOptions => t = "%identity"
+  external fromPlotVariwideDataLabelsOptionss: array<plotVariwideDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting77 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotVariwideDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
 type seriesVariwideOptions = {
   data?: array<string>,
   @as("type") type_: string,
@@ -9884,13 +13519,13 @@ type seriesVariwideOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels98.t,
+  dataSorting?: DataSorting77.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -9938,7 +13573,7 @@ type seriesVariwideOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9950,15 +13585,74 @@ type seriesVariwideOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+module Animation97 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotVbpDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotVbpDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation97.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels99 = {
+  type t
+  external fromPlotVbpDataLabelsOptions: plotVbpDataLabelsOptions => t = "%identity"
+  external fromPlotVbpDataLabelsOptionss: array<plotVbpDataLabelsOptions> => t = "%identity"
+}
+module DataSorting78 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotVbpDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
 type plotVbpParamsOptions = {
   index?: string,
   period?: string,
   ranges?: float,
   volumeSeriesID?: string,
 }
+type plotVbpVolumeDivisionStylesOptions = {
+  negativeColor?: string,
+  positiveColor?: string,
+}
 type plotVbpVolumeDivisionOptions = {
-  enabled?: string,
-  styles?: string,
+  enabled?: bool,
+  styles?: plotVbpVolumeDivisionStylesOptions,
+}
+type plotVbpZoneLinesOptions = {
+  enabled?: bool,
+  styles?: cssObject,
 }
 type seriesVbpOptions = {
   dataParser?: string,
@@ -9988,8 +13682,8 @@ type seriesVbpOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels99.t,
+  dataSorting?: DataSorting78.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10035,8 +13729,8 @@ type seriesVbpOptions = {
   visible?: bool,
   volumeDivision?: plotVbpVolumeDivisionOptions,
   zoneAxis?: string,
-  zoneLines?: plotVbpVolumeDivisionOptions,
-  zones?: array<string>,
+  zoneLines?: plotVbpZoneLinesOptions,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -10046,6 +13740,76 @@ type seriesVbpOptions = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+module DataLabels100 = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotVectorClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
+}
+type plotVectorClusterOptions = {
+  allowOverlap?: bool,
+  animation?: string,
+  dataLabels?: DataLabels100.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
+}
+module Animation98 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotVectorDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotVectorDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation98.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels101 = {
+  type t
+  external fromPlotVectorDataLabelsOptions: plotVectorDataLabelsOptions => t = "%identity"
+  external fromPlotVectorDataLabelsOptionss: array<plotVectorDataLabelsOptions> => t = "%identity"
+}
+module DataSorting79 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotVectorDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesVectorOptions = {
   data?: array<string>,
@@ -10058,7 +13822,7 @@ type seriesVectorOptions = {
   animationLimit?: float,
   className?: string,
   clip?: bool,
-  cluster?: plotScatterClusterOptions,
+  cluster?: plotVectorClusterOptions,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
@@ -10071,8 +13835,8 @@ type seriesVectorOptions = {
   cumulativeStart?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels101.t,
+  dataSorting?: DataSorting79.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10117,7 +13881,7 @@ type seriesVectorOptions = {
   vectorLength?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -10129,8 +13893,73 @@ type seriesVectorOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+module DataLabels102 = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotVennClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
+}
+type plotVennClusterOptions = {
+  allowOverlap?: bool,
+  animation?: string,
+  dataLabels?: DataLabels102.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
+}
+module Animation99 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotVennDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotVennDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation99.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels103 = {
+  type t
+  external fromPlotVennDataLabelsOptions: plotVennDataLabelsOptions => t = "%identity"
+  external fromPlotVennDataLabelsOptionss: array<plotVennDataLabelsOptions> => t = "%identity"
+}
 type seriesVennOptions = {
-  data?: array<string>,
+  data?: array<pointOptionsObject>,
   dataParser?: string,
   dataURL?: string,
   stack?: string,
@@ -10146,7 +13975,7 @@ type seriesVennOptions = {
   brighten?: float,
   className?: string,
   clip?: bool,
-  cluster?: plotScatterClusterOptions,
+  cluster?: plotVennClusterOptions,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorByPoint?: bool,
@@ -10156,7 +13985,7 @@ type seriesVennOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
+  dataLabels?: DataLabels103.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10192,89 +14021,57 @@ type seriesVennOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesVwapOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+module Animation101 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotWaterfallDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotWaterfallDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation101.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAdParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels105 = {
+  type t
+  external fromPlotWaterfallDataLabelsOptions: plotWaterfallDataLabelsOptions => t = "%identity"
+  external fromPlotWaterfallDataLabelsOptionss: array<plotWaterfallDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting81 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotWaterfallDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesWaterfallOptions = {
   data?: array<string>,
@@ -10296,14 +14093,14 @@ type seriesWaterfallOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels105.t,
+  dataSorting?: DataSorting81.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -10358,7 +14155,7 @@ type seriesWaterfallOptions = {
   upColor?: ColorType.t,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -10370,90 +14167,57 @@ type seriesWaterfallOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type seriesWilliamsrOptions = {
-  allAreas?: string,
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string,
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
+module Animation103 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotWindbarbDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotWindbarbDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation103.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
   className?: string,
-  clip?: bool,
   color?: ColorType.t,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  compareToMain?: bool,
-  connectNulls?: bool,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>,
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
-  description?: string,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  label?: seriesLabelOptionsObject,
-  lastPrice?: seriesLastPriceOptionsObject,
-  lastVisiblePrice?: seriesLastPriceOptionsObject,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  name?: string,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string,
-  opacity?: float,
-  params?: plotAroonoscillatorParamsOptions,
-  point?: plotSeriesPointOptions,
-  pointDescriptionFormat?: string,
-  pointDescriptionFormatter?: string,
-  relativeXValue?: bool,
-  selected?: bool,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
   shadow?: string,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject,
-  turboThreshold?: float,
-  visible?: bool,
-  zoneAxis?: string,
-  zones?: array<string>,
-  zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels107 = {
+  type t
+  external fromPlotWindbarbDataLabelsOptions: plotWindbarbDataLabelsOptions => t = "%identity"
+  external fromPlotWindbarbDataLabelsOptionss: array<plotWindbarbDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting83 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotWindbarbDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
 type seriesWindbarbOptions = {
   data?: array<string>,
@@ -10475,7 +14239,7 @@ type seriesWindbarbOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -10485,8 +14249,8 @@ type seriesWindbarbOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels107.t,
+  dataSorting?: DataSorting83.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -10544,7 +14308,7 @@ type seriesWindbarbOptions = {
   xOffset?: float,
   yOffset?: float,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -10577,7 +14341,7 @@ type seriesWordcloudOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
@@ -10625,15 +14389,13201 @@ type seriesWordcloudOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-type plotXrangePartialFillOptions = {
-  fill?: ColorType.t,
-}
 type seriesXrangeOptions = {
-  data?: array<string>,
+  data?: string,
   depth?: string,
   edgeColor?: string,
   edgeWidth?: string,
   @as("type") type_: string,
+  accessibility?: string,
+  allowPointSelect?: string,
+  animation?: string,
+  animationLimit?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  centerInCategory?: string,
+  className?: string,
+  clip?: string,
+  color?: string,
+  colorAxis?: string,
+  colorByPoint?: string,
+  colorIndex?: string,
+  colorKey?: string,
+  colors?: string,
+  compare?: string,
+  compareBase?: string,
+  compareStart?: string,
+  connectors?: string,
+  cumulative?: string,
+  cumulativeStart?: string,
+  cursor?: string,
+  custom?: string,
+  dashStyle?: string,
+  dataGrouping?: string,
+  dataLabels?: string,
+  description?: string,
+  dragDrop?: string,
+  enableMouseTracking?: string,
+  events?: string,
+  grouping?: string,
+  groupPadding?: string,
+  groupZPadding?: string,
+  inactiveOtherPoints?: string,
+  includeInDataExport?: string,
+  keys?: string,
+  label?: string,
+  lastPrice?: string,
+  lastVisiblePrice?: string,
+  legendSymbol?: string,
+  legendSymbolColor?: string,
+  linkedTo?: string,
+  maxPointWidth?: string,
+  minPointLength?: string,
+  navigatorOptions?: string,
+  nullInteraction?: string,
+  onPoint?: string,
+  opacity?: string,
+  partialFill?: string,
+  point?: string,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: string,
+  pointRange?: string,
+  pointWidth?: string,
+  relativeXValue?: string,
+  selected?: string,
+  shadow?: string,
+  showCheckbox?: string,
+  showInLegend?: string,
+  showInNavigator?: string,
+  skipKeyboardNavigation?: string,
+  sonification?: string,
+  states?: string,
+  stickyTracking?: string,
+  tooltip?: string,
+  turboThreshold?: string,
+  visible?: string,
+  zoneAxis?: string,
+  zones?: string,
+  zoomEnabled?: string,
+  id?: string,
+  index?: string,
+  legendIndex?: string,
+  mapData?: string,
+  name?: string,
+  stack?: string,
+  xAxis?: string,
+  yAxis?: string,
+  zIndex?: string,
+}
+module SeriesOptionsType = {
+  type t
+  external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
+  external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesAoOptions: seriesAoOptions => t = "%identity"
+  external fromSeriesApoOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions => t = "%identity"
+  external fromSeriesAreaOptions: seriesAreaOptions => t = "%identity"
+  external fromSeriesArearangeOptions: seriesArearangeOptions => t = "%identity"
+  external fromSeriesAreasplineOptions: seriesAreasplineOptions => t = "%identity"
+  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
+  external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
+  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
+  external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
+  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
+  external fromSeriesBoxplotOptions: seriesBoxplotOptions => t = "%identity"
+  external fromSeriesBubbleOptions: seriesBubbleOptions => t = "%identity"
+  external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
+  external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
+  external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
+  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
+  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
+  external fromSeriesContourOptions: seriesContourOptions => t = "%identity"
+  external fromSeriesCylinderOptions: seriesCylinderOptions => t = "%identity"
+  external fromSeriesDemaOptions: seriesDemaOptions => t = "%identity"
+  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions => t = "%identity"
+  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t = "%identity"
+  external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
+  external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
+  external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
+  external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
+  external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
+  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions => t = "%identity"
+  external fromSeriesFunnelOptions: seriesFunnelOptions => t = "%identity"
+  external fromSeriesGanttOptions: seriesGanttOptions => t = "%identity"
+  external fromSeriesGaugeOptions: seriesGaugeOptions => t = "%identity"
+  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions => t = "%identity"
+  external fromSeriesHeatmapOptions: seriesHeatmapOptions => t = "%identity"
+  external fromSeriesHeikinashiOptions: seriesCandlestickOptions => t = "%identity"
+  external fromSeriesHistogramOptions: seriesHistogramOptions => t = "%identity"
+  external fromSeriesHlcOptions: seriesHlcOptions => t = "%identity"
+  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions => t = "%identity"
+  external fromSeriesIkhOptions: seriesIkhOptions => t = "%identity"
+  external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
+  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
+  external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
+  external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
+  external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
+  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions => t = "%identity"
+  external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
+  external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
+  external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
+  external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
+  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
+  external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
+  external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
+  external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
+  external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
+  external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
+  external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
+  external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
+  external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
+  external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
+  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t = "%identity"
+  external fromSeriesSmaOptions: seriesSmaOptions => t = "%identity"
+  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
+  external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
+  external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
+  external fromSeriesStreamgraphOptions: seriesAreasplineOptions => t = "%identity"
+  external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
+  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
+  external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
+  external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
+  external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
+  external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
+  external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
+  external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
+  external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
+  external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
+  external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
+  external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
+}
+type chartAddSeriesEventObject = {
+  options: SeriesOptionsType.t,
+  preventDefault: string,
+  target: chart,
+  @as("type") type_: string,
+}
+@unboxed type boolOrPointArray = Bool(bool) | Arr(array<point>)
+type drilldownEventObject = {
+  category?: float,
+  originalEvent?: Dom.event,
+  point: point,
+  points?: boolOrPointArray,
+  preventDefault: string,
+  seriesOptions?: SeriesOptionsType.t,
+  target: chart,
+  @as("type") type_: string,
+}
+type drillupEventObject = {
+  preventDefault: string,
+  seriesOptions?: SeriesOptionsType.t,
+  target: chart,
+  @as("type") type_: string,
+}
+type drillupAllEventObject = {
+  preventDefault: string,
+  target: chart,
+  @as("type") type_: string,
+}
+type exportDataEventObject = {
+  dataRows: array<array<string>>,
+}
+type selectDataObject = {
+  axis: axis,
+  max: float,
+  min: float,
+}
+type selectEventObject = {
+  originalEvent: Dom.event,
+  preventDefault: string,
+  resetSelection?: bool,
+  xAxis: array<selectDataObject>,
+  yAxis: array<selectDataObject>,
+}
+type chartEventsOptions = {
+  addSeries?: chartAddSeriesEventObject => unit,
+  afterPrint?: Dom.event => unit,
+  beforePrint?: Dom.event => unit,
+  click?: pointerEventObject => unit,
+  drilldown?: drilldownEventObject => unit,
+  drillup?: drillupEventObject => unit,
+  drillupall?: drillupAllEventObject => unit,
+  exportData?: exportDataEventObject => unit,
+  fullscreenClose?: (chart, Dom.event) => unit,
+  fullscreenOpen?: (chart, Dom.event) => unit,
+  load?: Dom.event => unit,
+  redraw?: Dom.event => unit,
+  render?: Dom.event => unit,
+  selection?: selectEventObject => bool,
+}
+type chart3dFrameBackOptions = {
+  color?: ColorType.t,
+  size?: float,
+  visible?: CommonTypes.boolOrAutoOrDefault,
+}
+type chart3dFrameOptions = {
+  back?: chart3dFrameBackOptions,
+  bottom?: chart3dFrameBackOptions,
+  front?: chart3dFrameBackOptions,
+  left?: chart3dFrameBackOptions,
+  right?: chart3dFrameBackOptions,
+  size?: float,
+  top?: chart3dFrameBackOptions,
+  visible?: string,
+}
+type chart3dOptions = {
+  alpha?: float,
+  axisLabelPosition?: string,
+  beta?: float,
+  depth?: float,
+  enabled?: bool,
+  fitToPlot?: bool,
+  frame?: chart3dFrameOptions,
+  viewDistance?: float,
+}
+type chartPanningOptions = {
+  enabled?: bool,
+  @as("type") type_?: optionsChartPanningTypeValue,
+}
+type axisAccessibilityOptionsObject = {
+  description?: string,
+  enabled?: bool,
+  rangeDescription?: string,
+}
+type axisDateTimeLabelFormatsOptions = {
+  day?: string,
+  hour?: string,
+  millisecond?: string,
+  minute?: string,
+  month?: string,
+  second?: string,
+  week?: string,
+  year?: string,
+}
+type axisSetExtremesEventObject = {
+  preventDefault: string,
+  target: Dom.element,
+  trigger: string,
+  @as("type") type_: string,
+  dataMax: float,
+  dataMin: float,
+  max: float,
+  min: float,
+  userMax?: float,
+  userMin?: float,
+}
+type axisPointBreakEventObject = {
+  brk: string,
+  point: string,
+  preventDefault: string,
+  target: string,
+  @as("type") type_: string,
+}
+type chartParallelAxesEventsOptions = {
+  afterBreaks?: unit => unit,
+  afterSetExtremes?: axisSetExtremesEventObject => unit,
+  pointBreak?: axisPointBreakEventObject => unit,
+  pointInBreak?: axisPointBreakEventObject => unit,
+  setExtremes?: axisSetExtremesEventObject => unit,
+}
+type axisLabelsFormatterContextObject = {
+  axis: string,
+  chart: string,
+  dateTimeLabelFormat?: string,
+  isFirst: string,
+  isLast: string,
+  pos: string,
+  text?: string,
+  tick: string,
+  value: string,
+}
+type chartParallelAxesLabelsStyleOptions = {
+  fontSize?: CommonTypes.stringOrNumber,
+}
+module Style3 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromChartParallelAxesLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type chartParallelAxesLabelsOptions = {
+  align?: string,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  format?: string,
+  formatter?: axisLabelsFormatterContextObject => string,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: Style3.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+type yAxisBreaksOptions = {
+  breakSize?: float,
+  from?: CommonTypes.stringOrNumber,
+  repeat?: float,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+}
+type yAxisEventsOptions = {
+  afterBreaks?: unit => unit,
+  afterSetExtremes?: axisSetExtremesEventObject => unit,
+  pointBreak?: axisPointBreakEventObject => unit,
+  pointInBreak?: axisPointBreakEventObject => unit,
+  setExtremes?: axisSetExtremesEventObject => unit,
+}
+type yAxisGridOptions = {
+  borderColor?: string,
+  borderWidth?: float,
+  cellHeight?: float,
+  columns?: array<string>,
+  enabled?: bool,
+}
+type yAxisLabelsSymbolOptions = {
+  height?: float,
+  width?: float,
+  x?: float,
+  y?: float,
+}
+type yAxisLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<string>,
+  autoRotationLimit?: float,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  format?: string,
+  formatter?: string => string,
+  indentation?: float,
+  levels?: array<string>,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: string,
+  symbol?: yAxisLabelsSymbolOptions,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+type yAxisPlotBandsOptions = {
+  acrossPanes?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  color?: string,
+  events?: string,
+  from?: string,
+  id?: string,
+  innerRadius?: string,
+  label?: string,
+  outerRadius?: string,
+  thickness?: string,
+  @as("to") to_?: string,
+  zIndex?: string,
+}
+type yAxisPlotLinesOptions = {
+  acrossPanes?: string,
+  className?: string,
+  color?: string,
+  dashStyle?: string,
+  events?: string,
+  id?: string,
+  label?: string,
+  labels?: string,
+  value?: string,
+  width?: string,
+  zIndex?: string,
+}
+type yAxisResizeControlledAxisOptions = {
+  next?: array<CommonTypes.stringOrNumber>,
+  prev?: array<CommonTypes.stringOrNumber>,
+}
+type yAxisResizeOptions = {
+  controlledAxis?: yAxisResizeControlledAxisOptions,
+  cursor?: string,
+  enabled?: bool,
+  lineColor?: string,
+  lineDashStyle?: string,
+  lineWidth?: float,
+  x?: float,
+  y?: float,
+}
+type yAxisScrollbarOptions = {
+  barBackgroundColor?: ColorType.t,
+  barBorderColor?: ColorType.t,
+  barBorderRadius?: float,
+  barBorderWidth?: float,
+  buttonArrowColor?: ColorType.t,
+  buttonBackgroundColor?: ColorType.t,
+  buttonBorderColor?: ColorType.t,
+  buttonBorderRadius?: float,
+  buttonBorderWidth?: float,
+  buttonsEnabled?: bool,
+  enabled?: bool,
+  liveRedraw?: bool,
+  margin?: float,
+  minWidth?: float,
+  opposite?: bool,
+  rifleColor?: ColorType.t,
+  showFull?: bool,
+  size?: float,
+  trackBackgroundColor?: ColorType.t,
+  trackBorderColor?: ColorType.t,
+  trackBorderRadius?: float,
+  trackBorderWidth?: float,
+  zIndex?: int,
+}
+type yAxisStackLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  animation?: string,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  crop?: bool,
+  enabled?: bool,
+  format?: string,
+  formatter?: option<string> => string,
+  overflow?: dataLabelsOverflowValue,
+  rotation?: float,
+  style?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type axisTickPositionsArray = {
+  ...JsxDOM.domProps,
+  info?: string,
+}
+type yAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: StatCardV2Types.position3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: string,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+type rec yAxisOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  alternateGridColor?: ColorType.t,
+  angle?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  breaks?: array<yAxisBreaksOptions>,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  color?: ColorType.t,
+  crosshair?: string,
+  crossing?: float,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  enabled?: bool,
+  endOnTick?: bool,
+  events?: yAxisEventsOptions,
+  floor?: float,
+  grid?: yAxisGridOptions,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineInterpolation?: optionsGridLineInterpolationValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  id?: string,
+  labels?: yAxisLabelsOptions,
+  left?: CommonTypes.stringOrNumber,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxColor?: ColorType.t,
+  maxLength?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  maxRange?: float,
+  min?: CommonTypes.stringOrNumber,
+  minColor?: ColorType.t,
+  minLength?: CommonTypes.stringOrNumber,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minRange?: float,
+  minTickInterval?: float,
+  offset?: float,
+  opposite?: bool,
+  pane?: float,
+  panningEnabled?: bool,
+  plotBands?: array<yAxisPlotBandsOptions>,
+  plotLines?: array<yAxisPlotLinesOptions>,
+  range?: float,
+  resize?: yAxisResizeOptions,
+  reversed?: bool,
+  reversedStacks?: bool,
+  scrollbar?: yAxisScrollbarOptions,
+  showEmpty?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  stackLabels?: yAxisStackLabelsOptions,
+  stackShadow?: yAxisOptions,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  stops?: array<(string, string)>,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: yAxisTitleOptions,
+  tooltipValueFormat?: string,
+  top?: CommonTypes.stringOrNumber,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, string)>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module Style4 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromChartParallelAxesTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type chartParallelAxesTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: StatCardV2Types.position3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: Style4.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+type chartParallelAxesOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  crosshair?: string,
+  crossing?: float,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  endOnTick?: bool,
+  events?: chartParallelAxesEventsOptions,
+  floor?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  labels?: chartParallelAxesLabelsOptions,
+  left?: CommonTypes.stringOrNumber,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  min?: CommonTypes.stringOrNumber,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minRange?: float,
+  minTickInterval?: float,
+  offset?: float,
+  opposite?: bool,
+  pane?: float,
+  panningEnabled?: bool,
+  reversed?: bool,
+  reversedStacks?: bool,
+  showEmpty?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  stackShadow?: yAxisOptions,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: chartParallelAxesTitleOptions,
+  tooltipValueFormat?: string,
+  top?: CommonTypes.stringOrNumber,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, array<string>)>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module ParallelAxes = {
+  type t
+  external fromChartParallelAxesOptions: chartParallelAxesOptions => t = "%identity"
+  external fromChartParallelAxesOptionss: array<chartParallelAxesOptions> => t = "%identity"
+}
+type alignObject = {
+  align?: alignValue,
+  alignByTranslate?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type chartResetZoomButtonPositionOptions = {
+  align?: float,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module Position = {
+  type t
+  external fromAlignObject: alignObject => t = "%identity"
+  external fromChartResetZoomButtonPositionOptions: chartResetZoomButtonPositionOptions => t =
+    "%identity"
+}
+type chartResetZoomButtonThemeOptions = {
+  zIndex?: int,
+}
+module Theme = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromChartResetZoomButtonThemeOptions: chartResetZoomButtonThemeOptions => t = "%identity"
+}
+type chartResetZoomButtonOptions = {
+  position?: Position.t,
+  relativeTo?: buttonRelativeToValue,
+  theme?: Theme.t,
+}
+type chartScrollablePlotAreaOptions = {
+  minHeight?: float,
+  minWidth?: float,
+  opacity?: float,
+  scrollPositionX?: float,
+  scrollPositionY?: float,
+}
+type chartZoomingResetButtonPositionOptions = {
+  verticalAlign?: verticalAlignValue,
+}
+module Position2 = {
+  type t
+  external fromAlignObject: alignObject => t = "%identity"
+  external fromChartZoomingResetButtonPositionOptions: chartZoomingResetButtonPositionOptions => t =
+    "%identity"
+}
+type chartZoomingResetButtonOptions = {
+  position?: Position2.t,
+  relativeTo?: buttonRelativeToValue,
+  theme?: highchartsShapeArgsConfig,
+}
+type chartZoomingOptions = {
+  key?: optionsKeyValue,
+  mouseWheel?: string,
+  pinchType?: optionsPinchTypeValue,
+  resetButton?: chartZoomingResetButtonOptions,
+  singleTouch?: bool,
+  @as("type") type_?: optionsChartZoomingTypeValue,
+}
+type chartOptions = {
+  alignThresholds?: bool,
+  alignTicks?: bool,
+  allowMutatingData?: bool,
+  animation?: string,
+  axisLayoutRuns?: float,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  colorCount?: float,
+  displayErrors?: bool,
+  events?: chartEventsOptions,
+  height?: CommonTypes.stringOrNumber,
+  ignoreHiddenSeries?: bool,
+  inverted?: bool,
+  map?: string,
+  mapTransforms?: string,
+  margin?: CommonTypes.numberOrNumberArray,
+  marginBottom?: float,
+  marginLeft?: float,
+  marginRight?: float,
+  marginTop?: float,
+  numberFormatter?: (float, float, option<string>, option<string>, option<chart>) => string,
+  options3d?: chart3dOptions,
+  panKey?: optionsPanKeyValue,
+  panning?: chartPanningOptions,
+  parallelAxes?: ParallelAxes.t,
+  parallelCoordinates?: bool,
+  plotBackgroundColor?: ColorType.t,
+  plotBackgroundImage?: string,
+  plotBorderColor?: ColorType.t,
+  plotBorderWidth?: float,
+  plotShadow?: string,
+  polar?: bool,
+  proj4?: string,
+  reflow?: bool,
+  renderTo?: string,
+  resetZoomButton?: chartResetZoomButtonOptions,
+  scrollablePlotArea?: chartScrollablePlotAreaOptions,
+  selectionMarkerFill?: ColorType.t,
+  seriesGroupShadow?: string,
+  shadow?: string,
+  showAxes?: bool,
+  spacing?: array<float>,
+  spacingBottom?: float,
+  spacingLeft?: float,
+  spacingRight?: float,
+  spacingTop?: float,
+  style?: cssObject,
+  styledMode?: bool,
+  @as("type") type_?: string,
+  width?: CommonTypes.stringOrNumber,
+  zooming?: chartZoomingOptions,
+}
+type colorAxisDataClassesOptions = {
+  color?: ColorType.t,
+  from?: float,
+  name?: string,
+  @as("to") to_?: float,
+}
+type colorAxisEventsOptions = {
+  afterSetExtremes?: axisSetExtremesEventObject => unit,
+  legendItemClick?: string,
+  setExtremes?: axisSetExtremesEventObject => unit,
+}
+module Style5 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromColorAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+}
+type colorAxisLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: axisLabelsFormatterContextObject => string,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: Style5.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+module Style6 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
+}
+type xAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: StatCardV2Types.position3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: Style6.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+module Style7 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromZAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
+}
+type zAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: StatCardV2Types.position3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: Style7.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+module Style8 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromColorAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
+}
+type colorAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: StatCardV2Types.position3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: Style8.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+module Title = {
+  type t
+  external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromYAxisTitleOptions: yAxisTitleOptions => t = "%identity"
+  external fromZAxisTitleOptions: zAxisTitleOptions => t = "%identity"
+  external fromColorAxisTitleOptions: colorAxisTitleOptions => t = "%identity"
+}
+type colorAxisOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  allowDecimals?: bool,
+  angle?: float,
+  ceiling?: float,
+  className?: string,
+  crossing?: float,
+  dataClassColor?: optionsDataClassColorValue,
+  dataClasses?: array<colorAxisDataClassesOptions>,
+  endOnTick?: bool,
+  events?: colorAxisEventsOptions,
+  floor?: float,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineInterpolation?: optionsGridLineInterpolationValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  id?: string,
+  labels?: colorAxisLabelsOptions,
+  layout?: string,
+  lineColor?: ColorType.t,
+  margin?: float,
+  marker?: pointMarkerOptionsObject,
+  max?: float,
+  maxColor?: ColorType.t,
+  maxPadding?: float,
+  maxRange?: float,
+  min?: float,
+  minColor?: ColorType.t,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  ordinal?: bool,
+  overscroll?: CommonTypes.stringOrNumber,
+  panningEnabled?: bool,
+  range?: float,
+  reversed?: bool,
+  showFirstLabel?: bool,
+  showInLegend?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  stops?: array<(float, string)>,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: Title.t,
+  @as("type") type_?: colorAxisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, array<float>)>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+}
+module ColorAxis = {
+  type t
+  external fromColorAxisOptions: colorAxisOptions => t = "%identity"
+  external fromColorAxisOptionss: array<colorAxisOptions> => t = "%identity"
+}
+type connectorsOptions = {
+  algorithmMargin?: float,
+  dashStyle?: dashStyleValue,
+  enabled?: bool,
+  endMarker?: connectorsEndMarkerOptions,
+  lineColor?: string,
+  lineWidth?: float,
+  marker?: connectorsMarkerOptions,
+  radius?: float,
+  startMarker?: connectorsEndMarkerOptions,
+  @as("type") type_?: string,
+}
+module Style9 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromCreditsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+}
+type creditsOptions = {
+  enabled?: bool,
+  href?: string,
+  mapText?: string,
+  mapTextFull?: string,
+  position?: alignObject,
+  style?: Style9.t,
+  text?: string,
+}
+type drilldownActiveDataLabelStyleOptions = {
+  color?: string,
+  cursor?: string,
+  fontWeight?: string,
+  textDecoration?: string,
+}
+module ActiveDataLabelStyle = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromDrilldownActiveDataLabelStyleOptions: drilldownActiveDataLabelStyleOptions => t =
+    "%identity"
+}
+type drilldownBreadcrumbsButtonThemeStyleOptions = {
+  color?: string,
+}
+type drilldownBreadcrumbsButtonThemeOptions = {
+  style?: drilldownBreadcrumbsButtonThemeStyleOptions,
+}
+module ButtonTheme = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromDrilldownBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
+    "%identity"
+}
+module Position3 = {
+  type t
+  external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
+  external fromDrilldownBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
+    "%identity"
+}
+type drilldownBreadcrumbsSeparatorStyleOptions = {
+  color?: string,
+  fontSize?: float,
+}
+module Style10 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromDrilldownBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
+    "%identity"
+}
+type drilldownBreadcrumbsSeparatorOptions = {
+  style?: Style10.t,
+  text?: string,
+}
+type drilldownBreadcrumbsOptions = {
+  buttonSpacing?: float,
+  buttonTheme?: ButtonTheme.t,
+  events?: drilldownBreadcrumbsEventsOptions,
+  floating?: bool,
+  format?: string,
+  formatter?: breadcrumbOptions => string,
+  position?: Position3.t,
+  relativeTo?: buttonRelativeToValue,
+  rtl?: bool,
+  separator?: drilldownBreadcrumbsSeparatorOptions,
+  showFullPath?: bool,
+  style?: highchartsShapeArgsConfig,
+  useHTML?: bool,
+  zIndex?: int,
+}
+module Position4 = {
+  type t
+  external fromAlignObject: alignObject => t = "%identity"
+  external fromDrilldownDrillUpButtonPositionOptions: drilldownBreadcrumbsPositionOptions => t =
+    "%identity"
+}
+type drilldownDrillUpButtonOptions = {
+  position?: Position4.t,
+  relativeTo?: buttonRelativeToValue,
+  theme?: string,
+}
+type drilldownOptions = {
+  activeAxisLabelStyle?: cssObject,
+  activeDataLabelStyle?: ActiveDataLabelStyle.t,
+  allowPointDrilldown?: bool,
+  animation?: string,
+  breadcrumbs?: drilldownBreadcrumbsOptions,
+  drillUpButton?: drilldownDrillUpButtonOptions,
+  mapZooming?: bool,
+  series?: array<SeriesOptionsType.t>,
+}
+type exportingCsvAnnotationsOptions = {
+  itemDelimiter?: string,
+  join?: bool,
+}
+type exportingCsvOptions = {
+  annotations?: exportingCsvAnnotationsOptions,
+  columnHeaderFormatter?: string,
+  dateFormat?: string,
+  decimalPoint?: string,
+  itemDelimiter?: string,
+  lineDelimiter?: string,
+}
+type exportingPdfFontOptions = {
+  bold?: string,
+  bolditalic?: string,
+  italic?: string,
+  normal?: string,
+}
+type globalButtonThemeStatesHoverOptions = {
+  fill?: string,
+}
+type globalButtonThemeStatesSelectStyleOptions = {
+  color?: string,
+  fontWeight?: string,
+}
+type globalButtonThemeStatesSelectOptions = {
+  fill?: string,
+  style?: globalButtonThemeStatesSelectStyleOptions,
+}
+type globalButtonThemeStatesOptions = {
+  disabled?: drilldownBreadcrumbsButtonThemeOptions,
+  hover?: globalButtonThemeStatesHoverOptions,
+  select?: globalButtonThemeStatesSelectOptions,
+}
+type globalButtonThemeStyleOptions = {
+  color?: string,
+  cursor?: string,
+  fontSize?: float,
+  fontWeight?: string,
+}
+type globalButtonThemeOptions = {
+  fill?: string,
+  padding?: float,
+  r?: float,
+  states?: globalButtonThemeStatesOptions,
+  stroke?: string,
+  @as("stroke-width") strokeWidth?: float,
+  style?: globalButtonThemeStyleOptions,
+}
+type globalOptions = {
+  buttonTheme?: globalButtonThemeOptions,
+}
+type langAccessibilityAnnounceNewDataOptions = {
+  newDataAnnounce?: string,
+  newPointAnnounceMultiple?: string,
+  newPointAnnounceSingle?: string,
+  newSeriesAnnounceMultiple?: string,
+  newSeriesAnnounceSingle?: string,
+}
+type langAccessibilityAxisDefaultAxisNamesOptions = {
+  categories?: string,
+  time?: string,
+  values?: string,
+}
+type langAccessibilityAxisOptions = {
+  defaultAxisNames?: langAccessibilityAxisDefaultAxisNamesOptions,
+  rangeCategories?: string,
+  rangeFromTo?: string,
+  timeRangeDays?: string,
+  timeRangeHours?: string,
+  timeRangeMinutes?: string,
+  timeRangeSeconds?: string,
+  xAxisDescriptionPlural?: string,
+  xAxisDescriptionSingular?: string,
+  yAxisDescriptionPlural?: string,
+  yAxisDescriptionSingular?: string,
+}
+type langAccessibilityChartTypesOptions = {
+  barMultiple?: string,
+  barSingle?: string,
+  boxplotMultiple?: string,
+  boxplotSingle?: string,
+  bubbleMultiple?: string,
+  bubbleSingle?: string,
+  columnMultiple?: string,
+  columnSingle?: string,
+  combinationChart?: string,
+  defaultMultiple?: string,
+  defaultSingle?: string,
+  emptyChart?: string,
+  lineMultiple?: string,
+  lineSingle?: string,
+  mapTypeDescription?: string,
+  pieMultiple?: string,
+  pieSingle?: string,
+  scatterMultiple?: string,
+  scatterSingle?: string,
+  splineMultiple?: string,
+  splineSingle?: string,
+  unknownMap?: string,
+}
+type langAccessibilityExportingOptions = {
+  chartMenuLabel?: string,
+  menuButtonLabel?: string,
+}
+type langAccessibilityLegendOptions = {
+  legendItem?: string,
+  legendLabel?: string,
+  legendLabelNoTitle?: string,
+}
+type langAccessibilityNavigatorOptions = {
+  changeAnnouncement?: string,
+  groupLabel?: string,
+  handleLabel?: string,
+}
+type langAccessibilityRangeSelectorOptions = {
+  clickButtonAnnouncement?: string,
+  dropdownLabel?: string,
+  maxInputLabel?: string,
+  minInputLabel?: string,
+}
+type langAccessibilityScreenReaderSectionAnnotationsOptions = {
+  descriptionMultiplePoints?: string,
+  descriptionNoPoints?: string,
+  descriptionSinglePoint?: string,
+  heading?: string,
+}
+type langAccessibilityScreenReaderSectionOptions = {
+  afterRegionLabel?: string,
+  annotations?: langAccessibilityScreenReaderSectionAnnotationsOptions,
+  beforeRegionLabel?: string,
+  endOfChartMarker?: string,
+}
+type langAccessibilitySeriesSummaryOptions = {
+  bar?: string,
+  barCombination?: string,
+  boxplot?: string,
+  boxplotCombination?: string,
+  bubble?: string,
+  bubbleCombination?: string,
+  column?: string,
+  columnCombination?: string,
+  default?: string,
+  defaultCombination?: string,
+  line?: string,
+  lineCombination?: string,
+  map?: string,
+  mapbubble?: string,
+  mapbubbleCombination?: string,
+  mapCombination?: string,
+  mapline?: string,
+  maplineCombination?: string,
+  pie?: string,
+  pieCombination?: string,
+  scatter?: string,
+  scatterCombination?: string,
+  spline?: string,
+  splineCombination?: string,
+}
+type langAccessibilitySeriesOptions = {
+  description?: string,
+  nullPointValue?: string,
+  pointAnnotationsDescription?: string,
+  summary?: langAccessibilitySeriesSummaryOptions,
+  xAxisDescription?: string,
+  yAxisDescription?: string,
+}
+type langAccessibilitySeriesTypeDescriptionsOptions = {
+  arearange?: string,
+  areasplinerange?: string,
+  boxplot?: string,
+  bubble?: string,
+  columnrange?: string,
+  errorbar?: string,
+  funnel?: string,
+  pyramid?: string,
+  waterfall?: string,
+}
+type langAccessibilitySonificationOptions = {
+  playAsSoundButtonText?: string,
+  playAsSoundClickAnnouncement?: string,
+}
+type langAccessibilityStockToolsOptions = {
+  arrowLabel?: string,
+  groupLabel?: string,
+}
+type langAccessibilityTableOptions = {
+  tableSummary?: string,
+  viewAsDataTableButtonText?: string,
+}
+type langAccessibilityZoomOptions = {
+  mapZoomIn?: string,
+  mapZoomOut?: string,
+  resetZoomButton?: string,
+}
+type langAccessibilityOptions = {
+  announceNewData?: langAccessibilityAnnounceNewDataOptions,
+  axis?: langAccessibilityAxisOptions,
+  chartContainerLabel?: string,
+  chartTypes?: langAccessibilityChartTypesOptions,
+  credits?: string,
+  defaultChartTitle?: string,
+  drillUpButton?: string,
+  exporting?: langAccessibilityExportingOptions,
+  graphicContainerLabel?: string,
+  legend?: langAccessibilityLegendOptions,
+  navigator?: langAccessibilityNavigatorOptions,
+  rangeSelector?: langAccessibilityRangeSelectorOptions,
+  resetZoomButton?: string,
+  screenReaderSection?: langAccessibilityScreenReaderSectionOptions,
+  series?: langAccessibilitySeriesOptions,
+  seriesTypeDescriptions?: langAccessibilitySeriesTypeDescriptionsOptions,
+  sonification?: langAccessibilitySonificationOptions,
+  stockTools?: langAccessibilityStockToolsOptions,
+  svgContainerLabel?: string,
+  svgContainerTitle?: string,
+  table?: langAccessibilityTableOptions,
+  thousandsSep?: string,
+  zoom?: langAccessibilityZoomOptions,
+}
+type langExportDataOptions = {
+  annotationHeader?: string,
+  categoryDatetimeHeader?: string,
+  categoryHeader?: string,
+}
+type langNavigationPopupIndicatorAliasesOptions = {
+  abands?: array<string>,
+  ad?: array<string>,
+  ao?: array<string>,
+  apo?: array<string>,
+  aroon?: array<string>,
+  aroonoscillator?: array<string>,
+  atr?: array<string>,
+  bb?: array<string>,
+  cci?: array<string>,
+  chaikin?: array<string>,
+  cmf?: array<string>,
+  cmo?: array<string>,
+  dema?: array<string>,
+  disparityindex?: array<string>,
+  dmi?: array<string>,
+  dpo?: array<string>,
+  ema?: array<string>,
+  ikh?: array<string>,
+  keltnerchannels?: array<string>,
+  klinger?: array<string>,
+  linearRegression?: array<string>,
+  linearRegressionAngle?: array<string>,
+  linearRegressionIntercept?: array<string>,
+  linearRegressionSlope?: array<string>,
+  macd?: array<string>,
+  mfi?: array<string>,
+  momentum?: array<string>,
+  natr?: array<string>,
+  obv?: array<string>,
+  pc?: array<string>,
+  pivotpoints?: array<string>,
+  ppo?: array<string>,
+  priceenvelopes?: array<string>,
+  psar?: array<string>,
+  roc?: array<string>,
+  rsi?: array<string>,
+  slowstochastic?: array<string>,
+  sma?: array<string>,
+  stochastic?: array<string>,
+  supertrend?: array<string>,
+  tema?: array<string>,
+  trix?: array<string>,
+  vbp?: array<string>,
+  vwap?: array<string>,
+  williamsr?: array<string>,
+  wma?: array<string>,
+  zigzag?: array<string>,
+}
+type langNavigationPopupOptions = {
+  addButton?: string,
+  algorithm?: string,
+  arrowInfinityLine?: string,
+  arrowRay?: string,
+  arrowSegment?: string,
+  average?: string,
+  background?: string,
+  backgroundColor?: string,
+  backgroundColors?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  bottomBand?: string,
+  circle?: string,
+  clearFilter?: string,
+  color?: string,
+  connector?: string,
+  crooked3?: string,
+  crooked5?: string,
+  crosshairX?: string,
+  crosshairY?: string,
+  decimals?: string,
+  deviation?: string,
+  editButton?: string,
+  elliott3?: string,
+  elliott5?: string,
+  ellipse?: string,
+  factor?: string,
+  fastAvgPeriod?: string,
+  fibonacci?: string,
+  fibonacciTimeZones?: string,
+  fill?: string,
+  flags?: string,
+  fontSize?: string,
+  format?: string,
+  height?: string,
+  highIndex?: string,
+  horizontalLine?: string,
+  increment?: string,
+  index?: string,
+  indicatorAliases?: langNavigationPopupIndicatorAliasesOptions,
+  infinityLine?: string,
+  initialAccelerationFactor?: string,
+  innerBackground?: string,
+  label?: string,
+  labelOptions?: string,
+  labels?: string,
+  line?: string,
+  lines?: string,
+  longPeriod?: string,
+  lowIndex?: string,
+  maxAccelerationFactor?: string,
+  measure?: string,
+  measureX?: string,
+  measureXY?: string,
+  measureY?: string,
+  multiplier?: string,
+  multiplierATR?: string,
+  name?: string,
+  noFilterMatch?: string,
+  outerBackground?: string,
+  padding?: string,
+  parallelChannel?: string,
+  period?: string,
+  periodATR?: string,
+  periods?: string,
+  periodSenkouSpanB?: string,
+  periodTenkan?: string,
+  pitchfork?: string,
+  ranges?: string,
+  ray?: string,
+  rectangle?: string,
+  removeButton?: string,
+  saveButton?: string,
+  searchIndicators?: string,
+  segment?: string,
+  series?: string,
+  shapeOptions?: string,
+  shapes?: string,
+  shortPeriod?: string,
+  signalPeriod?: string,
+  simpleShapes?: string,
+  slowAvgPeriod?: string,
+  standardDeviation?: string,
+  stroke?: string,
+  strokeWidth?: string,
+  style?: string,
+  timeCycles?: string,
+  title?: string,
+  topBand?: string,
+  tunnel?: string,
+  typeOptions?: string,
+  verticalArrow?: string,
+  verticalCounter?: string,
+  verticalLabel?: string,
+  verticalLine?: string,
+  volume?: string,
+  xAxisUnit?: string,
+}
+type langNavigationOptions = {
+  popup?: langNavigationPopupOptions,
+}
+type langRangeSelectorOptions = {
+  allText?: string,
+  allTitle?: string,
+  monthText?: string,
+  monthTitle?: string,
+  yearText?: string,
+  yearTitle?: string,
+  ytdText?: string,
+  ytdTitle?: string,
+}
+type langStockToolsGuiOptions = {
+  advanced?: string,
+  arrowInfinityLine?: string,
+  arrowRay?: string,
+  arrowSegment?: string,
+  circle?: string,
+  crooked3?: string,
+  crooked5?: string,
+  crookedLines?: string,
+  currentPriceIndicator?: string,
+  elliott3?: string,
+  elliott5?: string,
+  ellipse?: string,
+  fibonacci?: string,
+  fibonacciTimeZones?: string,
+  flagCirclepin?: string,
+  flagDiamondpin?: string,
+  flags?: string,
+  flagSimplepin?: string,
+  flagSquarepin?: string,
+  fullScreen?: string,
+  horizontalLine?: string,
+  indicators?: string,
+  infinityLine?: string,
+  label?: string,
+  line?: string,
+  lines?: string,
+  measure?: string,
+  measureX?: string,
+  measureXY?: string,
+  measureY?: string,
+  parallelChannel?: string,
+  pitchfork?: string,
+  ray?: string,
+  rectangle?: string,
+  saveChart?: string,
+  segment?: string,
+  simpleShapes?: string,
+  timeCycles?: string,
+  toggleAnnotations?: string,
+  typeCandlestick?: string,
+  typeChange?: string,
+  typeHeikinAshi?: string,
+  typeHLC?: string,
+  typeHollowCandlestick?: string,
+  typeLine?: string,
+  typeOHLC?: string,
+  verticalArrow?: string,
+  verticalCounter?: string,
+  verticalLabel?: string,
+  verticalLabels?: string,
+  verticalLine?: string,
+  zoomChange?: string,
+  zoomX?: string,
+  zoomXY?: string,
+  zoomY?: string,
+}
+type langStockToolsOptions = {
+  gui?: langStockToolsGuiOptions,
+}
+type langOptions = {
+  accessibility?: langAccessibilityOptions,
+  chartTitle?: string,
+  contextButtonTitle?: string,
+  decimalPoint?: string,
+  downloadCSV?: string,
+  downloadJPEG?: string,
+  downloadMIDI?: string,
+  downloadPDF?: string,
+  downloadPNG?: string,
+  downloadSVG?: string,
+  downloadXLS?: string,
+  drillUpText?: string,
+  exitFullscreen?: string,
+  exportData?: langExportDataOptions,
+  exportInProgress?: string,
+  hideData?: string,
+  invalidDate?: string,
+  loading?: string,
+  locale?: CommonTypes.stringOrStringArray,
+  mainBreadcrumb?: string,
+  months?: array<string>,
+  navigation?: langNavigationOptions,
+  noData?: string,
+  numericSymbolMagnitude?: float,
+  numericSymbols?: array<string>,
+  pieSliceName?: string,
+  playAsSound?: string,
+  printChart?: string,
+  rangeSelector?: langRangeSelectorOptions,
+  rangeSelectorFrom?: string,
+  rangeSelectorTo?: string,
+  rangeSelectorZoom?: string,
+  resetZoom?: string,
+  resetZoomTitle?: string,
+  seriesName?: string,
+  shortMonths?: array<string>,
+  shortWeekdays?: array<string>,
+  stockTools?: langStockToolsOptions,
+  thousandsSep?: string,
+  viewData?: string,
+  viewFullscreen?: string,
+  weekdays?: array<string>,
+  weekFrom?: string,
+  yAxisTitle?: string,
+  zoomIn?: string,
+  zoomOut?: string,
+}
+type legendAccessibilityOptions = {
+  enabled?: bool,
+  keyboardNavigation?: exportingAccessibilityOptions,
+}
+type bubbleLegendFormatterContextObject = {
+  center: float,
+  radius: float,
+  value: float,
+}
+type legendBubbleLegendLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  className?: string,
+  format?: string,
+  formatter?: option<bubbleLegendFormatterContextObject> => string,
+  style?: cssObject,
+  x?: float,
+  y?: float,
+}
+type legendBubbleLegendRangesOptions = {
+  borderColor?: ColorType.t,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  value?: float,
+}
+type legendBubbleLegendOptions = {
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorClassName?: string,
+  connectorColor?: ColorType.t,
+  connectorDistance?: float,
+  connectorWidth?: float,
+  enabled?: bool,
+  labels?: legendBubbleLegendLabelsOptions,
+  legendIndex?: float,
+  maxSize?: float,
+  minSize?: float,
+  ranges?: array<legendBubbleLegendRangesOptions>,
+  sizeBy?: bubbleSizeByValue,
+  sizeByAbsoluteValue?: bool,
+  zIndex?: int,
+  zThreshold?: float,
+}
+module LegendItem = {
+  type t
+  external fromSeries: series => t = "%identity"
+  external fromPoint: point => t = "%identity"
+  external fromLegendItemObject: legendItemObject => t = "%identity"
+}
+module LabelFormatter = {
+  type t
+  external fromSeries: series => t = "%identity"
+  external fromPoint: point => t = "%identity"
+}
+type legendNavigationOptions = {
+  activeColor?: ColorType.t,
+  animation?: string,
+  arrowSize?: float,
+  enabled?: bool,
+  inactiveColor?: ColorType.t,
+  style?: cssObject,
+}
+type legendTitleOptions = {
+  style?: cssObject,
+  text?: string,
+}
+type rec legend = {
+  allItems: array<string>,
+  box: Dom.element,
+  chart: chart,
+  group: Dom.element,
+  options: legendOptions,
+  title: Dom.element,
+  setText: string => unit,
+  update: (string, option<string>) => unit,
+}
+and legendItemClickEventObject = {
+  browserEvent: Dom.event,
+  legendItem: LegendItem.t,
+  preventDefault: string,
+  target: legend,
+  @as("type") type_: string,
+}
+and legendEventsOptions = {
+  itemClick?: legendItemClickEventObject => unit,
+}
+and legendOptions = {
+  accessibility?: legendAccessibilityOptions,
+  align?: alignValue,
+  alignColumns?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  bubbleLegend?: legendBubbleLegendOptions,
+  className?: string,
+  enabled?: bool,
+  events?: legendEventsOptions,
+  floating?: bool,
+  itemCheckboxStyle?: cssObject,
+  itemDistance?: float,
+  itemHiddenStyle?: cssObject,
+  itemHoverStyle?: cssObject,
+  itemMarginBottom?: float,
+  itemMarginTop?: float,
+  itemStyle?: cssObject,
+  itemWidth?: float,
+  labelFormat?: string,
+  labelFormatter?: option<LabelFormatter.t> => string,
+  layout?: optionsLayoutValue,
+  margin?: float,
+  maxHeight?: float,
+  maxWidth?: CommonTypes.stringOrNumber,
+  navigation?: legendNavigationOptions,
+  padding?: float,
+  reversed?: bool,
+  rtl?: bool,
+  shadow?: string,
+  squareSymbol?: bool,
+  symbolHeight?: float,
+  symbolPadding?: float,
+  symbolRadius?: float,
+  symbolWidth?: float,
+  title?: legendTitleOptions,
+  useHTML?: bool,
+  valueDecimals?: float,
+  valueSuffix?: string,
+  verticalAlign?: verticalAlignValue,
+  width?: CommonTypes.stringOrNumber,
+  x?: float,
+  y?: float,
+}
+type loadingOptions = {
+  hideDuration?: float,
+  labelStyle?: cssObject,
+  showDuration?: float,
+  style?: cssObject,
+}
+type mapNavigationButtonOptions = {
+  align?: alignValue,
+  alignTo?: buttonRelativeToValue,
+  height?: float,
+  padding?: float,
+  style?: cssObject,
+  theme?: highchartsShapeArgsConfig,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+  x?: float,
+}
+type mapNavigationButtonsZoomInOptions = {
+  align?: alignValue,
+  alignTo?: buttonRelativeToValue,
+  height?: float,
+  onclick?: string,
+  padding?: float,
+  style?: cssObject,
+  text?: string,
+  theme?: highchartsShapeArgsConfig,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+  x?: float,
+  y?: float,
+}
+type mapNavigationButtonsOptions = {
+  zoomIn?: mapNavigationButtonsZoomInOptions,
+  zoomOut?: mapNavigationButtonsZoomInOptions,
+}
+type mapNavigationOptions = {
+  buttonOptions?: mapNavigationButtonOptions,
+  buttons?: mapNavigationButtonsOptions,
+  enableButtons?: bool,
+  enabled?: bool,
+  enableDoubleClickZoom?: bool,
+  enableDoubleClickZoomTo?: bool,
+  enableMouseWheelZoom?: bool,
+  enableTouchZoom?: bool,
+  mouseWheelSensitivity?: float,
+}
+type mapViewInsetOptions = {
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  relativeTo?: mapViewInsetOptionsRelativeToValue,
+  units?: optionsUnitsValue,
+}
+type mapViewOptions = {
+  center?: array<float>,
+  fitToGeometry?: string,
+  insetOptions?: mapViewInsetOptions,
+  insets?: string,
+  maxZoom?: float,
+  padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  projection?: string,
+  zoom?: float,
+}
+module Animation2 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromNavigationAnnotationsAnimationOptions: annotationsAnimationOptions => t = "%identity"
+}
+type navigationAnnotationsLabelsOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  controlPoints?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<string> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  point?: string,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type navigationAnnotationsTypesCrookedLineLabelOptions = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: alignValue,
+  allowOverlap?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: option<point> => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type navigationAnnotationsTypesCrookedLineTypeOptions = {
+  line?: string,
+  points?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesCrookedLineOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
+}
+type navigationAnnotationsTypesElliottWaveLabelOptions = {
+  accessibility?: string,
+  align?: string,
+  allowOverlap?: string,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  crop?: string,
+  distance?: string,
+  format?: string,
+  formatter?: string,
+  includeInDataExport?: string,
+  overflow?: string,
+  padding?: string,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  text?: string,
+  @as("type") type_?: string,
+  useHTML?: string,
+  verticalAlign?: string,
+  x?: string,
+  y?: string,
+}
+type navigationAnnotationsTypesElliottWaveOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesElliottWaveLabelOptions,
+  typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
+}
+type navigationAnnotationsTypesFibonacciTypeOptions = {
+  backgroundColors?: string,
+  height?: string,
+  labels?: string,
+  line?: string,
+  lineColor?: string,
+  lineColors?: string,
+  points?: string,
+  reversed?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesFibonacciOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesFibonacciTypeOptions,
+}
+type navigationAnnotationsTypesFibonacciTimeZonesTypeOptions = {
+  controlPointOptions?: string,
+  line?: string,
+  points?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesFibonacciTimeZonesOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesFibonacciTimeZonesTypeOptions,
+}
+type navigationAnnotationsTypesMeasureTypeOptions = {
+  background?: string,
+  crosshairX?: string,
+  crosshairY?: string,
+  label?: string,
+  line?: string,
+  points?: string,
+  selectType?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesMeasureOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  typeOptions?: navigationAnnotationsTypesMeasureTypeOptions,
+}
+type navigationAnnotationsTypesPitchforkTypeOptions = {
+  innerBackground?: string,
+  outerBackground?: string,
+  points?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesPitchforkOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesPitchforkTypeOptions,
+}
+type navigationAnnotationsTypesTimeCyclesOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
+}
+type navigationAnnotationsTypesTunnelTypeOptions = {
+  background?: string,
+  height?: string,
+  heightControlPoint?: string,
+  line?: string,
+  points?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesTunnelOptions<'a> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesTunnelTypeOptions,
+}
+type navigationAnnotationsTypesVerticalLineTypeOptions = {
+  connector?: string,
+  label?: string,
+  line?: string,
+  points?: string,
+  xAxis?: string,
+  yAxis?: string,
+}
+type navigationAnnotationsTypesVerticalLineOptions = {
+  labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
+  typeOptions?: navigationAnnotationsTypesVerticalLineTypeOptions,
+}
+type navigationAnnotationsTypesOptions<'a> = {
+  crookedLine?: navigationAnnotationsTypesCrookedLineOptions<'a>,
+  elliottWave?: navigationAnnotationsTypesElliottWaveOptions<'a>,
+  fibonacci?: navigationAnnotationsTypesFibonacciOptions<'a>,
+  fibonacciTimeZones?: navigationAnnotationsTypesFibonacciTimeZonesOptions<'a>,
+  infinityLine?: navigationAnnotationsTypesCrookedLineOptions<'a>,
+  measure?: navigationAnnotationsTypesMeasureOptions<'a>,
+  pitchfork?: navigationAnnotationsTypesPitchforkOptions<'a>,
+  timeCycles?: navigationAnnotationsTypesTimeCyclesOptions<'a>,
+  tunnel?: navigationAnnotationsTypesTunnelOptions<'a>,
+  verticalLine?: navigationAnnotationsTypesVerticalLineOptions,
+}
+type navigationAnnotationsOptions<'a> = {
+  animation?: Animation2.t,
+  className?: string,
+  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  crop?: bool,
+  draggable?: annotationDraggableValue,
+  events?: annotationsEventsOptions<'a>,
+  id?: CommonTypes.stringOrNumber,
+  labelOptions?: annotationsLabelOptions,
+  labels?: array<navigationAnnotationsLabelsOptions>,
+  shapeOptions?: annotationsShapeOptions,
+  shapes?: array<annotationsShapesOptions>,
+  @as("type") type_?: string,
+  typeOptions?: annotationsTypeOptions,
+  types?: navigationAnnotationsTypesOptions<'a>,
+  visible?: bool,
+  zIndex?: int,
+}
+module AnnotationsOptions = {
+  type t
+  external fromAnnotationsOptions: annotationsOptions<'a> => t = "%identity"
+  external fromNavigationAnnotationsOptions: navigationAnnotationsOptions<'a> => t = "%identity"
+}
+module ButtonTheme2 = {
+  type t
+  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromNavigationBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
+    "%identity"
+}
+module Position5 = {
+  type t
+  external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
+  external fromNavigationBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
+    "%identity"
+}
+module Style11 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromNavigationBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
+    "%identity"
+}
+type navigationBreadcrumbsSeparatorOptions = {
+  style?: Style11.t,
+  text?: string,
+}
+type navigationBreadcrumbsOptions = {
+  buttonSpacing?: float,
+  buttonTheme?: ButtonTheme2.t,
+  events?: drilldownBreadcrumbsEventsOptions,
+  floating?: bool,
+  format?: string,
+  formatter?: breadcrumbOptions => string,
+  position?: Position5.t,
+  relativeTo?: buttonRelativeToValue,
+  rtl?: bool,
+  separator?: navigationBreadcrumbsSeparatorOptions,
+  showFullPath?: bool,
+  style?: highchartsShapeArgsConfig,
+  useHTML?: bool,
+  zIndex?: int,
+}
+type navigationButtonThemeOptions = {
+  fill?: ColorType.t,
+  padding?: float,
+  stroke?: string,
+  @as("stroke-linecap") strokeLinecap?: string,
+}
+type navigationButtonOptions = {
+  align?: alignValue,
+  buttonSpacing?: float,
+  enabled?: bool,
+  height?: float,
+  symbolFill?: ColorType.t,
+  symbolSize?: float,
+  symbolStroke?: string,
+  symbolStrokeWidth?: float,
+  symbolX?: float,
+  symbolY?: float,
+  text?: string,
+  theme?: navigationButtonThemeOptions,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+  y?: float,
+}
+type navigationEventsOptions = {
+  closePopup?: string,
+  deselectButton?: string,
+  selectButton?: string,
+  showPopup?: string,
+}
+type navigationOptions = {
+  annotationsOptions?: AnnotationsOptions.t,
+  bindings?: string,
+  bindingsClassName?: string,
+  breadcrumbs?: navigationBreadcrumbsOptions,
+  buttonOptions?: navigationButtonOptions,
+  events?: navigationEventsOptions,
+  iconsURL?: string,
+  menuItemHoverStyle?: cssObject,
+  menuItemStyle?: cssObject,
+  menuStyle?: cssObject,
+}
+type navigatorHandlesOptions = {
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  enabled?: bool,
+  height?: float,
+  lineWidth?: float,
+  symbols?: array<string>,
+  width?: float,
+}
+type navigatorSeriesDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: string => string,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: string => string,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+module DataLabels = {
+  type t
+  external fromNavigatorSeriesDataLabelsOptions: navigatorSeriesDataLabelsOptions => t = "%identity"
+  external fromNavigatorSeriesDataLabelsOptionss: array<navigatorSeriesDataLabelsOptions> => t =
+    "%identity"
+}
+type navigatorSeriesOptions = {
+  className?: string,
+  color?: ColorType.t,
+  data?: array<string>,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels.t,
+  fillOpacity?: float,
+  id?: string,
+  lineColor?: string,
+  lineWidth?: float,
+  marker?: exportingAccessibilityOptions,
+  pointRange?: float,
+  threshold?: float,
+  @as("type") type_?: string,
+}
+module Series = {
+  type t
+  external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
+  external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesAoOptions: seriesAoOptions => t = "%identity"
+  external fromSeriesApoOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions => t = "%identity"
+  external fromSeriesAreaOptions: seriesAreaOptions => t = "%identity"
+  external fromSeriesArearangeOptions: seriesArearangeOptions => t = "%identity"
+  external fromSeriesAreasplineOptions: seriesAreasplineOptions => t = "%identity"
+  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
+  external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
+  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
+  external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
+  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
+  external fromSeriesBoxplotOptions: seriesBoxplotOptions => t = "%identity"
+  external fromSeriesBubbleOptions: seriesBubbleOptions => t = "%identity"
+  external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
+  external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
+  external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
+  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
+  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
+  external fromSeriesContourOptions: seriesContourOptions => t = "%identity"
+  external fromSeriesCylinderOptions: seriesCylinderOptions => t = "%identity"
+  external fromSeriesDemaOptions: seriesDemaOptions => t = "%identity"
+  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions => t = "%identity"
+  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t = "%identity"
+  external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
+  external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
+  external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
+  external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
+  external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
+  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions => t = "%identity"
+  external fromSeriesFunnelOptions: seriesFunnelOptions => t = "%identity"
+  external fromSeriesGanttOptions: seriesGanttOptions => t = "%identity"
+  external fromSeriesGaugeOptions: seriesGaugeOptions => t = "%identity"
+  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions => t = "%identity"
+  external fromSeriesHeatmapOptions: seriesHeatmapOptions => t = "%identity"
+  external fromSeriesHeikinashiOptions: seriesCandlestickOptions => t = "%identity"
+  external fromSeriesHistogramOptions: seriesHistogramOptions => t = "%identity"
+  external fromSeriesHlcOptions: seriesHlcOptions => t = "%identity"
+  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions => t = "%identity"
+  external fromSeriesIkhOptions: seriesIkhOptions => t = "%identity"
+  external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
+  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
+  external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
+  external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
+  external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
+  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions => t = "%identity"
+  external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
+  external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
+  external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
+  external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
+  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
+  external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
+  external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
+  external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
+  external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
+  external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
+  external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
+  external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
+  external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
+  external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
+  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t = "%identity"
+  external fromSeriesSmaOptions: seriesSmaOptions => t = "%identity"
+  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
+  external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
+  external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
+  external fromSeriesStreamgraphOptions: seriesAreasplineOptions => t = "%identity"
+  external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
+  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
+  external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
+  external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
+  external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
+  external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
+  external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
+  external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
+  external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
+  external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
+  external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
+  external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
+  external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesOptionsTypes: array<SeriesOptionsType.t> => t = "%identity"
+  external fromNavigatorSeriesOptions: navigatorSeriesOptions => t = "%identity"
+  external fromNavigatorSeriesOptionss: array<navigatorSeriesOptions> => t = "%identity"
+}
+type navigatorXAxisBreaksOptions = {
+  breakSize?: float,
+  from?: CommonTypes.stringOrNumber,
+  repeat?: float,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+}
+type xAxisOptions = {
+  accessibility?: string,
+  alignTicks?: string,
+  allowDecimals?: string,
+  alternateGridColor?: string,
+  angle?: string,
+  breaks?: string,
+  categories?: string,
+  ceiling?: string,
+  className?: string,
+  crosshair?: string,
+  crossing?: string,
+  currentDateIndicator?: string,
+  dateTimeLabelFormats?: string,
+  endOnTick?: string,
+  events?: string,
+  floor?: string,
+  grid?: string,
+  gridLineColor?: string,
+  gridLineDashStyle?: string,
+  gridLineInterpolation?: string,
+  gridLineWidth?: string,
+  gridZIndex?: string,
+  height?: string,
+  id?: string,
+  labels?: string,
+  left?: string,
+  lineColor?: string,
+  lineWidth?: string,
+  linkedTo?: string,
+  margin?: string,
+  max?: string,
+  maxPadding?: string,
+  maxRange?: string,
+  min?: string,
+  minorGridLineColor?: string,
+  minorGridLineDashStyle?: string,
+  minorGridLineWidth?: string,
+  minorTickColor?: string,
+  minorTickInterval?: string,
+  minorTickLength?: string,
+  minorTickPosition?: string,
+  minorTicks?: string,
+  minorTicksPerMajor?: string,
+  minorTickWidth?: string,
+  minPadding?: string,
+  minRange?: string,
+  minTickInterval?: string,
+  offset?: string,
+  opposite?: string,
+  ordinal?: string,
+  overscroll?: string,
+  pane?: string,
+  panningEnabled?: string,
+  plotBands?: string,
+  plotLines?: string,
+  range?: string,
+  reversed?: string,
+  reversedStacks?: string,
+  scrollbar?: string,
+  showEmpty?: string,
+  showFirstLabel?: string,
+  showLastLabel?: string,
+  softMax?: string,
+  softMin?: string,
+  startOfWeek?: string,
+  startOnTick?: string,
+  staticScale?: string,
+  tickAmount?: string,
+  tickColor?: string,
+  tickInterval?: string,
+  tickLength?: string,
+  tickmarkPlacement?: string,
+  tickPixelInterval?: string,
+  tickPosition?: string,
+  tickPositioner?: string,
+  tickPositions?: string,
+  tickWidth?: string,
+  title?: string,
+  top?: string,
+  @as("type") type_?: string,
+  uniqueNames?: string,
+  units?: string,
+  visible?: string,
+  width?: string,
+  zIndex?: string,
+  zoomEnabled?: string,
+}
+type navigatorXAxisGridOptions = {
+  borderColor?: string,
+  borderWidth?: float,
+  cellHeight?: float,
+  columns?: array<xAxisOptions>,
+  enabled?: bool,
+}
+module Style12 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromNavigatorXAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type navigatorXAxisLabelsOptions = {
+  align?: string,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: axisLabelsFormatterContextObject => string,
+  indentation?: float,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  reserveSpace?: bool,
+  rotation?: float,
+  staggerLines?: float,
+  step?: float,
+  style?: Style12.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+type navigatorXAxisPlotBandsEventsOptions = {
+  click?: string,
+  mousemove?: string,
+  mouseout?: string,
+  mouseover?: string,
+}
+type navigatorXAxisPlotBandsLabelOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  inside?: bool,
+  rotation?: float,
+  style?: cssObject,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type navigatorXAxisPlotBandsOptions = {
+  acrossPanes?: bool,
+  borderColor?: string,
+  borderRadius?: CommonTypes.stringOrNumber,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  events?: navigatorXAxisPlotBandsEventsOptions,
+  from?: CommonTypes.stringOrNumber,
+  id?: string,
+  label?: navigatorXAxisPlotBandsLabelOptions,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+}
+type navigatorXAxisPlotLinesLabelOptions = {
+  align?: string,
+  formatter?: string,
+  rotation?: string,
+  style?: string,
+  text?: string,
+  textAlign?: string,
+  useHTML?: string,
+  verticalAlign?: string,
+  x?: string,
+  y?: string,
+}
+type navigatorXAxisPlotLinesLabelsOptions = {
+  clip?: bool,
+}
+type navigatorXAxisPlotLinesOptions = {
+  acrossPanes?: bool,
+  className?: string,
+  color?: string,
+  dashStyle?: dashStyleValue,
+  events?: navigatorXAxisPlotBandsEventsOptions,
+  id?: string,
+  label?: navigatorXAxisPlotLinesLabelOptions,
+  labels?: navigatorXAxisPlotLinesLabelsOptions,
+  value?: CommonTypes.stringOrNumber,
+  width?: float,
+  zIndex?: int,
+}
+module Style13 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromNavigatorXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type navigatorXAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  reserveSpace?: bool,
+  rotation?: float,
+  style?: Style13.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+type navigatorXAxisOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  alternateGridColor?: ColorType.t,
+  breaks?: array<navigatorXAxisBreaksOptions>,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  crosshair?: string,
+  crossing?: float,
+  currentDateIndicator?: string,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  endOnTick?: bool,
+  events?: chartParallelAxesEventsOptions,
+  floor?: float,
+  grid?: navigatorXAxisGridOptions,
+  gridLineColor?: string,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  id?: string,
+  labels?: navigatorXAxisLabelsOptions,
+  left?: CommonTypes.stringOrNumber,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  min?: CommonTypes.stringOrNumber,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minTickInterval?: float,
+  offset?: float,
+  ordinal?: bool,
+  overscroll?: CommonTypes.stringOrNumber,
+  panningEnabled?: bool,
+  plotBands?: array<navigatorXAxisPlotBandsOptions>,
+  plotLines?: array<navigatorXAxisPlotLinesOptions>,
+  reversed?: bool,
+  reversedStacks?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: navigatorXAxisTitleOptions,
+  top?: CommonTypes.stringOrNumber,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, array<string>)>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module XAxis = {
+  type t
+  external fromNavigatorXAxisOptions: navigatorXAxisOptions => t = "%identity"
+  external fromNavigatorXAxisOptionss: array<navigatorXAxisOptions> => t = "%identity"
+}
+type navigatorYAxisLabelsLevelsOptions = {
+  level?: int,
+  style?: cssObject,
+}
+module Style14 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromNavigatorYAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type navigatorYAxisLabelsSymbolOptions = {
+  height?: float,
+  width?: float,
+  x?: float,
+  y?: float,
+}
+type navigatorYAxisLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: axisLabelsFormatterContextObject => string,
+  indentation?: float,
+  levels?: array<navigatorYAxisLabelsLevelsOptions>,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  reserveSpace?: bool,
+  rotation?: float,
+  staggerLines?: float,
+  step?: float,
+  style?: Style14.t,
+  symbol?: navigatorYAxisLabelsSymbolOptions,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+type navigatorYAxisPlotBandsOptions = {
+  acrossPanes?: bool,
+  borderColor?: string,
+  borderRadius?: CommonTypes.stringOrNumber,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  events?: navigatorXAxisPlotBandsEventsOptions,
+  from?: CommonTypes.stringOrNumber,
+  id?: string,
+  innerRadius?: CommonTypes.stringOrNumber,
+  label?: navigatorXAxisPlotBandsLabelOptions,
+  outerRadius?: CommonTypes.stringOrNumber,
+  thickness?: CommonTypes.stringOrNumber,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+}
+module Style15 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromNavigatorYAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
+    "%identity"
+}
+type navigatorYAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  reserveSpace?: bool,
+  rotation?: float,
+  style?: Style15.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+type navigatorYAxisOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  alternateGridColor?: ColorType.t,
+  breaks?: array<navigatorXAxisBreaksOptions>,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  crosshair?: string,
+  crossing?: float,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  endOnTick?: bool,
+  events?: chartParallelAxesEventsOptions,
+  floor?: float,
+  grid?: navigatorXAxisGridOptions,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  id?: string,
+  labels?: navigatorYAxisLabelsOptions,
+  left?: CommonTypes.stringOrNumber,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  min?: CommonTypes.stringOrNumber,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minTickInterval?: float,
+  offset?: float,
+  opposite?: bool,
+  panningEnabled?: bool,
+  plotBands?: array<navigatorYAxisPlotBandsOptions>,
+  plotLines?: array<navigatorXAxisPlotLinesOptions>,
+  reversed?: bool,
+  reversedStacks?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: navigatorYAxisTitleOptions,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module YAxis = {
+  type t
+  external fromNavigatorYAxisOptions: navigatorYAxisOptions => t = "%identity"
+  external fromNavigatorYAxisOptionss: array<navigatorYAxisOptions> => t = "%identity"
+}
+type navigatorOptions = {
+  accessibility?: exportingAccessibilityOptions,
+  adaptToUpdatedData?: bool,
+  enabled?: bool,
+  handles?: navigatorHandlesOptions,
+  height?: float,
+  margin?: float,
+  maskFill?: ColorType.t,
+  maskInside?: bool,
+  opposite?: bool,
+  outlineColor?: ColorType.t,
+  outlineWidth?: float,
+  series?: Series.t,
+  stickToMax?: bool,
+  xAxis?: XAxis.t,
+  yAxis?: YAxis.t,
+}
+module Position6 = {
+  type t
+  external fromAlignObject: alignObject => t = "%identity"
+  external fromNoDataPositionOptions: drilldownBreadcrumbsPositionOptions => t = "%identity"
+}
+type noDataOptions = {
+  attr?: highchartsShapeArgsConfig,
+  position?: Position6.t,
+  style?: cssObject,
+  useHTML?: string,
+}
+type paneBackgroundOptions = {
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: CommonTypes.stringOrNumber,
+  borderWidth?: float,
+  className?: string,
+  innerRadius?: CommonTypes.stringOrNumber,
+  outerRadius?: CommonTypes.stringOrNumber,
+  shape?: paneBackgroundShapeValue,
+}
+module Background = {
+  type t
+  external fromPaneBackgroundOptions: paneBackgroundOptions => t = "%identity"
+  external fromPaneBackgroundOptionss: array<paneBackgroundOptions> => t = "%identity"
+}
+type paneOptions = {
+  background?: Background.t,
+  center?: array<CommonTypes.stringOrNumber>,
+  endAngle?: float,
+  innerSize?: CommonTypes.stringOrNumber,
+  size?: CommonTypes.stringOrNumber,
+  startAngle?: float,
+}
+module Pane = {
+  type t
+  external fromPaneOptions: paneOptions => t = "%identity"
+  external fromPaneOptionss: array<paneOptions> => t = "%identity"
+}
+type plotAbandsOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  bottomLine?: plotAbandsBottomLineOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels2.t,
+  dataSorting?: DataSorting.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: color2,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  topLine?: plotAbandsBottomLineOptions,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAdOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels3.t,
+  dataSorting?: DataSorting2.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAdParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels4.t,
+  dataSorting?: DataSorting3.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  greaterBarColor?: ColorType.t,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  lowerBarColor?: ColorType.t,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAoParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotApoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels5.t,
+  dataSorting?: DataSorting4.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotApoParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation7 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotArcdiagramDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type seriesArcDiagramDataLabelsOptionsObject = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation7.t,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: unit => string,
+  inside?: bool,
+  labelrank?: float,
+  linkTextPath?: dataLabelsTextPathOptionsObject,
+  nodeFormat?: string,
+  nodeFormatter?: unit => string,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels6 = {
+  type t
+  external fromSeriesArcDiagramDataLabelsOptionsObject: seriesArcDiagramDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesArcDiagramDataLabelsOptionsObjects: array<
+    seriesArcDiagramDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotArcdiagramLevelsOptions = {
+  borderColor?: string,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  dataLabels?: string,
+  level?: int,
+  linkOpacity?: float,
+  states?: seriesStatesOptionsObject,
+}
+type plotArcdiagramOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  centeredLinks?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels6.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  equalNodes?: bool,
+  events?: seriesEventsOptionsObject,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  levels?: array<plotArcdiagramLevelsOptions>,
+  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkedTo?: string,
+  linkOpacity?: float,
+  marker?: pointMarkerOptionsObject,
+  minLinkWidth?: float,
+  nodeDistance?: CommonTypes.stringOrNumber,
+  nodeWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  reversed?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotAreaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels7.t,
+  dataSorting?: DataSorting5.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotArearangeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting7.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  lowMarker?: pointMarkerOptionsObject,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAreasplineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels10.t,
+  dataSorting?: DataSorting8.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAreasplinerangeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting9.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  lowMarker?: pointMarkerOptionsObject,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAroonOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  aroonDown?: plotAroonAroonDownOptions,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels11.t,
+  dataSorting?: DataSorting10.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotAroonoscillatorOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels12.t,
+  dataSorting?: DataSorting11.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation13 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotAtrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotAtrDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation13.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels13 = {
+  type t
+  external fromPlotAtrDataLabelsOptions: plotAtrDataLabelsOptions => t = "%identity"
+  external fromPlotAtrDataLabelsOptionss: array<plotAtrDataLabelsOptions> => t = "%identity"
+}
+module DataSorting12 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotAtrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotAtrOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels13.t,
+  dataSorting?: DataSorting12.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotBarOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels14.t,
+  dataSorting?: DataSorting13.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotBbOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  bottomLine?: plotAroonAroonDownOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels15.t,
+  dataSorting?: DataSorting14.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotBbParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  topLine?: plotAroonAroonDownOptions,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotBellcurveOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  connectEnds?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels16.t,
+  dataSorting?: DataSorting15.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  intervals?: float,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointsInInterval?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotBoxplotOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boxDashStyle?: dashStyleValue,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels17.t,
+  dataSorting?: DataSorting16.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  medianColor?: ColorType.t,
+  medianDashStyle?: dashStyleValue,
+  medianWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  stemColor?: ColorType.t,
+  stemDashStyle?: dashStyleValue,
+  stemWidth?: float,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  whiskerColor?: ColorType.t,
+  whiskerDashStyle?: dashStyleValue,
+  whiskerLength?: CommonTypes.stringOrNumber,
+  whiskerWidth?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotBubbleOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels18.t,
+  dataSorting?: DataSorting17.t,
+  description?: string,
+  displayNegative?: bool,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  jitter?: plotBubbleJitterOptions,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  maxSize?: CommonTypes.stringOrNumber,
+  minSize?: CommonTypes.stringOrNumber,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  sizeBy?: bubbleSizeByValue,
+  sizeByAbsoluteValue?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zMax?: float,
+  zMin?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+  zThreshold?: float,
+}
+type plotBulletOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels19.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  targetOptions?: plotBulletTargetOptions,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotCandlestickOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels20.t,
+  dataSorting?: DataSorting18.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointValKey?: optionsPointValKeyValue,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  upColor?: ColorType.t,
+  upLineColor?: ColorType.t,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotCciOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels21.t,
+  dataSorting?: DataSorting19.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation22 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotChaikinDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotChaikinDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation22.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels22 = {
+  type t
+  external fromPlotChaikinDataLabelsOptions: plotChaikinDataLabelsOptions => t = "%identity"
+  external fromPlotChaikinDataLabelsOptionss: array<plotChaikinDataLabelsOptions> => t = "%identity"
+}
+module DataSorting20 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotChaikinDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotChaikinParamsOptions = {
+  index?: string,
+  period?: float,
+  periods?: array<float>,
+  volumeSeriesID?: string,
+}
+type plotChaikinOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels22.t,
+  dataSorting?: DataSorting20.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotChaikinParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotCmfOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels23.t,
+  dataSorting?: DataSorting21.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAdParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation24 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotCmoDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotCmoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation24.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels24 = {
+  type t
+  external fromPlotCmoDataLabelsOptions: plotCmoDataLabelsOptions => t = "%identity"
+  external fromPlotCmoDataLabelsOptionss: array<plotCmoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting22 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotCmoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotCmoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels24.t,
+  dataSorting?: DataSorting22.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotColumnOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels25.t,
+  dataSorting?: DataSorting23.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotColumnpyramidOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels26.t,
+  dataSorting?: DataSorting24.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotColumnrangeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: BorderRadius.t,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting25.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation27 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotContourDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotContourDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation27.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels27 = {
+  type t
+  external fromPlotContourDataLabelsOptions: plotContourDataLabelsOptions => t = "%identity"
+  external fromPlotContourDataLabelsOptionss: array<plotContourDataLabelsOptions> => t = "%identity"
+}
+module DataSorting26 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotContourDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotContourOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  contourInterval?: float,
+  contourOffset?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels27.t,
+  dataSorting?: DataSorting26.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  smoothColoring?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zIndex?: int,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotCylinderOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels28.t,
+  dataSorting?: DataSorting27.t,
+  depth?: float,
+  description?: string,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotDemaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels29.t,
+  dataSorting?: DataSorting28.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type seriesSankeyDataLabelsOptionsObject = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: string,
+  animation?: string,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  color?: string,
+  crop?: string,
+  defer?: string,
+  distance?: string,
+  enabled?: string,
+  filter?: string,
+  format?: string,
+  formatter?: string,
+  inside?: string,
+  labelrank?: string,
+  nodeFormat?: string,
+  nodeFormatter?: string,
+  nullFormat?: string,
+  nullFormatter?: string,
+  overflow?: string,
+  padding?: string,
+  position?: string,
+  rotation?: string,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  textPath?: string,
+  useHTML?: string,
+  verticalAlign?: string,
+  x?: string,
+  y?: string,
+}
+module DataLabels30 = {
+  type t
+  external fromSeriesSankeyDataLabelsOptionsObject: seriesSankeyDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesSankeyDataLabelsOptionsObjects: array<
+    seriesSankeyDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotDependencywheelLevelsOptions = {
+  borderColor?: string,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  dataLabels?: DataLabels30.t,
+  level?: int,
+  linkOpacity?: float,
+  states?: seriesStatesOptionsObject,
+}
+type plotDependencywheelOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  center?: array<CommonTypes.stringOrNumber>,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  curveFactor?: float,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels30.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  levels?: array<plotDependencywheelLevelsOptions>,
+  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkedTo?: string,
+  linkOpacity?: float,
+  minLinkWidth?: float,
+  nodePadding?: float,
+  nodeWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  size?: CommonTypes.stringOrNumber,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotDisparityindexOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels31.t,
+  dataSorting?: DataSorting29.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDisparityindexParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotDmiOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels32.t,
+  dataSorting?: DataSorting30.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  minusDILine?: plotAroonAroonDownOptions,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonParamsOptions,
+  plusDILine?: plotDmiPlusDILineOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotDpoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels33.t,
+  dataSorting?: DataSorting31.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotDumbbellOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  connectorColor?: string,
+  connectorWidth?: float,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting32.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  linkedTo?: string,
+  lowColor?: ColorType.t,
+  lowMarker?: pointMarkerOptionsObject,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation33 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotEmaDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotEmaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation33.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels34 = {
+  type t
+  external fromPlotEmaDataLabelsOptions: plotEmaDataLabelsOptions => t = "%identity"
+  external fromPlotEmaDataLabelsOptionss: array<plotEmaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting33 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotEmaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotEmaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels34.t,
+  dataSorting?: DataSorting33.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation34 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotErrorbarDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotErrorbarDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation34.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels35 = {
+  type t
+  external fromPlotErrorbarDataLabelsOptions: plotErrorbarDataLabelsOptions => t = "%identity"
+  external fromPlotErrorbarDataLabelsOptionss: array<plotErrorbarDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting34 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotErrorbarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotErrorbarOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boxDashStyle?: dashStyleValue,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels35.t,
+  dataSorting?: DataSorting34.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  medianColor?: ColorType.t,
+  medianDashStyle?: dashStyleValue,
+  medianWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  stemColor?: ColorType.t,
+  stemDashStyle?: dashStyleValue,
+  stemWidth?: float,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  whiskerColor?: ColorType.t,
+  whiskerDashStyle?: dashStyleValue,
+  whiskerLength?: CommonTypes.stringOrNumber,
+  whiskerWidth?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotFlagsOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowOverlapX?: bool,
+  allowPointSelect?: bool,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderRadius?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels36.t,
+  dataSorting?: DataSorting35.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  height?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onKey?: optionsOnKeyValue,
+  onPoint?: string,
+  onSeries?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  shape?: flagsShapeValue,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stackDistance?: float,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  style?: cssObject,
+  textAlign?: optionsTextAlignValue,
+  title?: string,
+  tooltip?: seriesTooltipOptionsObject,
+  useHTML?: bool,
+  visible?: bool,
+  width?: float,
+  y?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotFlowmapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  animation?: bool,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  curveFactor?: float,
+  custom?: Dict.t<string>,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  markerEnd?: seriesFlowMapSeriesOptionsObject,
+  maxWidth?: float,
+  minWidth?: float,
+  nullColor?: ColorType.t,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  selected?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  weight?: float,
+  width?: float,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+type plotFunnelOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  center?: array<CommonTypes.stringOrNumber>,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels37.t,
+  depth?: float,
+  description?: string,
+  enableMouseTracking?: bool,
+  endAngle?: float,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  height?: CommonTypes.stringOrNumber,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  minSize?: CommonTypes.stringOrNumber,
+  neckHeight?: CommonTypes.stringOrNumber,
+  neckWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  reversed?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  slicedOffset?: float,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zoomEnabled?: bool,
+}
+module Animation37 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotFunnel3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotFunnel3dDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation37.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: string,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels38 = {
+  type t
+  external fromPlotFunnel3dDataLabelsOptions: plotFunnel3dDataLabelsOptions => t = "%identity"
+  external fromPlotFunnel3dDataLabelsOptionss: array<plotFunnel3dDataLabelsOptions> => t =
+    "%identity"
+}
+type plotFunnel3dOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels38.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  gradientForSides?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  height?: CommonTypes.stringOrNumber,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  neckHeight?: CommonTypes.stringOrNumber,
+  neckWidth?: CommonTypes.stringOrNumber,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  reversed?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation38 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotGanttDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotGanttDataLabelsStyleOptions = {
+  whiteSpace?: string,
+}
+module Style17 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotGanttDataLabelsStyleOptions: plotGanttDataLabelsStyleOptions => t = "%identity"
+}
+type plotGanttDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation38.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style17.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels39 = {
+  type t
+  external fromPlotGanttDataLabelsOptions: plotGanttDataLabelsOptions => t = "%identity"
+  external fromPlotGanttDataLabelsOptionss: array<plotGanttDataLabelsOptions> => t = "%identity"
+}
+type plotGanttPartialFillOptions = {
+  fill?: ColorType.t,
+}
+type plotGanttOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  connectors?: seriesConnectorsOptionsObject,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels39.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  onPoint?: string,
+  opacity?: float,
+  partialFill?: plotGanttPartialFillOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  pointRange?: float,
+  pointWidth?: float,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotGaugeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels40.t,
+  description?: string,
+  dial?: plotGaugeDialOptions,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  overshoot?: float,
+  pivot?: plotGaugePivotOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  wrap?: bool,
+  zoomEnabled?: bool,
+}
+module Animation40 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotGeoheatmapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotGeoheatmapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation40.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: bool,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels41 = {
+  type t
+  external fromPlotGeoheatmapDataLabelsOptions: plotGeoheatmapDataLabelsOptions => t = "%identity"
+  external fromPlotGeoheatmapDataLabelsOptionss: array<plotGeoheatmapDataLabelsOptions> => t =
+    "%identity"
+}
+type interpolationOptionsObject = {
+  blur: float,
+  enabled: bool,
+}
+type plotGeoheatmapInterpolationOptions = {
+  blur?: float,
+  enabled?: bool,
+}
+module Interpolation = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromInterpolationOptionsObject: interpolationOptionsObject => t = "%identity"
+  external fromPlotGeoheatmapInterpolationOptions: plotGeoheatmapInterpolationOptions => t =
+    "%identity"
+}
+type plotGeoheatmapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  affectsMapView?: bool,
+  allowPointSelect?: bool,
+  animation?: bool,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  colsize?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels41.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  interpolation?: Interpolation.t,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  nullColor?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  rowsize?: float,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module Animation41 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotHeatmapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotHeatmapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation41.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels42 = {
+  type t
+  external fromPlotHeatmapDataLabelsOptions: plotHeatmapDataLabelsOptions => t = "%identity"
+  external fromPlotHeatmapDataLabelsOptionss: array<plotHeatmapDataLabelsOptions> => t = "%identity"
+}
+module DataSorting36 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotHeatmapDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotHeatmapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colsize?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels42.t,
+  dataSorting?: DataSorting36.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  interpolation?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  negativeColor?: ColorType.t,
+  nullColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  rowsize?: float,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zIndex?: int,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation42 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotHeikinashiDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotHeikinashiDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation42.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels43 = {
+  type t
+  external fromPlotHeikinashiDataLabelsOptions: plotHeikinashiDataLabelsOptions => t = "%identity"
+  external fromPlotHeikinashiDataLabelsOptionss: array<plotHeikinashiDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting37 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotHeikinashiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotHeikinashiOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels43.t,
+  dataSorting?: DataSorting37.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointValKey?: optionsPointValKeyValue,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  upColor?: ColorType.t,
+  upLineColor?: ColorType.t,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotHistogramOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  binsNumber?: string,
+  binWidth?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels44.t,
+  dataSorting?: DataSorting38.t,
+  depth?: float,
+  description?: string,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  pointPlacement?: string,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotHlcOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels45.t,
+  dataSorting?: DataSorting39.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointValKey?: optionsHLCPointValKeyValue,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotHollowcandlestickOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels46.t,
+  dataSorting?: DataSorting40.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointValKey?: optionsPointValKeyValue,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  upColor?: ColorType.t,
+  upLineColor?: ColorType.t,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotIkhOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  chikouLine?: plotDmiPlusDILineOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels47.t,
+  dataSorting?: DataSorting41.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  kijunLine?: plotAroonAroonDownOptions,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotIkhParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  senkouSpan?: plotIkhSenkouSpanOptions,
+  senkouSpanA?: plotDmiPlusDILineOptions,
+  senkouSpanB?: plotDmiPlusDILineOptions,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  tenkanLine?: plotDmiPlusDILineOptions,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotItemOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderRadius?: string,
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels37.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  endAngle?: float,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  innerSize?: CommonTypes.stringOrNumber,
+  itemPadding?: float,
+  keys?: array<string>,
+  layout?: string,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  marker?: pointMarkerOptionsObject,
+  minSize?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  rows?: int,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  size?: CommonTypes.stringOrNumber,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotKeltnerchannelsOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  bottomLine?: plotAroonAroonDownOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels48.t,
+  dataSorting?: DataSorting42.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: color2,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  topLine?: plotAroonAroonDownOptions,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotKlingerOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels49.t,
+  dataSorting?: DataSorting43.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotKlingerParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  signalLine?: plotDmiPlusDILineOptions,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotLineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels50.t,
+  dataSorting?: DataSorting44.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  useOhlcData?: bool,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation50 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotLinearregressionDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotLinearregressionDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation50.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels51 = {
+  type t
+  external fromPlotLinearregressionDataLabelsOptions: plotLinearregressionDataLabelsOptions => t =
+    "%identity"
+  external fromPlotLinearregressionDataLabelsOptionss: array<
+    plotLinearregressionDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting45 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLinearregressionDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotLinearregressionParamsOptions = {
+  index?: int,
+  period?: float,
+  xAxisUnit?: float,
+}
+type plotLinearregressionOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels51.t,
+  dataSorting?: DataSorting45.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotLinearregressionParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation51 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotLinearregressionangleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotLinearregressionangleDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation51.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels52 = {
+  type t
+  external fromPlotLinearregressionangleDataLabelsOptions: plotLinearregressionangleDataLabelsOptions => t =
+    "%identity"
+  external fromPlotLinearregressionangleDataLabelsOptionss: array<
+    plotLinearregressionangleDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting46 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLinearregressionangleDataSortingOptions: plotAdDataSortingOptions => t =
+    "%identity"
+}
+type plotLinearregressionangleParamsOptions = {
+  index?: int,
+  period?: float,
+  xAxisUnit?: float,
+}
+type plotLinearregressionangleOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels52.t,
+  dataSorting?: DataSorting46.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotLinearregressionangleParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation52 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotLinearregressioninterceptDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotLinearregressioninterceptDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation52.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels53 = {
+  type t
+  external fromPlotLinearregressioninterceptDataLabelsOptions: plotLinearregressioninterceptDataLabelsOptions => t =
+    "%identity"
+  external fromPlotLinearregressioninterceptDataLabelsOptionss: array<
+    plotLinearregressioninterceptDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting47 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLinearregressioninterceptDataSortingOptions: plotAdDataSortingOptions => t =
+    "%identity"
+}
+type plotLinearregressioninterceptOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels53.t,
+  dataSorting?: DataSorting47.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotLinearregressionangleParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation53 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotLinearregressionslopeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotLinearregressionslopeDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation53.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels54 = {
+  type t
+  external fromPlotLinearregressionslopeDataLabelsOptions: plotLinearregressionslopeDataLabelsOptions => t =
+    "%identity"
+  external fromPlotLinearregressionslopeDataLabelsOptionss: array<
+    plotLinearregressionslopeDataLabelsOptions,
+  > => t = "%identity"
+}
+module DataSorting48 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotLinearregressionslopeDataSortingOptions: plotAdDataSortingOptions => t =
+    "%identity"
+}
+type plotLinearregressionslopeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels54.t,
+  dataSorting?: DataSorting48.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotLinearregressionangleParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotLollipopOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  connectorColor?: string,
+  connectorWidth?: float,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels9.t,
+  dataSorting?: DataSorting49.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  linkedTo?: string,
+  lowMarker?: pointMarkerOptionsObject,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotMacdOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels55.t,
+  dataSorting?: DataSorting50.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  macdLine?: plotMacdMacdLineOptions,
+  marker?: pointMarkerOptionsObject,
+  minPointLength?: float,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotMacdParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  signalLine?: plotMacdMacdLineOptions,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotMapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  affectsMapView?: bool,
+  allAreas?: bool,
+  allowPointSelect?: bool,
+  animation?: bool,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels56.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  negativeColor?: ColorType.t,
+  nullColor?: ColorType.t,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+type plotMapbubbleOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels57.t,
+  description?: string,
+  displayNegative?: bool,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  marker?: pointMarkerOptionsObject,
+  maxSize?: CommonTypes.stringOrNumber,
+  minSize?: CommonTypes.stringOrNumber,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  sizeBy?: bubbleSizeByValue,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+type plotMaplineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  affectsMapView?: bool,
+  allAreas?: bool,
+  allowPointSelect?: bool,
+  animation?: bool,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels58.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  negativeColor?: ColorType.t,
+  nullColor?: ColorType.t,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module Animation58 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMfiDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMfiDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation58.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels59 = {
+  type t
+  external fromPlotMfiDataLabelsOptions: plotMfiDataLabelsOptions => t = "%identity"
+  external fromPlotMfiDataLabelsOptionss: array<plotMfiDataLabelsOptions> => t = "%identity"
+}
+module DataSorting51 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotMfiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotMfiParamsOptions = {
+  decimals?: float,
+  index?: string,
+  period?: float,
+  volumeSeriesID?: string,
+}
+type plotMfiOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels59.t,
+  dataSorting?: DataSorting51.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotMfiParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation59 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotMomentumDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotMomentumDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation59.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels60 = {
+  type t
+  external fromPlotMomentumDataLabelsOptions: plotMomentumDataLabelsOptions => t = "%identity"
+  external fromPlotMomentumDataLabelsOptionss: array<plotMomentumDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting52 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotMomentumDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotMomentumOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels60.t,
+  dataSorting?: DataSorting52.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation60 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotNatrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotNatrDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation60.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels61 = {
+  type t
+  external fromPlotNatrDataLabelsOptions: plotNatrDataLabelsOptions => t = "%identity"
+  external fromPlotNatrDataLabelsOptionss: array<plotNatrDataLabelsOptions> => t = "%identity"
+}
+module DataSorting53 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotNatrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotNatrOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels61.t,
+  dataSorting?: DataSorting53.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation61 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotNetworkgraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotNetworkgraphDataLabelsStyleOptions = {
+  transition?: string,
+}
+module Style18 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotNetworkgraphDataLabelsStyleOptions: plotNetworkgraphDataLabelsStyleOptions => t =
+    "%identity"
+}
+type seriesNetworkgraphDataLabelsOptionsObject = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation61.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  linkFormat?: string,
+  linkFormatter?: string,
+  linkTextPath?: dataLabelsTextPathOptionsObject,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style18.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels62 = {
+  type t
+  external fromSeriesNetworkgraphDataLabelsOptionsObject: seriesNetworkgraphDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesNetworkgraphDataLabelsOptionsObjects: array<
+    seriesNetworkgraphDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotNetworkgraphLayoutAlgorithmOptions = {
+  approximation?: optionsApproximationValue,
+  attractiveForce?: string,
+  enableSimulation?: bool,
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
+  initialPositions?: string,
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  maxIterations?: float,
+  maxSpeed?: float,
+  repulsiveForce?: string,
+  theta?: float,
+  @as("type") type_?: string,
+}
+type plotNetworkgraphLinkOptions = {
+  color?: string,
+  dashStyle?: string,
+  opacity?: float,
+  width?: float,
+}
+type plotNetworkgraphOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels62.t,
+  description?: string,
+  draggable?: bool,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  layoutAlgorithm?: plotNetworkgraphLayoutAlgorithmOptions,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  link?: plotNetworkgraphLinkOptions,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation62 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotObvDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotObvDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation62.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels63 = {
+  type t
+  external fromPlotObvDataLabelsOptions: plotObvDataLabelsOptions => t = "%identity"
+  external fromPlotObvDataLabelsOptionss: array<plotObvDataLabelsOptions> => t = "%identity"
+}
+module DataSorting54 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotObvDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotObvParamsOptions = {
+  index?: string,
+  period?: string,
+  volumeSeriesID?: string,
+}
+type plotObvOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels63.t,
+  dataSorting?: DataSorting54.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotObvParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotOhlcOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels64.t,
+  dataSorting?: DataSorting55.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointValKey?: optionsPointValKeyValue,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  upColor?: ColorType.t,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation64 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotOrganizationDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotOrganizationDataLabelsLinkTextPathAttributesOptions = {
+  startOffset?: float,
+  textAnchor?: string,
+}
+type plotOrganizationDataLabelsLinkTextPathOptions = {
+  attributes?: plotOrganizationDataLabelsLinkTextPathAttributesOptions,
+}
+type seriesOrganizationDataLabelsOptionsObject = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation64.t,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: unit => string,
+  inside?: bool,
+  labelrank?: float,
+  linkTextPath?: plotOrganizationDataLabelsLinkTextPathOptions,
+  nodeFormat?: string,
+  nodeFormatter?: unit => string,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels65 = {
+  type t
+  external fromSeriesOrganizationDataLabelsOptionsObject: seriesOrganizationDataLabelsOptionsObject => t =
+    "%identity"
+  external fromSeriesOrganizationDataLabelsOptionsObjects: array<
+    seriesOrganizationDataLabelsOptionsObject,
+  > => t = "%identity"
+}
+type plotOrganizationLevelsOptions = {
+  borderColor?: string,
+  borderWidth?: float,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  dataLabels?: DataLabels30.t,
+  level?: int,
+  linkOpacity?: float,
+  states?: seriesStatesOptionsObject,
+}
+type plotOrganizationLinkOptions = {
+  color?: string,
+  lineWidth?: float,
+  radius?: float,
+  @as("type") type_?: StatCardV2Types.type_,
+}
+type plotOrganizationOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  animation?: string,
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels65.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  getExtremesFromAll?: bool,
+  hangingIndent?: float,
+  hangingIndentTranslation?: organizationHangingIndentTranslationValue,
+  hangingSide?: StatCardV2Types.hangingSide,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  levels?: array<plotOrganizationLevelsOptions>,
+  link?: plotOrganizationLinkOptions,
+  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkedTo?: string,
+  linkOpacity?: float,
+  minLinkWidth?: float,
+  minNodeLength?: float,
+  nodeAlignment?: StatCardV2Types.nodeAlignment,
+  nodeDistance?: CommonTypes.stringOrNumber,
+  nodePadding?: float,
+  nodeWidth?: float,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotPackedbubbleOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels66.t,
+  description?: string,
+  displayNegative?: bool,
+  draggable?: bool,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  layoutAlgorithm?: plotPackedbubbleLayoutAlgorithmOptions,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  maxSize?: CommonTypes.stringOrNumber,
+  minSize?: CommonTypes.stringOrNumber,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  parentNode?: plotPackedbubbleParentNodeOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  sizeBy?: string,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  useSimulation?: bool,
+  visible?: bool,
+  zMax?: float,
+  zMin?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+  zThreshold?: float,
+}
+module Animation66 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotParetoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotParetoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation66.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels67 = {
+  type t
+  external fromPlotParetoDataLabelsOptions: plotParetoDataLabelsOptions => t = "%identity"
+  external fromPlotParetoDataLabelsOptionss: array<plotParetoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting56 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotParetoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotParetoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels67.t,
+  dataSorting?: DataSorting56.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+module Animation67 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPcDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
+}
+type plotPcDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation67.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels68 = {
+  type t
+  external fromPlotPcDataLabelsOptions: plotPcDataLabelsOptions => t = "%identity"
+  external fromPlotPcDataLabelsOptionss: array<plotPcDataLabelsOptions> => t = "%identity"
+}
+module DataSorting57 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotPcOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  bottomLine?: plotAroonAroonDownOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels68.t,
+  dataSorting?: DataSorting57.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: color2,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  topLine?: plotAroonAroonDownOptions,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation68 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPictorialDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPictorialDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation68.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels69 = {
+  type t
+  external fromPlotPictorialDataLabelsOptions: plotPictorialDataLabelsOptions => t = "%identity"
+  external fromPlotPictorialDataLabelsOptionss: array<plotPictorialDataLabelsOptions> => t =
+    "%identity"
+}
+type plotPictorialOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels69.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotPieOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels37.t,
+  depth?: float,
+  description?: string,
+  enableMouseTracking?: bool,
+  endAngle?: float,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  innerSize?: CommonTypes.stringOrNumber,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  minSize?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  size?: CommonTypes.stringOrNumber,
+  skipKeyboardNavigation?: bool,
+  slicedOffset?: float,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module Animation69 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPivotpointsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPivotpointsDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation69.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels70 = {
+  type t
+  external fromPlotPivotpointsDataLabelsOptions: plotPivotpointsDataLabelsOptions => t = "%identity"
+  external fromPlotPivotpointsDataLabelsOptionss: array<plotPivotpointsDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting58 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPivotpointsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotPivotpointsParamsOptions = {
+  algorithm?: string,
+  index?: string,
+  period?: float,
+}
+type plotPivotpointsOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels70.t,
+  dataSorting?: DataSorting58.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotPivotpointsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotPointandfigureOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boxSize?: CommonTypes.stringOrNumber,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  connectNulls?: bool,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: exportingAccessibilityOptions,
+  dataLabels?: DataLabels71.t,
+  dataSorting?: DataSorting59.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  jitter?: plotPointandfigureJitterOptions,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  markerUp?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  reversalAmount?: float,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotPolygonOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels72.t,
+  dataSorting?: DataSorting60.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation72 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPpoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPpoDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation72.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels73 = {
+  type t
+  external fromPlotPpoDataLabelsOptions: plotPpoDataLabelsOptions => t = "%identity"
+  external fromPlotPpoDataLabelsOptionss: array<plotPpoDataLabelsOptions> => t = "%identity"
+}
+module DataSorting61 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotPpoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels73.t,
+  dataSorting?: DataSorting61.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotApoParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotPriceenvelopesOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  bottomLine?: plotDmiPlusDILineOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels74.t,
+  dataSorting?: DataSorting62.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotPriceenvelopesParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  topLine?: plotDmiPlusDILineOptions,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation74 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPsarDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPsarDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation74.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels75 = {
+  type t
+  external fromPlotPsarDataLabelsOptions: plotPsarDataLabelsOptions => t = "%identity"
+  external fromPlotPsarDataLabelsOptionss: array<plotPsarDataLabelsOptions> => t = "%identity"
+}
+module DataSorting63 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotPsarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotPsarParamsOptions = {
+  decimals?: float,
+  increment?: float,
+  index?: int,
+  initialAccelerationFactor?: float,
+  maxAccelerationFactor?: float,
+  period?: string,
+}
+type plotPsarOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels75.t,
+  dataSorting?: DataSorting63.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotPsarParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation75 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotPyramid3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotPyramid3dDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation75.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: string,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels76 = {
+  type t
+  external fromPlotPyramid3dDataLabelsOptions: plotPyramid3dDataLabelsOptions => t = "%identity"
+  external fromPlotPyramid3dDataLabelsOptionss: array<plotPyramid3dDataLabelsOptions> => t =
+    "%identity"
+}
+type plotPyramid3dOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels76.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  gradientForSides?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  height?: CommonTypes.stringOrNumber,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  neckHeight?: float,
+  neckWidth?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  reversed?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotRenkoOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: BorderRadius2.t,
+  borderWidth?: float,
+  boxSize?: float,
+  className?: string,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels77.t,
+  description?: string,
+  downColor?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: string,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: NavigatorOptions.t,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation77 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotRocDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotRocDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation77.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels78 = {
+  type t
+  external fromPlotRocDataLabelsOptions: plotRocDataLabelsOptions => t = "%identity"
+  external fromPlotRocDataLabelsOptionss: array<plotRocDataLabelsOptions> => t = "%identity"
+}
+module DataSorting64 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotRocDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotRocOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels78.t,
+  dataSorting?: DataSorting64.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation78 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotRsiDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotRsiDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation78.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels79 = {
+  type t
+  external fromPlotRsiDataLabelsOptions: plotRsiDataLabelsOptions => t = "%identity"
+  external fromPlotRsiDataLabelsOptionss: array<plotRsiDataLabelsOptions> => t = "%identity"
+}
+module DataSorting65 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotRsiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotRsiParamsOptions = {
+  decimals?: float,
+  index?: int,
+  period?: float,
+}
+type plotRsiOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels79.t,
+  dataSorting?: DataSorting65.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotRsiParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotSankeyOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  curveFactor?: float,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels30.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  levels?: array<plotOrganizationLevelsOptions>,
+  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkedTo?: string,
+  linkOpacity?: float,
+  minLinkWidth?: float,
+  nodeAlignment?: StatCardV2Types.nodeAlignment,
+  nodeDistance?: CommonTypes.stringOrNumber,
+  nodePadding?: float,
+  nodeWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotScatterOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  cluster?: plotScatterClusterOptions,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels81.t,
+  dataSorting?: DataSorting66.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  jitter?: plotBubbleJitterOptions,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation80 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotScatter3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotScatter3dDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation80.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels82 = {
+  type t
+  external fromPlotScatter3dDataLabelsOptions: plotScatter3dDataLabelsOptions => t = "%identity"
+  external fromPlotScatter3dDataLabelsOptionss: array<plotScatter3dDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting67 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotScatter3dDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotScatter3dOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels82.t,
+  dataSorting?: DataSorting67.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  jitter?: plotBubbleJitterOptions,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotSlowstochasticOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels83.t,
+  dataSorting?: DataSorting68.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotSlowstochasticParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  smoothedLine?: plotDmiPlusDILineOptions,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotSmaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels84.t,
+  dataSorting?: DataSorting69.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotSolidgaugeOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderRadius?: CommonTypes.stringOrNumber,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels85.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  innerRadius?: string,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: optionsLinecapValue,
+  lineWidth?: float,
+  linkedTo?: string,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  overshoot?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  radius?: string,
+  relativeXValue?: bool,
+  rounded?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotSplineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels86.t,
+  dataSorting?: DataSorting70.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotStochasticOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels87.t,
+  dataSorting?: DataSorting71.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotStochasticParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  smoothedLine?: plotAroonAroonDownOptions,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation86 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotStreamgraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotStreamgraphDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation86.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels88 = {
+  type t
+  external fromPlotStreamgraphDataLabelsOptions: plotStreamgraphDataLabelsOptions => t = "%identity"
+  external fromPlotStreamgraphDataLabelsOptionss: array<plotStreamgraphDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting72 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotStreamgraphDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotStreamgraphOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels88.t,
+  dataSorting?: DataSorting72.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  negativeFillColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: string,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  trackByArea?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotSunburstOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  allowTraversingTree?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  breadcrumbs?: plotSunburstBreadcrumbsOptions,
+  center?: array<CommonTypes.stringOrNumber>,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels89.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  levelIsConstant?: bool,
+  levels?: array<plotSunburstLevelsOptions>,
+  levelSize?: plotSunburstLevelSizeOptions,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  rootId?: string,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  size?: CommonTypes.stringOrNumber,
+  skipKeyboardNavigation?: bool,
+  slicedOffset?: float,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotSupertrendOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  changeTrendLine?: plotSupertrendChangeTrendLineOptions,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels90.t,
+  dataSorting?: DataSorting73.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fallingTrendColor?: ColorType.t,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotSupertrendParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  risingTrendColor?: ColorType.t,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation89 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTemaDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotTemaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation89.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels91 = {
+  type t
+  external fromPlotTemaDataLabelsOptions: plotTemaDataLabelsOptions => t = "%identity"
+  external fromPlotTemaDataLabelsOptionss: array<plotTemaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting74 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotTemaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotTemaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels91.t,
+  dataSorting?: DataSorting74.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAbandsParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotTiledwebmapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  className?: string,
+  custom?: Dict.t<string>,
+  description?: string,
+  events?: seriesEventsOptionsObject,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  opacity?: float,
+  pointDescriptionFormat?: string,
+  provider?: plotTiledwebmapProviderOptions,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  states?: seriesStatesOptionsObject,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+type plotTilemapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colsize?: float,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels92.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  interpolation?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  linkedTo?: string,
+  marker?: string,
+  negativeColor?: ColorType.t,
+  nullColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  rowsize?: float,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tileShape?: tilemapShapeValue,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zIndex?: int,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotTimelineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels93.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotTreegraphOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  collapseButton?: plotTreegraphCollapseButtonOptions,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels94.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  fillSpace?: bool,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  levels?: array<plotTreegraphLevelsOptions>,
+  link?: plotTreegraphLinkOptions,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  nodeDistance?: CommonTypes.stringOrNumber,
+  nodeSizeBy?: optionsNodeSizeByValue,
+  nodeWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  reversed?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  traverseToLeaf?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+type plotTreemapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  allowTraversingTree?: bool,
+  alternateStartingDirection?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderRadius?: float,
+  breadcrumbs?: plotTreemapBreadcrumbsOptions,
+  className?: string,
+  clip?: bool,
+  cluster?: plotTreemapClusterOptions,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels95.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  groupPadding?: float,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  interactByLeaf?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  layoutAlgorithm?: optionsLayoutAlgorithmValue,
+  layoutStartingDirection?: optionsLayoutStartingDirectionValue,
+  legendSymbol?: optionsLegendSymbolValue,
+  levelIsConstant?: bool,
+  levels?: array<plotTreemapLevelsOptions>,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  negativeColor?: ColorType.t,
+  nodeSizeBy?: optionsNodeSizeByValue,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  sortIndex?: float,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  traverseToLeaf?: bool,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation94 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTrendlineDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotTrendlineDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation94.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels96 = {
+  type t
+  external fromPlotTrendlineDataLabelsOptions: plotTrendlineDataLabelsOptions => t = "%identity"
+  external fromPlotTrendlineDataLabelsOptionss: array<plotTrendlineDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting75 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotTrendlineDataSortingOptions: dataSortingOptionsObject => t = "%identity"
+}
+type plotTrendlineParamsOptions = {
+  index?: int,
+  period?: string,
+}
+type plotTrendlineOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels96.t,
+  dataSorting?: DataSorting75.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotTrendlineParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation95 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotTrixDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotTrixDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation95.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels97 = {
+  type t
+  external fromPlotTrixDataLabelsOptions: plotTrixDataLabelsOptions => t = "%identity"
+  external fromPlotTrixDataLabelsOptionss: array<plotTrixDataLabelsOptions> => t = "%identity"
+}
+module DataSorting76 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotTrixDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotTrixOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels97.t,
+  dataSorting?: DataSorting76.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotVariablepieOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  center?: (CommonTypes.stringOrNumber, CommonTypes.stringOrNumber),
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels37.t,
+  depth?: float,
+  description?: string,
+  enableMouseTracking?: bool,
+  endAngle?: float,
+  events?: seriesEventsOptionsObject,
+  fillColor?: ColorType.t,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  innerSize?: CommonTypes.stringOrNumber,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  maxPointSize?: CommonTypes.stringOrNumber,
+  minPointSize?: CommonTypes.stringOrNumber,
+  minSize?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  size?: CommonTypes.stringOrNumber,
+  sizeBy?: variablePieSizeByValue,
+  skipKeyboardNavigation?: bool,
+  slicedOffset?: float,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  visible?: bool,
+  zMax?: float,
+  zMin?: float,
+  zoomEnabled?: bool,
+}
+type plotVariwideOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels98.t,
+  dataSorting?: DataSorting77.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotVbpOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels99.t,
+  dataSorting?: DataSorting78.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotVbpParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointPadding?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  volumeDivision?: plotVbpVolumeDivisionOptions,
+  zoneAxis?: string,
+  zoneLines?: plotVbpZoneLinesOptions,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotVectorOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  className?: string,
+  clip?: bool,
+  cluster?: plotVectorClusterOptions,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataLabels?: DataLabels101.t,
+  dataSorting?: DataSorting79.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: string,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  rotationOrigin?: optionsRotationOriginValue,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  vectorLength?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotVennOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderDashStyle?: string,
+  brighten?: float,
+  className?: string,
+  clip?: bool,
+  cluster?: plotVennClusterOptions,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels103.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+module Animation100 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotVwapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotVwapDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation100.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels104 = {
+  type t
+  external fromPlotVwapDataLabelsOptions: plotVwapDataLabelsOptions => t = "%identity"
+  external fromPlotVwapDataLabelsOptionss: array<plotVwapDataLabelsOptions> => t = "%identity"
+}
+module DataSorting80 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotVwapDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotVwapOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels104.t,
+  dataSorting?: DataSorting80.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAdParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotWaterfallOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cropThreshold?: float,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: DataLabels105.t,
+  dataSorting?: DataSorting81.t,
+  depth?: float,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  upColor?: ColorType.t,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation102 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotWilliamsrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotWilliamsrDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation102.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels106 = {
+  type t
+  external fromPlotWilliamsrDataLabelsOptions: plotWilliamsrDataLabelsOptions => t = "%identity"
+  external fromPlotWilliamsrDataLabelsOptionss: array<plotWilliamsrDataLabelsOptions> => t =
+    "%identity"
+}
+module DataSorting82 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotWilliamsrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotWilliamsrOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels106.t,
+  dataSorting?: DataSorting82.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotAroonoscillatorParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotWindbarbOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  crisp?: bool,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels107.t,
+  dataSorting?: DataSorting83.t,
+  depth?: float,
+  description?: string,
+  edgeColor?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  getExtremesFromAll?: bool,
+  grouping?: bool,
+  groupPadding?: float,
+  groupZPadding?: float,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: string,
+  maxPointWidth?: float,
+  minPointLength?: float,
+  navigatorOptions?: plotSeriesOptions,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  onSeries?: string,
+  opacity?: float,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPadding?: float,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  pointWidth?: float,
+  relativeXValue?: bool,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  vectorLength?: float,
+  visible?: bool,
+  xOffset?: float,
+  yOffset?: float,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+module Animation104 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotWmaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotWmaDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation104.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels108 = {
+  type t
+  external fromPlotWmaDataLabelsOptions: plotWmaDataLabelsOptions => t = "%identity"
+  external fromPlotWmaDataLabelsOptionss: array<plotWmaDataLabelsOptions> => t = "%identity"
+}
+module DataSorting84 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotWmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type plotWmaOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  compareToMain?: bool,
+  connectNulls?: bool,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: DataLabels108.t,
+  dataSorting?: DataSorting84.t,
+  description?: string,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  label?: seriesLabelOptionsObject,
+  lastPrice?: seriesLastPriceOptionsObject,
+  lastVisiblePrice?: seriesLastPriceOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  name?: string,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  params?: plotDemaParamsOptions,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: string,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+type plotWordcloudOptions = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string,
+  animationLimit?: float,
+  borderColor?: ColorType.t,
+  borderRadius?: string,
+  borderWidth?: float,
+  centerInCategory?: bool,
+  className?: string,
+  color?: ColorType.t,
+  colorByPoint?: bool,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  cursor?: string,
+  custom?: Dict.t<string>,
+  dashStyle?: dashStyleValue,
+  description?: string,
+  edgeWidth?: float,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linkedTo?: string,
+  maxFontSize?: float,
+  minFontSize?: float,
+  nullInteraction?: bool,
+  onPoint?: string,
+  opacity?: float,
+  placementStrategy?: optionsPlacementStrategyValue,
+  point?: plotSeriesPointOptions,
+  pointDescriptionFormat?: string,
+  pointDescriptionFormatter?: string,
+  relativeXValue?: bool,
+  rotation?: plotWordcloudRotationOptions,
+  selected?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  spiral?: optionsSpiralValue,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  style?: cssObject,
+  tooltip?: seriesTooltipOptionsObject,
+  turboThreshold?: float,
+  visible?: bool,
+  zoomEnabled?: bool,
+}
+module Animation105 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotXrangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotXrangeDataLabelsStyleOptions = {
+  whiteSpace?: string,
+}
+module Style24 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromPlotXrangeDataLabelsStyleOptions: plotXrangeDataLabelsStyleOptions => t = "%identity"
+}
+type plotXrangeDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation105.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: Style24.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+module DataLabels109 = {
+  type t
+  external fromPlotXrangeDataLabelsOptions: plotXrangeDataLabelsOptions => t = "%identity"
+  external fromPlotXrangeDataLabelsOptionss: array<plotXrangeDataLabelsOptions> => t = "%identity"
+}
+type plotXrangePartialFillOptions = {
+  fill?: ColorType.t,
+}
+type plotXrangeOptions = {
   accessibility?: seriesAccessibilityOptionsObject,
   allowPointSelect?: bool,
   animation?: string,
@@ -10649,7 +27599,7 @@ type seriesXrangeOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: array<string>,
+  colors?: array<ColorType.t>,
   compare?: optionsCompareValue,
   compareBase?: CommonTypes.v0OrV100,
   compareStart?: bool,
@@ -10660,7 +27610,7 @@ type seriesXrangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
+  dataLabels?: DataLabels109.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -10704,17 +27654,59 @@ type seriesXrangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  name?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
-  zIndex?: int,
+}
+module Animation106 = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPlotZigzagDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+type plotZigzagDataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: Animation106.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: dataLabelsOptions => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: string,
+  shape?: string,
+  style?: cssObject,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module DataLabels110 = {
+  type t
+  external fromPlotZigzagDataLabelsOptions: plotZigzagDataLabelsOptions => t = "%identity"
+  external fromPlotZigzagDataLabelsOptionss: array<plotZigzagDataLabelsOptions> => t = "%identity"
+}
+module DataSorting85 = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotZigzagDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 type plotZigzagParamsOptions = {
   deviation?: float,
@@ -10723,10 +27715,7 @@ type plotZigzagParamsOptions = {
   lowIndex?: float,
   period?: string,
 }
-type seriesZigzagOptions = {
-  dataParser?: string,
-  dataURL?: string,
-  @as("type") type_: string,
+type plotZigzagOptions = {
   accessibility?: seriesAccessibilityOptionsObject,
   allowPointSelect?: bool,
   animation?: string,
@@ -10751,8 +27740,8 @@ type seriesZigzagOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: string,
-  dataSorting?: string,
+  dataLabels?: DataLabels110.t,
+  dataSorting?: DataSorting85.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10796,18 +27785,232 @@ type seriesZigzagOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: array<string>,
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
-  id?: string,
-  index?: int,
-  legendIndex?: float,
-  mapData?: string,
-  stack?: CommonTypes.stringOrNumber,
-  xAxis?: CommonTypes.stringOrNumber,
-  yAxis?: CommonTypes.stringOrNumber,
+}
+type plotOptions = {
+  abands?: plotAbandsOptions,
+  ad?: plotAdOptions,
+  ao?: plotAoOptions,
+  apo?: plotApoOptions,
+  arcdiagram?: plotArcdiagramOptions,
+  area?: plotAreaOptions,
+  arearange?: plotArearangeOptions,
+  areaspline?: plotAreasplineOptions,
+  areasplinerange?: plotAreasplinerangeOptions,
+  aroon?: plotAroonOptions,
+  aroonoscillator?: plotAroonoscillatorOptions,
+  atr?: plotAtrOptions,
+  bar?: plotBarOptions,
+  bb?: plotBbOptions,
+  bellcurve?: plotBellcurveOptions,
+  boxplot?: plotBoxplotOptions,
+  bubble?: plotBubbleOptions,
+  bullet?: plotBulletOptions,
+  candlestick?: plotCandlestickOptions,
+  cci?: plotCciOptions,
+  chaikin?: plotChaikinOptions,
+  cmf?: plotCmfOptions,
+  cmo?: plotCmoOptions,
+  column?: plotColumnOptions,
+  columnpyramid?: plotColumnpyramidOptions,
+  columnrange?: plotColumnrangeOptions,
+  contour?: plotContourOptions,
+  cylinder?: plotCylinderOptions,
+  dema?: plotDemaOptions,
+  dependencywheel?: plotDependencywheelOptions,
+  disparityindex?: plotDisparityindexOptions,
+  dmi?: plotDmiOptions,
+  dpo?: plotDpoOptions,
+  dumbbell?: plotDumbbellOptions,
+  ema?: plotEmaOptions,
+  errorbar?: plotErrorbarOptions,
+  flags?: plotFlagsOptions,
+  flowmap?: plotFlowmapOptions,
+  funnel?: plotFunnelOptions,
+  funnel3d?: plotFunnel3dOptions,
+  gantt?: plotGanttOptions,
+  gauge?: plotGaugeOptions,
+  geoheatmap?: plotGeoheatmapOptions,
+  heatmap?: plotHeatmapOptions,
+  heikinashi?: plotHeikinashiOptions,
+  histogram?: plotHistogramOptions,
+  hlc?: plotHlcOptions,
+  hollowcandlestick?: plotHollowcandlestickOptions,
+  ikh?: plotIkhOptions,
+  item?: plotItemOptions,
+  keltnerchannels?: plotKeltnerchannelsOptions,
+  klinger?: plotKlingerOptions,
+  line?: plotLineOptions,
+  linearregression?: plotLinearregressionOptions,
+  linearregressionangle?: plotLinearregressionangleOptions,
+  linearregressionintercept?: plotLinearregressioninterceptOptions,
+  linearregressionslope?: plotLinearregressionslopeOptions,
+  lollipop?: plotLollipopOptions,
+  macd?: plotMacdOptions,
+  map?: plotMapOptions,
+  mapbubble?: plotMapbubbleOptions,
+  mapline?: plotMaplineOptions,
+  mappoint?: string,
+  mfi?: plotMfiOptions,
+  momentum?: plotMomentumOptions,
+  natr?: plotNatrOptions,
+  networkgraph?: plotNetworkgraphOptions,
+  obv?: plotObvOptions,
+  ohlc?: plotOhlcOptions,
+  organization?: plotOrganizationOptions,
+  packedbubble?: plotPackedbubbleOptions,
+  pareto?: plotParetoOptions,
+  pc?: plotPcOptions,
+  pictorial?: plotPictorialOptions,
+  pie?: plotPieOptions,
+  pivotpoints?: plotPivotpointsOptions,
+  pointandfigure?: plotPointandfigureOptions,
+  polygon?: plotPolygonOptions,
+  ppo?: plotPpoOptions,
+  priceenvelopes?: plotPriceenvelopesOptions,
+  psar?: plotPsarOptions,
+  pyramid?: plotFunnelOptions,
+  pyramid3d?: plotPyramid3dOptions,
+  renko?: plotRenkoOptions,
+  roc?: plotRocOptions,
+  rsi?: plotRsiOptions,
+  sankey?: plotSankeyOptions,
+  scatter?: plotScatterOptions,
+  scatter3d?: plotScatter3dOptions,
+  series?: plotSeriesOptions,
+  slowstochastic?: plotSlowstochasticOptions,
+  sma?: plotSmaOptions,
+  solidgauge?: plotSolidgaugeOptions,
+  spline?: plotSplineOptions,
+  stochastic?: plotStochasticOptions,
+  streamgraph?: plotStreamgraphOptions,
+  sunburst?: plotSunburstOptions,
+  supertrend?: plotSupertrendOptions,
+  tema?: plotTemaOptions,
+  tiledwebmap?: plotTiledwebmapOptions,
+  tilemap?: plotTilemapOptions,
+  timeline?: plotTimelineOptions,
+  treegraph?: plotTreegraphOptions,
+  treemap?: plotTreemapOptions,
+  trendline?: plotTrendlineOptions,
+  trix?: plotTrixOptions,
+  variablepie?: plotVariablepieOptions,
+  variwide?: plotVariwideOptions,
+  vbp?: plotVbpOptions,
+  vector?: plotVectorOptions,
+  venn?: plotVennOptions,
+  vwap?: plotVwapOptions,
+  waterfall?: plotWaterfallOptions,
+  williamsr?: plotWilliamsrOptions,
+  windbarb?: plotWindbarbOptions,
+  wma?: plotWmaOptions,
+  wordcloud?: plotWordcloudOptions,
+  xrange?: plotXrangeOptions,
+  zigzag?: plotZigzagOptions,
+}
+type rangeSelectorButtonPositionOptions = {
+  align?: alignValue,
+  x?: float,
+  y?: float,
+}
+type rangeSelectorButtonsEventsOptions = {
+  click?: (Dom.event, bool) => unit,
+}
+type rangeSelectorButtonsOptions = {
+  count?: int,
+  dataGrouping?: dataGroupingOptionsObject,
+  events?: rangeSelectorButtonsEventsOptions,
+  offsetMax?: float,
+  offsetMin?: float,
+  preserveDataGrouping?: bool,
+  text?: string,
+  title?: string,
+  @as("type") type_?: rangeSelectorButtonTypeValue,
+}
+type rangeSelectorOptions = {
+  allButtonsEnabled?: bool,
+  buttonPosition?: rangeSelectorButtonPositionOptions,
+  buttons?: array<rangeSelectorButtonsOptions>,
+  buttonSpacing?: float,
+  buttonTheme?: highchartsShapeArgsConfig,
+  dropdown?: optionsDropdownValue,
+  enabled?: bool,
+  floating?: bool,
+  inputBoxBorderColor?: string,
+  inputBoxHeight?: float,
+  inputBoxWidth?: float,
+  inputDateFormat?: string,
+  inputDateParser?: string => float,
+  inputEditDateFormat?: string,
+  inputEnabled?: bool,
+  inputPosition?: rangeSelectorButtonPositionOptions,
+  inputSpacing?: float,
+  inputStyle?: cssObject,
+  labelStyle?: cssObject,
+  selected?: float,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type responsiveRulesConditionOptions = {
+  callback?: option<chart> => bool,
+  maxHeight?: float,
+  maxWidth?: float,
+  minHeight?: float,
+  minWidth?: float,
+}
+type scrollbarOptions = {
+  barBackgroundColor?: ColorType.t,
+  barBorderColor?: ColorType.t,
+  barBorderRadius?: float,
+  barBorderWidth?: float,
+  buttonArrowColor?: ColorType.t,
+  buttonBackgroundColor?: ColorType.t,
+  buttonBorderColor?: ColorType.t,
+  buttonBorderRadius?: float,
+  buttonBorderWidth?: float,
+  buttonsEnabled?: bool,
+  enabled?: bool,
+  height?: float,
+  liveRedraw?: bool,
+  margin?: float,
+  minWidth?: float,
+  rifleColor?: ColorType.t,
+  showFull?: bool,
+  trackBackgroundColor?: ColorType.t,
+  trackBorderColor?: ColorType.t,
+  trackBorderRadius?: float,
+  trackBorderWidth?: float,
   zIndex?: int,
 }
-module SeriesOptionsType = {
+type unknownSeriesOptions<'b> = {
+  className?: string,
+  name?: string,
+  id?: string,
+  zIndex?: int,
+  opacity?: float,
+  events?: seriesEventsOptionsObject,
+  visible?: bool,
+  index?: int,
+  xAxis?: CommonTypes.stringOrNumber,
+  yAxis?: CommonTypes.stringOrNumber,
+  accessibility?: seriesAccessibilityOptionsObject,
+  zoomEnabled?: bool,
+  showInLegend?: bool,
+  mapData?: string,
+  stack?: CommonTypes.stringOrNumber,
+  custom?: Dict.t<'b>,
+  description?: string,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  legendSymbol?: optionsLegendSymbolValue,
+  pointDescriptionFormat?: string,
+  skipKeyboardNavigation?: bool,
+  legendIndex?: float,
+  data?: array<JSON.t>,
+}
+module Series2 = {
   type t
   external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
   external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
@@ -10820,7 +28023,7 @@ module SeriesOptionsType = {
   external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
   external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
   external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
-  external fromSeriesAtrOptions: seriesAtrOptions => t = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
   external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
   external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
   external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
@@ -10829,9 +28032,9 @@ module SeriesOptionsType = {
   external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
   external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
   external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesChaikinOptions: seriesChaikinOptions => t = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
   external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
-  external fromSeriesCmoOptions: seriesCmoOptions => t = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
   external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
   external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
   external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
@@ -10843,7 +28046,7 @@ module SeriesOptionsType = {
   external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
   external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
   external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
-  external fromSeriesEmaOptions: seriesCmoOptions => t = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
   external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
   external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
   external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
@@ -10861,13 +28064,10 @@ module SeriesOptionsType = {
   external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
   external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
   external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
-  external fromSeriesLinearregressionangleOptions: seriesLinearregressionangleOptions => t =
-    "%identity"
-  external fromSeriesLinearregressioninterceptOptions: seriesLinearregressioninterceptOptions => t =
-    "%identity"
-  external fromSeriesLinearregressionOptions: seriesLinearregressionOptions => t = "%identity"
-  external fromSeriesLinearregressionslopeOptions: seriesLinearregressioninterceptOptions => t =
-    "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
   external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
   external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
   external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
@@ -10875,29 +28075,29 @@ module SeriesOptionsType = {
   external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
   external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
   external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
-  external fromSeriesMfiOptions: seriesMfiOptions => t = "%identity"
-  external fromSeriesMomentumOptions: seriesCmoOptions => t = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
   external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
   external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
-  external fromSeriesObvOptions: seriesObvOptions => t = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
   external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
   external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
   external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
   external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
-  external fromSeriesPcOptions: seriesPcOptions => t = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
   external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
   external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
-  external fromSeriesPivotpointsOptions: seriesPivotpointsOptions => t = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
   external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
   external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
   external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
   external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
-  external fromSeriesPsarOptions: seriesPsarOptions => t = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
   external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
   external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
   external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
-  external fromSeriesRocOptions: seriesRocOptions => t = "%identity"
-  external fromSeriesRsiOptions: seriesRsiOptions => t = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
   external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
   external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
   external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
@@ -10906,235 +28106,524 @@ module SeriesOptionsType = {
   external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
   external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
   external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
-  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions => t = "%identity"
+  external fromSeriesStreamgraphOptions: seriesAreasplineOptions => t = "%identity"
   external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
   external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
-  external fromSeriesTemaOptions: seriesTemaOptions => t = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
   external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
   external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
   external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
   external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
   external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
-  external fromSeriesTrendlineOptions: seriesRocOptions => t = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
   external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
   external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
   external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
   external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
   external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
   external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
-  external fromSeriesVwapOptions: seriesVwapOptions => t = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
   external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
-  external fromSeriesWilliamsrOptions: seriesWilliamsrOptions => t = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
   external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
-  external fromSeriesWmaOptions: seriesAtrOptions => t = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
   external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
   external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
-  external fromSeriesZigzagOptions: seriesZigzagOptions => t = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
+  external fromUnknownSeriesOptions: unknownSeriesOptions<'b> => t = "%identity"
 }
-type svgAttributes = {
-  d?: CommonTypes.stringOrValueArray,
-  dx?: float,
-  dy?: float,
-  fill?: ColorType.t,
-  inverted?: bool,
-  matrix?: array<string>,
+type sonificationEventsOptions = {
+  afterUpdate?: string,
+  beforePlay?: string,
+  beforeUpdate?: string,
+  onBoundaryHit?: string,
+  onEnd?: string,
+  onPlay?: string,
+  onSeriesEnd?: string,
+  onSeriesStart?: string,
+  onStop?: string,
+}
+type sonificationOptions = {
+  afterSeriesWait?: float,
+  defaultInstrumentOptions?: seriesSonificationInstrumentOptions,
+  defaultSpeechOptions?: seriesSonificationSpeechOptions,
+  duration?: float,
+  enabled?: bool,
+  events?: sonificationEventsOptions,
+  globalContextTracks?: array<seriesSonificationContextTracksOptions>,
+  globalTracks?: array<seriesSonificationInstrumentOptions>,
+  masterVolume?: float,
+  order?: optionsOrderValue,
+  pointGrouping?: seriesSonificationPointGroupingOptions,
+  showCrosshair?: bool,
+  showTooltip?: bool,
+  updateInterval?: float,
+}
+type stockToolsGuiDefinitionsAdvancedFibonacciOptions = {
+  symbol?: string,
+}
+type stockToolsGuiDefinitionsAdvancedOptions = {
+  fibonacci?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  fibonacciTimeZones?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  items?: array<string>,
+  parallelChannel?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  pitchfork?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  timeCycles?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsCrookedLinesOptions = {
+  crooked3?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  crooked5?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  elliott3?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  elliott5?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  items?: array<string>,
+}
+type stockToolsGuiDefinitionsFlagsOptions = {
+  flagCirclepin?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  flagDiamondpin?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  flagSimplepin?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  flagSquarepin?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  items?: array<string>,
+}
+type stockToolsGuiDefinitionsLinesOptions = {
+  arrowInfinityLine?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  arrowRay?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  arrowSegment?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  horizontalLine?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  items?: array<string>,
+  line?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  ray?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  segment?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  verticalLine?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsMeasureOptions = {
+  items?: array<string>,
+  measureX?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  measureXY?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  measureY?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsSeparatorOptions = {
+  elementType?: string,
+  symbol?: string,
+}
+type stockToolsGuiDefinitionsSimpleShapesOptions = {
+  circle?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  ellipse?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  items?: array<string>,
+  label?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  rectangle?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsTypeChangeOptions = {
+  items?: array<string>,
+  typeCandlestick?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeHeikinAshi?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeHLC?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeHollowCandlestick?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeLine?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeOHLC?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsVerticalLabelsOptions = {
+  items?: array<string>,
+  verticalArrow?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  verticalCounter?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  verticalLabel?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsZoomChangeOptions = {
+  items?: array<string>,
+  zoomX?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  zoomXY?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  zoomY?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+}
+type stockToolsGuiDefinitionsOptions = {
+  advanced?: stockToolsGuiDefinitionsAdvancedOptions,
+  crookedLines?: stockToolsGuiDefinitionsCrookedLinesOptions,
+  currentPriceIndicator?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  flags?: stockToolsGuiDefinitionsFlagsOptions,
+  fullScreen?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  indicators?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  lines?: stockToolsGuiDefinitionsLinesOptions,
+  measure?: stockToolsGuiDefinitionsMeasureOptions,
+  saveChart?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  separator?: stockToolsGuiDefinitionsSeparatorOptions,
+  simpleShapes?: stockToolsGuiDefinitionsSimpleShapesOptions,
+  toggleAnnotations?: stockToolsGuiDefinitionsAdvancedFibonacciOptions,
+  typeChange?: stockToolsGuiDefinitionsTypeChangeOptions,
+  verticalLabels?: stockToolsGuiDefinitionsVerticalLabelsOptions,
+  zoomChange?: stockToolsGuiDefinitionsZoomChangeOptions,
+}
+type stockToolsGuiOptions = {
+  buttons?: array<string>,
+  className?: string,
+  definitions?: stockToolsGuiDefinitionsOptions,
+  enabled?: bool,
+  toolbarClassName?: string,
+  visible?: bool,
+}
+type stockToolsOptions = {
+  gui?: stockToolsGuiOptions,
+}
+module Style25 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromSubtitleStyleOptions: captionStyleOptions => t = "%identity"
+}
+type subtitleOptions = {
+  align?: alignValue,
+  floating?: bool,
+  style?: Style25.t,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type timeOptions = {
+  @as("Date") date?: string,
+  timezone?: string,
+  timezoneOffset?: float,
+}
+module Style26 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromTitleStyleOptions: globalButtonThemeStatesSelectStyleOptions => t = "%identity"
+}
+type titleOptions = {
+  align?: alignValue,
+  floating?: bool,
+  margin?: float,
+  minScale?: float,
+  style?: Style26.t,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module XAxis2 = {
+  type t
+  external fromXAxisOptions: xAxisOptions => t = "%identity"
+  external fromXAxisOptionss: array<xAxisOptions> => t = "%identity"
+}
+module YAxis2 = {
+  type t
+  external fromYAxisOptions: yAxisOptions => t = "%identity"
+  external fromYAxisOptionss: array<yAxisOptions> => t = "%identity"
+}
+module Style27 = {
+  type t
+  external fromCSSObject: cssObject => t = "%identity"
+  external fromZAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
+}
+type zAxisLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: axisLabelsFormatterContextObject => string,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
   rotation?: float,
-  rotationOriginX?: float,
-  rotationOriginY?: float,
-  scaleX?: float,
-  scaleY?: float,
-  stroke?: ColorType.t,
-  style?: string,
-  translateX?: float,
-  translateY?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: Style27.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
   zIndex?: int,
 }
-type rec chartIsInsideOptionsObject = {
-  axis?: axis,
-  ignoreX?: bool,
-  ignoreY?: bool,
-  inverted?: bool,
-  paneCoordinates?: bool,
-  series?: series,
-  visiblePlotOnly?: bool,
+type zAxisPlotBandsEventsOptions = {
+  click?: (option<string>, option<string>) => string,
+  mousemove?: (option<string>, option<string>) => string,
+  mouseout?: (option<string>, option<string>) => string,
+  mouseover?: (option<string>, option<string>) => string,
 }
-and tooltip = {
-  chart: chart,
-  container?: Dom.element,
-  options: tooltipOptions,
-  outside: bool,
-  renderer?: svgRenderer,
-  shared?: bool,
-  split?: bool,
-  defaultFormatter: tooltip => string,
-  destroy: unit => unit,
-  getClassName: unit => string,
-  getLabel: unit => string,
-  getPosition: (string, string, string) => string,
-  hide: option<string> => unit,
-  refresh: (string, option<string>) => unit,
-  update: string => unit,
-}
-and legend = {
-  allItems: array<string>,
-  box: Dom.element,
-  chart: chart,
-  group: Dom.element,
-  options: legendOptions,
-  title: Dom.element,
-  setText: string => unit,
-  update: (string, option<string>) => unit,
-}
-and point = {
-  category: CommonTypes.stringOrNumber,
-  color?: string,
-  colorIndex?: float,
-  graphic?: Dom.element,
-  graphics?: array<string>,
-  index: int,
-  key: CommonTypes.stringOrNumber,
-  name: string,
-  options: pointOptionsObject,
-  percentage?: float,
-  plotX?: float,
-  plotY?: float,
-  points?: array<point>,
-  selected: bool,
-  series: series,
-  shapeArgs?: highchartsShapeArgsConfig,
-  sliced?: bool,
-  tooltipPos?: array<string>,
-  total?: float,
-  visible: bool,
-  x: float,
+type zAxisPlotBandsLabelOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  inside?: bool,
+  rotation?: float,
+  style?: cssObject,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
   y?: float,
-  getClassName: unit => string,
-  getZone: unit => string,
-  haloPath: string => string,
-  onMouseOut: unit => unit,
-  onMouseOver: option<string> => unit,
-  optionsToObject: string => string,
-  pos: (string, string) => string,
-  remove: (option<string>, option<string>) => unit,
-  select: (option<string>, option<string>) => unit,
-  setNestedProperty: (string, string, string) => string,
-  setState: (option<string>, option<string>) => unit,
-  setVisible: (option<string>, option<string>) => unit,
-  tooltipFormatter: string => string,
-  update: (string, option<string>, option<string>) => unit,
 }
-and chart = {
-  axes: array<axis>,
-  chartHeight: float,
-  chartWidth: float,
-  container: Dom.element,
-  credits: Dom.element,
-  hoverPoint: point,
-  hoverPoints: array<point>,
-  hoverSeries: series,
-  index: int,
-  inverted?: bool,
-  legend: legend,
-  numberFormatter: (float, float, option<string>, option<string>, option<chart>) => string,
-  options: options,
-  plotHeight: float,
-  plotLeft: float,
-  plotTop: float,
-  plotWidth: float,
-  pointer: pointer,
-  renderer: svgRenderer,
-  series: array<series>,
-  styledMode: bool,
-  subtitle: subtitleObject,
-  time: time,
-  title: subtitleObject,
-  tooltip: tooltip,
-  userOptions: options,
-  xAxis: array<axis>,
-  yAxis: array<axis>,
-  addAxis: (string, option<bool>, option<bool>, option<string>) => axis,
-  addColorAxis: (colorAxisOptions, option<bool>, option<string>) => axis,
-  addCredits: option<creditsOptions> => unit,
-  addSeries: (string, option<bool>, option<string>) => series,
-  destroy: unit => unit,
-  get: string => string,
-  getOptions: unit => unit,
-  getSelectedPoints: unit => array<string>,
-  getSelectedSeries: unit => array<string>,
-  hideLoading: unit => unit,
-  init: (options, option<string>) => unit,
-  isInsidePlot: (float, float, option<chartIsInsideOptionsObject>) => bool,
-  redraw: option<string> => unit,
-  reflow: option<Dom.event> => unit,
-  setCaption: captionOptions => unit,
-  setClassName: option<string> => unit,
-  setSize: (option<float>, option<float>, option<string>) => unit,
-  setSubtitle: subtitleOptions => unit,
-  setTitle: (option<titleOptions>, option<subtitleOptions>, option<bool>) => unit,
-  showLoading: option<string> => unit,
-  showResetZoom: unit => unit,
-  update: (options, option<bool>, option<bool>, option<string>) => unit,
-  zoomOut: unit => unit,
-}
-and series = {
-  area?: Dom.element,
-  center: array<float>,
-  chart: chart,
+type zAxisPlotBandsOptions = {
+  acrossPanes?: bool,
+  borderColor?: string,
+  borderRadius?: CommonTypes.stringOrNumber,
+  borderWidth?: float,
+  className?: string,
   color?: ColorType.t,
-  data: array<point>,
-  dataMax?: float,
-  dataMin?: float,
-  index: int,
-  legendItem?: legendItemObject,
-  linkedParent: series,
-  linkedSeries: array<series>,
-  name: string,
-  options: SeriesOptionsType.t,
-  points: array<point>,
-  selected: bool,
-  @as("type") type_: string,
-  userOptions: SeriesOptionsType.t,
-  visible: bool,
-  xAxis: axis,
-  yAxis: axis,
-  addPoint: (string, option<bool>, option<bool>, option<string>, option<bool>) => unit,
-  animate: option<bool> => unit,
-  drawPoints: unit => unit,
-  getName: unit => string,
-  getPlotBox: unit => unit,
-  getValidPoints: (option<array<point>>, option<bool>, option<bool>) => array<point>,
-  hide: unit => unit,
-  is: string => bool,
-  markerAttribs: (point, option<string>) => svgAttributes,
-  onMouseOut: unit => unit,
-  onMouseOver: unit => unit,
-  remove: (option<bool>, option<string>, option<bool>) => unit,
-  removePoint: (float, option<bool>, option<string>) => unit,
-  render: unit => unit,
-  searchPoint: (Dom.event, option<bool>) => point,
-  select: option<bool> => unit,
-  setData: (array<string>, option<bool>, option<string>, option<bool>) => unit,
-  setState: (option<setState>, option<bool>) => unit,
-  setVisible: (option<bool>, option<bool>) => unit,
-  show: unit => unit,
-  translate: unit => unit,
-  update: (SeriesOptionsType.t, option<bool>) => unit,
+  events?: zAxisPlotBandsEventsOptions,
+  from?: CommonTypes.stringOrNumber,
+  id?: string,
+  label?: zAxisPlotBandsLabelOptions,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+  zIndex?: int,
 }
-module ChartV2LegendItem = {
-  type t
-  external fromSeries: series => t = "%identity"
-  external fromPoint: point => t = "%identity"
+type zAxisPlotLinesLabelOptions = {
+  align?: alignValue,
+  formatter?: option<string> => string,
+  rotation?: float,
+  style?: cssObject,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
 }
-type chartsV2RenderItemConfig = {
-  item: ChartV2LegendItem.t,
-  name: string,
-  visible: bool,
-  color: string,
+type zAxisPlotLinesLabelsOptions = {
+  clip?: bool,
+}
+type zAxisPlotLinesOptions = {
+  acrossPanes?: bool,
+  className?: string,
+  color?: string,
+  dashStyle?: dashStyleValue,
+  events?: zAxisPlotBandsEventsOptions,
+  id?: string,
+  label?: zAxisPlotLinesLabelOptions,
+  labels?: zAxisPlotLinesLabelsOptions,
   value?: CommonTypes.stringOrNumber,
-  onClick: unit => unit,
+  width?: float,
+  zIndex?: int,
 }
-type chartV2FullscreenControls = {
-  isFullscreen: bool,
-  enterFullscreen: unit => unit,
-  exitFullscreen: unit => unit,
+type zAxisOptions = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  alternateGridColor?: ColorType.t,
+  angle?: float,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  crossing?: float,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  endOnTick?: bool,
+  events?: chartParallelAxesEventsOptions,
+  floor?: float,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineInterpolation?: optionsGridLineInterpolationValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  id?: string,
+  labels?: zAxisLabelsOptions,
+  linkedTo?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  min?: CommonTypes.stringOrNumber,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minRange?: float,
+  minTickInterval?: float,
+  offset?: float,
+  opposite?: bool,
+  pane?: float,
+  panningEnabled?: bool,
+  plotBands?: array<zAxisPlotBandsOptions>,
+  plotLines?: array<zAxisPlotLinesOptions>,
+  reversed?: bool,
+  reversedStacks?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: zAxisTitleOptions,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, array<float>)>,
+  visible?: bool,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+module ZAxis = {
+  type t
+  external fromZAxisOptions: zAxisOptions => t = "%identity"
+  external fromZAxisOptionss: array<zAxisOptions> => t = "%identity"
+}
+type rec responsiveRulesOptions<'a> = {
+  chartOptions?: options<'a>,
+  condition?: responsiveRulesConditionOptions,
+}
+and responsiveOptions<'a> = {
+  rules?: array<responsiveRulesOptions<'a>>,
+}
+and exportingOptions<'a> = {
+  accessibility?: exportingAccessibilityOptions,
+  allowHTML?: bool,
+  allowTableSorting?: bool,
+  applyStyleSheets?: bool,
+  buttons?: string,
+  chartOptions?: options<'a>,
+  csv?: exportingCsvOptions,
+  enabled?: bool,
+  error?: (exportingOptions<'a>, JsError.t) => unit,
+  fallbackToExportServer?: bool,
+  fetchOptions?: string,
+  filename?: string,
+  libURL?: string,
+  local?: bool,
+  menuItemDefinitions?: string,
+  pdfFont?: exportingPdfFontOptions,
+  printMaxWidth?: float,
+  scale?: float,
+  showExportInProgress?: bool,
+  showTable?: bool,
+  sourceHeight?: float,
+  sourceWidth?: float,
+  tableCaption?: CommonTypes.boolOrString,
+  @as("type") type_?: exportingMimeTypeValue,
+  url?: string,
+  useMultiLevelHeaders?: bool,
+  useRowspanHeaders?: bool,
+  width?: float,
+}
+and dataOptions<'a> = {
+  beforeParse?: string => string,
+  columns?: array<array<CommonTypes.stringOrNumber>>,
+  columnsURL?: string,
+  columnTypes?: optionsColumnTypesValue,
+  complete?: options<'a> => unit,
+  csv?: string,
+  csvURL?: string,
+  dataRefreshRate?: float,
+  dateFormat?: optionsDateFormatValue,
+  decimalPoint?: string,
+  enablePolling?: bool,
+  endColumn?: float,
+  endRow?: float,
+  firstRowAsNames?: bool,
+  googleAPIKey?: string,
+  googleSpreadsheetKey?: string,
+  googleSpreadsheetRange?: string,
+  itemDelimiter?: string,
+  lineDelimiter?: string,
+  parsed?: array<array<string>> => bool,
+  parseDate?: string => float,
+  rows?: array<array<CommonTypes.stringOrNumber>>,
+  rowsURL?: string,
+  seriesMapping?: array<Dict.t<float>>,
+  startColumn?: float,
+  startRow?: float,
+  switchRowsAndColumns?: bool,
+  table?: string,
+}
+and options<'a> = {
+  accessibility?: accessibilityOptions,
+  annotations?: array<annotationsOptions<'a>>,
+  boost?: boostOptions,
+  caption?: captionOptions,
+  chart?: chartOptions,
+  colorAxis?: ColorAxis.t,
+  colors?: array<ColorType.t>,
+  connectors?: connectorsOptions,
+  credits?: creditsOptions,
+  data?: dataOptions<'a>,
+  defs?: string,
+  drilldown?: drilldownOptions,
+  exporting?: exportingOptions<'a>,
+  global?: globalOptions,
+  lang?: langOptions,
+  legend?: legendOptions,
+  loading?: loadingOptions,
+  mapNavigation?: mapNavigationOptions,
+  mapView?: mapViewOptions,
+  navigation?: navigationOptions,
+  navigator?: navigatorOptions,
+  noData?: noDataOptions,
+  pane?: Pane.t,
+  plotOptions?: plotOptions,
+  rangeSelector?: rangeSelectorOptions,
+  responsive?: responsiveOptions<'a>,
+  scrollbar?: scrollbarOptions,
+  series?: array<Series2.t>,
+  sonification?: sonificationOptions,
+  stockTools?: stockToolsOptions,
+  subtitle?: subtitleOptions,
+  time?: timeOptions,
+  title?: titleOptions,
+  tooltip?: tooltipOptions,
+  xAxis?: XAxis2.t,
+  yAxis?: YAxis2.t,
+  zAxis?: ZAxis.t,
+}
+type mapViewInsetsOptions = {
+  borderColor?: ColorType.t,
+  borderPath?: string,
+  borderWidth?: float,
+  field?: string,
+  geoBounds?: string,
+  id?: string,
+  padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  projection?: string,
+  relativeTo?: mapViewInsetOptionsRelativeToValue,
+  units?: optionsUnitsValue,
+}
+type plotTreemapLevelsDataLabelsOptions = {
+  align?: string,
+  alignTo?: string,
+  allowOverlap?: string,
+  animation?: string,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderRadius?: string,
+  borderWidth?: string,
+  className?: string,
+  color?: string,
+  crop?: string,
+  defer?: string,
+  enabled?: string,
+  filter?: string,
+  format?: string,
+  formatter?: string,
+  headers?: string,
+  inside?: string,
+  labelrank?: string,
+  nullFormat?: string,
+  nullFormatter?: string,
+  overflow?: string,
+  padding?: string,
+  position?: string,
+  rotation?: string,
+  shadow?: string,
+  shape?: string,
+  style?: string,
+  textPath?: string,
+  useHTML?: string,
+  verticalAlign?: string,
+  x?: string,
+  y?: string,
 }

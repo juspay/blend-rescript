@@ -3,10 +3,10 @@ type textInputSize =
   | @as("md") Md
   | @as("lg") Lg
 type cursor =
-  | @as("text") Text
   | @as("default") Default
   | @as("not-allowed") NotAllowed
   | @as("pointer") Pointer
+  | @as("text") Text
 type textInputGroupPosition =
   | @as("center") Center
   | @as("left") Left
@@ -28,9 +28,9 @@ type resize =
   | @as("none") None
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
-  | @as("block") Block
   | @as("inline") Inline
   | @as("both") Both
+  | @as("block") Block
 type inputsPlaceholderConfig = {
   color: string,
   fontWeight: string,

@@ -67,11 +67,11 @@ type multiSelectSkeletonProps = {
 type multiSelectColorConfig = {
   disabled: string,
   default: string,
-  hover: string,
-  active: string,
-  focus: string,
-  focusVisible: string,
   selected: string,
+  hover: string,
+  focus: string,
+  active: string,
+  focusVisible: string,
 }
 type multiSelectLabelConfig = {
   fontSize: string,
@@ -110,10 +110,10 @@ type multiSelectPaddingConfig = {
 }
 type multiSelectContainerConfig2 = {
   hover: string,
-  @as("open") open_: string,
   focus: string,
-  closed: string,
+  @as("open") open_: string,
   error: string,
+  closed: string,
 }
 type multiSelectBackgroundColorConfig = {
   container: multiSelectContainerConfig2,

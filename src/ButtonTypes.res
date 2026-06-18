@@ -11,15 +11,29 @@ type buttonSubType =
   | @as("default") Default
   | @as("iconOnly") IconOnly
   | @as("inline") Inline
-type buttonGroupPosition =
-  | @as("center") Center
-  | @as("left") Left
-  | @as("right") Right
 type buttonState =
   | @as("default") Default
   | @as("hover") Hover
   | @as("active") Active
   | @as("disabled") Disabled
+type buttonProps = {
+  buttonType?: buttonType,
+  size?: buttonSize,
+  subType?: buttonSubType,
+  text?: string,
+  leadingIcon?: React.element,
+  trailingIcon?: React.element,
+  disabled?: bool,
+  onClick?: option<ReactEvent.Mouse.t> => unit,
+  loading?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  buttonGroupPosition?: ButtonV2Types.buttonGroupPosition,
+  fullWidth?: bool,
+  width?: CommonTypes.stringOrNumber,
+  justifyContent?: string,
+  state?: buttonState,
+}
 type buttonSlotMaxHeightConfig = {
   sm: string,
   md: string,
@@ -103,22 +117,4 @@ type buttonTokensType = {
 type responsiveButtonTokens = {
   sm: buttonTokensType,
   lg: buttonTokensType,
-}
-type buttonProps = {
-  buttonType?: buttonType,
-  size?: buttonSize,
-  subType?: buttonSubType,
-  text?: string,
-  leadingIcon?: React.element,
-  trailingIcon?: React.element,
-  disabled?: bool,
-  onClick?: option<ReactEvent.Mouse.t> => unit,
-  loading?: bool,
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-  buttonGroupPosition?: buttonGroupPosition,
-  fullWidth?: bool,
-  width?: CommonTypes.stringOrNumber,
-  justifyContent?: string,
-  state?: buttonState,
 }

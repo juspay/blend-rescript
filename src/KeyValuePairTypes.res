@@ -5,7 +5,7 @@ type keyValuePairSize =
 type keyValuePairStateType =
   | @as(0) Vertical
   | @as(1) Horizontal
-type textOverflowMode =
+type textOverflowMode2 =
   | @as("wrap") Wrap
   | @as("truncate") Truncate
   | @as("wrap-clamp") WrapClamp

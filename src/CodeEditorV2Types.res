@@ -1,6 +1,30 @@
-type monacoTheme =
+type codeEditorV2Variant =
+  | @as("default") Default
+  | @as("no-gutter") NoGutter
+  | @as("diff") Diff
+type supportedLanguage =
+  | @as("html") Html
+  | @as("javascript") Javascript
+  | @as("typescript") Typescript
+  | @as("jsx") Jsx
+  | @as("tsx") Tsx
+  | @as("json") Json
+  | @as("css") Css
+  | @as("markdown") Markdown
+  | @as("yaml") Yaml
+  | @as("python") Python
+  | @as("rust") Rust
+  | @as("haskell") Haskell
+type theme =
   | @as("light") Light
   | @as("dark") Dark
+type codeEditorV2HeaderConfig = {
+  showHeader?: bool,
+  title?: string,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  showCopyButton?: bool,
+}
 type codeEditorV2IconConfig = {
   width: string,
 }
@@ -10,7 +34,7 @@ type codeEditorV2TextConfig = {
   lineHeight: string,
   color: string,
 }
-type codeEditorV2HeaderConfig = {
+type codeEditorV2HeaderConfig2 = {
   backgroundColor: string,
   borderBottom: string,
   paddingTop: string,
@@ -74,8 +98,8 @@ type codeEditorV2Tokens = {
   border: string,
   borderRadius: string,
   boxShadow: string,
-  theme: monacoTheme,
-  header: codeEditorV2HeaderConfig,
+  theme: theme,
+  header: codeEditorV2HeaderConfig2,
   body: codeEditorV2BodyConfig,
 }
 type responsiveCodeEditorV2Tokens = {

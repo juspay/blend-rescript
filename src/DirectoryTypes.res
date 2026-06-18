@@ -36,6 +36,12 @@ type directoryPaddingConfig2 = {
   x: string,
   y: string,
 }
+type directoryIconOnlyPaddingConfig = {
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+}
 type directoryBackgroundColorConfig = {
   default: string,
   hover: string,
@@ -50,6 +56,7 @@ type directoryChevronConfig2 = {
 }
 type directoryItemConfig = {
   padding: directoryPaddingConfig2,
+  iconOnlyPadding: directoryIconOnlyPaddingConfig,
   gap: string,
   borderRadius: string,
   fontWeight: string,
