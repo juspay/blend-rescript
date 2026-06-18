@@ -14,12 +14,12 @@ type operator =
   | @as("endsWith") EndsWith
   | @as("startsWith") StartsWith
   | @as("contains") Contains
+  | @as("range") Range
   | @as("equals") Equals
   | @as("gt") Gt
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
-  | @as("range") Range
 type columnType =
   | @as("text") Text
   | @as("number") Number
@@ -100,6 +100,10 @@ type dataTableRenderExpandedRowConfig<'a> = {
   index: int,
   isExpanded: bool,
   toggleExpansion: unit => unit,
+}
+type rowSelectionConfig<'a> = {
+  isDisabled?: ('a, float) => bool,
+  disabledText?: ('a, float) => string,
 }
 type bulkActionsConfig = {
   showSelectAll?: bool,

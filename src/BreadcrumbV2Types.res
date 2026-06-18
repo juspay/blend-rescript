@@ -1,3 +1,11 @@
+type breadcrumbV2ItemType = {
+  id?: CommonTypes.stringOrNumber,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  label: string,
+  href: string,
+  onClick?: ReactEvent.Mouse.t => unit,
+}
 type breadcrumbV2ColorConfig = {
   default: string,
   hover: string,

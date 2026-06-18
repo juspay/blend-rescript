@@ -1,30 +1,21 @@
-type side =
-  | @as("left") Left
-  | @as("right") Right
-  | @as("bottom") Bottom
-  | @as("top") Top
-type align =
-  | @as("center") Center
-  | @as("end") End
-  | @as("start") Start
 type popoverSize =
   | @as("small") Small
   | @as("medium") Medium
 type shadow =
-  | @as("sm") Sm
-  | @as("lg") Lg
   | @as("xs") Xs
+  | @as("sm") Sm
   | @as("md") Md
+  | @as("lg") Lg
   | @as("xl") Xl
   | @as("2xl") V2xl
   | @as("full") Full
 type popoverActionType = {
   disabled?: bool,
   onClick?: option<ReactEvent.Mouse.t> => unit,
-  justifyContent?: string,
   width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
   text?: string,
+  justifyContent?: string,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,

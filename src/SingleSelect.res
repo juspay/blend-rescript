@@ -41,7 +41,7 @@ type props = {
   minTriggerWidth?: float,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonV2Types.buttonGroupPosition,
   allowDeselect?: bool,
 }
 

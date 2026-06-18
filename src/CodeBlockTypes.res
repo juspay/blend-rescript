@@ -6,7 +6,7 @@ type diffLineType =
   | @as("added") Added
   | @as("removed") Removed
   | @as("unchanged") Unchanged
-type supportedLanguage =
+type supportedLanguage2 =
   | @as("html") Html
   | @as("javascript") Javascript
   | @as("typescript") Typescript

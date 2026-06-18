@@ -2,20 +2,6 @@ type sidebarStateChangeType =
   | @as("expanded") Expanded
   | @as("collapsed") Collapsed
   | @as("intermediate") Intermediate
-type leftPanelItem = {
-  label: string,
-  icon: React.element,
-  value?: string,
-  showInPanel?: bool,
-}
-type leftPanelInfo = {
-  items: array<leftPanelItem>,
-  selected: string,
-  onSelect: string => unit,
-  tenantSlot1?: React.element,
-  tenantSlot2?: React.element,
-  tenantFooter?: React.element,
-}
 type sidebarMaxWidthConfig = {
   withLeftPanel: string,
   withoutLeftPanel: string,
@@ -137,4 +123,18 @@ type mobileNavigationTokenType = {
 type responsiveMobileNavigationTokens = {
   sm: mobileNavigationTokenType,
   lg: mobileNavigationTokenType,
+}
+type leftPanelItem = {
+  label: string,
+  icon: React.element,
+  value?: string,
+  showInPanel?: bool,
+}
+type leftPanelInfo = {
+  items: array<leftPanelItem>,
+  selected: string,
+  onSelect: string => unit,
+  tenantSlot1?: React.element,
+  tenantSlot2?: React.element,
+  tenantFooter?: React.element,
 }

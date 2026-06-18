@@ -1,0 +1,30 @@
+type props = {
+  ...HtmlAttrs.htmlAttributesOmitAutoFocusChildrenClassNameOnBlurOnChangeOnFocusStyle,
+  value: string,
+  onChange?: string => unit,
+  variant?: CodeEditorV2Types.codeEditorV2Variant,
+  showLineNumbers?: bool,
+  header?: CodeEditorV2Types.codeEditorV2HeaderConfig,
+  language?: CodeEditorV2Types.supportedLanguage,
+  placeholder?: string,
+  readOnly?: bool,
+  disabled?: bool,
+  onBlur?: unit => unit,
+  onFocus?: unit => unit,
+  autoFocus?: bool,
+  diff?: bool,
+  originalValue?: string,
+  renderSideBySide?: bool,
+  isDiffUnchangedCollapsed?: bool,
+  diffContextLines?: float,
+  diffExpandChunk?: float,
+  width?: string,
+  maxWidth?: string,
+  minWidth?: string,
+  height?: string,
+  maxHeight?: string,
+  minHeight?: string,
+}
+
+@module("@juspay/blend-design-system")
+external make: React.component<props> = "CodeEditorV2"

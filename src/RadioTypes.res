@@ -14,23 +14,23 @@ type radioBackgroundColorConfig = {
   hover: string,
   error: string,
 }
-type radioActiveConfig = {
+type radioInactiveConfig = {
   backgroundColor: radioBackgroundColorConfig,
   borderColor: radioBackgroundColorConfig,
 }
 type radioIndicatorConfig = {
-  active: radioActiveConfig,
-  inactive: radioActiveConfig,
+  inactive: radioInactiveConfig,
+  active: radioInactiveConfig,
 }
 type radioBackgroundColorConfig2 = {
   disabled: string,
   default: string,
 }
-type radioActiveConfig2 = {
+type radioActiveConfig = {
   backgroundColor: radioBackgroundColorConfig2,
 }
 type radioActiveIndicatorConfig = {
-  active: radioActiveConfig2,
+  active: radioActiveConfig,
 }
 type radioFontSizeConfig = {
   sm: string,
@@ -51,15 +51,15 @@ type radioContentConfig = {
   label: radioLabelConfig,
   sublabel: radioSublabelConfig,
 }
-type radioActiveConfig3 = {
+type radioInactiveConfig2 = {
   disabled: float,
   default: float,
   hover: float,
   error: float,
 }
 type radioBorderWidthConfig = {
-  active: radioActiveConfig3,
-  inactive: radioActiveConfig3,
+  inactive: radioInactiveConfig2,
+  active: radioInactiveConfig2,
 }
 type radioRequiredConfig = {
   color: string,

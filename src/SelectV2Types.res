@@ -1,0 +1,80 @@
+type selectV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type selectV2Variant =
+  | @as("container") Container
+  | @as("no-container") NoContainer
+type selectV2Alignment =
+  | @as("start") Start
+  | @as("center") Center
+  | @as("end") End
+type selectV2Side =
+  | @as("top") Top
+  | @as("left") Left
+  | @as("right") Right
+  | @as("bottom") Bottom
+type selectedPosition =
+  | @as("none") None
+  | @as("middle") Middle
+  | @as("first") First
+  | @as("last") Last
+  | @as("only") Only
+type mode =
+  | @as("single") Single
+  | @as("multi") Multi
+type selectV2TooltipProps = {
+  side?: TooltipTypes.tooltipSide,
+  align?: TooltipTypes.tooltipAlign,
+  size?: TooltipTypes.tooltipSize,
+  showArrow?: bool,
+  delayDuration?: float,
+  offset?: float,
+}
+type selectV2SkeletonProps = {
+  count?: int,
+  show?: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+}
+type rec selectV2ItemType = {
+  label: string,
+  value: string,
+  checked?: bool,
+  subLabel?: string,
+  slot1?: React.element,
+  slot2?: React.element,
+  slot3?: React.element,
+  slot4?: React.element,
+  disabled?: bool,
+  onClick?: unit => unit,
+  subMenu?: array<selectV2ItemType>,
+  tooltip?: React.element,
+  tooltipProps?: selectV2TooltipProps,
+  disableTruncation?: bool,
+}
+type selectV2ItemStateToken = {
+  default: string,
+  hover: string,
+  active: string,
+  focus: string,
+  focusVisible: string,
+  disabled: string,
+  selected: string,
+}
+type selectV2OptionConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: selectV2ItemStateToken,
+}
+type selectV2MenuItemTokensBase = {
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  margin: string,
+  borderRadius: string,
+  gap: string,
+  backgroundColor: selectV2ItemStateToken,
+  option: selectV2OptionConfig,
+  description: selectV2OptionConfig,
+}

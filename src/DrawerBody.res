@@ -5,5 +5,5 @@ external make: (
   ~overflowY: DrawerTypes.overflowY=?,
   ~noPadding: bool=?,
   ~hasFooter: bool=?,
-  ~direction: PopoverTypes.side=?,
+  ~direction: DrawerV2Types.direction=?,
 ) => React.element = "DrawerBody"

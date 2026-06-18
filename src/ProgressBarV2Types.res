@@ -1,3 +1,13 @@
+type progressBarV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type progressBarV2Variant =
+  | @as("linear") Linear
+  | @as("circular") Circular
+type progressBarV2Appearance =
+  | @as("solid") Solid
+  | @as("segmented") Segmented
 type progressBarV2HeightConfig = {
   sm: string,
   md: string,

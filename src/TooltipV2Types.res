@@ -1,3 +1,19 @@
+type tooltipV2Side =
+  | @as("top") Top
+  | @as("right") Right
+  | @as("left") Left
+  | @as("bottom") Bottom
+type tooltipV2Align =
+  | @as("start") Start
+  | @as("end") End
+  | @as("center") Center
+type tooltipV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type tooltipV2SlotDirection =
+  | @as("left") Left
+  | @as("right") Right
 type tooltipV2BorderRadiusConfig = {
   sm: string,
   md: string,

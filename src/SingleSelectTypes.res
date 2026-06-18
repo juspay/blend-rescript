@@ -90,17 +90,17 @@ type singleSelectProps = {
   minTriggerWidth?: float,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonV2Types.buttonGroupPosition,
   allowDeselect?: bool,
 }
 type singleSelectColorConfig = {
   disabled: string,
   default: string,
-  hover: string,
-  active: string,
-  focus: string,
-  focusVisible: string,
   selected: string,
+  hover: string,
+  focus: string,
+  active: string,
+  focusVisible: string,
 }
 type singleSelectLabelConfig = {
   fontSize: string,
@@ -139,10 +139,10 @@ type singleSelectPaddingConfig = {
 }
 type singleSelectContainerConfig2 = {
   hover: string,
-  @as("open") open_: string,
   focus: string,
-  closed: string,
+  @as("open") open_: string,
   error: string,
+  closed: string,
 }
 type singleSelectBackgroundColorConfig = {
   container: singleSelectContainerConfig2,
@@ -166,11 +166,11 @@ type singleSelectTriggerConfig = {
 type singleSelectColorConfig2 = {
   disabled: string,
   default: string,
-  hover: string,
-  active: string,
-  focus: string,
-  focusVisible: string,
   selected: string,
+  hover: string,
+  focus: string,
+  active: string,
+  focusVisible: string,
 }
 type singleSelectOptionsLabelConfig = {
   fontSize: string,

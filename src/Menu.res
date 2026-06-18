@@ -19,7 +19,7 @@ type props = {
   side?: MenuTypes.menuSide,
   sideOffset?: float,
   alignOffset?: float,
-  collisonBoundaryRef?: MenuTypes.CollisonBoundaryRef.t, // ⓘ was `Element | Element[]` — opaque; build with CollisonBoundaryRef.fromElement / CollisonBoundaryRef.fromElements
+  collisonBoundaryRef?: SingleSelectV2Types.CollisionBoundary.t, // ⓘ was `Element | Element[]` — opaque; build with CollisionBoundary.fromElement / CollisionBoundary.fromElements
   skeleton?: MenuTypes.menuSkeletonProps,
 }
 

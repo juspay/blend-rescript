@@ -9,15 +9,15 @@ type switch_HeightConfig = {
   sm: string,
   md: string,
 }
-type switch_ActiveConfig = {
+type switch_InactiveConfig = {
   disabled: string,
   default: string,
   hover: string,
   error: string,
 }
 type switch_BackgroundColorConfig = {
-  active: switch_ActiveConfig,
-  inactive: switch_ActiveConfig,
+  inactive: switch_InactiveConfig,
+  active: switch_InactiveConfig,
 }
 type switch_BorderConfig = {
   color: string,
@@ -51,13 +51,13 @@ type switch_SwitchContainerConfig = {
   thumb: switch_ThumbConfig,
 }
 type switch_LabelConfig = {
-  color: switch_ActiveConfig,
+  color: switch_InactiveConfig,
   fontSize: switch_HeightConfig,
   fontWeight: switch_HeightConfig,
   gap: string,
 }
 type switch_SubtextConfig = {
-  color: switch_ActiveConfig,
+  color: switch_InactiveConfig,
   fontSize: switch_HeightConfig,
   fontWeight: switch_HeightConfig,
 }

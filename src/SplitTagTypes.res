@@ -1,18 +1,7 @@
-type color =
+type color3 =
   | @as("neutral") Neutral
   | @as("primary") Primary
   | @as("success") Success
   | @as("error") Error
   | @as("warning") Warning
   | @as("purple") Purple
-type as_ =
-  | @as("div") Div
-  | @as("label") Label
-  | @as("nav") Nav
-  | @as("span") Span
-  | @as("article") Article
-  | @as("footer") Footer
-  | @as("header") Header
-  | @as("hr") Hr
-  | @as("main") Main
-  | @as("section") Section

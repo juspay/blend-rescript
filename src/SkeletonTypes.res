@@ -2,17 +2,29 @@ type skeletonVariant =
   | @as("pulse") Pulse
   | @as("wave") Wave
   | @as("shimmer") Shimmer
+type as_ =
+  | @as("label") Label
+  | @as("main") Main
+  | @as("button") Button
+  | @as("article") Article
+  | @as("div") Div
+  | @as("nav") Nav
+  | @as("span") Span
+  | @as("footer") Footer
+  | @as("header") Header
+  | @as("hr") Hr
+  | @as("section") Section
 type skeletonShape =
-  | @as("circle") Circle
   | @as("rectangle") Rectangle
-  | @as("rounded") Rounded
-type size2 =
-  | @as("sm") Sm
-  | @as("lg") Lg
-  | @as("md") Md
-type shape =
   | @as("circle") Circle
+  | @as("rounded") Rounded
+type size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type shape =
   | @as("square") Square
+  | @as("circle") Circle
 type skeletonValueConfig = {
   shouldRender: bool,
   fallback: React.element,

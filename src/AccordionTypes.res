@@ -18,8 +18,8 @@ type accordionBorderConfig = {
   disabled: string,
   default: string,
   hover: string,
-  active: string,
   @as("open") open_: string,
+  active: string,
 }
 type accordionBackgroundColorConfig = {
   border: accordionBorderConfig,
@@ -29,8 +29,8 @@ type accordionColorConfig = {
   disabled: string,
   default: string,
   hover: string,
-  active: string,
   @as("open") open_: string,
+  active: string,
 }
 type accordionTitleConfig = {
   fontSize: string,

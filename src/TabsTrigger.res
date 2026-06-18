@@ -10,7 +10,7 @@ external make: (
   ~formNoValidate: bool=?,
   ~formTarget: string=?,
   ~name: string=?,
-  @as("type") ~type_: TabsTypes.type_=?,
+  @as("type") ~type_: DrawerV2Types.type_2=?,
   ~value: string,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,

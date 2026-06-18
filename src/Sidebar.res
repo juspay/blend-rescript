@@ -23,7 +23,7 @@ external make: (
   ~iconOnlyMode: bool=?,
   ~hideOnIconOnlyToggle: bool=?,
   ~showPrimaryActionButton: bool=?,
-  ~primaryActionButtonProps: ReactTypes.reactPrimaryActionButtonPropsConfig=?,
+  ~primaryActionButtonProps: ReactTypes.reactTriggerPropsConfig=?,
   ~activeItem: Nullable.t<string>=?,
   ~onActiveItemChange: Nullable.t<string> => unit=?,
   ~defaultActiveItem: Nullable.t<string>=?,

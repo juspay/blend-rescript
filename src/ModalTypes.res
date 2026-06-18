@@ -1,10 +1,10 @@
 type modalButtonAction = {
   disabled?: bool,
   onClick?: option<ReactEvent.Mouse.t> => unit,
-  justifyContent?: string,
   width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
   text?: string,
+  justifyContent?: string,
   buttonType?: ButtonTypes.buttonType,
   subType?: ButtonTypes.buttonSubType,
   leadingIcon?: React.element,

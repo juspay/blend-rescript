@@ -1,3 +1,33 @@
+type snackbarV2Position =
+  | @as("top-left") TopLeft
+  | @as("top-right") TopRight
+  | @as("bottom-left") BottomLeft
+  | @as("bottom-right") BottomRight
+  | @as("top-center") TopCenter
+  | @as("bottom-center") BottomCenter
+type snackbarV2Variant =
+  | @as("info") Info
+  | @as("success") Success
+  | @as("warning") Warning
+  | @as("error") Error
+type snackbarV2Action = {
+  label: string,
+  onClick: unit => unit,
+  autoDismiss?: bool,
+}
+type snackbarV2ToastOptions = {
+  header: string,
+  description?: string,
+  variant?: snackbarV2Variant,
+  slot?: React.element,
+  onClose?: unit => unit,
+  actionButton?: snackbarV2Action,
+  duration?: float,
+  position?: snackbarV2Position,
+  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
+}
 type snackbarV2ColorConfig = {
   info: string,
   success: string,

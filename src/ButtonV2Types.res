@@ -1,21 +1,33 @@
-type buttonV2Size =
-  | @as("sm") Sm
-  | @as("md") Md
-  | @as("lg") Lg
 type buttonV2Type =
   | @as("primary") Primary
   | @as("secondary") Secondary
   | @as("danger") Danger
   | @as("success") Success
+type buttonV2Size =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
 type buttonV2SubType =
   | @as("default") Default
   | @as("iconOnly") IconOnly
   | @as("inline") Inline
+type buttonGroupPosition =
+  | @as("center") Center
+  | @as("left") Left
+  | @as("right") Right
 type buttonV2State =
   | @as("default") Default
   | @as("hover") Hover
   | @as("active") Active
   | @as("disabled") Disabled
+type buttonSlot = {
+  slot: React.element,
+  maxHeight?: CommonTypes.stringOrNumber,
+}
+type buttonSkeleton = {
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+}
 type buttonV2DefaultConfig = {
   default: string,
   hover: string,
@@ -112,23 +124,15 @@ type responsiveButtonV2Tokens = {
   sm: buttonV2SmConfig,
   lg: buttonV2SmConfig,
 }
-type buttonSlot = {
-  slot: React.element,
-  maxHeight?: CommonTypes.stringOrNumber,
-}
-type buttonSkeleton = {
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-}
 type buttonV2ButtonPropsConfig = {
   width?: CommonTypes.stringOrNumber,
-  size?: buttonV2Size,
-  minWidth?: CommonTypes.stringOrNumber,
   maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
+  size?: buttonV2Size,
+  skeleton?: buttonSkeleton,
   leftSlot?: buttonSlot,
   rightSlot?: buttonSlot,
-  skeleton?: buttonSkeleton,
-  buttonGroupPosition?: ButtonTypes.buttonGroupPosition,
+  buttonGroupPosition?: buttonGroupPosition,
   buttonType?: buttonV2Type,
   subType?: buttonV2SubType,
   loading?: bool,

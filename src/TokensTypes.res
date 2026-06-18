@@ -196,9 +196,11 @@ type tokensUnitConfig = {
   @as("22") _22: string,
   @as("24") _24: string,
   @as("28") _28: string,
+  @as("30") _30: string,
   @as("32") _32: string,
   @as("36") _36: string,
   @as("40") _40: string,
+  @as("44") _44: string,
   @as("48") _48: string,
   @as("52") _52: string,
   @as("56") _56: string,
@@ -207,6 +209,7 @@ type tokensUnitConfig = {
   @as("100") _100: string,
   @as("120") _120: string,
   @as("144") _144: string,
+  @as("150") _150: string,
   auto: string,
 }
 type colorTokensType = {

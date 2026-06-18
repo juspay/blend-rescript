@@ -165,8 +165,8 @@ type chartsDropdownConfig = {
 type chartsColorConfig = {
   default: string,
   hover: string,
-  active: string,
   total: string,
+  active: string,
 }
 type chartsItemConfig = {
   gap: string,

@@ -1,21 +1,12 @@
-type orientation =
-  | @as("horizontal") Horizontal
-  | @as("vertical") Vertical
-type activationMode =
-  | @as("manual") Manual
-  | @as("automatic") Automatic
 type tabsVariant =
   | @as("boxed") Boxed
   | @as("floating") Floating
   | @as("underline") Underline
   | @as("pills") Pills
 type tabsSize =
+  | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type type_ =
-  | @as("button") Button
-  | @as("submit") Submit
-  | @as("reset") Reset
 type tabItem = {
   value: string,
   label: string,
@@ -39,15 +30,16 @@ type tabsBackgroundColorConfig = {
   underline: tabsBoxedConfig,
   pills: tabsBoxedConfig,
 }
-type tabsMdConfig = {
+type tabsSmConfig = {
   boxed: string,
   floating: string,
   underline: string,
   pills: string,
 }
 type tabsBorderRadiusConfig = {
-  md: tabsMdConfig,
-  lg: tabsMdConfig,
+  sm: tabsSmConfig,
+  md: tabsSmConfig,
+  lg: tabsSmConfig,
 }
 type tabsBoxedConfig2 = {
   top: string,
@@ -55,15 +47,16 @@ type tabsBoxedConfig2 = {
   bottom: string,
   left: string,
 }
-type tabsMdConfig2 = {
+type tabsSmConfig2 = {
   boxed: tabsBoxedConfig2,
   floating: tabsBoxedConfig2,
   underline: tabsBoxedConfig2,
   pills: tabsBoxedConfig2,
 }
 type tabsPaddingConfig = {
-  md: tabsMdConfig2,
-  lg: tabsMdConfig2,
+  sm: tabsSmConfig2,
+  md: tabsSmConfig2,
+  lg: tabsSmConfig2,
 }
 type tabsBoxedConfig3 = {
   top: string,
@@ -71,18 +64,19 @@ type tabsBoxedConfig3 = {
   bottom: string,
   left: string,
 }
-type tabsMdConfig3 = {
+type tabsSmConfig3 = {
   boxed: tabsBoxedConfig3,
   floating: tabsBoxedConfig3,
   underline: tabsBoxedConfig3,
   pills: tabsBoxedConfig3,
 }
 type tabsPaddingConfig2 = {
-  md: tabsMdConfig3,
-  lg: tabsMdConfig3,
+  sm: tabsSmConfig3,
+  md: tabsSmConfig3,
+  lg: tabsSmConfig3,
 }
 type tabsContainerConfig = {
-  backgroundColor: tabsMdConfig,
+  backgroundColor: tabsSmConfig,
   borderRadius: tabsBorderRadiusConfig,
   padding: tabsPaddingConfig2,
 }
@@ -103,6 +97,7 @@ type tabsColorConfig = {
   pills: tabsBoxedConfig4,
 }
 type tabsFontSizeConfig = {
+  sm: string,
   md: string,
   lg: string,
 }
@@ -121,8 +116,8 @@ type tabsTokensType = {
   backgroundColor: tabsBackgroundColorConfig,
   borderRadius: tabsBorderRadiusConfig,
   padding: tabsPaddingConfig,
-  border: tabsMdConfig,
-  borderBottom: tabsMdConfig,
+  border: tabsSmConfig,
+  borderBottom: tabsSmConfig,
   container: tabsContainerConfig,
   trigger: tabsTriggerConfig,
 }
