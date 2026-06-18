@@ -1,10 +1,6 @@
 type checkboxSize =
   | @as("sm") Sm
   | @as("md") Md
-type checkboxMaxLengthConfig = {
-  label?: float,
-  subtext?: float,
-}
 type checkboxSlotConfig = {
   marginLeft: string,
 }
@@ -84,4 +80,8 @@ type checkboxTokensType = {
 type responsiveCheckboxTokens = {
   sm: checkboxTokensType,
   lg: checkboxTokensType,
+}
+type checkboxMaxLengthConfig = {
+  label?: float,
+  subtext?: float,
 }

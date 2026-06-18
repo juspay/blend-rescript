@@ -10,21 +10,20 @@ type tagV2Type =
 type tagV2SubType =
   | @as("rounded") Rounded
   | @as("squarical") Squarical
-type color =
+type color3 =
   | @as("neutral") Neutral
   | @as("primary") Primary
   | @as("success") Success
   | @as("error") Error
   | @as("warning") Warning
   | @as("purple") Purple
-type tagV2LeftSlotConfig = {
-  slot: React.element,
-  maxHeight?: string,
-}
-type tagV2SkeletonConfig = {
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-}
+type tagV2Color =
+  | @as("neutral") Neutral
+  | @as("primary") Primary
+  | @as("success") Success
+  | @as("error") Error
+  | @as("warning") Warning
+  | @as("purple") Purple
 type tagV2NoFillConfig = {
   neutral: string,
   primary: string,
@@ -60,7 +59,7 @@ type tagV2PaddingConfig = {
   left: tagV2HeightConfig,
   right: tagV2HeightConfig,
 }
-type tagV2LeftSlotConfig2 = {
+type tagV2LeftSlotConfig = {
   maxHeight: tagV2HeightConfig,
 }
 type tagV2TextConfig = {
@@ -76,11 +75,19 @@ type tagV2SmConfig = {
   height: tagV2HeightConfig,
   padding: tagV2PaddingConfig,
   gap: string,
-  leftSlot: tagV2LeftSlotConfig2,
-  rightSlot: tagV2LeftSlotConfig2,
+  leftSlot: tagV2LeftSlotConfig,
+  rightSlot: tagV2LeftSlotConfig,
   text: tagV2TextConfig,
 }
 type responsiveTagV2Tokens = {
   sm: tagV2SmConfig,
   lg: tagV2SmConfig,
+}
+type tagV2LeftSlotConfig2 = {
+  slot: React.element,
+  maxHeight?: string,
+}
+type tagV2SkeletonConfig = {
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
 }

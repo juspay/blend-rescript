@@ -1,9 +1,3 @@
-type orientation =
-  | @as("horizontal") Horizontal
-  | @as("vertical") Vertical
-type activationMode =
-  | @as("manual") Manual
-  | @as("automatic") Automatic
 type tabsV2Variant =
   | @as("boxed") Boxed
   | @as("floating") Floating
@@ -59,10 +53,10 @@ type tabsV2IconConfig = {
   maxWidth: string,
 }
 type tabsV2BoxedConfig2 = {
-  disabled: string,
+  active: string,
   default: string,
   hover: string,
-  active: string,
+  disabled: string,
 }
 type tabsV2BackgroundColorConfig2 = {
   boxed: tabsV2BoxedConfig2,
@@ -124,4 +118,38 @@ type tabsV2TokensType = {
 type responsiveTabsV2Tokens = {
   sm: tabsV2TokensType,
   lg: tabsV2TokensType,
+}
+type tabsV2ContextValue = {
+  variant: tabsV2Variant,
+  size: tabsV2Size,
+  expanded: bool,
+  fitContent: bool,
+  disabled: bool,
+  showSkeleton: bool,
+  skeletonVariant: SkeletonTypes.skeletonVariant,
+  stickyHeader: bool,
+  offsetTop: float,
+  activeTab: string,
+}
+type tabsV2TabItem = {
+  value: string,
+  label: string,
+  content: React.element,
+  disabled?: bool,
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  newItem?: bool,
+}
+type tabsV2ItemsConfig = {
+  value: string,
+  label: string,
+}
+type tabsV2ValueConfig = {
+  items: array<tabsV2ItemsConfig>,
+}
+type tabsV2ValueConfig2 = {
+  tabLeft: float,
+  tabWidth: float,
 }

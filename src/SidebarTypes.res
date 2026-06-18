@@ -12,9 +12,9 @@ type sidebarPaddingConfig = {
   y: string,
 }
 type sidebarBorderConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type sidebarItemConfig = {
   width: string,
@@ -69,8 +69,8 @@ type sidebarDrawerConfig = {
   borderTop: string,
 }
 type sidebarBackgroundColorConfig = {
-  default: string,
   active: string,
+  default: string,
 }
 type sidebarIconConfig = {
   width: string,

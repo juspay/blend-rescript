@@ -1,12 +1,13 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~style: JsxDOM.style=?,
-  ~className: string=?,
+  ~hidden: bool=?,
+  ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
-  ~hidden: bool=?,
+  ~className: string=?,
   ~id: string=?,
+  ~style: JsxDOM.style=?,
   ~tabIndex: int=?,
   ~title: string=?,
   ~role: string=?,
@@ -28,7 +29,6 @@ external make: (
   @as("aria-pressed") ~ariaPressed: [#"true" | #"false" | #mixed]=?,
   @as("aria-required") ~ariaRequired: bool=?,
   @as("aria-selected") ~ariaSelected: bool=?,
-  ~children: React.element=?,
   ~onCopy: ReactEvent.Clipboard.t => unit=?,
   ~onCut: ReactEvent.Clipboard.t => unit=?,
   ~onPaste: ReactEvent.Clipboard.t => unit=?,
@@ -54,6 +54,6 @@ external make: (
   ~onMouseUp: ReactEvent.Mouse.t => unit=?,
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
-  ~asChild: bool=?,
   ~forceMount: bool=?,
+  ~asChild: bool=?,
 ) => React.element = "DrawerV2Overlay"

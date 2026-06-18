@@ -10,24 +10,6 @@ type snackbarV2Variant =
   | @as("success") Success
   | @as("warning") Warning
   | @as("error") Error
-type snackbarV2Action = {
-  label: string,
-  onClick: unit => unit,
-  autoDismiss?: bool,
-}
-type snackbarV2ToastOptions = {
-  header: string,
-  description?: string,
-  variant?: snackbarV2Variant,
-  slot?: React.element,
-  onClose?: unit => unit,
-  actionButton?: snackbarV2Action,
-  duration?: float,
-  position?: snackbarV2Position,
-  maxWidth?: CommonTypes.stringOrNumber,
-  width?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
-}
 type snackbarV2ColorConfig = {
   info: string,
   success: string,
@@ -82,4 +64,22 @@ type snackbarV2TokensType = {
 type responsiveSnackbarV2Tokens = {
   sm: snackbarV2TokensType,
   lg: snackbarV2TokensType,
+}
+type snackbarV2Action = {
+  label: string,
+  onClick: unit => unit,
+  autoDismiss?: bool,
+}
+type snackbarV2ToastOptions = {
+  header: string,
+  description?: string,
+  variant?: snackbarV2Variant,
+  slot?: React.element,
+  onClose?: unit => unit,
+  actionButton?: snackbarV2Action,
+  duration?: float,
+  position?: snackbarV2Position,
+  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
 }

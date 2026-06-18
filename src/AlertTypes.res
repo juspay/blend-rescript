@@ -12,10 +12,6 @@ type alertStyle =
 type alertActionPlacement =
   | @as("bottom") Bottom
   | @as("right") Right
-type alertAction = {
-  label: string,
-  onClick: unit => unit,
-}
 type alertPrimaryConfig = {
   subtle: string,
   noFill: string,
@@ -69,4 +65,8 @@ type alertTokenType = {
 type responsiveAlertTokens = {
   sm: alertTokenType,
   lg: alertTokenType,
+}
+type alertAction = {
+  label: string,
+  onClick: unit => unit,
 }

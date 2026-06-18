@@ -12,8 +12,8 @@ external make: (
   ~maxWidth: string=?,
   ~enableVirtualScrolling: bool=?,
   ~virtualScrolling: MenuV2Types.menuV2VirtualScrollingConfig=?,
-  ~alignment: MenuV2Types.alignment=?,
-  ~side: DrawerV2Types.direction=?,
+  ~alignment: DateRangePickerTypes.align=?,
+  ~side: DateRangePickerTypes.side=?,
   ~sideOffset: float=?,
   ~alignOffset: float=?,
   ~collisionBoundaryRef: MenuV2Types.CollisionBoundaryRef.t=?, // ⓘ was `HTMLElement | HTMLElement[]` — opaque; build with CollisionBoundaryRef.fromHTMLElement / CollisionBoundaryRef.fromHTMLElements

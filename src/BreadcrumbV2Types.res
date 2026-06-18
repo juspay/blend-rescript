@@ -1,15 +1,7 @@
-type breadcrumbV2ItemType = {
-  id?: CommonTypes.stringOrNumber,
-  leftSlot?: React.element,
-  rightSlot?: React.element,
-  label: string,
-  href: string,
-  onClick?: ReactEvent.Mouse.t => unit,
-}
 type breadcrumbV2ColorConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type breadcrumbV2TextConfig = {
   fontSize: string,
@@ -38,4 +30,28 @@ type breadcrumbV2TokensType = {
 type responsiveBreadcrumbV2Tokens = {
   sm: breadcrumbV2TokensType,
   lg: breadcrumbV2TokensType,
+}
+type breadcrumbV2ItemType = {
+  id?: CommonTypes.stringOrNumber,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  label: string,
+  href: string,
+  onClick?: ReactEvent.Mouse.t => unit,
+}
+type indexedBreadcrumbChild = {
+  el: React.element,
+  idx: float,
+}
+type breadcrumbCompoundItemProps = {
+  href?: string,
+  onClick?: ReactEvent.Mouse.t => unit,
+  isActive?: bool,
+  children: React.element,
+}
+type breadcrumbV2ValueConfig = {
+  shouldShowMenu: bool,
+  base?: indexedBreadcrumbChild,
+  rest: array<indexedBreadcrumbChild>,
+  menuItems: array<indexedBreadcrumbChild>,
 }

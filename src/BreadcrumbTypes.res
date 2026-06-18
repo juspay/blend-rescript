@@ -1,19 +1,7 @@
-type breadcrumbSkeletonProps = {
-  show: bool,
-  variant: SkeletonTypes.skeletonVariant,
-}
-type breadcrumbItemType = {
-  leftSlot?: React.element,
-  rightSlot?: React.element,
-  label: string,
-  href: string,
-  onClick?: ReactEvent.Mouse.t => unit,
-  skeleton?: breadcrumbSkeletonProps,
-}
 type breadcrumbColorConfig = {
+  active: string,
   default: string,
   hover: string,
-  active: string,
 }
 type breadcrumbTextConfig = {
   fontSize: string,
@@ -32,4 +20,16 @@ type breadcrumbTokenType = {
 type responsiveBreadcrumbTokens = {
   sm: breadcrumbTokenType,
   lg: breadcrumbTokenType,
+}
+type breadcrumbSkeletonProps = {
+  show: bool,
+  variant: SkeletonTypes.skeletonVariant,
+}
+type breadcrumbItemType = {
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  label: string,
+  href: string,
+  onClick?: ReactEvent.Mouse.t => unit,
+  skeleton?: breadcrumbSkeletonProps,
 }

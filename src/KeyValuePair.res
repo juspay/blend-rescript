@@ -8,7 +8,7 @@ external make: (
   ~valueRightSlot: React.element=?,
   ~keyValuePairState: KeyValuePairTypes.keyValuePairStateType=?,
   ~maxWidth: string=?,
-  ~textOverflow: KeyValuePairTypes.textOverflowMode2=?,
+  ~textOverflow: KeyValuePairTypes.textOverflowMode=?,
   ~maxLines: float=?,
   ~showTooltipOnTruncate: bool=?,
 ) => React.element = "KeyValuePair"

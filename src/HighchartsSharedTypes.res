@@ -13,8 +13,10 @@ type dashStyleValue =
   | @as("ShortDot") ShortDot
   | @as("Solid") Solid
 type cursorValue =
-  | @as("none") None
+  | @as("text") Text
   | @as("auto") Auto
+  | @as("none") None
+  | @as("default") Default
   | @as("alias") Alias
   | @as("all-scroll") AllScroll
   | @as("cell") Cell
@@ -22,7 +24,6 @@ type cursorValue =
   | @as("context-menu") ContextMenu
   | @as("copy") Copy
   | @as("crosshair") Crosshair
-  | @as("default") Default
   | @as("e-resize") EResize
   | @as("ew-resize") EwResize
   | @as("grab") Grab
@@ -43,7 +44,6 @@ type cursorValue =
   | @as("s-resize") SResize
   | @as("se-resize") SeResize
   | @as("sw-resize") SwResize
-  | @as("text") Text
   | @as("vertical-text") VerticalText
   | @as("w-resize") WResize
   | @as("wait") Wait
@@ -53,34 +53,34 @@ type optionsModeValue =
   | @as("normal") Normal
   | @as("serialize") Serialize
 type optionsLandmarkVerbosityValue =
-  | @as("disabled") Disabled
   | @as("all") All
+  | @as("disabled") Disabled
   | @as("one") One
 type annotationDraggableValue =
   | @as("") Value
   | @as("x") X
-  | @as("xy") Xy
   | @as("y") Y
+  | @as("xy") Xy
 type alignValue =
-  | @as("center") Center
   | @as("left") Left
+  | @as("center") Center
   | @as("right") Right
 type optionsOverflowValue =
-  | @as("allow") Allow
   | @as("justify") Justify
+  | @as("allow") Allow
 type verticalAlignValue =
+  | @as("top") Top
   | @as("bottom") Bottom
   | @as("middle") Middle
-  | @as("top") Top
 type optionsPanKeyValue =
-  | @as("alt") Alt
   | @as("shift") Shift
-  | @as("ctrl") Ctrl
+  | @as("alt") Alt
   | @as("meta") Meta
+  | @as("ctrl") Ctrl
 type optionsChartPanningTypeValue =
   | @as("x") X
-  | @as("xy") Xy
   | @as("y") Y
+  | @as("xy") Xy
 type optionsPosition3dValue =
   | @as("offset") Offset
   | @as("chart") Chart
@@ -90,14 +90,14 @@ type optionsMinorTickPositionValue =
   | @as("inside") Inside
   | @as("outside") Outside
 type optionsGridLineInterpolationValue =
-  | @as("polygon") Polygon
   | @as("circle") Circle
+  | @as("polygon") Polygon
 type dataLabelsOverflowValue =
-  | @as("allow") Allow
   | @as("justify") Justify
+  | @as("allow") Allow
 type optionsTickmarkPlacementValue =
-  | @as("between") Between
   | @as("on") On
+  | @as("between") Between
 type optionsTickPositionValue =
   | @as("inside") Inside
   | @as("outside") Outside
@@ -106,27 +106,27 @@ type axisTitleAlignValue =
   | @as("high") High
   | @as("low") Low
 type axisTypeValue =
+  | @as("linear") Linear
+  | @as("treegrid") Treegrid
   | @as("category") Category
   | @as("datetime") Datetime
-  | @as("linear") Linear
   | @as("logarithmic") Logarithmic
-  | @as("treegrid") Treegrid
 type buttonRelativeToValue =
   | @as("plotBox") PlotBox
   | @as("spacingBox") SpacingBox
 type optionsKeyValue =
-  | @as("alt") Alt
   | @as("shift") Shift
-  | @as("ctrl") Ctrl
+  | @as("alt") Alt
   | @as("meta") Meta
+  | @as("ctrl") Ctrl
 type optionsPinchTypeValue =
   | @as("x") X
-  | @as("xy") Xy
   | @as("y") Y
+  | @as("xy") Xy
 type optionsChartZoomingTypeValue =
   | @as("x") X
-  | @as("xy") Xy
   | @as("y") Y
+  | @as("xy") Xy
 type optionsDataClassColorValue =
   | @as("category") Category
   | @as("tween") Tween
@@ -153,8 +153,8 @@ type bubbleSizeByValue =
   | @as("width") Width
   | @as("area") Area
 type optionsLayoutValue =
-  | @as("horizontal") Horizontal
   | @as("vertical") Vertical
+  | @as("horizontal") Horizontal
   | @as("proximate") Proximate
 type mapViewInsetOptionsRelativeToValue =
   | @as("plotBox") PlotBox
@@ -163,9 +163,9 @@ type optionsUnitsValue =
   | @as("percent") Percent
   | @as("pixels") Pixels
 type paneBackgroundShapeValue =
-  | @as("arc") Arc
-  | @as("circle") Circle
   | @as("solid") Solid
+  | @as("circle") Circle
+  | @as("arc") Arc
 type optionsBoostBlendingValue =
   | @as("add") Add
   | @as("darken") Darken
@@ -174,8 +174,8 @@ type optionsFindNearestPointByValue =
   | @as("x") X
   | @as("xy") Xy
 type optionsGapUnitValue =
-  | @as("value") Value
   | @as("relative") Relative
+  | @as("value") Value
 type optionsLegendSymbolValue =
   | @as("rectangle") Rectangle
   | @as("areaMarker") AreaMarker
@@ -189,12 +189,12 @@ type optionsValueMapFunctionValue =
 type optionsAlgorithmValue =
   | @as("middle") Middle
   | @as("first") First
-  | @as("firstlast") Firstlast
   | @as("last") Last
+  | @as("firstlast") Firstlast
   | @as("minmax") Minmax
 type optionsStepValue =
-  | @as("center") Center
   | @as("left") Left
+  | @as("center") Center
   | @as("right") Right
 type optionsRelativeToValue =
   | @as("pane") Pane
@@ -210,37 +210,37 @@ type optionsPointIntervalUnitValue =
   | @as("year") Year
 type optionsStackingValue =
   | @as("normal") Normal
+  | @as("stream") Stream
   | @as("percent") Percent
   | @as("null") Null
   | @as("overlap") Overlap
-  | @as("stream") Stream
 type optionsPointValKeyValue =
+  | @as("open") Open
   | @as("close") Close
   | @as("high") High
   | @as("low") Low
-  | @as("open") Open
 type optionsOnKeyValue =
+  | @as("open") Open
   | @as("y") Y
   | @as("close") Close
   | @as("high") High
   | @as("low") Low
-  | @as("open") Open
 type flagsShapeValue =
   | @as("circlepin") Circlepin
   | @as("flag") Flag
   | @as("squarepin") Squarepin
 type optionsTextAlignValue =
-  | @as("center") Center
   | @as("left") Left
+  | @as("center") Center
   | @as("right") Right
 type svgPathCommand =
   | @as("a") A
+  | @as("q") Q
+  | @as("s") S
   | @as("c") C
   | @as("h") H
   | @as("l") L
   | @as("m") M
-  | @as("q") Q
-  | @as("s") S
   | @as("t") T
   | @as("v") V
   | @as("z") Z
@@ -277,12 +277,12 @@ type optionsRotationModeValue =
   | @as("parallel") Parallel
   | @as("perpendicular") Perpendicular
 type optionsUnitValue =
+  | @as("weight") Weight
   | @as("percentage") Percentage
   | @as("pixels") Pixels
-  | @as("weight") Weight
 type tilemapShapeValue =
-  | @as("square") Square
   | @as("circle") Circle
+  | @as("square") Square
   | @as("diamond") Diamond
   | @as("hexagon") Hexagon
 type optionsLayoutAlgorithmValue =
@@ -291,14 +291,14 @@ type optionsLayoutAlgorithmValue =
   | @as("stripes") Stripes
   | @as("sliceAndDice") SliceAndDice
 type optionsLayoutStartingDirectionValue =
-  | @as("horizontal") Horizontal
   | @as("vertical") Vertical
+  | @as("horizontal") Horizontal
 type optionsNodeSizeByValue =
   | @as("group") Group
   | @as("leaf") Leaf
 type variablePieSizeByValue =
-  | @as("area") Area
   | @as("radius") Radius
+  | @as("area") Area
 type optionsRotationOriginValue =
   | @as("center") Center
   | @as("end") End
@@ -2470,12 +2470,12 @@ type rGBA = {
   ...JsxDOM.domProps,
   length: string,
 }
-type rec color2 = {
+type rec color4 = {
   rgba: rGBA,
-  brighten: float => color2,
+  brighten: float => color4,
   get: option<string> => ColorType.t,
-  setOpacity: float => color2,
-  tweenTo: (color2, float) => ColorType.t,
+  setOpacity: float => color4,
+  tweenTo: (color4, float) => ColorType.t,
 }
 type labelIntersectBoxObject = {
   bottom: float,
@@ -3089,7 +3089,7 @@ type seriesAbandsOptions = {
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color2,
+  fillColor?: color4,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -8882,7 +8882,7 @@ type seriesKeltnerchannelsOptions = {
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color2,
+  fillColor?: color4,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -13071,7 +13071,7 @@ type plotTreegraphLinkOptions = {
   curveFactor?: float,
   lineWidth?: float,
   radius?: float,
-  @as("type") type_?: StatCardV2Types.type_,
+  @as("type") type_?: StatCardV2Types.type_3,
 }
 type seriesTreegraphOptions = {
   allowDrillToNode?: string,
@@ -17246,7 +17246,7 @@ type plotAbandsOptions = {
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color2,
+  fillColor?: color4,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -21649,7 +21649,7 @@ type plotKeltnerchannelsOptions = {
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color2,
+  fillColor?: color4,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23488,7 +23488,7 @@ type plotOrganizationLinkOptions = {
   color?: string,
   lineWidth?: float,
   radius?: float,
-  @as("type") type_?: StatCardV2Types.type_,
+  @as("type") type_?: StatCardV2Types.type_3,
 }
 type plotOrganizationOptions = {
   accessibility?: seriesAccessibilityOptionsObject,
@@ -23513,7 +23513,7 @@ type plotOrganizationOptions = {
   getExtremesFromAll?: bool,
   hangingIndent?: float,
   hangingIndentTranslation?: organizationHangingIndentTranslationValue,
-  hangingSide?: StatCardV2Types.hangingSide,
+  hangingSide?: TagsTypes.splitTagPosition,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   keys?: array<string>,
@@ -23799,7 +23799,7 @@ type plotPcOptions = {
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color2,
+  fillColor?: color4,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -27985,13 +27985,14 @@ type scrollbarOptions = {
   zIndex?: int,
 }
 type unknownSeriesOptions<'b> = {
-  className?: string,
-  name?: string,
-  id?: string,
   zIndex?: int,
-  opacity?: float,
-  events?: seriesEventsOptionsObject,
   visible?: bool,
+  opacity?: float,
+  className?: string,
+  id?: string,
+  name?: string,
+  description?: string,
+  events?: seriesEventsOptionsObject,
   index?: int,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -28001,7 +28002,6 @@ type unknownSeriesOptions<'b> = {
   mapData?: string,
   stack?: CommonTypes.stringOrNumber,
   custom?: Dict.t<'b>,
-  description?: string,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   legendSymbol?: optionsLegendSymbolValue,
@@ -28626,4 +28626,15 @@ type plotTreemapLevelsDataLabelsOptions = {
   verticalAlign?: string,
   x?: string,
   y?: string,
+}
+module ChartV2LegendItem = {
+  type t
+  external fromSeries: series => t = "%identity"
+  external fromPoint: point => t = "%identity"
+}
+module SetStateAction = {
+  type t
+  external fromSeries: series => t = "%identity"
+  external fromPoint: point => t = "%identity"
+  external fromFn: (ChartV2LegendItem.t => ChartV2LegendItem.t) => t = "%identity"
 }

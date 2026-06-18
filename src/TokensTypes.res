@@ -1,4 +1,4 @@
-type tokensShadowsConfig = {
+type tokensShadowConfig = {
   xs: string,
   sm: string,
   md: string,
@@ -230,7 +230,7 @@ type tokensZIndexConfig = {
   @as("101") _101: string,
 }
 type foundationTokenType = {
-  shadows: tokensShadowsConfig,
+  shadows: tokensShadowConfig,
   border: tokensBorderConfig,
   font: tokensFontConfig,
   opacity: tokensOpacityConfig,

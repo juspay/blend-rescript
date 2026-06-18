@@ -74,3 +74,36 @@ type responsiveChartV2Tokens = {
   sm: chartV2TokensType,
   lg: chartV2TokensType,
 }
+type chartV2CustomLegendItem = {
+  key: string,
+  name: string,
+  color?: string,
+  value?: CommonTypes.stringOrNumber,
+}
+type chartsV2RenderItemConfig = {
+  item: HighchartsSharedTypes.ChartV2LegendItem.t,
+  name: string,
+  visible: bool,
+  color: string,
+  value?: CommonTypes.stringOrNumber,
+  onClick: unit => unit,
+}
+type chartV2FullscreenControls = {
+  isFullscreen: bool,
+  enterFullscreen: unit => unit,
+  exitFullscreen: unit => unit,
+}
+type chartsV2ValueConfig = {
+  hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
+  setHoveredItem: HighchartsSharedTypes.SetStateAction.t => unit,
+  allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
+  handleClick: (HighchartsSharedTypes.ChartV2LegendItem.t, float) => unit,
+  chart: HighchartsSharedTypes.chart,
+  charts: array<HighchartsSharedTypes.chart>,
+}
+type chartsV2ValueConfig2 = {
+  hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
+  setHoveredItem: HighchartsSharedTypes.SetStateAction.t => unit,
+  allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
+  handleClick: (HighchartsSharedTypes.ChartV2LegendItem.t, float) => unit,
+}

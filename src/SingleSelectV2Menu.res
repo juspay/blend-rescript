@@ -1,14 +1,14 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~items: array<SingleSelectV2Types.singleSelectV2GroupType>,
+  ~items: array<EditorSharedTypes.singleSelectV2GroupType>,
   ~selected: string,
   ~onSelect: string => unit,
   ~trigger: React.element,
-  ~menuDimensions: SingleSelectV2Types.selectV2MenuDimensions=?,
-  ~search: SingleSelectV2Types.selectV2SearchConfig=?,
+  ~menuDimensions: EditorSharedTypes.selectV2MenuDimensions=?,
+  ~search: EditorSharedTypes.selectV2SearchConfig=?,
   ~disabled: bool=?,
-  ~menuPosition: SingleSelectV2Types.selectV2MenuPosition=?,
-  ~collisionBoundary: SingleSelectV2Types.CollisionBoundary.t=?, // ⓘ was `Element | Element[]` — opaque; build with CollisionBoundary.fromElement / CollisionBoundary.fromElements
+  ~menuPosition: EditorSharedTypes.selectV2MenuPosition=?,
+  ~collisionBoundary: ChatInputTypes.CollisonBoundaryRef.t=?, // ⓘ was `Element | Element[]` — opaque; build with CollisonBoundaryRef.fromElement / CollisonBoundaryRef.fromElements
   @as("open") ~open_: bool,
   ~onOpenChange: bool => unit,
   ~size: SelectV2Types.selectV2Size=?,

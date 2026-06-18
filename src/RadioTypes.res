@@ -1,36 +1,32 @@
 type radioSize =
   | @as("sm") Sm
   | @as("md") Md
-type radioMaxLengthConfig = {
-  label?: float,
-  subtext?: float,
-}
 type radioGroupConfig = {
   gap: string,
 }
 type radioBackgroundColorConfig = {
-  disabled: string,
   default: string,
   hover: string,
+  disabled: string,
   error: string,
 }
-type radioInactiveConfig = {
+type radioActiveConfig = {
   backgroundColor: radioBackgroundColorConfig,
   borderColor: radioBackgroundColorConfig,
 }
 type radioIndicatorConfig = {
-  inactive: radioInactiveConfig,
-  active: radioInactiveConfig,
+  active: radioActiveConfig,
+  inactive: radioActiveConfig,
 }
 type radioBackgroundColorConfig2 = {
-  disabled: string,
   default: string,
+  disabled: string,
 }
-type radioActiveConfig = {
+type radioActiveConfig2 = {
   backgroundColor: radioBackgroundColorConfig2,
 }
 type radioActiveIndicatorConfig = {
-  active: radioActiveConfig,
+  active: radioActiveConfig2,
 }
 type radioFontSizeConfig = {
   sm: string,
@@ -51,15 +47,15 @@ type radioContentConfig = {
   label: radioLabelConfig,
   sublabel: radioSublabelConfig,
 }
-type radioInactiveConfig2 = {
-  disabled: float,
+type radioActiveConfig3 = {
   default: float,
   hover: float,
+  disabled: float,
   error: float,
 }
 type radioBorderWidthConfig = {
-  inactive: radioInactiveConfig2,
-  active: radioInactiveConfig2,
+  active: radioActiveConfig3,
+  inactive: radioActiveConfig3,
 }
 type radioRequiredConfig = {
   color: string,
@@ -78,4 +74,8 @@ type radioSmConfig = {
 type responsiveRadioTokens = {
   sm: radioSmConfig,
   lg: radioSmConfig,
+}
+type radioMaxLengthConfig = {
+  label?: float,
+  subtext?: float,
 }

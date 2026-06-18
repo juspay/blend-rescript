@@ -10,10 +10,6 @@ type avatarShape =
 type avatarOnlinePosition =
   | @as("top") Top
   | @as("bottom") Bottom
-type avatarSkeletonConfig = {
-  show: bool,
-  variant?: SkeletonTypes.skeletonVariant,
-}
 type avatarSmConfig = {
   width: string,
   height: string,
@@ -91,4 +87,8 @@ type avatarTokensType = {
 type responsiveAvatarTokens = {
   sm: avatarTokensType,
   lg: avatarTokensType,
+}
+type avatarSkeletonConfig = {
+  show: bool,
+  variant?: SkeletonTypes.skeletonVariant,
 }

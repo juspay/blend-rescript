@@ -1,20 +1,3 @@
-type avatarData = {
-  id: CommonTypes.stringOrNumber,
-  alt?: string,
-  fallback?: React.element,
-  size?: AvatarTypes.avatarSize,
-  src?: string,
-  shape?: AvatarTypes.avatarShape,
-  skeleton?: AvatarTypes.avatarSkeletonConfig,
-  online?: bool,
-  onlinePosition?: AvatarTypes.avatarOnlinePosition,
-  leadingSlot?: React.element,
-  trailingSlot?: React.element,
-}
-type avatarGroupSkeletonConfig = {
-  show: bool,
-  variant?: SkeletonTypes.skeletonVariant,
-}
 type avatarGroupMarginLeftConfig = {
   sm: string,
   regular: string,
@@ -82,4 +65,21 @@ type avatarGroupTokensType = {
 type responsiveAvatarGroupTokens = {
   sm: avatarGroupTokensType,
   lg: avatarGroupTokensType,
+}
+type avatarData = {
+  id: CommonTypes.stringOrNumber,
+  alt?: string,
+  fallback?: React.element,
+  online?: bool,
+  size?: AvatarTypes.avatarSize,
+  src?: string,
+  shape?: AvatarTypes.avatarShape,
+  onlinePosition?: AvatarTypes.avatarOnlinePosition,
+  leadingSlot?: React.element,
+  trailingSlot?: React.element,
+  skeleton?: AvatarTypes.avatarSkeletonConfig,
+}
+type avatarGroupSkeletonConfig = {
+  show: bool,
+  variant?: SkeletonTypes.skeletonVariant,
 }

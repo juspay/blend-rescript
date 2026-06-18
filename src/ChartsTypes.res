@@ -17,6 +17,62 @@ type chartLegendPosition =
 type legendsChangeType =
   | @as("increase") Increase
   | @as("decrease") Decrease
+type chartsPaddingConfig = {
+  x: string,
+  y: string,
+}
+type chartsSlotsConfig = {
+  gap: string,
+}
+type chartsHeaderConfig = {
+  padding: chartsPaddingConfig,
+  backgroundColor: string,
+  borderBottom: string,
+  borderRadius: string,
+  slots: chartsSlotsConfig,
+}
+type chartsDropdownConfig = {
+  maxHeight: string,
+}
+type chartsColorConfig = {
+  active: string,
+  default: string,
+  hover: string,
+  total: string,
+}
+type chartsItemConfig = {
+  gap: string,
+  color: chartsColorConfig,
+  fontSize: string,
+  fontWeight: string,
+}
+type chartsLegendConfig = {
+  gap: string,
+  dropdown: chartsDropdownConfig,
+  item: chartsItemConfig,
+}
+type chartsPaddingConfig2 = {
+  top: string,
+  right: string,
+  bottom: string,
+  left: string,
+}
+type chartsContentConfig = {
+  legend: chartsLegendConfig,
+  padding: chartsPaddingConfig2,
+  gap: string,
+  backgroundColor: string,
+}
+type chartTokensType = {
+  border: string,
+  borderRadius: string,
+  header: chartsHeaderConfig,
+  content: chartsContentConfig,
+}
+type responsiveChartTokens = {
+  sm: chartTokensType,
+  lg: chartTokensType,
+}
 type chartsPrimaryConfig = {
   label: string,
   val: float,
@@ -144,61 +200,5 @@ type sankeyLink = {
   value: float,
   color?: string,
   hoverColor?: string,
-}
-type chartsPaddingConfig = {
-  x: string,
-  y: string,
-}
-type chartsSlotsConfig = {
-  gap: string,
-}
-type chartsHeaderConfig = {
-  padding: chartsPaddingConfig,
-  backgroundColor: string,
-  borderBottom: string,
-  borderRadius: string,
-  slots: chartsSlotsConfig,
-}
-type chartsDropdownConfig = {
-  maxHeight: string,
-}
-type chartsColorConfig = {
-  default: string,
-  hover: string,
-  total: string,
-  active: string,
-}
-type chartsItemConfig = {
-  gap: string,
-  color: chartsColorConfig,
-  fontSize: string,
-  fontWeight: string,
-}
-type chartsLegendConfig = {
-  gap: string,
-  dropdown: chartsDropdownConfig,
-  item: chartsItemConfig,
-}
-type chartsPaddingConfig2 = {
-  top: string,
-  right: string,
-  bottom: string,
-  left: string,
-}
-type chartsContentConfig = {
-  legend: chartsLegendConfig,
-  padding: chartsPaddingConfig2,
-  gap: string,
-  backgroundColor: string,
-}
-type chartTokensType = {
-  border: string,
-  borderRadius: string,
-  header: chartsHeaderConfig,
-  content: chartsContentConfig,
-}
-type responsiveChartTokens = {
-  sm: chartTokensType,
-  lg: chartTokensType,
 }
 @unboxed type stringOrChartsColorsConfig = Str(string) | ChartsColorsConfig(chartsColorsConfig)

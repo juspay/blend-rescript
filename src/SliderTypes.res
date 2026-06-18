@@ -10,12 +10,15 @@ type sliderValueType =
   | @as("percentage") Percentage
   | @as("decimal") Decimal
 type sliderLabelPosition =
-  | @as("bottom") Bottom
   | @as("top") Top
+  | @as("bottom") Bottom
   | @as("inline") Inline
+type orientation =
+  | @as("vertical") Vertical
+  | @as("horizontal") Horizontal
 type position =
-  | @as("bottom") Bottom
   | @as("top") Top
+  | @as("bottom") Bottom
   | @as("inline") Inline
 type sliderValueFormatConfig = {
   @as("type") type_: sliderValueType,
