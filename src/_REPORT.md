@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.0`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.1`
 
-**95** components · ✅ **95** usable · 🔍 **0** need review · 🛑 **0** broken
+**96** components · ✅ **96** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**52** function binding(s) → `BlendDesignSystemBindings.res`.
+**53** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**1347** shared types deduplicated into **61** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**1432** shared types deduplicated into **67** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -69,6 +69,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getChartV2Tokens`
 - `getTimelineTokens`
 - `getAlertV2Tokens`
+- `getPopoverV2Tokens`
 
 ## ✅ Usable
 
@@ -130,6 +131,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - NumberInput
 - OTPInput
 - Popover
+- PopoverV2
 - ProgressBar
 - Radio
 - RadioGroup

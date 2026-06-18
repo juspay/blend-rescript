@@ -11,4 +11,7 @@ external make: (
   ~showCopyButton: bool=?,
   ~autoFormat: bool=?,
   ~language: CodeBlockTypes.supportedLanguage=?,
+  ~isDiffUnchangedCollapsed: bool=?,
+  ~diffContextLines: float=?,
+  ~diffExpandChunk: float=?,
 ) => React.element = "CodeBlock"

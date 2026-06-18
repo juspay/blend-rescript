@@ -1,4 +1,4 @@
-type stateToken = {
+type stateToken2 = {
   disabled: string,
   default: string,
   hover: string,
@@ -10,7 +10,7 @@ type stateToken = {
 type singleSelectV2LabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken,
+  color: stateToken2,
 }
 type singleSelectV2ErrorMessageConfig = {
   fontSize: string,
@@ -89,7 +89,7 @@ type singleSelectV2GroupLabelConfig = {
   paddingLeft: string,
   fontSize: string,
   fontWeight: string,
-  color: stateToken,
+  color: stateToken2,
 }
 type singleSelectV2SeparatorConfig = {
   color: string,
@@ -104,7 +104,7 @@ type singleSelectV2ItemConfig = {
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: stateToken,
+  backgroundColor: stateToken2,
   groupLabelText: singleSelectV2LabelConfig,
   option: singleSelectV2LabelConfig,
   description: singleSelectV2LabelConfig,

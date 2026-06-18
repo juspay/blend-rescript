@@ -83,6 +83,25 @@ type codeBlockSyntaxConfig = {
   comment: string,
   text: string,
 }
+type codeBlockButtonConfig = {
+  padding: string,
+  dotsPadding: string,
+  opacity: string,
+  disabledOpacity: string,
+  hoverBackgroundColor: string,
+  borderRadius: string,
+  iconSize: float,
+}
+type codeBlockExpandContextConfig = {
+  backgroundColor: string,
+  borderTop: string,
+  borderBottom: string,
+  padding: string,
+  color: string,
+  fontSize: string,
+  letterSpacing: string,
+  button: codeBlockButtonConfig,
+}
 type codeBlockBodyConfig = {
   padding: codeBlockPaddingConfig,
   backgroundColor: string,
@@ -90,6 +109,7 @@ type codeBlockBodyConfig = {
   code: codeBlockCodeConfig,
   highlightedLine: codeBlockHighlightedLineConfig,
   syntax: codeBlockSyntaxConfig,
+  expandContext: codeBlockExpandContextConfig,
 }
 type codeBlockTokenType = {
   backgroundColor: string,

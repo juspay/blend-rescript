@@ -176,3 +176,9 @@ external getAlertV2Tokens: (
   ~theme: string=?,
   unit,
 ) => AlertV2Types.responsiveAlertV2Tokens = "getAlertV2Tokens"
+@module("@juspay/blend-design-system")
+external getPopoverV2Tokens: (
+  TokensTypes.foundationTokenType,
+  ~theme: string=?,
+  unit,
+) => PopoverV2Types.responsivePopoverV2Tokens = "getPopoverV2Tokens"

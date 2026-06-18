@@ -22,6 +22,7 @@ external make: (
   ~onFilterChange: array<DataTableTypes.columnFilter> => unit=?,
   ~onAdvancedFiltersChange: array<JSON.t> => unit=?,
   ~columnFreeze: float=?,
+  ~columnFreezeRight: float=?,
   ~enableColumnManager: bool=?,
   ~enableColumnReordering: bool=?,
   ~onColumnReorder: 'b => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
@@ -58,6 +59,10 @@ external make: (
   ~onRowSelectionChange: (array<string>, bool, string, 'a) => unit=?,
   ~bulkActions: DataTableTypes.bulkActionsConfig=?,
   ~rowActions: DataTableTypes.rowActionsConfig<'a>=?,
+  ~onOperations: 'd => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onInsertLeft: 'e => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onInsertRight: 'f => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
+  ~onDeleteColumn: 't6 => unit=?, // ⓘ a parameter type could not be modelled — received as a type variable; annotate at the call site
   ~getRowStyle: ('a, float) => JsxDOM.style=?,
   ~tableBodyHeight: CommonTypes.stringOrNumber=?,
   ~mobileColumnsToShow: float=?,

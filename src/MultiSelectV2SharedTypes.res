@@ -1,4 +1,4 @@
-type stateToken2 = {
+type stateToken3 = {
   disabled: string,
   default: string,
   hover: string,
@@ -10,7 +10,7 @@ type stateToken2 = {
 type multiSelectV2LabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken2,
+  color: stateToken3,
 }
 type multiSelectV2ErrorMessageConfig = {
   fontSize: string,
@@ -145,7 +145,7 @@ type multiSelectV2ActionsConfig = {
 type multiSelectV2OptionsLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken2,
+  color: stateToken3,
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -164,7 +164,7 @@ type multiSelectV2ItemConfig = {
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: stateToken2,
+  backgroundColor: stateToken3,
   optionsLabel: multiSelectV2OptionsLabelConfig,
   option: multiSelectV2LabelConfig,
   description: multiSelectV2LabelConfig,
@@ -262,6 +262,7 @@ type componentTokenType = {
   @as("BREADCRUMB") bREADCRUMB?: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") pOPOVER?: PopoverTypes.responsivePopoverTokens,
   @as("MENU") mENU?: MenuTypes.responsiveMenuTokensType,
+  @as("MENU_V2") mENU_V2?: MenuV2Types.responsiveMenuV2TokensType,
   @as("MULTI_SELECT") mULTI_SELECT?: MultiSelectTypes.responsiveMultiSelectTokens,
   @as("SINGLE_SELECT") sINGLE_SELECT?: SingleSelectTypes.responsiveSingleSelectTokens,
   @as("TABLE") tABLE?: DataTableTypes.responsiveTableTokens,
@@ -299,9 +300,14 @@ type componentTokenType = {
   @as("CHARTSV2") cHARTSV2?: HighchartsSharedTypes.responsiveChartV2Tokens,
   @as("CHECKBOXV2") cHECKBOXV2?: SelectorV2Types.responsiveCheckboxV2Tokens,
   @as("KEYVALUEPAIRV2") kEYVALUEPAIRV2?: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
+  @as("STATCARDV2") sTATCARDV2?: StatCardV2Types.responsiveStatCardV2Tokens,
   @as("TOOLTIPV2") tOOLTIPV2?: TooltipV2Types.responsiveTooltipV2Tokens,
   @as("RADIOV2") rADIOV2?: SelectorV2Types.responsiveRadioV2Tokens,
   @as("POPOVERV2") pOPOVERV2?: PopoverV2Types.responsivePopoverV2Tokens,
+  @as("TABSV2") tABSV2?: TabsV2Types.responsiveTabsV2Tokens,
+  @as("BREADCRUMBV2") bREADCRUMBV2?: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
+  @as("CODEEDITORV2") cODEEDITORV2?: CodeEditorV2Types.responsiveCodeEditorV2Tokens,
+  @as("PROGRESS_BARV2") pROGRESS_BARV2?: ProgressBarV2Types.responsiveProgressBarV2Tokens,
 }
 type contextComponentTokensConfig = {
   @as("TAGS") tAGS: TagsTypes.responsiveTagTokens,
@@ -324,6 +330,7 @@ type contextComponentTokensConfig = {
   @as("BREADCRUMB") bREADCRUMB: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") pOPOVER: PopoverTypes.responsivePopoverTokens,
   @as("MENU") mENU: MenuTypes.responsiveMenuTokensType,
+  @as("MENU_V2") mENU_V2: MenuV2Types.responsiveMenuV2TokensType,
   @as("MULTI_SELECT") mULTI_SELECT: MultiSelectTypes.responsiveMultiSelectTokens,
   @as("SINGLE_SELECT") sINGLE_SELECT: SingleSelectTypes.responsiveSingleSelectTokens,
   @as("TABLE") tABLE: DataTableTypes.responsiveTableTokens,
@@ -361,9 +368,14 @@ type contextComponentTokensConfig = {
   @as("CHARTSV2") cHARTSV2: HighchartsSharedTypes.responsiveChartV2Tokens,
   @as("CHECKBOXV2") cHECKBOXV2: SelectorV2Types.responsiveCheckboxV2Tokens,
   @as("KEYVALUEPAIRV2") kEYVALUEPAIRV2: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
+  @as("STATCARDV2") sTATCARDV2: StatCardV2Types.responsiveStatCardV2Tokens,
   @as("TOOLTIPV2") tOOLTIPV2: TooltipV2Types.responsiveTooltipV2Tokens,
   @as("RADIOV2") rADIOV2: SelectorV2Types.responsiveRadioV2Tokens,
   @as("POPOVERV2") pOPOVERV2: PopoverV2Types.responsivePopoverV2Tokens,
+  @as("TABSV2") tABSV2: TabsV2Types.responsiveTabsV2Tokens,
+  @as("BREADCRUMBV2") bREADCRUMBV2: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
+  @as("CODEEDITORV2") cODEEDITORV2: CodeEditorV2Types.responsiveCodeEditorV2Tokens,
+  @as("PROGRESS_BARV2") pROGRESS_BARV2: ProgressBarV2Types.responsiveProgressBarV2Tokens,
 }
 type themeContextType = {
   foundationTokens: TokensTypes.foundationTokenType,
