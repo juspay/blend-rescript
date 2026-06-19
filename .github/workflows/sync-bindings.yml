@@ -8,8 +8,10 @@ name: Sync bindings with upstream blend
 # Prerelease versions (-beta, -alpha, -rc) are refused below as a safety net.
 on:
   schedule:
-    # Daily at 03:00 UTC. Picks up a new stable blend within ~24h.
+    # Stable channel — daily at 03:00 UTC. Picks up a new stable blend within ~24h.
     - cron: '0 3 * * *'
+    # Beta channel — daily at 15:00 UTC. Picks up a new blend beta within ~24h.
+    - cron: '0 15 * * *'
   workflow_dispatch:
     inputs:
       blend_version:
@@ -46,21 +48,42 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # On the daily schedule, compare the latest STABLE blend on npm against the
-      # version this package currently targets. Skip the rest of the job (no PR)
-      # unless npm has something newer. Manual runs skip this gate.
-      - name: Check for a newer stable blend (scheduled runs)
+      # Determine the release channel:
+      #  - scheduled 03:00 UTC cron -> stable; scheduled 15:00 UTC cron -> beta
+      #  - manual run -> beta when allow_prerelease=true, else stable
+      - name: Determine channel
+        id: chan
+        run: |
+          MODE=stable
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            [ "${{ github.event.schedule }}" = "0 15 * * *" ] && MODE=beta
+          else
+            [ "${{ inputs.allow_prerelease }}" = "true" ] && MODE=beta
+          fi
+          echo "mode=$MODE" >> $GITHUB_OUTPUT
+          echo "channel = $MODE"
+
+      # On the daily schedule, compare the relevant blend dist-tag on npm against the
+      # matching tag we last published, and skip the rest of the job (no PR) unless npm
+      # has something newer. Forward-only: we react to a newer tag, never backfill older
+      # versions. Manual runs skip this gate.
+      - name: Check for a newer blend (scheduled runs)
         id: poll
         if: github.event_name == 'schedule'
         run: |
-          # Baseline = the last STABLE we published (our npm `latest` dist-tag), NOT the
-          # devDep pin. This decouples the stable poll from the devDep, so beta syncs can
-          # pin the devDep to their beta version (below) without making this poll churn.
-          CURRENT=$(npm view @juspay/rescript-blend version 2>/dev/null || echo 0)
-          LATEST=$(npm view @juspay/blend-design-system version)   # dist-tag 'latest' is stable-only
-          echo "current=$CURRENT  latest=$LATEST"
+          if [ "${{ steps.chan.outputs.mode }}" = "beta" ]; then
+            # Last BETA we published vs blend's current beta dist-tag.
+            CURRENT=$(npm view @juspay/rescript-blend dist-tags.beta 2>/dev/null || echo 0)
+            LATEST=$(npm view @juspay/blend-design-system dist-tags.beta 2>/dev/null || echo 0)
+          else
+            # Last STABLE we published (our npm `latest` dist-tag), NOT the devDep pin, so
+            # beta syncs that pin the devDep don't make this stable poll churn.
+            CURRENT=$(npm view @juspay/rescript-blend version 2>/dev/null || echo 0)
+            LATEST=$(npm view @juspay/blend-design-system version)   # dist-tag 'latest' is stable-only
+          fi
+          echo "mode=${{ steps.chan.outputs.mode }}  current=$CURRENT  latest=$LATEST"
           if [ "$CURRENT" = "$LATEST" ]; then
-            echo "Already on the latest stable blend ($CURRENT). Nothing to sync."
+            echo "Already on the latest ${{ steps.chan.outputs.mode }} blend ($CURRENT). Nothing to sync."
             echo "proceed=false" >> $GITHUB_OUTPUT
           else
             echo "proceed=true" >> $GITHUB_OUTPUT
@@ -91,19 +114,19 @@ jobs:
           echo "version=$V" >> $GITHUB_OUTPUT
           echo "Resolved blend version: $V"
 
-      - name: Refuse prerelease versions (unless explicitly allowed)
+      - name: Refuse prerelease versions (unless beta channel)
         if: steps.target.outputs.spec != ''
         run: |
           V="${{ steps.blend.outputs.version }}"
           if [[ "$V" =~ -(beta|alpha|rc) ]]; then
-            if [[ "${{ inputs.allow_prerelease }}" != "true" ]]; then
-              echo "Refusing to sync against prerelease version $V."
-              echo "The daily/auto path only accepts stable releases."
-              echo "To cut a beta release, re-run this workflow with allow_prerelease=true;"
+            if [[ "${{ steps.chan.outputs.mode }}" != "beta" ]]; then
+              echo "Refusing to sync prerelease version $V on the stable channel."
+              echo "The stable path only accepts stable releases."
+              echo "Betas are handled by the beta channel (the 15:00 UTC cron, or a manual run with allow_prerelease=true);"
               echo "the merged PR publishes under the npm 'beta' dist-tag (never 'latest')."
               exit 1
             else
-              echo "::warning::Proceeding against prerelease $V (allow_prerelease=true). On merge this publishes under the 'beta' dist-tag."
+              echo "::warning::Proceeding against prerelease $V (beta channel). On merge this publishes under the 'beta' dist-tag."
             fi
           fi
 
