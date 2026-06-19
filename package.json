@@ -1,6 +1,6 @@
 {
   "name": "@juspay/rescript-blend",
-  "version": "0.0.37-beta.5",
+  "version": "0.0.37-beta.6",
   "description": "ReScript bindings for @juspay/blend-design-system",
   "scripts": {
     "build": "rescript",
@@ -52,7 +52,7 @@
     "rescript-webapi": "^0.10.0"
   },
   "devDependencies": {
-    "@juspay/blend-design-system": "0.0.37-beta.5",
+    "@juspay/blend-design-system": "0.0.37-beta.6",
     "@juspay/rescript-bindgen": "^1.2.5-beta.0",
     "@rescript/react": "^0.15.0",
     "rescript": "^12.2.0"

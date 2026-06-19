@@ -7,6 +7,7 @@ type props<'a> = {
   value?: string,
   progressValue?: float,
   helpIconText?: string,
+  valueTooltip?: React.element,
   change?: StatCardV2Types.statCardV2Change,
   subtitle?: string,
   options?: HighchartsSharedTypes.options<'a>,
