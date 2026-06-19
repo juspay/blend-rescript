@@ -1,7 +1,7 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
   ~chartType: ChartsTypes.chartType=?,
-  ~data: array<ChartsTypes.newNestedDataPoint>,
+  ~data: Nullable.t<array<ChartsTypes.newNestedDataPoint>>=?,
   ~colors: array<ChartsTypes.chartsColorsConfig>=?,
   ~slot1: React.element=?,
   ~slot2: React.element=?,

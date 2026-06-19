@@ -29,7 +29,7 @@ type scope =
 type where =
   | @as("all") All
   | @as("end") End
-type type_3 =
+type type_4 =
   | @as("straight") Straight
   | @as("curved") Curved
   | @as("orthogonal") Orthogonal

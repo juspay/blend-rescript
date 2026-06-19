@@ -62,7 +62,7 @@ external make: (
   ~formNoValidate: bool=?,
   ~formTarget: string=?,
   ~name: string=?,
-  @as("type") ~type_: TabsTypes.type_2=?,
+  @as("type") ~type_: TabsTypes.type_3=?,
   ~value: string,
   ~asChild: bool=?,
   ~variant: TabsV2Types.tabsV2Variant=?,

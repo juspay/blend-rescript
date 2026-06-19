@@ -614,7 +614,7 @@ type goToDiff =
 type multiSelectV2SelectionTagType =
   | @as("count") Count
   | @as("text") Text
-type type_4 =
+type type_5 =
   | @as("separator") Separator
   | @as("label") Label
   | @as("item") Item
@@ -4311,7 +4311,7 @@ type multiSelectV2SecondaryActionConfig = {
 }
 type flattenedMultiSelectV2Item = {
   id: string,
-  @as("type") type_: type_4,
+  @as("type") type_: type_5,
   item?: multiSelectV2ItemType,
   label?: string,
   groupId?: float,
@@ -4326,7 +4326,7 @@ type multiSelectV2ValueConfig2 = {
 }
 type flattenedItem = {
   id: string,
-  @as("type") type_: type_4,
+  @as("type") type_: type_5,
   item?: singleSelectV2ItemType,
   label?: string,
   groupId?: float,

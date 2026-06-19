@@ -18,10 +18,6 @@ type skeletonShape =
   | @as("circle") Circle
   | @as("rectangle") Rectangle
   | @as("rounded") Rounded
-type size =
-  | @as("sm") Sm
-  | @as("lg") Lg
-  | @as("md") Md
 type shape =
   | @as("circle") Circle
   | @as("square") Square

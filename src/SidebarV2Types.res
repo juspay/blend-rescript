@@ -192,6 +192,7 @@ type secondarySidebarItem = {
   label: string,
   value: string,
   icon: React.element,
+  badge?: SidebarTypes.tenantBadge,
 }
 type secondarySidebarInfo = {
   items: array<secondarySidebarItem>,

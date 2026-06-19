@@ -1,6 +1,6 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~directoryData: array<DirectoryTypes.directoryData>,
+  ~directoryData: Nullable.t<array<DirectoryTypes.directoryData>>,
   ~idPrefix: string=?,
   ~activeItem: Nullable.t<string>=?,
   ~onActiveItemChange: Nullable.t<string> => unit=?,
