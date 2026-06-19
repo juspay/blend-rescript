@@ -53,7 +53,10 @@ jobs:
         id: poll
         if: github.event_name == 'schedule'
         run: |
-          CURRENT=$(node -p "(require('./package.json').devDependencies['@juspay/blend-design-system']||'0').replace(/^[^0-9]*/,'')")
+          # Baseline = the last STABLE we published (our npm `latest` dist-tag), NOT the
+          # devDep pin. This decouples the stable poll from the devDep, so beta syncs can
+          # pin the devDep to their beta version (below) without making this poll churn.
+          CURRENT=$(npm view @juspay/rescript-blend version 2>/dev/null || echo 0)
           LATEST=$(npm view @juspay/blend-design-system version)   # dist-tag 'latest' is stable-only
           echo "current=$CURRENT  latest=$LATEST"
           if [ "$CURRENT" = "$LATEST" ]; then
@@ -104,10 +107,13 @@ jobs:
             fi
           fi
 
-      # Deterministic generation via @juspay/rescript-bindgen. --set-version makes
-      # package.json version = blend version (1:1), so the PR already carries it.
+      # Pin the devDependency to the EXACT version we're generating from — for BOTH
+      # stable and beta — so the committed devDep always matches the shipped bindings
+      # and `npm ci` at any tag re-generates byte-identical src (determinism). The
+      # stable poll's baseline is decoupled (see "Check for a newer stable blend"),
+      # so pinning a beta here no longer makes it churn.
       - name: Pin blend version in devDependencies
-        if: steps.target.outputs.spec != '' && inputs.allow_prerelease != true
+        if: steps.target.outputs.spec != ''
         run: |
           V="${{ steps.blend.outputs.version }}"
           node -e "const p=require('./package.json'); p.devDependencies['@juspay/blend-design-system']='$V'; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n');"
