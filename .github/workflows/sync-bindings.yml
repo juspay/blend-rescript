@@ -1,11 +1,14 @@
 name: Sync bindings with upstream blend
 
 # Two ways to run:
-#   1. schedule  — a daily poll checks npm for a newer STABLE
-#      @juspay/blend-design-system and, if found, regenerates bindings and opens a PR.
-#   2. workflow_dispatch — a maintainer regenerates against a specific version on demand.
+#   1. schedule — two daily polls of @juspay/blend-design-system:
+#        03:00 UTC -> STABLE channel (blend `latest` dist-tag)
+#        15:00 UTC -> BETA   channel (blend `beta`   dist-tag)
+#      If the channel's dist-tag has advanced, regenerates bindings and opens a PR.
+#   2. workflow_dispatch — a maintainer regenerates a specific version on demand
+#      (allow_prerelease=true selects the beta channel).
 # Generation is deterministic (@juspay/rescript-bindgen) — no LLM, no secrets.
-# Prerelease versions (-beta, -alpha, -rc) are refused below as a safety net.
+# Prereleases are accepted only on the beta channel; the stable channel refuses them.
 on:
   schedule:
     # Stable channel — daily at 03:00 UTC. Picks up a new stable blend within ~24h.
@@ -63,10 +66,10 @@ jobs:
           echo "mode=$MODE" >> $GITHUB_OUTPUT
           echo "channel = $MODE"
 
-      # On the daily schedule, compare the relevant blend dist-tag on npm against the
-      # matching tag we last published, and skip the rest of the job (no PR) unless npm
-      # has something newer. Forward-only: we react to a newer tag, never backfill older
-      # versions. Manual runs skip this gate.
+      # On the daily schedule, compare the channel's blend dist-tag on npm against the
+      # matching tag we last published, and skip the rest of the job (no PR) unless it
+      # changed. We only ever read the current dist-tag (never backfill skipped versions);
+      # dist-tags are expected to move forward. Manual runs skip this gate.
       - name: Check for a newer blend (scheduled runs)
         id: poll
         if: github.event_name == 'schedule'
@@ -82,7 +85,10 @@ jobs:
             LATEST=$(npm view @juspay/blend-design-system version)   # dist-tag 'latest' is stable-only
           fi
           echo "mode=${{ steps.chan.outputs.mode }}  current=$CURRENT  latest=$LATEST"
-          if [ "$CURRENT" = "$LATEST" ]; then
+          if [ -z "$LATEST" ] || [ "$LATEST" = "0" ]; then
+            echo "No ${{ steps.chan.outputs.mode }} version available upstream. Nothing to sync."
+            echo "proceed=false" >> $GITHUB_OUTPUT
+          elif [ "$CURRENT" = "$LATEST" ]; then
             echo "Already on the latest ${{ steps.chan.outputs.mode }} blend ($CURRENT). Nothing to sync."
             echo "proceed=false" >> $GITHUB_OUTPUT
           else
