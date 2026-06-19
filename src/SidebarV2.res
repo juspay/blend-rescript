@@ -8,7 +8,7 @@ external make: (
   ~footer: React.element=?,
   ~sidebarTopSlot: React.element=?,
   ~sidebarCollapseKey: string=?,
-  ~merchantInfo: TopbarTypes.merchantInfo=?,
+  ~merchantInfo: SharedTypes.merchantInfo=?,
   ~rightActions: React.element=?,
   ~enableTopbarAutoHide: bool=?,
   ~isTopbarVisible: bool=?,

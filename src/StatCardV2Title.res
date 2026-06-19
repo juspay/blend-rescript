@@ -4,4 +4,5 @@ external make: (
   ~helpIconText: string=?,
   ~tokens: StatCardV2Types.statCardV2TokensType,
   ~id: string=?,
+  ~isSmallScreen: bool=?,
 ) => React.element = "StatCardV2Title"
