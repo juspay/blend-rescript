@@ -11,6 +11,5 @@ external make: (
   ~dropdownProps: SingleSelectTypes.singleSelectProps=?,
   ~tokens: StatCardV2Types.statCardV2TokensType,
   ~isSmallScreen: bool,
-  ~filteredProps: string,
-) => // ⚪ loose — was `DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>`
-React.element = "StatCardV2NoData"
+  ~filteredProps: JsxDOM.domProps,
+) => React.element = "StatCardV2NoData"

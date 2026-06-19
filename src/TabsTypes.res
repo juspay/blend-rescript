@@ -10,7 +10,7 @@ type tabsSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type type_2 =
+type type_3 =
   | @as("button") Button
   | @as("reset") Reset
   | @as("submit") Submit

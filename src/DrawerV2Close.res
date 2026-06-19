@@ -62,7 +62,7 @@ external make: (
   ~formNoValidate: bool=?,
   ~formTarget: string=?,
   ~name: string=?,
-  @as("type") ~type_: TabsTypes.type_2=?,
+  @as("type") ~type_: TabsTypes.type_3=?,
   ~value: CommonTypes.stringOrNumberOrStringArray=?,
   ~asChild: bool=?,
 ) => React.element = "DrawerV2Close"

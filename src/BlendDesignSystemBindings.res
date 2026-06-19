@@ -17,6 +17,10 @@ external getAvatarGroupTokens: 'a => AvatarGroupTypes.responsiveAvatarGroupToken
 external getBreadcrumbTokens: TokensTypes.foundationTokenType => BreadcrumbTypes.responsiveBreadcrumbTokens =
   "getBreadcrumbTokens"
 @module("@juspay/blend-design-system")
+external normalizeBreadcrumbItems: array<BreadcrumbTypes.breadcrumbItemType> => array<
+  BreadcrumbTypes.breadcrumbItemType,
+> = "normalizeBreadcrumbItems"
+@module("@juspay/blend-design-system")
 external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.responsiveButtonTokens =
   "getButtonTokens"
 @module("@juspay/blend-design-system")
@@ -835,10 +839,10 @@ external getMenuItemDescriptionColor: (
   MenuV2Types.menuV2ItemConfig,
   MenuV2Types.menuV2ItemType,
 ) => string = "getMenuItemDescriptionColor"
-// ⚪ loose: `flattenMenuV2Groups` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external flattenMenuV2Groups: array<MenuV2Types.menuV2GroupType> => array<string> =
-  "flattenMenuV2Groups"
+external flattenMenuV2Groups: array<MenuV2Types.menuV2GroupType> => array<
+  MenuV2Types.MenuV2FlatRow.t,
+> = "flattenMenuV2Groups"
 @module("@juspay/blend-design-system")
 external filterMenuV2Groups: (
   array<MenuV2Types.menuV2GroupType>,

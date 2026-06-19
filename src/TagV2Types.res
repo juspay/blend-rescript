@@ -10,7 +10,7 @@ type tagV2Type =
 type tagV2SubType =
   | @as("rounded") Rounded
   | @as("squarical") Squarical
-type color3 =
+type color5 =
   | @as("neutral") Neutral
   | @as("primary") Primary
   | @as("success") Success

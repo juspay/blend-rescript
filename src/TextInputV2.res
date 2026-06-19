@@ -7,8 +7,7 @@ type props = {
   error?: EditorSharedTypes.inputsV2ErrorConfig,
   hintText?: string,
   helpIconText?: string,
-  // ⚠️ REVIEW: `dropdown` is `TextInputV2Dropdown | TextInputV2Dropdown[]` — couldn't be auto-typed exactly; emitted as `string` placeholder. Match the real type by hand.
-  dropdown?: string,
+  dropdown?: EditorSharedTypes.Dropdown.t, // ⓘ was `TextInputV2Dropdown | TextInputV2Dropdown[]` — opaque; build with Dropdown.fromTextInputV2Dropdown / Dropdown.fromTextInputV2Dropdowns
   leftSlot?: EditorSharedTypes.inputsV2LeftSlotConfig2,
   rightSlot?: EditorSharedTypes.inputsV2LeftSlotConfig2,
 }
