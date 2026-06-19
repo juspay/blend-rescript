@@ -18,7 +18,7 @@ type avatarV2StatusPosition =
   | @as("bottomRight") BottomRight
   | @as("topLeft") TopLeft
   | @as("bottomLeft") BottomLeft
-type variant2 =
+type variant3 =
   | @as("pulse") Pulse
   | @as("wave") Wave
 type avatarV2WidthConfig = {
@@ -103,7 +103,7 @@ type avatarV2StatusConfig2 = {
 }
 type avatarV2SkeletonConfig = {
   show: bool,
-  variant?: variant2,
+  variant?: variant3,
 }
 type avatarV2AvatarPropsConfig = {
   width?: string,

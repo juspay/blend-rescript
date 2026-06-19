@@ -184,3 +184,9 @@ module CollisionBoundaryRef = {
   external fromHTMLElement: Dom.element => t = "%identity"
   external fromHTMLElements: array<Dom.element> => t = "%identity"
 }
+module MenuV2FlatRow = {
+  type t
+  external fromMenuV2ValueConfig: menuV2ValueConfig => t = "%identity"
+  external fromMenuV2ValueConfig2: menuV2ValueConfig2 => t = "%identity"
+  external fromMenuV2ValueConfig3: menuV2ValueConfig3 => t = "%identity"
+}

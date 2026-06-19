@@ -64,7 +64,7 @@ external make: (
   ~letterSpacing: string=?,
   ~opacity: string=?,
   ~overflow: string=?,
-  ~size: SkeletonTypes.size=?,
+  ~size: DataTableTypes.size=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,

@@ -107,6 +107,7 @@ type subStep = {
   title: string,
   status?: stepState,
   disabled?: bool,
+  slot?: React.element,
 }
 type step = {
   id: float,
@@ -115,6 +116,7 @@ type step = {
   disabled?: bool,
   description?: string,
   icon?: React.element,
+  slot?: React.element,
   substeps?: array<subStep>,
   isExpandable?: bool,
   isExpanded?: bool,

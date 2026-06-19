@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.4`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.5`
 
-**209** components · ✅ **208** usable · 🔍 **1** need review · 🛑 **0** broken
+**209** components · ✅ **209** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**224** function binding(s) → `BlendDesignSystemBindings.res`.
+**225** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2867** shared types deduplicated into **71** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2908** shared types deduplicated into **71** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -24,6 +24,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getAvatarTokens`
 - `getAvatarGroupTokens`
 - `getBreadcrumbTokens`
+- `normalizeBreadcrumbItems`
 - `getButtonTokens`
 - `getCardTokens`
 - `getChartTokens`
@@ -294,7 +295,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - CodeEditorV2
 - CodeEditorV2Header
 - CoreChart
-- DataTable  _(3 loose)_
+- DataTable
 - DateRangePicker
 - Directory
 - Drawer
@@ -361,7 +362,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - NumberInputV2
 - OTPInput
 - OTPInputV2
-- PivotTableModal  _(1 loose)_
+- PivotTableModal
 - Popover
 - PopoverV2
 - ProgressBar
@@ -404,7 +405,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - StatCard
 - StatCardV2
 - StatCardV2Change
-- StatCardV2NoData  _(1 loose)_
+- StatCardV2NoData
 - StatCardV2Skeleton
 - StatCardV2Subtitle
 - StatCardV2Title
@@ -441,6 +442,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TextArea
 - TextAreaV2
 - TextInput
+- TextInputV2
 - ThemeProvider
 - Timeline
 - TimelineHeader
@@ -462,9 +464,6 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 | Resolved TypeScript type | → emitted | count | example props |
 |--------------------------|-----------|-------|---------------|
-| `ColumnDefinition<T>[]` | `string` | 2 | columns |
-| `keyof T` | `string` | 1 | idField |
-| `(keyof T)[]` | `string` | 1 | columnManagerAlwaysSelected |
 | `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
@@ -477,7 +476,6 @@ These resolved to a real but complex type and were widened to `string` (they com
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Su` | `string` | 1 | forwardedAs |
 | `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>` | `string` | 1 | filteredProps |
 | `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...` | `string` | 1 | theme |
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...; }` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> &` | `string` | 1 | forwardedAs |
@@ -503,11 +501,7 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 A multi-type prop couldn't be auto-discriminated at runtime (e.g. two object shapes), so an `@unboxed` variant won't work and we **refuse to use `%identity`/unsafe casts**. The prop is emitted as a `string` placeholder with an inline `// ⚠️ REVIEW` comment — bind it by hand or fix the type upstream.
 
-### TextInputV2
-
-| Prop | Real TypeScript |
-|------|-----------------|
-| `dropdown` | `dropdown?: TextInputV2Dropdown \| TextInputV2Dropdown[];` |
+_(none)_
 
 ## 🛑 Broken — needs serious component change
 

@@ -7,7 +7,7 @@ external make: (
   ~sidebarCollapseKey: string,
   ~onToggle: unit => unit,
   ~sidebarNavId: string=?,
-  ~data: array<DirectoryTypes.directoryData>,
+  ~data: Nullable.t<array<DirectoryTypes.directoryData>>,
   ~idPrefix: string,
   ~activeItem: Nullable.t<string>=?,
   ~onActiveItemChange: Nullable.t<string> => unit=?,

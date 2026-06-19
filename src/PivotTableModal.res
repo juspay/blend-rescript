@@ -3,7 +3,7 @@ external make: (
   ~isOpen: bool,
   ~onClose: unit => unit,
   ~data: array<'a>,
-  ~columns: string, // ⚪ loose — was `ColumnDefinition<T>[]`
+  ~columns: array<DataTableTypes.ColumnDefinition2.t>, // ⓘ was `ColumnDefinition<T>` — opaque; build with ColumnDefinition2.fromDataTableColumnsConfig / ColumnDefinition2.fromDataTableColumnsConfig2 / ColumnDefinition2.fromDataTableColumnsConfig3 / ColumnDefinition2.fromDataTableColumnsConfig4 / ColumnDefinition2.fromDataTableColumnsConfig5 / ColumnDefinition2.fromDataTableColumnsConfig6 / ColumnDefinition2.fromDataTableColumnsConfig7 / ColumnDefinition2.fromDataTableColumnsConfig8 / ColumnDefinition2.fromDataTableColumnsConfig9 / ColumnDefinition2.fromDataTableColumnsConfig10
   ~title: string=?,
   ~description: string=?,
   ~showExport: bool=?,

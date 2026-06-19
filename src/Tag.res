@@ -10,7 +10,7 @@ external make: (
   ~border: string=?,
   ~hidden: bool=?,
   ~inset: string=?,
-  ~color: SplitTagTypes.color2=?,
+  ~color: SplitTagTypes.color4=?,
   ~fontSize: string=?,
   ~fontWeight: string=?,
   ~borderBottom: string=?,

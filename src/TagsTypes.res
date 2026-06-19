@@ -78,7 +78,7 @@ type tagsPrimaryTagConfig = {
   border?: string,
   text: string,
   inset?: string,
-  color?: SplitTagTypes.color2,
+  color?: SplitTagTypes.color4,
   fontSize?: string,
   fontWeight?: string,
   borderBottom?: string,

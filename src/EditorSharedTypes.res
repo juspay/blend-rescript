@@ -5,6 +5,9 @@ type inputSizeV2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
+type textInputV2DropdownPosition =
+  | @as("left") Left
+  | @as("right") Right
 type inputStateV2 =
   | @as("default") Default
   | @as("hover") Hover
@@ -614,7 +617,7 @@ type goToDiff =
 type multiSelectV2SelectionTagType =
   | @as("count") Count
   | @as("text") Text
-type type_4 =
+type type_5 =
   | @as("separator") Separator
   | @as("label") Label
   | @as("item") Item
@@ -1759,10 +1762,6 @@ type inputsV2ErrorConfig = {
   show: bool,
   message?: string,
 }
-type inputsV2LeftSlotConfig2 = {
-  slot: React.element,
-  maxHeight?: string,
-}
 type rec singleSelectV2ItemType = {
   label: string,
   value: string,
@@ -1807,6 +1806,46 @@ type selectV2TriggerDimensions = {
 type selectV2ErrorState = {
   show?: bool,
   message?: string,
+}
+type textInputV2Dropdown = {
+  label?: string,
+  subLabel?: string,
+  hintText?: string,
+  required?: bool,
+  helpIconText?: string,
+  placeholder: string,
+  size?: SelectV2Types.selectV2Size,
+  variant?: SelectV2Types.selectV2Variant,
+  items: array<singleSelectV2GroupType>,
+  selected: string,
+  onSelect: string => unit,
+  search?: selectV2SearchConfig,
+  slot?: React.element,
+  customTrigger?: React.element,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  usePanelOnMobile?: bool,
+  menuPosition?: selectV2MenuPosition,
+  menuDimensions?: selectV2MenuDimensions,
+  triggerDimensions?: selectV2TriggerDimensions,
+  inline?: bool,
+  error?: selectV2ErrorState,
+  enableVirtualization?: bool,
+  virtualListItemHeight?: float,
+  virtualListOverscan?: float,
+  onEndReached?: unit => unit,
+  endReachedThreshold?: float,
+  hasMore?: bool,
+  loadingComponent?: React.element,
+  skeleton?: SelectV2Types.selectV2SkeletonProps,
+  allowCustomValue?: bool,
+  customValueLabel?: string,
+  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  position: textInputV2DropdownPosition,
+}
+type inputsV2LeftSlotConfig2 = {
+  slot: React.element,
+  maxHeight?: string,
 }
 type singleSelectV2Props = {
   label?: string,
@@ -4311,7 +4350,7 @@ type multiSelectV2SecondaryActionConfig = {
 }
 type flattenedMultiSelectV2Item = {
   id: string,
-  @as("type") type_: type_4,
+  @as("type") type_: type_5,
   item?: multiSelectV2ItemType,
   label?: string,
   groupId?: float,
@@ -4326,7 +4365,7 @@ type multiSelectV2ValueConfig2 = {
 }
 type flattenedItem = {
   id: string,
-  @as("type") type_: type_4,
+  @as("type") type_: type_5,
   item?: singleSelectV2ItemType,
   label?: string,
   groupId?: float,
@@ -4401,4 +4440,9 @@ type chatInputV2AttachedFile = {
   size?: float,
   url?: string,
   preview?: string,
+}
+module Dropdown = {
+  type t
+  external fromTextInputV2Dropdown: textInputV2Dropdown => t = "%identity"
+  external fromTextInputV2Dropdowns: array<textInputV2Dropdown> => t = "%identity"
 }

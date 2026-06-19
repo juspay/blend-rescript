@@ -2,7 +2,7 @@
 external make: (
   ~showLeftPanel: bool=?,
   ~children: React.element,
-  ~data: array<DirectoryTypes.directoryData>,
+  ~data: Nullable.t<array<DirectoryTypes.directoryData>>,
   ~leftPanel: SidebarTypes.leftPanelInfo=?,
   ~topbar: React.element,
   ~footer: React.element=?,
