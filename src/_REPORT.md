@@ -1,4 +1,4 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.6`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.7`
 
 **209** components · ✅ **209** usable · 🔍 **0** need review · 🛑 **0** broken
 

@@ -86,11 +86,14 @@ external getProgressBarTokens: TokensTypes.foundationTokenType => ProgressBarTyp
 @module("@juspay/blend-design-system")
 external getSidebarTokens: TokensTypes.foundationTokenType => SidebarTypes.responsiveSidebarTokens =
   "getSidebarTokens"
-// ⚪ loose: `useSkeletonBase` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external useSkeletonBase: (bool, ~children: React.element=?, unit) => string = "useSkeletonBase"
+external useSkeletonBase: (
+  bool,
+  ~children: React.element=?,
+  unit,
+) => SkeletonTypes.useSkeletonBaseResult = "useSkeletonBase"
 @module("@juspay/blend-design-system")
-external getSkeletonState: bool => SkeletonTypes.skeletonValueConfig3 = "getSkeletonState"
+external getSkeletonState: bool => SkeletonTypes.skeletonValueConfig = "getSkeletonState"
 @module("@juspay/blend-design-system")
 external mergeSkeletonProps: ('a, ~skeletonProps: JSON.t=?, unit) => JSON.t = "mergeSkeletonProps"
 // ⚪ loose: `getSkeletonDefaults` has a param/return widened to `string`.

@@ -13,6 +13,7 @@ type props<'a> = {
   options?: HighchartsSharedTypes.options<'a>,
   skeleton?: StatCardV2Types.statCardV2SkeletonProps,
   dropdownProps?: SingleSelectTypes.singleSelectProps,
+  showBorder?: bool,
   width?: string,
   maxWidth?: string,
   minWidth?: string,

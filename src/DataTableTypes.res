@@ -40,6 +40,16 @@ type color3 =
   | @as("warning") Warning
 type dROPDOWN = | @as("dropdown") Dropdown
 type dATE = | @as("date") Date
+type dateFormat =
+  | @as("DD MMM YYYY") DDMMMYYYY
+  | @as("DD/MM/YYYY") DDMMYYYY
+  | @as("MM/DD/YYYY") MMDDYYYY
+  | @as("YYYY-MM-DD") YYYYMMDD
+  | @as("DD MMM YYYY, hh:mm A") DDMMMYYYYHhMmA
+  | @as("DD MMM YYYY, HH:mm") DDMMMYYYYHHMm
+  | @as("MMM DD, YYYY") MMMDDYYYY
+  | @as("YYYY/MM/DD HH:mm") YYYYMMDDHHMm
+  | @as("HH:mm:ss") HHMmSs
 type sLIDER = | @as("slider") Slider
 type valueType =
   | @as("number") Number
@@ -258,6 +268,7 @@ type dataTableCellConfig2 = {
   color: string,
   fontSize: string,
   borderTop: string,
+  dateLabel: string,
   expandable: string,
 }
 type dataTableBodyConfig = {
@@ -505,8 +516,9 @@ type dataTableColumnsConfig6<'a> = {
 }
 type dateColumnProps = {
   date: string,
-  format?: string,
+  format?: dateFormat,
   showTime?: bool,
+  dateLabel?: string,
 }
 type dataTableColumnsConfig7<'a> = {
   field: string,
@@ -530,8 +542,9 @@ type dataTableColumnsConfig7<'a> = {
   sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
   @as("type") type_: dATE,
   renderCell?: (dateColumnProps, 'a, float) => React.element,
-  dateFormat?: string,
+  dateFormat?: dateFormat,
   showTime?: bool,
+  dateLabel?: string,
 }
 type sliderColumnProps = {
   min: float,
