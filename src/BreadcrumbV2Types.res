@@ -1,31 +1,31 @@
-type breadcrumbV2ColorConfig = {
+type breadcrumbV2BreadcrumbV2TokensTypeItemTextColorConfig = {
   active: string,
   default: string,
   hover: string,
 }
-type breadcrumbV2TextConfig = {
+type breadcrumbV2BreadcrumbV2TokensTypeItemTextConfig = {
   fontSize: string,
   fontWeight: string,
-  color: breadcrumbV2ColorConfig,
+  color: breadcrumbV2BreadcrumbV2TokensTypeItemTextColorConfig,
 }
-type breadcrumbV2ItemConfig = {
+type breadcrumbV2BreadcrumbV2TokensTypeItemConfig = {
   padding: string,
   gap: string,
-  text: breadcrumbV2TextConfig,
+  text: breadcrumbV2BreadcrumbV2TokensTypeItemTextConfig,
 }
-type breadcrumbV2EllipsisConfig = {
+type breadcrumbV2BreadcrumbV2TokensTypeEllipsisConfig = {
   color: string,
   borderRadius: string,
   size: float,
 }
-type breadcrumbV2SeparatorConfig = {
+type breadcrumbV2BreadcrumbV2TokensTypeSeparatorConfig = {
   color: string,
 }
 type breadcrumbV2TokensType = {
   gap: string,
-  item: breadcrumbV2ItemConfig,
-  ellipsis: breadcrumbV2EllipsisConfig,
-  separator: breadcrumbV2SeparatorConfig,
+  item: breadcrumbV2BreadcrumbV2TokensTypeItemConfig,
+  ellipsis: breadcrumbV2BreadcrumbV2TokensTypeEllipsisConfig,
+  separator: breadcrumbV2BreadcrumbV2TokensTypeSeparatorConfig,
 }
 type responsiveBreadcrumbV2Tokens = {
   sm: breadcrumbV2TokensType,
@@ -49,7 +49,7 @@ type breadcrumbCompoundItemProps = {
   isActive?: bool,
   children: React.element,
 }
-type breadcrumbV2ValueConfig = {
+type breadcrumbV2ComputeBreadcrumbOverflowLayoutConfig = {
   shouldShowMenu: bool,
   base?: indexedBreadcrumbChild,
   rest: array<indexedBreadcrumbChild>,

@@ -19,13 +19,13 @@ type leftPanelInfo = {
   tenantSlot2?: React.element,
   tenantFooter?: React.element,
 }
-type sharedItemsConfig = {
+type sharedMerchantInfoItemsConfig = {
   label: string,
   value: string,
   icon?: React.element,
 }
 type merchantInfo = {
-  items: array<sharedItemsConfig>,
+  items: array<sharedMerchantInfoItemsConfig>,
   selected: string,
   onSelect: string => unit,
 }

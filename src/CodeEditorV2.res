@@ -4,7 +4,7 @@ type props = {
   onChange?: string => unit,
   variant?: EditorSharedTypes.codeEditorV2Variant,
   showLineNumbers?: bool,
-  header?: EditorSharedTypes.codeEditorV2HeaderConfig2,
+  header?: EditorSharedTypes.codeEditorV2HeaderConfig,
   language?: EditorSharedTypes.codeEditorV2SupportedLanguage,
   placeholder?: string,
   readOnly?: bool,

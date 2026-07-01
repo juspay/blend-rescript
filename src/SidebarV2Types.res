@@ -2,7 +2,7 @@ type onSidebarStateChange =
   | @as("expanded") Expanded
   | @as("collapsed") Collapsed
   | @as("intermediate") Intermediate
-type sidebarV2ContainerConfig = {
+type sidebarV2MobileNavigationV2TokenTypeContainerConfig = {
   zIndex: string,
   backgroundColor: string,
   background?: string,
@@ -12,7 +12,7 @@ type sidebarV2ContainerConfig = {
   backdropFilter: string,
   transition: string,
 }
-type sidebarV2LayoutConfig = {
+type sidebarV2MobileNavigationV2TokenTypeLayoutConfig = {
   safeAreaOffset: string,
   floatingPadding: string,
   primaryActionMarginX: string,
@@ -29,84 +29,84 @@ type sidebarV2LayoutConfig = {
   rowPaddingRight: string,
   rowGap: string,
 }
-type sidebarV2BackgroundColorConfig = {
+type sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig = {
   active: string,
   default: string,
 }
-type sidebarV2IconConfig = {
+type sidebarV2MobileNavigationV2TokenTypeItemIconConfig = {
   width: string,
   height: string,
   borderRadius: string,
   transition: string,
   strokeWidth: float,
 }
-type sidebarV2TextConfig = {
+type sidebarV2MobileNavigationV2TokenTypeItemTextConfig = {
   fontSize: string,
   fontWeight: string,
   textAlign: string,
 }
-type sidebarV2ItemConfig = {
+type sidebarV2MobileNavigationV2TokenTypeItemConfig = {
   width: string,
   height: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: sidebarV2BackgroundColorConfig,
-  color: sidebarV2BackgroundColorConfig,
+  backgroundColor: sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig,
+  color: sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig,
   fontWeight: string,
-  icon: sidebarV2IconConfig,
-  text: sidebarV2TextConfig,
+  icon: sidebarV2MobileNavigationV2TokenTypeItemIconConfig,
+  text: sidebarV2MobileNavigationV2TokenTypeItemTextConfig,
 }
-type sidebarV2IconConfig2 = {
+type sidebarV2MobileNavigationV2TokenTypePrimaryActionIconConfig = {
   width: string,
   height: string,
   strokeWidth: float,
 }
-type sidebarV2PrimaryActionConfig = {
+type sidebarV2MobileNavigationV2TokenTypePrimaryActionConfig = {
   width: string,
   height: string,
   borderRadius: string,
   background: string,
   boxShadow: string,
   color: string,
-  icon: sidebarV2IconConfig2,
+  icon: sidebarV2MobileNavigationV2TokenTypePrimaryActionIconConfig,
 }
 type mobileNavigationV2TokenType = {
-  container: sidebarV2ContainerConfig,
-  layout: sidebarV2LayoutConfig,
-  item: sidebarV2ItemConfig,
-  primaryAction: sidebarV2PrimaryActionConfig,
+  container: sidebarV2MobileNavigationV2TokenTypeContainerConfig,
+  layout: sidebarV2MobileNavigationV2TokenTypeLayoutConfig,
+  item: sidebarV2MobileNavigationV2TokenTypeItemConfig,
+  primaryAction: sidebarV2MobileNavigationV2TokenTypePrimaryActionConfig,
 }
 type responsiveMobileNavigationV2Tokens = {
   sm: mobileNavigationV2TokenType,
   lg: mobileNavigationV2TokenType,
 }
-type sidebarV2HoverPreviewConfig = {
+type sidebarV2SidebarV2TokensTypeContainerHoverPreviewConfig = {
   boxShadow: string,
 }
-type sidebarV2MaxWidthConfig = {
+type sidebarV2SidebarV2TokensTypeContainerMaxWidthConfig = {
   withLeftPanel: string,
   withoutLeftPanel: string,
   iconOnly: string,
 }
-type sidebarV2ContainerConfig2 = {
+type sidebarV2SidebarV2TokensTypeContainerConfig = {
   zIndex: string,
   backgroundColor: string,
   borderRight: string,
-  hoverPreview: sidebarV2HoverPreviewConfig,
-  maxWidth: sidebarV2MaxWidthConfig,
+  hoverPreview: sidebarV2SidebarV2TokensTypeContainerHoverPreviewConfig,
+  maxWidth: sidebarV2SidebarV2TokensTypeContainerMaxWidthConfig,
 }
-type sidebarV2BorderConfig = {
+type sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig = {
   active: string,
   default: string,
   hover: string,
 }
-type sidebarV2ItemConfig2 = {
+type sidebarV2SidebarV2TokensTypeLeftPanelItemConfig = {
   width: string,
   borderRadius: string,
-  border: sidebarV2BorderConfig,
-  backgroundColor: sidebarV2BorderConfig,
+  border: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
 }
-type sidebarV2LeftPanelConfig = {
+type sidebarV2SidebarV2TokensTypeLeftPanelConfig = {
   width: string,
   backgroundColor: string,
   borderRight: string,
@@ -115,16 +115,16 @@ type sidebarV2LeftPanelConfig = {
   paddingLeft: string,
   paddingRight: string,
   gap: string,
-  item: sidebarV2ItemConfig2,
+  item: sidebarV2SidebarV2TokensTypeLeftPanelItemConfig,
 }
-type sidebarV2ToggleButtonConfig = {
+type sidebarV2SidebarV2TokensTypeHeaderToggleButtonConfig = {
   borderRadius: string,
   padding: string,
-  backgroundColor: sidebarV2BorderConfig,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
   width: string,
   iconColor: string,
 }
-type sidebarV2HeaderConfig = {
+type sidebarV2SidebarV2TokensTypeHeaderConfig = {
   zIndex: string,
   backgroundColor: string,
   paddingTop: string,
@@ -135,16 +135,16 @@ type sidebarV2HeaderConfig = {
   borderBottom: string,
   borderBottomWidth: string,
   scrolledBorderColor: string,
-  toggleButton: sidebarV2ToggleButtonConfig,
+  toggleButton: sidebarV2SidebarV2TokensTypeHeaderToggleButtonConfig,
 }
-type sidebarV2DirectoryConfig = {
+type sidebarV2SidebarV2TokensTypeDirectoryConfig = {
   gap: string,
   paddingTop: string,
   paddingBottom: string,
   paddingLeft: string,
   paddingRight: string,
 }
-type sidebarV2FooterConfig = {
+type sidebarV2SidebarV2TokensTypeFooterConfig = {
   zIndex: string,
   backgroundColor: string,
   gap: string,
@@ -154,17 +154,17 @@ type sidebarV2FooterConfig = {
   paddingRight: string,
   borderTop: string,
 }
-type sidebarV2PrimarySidebarConfig = {
+type sidebarV2SidebarV2TokensTypePrimarySidebarConfig = {
   width: string,
 }
-type sidebarV2ItemConfig3 = {
+type sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig = {
   width: string,
   height: string,
   borderRadius: string,
-  border: sidebarV2BorderConfig,
-  backgroundColor: sidebarV2BorderConfig,
+  border: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
 }
-type sidebarV2SecondarySidebarConfig = {
+type sidebarV2SidebarV2TokensTypeSecondarySidebarConfig = {
   width: string,
   borderRight: string,
   backgroundColor: string,
@@ -173,16 +173,16 @@ type sidebarV2SecondarySidebarConfig = {
   paddingBottom: string,
   paddingLeft: string,
   paddingRight: string,
-  item: sidebarV2ItemConfig3,
+  item: sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig,
 }
 type sidebarV2TokensType = {
-  container: sidebarV2ContainerConfig2,
-  leftPanel: sidebarV2LeftPanelConfig,
-  header: sidebarV2HeaderConfig,
-  directory: sidebarV2DirectoryConfig,
-  footer: sidebarV2FooterConfig,
-  primarySidebar: sidebarV2PrimarySidebarConfig,
-  secondarySidebar: sidebarV2SecondarySidebarConfig,
+  container: sidebarV2SidebarV2TokensTypeContainerConfig,
+  leftPanel: sidebarV2SidebarV2TokensTypeLeftPanelConfig,
+  header: sidebarV2SidebarV2TokensTypeHeaderConfig,
+  directory: sidebarV2SidebarV2TokensTypeDirectoryConfig,
+  footer: sidebarV2SidebarV2TokensTypeFooterConfig,
+  primarySidebar: sidebarV2SidebarV2TokensTypePrimarySidebarConfig,
+  secondarySidebar: sidebarV2SidebarV2TokensTypeSecondarySidebarConfig,
 }
 type responsiveSidebarV2Tokens = {
   sm: sidebarV2TokensType,
@@ -201,13 +201,13 @@ type secondarySidebarInfo = {
   buttonProps?: ReactTypes.reactPrimaryActionButtonPropsConfig,
   footerSlot?: React.element,
 }
-type sidebarV2ItemsConfig = {
+type sidebarV2MerchantInfoItemsConfig = {
   label: string,
   value: string,
   icon?: React.element,
 }
 type sidebarV2MerchantInfoConfig = {
-  items: array<sidebarV2ItemsConfig>,
+  items: array<sidebarV2MerchantInfoItemsConfig>,
   selected: string,
   onSelect: string => unit,
 }

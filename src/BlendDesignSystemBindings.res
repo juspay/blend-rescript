@@ -86,11 +86,14 @@ external getProgressBarTokens: TokensTypes.foundationTokenType => ProgressBarTyp
 @module("@juspay/blend-design-system")
 external getSidebarTokens: TokensTypes.foundationTokenType => SidebarTypes.responsiveSidebarTokens =
   "getSidebarTokens"
-// ⚪ loose: `useSkeletonBase` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external useSkeletonBase: (bool, ~children: React.element=?, unit) => string = "useSkeletonBase"
+external useSkeletonBase: (
+  bool,
+  ~children: React.element=?,
+  unit,
+) => SkeletonTypes.skeletonUseSkeletonBaseConfig = "useSkeletonBase"
 @module("@juspay/blend-design-system")
-external getSkeletonState: bool => SkeletonTypes.skeletonValueConfig3 = "getSkeletonState"
+external getSkeletonState: bool => SkeletonTypes.skeletonGetSkeletonStateConfig = "getSkeletonState"
 @module("@juspay/blend-design-system")
 external mergeSkeletonProps: ('a, ~skeletonProps: JSON.t=?, unit) => JSON.t = "mergeSkeletonProps"
 // ⚪ loose: `getSkeletonDefaults` has a param/return widened to `string`.
@@ -124,12 +127,13 @@ external createSliderRange: (
   float,
   float,
   SliderTypes.sliderValueType,
-  ~options: SliderTypes.sliderOptionsConfig=?,
+  ~options: SliderTypes.sliderCreateSliderRangeOptionsConfig=?,
   unit,
-) => SliderTypes.sliderValueConfig = "createSliderRange"
+) => SliderTypes.sliderCreateSliderRangeConfig = "createSliderRange"
 @module("@juspay/blend-design-system")
-external buildThumbAriaAttributes: SliderTypes.sliderOptionsConfig2 => Dict.t<string> =
-  "buildThumbAriaAttributes"
+external buildThumbAriaAttributes: SliderTypes.sliderBuildThumbAriaAttributesOptionsConfig => Dict.t<
+  string,
+> = "buildThumbAriaAttributes"
 @module("@juspay/blend-design-system")
 external getSliderLabelStyles: (
   ~position: SliderTypes.position=?,
@@ -172,7 +176,7 @@ external getButtonV2BorderRadius: (
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
   ButtonTypes.buttonGroupPosition,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getButtonV2BorderRadius"
 @module("@juspay/blend-design-system")
 external createButtonClickHandler: (
@@ -201,7 +205,7 @@ external getSkeletonBorderRadius: (
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
   ButtonTypes.buttonGroupPosition,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getSkeletonBorderRadius"
 @module("@juspay/blend-design-system")
 external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => string =
@@ -210,14 +214,14 @@ external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => strin
 external getButtonBorderStyles: (
   ButtonTypes.buttonGroupPosition,
   string,
-) => ButtonV2Types.buttonV2ValueConfig = "getButtonBorderStyles"
+) => ButtonV2Types.buttonV2GetButtonBorderStylesConfig = "getButtonBorderStyles"
 @module("@juspay/blend-design-system")
 external getButtonStyles: (
   bool,
   bool,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
   ~buttonGroupPosition: ButtonTypes.buttonGroupPosition=?,
   unit,
 ) => ButtonV2Types.buttonStylesReturn = "getButtonStyles"
@@ -227,7 +231,7 @@ external getIconColor: (
   bool,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getIconColor"
 @module("@juspay/blend-design-system")
 external getTextColor: (
@@ -236,19 +240,19 @@ external getTextColor: (
   ButtonV2Types.buttonV2State,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getTextColor"
 @module("@juspay/blend-design-system")
 external getButtonPadding: (
   ButtonV2Types.buttonV2Size,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonV2Types.buttonV2SmConfig,
-) => ButtonV2Types.buttonV2ValueConfig2 = "getButtonPadding"
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
+) => ButtonV2Types.buttonV2GetButtonPaddingConfig = "getButtonPadding"
 @module("@juspay/blend-design-system")
 external getButtonLineHeight: (
   ButtonV2Types.buttonV2Size,
-  ButtonV2Types.buttonV2SmConfig,
+  ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getButtonLineHeight"
 @module("@juspay/blend-design-system")
 external getAlertV2Tokens: (
@@ -267,7 +271,7 @@ external getTagBorderRadius: (
   TagV2Types.tagV2Size,
   TagV2Types.tagV2SubType,
   ButtonTypes.buttonGroupPosition,
-  TagV2Types.tagV2SmConfig,
+  TagV2Types.tagV2ResponsiveTagV2TokensSmConfig,
 ) => string = "getTagBorderRadius"
 @module("@juspay/blend-design-system")
 external getAccessibleName: (string, bool, CommonTypes.boolOrMixed) => string = "getAccessibleName"
@@ -303,20 +307,22 @@ external getCheckboxTextProps: (
   SelectorV2Types.selectorV2Size,
   bool,
   bool,
-) => SelectorV2Types.selectorV2ValueConfig = "getCheckboxTextProps"
+) => SelectorV2Types.selectorV2GetCheckboxTextPropsConfig = "getCheckboxTextProps"
 @module("@juspay/blend-design-system")
 external getCheckboxSubtextProps: (
   SelectorV2Types.checkboxV2TokensType,
   SelectorV2Types.selectorV2Size,
   bool,
   bool,
-) => SelectorV2Types.selectorV2ValueConfig2 = "getCheckboxSubtextProps"
+) => SelectorV2Types.selectorV2GetCheckboxSubtextPropsConfig = "getCheckboxSubtextProps"
 @module("@juspay/blend-design-system")
-external getCheckboxLabelStyles: bool => SelectorV2Types.selectorV2ValueConfig3 =
+external getCheckboxLabelStyles: bool => SelectorV2Types.selectorV2GetCheckboxLabelStylesConfig =
   "getCheckboxLabelStyles"
 @module("@juspay/blend-design-system")
-external getAccessibilityAttributes: (string, bool) => SelectorV2Types.selectorV2ValueConfig4 =
-  "getAccessibilityAttributes"
+external getAccessibilityAttributes: (
+  string,
+  bool,
+) => SelectorV2Types.selectorV2GetAccessibilityAttributesConfig = "getAccessibilityAttributes"
 @module("@juspay/blend-design-system")
 external getSubtextId: (string, bool) => string = "getSubtextId"
 @module("@juspay/blend-design-system")
@@ -369,15 +375,15 @@ external indexBreadcrumbChildren: array<React.element> => array<
 external computeBreadcrumbOverflowLayout: (
   array<BreadcrumbV2Types.indexedBreadcrumbChild>,
   float,
-) => BreadcrumbV2Types.breadcrumbV2ValueConfig = "computeBreadcrumbOverflowLayout"
+) => BreadcrumbV2Types.breadcrumbV2ComputeBreadcrumbOverflowLayoutConfig =
+  "computeBreadcrumbOverflowLayout"
 @module("@juspay/blend-design-system")
 external resolveBreadcrumbItemActive: (float, React.element, float) => bool =
   "resolveBreadcrumbItemActive"
 @module("@juspay/blend-design-system")
 external createStubNativeClickEvent: unit => Dom.event = "createStubNativeClickEvent"
-// ⚪ loose: `createStubAnchorClickEvent` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external createStubAnchorClickEvent: string => string = "createStubAnchorClickEvent"
+external createStubAnchorClickEvent: string => ReactEvent.Mouse.t = "createStubAnchorClickEvent"
 @module("@juspay/blend-design-system")
 external getAvatarV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -404,7 +410,7 @@ external getStatusPositionStyles: (
   AvatarV2Types.avatarV2Size,
   AvatarV2Types.avatarV2Shape,
   AvatarV2Types.avatarV2TokensType,
-) => AvatarV2Types.avatarV2ValueConfig = "getStatusPositionStyles"
+) => AvatarV2Types.avatarV2GetStatusPositionStylesConfig = "getStatusPositionStyles"
 @module("@juspay/blend-design-system")
 external createAvatarKeyboardHandler: (
   ReactEvent.Mouse.t => unit
@@ -424,7 +430,7 @@ external getProgressBarV2Tokens: (
   unit,
 ) => ProgressBarV2Types.responsiveProgressBarV2Tokens = "getProgressBarV2Tokens"
 @module("@juspay/blend-design-system")
-external normalizeRange: (float, float) => ProgressBarV2Types.progressBarV2ValueConfig =
+external normalizeRange: (float, float) => ProgressBarV2Types.progressBarV2NormalizeRangeConfig =
   "normalizeRange"
 @module("@juspay/blend-design-system")
 external clampValue: (float, float, float) => float = "clampValue"
@@ -433,7 +439,7 @@ external getProgressBarValueState: (
   float,
   float,
   float,
-) => ProgressBarV2Types.progressBarV2ValueConfig2 = "getProgressBarValueState"
+) => ProgressBarV2Types.progressBarV2GetProgressBarValueStateConfig = "getProgressBarValueState"
 @module("@juspay/blend-design-system")
 external calculatePercentage: (float, float, float) => float = "calculatePercentage"
 @module("@juspay/blend-design-system")
@@ -441,14 +447,15 @@ external parseTokenValue: (CommonTypes.stringOrNumber, float) => float = "parseT
 @module("@juspay/blend-design-system")
 external extractProgressBarV2AriaProps: Dict.t<
   JSON.t,
-> => ProgressBarV2Types.progressBarV2ValueConfig3 = "extractProgressBarV2AriaProps"
+> => ProgressBarV2Types.progressBarV2ExtractProgressBarV2AriaPropsConfig =
+  "extractProgressBarV2AriaProps"
 @module("@juspay/blend-design-system")
 external generateDefaultAriaLabel: (float, float, float) => string = "generateDefaultAriaLabel"
 @module("@juspay/blend-design-system")
 external getCircularDimensions: (
   ProgressBarV2Types.progressBarV2Size,
   ProgressBarV2Types.progressBarV2TokenType,
-) => ProgressBarV2Types.progressBarV2ValueConfig4 = "getCircularDimensions"
+) => ProgressBarV2Types.progressBarV2GetCircularDimensionsConfig = "getCircularDimensions"
 @module("@juspay/blend-design-system")
 external parseCircularDashToken: (
   string,
@@ -460,7 +467,8 @@ external parseCircularDashToken: (
 external calculateCircularProgressStroke: (
   float,
   float,
-) => ProgressBarV2Types.progressBarV2ValueConfig5 = "calculateCircularProgressStroke"
+) => ProgressBarV2Types.progressBarV2CalculateCircularProgressStrokeConfig =
+  "calculateCircularProgressStroke"
 @module("@juspay/blend-design-system")
 external renderVariantFallbackValue: (
   StatCardV2Types.statCardV2TokensType,
@@ -478,7 +486,7 @@ external getStatCardV2Tokens: (
   unit,
 ) => StatCardV2Types.responsiveStatCardV2Tokens = "getStatCardV2Tokens"
 @module("@juspay/blend-design-system")
-external buildStatCardV2AriaLabel: StatCardV2Types.statCardV2ParamsConfig => string =
+external buildStatCardV2AriaLabel: StatCardV2Types.statCardV2BuildStatCardV2AriaLabelParamsConfig => string =
   "buildStatCardV2AriaLabel"
 @module("@juspay/blend-design-system")
 external getAccordionV2Tokens: (
@@ -499,12 +507,12 @@ external toEmbeddedSingleSelectV2Props: (
 ) => EditorSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
 @module("@juspay/blend-design-system")
 external getInputState: (
-  ~error: EditorSharedTypes.inputsV2ErrorConfig2=?,
+  ~error: EditorSharedTypes.inputsV2GetInputStateErrorConfig=?,
   ~disabled: bool=?,
   unit,
 ) => EditorSharedTypes.inputStateV2 = "getInputState"
 @module("@juspay/blend-design-system")
-external getVerticalInputPadding: EditorSharedTypes.inputsV2V0Config => EditorSharedTypes.inputsV2ValueConfig =
+external getVerticalInputPadding: EditorSharedTypes.inputsV2GetVerticalInputPaddingV0Config => EditorSharedTypes.inputsV2GetVerticalInputPaddingConfig =
   "getVerticalInputPadding"
 @module("@juspay/blend-design-system")
 external getTextAreaV2Tokens: (
@@ -531,12 +539,12 @@ external prepareDropdownItems: (
   array<TabsV2Types.tabsV2TabItem>,
   ~originalItems: array<TabsV2Types.tabsV2TabItem>=?,
   unit,
-) => array<TabsV2Types.tabsV2ValueConfig> = "prepareDropdownItems"
+) => array<TabsV2Types.tabsV2PrepareDropdownItemsConfig> = "prepareDropdownItems"
 @module("@juspay/blend-design-system")
 external calculateTabIndicatorPosition: (
   Dom.element,
   Dom.htmlDivElement,
-) => TabsV2Types.tabsV2ValueConfig2 = "calculateTabIndicatorPosition"
+) => TabsV2Types.tabsV2CalculateTabIndicatorPositionConfig = "calculateTabIndicatorPosition"
 @module("@juspay/blend-design-system")
 external getActualTabValue: (string, Set.t<string>) => string = "getActualTabValue"
 @module("@juspay/blend-design-system")
@@ -560,12 +568,12 @@ external applyTabItemDisplayDefaults: (
 external useChartLegend: (
   React.ref<Nullable.t<Dom.element>>,
   array<React.ref<Nullable.t<Dom.element>>>,
-) => ChartsV2Types.chartsV2ValueConfig = "useChartLegend"
+) => ChartsV2Types.chartsV2UseChartLegendConfig = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
   HighchartsSharedTypes.chart,
   array<HighchartsSharedTypes.chart>,
-) => ChartsV2Types.chartsV2ValueConfig2 = "useChartLegendHover"
+) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
 external useChartRefs: array<React.ref<Nullable.t<Dom.element>>> => array<
   HighchartsSharedTypes.chart,
@@ -710,20 +718,22 @@ external getContainerDimensions: (
   string,
   ~maxHeight: string=?,
   unit,
-) => EditorSharedTypes.codeEditorV2ValueConfig = "getContainerDimensions"
+) => EditorSharedTypes.codeEditorV2GetContainerDimensionsConfig = "getContainerDimensions"
 @module("@juspay/blend-design-system")
 external getPlaceholderPosition: (
   EditorSharedTypes.editorMetrics,
   bool,
-) => EditorSharedTypes.codeEditorV2ValueConfig2 = "getPlaceholderPosition"
+) => EditorSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
 // ⚪ loose: `configureLanguageDefaults` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
 external configureLanguageDefaults: string => unit = "configureLanguageDefaults"
 @module("@juspay/blend-design-system")
 external blurMonacoEditorDom: EditorSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
 @module("@juspay/blend-design-system")
-external getMonacoViewModeOptions: (bool, bool) => EditorSharedTypes.editorValueConfig =
-  "getMonacoViewModeOptions"
+external getMonacoViewModeOptions: (
+  bool,
+  bool,
+) => EditorSharedTypes.editorGetMonacoViewModeOptionsConfig = "getMonacoViewModeOptions"
 @module("@juspay/blend-design-system")
 external syncDiffEditorPaneViewMode: (
   EditorSharedTypes.iStandaloneDiffEditor<'a, 'b>,
@@ -815,28 +825,27 @@ external getMenuV2Tokens: (
   ~theme: string=?,
   unit,
 ) => MenuV2Types.responsiveMenuV2TokensType = "getMenuV2Tokens"
-// ⚪ loose: `getItemSlots` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external getItemSlots: MenuV2Types.menuV2ItemType => string = "getItemSlots"
+external getItemSlots: MenuV2Types.menuV2ItemType => array<React.element> = "getItemSlots"
 @module("@juspay/blend-design-system")
 external filterMenuV2Item: (MenuV2Types.menuV2ItemType, string) => MenuV2Types.menuV2ItemType =
   "filterMenuV2Item"
 @module("@juspay/blend-design-system")
 external getMenuItemBackgroundColor: (
   SelectV2Types.selectV2ItemStates,
-  MenuV2Types.menuV2ItemConfig,
+  MenuV2Types.menuV2MenuV2TokensTypeGroupItemConfig,
   MenuV2Types.menuV2ItemType,
 ) => string = "getMenuItemBackgroundColor"
 @module("@juspay/blend-design-system")
 external getMenuItemOptionColor: (
   SelectV2Types.selectV2ItemStates,
-  MenuV2Types.menuV2ItemConfig,
+  MenuV2Types.menuV2MenuV2TokensTypeGroupItemConfig,
   MenuV2Types.menuV2ItemType,
 ) => string = "getMenuItemOptionColor"
 @module("@juspay/blend-design-system")
 external getMenuItemDescriptionColor: (
   SelectV2Types.selectV2ItemStates,
-  MenuV2Types.menuV2ItemConfig,
+  MenuV2Types.menuV2MenuV2TokensTypeGroupItemConfig,
   MenuV2Types.menuV2ItemType,
 ) => string = "getMenuItemDescriptionColor"
 @module("@juspay/blend-design-system")
@@ -868,12 +877,13 @@ external getMultiSelectCrossBorderRadius: (
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonGroupPosition,
   EditorSharedTypes.multiSelectV2TokensType,
-) => EditorSharedTypes.multiSelectV2ValueConfig = "getMultiSelectCrossBorderRadius"
+) => EditorSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
+  "getMultiSelectCrossBorderRadius"
 @module("@juspay/blend-design-system")
 external getSelectAllState: (
   array<string>,
   array<string>,
-) => EditorSharedTypes.multiSelectV2ValueConfig2 = "getSelectAllState"
+) => EditorSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
 @module("@juspay/blend-design-system")
 external getMultiSelectV2ValueLabelMap: array<EditorSharedTypes.multiSelectV2GroupType> => Dict.t<
   string,
@@ -938,7 +948,8 @@ external getSingleSelectV2BorderRadius: (
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonGroupPosition,
   EditorSharedTypes.singleSelectV2TokensType,
-) => EditorSharedTypes.singleSelectV2ValueConfig = "getSingleSelectV2BorderRadius"
+) => EditorSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
+  "getSingleSelectV2BorderRadius"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2ValueLabelMap: array<EditorSharedTypes.singleSelectV2GroupType> => Dict.t<
   string,
@@ -974,8 +985,8 @@ external getItemOrdinalIndex: (array<EditorSharedTypes.flattenedItem>, float) =>
 @module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
-  EditorSharedTypes.singleSelectV2OptionsConfig,
-) => EditorSharedTypes.singleSelectV2ValueConfig2 = "generateAccessibilityIds"
+  EditorSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
+) => EditorSharedTypes.singleSelectV2GenerateAccessibilityIdsConfig = "generateAccessibilityIds"
 @module("@juspay/blend-design-system")
 external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => EditorSharedTypes.extractedAriaProps =
   "extractSingleSelectV2AriaProps"
@@ -983,7 +994,7 @@ external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => EditorSharedTypes.ext
 external mergeSingleSelectV2AriaDescribedBy: (~ids: array<string>=?, unit) => string =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
-external buildAriaAttributes: EditorSharedTypes.singleSelectV2OptionsConfig2 => EditorSharedTypes.ariaAttributes =
+external buildAriaAttributes: EditorSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => EditorSharedTypes.ariaAttributes =
   "buildAriaAttributes"
 @module("@juspay/blend-design-system")
 external setupAccessibility: EditorSharedTypes.accessibilitySetupOptions => EditorSharedTypes.accessibilitySetupResult =

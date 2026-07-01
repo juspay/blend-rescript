@@ -641,7 +641,7 @@ module D = {
     "%identity"
 }
 @unboxed type stringOrDTArray = Str(string) | Arr(array<D.t>)
-type highchartsShapeArgsConfig = {
+type highchartsPointShapeArgsConfig = {
   d?: stringOrDTArray,
   dx?: float,
   dy?: float,
@@ -687,7 +687,7 @@ type rec point = {
   points?: array<point>,
   selected: bool,
   series: series,
-  shapeArgs?: highchartsShapeArgsConfig,
+  shapeArgs?: highchartsPointShapeArgsConfig,
   sliced?: bool,
   tooltipPos?: array<float>,
   total?: float,
@@ -805,7 +805,7 @@ type accessibilityOptions = {
   series?: accessibilitySeriesOptions,
   typeDescription?: string,
 }
-type highchartsAnimationConfig = {
+type highchartsAnnotationsOptionsAnimationConfig = {
   complete?: string,
   defer?: float,
   duration?: float,
@@ -818,7 +818,7 @@ type annotationsAnimationOptions = {
 module Animation = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromAnnotationsAnimationOptions: annotationsAnimationOptions => t = "%identity"
 }
 type positionObject = {
@@ -833,7 +833,7 @@ type annotationsControlPointStyleOptions = {
 }
 module Style = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
     "%identity"
   external fromAnnotationsLabelsControlPointsStyleOptions: annotationsControlPointStyleOptions => t =
@@ -2346,7 +2346,7 @@ type plotAbandsDataLabelsAnimationOptions = {
 module Animation3 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAbandsDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -2750,7 +2750,7 @@ type sankeyNodeObject = {
   points?: array<string>,
   selected: bool,
   series: series,
-  shapeArgs?: highchartsShapeArgsConfig,
+  shapeArgs?: highchartsPointShapeArgsConfig,
   sliced?: bool,
   tooltipPos?: array<string>,
   total?: float,
@@ -3160,7 +3160,7 @@ type plotAdDataLabelsAnimationOptions = {
 module Animation4 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAdDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
 }
 type plotAdDataLabelsOptions = {
@@ -3304,7 +3304,7 @@ type seriesAdOptions = {
 module Animation5 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAoDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -3448,7 +3448,7 @@ type seriesAoOptions = {
 module Animation6 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotApoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -4062,7 +4062,7 @@ type plotAroonAroonDownOptions = {
 module Animation11 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAroonDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -4201,7 +4201,7 @@ type seriesAroonOptions = {
 module Animation12 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAroonoscillatorDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -4436,7 +4436,7 @@ type seriesBarOptions = {
 module Animation15 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBbDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
 }
 type plotBbDataLabelsOptions = {
@@ -4578,7 +4578,7 @@ type seriesBbOptions = {
 module Animation16 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBellcurveDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -5102,7 +5102,7 @@ type seriesCandlestickOptions = {
 module Animation21 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotCciDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -5237,7 +5237,7 @@ type seriesCciOptions = {
 module Animation23 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotCmfDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -5827,7 +5827,7 @@ type seriesCylinderOptions = {
 module Animation29 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotDemaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -6034,7 +6034,7 @@ type seriesDependencywheelOptions = {
 module Animation30 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotDisparityindexDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -6178,7 +6178,7 @@ type seriesDisparityindexOptions = {
 module Animation31 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotDmiDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -6323,7 +6323,7 @@ type seriesDmiOptions = {
 module Animation32 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotDpoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -6554,7 +6554,7 @@ type seriesDumbbellOptions = {
 module Animation35 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotFlagsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -7069,7 +7069,7 @@ type seriesFunnel3dOptions = {
 module Animation36 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotFunnelDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
   external fromPlotItemDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
@@ -7270,7 +7270,7 @@ type seriesGanttOptions = {
 module Animation39 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotGaugeDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -7531,7 +7531,7 @@ type seriesHeatmapOptions = {
 module Animation43 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotHistogramDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -7867,7 +7867,7 @@ type seriesHollowcandlestickOptions = {
 module Animation46 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotIkhDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -8086,7 +8086,7 @@ type seriesItemOptions = {
 module Animation47 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotKeltnerchannelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -8226,7 +8226,7 @@ type seriesKeltnerchannelsOptions = {
 module Animation48 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotKlingerDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -8560,7 +8560,7 @@ type seriesLollipopOptions = {
 module Animation54 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMacdDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -8711,7 +8711,7 @@ type seriesMacdOptions = {
 module Animation56 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMapbubbleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -9239,7 +9239,7 @@ type seriesOrganizationOptions = {
 module Animation65 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPackedbubbleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -9257,7 +9257,7 @@ type seriesPackedBubbleDataLabelsOptionsObject = {
   alignTo?: string,
   allowOverlap?: bool,
   animation?: Animation65.t,
-  attributes?: highchartsShapeArgsConfig,
+  attributes?: highchartsPointShapeArgsConfig,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -9817,7 +9817,7 @@ type seriesPolygonOptions = {
 module Animation73 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPriceenvelopesDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -10462,7 +10462,7 @@ type seriesScatterOptions = {
 module Animation81 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSlowstochasticDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -10605,7 +10605,7 @@ type seriesSlowstochasticOptions = {
 module Animation82 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSmaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -10741,7 +10741,7 @@ type seriesSmaOptions = {
 module Animation83 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSolidgaugeDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -10950,7 +10950,7 @@ type seriesSplineOptions = {
 module Animation85 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotStochasticDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -11098,7 +11098,7 @@ type plotSunburstBreadcrumbsButtonThemeOptions = {
 }
 module ButtonTheme3 = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromPlotSunburstBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
@@ -11153,14 +11153,14 @@ type plotSunburstBreadcrumbsOptions = {
   rtl?: bool,
   separator?: plotSunburstBreadcrumbsSeparatorOptions,
   showFullPath?: bool,
-  style?: highchartsShapeArgsConfig,
+  style?: highchartsPointShapeArgsConfig,
   useHTML?: bool,
   zIndex?: int,
 }
 module Animation87 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSunburstDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
   external fromPlotSunburstLevelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
@@ -11313,7 +11313,7 @@ type plotSupertrendChangeTrendLineOptions = {
 module Animation88 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSupertrendDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -11570,7 +11570,7 @@ type seriesTilemapOptions = {
 module Animation91 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTimelineDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -11702,7 +11702,7 @@ type plotTreegraphCollapseButtonOptions = {
 module Animation92 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTreegraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
   external fromPlotTreegraphLevelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
@@ -11876,7 +11876,7 @@ type seriesTreegraphOptions = {
 }
 module ButtonTheme4 = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromPlotTreemapBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
@@ -11908,7 +11908,7 @@ type plotTreemapBreadcrumbsOptions = {
   rtl?: bool,
   separator?: plotTreemapBreadcrumbsSeparatorOptions,
   showFullPath?: bool,
-  style?: highchartsShapeArgsConfig,
+  style?: highchartsPointShapeArgsConfig,
   useHTML?: bool,
   zIndex?: int,
 }
@@ -11936,7 +11936,7 @@ type plotTreemapClusterOptions = {
 module Animation93 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTreemapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -12254,7 +12254,7 @@ type seriesVariwideOptions = {
 module Animation97 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVbpDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -12542,7 +12542,7 @@ type plotVennClusterOptions = {
 module Animation99 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVennDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -13667,7 +13667,7 @@ type chartResetZoomButtonThemeOptions = {
 }
 module Theme = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromChartResetZoomButtonThemeOptions: chartResetZoomButtonThemeOptions => t = "%identity"
 }
 type chartResetZoomButtonOptions = {
@@ -13694,7 +13694,7 @@ module Position2 = {
 type chartZoomingResetButtonOptions = {
   position?: Position2.t,
   relativeTo?: buttonRelativeToValue,
-  theme?: highchartsShapeArgsConfig,
+  theme?: highchartsPointShapeArgsConfig,
 }
 type chartZoomingOptions = {
   key?: optionsKeyValue,
@@ -13990,7 +13990,7 @@ type drilldownBreadcrumbsButtonThemeOptions = {
 }
 module ButtonTheme = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromDrilldownBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
@@ -14026,7 +14026,7 @@ type drilldownBreadcrumbsOptions = {
   rtl?: bool,
   separator?: drilldownBreadcrumbsSeparatorOptions,
   showFullPath?: bool,
-  style?: highchartsShapeArgsConfig,
+  style?: highchartsPointShapeArgsConfig,
   useHTML?: bool,
   zIndex?: int,
 }
@@ -14692,7 +14692,7 @@ type mapNavigationButtonOptions = {
   height?: float,
   padding?: float,
   style?: cssObject,
-  theme?: highchartsShapeArgsConfig,
+  theme?: highchartsPointShapeArgsConfig,
   verticalAlign?: verticalAlignValue,
   width?: float,
   x?: float,
@@ -14705,7 +14705,7 @@ type mapNavigationButtonsZoomInOptions = {
   padding?: float,
   style?: cssObject,
   text?: string,
-  theme?: highchartsShapeArgsConfig,
+  theme?: highchartsPointShapeArgsConfig,
   verticalAlign?: verticalAlignValue,
   width?: float,
   x?: float,
@@ -14746,7 +14746,7 @@ type mapViewOptions = {
 module Animation2 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromNavigationAnnotationsAnimationOptions: annotationsAnimationOptions => t = "%identity"
 }
 type navigationAnnotationsLabelsOptions = {
@@ -14966,7 +14966,7 @@ module AnnotationsOptions = {
 }
 module ButtonTheme2 = {
   type t
-  external fromSVGAttributes: highchartsShapeArgsConfig => t = "%identity"
+  external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromNavigationBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
@@ -14998,7 +14998,7 @@ type navigationBreadcrumbsOptions = {
   rtl?: bool,
   separator?: navigationBreadcrumbsSeparatorOptions,
   showFullPath?: bool,
-  style?: highchartsShapeArgsConfig,
+  style?: highchartsPointShapeArgsConfig,
   useHTML?: bool,
   zIndex?: int,
 }
@@ -15702,7 +15702,7 @@ module Position6 = {
   external fromNoDataPositionOptions: drilldownBreadcrumbsPositionOptions => t = "%identity"
 }
 type noDataOptions = {
-  attr?: highchartsShapeArgsConfig,
+  attr?: highchartsPointShapeArgsConfig,
   position?: Position6.t,
   style?: cssObject,
   useHTML?: string,
@@ -16035,7 +16035,7 @@ type plotApoOptions = {
 module Animation7 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotArcdiagramDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -16150,7 +16150,7 @@ type plotArcdiagramOptions = {
 module Animation8 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAreaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -16288,7 +16288,7 @@ type plotAreaOptions = {
 module Animation9 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotArearangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
   external fromPlotAreasplinerangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
@@ -16441,7 +16441,7 @@ type plotArearangeOptions = {
 module Animation10 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAreasplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -16809,7 +16809,7 @@ type plotAroonoscillatorOptions = {
 module Animation13 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAtrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -16933,7 +16933,7 @@ type plotAtrOptions = {
 module Animation14 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBarDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -17210,7 +17210,7 @@ type plotBellcurveOptions = {
 module Animation17 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBoxplotDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -17347,7 +17347,7 @@ type plotBoxplotOptions = {
 module Animation18 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBubbleDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -17489,7 +17489,7 @@ type plotBubbleOptions = {
 module Animation19 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotBulletDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -17620,7 +17620,7 @@ type plotBulletOptions = {
 module Animation20 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotCandlestickDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -17831,7 +17831,7 @@ type plotCciOptions = {
 module Animation22 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotChaikinDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -18033,7 +18033,7 @@ type plotCmfOptions = {
 module Animation24 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotCmoDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -18157,7 +18157,7 @@ type plotCmoOptions = {
 module Animation25 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotColumnDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -18298,7 +18298,7 @@ type plotColumnOptions = {
 module Animation26 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotColumnpyramidDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -18535,7 +18535,7 @@ type plotColumnrangeOptions = {
 module Animation27 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotContourDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -18646,7 +18646,7 @@ type plotContourOptions = {
 module Animation28 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotCylinderDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -19267,7 +19267,7 @@ type plotDumbbellOptions = {
 module Animation33 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotEmaDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -19391,7 +19391,7 @@ type plotEmaOptions = {
 module Animation34 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotErrorbarDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -19730,7 +19730,7 @@ type plotFunnelOptions = {
 module Animation37 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotFunnel3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -19859,7 +19859,7 @@ type plotFunnel3dOptions = {
 module Animation38 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotGanttDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -20022,7 +20022,7 @@ type plotGaugeOptions = {
 module Animation40 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotGeoheatmapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -20132,7 +20132,7 @@ type plotGeoheatmapOptions = {
 module Animation41 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotHeatmapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -20244,7 +20244,7 @@ type plotHeatmapOptions = {
 module Animation42 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotHeikinashiDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -20458,7 +20458,7 @@ type plotHistogramOptions = {
 module Animation44 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotHlcDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -20591,7 +20591,7 @@ type plotHlcOptions = {
 module Animation45 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotHollowcandlestickDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21013,7 +21013,7 @@ type plotKlingerOptions = {
 module Animation49 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotLineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21147,7 +21147,7 @@ type plotLineOptions = {
 module Animation50 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotLinearregressionDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21279,7 +21279,7 @@ type plotLinearregressionOptions = {
 module Animation51 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotLinearregressionangleDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21412,7 +21412,7 @@ type plotLinearregressionangleOptions = {
 module Animation52 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotLinearregressioninterceptDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21540,7 +21540,7 @@ type plotLinearregressioninterceptOptions = {
 module Animation53 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotLinearregressionslopeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21836,7 +21836,7 @@ type plotMacdOptions = {
 module Animation55 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -21986,7 +21986,7 @@ type plotMapbubbleOptions = {
 module Animation57 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMaplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22084,7 +22084,7 @@ type plotMaplineOptions = {
 module Animation58 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMfiDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22214,7 +22214,7 @@ type plotMfiOptions = {
 module Animation59 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotMomentumDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22339,7 +22339,7 @@ type plotMomentumOptions = {
 module Animation60 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotNatrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22463,7 +22463,7 @@ type plotNatrOptions = {
 module Animation61 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotNetworkgraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22596,7 +22596,7 @@ type plotNetworkgraphOptions = {
 module Animation62 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotObvDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22725,7 +22725,7 @@ type plotObvOptions = {
 module Animation63 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotOhlcDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -22859,7 +22859,7 @@ type plotOhlcOptions = {
 module Animation64 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotOrganizationDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23063,7 +23063,7 @@ type plotPackedbubbleOptions = {
 module Animation66 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotParetoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23164,7 +23164,7 @@ type plotParetoOptions = {
 module Animation67 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPcDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
 }
 type plotPcDataLabelsOptions = {
@@ -23288,7 +23288,7 @@ type plotPcOptions = {
 module Animation68 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPictorialDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23467,7 +23467,7 @@ type plotPieOptions = {
 module Animation69 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPivotpointsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23597,7 +23597,7 @@ type plotPivotpointsOptions = {
 module Animation70 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPointandfigureDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23730,7 +23730,7 @@ type plotPointandfigureOptions = {
 module Animation71 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPolygonDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -23856,7 +23856,7 @@ type plotPolygonOptions = {
 module Animation72 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPpoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24055,7 +24055,7 @@ type plotPriceenvelopesOptions = {
 module Animation74 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPsarDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24187,7 +24187,7 @@ type plotPsarOptions = {
 module Animation75 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotPyramid3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24325,7 +24325,7 @@ module BorderRadius2 = {
 module Animation76 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotRenkoDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24447,7 +24447,7 @@ type plotRenkoOptions = {
 module Animation77 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotRocDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24571,7 +24571,7 @@ type plotRocOptions = {
 module Animation78 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotRsiDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24774,7 +24774,7 @@ type plotScatterClusterOptions = {
 module Animation79 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotScatterDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -24905,7 +24905,7 @@ type plotScatterOptions = {
 module Animation80 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotScatter3dDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -25222,7 +25222,7 @@ type plotSolidgaugeOptions = {
 module Animation84 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotSplineDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -25426,7 +25426,7 @@ type plotStochasticOptions = {
 module Animation86 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotStreamgraphDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -25691,7 +25691,7 @@ type plotSupertrendOptions = {
 module Animation89 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTemaDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -25833,7 +25833,7 @@ type plotTiledwebmapOptions = {
 module Animation90 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTilemapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26133,7 +26133,7 @@ type plotTreemapOptions = {
 module Animation94 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTrendlineDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26262,7 +26262,7 @@ type plotTrendlineOptions = {
 module Animation95 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTrixDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26448,7 +26448,7 @@ type plotVariablepieOptions = {
 module Animation96 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVariwideDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26668,7 +26668,7 @@ type plotVectorClusterOptions = {
 module Animation98 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVectorDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26837,7 +26837,7 @@ type plotVennOptions = {
 module Animation100 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVwapDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -26961,7 +26961,7 @@ type plotVwapOptions = {
 module Animation101 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotWaterfallDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27094,7 +27094,7 @@ type plotWaterfallOptions = {
 module Animation102 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotWilliamsrDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27219,7 +27219,7 @@ type plotWilliamsrOptions = {
 module Animation103 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotWindbarbDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27359,7 +27359,7 @@ type plotWindbarbOptions = {
 module Animation104 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotWmaDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27541,7 +27541,7 @@ type plotWordcloudOptions = {
 module Animation105 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotXrangeDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27672,7 +27672,7 @@ type plotXrangeOptions = {
 module Animation106 = {
   type t
   external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnimationConfig => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotZigzagDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
 }
@@ -27945,7 +27945,7 @@ type rangeSelectorOptions = {
   buttonPosition?: rangeSelectorButtonPositionOptions,
   buttons?: array<rangeSelectorButtonsOptions>,
   buttonSpacing?: float,
-  buttonTheme?: highchartsShapeArgsConfig,
+  buttonTheme?: highchartsPointShapeArgsConfig,
   dropdown?: optionsDropdownValue,
   enabled?: bool,
   floating?: bool,

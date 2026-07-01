@@ -10,5 +10,5 @@ external make: (
   ~text: string=?,
   ~leftSlot: ButtonV2Types.buttonSlot=?,
   ~rightSlot: ButtonV2Types.buttonSlot=?,
-  ~tokens: ButtonV2Types.buttonV2SmConfig,
+  ~tokens: ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => React.element = "renderButtonContent"

@@ -14,7 +14,7 @@ type selectMenuSide =
   | @as("left") Left
   | @as("right") Right
   | @as("bottom") Bottom
-type singleSelectColorConfig = {
+type singleSelectSingleSelectTokensTypeLabelColorConfig = {
   active: string,
   default: string,
   hover: string,
@@ -23,68 +23,70 @@ type singleSelectColorConfig = {
   focusVisible: string,
   selected: string,
 }
-type singleSelectLabelConfig = {
+type singleSelectSingleSelectTokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: singleSelectColorConfig,
+  color: singleSelectSingleSelectTokensTypeLabelColorConfig,
 }
-type singleSelectErrorMessageConfig = {
+type singleSelectSingleSelectTokensTypeErrorMessageConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
 }
-type singleSelectRequiredConfig = {
+type singleSelectSingleSelectTokensTypeRequiredConfig = {
   color: string,
 }
-type singleSelectSmConfig = {
+type singleSelectSingleSelectTokensTypeTriggerHeightSmConfig = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type singleSelectHeightConfig = {
-  sm: singleSelectSmConfig,
-  md: singleSelectSmConfig,
-  lg: singleSelectSmConfig,
+type singleSelectSingleSelectTokensTypeTriggerHeightConfig = {
+  sm: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
+  md: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
+  lg: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
 }
-type singleSelectContainerConfig = {
+type singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig = {
   x: string,
   y: string,
 }
-type singleSelectSmConfig2 = {
-  container: singleSelectContainerConfig,
-  @as("no-container") noContainer: singleSelectContainerConfig,
+type singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig = {
+  container: singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig,
+  @as("no-container")
+  noContainer: singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig,
 }
-type singleSelectPaddingConfig = {
-  sm: singleSelectSmConfig2,
-  md: singleSelectSmConfig2,
-  lg: singleSelectSmConfig2,
+type singleSelectSingleSelectTokensTypeTriggerPaddingConfig = {
+  sm: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
+  md: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
+  lg: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
 }
-type singleSelectContainerConfig2 = {
+type singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig = {
   hover: string,
   error: string,
   focus: string,
   @as("open") open_: string,
   closed: string,
 }
-type singleSelectBackgroundColorConfig = {
-  container: singleSelectContainerConfig2,
-  @as("no-container") noContainer: singleSelectContainerConfig2,
+type singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig = {
+  container: singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig,
+  @as("no-container")
+  noContainer: singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig,
 }
-type singleSelectPlaceholderConfig = {
+type singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type singleSelectTriggerConfig = {
-  height: singleSelectHeightConfig,
-  padding: singleSelectPaddingConfig,
-  borderRadius: singleSelectHeightConfig,
-  boxShadow: singleSelectSmConfig,
-  backgroundColor: singleSelectBackgroundColorConfig,
-  outline: singleSelectBackgroundColorConfig,
-  placeholder: singleSelectPlaceholderConfig,
-  selectedValue: singleSelectPlaceholderConfig,
+type singleSelectSingleSelectTokensTypeTriggerConfig = {
+  height: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
+  padding: singleSelectSingleSelectTokensTypeTriggerPaddingConfig,
+  borderRadius: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
+  boxShadow: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
+  backgroundColor: singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig,
+  outline: singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig,
+  placeholder: singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig,
+  selectedValue: singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig,
 }
-type singleSelectColorConfig2 = {
+type singleSelectSingleSelectTokensTypeMenuItemOptionsLabelColorConfig = {
   active: string,
   default: string,
   hover: string,
@@ -93,58 +95,58 @@ type singleSelectColorConfig2 = {
   focusVisible: string,
   selected: string,
 }
-type singleSelectOptionsLabelConfig = {
+type singleSelectSingleSelectTokensTypeMenuItemOptionsLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: singleSelectColorConfig2,
+  color: singleSelectSingleSelectTokensTypeMenuItemOptionsLabelColorConfig,
 }
-type singleSelectSeperatorConfig = {
+type singleSelectSingleSelectTokensTypeMenuItemSeperatorConfig = {
   color: string,
   height: string,
   margin: string,
 }
-type singleSelectItemConfig = {
+type singleSelectSingleSelectTokensTypeMenuItemConfig = {
   padding: string,
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: singleSelectColorConfig,
-  optionsLabel: singleSelectOptionsLabelConfig,
-  option: singleSelectOptionsLabelConfig,
-  description: singleSelectOptionsLabelConfig,
-  seperator: singleSelectSeperatorConfig,
+  backgroundColor: singleSelectSingleSelectTokensTypeLabelColorConfig,
+  optionsLabel: singleSelectSingleSelectTokensTypeMenuItemOptionsLabelConfig,
+  option: singleSelectSingleSelectTokensTypeMenuItemOptionsLabelConfig,
+  description: singleSelectSingleSelectTokensTypeMenuItemOptionsLabelConfig,
+  seperator: singleSelectSingleSelectTokensTypeMenuItemSeperatorConfig,
 }
-type singleSelectMenuConfig = {
+type singleSelectSingleSelectTokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: singleSelectPaddingConfig,
-  item: singleSelectItemConfig,
+  padding: singleSelectSingleSelectTokensTypeTriggerPaddingConfig,
+  item: singleSelectSingleSelectTokensTypeMenuItemConfig,
 }
-type singleSelectHeaderConfig = {
+type singleSelectSingleSelectTokensTypeDrawerHeaderConfig = {
   paddingX: string,
   paddingBottom: string,
   borderBottom: string,
 }
-type singleSelectDrawerConfig = {
-  header: singleSelectHeaderConfig,
+type singleSelectSingleSelectTokensTypeDrawerConfig = {
+  header: singleSelectSingleSelectTokensTypeDrawerHeaderConfig,
 }
 type singleSelectTokensType = {
   gap: string,
-  label: singleSelectLabelConfig,
-  subLabel: singleSelectLabelConfig,
-  hintText: singleSelectLabelConfig,
-  errorMessage: singleSelectErrorMessageConfig,
-  required: singleSelectRequiredConfig,
-  trigger: singleSelectTriggerConfig,
-  menu: singleSelectMenuConfig,
-  drawer: singleSelectDrawerConfig,
+  label: singleSelectSingleSelectTokensTypeLabelConfig,
+  subLabel: singleSelectSingleSelectTokensTypeLabelConfig,
+  hintText: singleSelectSingleSelectTokensTypeLabelConfig,
+  errorMessage: singleSelectSingleSelectTokensTypeErrorMessageConfig,
+  required: singleSelectSingleSelectTokensTypeRequiredConfig,
+  trigger: singleSelectSingleSelectTokensTypeTriggerConfig,
+  menu: singleSelectSingleSelectTokensTypeMenuConfig,
+  drawer: singleSelectSingleSelectTokensTypeDrawerConfig,
 }
 type responsiveSingleSelectTokens = {
   sm: singleSelectTokensType,
   lg: singleSelectTokensType,
 }
-type singleSelectTooltipPropsConfig = {
+type singleSelectSelectMenuItemTypeTooltipPropsConfig = {
   side?: TooltipTypes.tooltipSide,
   align?: TooltipTypes.tooltipAlign,
   size?: TooltipTypes.tooltipSize,
@@ -165,7 +167,7 @@ type rec selectMenuItemType2 = {
   onClick?: unit => unit,
   subMenu?: array<selectMenuItemType2>,
   tooltip?: React.element,
-  tooltipProps?: singleSelectTooltipPropsConfig,
+  tooltipProps?: singleSelectSelectMenuItemTypeTooltipPropsConfig,
   disableTruncation?: bool,
 }
 type selectMenuGroupType2 = {

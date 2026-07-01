@@ -1,21 +1,21 @@
-type breadcrumbColorConfig = {
+type breadcrumbBreadcrumbTokenTypeItemTextColorConfig = {
   active: string,
   default: string,
   hover: string,
 }
-type breadcrumbTextConfig = {
+type breadcrumbBreadcrumbTokenTypeItemTextConfig = {
   fontSize: string,
   fontWeight: string,
-  color: breadcrumbColorConfig,
+  color: breadcrumbBreadcrumbTokenTypeItemTextColorConfig,
 }
-type breadcrumbItemConfig = {
+type breadcrumbBreadcrumbTokenTypeItemConfig = {
   padding: string,
   gap: string,
-  text: breadcrumbTextConfig,
+  text: breadcrumbBreadcrumbTokenTypeItemTextConfig,
 }
 type breadcrumbTokenType = {
   gap: string,
-  item: breadcrumbItemConfig,
+  item: breadcrumbBreadcrumbTokenTypeItemConfig,
 }
 type responsiveBreadcrumbTokens = {
   sm: breadcrumbTokenType,

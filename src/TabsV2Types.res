@@ -7,113 +7,113 @@ type tabsV2Size =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type tabsV2BackgroundColorConfig = {
+type tabsV2TabsV2TokensTypeTabListBackgroundColorConfig = {
   boxed: string,
   floating: string,
   underline: string,
   pills: string,
 }
-type tabsV2BorderRadiusConfig = {
-  sm: tabsV2BackgroundColorConfig,
-  md: tabsV2BackgroundColorConfig,
-  lg: tabsV2BackgroundColorConfig,
+type tabsV2TabsV2TokensTypeTabListBorderRadiusConfig = {
+  sm: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  md: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  lg: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
 }
-type tabsV2BoxedConfig = {
+type tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig = {
   top: string,
   right: string,
   bottom: string,
   left: string,
 }
-type tabsV2SmConfig = {
-  boxed: tabsV2BoxedConfig,
-  floating: tabsV2BoxedConfig,
-  underline: tabsV2BoxedConfig,
-  pills: tabsV2BoxedConfig,
+type tabsV2TabsV2TokensTypeTabListPaddingSmConfig = {
+  boxed: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  floating: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  underline: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  pills: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
 }
-type tabsV2PaddingConfig = {
-  sm: tabsV2SmConfig,
-  md: tabsV2SmConfig,
-  lg: tabsV2SmConfig,
+type tabsV2TabsV2TokensTypeTabListPaddingConfig = {
+  sm: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
+  md: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
+  lg: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
 }
-type tabsV2PositionConfig = {
+type tabsV2TabsV2TokensTypeTabListActiveIndicatorPositionConfig = {
   bottom: string,
 }
-type tabsV2ActiveIndicatorConfig = {
+type tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig = {
   height: string,
   color: string,
-  position: tabsV2PositionConfig,
+  position: tabsV2TabsV2TokensTypeTabListActiveIndicatorPositionConfig,
   transition: string,
   zIndex: string,
 }
-type tabsV2StickyHeaderConfig = {
+type tabsV2TabsV2TokensTypeTabListStickyHeaderConfig = {
   boxShadow: string,
   zIndex: string,
 }
-type tabsV2IconConfig = {
+type tabsV2TabsV2TokensTypeTabListTriggerIconConfig = {
   maxWidth: string,
 }
-type tabsV2BoxedConfig2 = {
+type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig = {
   active: string,
   default: string,
   hover: string,
   disabled: string,
 }
-type tabsV2BackgroundColorConfig2 = {
-  boxed: tabsV2BoxedConfig2,
-  floating: tabsV2BoxedConfig2,
-  underline: tabsV2BoxedConfig2,
-  pills: tabsV2BoxedConfig2,
+type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig = {
+  boxed: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
+  floating: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
+  underline: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
+  pills: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
 }
-type tabsV2SmConfig2 = {
+type tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig = {
   boxed: string,
   floating: string,
   underline: string,
   pills: string,
 }
-type tabsV2BorderRadiusConfig2 = {
-  sm: tabsV2SmConfig2,
-  md: tabsV2SmConfig2,
-  lg: tabsV2SmConfig2,
+type tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig = {
+  sm: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
+  md: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
+  lg: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
 }
-type tabsV2FontSizeConfig = {
+type tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type tabsV2TextConfig = {
-  color: tabsV2SmConfig2,
-  fontSize: tabsV2FontSizeConfig,
-  fontWeight: tabsV2FontSizeConfig,
+type tabsV2TabsV2TokensTypeTabListTriggerTextConfig = {
+  color: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
+  fontSize: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
+  fontWeight: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
 }
-type tabsV2CloseButtonConfig = {
+type tabsV2TabsV2TokensTypeTabListTriggerCloseButtonConfig = {
   width: string,
   borderRadius: string,
-  backgroundColor: tabsV2BoxedConfig2,
+  backgroundColor: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
 }
-type tabsV2TriggerConfig = {
+type tabsV2TabsV2TokensTypeTabListTriggerConfig = {
   gap: string,
-  icon: tabsV2IconConfig,
-  backgroundColor: tabsV2BackgroundColorConfig2,
-  borderRadius: tabsV2BorderRadiusConfig2,
-  border: tabsV2BackgroundColorConfig,
-  padding: tabsV2BorderRadiusConfig2,
-  text: tabsV2TextConfig,
-  closeButton: tabsV2CloseButtonConfig,
+  icon: tabsV2TabsV2TokensTypeTabListTriggerIconConfig,
+  backgroundColor: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig,
+  borderRadius: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig,
+  border: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  padding: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig,
+  text: tabsV2TabsV2TokensTypeTabListTriggerTextConfig,
+  closeButton: tabsV2TabsV2TokensTypeTabListTriggerCloseButtonConfig,
   transition: string,
 }
-type tabsV2TabListConfig = {
+type tabsV2TabsV2TokensTypeTabListConfig = {
   gap: string,
-  backgroundColor: tabsV2BackgroundColorConfig,
-  borderRadius: tabsV2BorderRadiusConfig,
-  padding: tabsV2PaddingConfig,
-  activeIndicator: tabsV2ActiveIndicatorConfig,
-  stickyHeader: tabsV2StickyHeaderConfig,
-  trigger: tabsV2TriggerConfig,
+  backgroundColor: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  borderRadius: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
+  padding: tabsV2TabsV2TokensTypeTabListPaddingConfig,
+  activeIndicator: tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig,
+  stickyHeader: tabsV2TabsV2TokensTypeTabListStickyHeaderConfig,
+  trigger: tabsV2TabsV2TokensTypeTabListTriggerConfig,
 }
 type tabsV2TokensType = {
   width: string,
   outline: string,
-  tabList: tabsV2TabListConfig,
+  tabList: tabsV2TabsV2TokensTypeTabListConfig,
 }
 type responsiveTabsV2Tokens = {
   sm: tabsV2TokensType,
@@ -142,14 +142,14 @@ type tabsV2TabItem = {
   rightSlot?: React.element,
   newItem?: bool,
 }
-type tabsV2ItemsConfig = {
+type tabsV2PrepareDropdownItemsItemsConfig = {
   value: string,
   label: string,
 }
-type tabsV2ValueConfig = {
-  items: array<tabsV2ItemsConfig>,
+type tabsV2PrepareDropdownItemsConfig = {
+  items: array<tabsV2PrepareDropdownItemsItemsConfig>,
 }
-type tabsV2ValueConfig2 = {
+type tabsV2CalculateTabIndicatorPositionConfig = {
   tabLeft: float,
   tabWidth: float,
 }

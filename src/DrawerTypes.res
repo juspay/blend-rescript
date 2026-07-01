@@ -8,41 +8,41 @@ type overflowY =
   | @as("hidden") Hidden
   | @as("scroll") Scroll
   | @as("visible") Visible
-type drawerBorderRadiusConfig = {
+type drawerDrawerTokensTypeBorderRadiusConfig = {
   topLeft: string,
   topRight: string,
   bottomLeft: string,
   bottomRight: string,
 }
-type drawerOverlayConfig = {
+type drawerDrawerTokensTypeOverlayConfig = {
   backgroundColor: string,
 }
-type drawerOffsetConfig = {
+type drawerDrawerTokensTypeOffsetConfig = {
   top: string,
   bottom: string,
   left: string,
   right: string,
 }
-type drawerPaddingConfig = {
+type drawerDrawerTokensTypeContentPaddingConfig = {
   x: string,
   y: string,
 }
-type drawerHandleConfig = {
+type drawerDrawerTokensTypeContentHandleConfig = {
   backgroundColor: string,
   borderRadius: string,
   width: string,
   height: string,
 }
-type drawerContentConfig = {
+type drawerDrawerTokensTypeContentConfig = {
   backgroundColor: string,
-  padding: drawerPaddingConfig,
-  handle: drawerHandleConfig,
+  padding: drawerDrawerTokensTypeContentPaddingConfig,
+  handle: drawerDrawerTokensTypeContentHandleConfig,
 }
 type drawerTokensType = {
-  borderRadius: drawerBorderRadiusConfig,
-  overlay: drawerOverlayConfig,
-  offset: drawerOffsetConfig,
-  content: drawerContentConfig,
+  borderRadius: drawerDrawerTokensTypeBorderRadiusConfig,
+  overlay: drawerDrawerTokensTypeOverlayConfig,
+  offset: drawerDrawerTokensTypeOffsetConfig,
+  content: drawerDrawerTokensTypeContentConfig,
 }
 type responsiveDrawerTokens = {
   sm: drawerTokensType,
@@ -66,7 +66,7 @@ type selectDrawerGroup = {
   items: array<selectDrawerItem>,
   showSeparator?: bool,
 }
-type drawerItemsConfig2 = {
+type drawerItemsItemsConfig = {
   value: string,
   label: string,
   subLabel?: string,
@@ -76,6 +76,6 @@ type drawerItemsConfig2 = {
 }
 type drawerItemsConfig = {
   groupLabel?: string,
-  items: array<drawerItemsConfig2>,
+  items: array<drawerItemsItemsConfig>,
   showSeparator?: bool,
 }
