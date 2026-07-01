@@ -8,75 +8,75 @@ type progressBarV2Variant =
 type progressBarV2Appearance =
   | @as("solid") Solid
   | @as("segmented") Segmented
-type progressBarV2HeightConfig = {
+type progressBarV2ProgressBarV2TokenTypeLinearHeightConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type progressBarV2BackgroundColorConfig = {
+type progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig = {
   solid: string,
   segmented: string,
 }
-type progressBarV2FillConfig = {
-  backgroundColor: progressBarV2BackgroundColorConfig,
-  borderRadius: progressBarV2BackgroundColorConfig,
+type progressBarV2ProgressBarV2TokenTypeLinearFillConfig = {
+  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
 }
-type progressBarV2EmptyConfig = {
-  backgroundColor: progressBarV2BackgroundColorConfig,
-  backgroundImage: progressBarV2BackgroundColorConfig,
-  backgroundSize: progressBarV2BackgroundColorConfig,
+type progressBarV2ProgressBarV2TokenTypeLinearEmptyConfig = {
+  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  backgroundImage: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  backgroundSize: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
 }
-type progressBarV2LinearConfig = {
-  height: progressBarV2HeightConfig,
-  fill: progressBarV2FillConfig,
-  empty: progressBarV2EmptyConfig,
-  borderRadius: progressBarV2BackgroundColorConfig,
+type progressBarV2ProgressBarV2TokenTypeLinearConfig = {
+  height: progressBarV2ProgressBarV2TokenTypeLinearHeightConfig,
+  fill: progressBarV2ProgressBarV2TokenTypeLinearFillConfig,
+  empty: progressBarV2ProgressBarV2TokenTypeLinearEmptyConfig,
+  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
   gap: string,
 }
-type progressBarV2StrokeWidthConfig = {
+type progressBarV2ProgressBarV2TokenTypeCircularStrokeWidthConfig = {
   sm: float,
   md: float,
   lg: float,
 }
-type progressBarV2CircularConfig = {
-  size: progressBarV2HeightConfig,
-  strokeWidth: progressBarV2StrokeWidthConfig,
-  stroke: progressBarV2BackgroundColorConfig,
-  background: progressBarV2BackgroundColorConfig,
-  dashArray: progressBarV2BackgroundColorConfig,
+type progressBarV2ProgressBarV2TokenTypeCircularConfig = {
+  size: progressBarV2ProgressBarV2TokenTypeLinearHeightConfig,
+  strokeWidth: progressBarV2ProgressBarV2TokenTypeCircularStrokeWidthConfig,
+  stroke: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  background: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  dashArray: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
   motion: string,
 }
-type progressBarV2LabelConfig = {
+type progressBarV2ProgressBarV2TokenTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
 }
 type progressBarV2TokenType = {
-  linear: progressBarV2LinearConfig,
-  circular: progressBarV2CircularConfig,
-  label: progressBarV2LabelConfig,
+  linear: progressBarV2ProgressBarV2TokenTypeLinearConfig,
+  circular: progressBarV2ProgressBarV2TokenTypeCircularConfig,
+  label: progressBarV2ProgressBarV2TokenTypeLabelConfig,
   transition: string,
 }
 type responsiveProgressBarV2Tokens = {
   sm: progressBarV2TokenType,
   lg: progressBarV2TokenType,
 }
-type progressBarV2ValueConfig = {
+type progressBarV2NormalizeRangeConfig = {
   min: float,
   max: float,
 }
-type progressBarV2ValueConfig2 = {
+type progressBarV2GetProgressBarValueStateConfig = {
   rangeMin: float,
   rangeMax: float,
   clampedValue: float,
   percentage: float,
 }
-type progressBarV2ValueConfig3 = {
+type progressBarV2ExtractProgressBarV2AriaPropsConfig = {
   @as("aria-label") ariaLabel?: string,
   @as("aria-labelledby") ariaLabelledby?: string,
   restProps: Dict.t<JSON.t>,
 }
-type progressBarV2ValueConfig4 = {
+type progressBarV2GetCircularDimensionsConfig = {
   circularSize: string,
   sizeNum: float,
   strokeWidth: float,
@@ -84,7 +84,7 @@ type progressBarV2ValueConfig4 = {
   circumference: float,
   center: float,
 }
-type progressBarV2ValueConfig5 = {
+type progressBarV2CalculateCircularProgressStrokeConfig = {
   strokeDasharray: string,
   strokeDashoffset: float,
 }

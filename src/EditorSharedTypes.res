@@ -621,109 +621,109 @@ type type_5 =
   | @as("separator") Separator
   | @as("label") Label
   | @as("item") Item
-type inputsV2FontSizeConfig = {
+type inputsV2InputLabelsV2TokensLabelFontSizeConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type inputsV2ColorConfig = {
+type inputsV2InputLabelsV2TokensLabelColorConfig = {
   default: string,
   hover: string,
   focus: string,
   error: string,
   disabled: string,
 }
-type inputsV2LabelConfig = {
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  lineHeight: inputsV2FontSizeConfig,
-  color: inputsV2ColorConfig,
+type inputsV2InputLabelsV2TokensLabelConfig = {
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2RequiredConfig = {
+type inputsV2InputLabelsV2TokensRequiredConfig = {
   color: string,
 }
-type inputsV2HelpIconConfig = {
-  width: inputsV2FontSizeConfig,
-  color: inputsV2ColorConfig,
+type inputsV2InputLabelsV2TokensHelpIconConfig = {
+  width: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
 type inputLabelsV2Tokens = {
-  label: inputsV2LabelConfig,
-  subLabel: inputsV2LabelConfig,
-  required: inputsV2RequiredConfig,
-  helpIcon: inputsV2HelpIconConfig,
+  label: inputsV2InputLabelsV2TokensLabelConfig,
+  subLabel: inputsV2InputLabelsV2TokensLabelConfig,
+  required: inputsV2InputLabelsV2TokensRequiredConfig,
+  helpIcon: inputsV2InputLabelsV2TokensHelpIconConfig,
 }
-type inputsV2PlaceholderConfig = {
+type inputsV2TextAreaV2TokensTypeInputContainerPlaceholderConfig = {
   transition: string,
-  color: inputsV2ColorConfig,
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  lineHeight: inputsV2FontSizeConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
 }
-type inputsV2PaddingConfig = {
-  top: inputsV2FontSizeConfig,
-  right: inputsV2FontSizeConfig,
-  bottom: inputsV2FontSizeConfig,
-  left: inputsV2FontSizeConfig,
+type inputsV2TextAreaV2TokensTypeInputContainerPaddingConfig = {
+  top: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  right: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  bottom: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  left: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
 }
-type inputsV2InputContainerConfig = {
+type inputsV2TextAreaV2TokensTypeInputContainerConfig = {
   gap: string,
-  placeholder: inputsV2PlaceholderConfig,
-  lineHeight: inputsV2FontSizeConfig,
+  placeholder: inputsV2TextAreaV2TokensTypeInputContainerPlaceholderConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   fontSize: string,
   fontWeight: string,
-  padding: inputsV2PaddingConfig,
+  padding: inputsV2TextAreaV2TokensTypeInputContainerPaddingConfig,
   borderRadius: string,
   boxShadow: string,
-  border: inputsV2ColorConfig,
-  color: inputsV2ColorConfig,
-  backgroundColor: inputsV2ColorConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2ErrorMessageConfig = {
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  lineHeight: inputsV2FontSizeConfig,
+type inputsV2InputFooterV2TokensErrorMessageConfig = {
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   color: string,
 }
 type inputFooterV2Tokens = {
-  hintText: inputsV2LabelConfig,
-  errorMessage: inputsV2ErrorMessageConfig,
+  hintText: inputsV2InputLabelsV2TokensLabelConfig,
+  errorMessage: inputsV2InputFooterV2TokensErrorMessageConfig,
 }
 type textAreaV2TokensType = {
   gap: string,
   topContainer: inputLabelsV2Tokens,
-  inputContainer: inputsV2InputContainerConfig,
+  inputContainer: inputsV2TextAreaV2TokensTypeInputContainerConfig,
   bottomContainer: inputFooterV2Tokens,
 }
 type responsiveTextAreaV2Tokens = {
   sm: textAreaV2TokensType,
   lg: textAreaV2TokensType,
 }
-type inputsV2BackgroundColorConfig = {
+type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig = {
   default: string,
   hover: string,
   focus: string,
   error: string,
   disabled: string,
 }
-type inputsV2OverflowMenuConfig = {
+type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuConfig = {
   gap: string,
-  backgroundColor: inputsV2BackgroundColorConfig,
+  backgroundColor: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig,
   borderRadius: string,
   padding: string,
   top: string,
   right: string,
   maxHeight: string,
 }
-type inputsV2AttachedFilesContainerConfig = {
+type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerConfig = {
   gap: string,
-  overflowMenu: inputsV2OverflowMenuConfig,
+  overflowMenu: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuConfig,
 }
-type inputsV2TextConfig = {
+type inputsV2ChatInputV2TokensTypeContainerTagContainerTextConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type inputsV2TagContainerConfig = {
+type inputsV2ChatInputV2TokensTypeContainerTagContainerConfig = {
   gap: string,
   borderRadius: string,
   paddingTop: string,
@@ -732,9 +732,9 @@ type inputsV2TagContainerConfig = {
   paddingLeft: string,
   border: string,
   backgroundColor: string,
-  text: inputsV2TextConfig,
+  text: inputsV2ChatInputV2TokensTypeContainerTagContainerTextConfig,
 }
-type inputsV2InputConfig = {
+type inputsV2ChatInputV2TokensTypeContainerInputContainerInputConfig = {
   color: string,
   placeholder: string,
   paddingTop: string,
@@ -743,12 +743,12 @@ type inputsV2InputConfig = {
   minHeight: string,
   maxHeight: string,
 }
-type inputsV2ActionContainerConfig = {
+type inputsV2ChatInputV2TokensTypeContainerInputContainerActionContainerConfig = {
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
 }
-type inputsV2HeaderConfig = {
+type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerHeaderConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
@@ -759,9 +759,9 @@ type inputsV2HeaderConfig = {
   paddingLeft: string,
   backgroundColor: string,
 }
-type inputsV2ItemConfig = {
-  backgroundColor: inputsV2ColorConfig,
-  color: inputsV2ColorConfig,
+type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerItemConfig = {
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
   fontSize: string,
   fontWeight: string,
   paddingTop: string,
@@ -771,9 +771,9 @@ type inputsV2ItemConfig = {
   border: string,
   transition: string,
   cursor: string,
-  opacity: inputsV2ColorConfig,
+  opacity: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2TopQueriesContainerConfig = {
+type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerConfig = {
   marginRight: string,
   marginLeft: string,
   paddingTop: string,
@@ -781,12 +781,12 @@ type inputsV2TopQueriesContainerConfig = {
   paddingBottom: string,
   paddingLeft: string,
   borderTop: string,
-  header: inputsV2HeaderConfig,
-  item: inputsV2ItemConfig,
+  header: inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerHeaderConfig,
+  item: inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerItemConfig,
 }
-type inputsV2InputContainerConfig2 = {
-  outline: inputsV2ColorConfig,
-  boxShadow: inputsV2ColorConfig,
+type inputsV2ChatInputV2TokensTypeContainerInputContainerConfig = {
+  outline: inputsV2InputLabelsV2TokensLabelColorConfig,
+  boxShadow: inputsV2InputLabelsV2TokensLabelColorConfig,
   gap: string,
   borderRadius: string,
   paddingTop: string,
@@ -795,25 +795,25 @@ type inputsV2InputContainerConfig2 = {
   paddingLeft: string,
   border: string,
   backgroundColor: string,
-  input: inputsV2InputConfig,
-  actionContainer: inputsV2ActionContainerConfig,
-  topQueriesContainer: inputsV2TopQueriesContainerConfig,
+  input: inputsV2ChatInputV2TokensTypeContainerInputContainerInputConfig,
+  actionContainer: inputsV2ChatInputV2TokensTypeContainerInputContainerActionContainerConfig,
+  topQueriesContainer: inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerConfig,
 }
-type inputsV2ContainerConfig = {
-  backgroundColor: inputsV2ColorConfig,
+type inputsV2ChatInputV2TokensTypeContainerConfig = {
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
   borderRadius: string,
-  border: inputsV2ColorConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
   gap: string,
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
-  attachedFilesContainer: inputsV2AttachedFilesContainerConfig,
-  tagContainer: inputsV2TagContainerConfig,
-  inputContainer: inputsV2InputContainerConfig2,
+  attachedFilesContainer: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerConfig,
+  tagContainer: inputsV2ChatInputV2TokensTypeContainerTagContainerConfig,
+  inputContainer: inputsV2ChatInputV2TokensTypeContainerInputContainerConfig,
 }
 type chatInputV2TokensType = {
-  container: inputsV2ContainerConfig,
+  container: inputsV2ChatInputV2TokensTypeContainerConfig,
 }
 type responsiveChatInputV2TokensType = {
   sm: chatInputV2TokensType,
@@ -828,17 +828,17 @@ type stateToken2 = {
   focusVisible: string,
   selected: string,
 }
-type singleSelectV2LabelConfig = {
+type singleSelectV2SingleSelectV2TokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
   color: stateToken2,
 }
-type singleSelectV2ErrorMessageConfig = {
+type singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
 }
-type singleSelectV2RequiredConfig = {
+type singleSelectV2SingleSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
 type variantToken = {
@@ -850,15 +850,15 @@ type sizeToken = {
   md: variantToken,
   lg: variantToken,
 }
-type singleSelectV2ContainerConfig = {
+type singleSelectV2VariantTokenContainerConfig = {
   top: string,
   right: string,
   bottom: string,
   left: string,
 }
 type variantToken2 = {
-  container: singleSelectV2ContainerConfig,
-  @as("no-container") noContainer: singleSelectV2ContainerConfig,
+  container: singleSelectV2VariantTokenContainerConfig,
+  @as("no-container") noContainer: singleSelectV2VariantTokenContainerConfig,
 }
 type sizeToken2 = {
   sm: variantToken2,
@@ -876,33 +876,33 @@ type variantToken3 = {
   container: triggerStateToken,
   @as("no-container") noContainer: triggerStateToken,
 }
-type singleSelectV2SlotConfig = {
+type singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig = {
   gap: string,
   width: string,
 }
-type singleSelectV2PlaceholderConfig = {
+type singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type singleSelectV2TriggerConfig = {
+type singleSelectV2SingleSelectV2TokensTypeTriggerConfig = {
   height: sizeToken,
   padding: sizeToken2,
   borderRadius: sizeToken,
   boxShadow: variantToken,
   backgroundColor: variantToken3,
   outline: variantToken3,
-  slot: singleSelectV2SlotConfig,
-  placeholder: singleSelectV2PlaceholderConfig,
-  selectedValue: singleSelectV2PlaceholderConfig,
+  slot: singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig,
+  placeholder: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
+  selectedValue: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
 }
-type singleSelectV2ContentConfig = {
+type singleSelectV2SingleSelectV2TokensTypeMenuContentConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
   boxShadow: string,
 }
-type singleSelectV2GroupLabelConfig = {
+type singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig = {
   margin: string,
   paddingTop: string,
   paddingRight: string,
@@ -912,12 +912,12 @@ type singleSelectV2GroupLabelConfig = {
   fontWeight: string,
   color: stateToken2,
 }
-type singleSelectV2SeparatorConfig = {
+type singleSelectV2SingleSelectV2TokensTypeMenuItemSeparatorConfig = {
   color: string,
   height: string,
   margin: string,
 }
-type singleSelectV2ItemConfig = {
+type singleSelectV2SingleSelectV2TokensTypeMenuItemConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -926,17 +926,17 @@ type singleSelectV2ItemConfig = {
   borderRadius: string,
   gap: string,
   backgroundColor: stateToken2,
-  groupLabelText: singleSelectV2LabelConfig,
-  option: singleSelectV2LabelConfig,
-  description: singleSelectV2LabelConfig,
-  separator: singleSelectV2SeparatorConfig,
+  groupLabelText: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  option: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  description: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  separator: singleSelectV2SingleSelectV2TokensTypeMenuItemSeparatorConfig,
 }
 type submenuTriggerStateToken = {
   default: string,
   hover: string,
   focus: string,
 }
-type singleSelectV2TriggerConfig2 = {
+type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuTriggerConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -945,7 +945,7 @@ type singleSelectV2TriggerConfig2 = {
   borderRadius: string,
   backgroundColor: submenuTriggerStateToken,
 }
-type singleSelectV2ContentConfig2 = {
+type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuContentConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
@@ -955,39 +955,39 @@ type singleSelectV2ContentConfig2 = {
   paddingLeft: string,
   boxShadow: string,
 }
-type singleSelectV2SubmenuConfig = {
-  trigger: singleSelectV2TriggerConfig2,
-  content: singleSelectV2ContentConfig2,
-  optionText: singleSelectV2ErrorMessageConfig,
+type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig = {
+  trigger: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuTriggerConfig,
+  content: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuContentConfig,
+  optionText: singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig,
   iconColor: string,
 }
-type singleSelectV2MenuConfig = {
-  content: singleSelectV2ContentConfig,
+type singleSelectV2SingleSelectV2TokensTypeMenuConfig = {
+  content: singleSelectV2SingleSelectV2TokensTypeMenuContentConfig,
   padding: sizeToken2,
-  groupLabel: singleSelectV2GroupLabelConfig,
-  item: singleSelectV2ItemConfig,
-  submenu: singleSelectV2SubmenuConfig,
+  groupLabel: singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig,
+  item: singleSelectV2SingleSelectV2TokensTypeMenuItemConfig,
+  submenu: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig,
 }
-type singleSelectV2HeaderConfig = {
+type singleSelectV2SingleSelectV2TokensTypeMobilePanelHeaderConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
   borderBottom: string,
 }
-type singleSelectV2MobilePanelConfig = {
-  header: singleSelectV2HeaderConfig,
+type singleSelectV2SingleSelectV2TokensTypeMobilePanelConfig = {
+  header: singleSelectV2SingleSelectV2TokensTypeMobilePanelHeaderConfig,
 }
 type singleSelectV2TokensType = {
   gap: string,
-  label: singleSelectV2LabelConfig,
-  subLabel: singleSelectV2LabelConfig,
-  hintText: singleSelectV2LabelConfig,
-  errorMessage: singleSelectV2ErrorMessageConfig,
-  required: singleSelectV2RequiredConfig,
-  trigger: singleSelectV2TriggerConfig,
-  menu: singleSelectV2MenuConfig,
-  mobilePanel: singleSelectV2MobilePanelConfig,
+  label: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  subLabel: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  hintText: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
+  errorMessage: singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig,
+  required: singleSelectV2SingleSelectV2TokensTypeRequiredConfig,
+  trigger: singleSelectV2SingleSelectV2TokensTypeTriggerConfig,
+  menu: singleSelectV2SingleSelectV2TokensTypeMenuConfig,
+  mobilePanel: singleSelectV2SingleSelectV2TokensTypeMobilePanelConfig,
 }
 type responsiveSingleSelectV2Tokens = {
   sm: singleSelectV2TokensType,
@@ -1002,17 +1002,17 @@ type stateToken3 = {
   focusVisible: string,
   selected: string,
 }
-type multiSelectV2LabelConfig = {
+type multiSelectV2MultiSelectV2TokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
   color: stateToken3,
 }
-type multiSelectV2ErrorMessageConfig = {
+type multiSelectV2MultiSelectV2TokensTypeErrorMessageConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
 }
-type multiSelectV2RequiredConfig = {
+type multiSelectV2MultiSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
 type variantToken4 = {
@@ -1024,15 +1024,15 @@ type sizeToken3 = {
   md: variantToken4,
   lg: variantToken4,
 }
-type multiSelectV2ContainerConfig = {
+type multiSelectV2VariantTokenContainerConfig = {
   top: string,
   right: string,
   bottom: string,
   left: string,
 }
 type variantToken5 = {
-  container: multiSelectV2ContainerConfig,
-  @as("no-container") noContainer: multiSelectV2ContainerConfig,
+  container: multiSelectV2VariantTokenContainerConfig,
+  @as("no-container") noContainer: multiSelectV2VariantTokenContainerConfig,
 }
 type sizeToken4 = {
   sm: variantToken5,
@@ -1050,11 +1050,11 @@ type variantToken6 = {
   container: triggerStateToken2,
   @as("no-container") noContainer: triggerStateToken2,
 }
-type multiSelectV2SlotConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig = {
   gap: string,
   width: string,
 }
-type multiSelectV2CountConfig = {
+type multiSelectV2SelectionTagTypeTokenCountConfig = {
   color: string,
   backgroundColor: string,
   fontWeight: string,
@@ -1064,71 +1064,71 @@ type multiSelectV2CountConfig = {
   paddingLeft: string,
 }
 type selectionTagTypeToken = {
-  count: multiSelectV2CountConfig,
-  text: multiSelectV2CountConfig,
+  count: multiSelectV2SelectionTagTypeTokenCountConfig,
+  text: multiSelectV2SelectionTagTypeTokenCountConfig,
 }
-type contextSelectionTagConfig = {
+type contextMultiSelectV2TokensTypeTriggerSelectionTagConfig = {
   container: selectionTagTypeToken,
   @as("no-container") noContainer: selectionTagTypeToken,
   marginLeft: string,
   borderRadius: string,
 }
-type multiSelectV2ChevronConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig = {
   gap: string,
   width: string,
   height: string,
   iconSize?: float,
 }
-type multiSelectV2ClearButtonConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerClearButtonConfig = {
   backgroundColor: triggerStateToken2,
   outline: triggerStateToken2,
   color: string,
   width?: string,
 }
-type multiSelectV2FloatingLabelConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerFloatingLabelConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
 }
-type multiSelectV2PlaceholderConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type multiSelectV2TriggerConfig = {
+type multiSelectV2MultiSelectV2TokensTypeTriggerConfig = {
   height: sizeToken3,
   padding: sizeToken4,
   borderRadius: sizeToken3,
   boxShadow: variantToken4,
   backgroundColor: variantToken6,
   outline: variantToken6,
-  slot: multiSelectV2SlotConfig,
-  selectionTag: contextSelectionTagConfig,
-  chevron: multiSelectV2ChevronConfig,
-  clearButton?: multiSelectV2ClearButtonConfig,
-  floatingLabel: multiSelectV2FloatingLabelConfig,
-  placeholder: multiSelectV2PlaceholderConfig,
-  selectedValue: multiSelectV2PlaceholderConfig,
+  slot: multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig,
+  selectionTag: contextMultiSelectV2TokensTypeTriggerSelectionTagConfig,
+  chevron: multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig,
+  clearButton?: multiSelectV2MultiSelectV2TokensTypeTriggerClearButtonConfig,
+  floatingLabel: multiSelectV2MultiSelectV2TokensTypeTriggerFloatingLabelConfig,
+  placeholder: multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig,
+  selectedValue: multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig,
 }
-type multiSelectV2ScrollConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig = {
   height: string,
   maxHeight: string,
 }
-type multiSelectV2HeaderConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig = {
   backgroundColor: string,
   borderBottom: string,
   selectAllRowPaddingLeft: string,
   selectAllRowPaddingRight: string,
 }
-type multiSelectV2SelectAllConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuSelectAllConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
   borderRadius: string,
 }
-type multiSelectV2ActionsConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuActionsConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -1137,7 +1137,7 @@ type multiSelectV2ActionsConfig = {
   backgroundColor: string,
   borderTop: string,
 }
-type multiSelectV2OptionsLabelConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuItemOptionsLabelConfig = {
   fontSize: string,
   fontWeight: string,
   color: stateToken3,
@@ -1146,12 +1146,12 @@ type multiSelectV2OptionsLabelConfig = {
   paddingBottom: string,
   paddingLeft: string,
 }
-type multiSelectV2SeperatorConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuItemSeperatorConfig = {
   color: string,
   height: string,
   margin: string,
 }
-type multiSelectV2ItemConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuItemConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -1160,25 +1160,25 @@ type multiSelectV2ItemConfig = {
   borderRadius: string,
   gap: string,
   backgroundColor: stateToken3,
-  optionsLabel: multiSelectV2OptionsLabelConfig,
-  option: multiSelectV2LabelConfig,
-  description: multiSelectV2LabelConfig,
-  seperator: multiSelectV2SeperatorConfig,
+  optionsLabel: multiSelectV2MultiSelectV2TokensTypeMenuItemOptionsLabelConfig,
+  option: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
+  description: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
+  seperator: multiSelectV2MultiSelectV2TokensTypeMenuItemSeperatorConfig,
 }
-type multiSelectV2MenuConfig = {
+type multiSelectV2MultiSelectV2TokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
   padding: sizeToken4,
   minWidth: string,
-  scroll: multiSelectV2ScrollConfig,
-  header: multiSelectV2HeaderConfig,
-  selectAll: multiSelectV2SelectAllConfig,
-  list: multiSelectV2FloatingLabelConfig,
-  actions: multiSelectV2ActionsConfig,
-  item: multiSelectV2ItemConfig,
+  scroll: multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig,
+  header: multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig,
+  selectAll: multiSelectV2MultiSelectV2TokensTypeMenuSelectAllConfig,
+  list: multiSelectV2MultiSelectV2TokensTypeTriggerFloatingLabelConfig,
+  actions: multiSelectV2MultiSelectV2TokensTypeMenuActionsConfig,
+  item: multiSelectV2MultiSelectV2TokensTypeMenuItemConfig,
 }
-type multiSelectV2TriggerConfig2 = {
+type multiSelectV2MultiSelectV2TokensTypeSubMenuTriggerConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -1186,25 +1186,25 @@ type multiSelectV2TriggerConfig2 = {
   margin: string,
   borderRadius: string,
 }
-type multiSelectV2ContentConfig = {
+type multiSelectV2MultiSelectV2TokensTypeSubMenuContentConfig = {
   borderRadius: string,
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
 }
-type multiSelectV2SubMenuConfig = {
-  trigger: multiSelectV2TriggerConfig2,
-  content: multiSelectV2ContentConfig,
+type multiSelectV2MultiSelectV2TokensTypeSubMenuConfig = {
+  trigger: multiSelectV2MultiSelectV2TokensTypeSubMenuTriggerConfig,
+  content: multiSelectV2MultiSelectV2TokensTypeSubMenuContentConfig,
 }
-type multiSelectV2HeaderConfig2 = {
+type multiSelectV2MultiSelectV2TokensTypeDrawerHeaderConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
   borderBottom: string,
 }
-type multiSelectV2SearchConfig = {
+type multiSelectV2MultiSelectV2TokensTypeDrawerSearchConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -1212,66 +1212,66 @@ type multiSelectV2SearchConfig = {
   marginTop: string,
   marginBottom: string,
 }
-type multiSelectV2ContentConfig2 = {
+type multiSelectV2MultiSelectV2TokensTypeDrawerContentConfig = {
   gap: string,
 }
-type multiSelectV2DrawerConfig = {
-  header: multiSelectV2HeaderConfig2,
-  search: multiSelectV2SearchConfig,
-  content: multiSelectV2ContentConfig2,
+type multiSelectV2MultiSelectV2TokensTypeDrawerConfig = {
+  header: multiSelectV2MultiSelectV2TokensTypeDrawerHeaderConfig,
+  search: multiSelectV2MultiSelectV2TokensTypeDrawerSearchConfig,
+  content: multiSelectV2MultiSelectV2TokensTypeDrawerContentConfig,
 }
 type multiSelectV2TokensType = {
   gap: string,
-  label: multiSelectV2LabelConfig,
-  subLabel: multiSelectV2LabelConfig,
-  hintText: multiSelectV2LabelConfig,
-  errorMessage: multiSelectV2ErrorMessageConfig,
-  required: multiSelectV2RequiredConfig,
-  trigger: multiSelectV2TriggerConfig,
-  menu: multiSelectV2MenuConfig,
-  subMenu: multiSelectV2SubMenuConfig,
-  drawer: multiSelectV2DrawerConfig,
+  label: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
+  subLabel: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
+  hintText: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
+  errorMessage: multiSelectV2MultiSelectV2TokensTypeErrorMessageConfig,
+  required: multiSelectV2MultiSelectV2TokensTypeRequiredConfig,
+  trigger: multiSelectV2MultiSelectV2TokensTypeTriggerConfig,
+  menu: multiSelectV2MultiSelectV2TokensTypeMenuConfig,
+  subMenu: multiSelectV2MultiSelectV2TokensTypeSubMenuConfig,
+  drawer: multiSelectV2MultiSelectV2TokensTypeDrawerConfig,
 }
 type responsiveMultiSelectV2Tokens = {
   sm: multiSelectV2TokensType,
   lg: multiSelectV2TokensType,
 }
-type inputsV2PlaceholderConfig2 = {
-  color: inputsV2ColorConfig,
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  lineHeight: inputsV2FontSizeConfig,
+type inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig = {
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
 }
-type inputsV2InputContainerConfig3 = {
+type inputsV2TextInputV2TokensTypeInputContainerConfig = {
   gap: string,
-  placeholder: inputsV2PlaceholderConfig2,
-  inputText: inputsV2LabelConfig,
-  borderRadius: inputsV2FontSizeConfig,
+  placeholder: inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig,
+  inputText: inputsV2InputLabelsV2TokensLabelConfig,
+  borderRadius: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   boxShadow: string,
-  padding: inputsV2PaddingConfig,
-  border: inputsV2ColorConfig,
-  backgroundColor: inputsV2ColorConfig,
+  padding: inputsV2TextAreaV2TokensTypeInputContainerPaddingConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
 type textInputV2TokensType = {
   gap: string,
   topContainer: inputLabelsV2Tokens,
-  inputContainer: inputsV2InputContainerConfig3,
+  inputContainer: inputsV2TextInputV2TokensTypeInputContainerConfig,
   bottomContainer: inputFooterV2Tokens,
 }
 type responsiveTextInputV2Tokens = {
   sm: textInputV2TokensType,
   lg: textInputV2TokensType,
 }
-type codeEditorV2IconConfig = {
+type codeEditorV2CodeEditorV2TokensHeaderIconConfig = {
   width: string,
 }
-type codeEditorV2TextConfig = {
+type codeEditorV2CodeEditorV2TokensHeaderTextConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
   color: string,
 }
-type codeEditorV2HeaderConfig = {
+type codeEditorV2CodeEditorV2TokensHeaderConfig = {
   backgroundColor: string,
   borderBottom: string,
   paddingTop: string,
@@ -1279,22 +1279,22 @@ type codeEditorV2HeaderConfig = {
   paddingLeft: string,
   paddingRight: string,
   gap: string,
-  icon: codeEditorV2IconConfig,
-  text: codeEditorV2TextConfig,
+  icon: codeEditorV2CodeEditorV2TokensHeaderIconConfig,
+  text: codeEditorV2CodeEditorV2TokensHeaderTextConfig,
 }
-type codeEditorV2BackgroundColorConfig = {
+type codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig = {
   added: string,
   removed: string,
   unchanged: string,
 }
-type codeEditorV2GutterConfig = {
+type codeEditorV2CodeEditorV2TokensBodyGutterConfig = {
   width: string,
   color: string,
-  backgroundColor: codeEditorV2BackgroundColorConfig,
-  borderLeft: codeEditorV2BackgroundColorConfig,
-  borderColor: codeEditorV2BackgroundColorConfig,
+  backgroundColor: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
+  borderLeft: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
+  borderColor: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
 }
-type codeEditorV2CodeConfig = {
+type codeEditorV2CodeEditorV2TokensBodyCodeConfig = {
   fontFamily: string,
   fontSize: string,
   lineHeight: string,
@@ -1303,32 +1303,32 @@ type codeEditorV2CodeConfig = {
   paddingLeft: string,
   paddingRight: string,
 }
-type codeEditorV2HighlightedLineConfig = {
-  backgroundColor: codeEditorV2BackgroundColorConfig,
+type codeEditorV2CodeEditorV2TokensBodyHighlightedLineConfig = {
+  backgroundColor: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
 }
-type codeEditorV2KeywordConfig = {
+type codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig = {
   color: string,
 }
-type codeEditorV2SyntaxConfig = {
-  keyword: codeEditorV2KeywordConfig,
-  function: codeEditorV2KeywordConfig,
-  string: codeEditorV2KeywordConfig,
-  number: codeEditorV2KeywordConfig,
-  operator: codeEditorV2KeywordConfig,
-  variable: codeEditorV2KeywordConfig,
-  comment: codeEditorV2KeywordConfig,
-  text: codeEditorV2KeywordConfig,
+type codeEditorV2CodeEditorV2TokensBodySyntaxConfig = {
+  keyword: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  function: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  string: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  number: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  operator: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  variable: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  comment: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
+  text: codeEditorV2CodeEditorV2TokensBodySyntaxKeywordConfig,
 }
-type codeEditorV2BodyConfig = {
+type codeEditorV2CodeEditorV2TokensBodyConfig = {
   paddingTop: string,
   paddingBottom: string,
   paddingLeft: string,
   paddingRight: string,
   backgroundColor: string,
-  gutter: codeEditorV2GutterConfig,
-  code: codeEditorV2CodeConfig,
-  highlightedLine: codeEditorV2HighlightedLineConfig,
-  syntax: codeEditorV2SyntaxConfig,
+  gutter: codeEditorV2CodeEditorV2TokensBodyGutterConfig,
+  code: codeEditorV2CodeEditorV2TokensBodyCodeConfig,
+  highlightedLine: codeEditorV2CodeEditorV2TokensBodyHighlightedLineConfig,
+  syntax: codeEditorV2CodeEditorV2TokensBodySyntaxConfig,
 }
 type codeEditorV2Tokens = {
   backgroundColor: string,
@@ -1336,122 +1336,122 @@ type codeEditorV2Tokens = {
   borderRadius: string,
   boxShadow: string,
   theme: theme,
-  header: codeEditorV2HeaderConfig,
-  body: codeEditorV2BodyConfig,
+  header: codeEditorV2CodeEditorV2TokensHeaderConfig,
+  body: codeEditorV2CodeEditorV2TokensBodyConfig,
 }
 type responsiveCodeEditorV2Tokens = {
   sm: codeEditorV2Tokens,
   lg: codeEditorV2Tokens,
 }
-type inputsV2PlaceholderColorConfig = {
+type inputsV2MultiValueInputV2TokensTypeInputContainerPlaceholderColorConfig = {
   default: string,
   focus: string,
   hover: string,
   error: string,
   disabled: string,
 }
-type inputsV2CloseButtonConfig = {
+type inputsV2MultiValueInputV2TokensTypeInputContainerCloseButtonConfig = {
   width: string,
 }
-type inputsV2LeftSlotConfig = {
+type inputsV2MultiValueInputV2TokensTypeInputContainerLeftSlotConfig = {
   width: string,
   height: string,
 }
-type inputsV2SlotAlignTopConfig = {
+type inputsV2MultiValueInputV2TokensTypeInputContainerSlotAlignTopConfig = {
   withTags: string,
   withoutTags: string,
 }
-type inputsV2InputContainerConfig4 = {
+type inputsV2MultiValueInputV2TokensTypeInputContainerConfig = {
   offSet: float,
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   gap: string,
   borderRadius?: string,
-  boxShadow: inputsV2ColorConfig,
-  paddingTop: inputsV2FontSizeConfig,
-  paddingRight: inputsV2FontSizeConfig,
-  paddingBottom: inputsV2FontSizeConfig,
-  paddingLeft: inputsV2FontSizeConfig,
-  border: inputsV2ColorConfig,
-  color: inputsV2ColorConfig,
-  placeholderColor: inputsV2PlaceholderColorConfig,
-  backgroundColor: inputsV2ColorConfig,
-  closeButton: inputsV2CloseButtonConfig,
-  leftSlot: inputsV2LeftSlotConfig,
-  rightSlot: inputsV2LeftSlotConfig,
-  slotAlignTop: inputsV2SlotAlignTopConfig,
+  boxShadow: inputsV2InputLabelsV2TokensLabelColorConfig,
+  paddingTop: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingRight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingBottom: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingLeft: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  placeholderColor: inputsV2MultiValueInputV2TokensTypeInputContainerPlaceholderColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
+  closeButton: inputsV2MultiValueInputV2TokensTypeInputContainerCloseButtonConfig,
+  leftSlot: inputsV2MultiValueInputV2TokensTypeInputContainerLeftSlotConfig,
+  rightSlot: inputsV2MultiValueInputV2TokensTypeInputContainerLeftSlotConfig,
+  slotAlignTop: inputsV2MultiValueInputV2TokensTypeInputContainerSlotAlignTopConfig,
 }
 type multiValueInputV2TokensType = {
   gap: string,
   borderRadius: string,
   topContainer: inputLabelsV2Tokens,
-  inputContainer: inputsV2InputContainerConfig4,
+  inputContainer: inputsV2MultiValueInputV2TokensTypeInputContainerConfig,
   bottomContainer: inputFooterV2Tokens,
 }
 type responsiveMultiValueInputV2Tokens = {
   sm: multiValueInputV2TokensType,
   lg: multiValueInputV2TokensType,
 }
-type inputsV2WidthConfig = {
+type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type inputsV2IconConfig = {
-  color: inputsV2BackgroundColorConfig,
-  width: inputsV2WidthConfig,
+type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconConfig = {
+  color: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig,
+  width: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
 }
-type inputsV2StepperButtonConfig = {
-  width: inputsV2FontSizeConfig,
-  backgroundColor: inputsV2ColorConfig,
-  icon: inputsV2IconConfig,
+type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonConfig = {
+  width: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
+  icon: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconConfig,
 }
-type inputsV2LeftConfig = {
-  width: inputsV2WidthConfig,
-  height: inputsV2WidthConfig,
-  margin: inputsV2WidthConfig,
+type inputsV2NumberInputV2TokensTypeInputContainerSlotLeftConfig = {
+  width: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
+  height: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
+  margin: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
 }
-type inputsV2SlotConfig = {
-  left: inputsV2LeftConfig,
-  right: inputsV2LeftConfig,
+type inputsV2NumberInputV2TokensTypeInputContainerSlotConfig = {
+  left: inputsV2NumberInputV2TokensTypeInputContainerSlotLeftConfig,
+  right: inputsV2NumberInputV2TokensTypeInputContainerSlotLeftConfig,
 }
-type inputsV2InputContainerConfig5 = {
-  placeholder: inputsV2PlaceholderConfig2,
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  color: inputsV2ColorConfig,
-  borderRadius: inputsV2FontSizeConfig,
+type inputsV2NumberInputV2TokensTypeInputContainerConfig = {
+  placeholder: inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig,
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  borderRadius: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   boxShadow: string,
-  paddingTop: inputsV2FontSizeConfig,
-  paddingRight: inputsV2FontSizeConfig,
-  paddingBottom: inputsV2FontSizeConfig,
-  paddingLeft: inputsV2FontSizeConfig,
-  border: inputsV2ColorConfig,
-  lineHeight: inputsV2FontSizeConfig,
-  backgroundColor: inputsV2ColorConfig,
-  stepperButton: inputsV2StepperButtonConfig,
-  slot: inputsV2SlotConfig,
+  paddingTop: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingRight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingBottom: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingLeft: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  lineHeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
+  stepperButton: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonConfig,
+  slot: inputsV2NumberInputV2TokensTypeInputContainerSlotConfig,
 }
-type inputsV2UnitConfig = {
-  fontSize: inputsV2FontSizeConfig,
-  fontWeight: inputsV2FontSizeConfig,
-  paddingTop: inputsV2FontSizeConfig,
-  paddingRight: inputsV2FontSizeConfig,
-  paddingBottom: inputsV2FontSizeConfig,
-  paddingLeft: inputsV2FontSizeConfig,
-  borderRadius: inputsV2FontSizeConfig,
-  border: inputsV2ColorConfig,
-  color: inputsV2ColorConfig,
+type inputsV2NumberInputV2TokensTypeUnitConfig = {
+  fontSize: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  fontWeight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingTop: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingRight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingBottom: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingLeft: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  borderRadius: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
 type floatingLabelsV2Tokens = {
-  placeholder: inputsV2PlaceholderConfig2,
-  required: inputsV2RequiredConfig,
+  placeholder: inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig,
+  required: inputsV2InputLabelsV2TokensRequiredConfig,
 }
 type numberInputV2TokensType = {
   gap: string,
   topContainer: inputLabelsV2Tokens,
-  inputContainer: inputsV2InputContainerConfig5,
-  unit: inputsV2UnitConfig,
+  inputContainer: inputsV2NumberInputV2TokensTypeInputContainerConfig,
+  unit: inputsV2NumberInputV2TokensTypeUnitConfig,
   floatingLabels: floatingLabelsV2Tokens,
   bottomContainer: inputFooterV2Tokens,
 }
@@ -1459,102 +1459,102 @@ type responsiveNumberInputV2Tokens = {
   sm: numberInputV2TokensType,
   lg: numberInputV2TokensType,
 }
-type inputsV2InputConfig2 = {
+type inputsV2OTPInputV2TokensTypeInputContainerInputConfig = {
   height: string,
   width: string,
   fontSize: string,
   fontWeight: string,
-  color: inputsV2ColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
   borderRadius: string,
-  border: inputsV2ColorConfig,
-  backgroundColor: inputsV2ColorConfig,
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2InputContainerConfig6 = {
+type inputsV2OTPInputV2TokensTypeInputContainerConfig = {
   gap: string,
-  input: inputsV2InputConfig2,
+  input: inputsV2OTPInputV2TokensTypeInputContainerInputConfig,
 }
 type otpInputV2TokensType = {
   gap: string,
   topContainer: inputLabelsV2Tokens,
-  inputContainer: inputsV2InputContainerConfig6,
+  inputContainer: inputsV2OTPInputV2TokensTypeInputContainerConfig,
   bottomContainer: inputFooterV2Tokens,
 }
 type responsiveOTPInputV2Tokens = {
   sm: otpInputV2TokensType,
   lg: otpInputV2TokensType,
 }
-type inputsV2LabelConfig2 = {
+type inputsV2SearchInputV2TokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: inputsV2ColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2ErrorMessageConfig2 = {
+type inputsV2SearchInputV2TokensTypeErrorMessageConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
 }
-type inputsV2LeftConfig2 = {
+type inputsV2SearchInputV2TokensTypeInputContainerSlotLeftConfig = {
   top: string,
   left: string,
   bottom: string,
 }
-type inputsV2RightConfig = {
+type inputsV2SearchInputV2TokensTypeInputContainerSlotRightConfig = {
   top: string,
   right: string,
   bottom: string,
 }
-type inputsV2SlotConfig2 = {
-  left: inputsV2LeftConfig2,
-  right: inputsV2RightConfig,
+type inputsV2SearchInputV2TokensTypeInputContainerSlotConfig = {
+  left: inputsV2SearchInputV2TokensTypeInputContainerSlotLeftConfig,
+  right: inputsV2SearchInputV2TokensTypeInputContainerSlotRightConfig,
   transition: string,
   transform: string,
-  color: inputsV2ColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
 }
-type inputsV2InputContainerConfig7 = {
-  paddingTop: inputsV2FontSizeConfig,
-  paddingRight: inputsV2FontSizeConfig,
-  paddingBottom: inputsV2FontSizeConfig,
-  paddingLeft: inputsV2FontSizeConfig,
+type inputsV2SearchInputV2TokensTypeInputContainerConfig = {
+  paddingTop: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingRight: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingBottom: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  paddingLeft: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
   borderRadius: string,
-  borderBottom: inputsV2ColorConfig,
+  borderBottom: inputsV2InputLabelsV2TokensLabelColorConfig,
   outline: string,
   boxShadow: string,
-  color: inputsV2ColorConfig,
-  placeholderColor: inputsV2ColorConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  placeholderColor: inputsV2InputLabelsV2TokensLabelColorConfig,
   fontSize: string,
   fontWeight: string,
-  slot: inputsV2SlotConfig2,
+  slot: inputsV2SearchInputV2TokensTypeInputContainerSlotConfig,
 }
-type inputsV2IconConfig2 = {
-  color: inputsV2ColorConfig,
+type inputsV2SearchInputV2TokensTypeIconConfig = {
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
   width: string,
 }
 type searchInputV2TokensType = {
   gap: string,
-  label: inputsV2LabelConfig2,
-  subLabel: inputsV2LabelConfig2,
-  hintText: inputsV2LabelConfig2,
-  errorMessage: inputsV2ErrorMessageConfig2,
-  required: inputsV2RequiredConfig,
-  inputContainer: inputsV2InputContainerConfig7,
-  icon: inputsV2IconConfig2,
+  label: inputsV2SearchInputV2TokensTypeLabelConfig,
+  subLabel: inputsV2SearchInputV2TokensTypeLabelConfig,
+  hintText: inputsV2SearchInputV2TokensTypeLabelConfig,
+  errorMessage: inputsV2SearchInputV2TokensTypeErrorMessageConfig,
+  required: inputsV2InputLabelsV2TokensRequiredConfig,
+  inputContainer: inputsV2SearchInputV2TokensTypeInputContainerConfig,
+  icon: inputsV2SearchInputV2TokensTypeIconConfig,
 }
 type responsiveSearchInputV2Tokens = {
   sm: searchInputV2TokensType,
   lg: searchInputV2TokensType,
 }
-type inputsV2AttachmentButtonDimensionsConfig = {
+type inputsV2ChatInputV2MobileTokensTypeAttachmentButtonDimensionsConfig = {
   width: string,
   height: string,
   border: string,
   borderRadius: string,
-  backgroundColor: inputsV2ColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
   color: string,
 }
-type contextInputContainerConfig = {
-  border: inputsV2ColorConfig,
-  borderRadius: inputsV2ColorConfig,
-  boxShadow: inputsV2ColorConfig,
+type contextChatInputV2MobileTokensTypeInputContainerConfig = {
+  border: inputsV2InputLabelsV2TokensLabelColorConfig,
+  borderRadius: inputsV2InputLabelsV2TokensLabelColorConfig,
+  boxShadow: inputsV2InputLabelsV2TokensLabelColorConfig,
   paddingLeft: string,
   paddingTop: string,
   paddingBottom: string,
@@ -1562,7 +1562,7 @@ type contextInputContainerConfig = {
   fontSize: string,
   fontWeight: string,
   color: string,
-  placeholder: inputsV2RequiredConfig,
+  placeholder: inputsV2InputLabelsV2TokensRequiredConfig,
   backgroundColor: string,
   width: string,
   height: string,
@@ -1571,20 +1571,20 @@ type contextInputContainerConfig = {
   minWidth: string,
   maxWidth: string,
 }
-type inputsV2SecondaryActionConfig = {
+type inputsV2ChatInputV2MobileTokensTypeSecondaryActionConfig = {
   width: string,
   height: string,
   borderRadius: string,
   right: string,
   bottom: string,
-  backgroundColor: inputsV2ColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
   color: string,
 }
 type chatInputV2MobileTokensType = {
   gap: string,
-  attachmentButtonDimensions: inputsV2AttachmentButtonDimensionsConfig,
-  inputContainer: contextInputContainerConfig,
-  secondaryAction: inputsV2SecondaryActionConfig,
+  attachmentButtonDimensions: inputsV2ChatInputV2MobileTokensTypeAttachmentButtonDimensionsConfig,
+  inputContainer: contextChatInputV2MobileTokensTypeInputContainerConfig,
+  secondaryAction: inputsV2ChatInputV2MobileTokensTypeSecondaryActionConfig,
 }
 type componentTokenType = {
   @as("TAGS") tAGS?: TagsTypes.responsiveTagTokens,
@@ -1667,7 +1667,7 @@ type componentTokenType = {
   @as("CHAT_INPUTV2_MOBILE") cHAT_INPUTV2_MOBILE?: chatInputV2MobileTokensType,
   @as("STEPPERV2") sTEPPERV2?: StepperV2Types.responsiveStepperV2Tokens,
 }
-type contextComponentTokensConfig = {
+type contextThemeContextTypeComponentTokensConfig = {
   @as("TAGS") tAGS: TagsTypes.responsiveTagTokens,
   @as("SEARCH_INPUT") sEARCH_INPUT: InputsTypes.responsiveSearchInputTokens,
   @as("TEXT_AREA") tEXT_AREA: InputsTypes.responsiveTextAreaTokens,
@@ -1750,7 +1750,7 @@ type contextComponentTokensConfig = {
 }
 type themeContextType = {
   foundationTokens: string,
-  componentTokens: contextComponentTokensConfig,
+  componentTokens: contextThemeContextTypeComponentTokensConfig,
   breakpoints: BreakpointsTypes.breakpointType,
   theme: string,
 }
@@ -1843,7 +1843,7 @@ type textInputV2Dropdown = {
   singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
   position: textInputV2DropdownPosition,
 }
-type inputsV2LeftSlotConfig2 = {
+type inputsV2LeftSlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
@@ -1891,16 +1891,16 @@ type embeddedSingleSelectOptions = {
   menuAlignOffset: float,
   defaultSingleSelectGroupPosition: TagsTypes.splitTagPosition,
 }
-type inputsV2ErrorConfig2 = {
+type inputsV2GetInputStateErrorConfig = {
   show: bool,
 }
-type inputsV2V0Config = {
+type inputsV2GetVerticalInputPaddingV0Config = {
   isSmallScreenWithLargeSize: bool,
   inputFocusedOrWithValue: bool,
   paddingTop: float,
   paddingBottom: float,
 }
-type inputsV2ValueConfig = {
+type inputsV2GetVerticalInputPaddingConfig = {
   top: float,
   bottom: float,
 }
@@ -1910,15 +1910,15 @@ type inputsV2TagsConfig = {
   shape: TagsTypes.tagShape,
   variant: TagsTypes.tagVariant,
 }
-type inputsV2SlotConfig3 = {
+type inputsV2SlotConfig = {
   left?: React.element,
   right?: React.element,
 }
-type inputsV2LabelConfig3 = {
+type inputsV2LabelConfig = {
   text: string,
   subtext?: string,
 }
-type codeEditorV2HeaderConfig2 = {
+type codeEditorV2HeaderConfig = {
   showHeader?: bool,
   title?: string,
   leftSlot?: React.element,
@@ -1935,12 +1935,12 @@ type editorMetrics = {
   lineNumbersMinChars: float,
   scrollbarSize: float,
 }
-type codeEditorV2ValueConfig = {
+type codeEditorV2GetContainerDimensionsConfig = {
   minHeight?: string,
   maxHeight?: string,
   height?: string,
 }
-type codeEditorV2ValueConfig2 = {
+type codeEditorV2GetPlaceholderPositionConfig = {
   top: string,
   left: string,
 }
@@ -2845,7 +2845,7 @@ type iEditorOptions = {
   tabFocusMode?: bool,
   inlineCompletionsAccessibilityVerbose?: bool,
 }
-type editorGetValueConfig = {
+type editorICodeEditorGetValueConfig = {
   preserveBOM: bool,
   lineEnding: string,
 }
@@ -2963,7 +2963,7 @@ type iViewZoneChangeAccessor = {
   removeZone: string => unit,
   layoutZone: string => unit,
 }
-type editorGetScrolledVisiblePositionConfig = {
+type editorICodeEditorGetScrolledVisiblePositionConfig = {
   top: float,
   left: float,
   height: float,
@@ -3039,7 +3039,7 @@ type iCodeEditor<'a> = {
   getOptions: unit => iComputedEditorOptions,
   getOption: string => JSON.t,
   getRawOptions: unit => iEditorOptions,
-  getValue: option<editorGetValueConfig> => string,
+  getValue: option<editorICodeEditorGetValueConfig> => string,
   setValue: string => unit,
   getContentWidth: unit => float,
   getScrollWidth: unit => float,
@@ -3088,7 +3088,9 @@ type iCodeEditor<'a> = {
   getOffsetForColumn: (float, float) => float,
   render: option<bool> => unit,
   getTargetAtClientPoint: (float, float) => IMouseTarget.t,
-  getScrolledVisiblePosition: iPosition => Nullable.t<editorGetScrolledVisiblePositionConfig>,
+  getScrolledVisiblePosition: iPosition => Nullable.t<
+    editorICodeEditorGetScrolledVisiblePositionConfig,
+  >,
   applyFontInfo: Dom.element => unit,
   setBanner: (Nullable.t<Dom.element>, float) => unit,
   handleInitialized?: unit => unit,
@@ -3129,7 +3131,7 @@ type iCodeEditor<'a> = {
   trigger: (Nullable.t<string>, string, string) => unit,
   createDecorationsCollection: option<array<iModelDeltaDecoration>> => iEditorDecorationsCollection,
 }
-type editorValueConfig = {
+type editorGetMonacoViewModeOptionsConfig = {
   inDiffEditor?: bool,
   allowVariableLineHeights?: bool,
   allowVariableFonts?: bool,
@@ -3313,7 +3315,7 @@ type iActionDescriptor<'a, 'b> = {
   contextMenuOrder?: float,
   run: (iCodeEditor<'a>, array<'b>) => 'a,
 }
-type codeEditorV2UpdateOptionsConfig = {
+type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   inDiffEditor?: bool,
   allowVariableLineHeights?: bool,
   allowVariableFonts?: bool,
@@ -3496,7 +3498,7 @@ type codeEditorV2UpdateOptionsConfig = {
   autoDetectHighContrast?: bool,
 }
 type iStandaloneCodeEditor<'a, 'b> = {
-  updateOptions: codeEditorV2UpdateOptionsConfig => unit,
+  updateOptions: codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig => unit,
   addCommand: (float, array<string> => unit, option<string>) => Nullable.t<string>,
   createContextKey: (string, string) => iContextKey,
   addAction: iActionDescriptor<'a, 'b> => iDisposable,
@@ -3547,7 +3549,7 @@ type iStandaloneCodeEditor<'a, 'b> = {
   getOptions: unit => iComputedEditorOptions,
   getOption: string => JSON.t,
   getRawOptions: unit => iEditorOptions,
-  getValue: option<editorGetValueConfig> => string,
+  getValue: option<editorICodeEditorGetValueConfig> => string,
   setValue: string => unit,
   getContentWidth: unit => float,
   getScrollWidth: unit => float,
@@ -3592,7 +3594,9 @@ type iStandaloneCodeEditor<'a, 'b> = {
   getOffsetForColumn: (float, float) => float,
   render: option<bool> => unit,
   getTargetAtClientPoint: (float, float) => IMouseTarget.t,
-  getScrolledVisiblePosition: iPosition => Nullable.t<editorGetScrolledVisiblePositionConfig>,
+  getScrolledVisiblePosition: iPosition => Nullable.t<
+    editorICodeEditorGetScrolledVisiblePositionConfig,
+  >,
   applyFontInfo: Dom.element => unit,
   setBanner: (Nullable.t<Dom.element>, float) => unit,
   handleInitialized?: unit => unit,
@@ -3668,12 +3672,12 @@ type iLineChange = {
   modifiedStartLineNumber: float,
   modifiedEndLineNumber: float,
 }
-type editorExperimentalConfig = {
+type editorIDiffEditorOptionsExperimentalConfig = {
   showMoves?: bool,
   showEmptyDecorations?: bool,
   useTrueInlineView?: bool,
 }
-type editorHideUnchangedRegionsConfig = {
+type editorIDiffEditorOptionsHideUnchangedRegionsConfig = {
   enabled?: bool,
   revealLineCount?: float,
   minimumLineCount?: float,
@@ -3865,10 +3869,10 @@ type iDiffEditorOptions = {
   diffWordWrap?: wordWrapOverride1,
   diffAlgorithm?: diffAlgorithm,
   accessibilityVerbose?: bool,
-  experimental?: editorExperimentalConfig,
+  experimental?: editorIDiffEditorOptionsExperimentalConfig,
   isInEmbeddedEditor?: bool,
   onlyShowAccessibleDiffViewer?: bool,
-  hideUnchangedRegions?: editorHideUnchangedRegionsConfig,
+  hideUnchangedRegions?: editorIDiffEditorOptionsHideUnchangedRegionsConfig,
 }
 type iStandaloneDiffEditor<'a, 'b> = {
   addCommand: (float, array<'a> => unit, option<string>) => Nullable.t<string>,
@@ -4305,10 +4309,10 @@ type iDiffEditorConstructionOptions = {
   diffWordWrap?: wordWrapOverride1,
   diffAlgorithm?: diffAlgorithm,
   accessibilityVerbose?: bool,
-  experimental?: editorExperimentalConfig,
+  experimental?: editorIDiffEditorOptionsExperimentalConfig,
   isInEmbeddedEditor?: bool,
   onlyShowAccessibleDiffViewer?: bool,
-  hideUnchangedRegions?: editorHideUnchangedRegionsConfig,
+  hideUnchangedRegions?: editorIDiffEditorOptionsHideUnchangedRegionsConfig,
   dimension?: iDimension,
 }
 type copyFeedbackTimeoutRef = {
@@ -4355,11 +4359,11 @@ type flattenedMultiSelectV2Item = {
   label?: string,
   groupId?: float,
 }
-type multiSelectV2ValueConfig = {
+type multiSelectV2GetMultiSelectCrossBorderRadiusConfig = {
   borderRadius: string,
   borderRight?: string,
 }
-type multiSelectV2ValueConfig2 = {
+type multiSelectV2GetSelectAllStateConfig = {
   allSelected: bool,
   someSelected: bool,
 }
@@ -4375,17 +4379,17 @@ type virtualItemShape = {
   index: int,
   start: float,
 }
-type singleSelectV2ValueConfig = {
+type singleSelectV2GetSingleSelectV2BorderRadiusConfig = {
   borderRadius: string,
   borderRight?: string,
 }
-type singleSelectV2OptionsConfig = {
+type singleSelectV2GenerateAccessibilityIdsOptionsConfig = {
   hasLabel?: bool,
   hasHintText?: bool,
   hasErrorMessage?: bool,
   needsMenuId?: bool,
 }
-type singleSelectV2ValueConfig2 = {
+type singleSelectV2GenerateAccessibilityIdsConfig = {
   labelId?: string,
   hintTextId?: string,
   errorMessageId?: string,
@@ -4397,7 +4401,7 @@ type extractedAriaProps = {
   @as("aria-labelledby") ariaLabelledby?: string,
   restProps: Dict.t<JSON.t>,
 }
-type singleSelectV2OptionsConfig2 = {
+type singleSelectV2BuildAriaAttributesOptionsConfig = {
   error?: bool,
   ariaLabelledBy?: string,
   ariaDescribedBy?: string,

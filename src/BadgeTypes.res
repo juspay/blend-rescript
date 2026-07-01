@@ -19,47 +19,47 @@ type badgeColor =
   | @as("warning") Warning
   | @as("primary") Primary
   | @as("success") Success
-type badgeWidthConfig = {
+type badgeResponsiveBadgeTokensSmDotWidthConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type badgeDotConfig = {
-  width: badgeWidthConfig,
-  height: badgeWidthConfig,
+type badgeResponsiveBadgeTokensSmDotConfig = {
+  width: badgeResponsiveBadgeTokensSmDotWidthConfig,
+  height: badgeResponsiveBadgeTokensSmDotWidthConfig,
   borderRadius: string,
 }
-type badgePillConfig = {
-  minWidth: badgeWidthConfig,
-  height: badgeWidthConfig,
-  paddingLeft: badgeWidthConfig,
-  paddingRight: badgeWidthConfig,
-  borderRadius: badgeWidthConfig,
+type badgeResponsiveBadgeTokensSmPillConfig = {
+  minWidth: badgeResponsiveBadgeTokensSmDotWidthConfig,
+  height: badgeResponsiveBadgeTokensSmDotWidthConfig,
+  paddingLeft: badgeResponsiveBadgeTokensSmDotWidthConfig,
+  paddingRight: badgeResponsiveBadgeTokensSmDotWidthConfig,
+  borderRadius: badgeResponsiveBadgeTokensSmDotWidthConfig,
 }
-type badgeBackgroundColorConfig = {
+type badgeResponsiveBadgeTokensSmBackgroundColorConfig = {
   alert: string,
   neutral: string,
   warning: string,
   primary: string,
   success: string,
 }
-type badgeTextConfig = {
+type badgeResponsiveBadgeTokensSmTextConfig = {
   color: string,
-  fontSize: badgeWidthConfig,
+  fontSize: badgeResponsiveBadgeTokensSmDotWidthConfig,
   fontWeight: string,
-  lineHeight: badgeWidthConfig,
+  lineHeight: badgeResponsiveBadgeTokensSmDotWidthConfig,
 }
-type badgePositionConfig = {
-  offset: badgeWidthConfig,
+type badgeResponsiveBadgeTokensSmPositionConfig = {
+  offset: badgeResponsiveBadgeTokensSmDotWidthConfig,
 }
-type badgeSmConfig = {
-  dot: badgeDotConfig,
-  pill: badgePillConfig,
-  backgroundColor: badgeBackgroundColorConfig,
-  text: badgeTextConfig,
-  position: badgePositionConfig,
+type badgeResponsiveBadgeTokensSmConfig = {
+  dot: badgeResponsiveBadgeTokensSmDotConfig,
+  pill: badgeResponsiveBadgeTokensSmPillConfig,
+  backgroundColor: badgeResponsiveBadgeTokensSmBackgroundColorConfig,
+  text: badgeResponsiveBadgeTokensSmTextConfig,
+  position: badgeResponsiveBadgeTokensSmPositionConfig,
 }
 type responsiveBadgeTokens = {
-  sm: badgeSmConfig,
-  lg: badgeSmConfig,
+  sm: badgeResponsiveBadgeTokensSmConfig,
+  lg: badgeResponsiveBadgeTokensSmConfig,
 }

@@ -13,10 +13,10 @@ type menuV2Side =
   | @as("left") Left
   | @as("right") Right
   | @as("bottom") Bottom
-type menuV2SearchIconConfig = {
+type menuV2MenuV2TokensTypeSearchIconConfig = {
   width: string,
 }
-type menuV2LabelConfig = {
+type menuV2MenuV2TokensTypeGroupLabelConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
@@ -39,42 +39,42 @@ type stateToken = {
   focusVisible: string,
   selected: string,
 }
-type menuV2ActionConfig = {
+type menuV2MenuV2VariantTokenActionConfig = {
   primary: stateToken,
   danger: stateToken,
 }
 type menuV2VariantToken = {
   default: stateToken,
-  action: menuV2ActionConfig,
+  action: menuV2MenuV2VariantTokenActionConfig,
 }
 type menuV2VariantToken2 = {
   default: stateToken,
-  action: menuV2ActionConfig,
+  action: menuV2MenuV2VariantTokenActionConfig,
 }
-type menuV2SubTextConfig = {
+type menuV2MenuV2TokensTypeGroupItemTextSubTextConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
   color: menuV2VariantToken2,
 }
-type menuV2LeftSlotConfig = {
+type menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig = {
   maxWidth: string,
   maxHeight: string,
 }
-type menuV2RightChevronConfig = {
+type menuV2MenuV2TokensTypeGroupItemTextRightChevronConfig = {
   color: string,
   width: string,
 }
-type menuV2TextConfig = {
+type menuV2MenuV2TokensTypeGroupItemTextConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
   color: menuV2VariantToken2,
-  subText: menuV2SubTextConfig,
-  leftSlot: menuV2LeftSlotConfig,
-  rightChevron: menuV2RightChevronConfig,
+  subText: menuV2MenuV2TokensTypeGroupItemTextSubTextConfig,
+  leftSlot: menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig,
+  rightChevron: menuV2MenuV2TokensTypeGroupItemTextRightChevronConfig,
 }
-type menuV2ItemConfig = {
+type menuV2MenuV2TokensTypeGroupItemConfig = {
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -86,13 +86,13 @@ type menuV2ItemConfig = {
   gap: string,
   borderRadius: string,
   backgroundColor: menuV2VariantToken,
-  text: menuV2TextConfig,
+  text: menuV2MenuV2TokensTypeGroupItemTextConfig,
 }
-type menuV2GroupConfig = {
-  label: menuV2LabelConfig,
-  item: menuV2ItemConfig,
+type menuV2MenuV2TokensTypeGroupConfig = {
+  label: menuV2MenuV2TokensTypeGroupLabelConfig,
+  item: menuV2MenuV2TokensTypeGroupItemConfig,
 }
-type menuV2SeparatorConfig = {
+type menuV2MenuV2TokensTypeSeparatorConfig = {
   color: string,
   height: string,
   marginTop: string,
@@ -112,9 +112,9 @@ type menuV2TokensType = {
   paddingRight: string,
   paddingBottom: string,
   paddingLeft: string,
-  searchIcon: menuV2SearchIconConfig,
-  group: menuV2GroupConfig,
-  separator: menuV2SeparatorConfig,
+  searchIcon: menuV2MenuV2TokensTypeSearchIconConfig,
+  group: menuV2MenuV2TokensTypeGroupConfig,
+  separator: menuV2MenuV2TokensTypeSeparatorConfig,
 }
 type responsiveMenuV2TokensType = {
   sm: menuV2TokensType,
@@ -163,16 +163,16 @@ type menuV2VirtualScrollingConfig = {
   overscan?: float,
   threshold?: float,
 }
-type menuV2ValueConfig = {
+type menuV2FlattenMenuV2GroupsLabelConfig = {
   @as("type") type_: string,
   id: string,
   label: string,
 }
-type menuV2ValueConfig2 = {
+type menuV2FlattenMenuV2GroupsSeparatorConfig = {
   @as("type") type_: string,
   id: string,
 }
-type menuV2ValueConfig3 = {
+type menuV2FlattenMenuV2GroupsItemConfig = {
   @as("type") type_: string,
   id: string,
   item: menuV2ItemType,
@@ -186,7 +186,10 @@ module CollisionBoundaryRef = {
 }
 module MenuV2FlatRow = {
   type t
-  external fromMenuV2ValueConfig: menuV2ValueConfig => t = "%identity"
-  external fromMenuV2ValueConfig2: menuV2ValueConfig2 => t = "%identity"
-  external fromMenuV2ValueConfig3: menuV2ValueConfig3 => t = "%identity"
+  external fromMenuV2FlattenMenuV2GroupsLabelConfig: menuV2FlattenMenuV2GroupsLabelConfig => t =
+    "%identity"
+  external fromMenuV2FlattenMenuV2GroupsSeparatorConfig: menuV2FlattenMenuV2GroupsSeparatorConfig => t =
+    "%identity"
+  external fromMenuV2FlattenMenuV2GroupsItemConfig: menuV2FlattenMenuV2GroupsItemConfig => t =
+    "%identity"
 }

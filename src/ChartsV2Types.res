@@ -1,74 +1,74 @@
-type chartsV2PaddingConfig = {
+type chartsV2ChartV2TokensTypeHeaderPaddingConfig = {
   top: string,
   right: string,
   bottom: string,
   left: string,
 }
-type chartsV2HeaderConfig = {
-  padding: chartsV2PaddingConfig,
+type chartsV2ChartV2TokensTypeHeaderConfig = {
+  padding: chartsV2ChartV2TokensTypeHeaderPaddingConfig,
   backgroundColor: string,
   borderBottom: string,
 }
-type chartsV2ShapeConfig = {
+type chartsV2ChartV2TokensTypeLegendsLegendItemShapeConfig = {
   width: string,
   height: string,
   borderRadius: string,
 }
-type chartsV2NameConfig = {
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
   color: string,
 }
-type chartsV2SeparatorConfig = {
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextSeparatorConfig = {
   color: string,
   width: string,
   height: string,
 }
-type chartsV2TextConfig = {
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextConfig = {
   gap: string,
-  name: chartsV2NameConfig,
-  value: chartsV2NameConfig,
-  separator: chartsV2SeparatorConfig,
+  name: chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig,
+  value: chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig,
+  separator: chartsV2ChartV2TokensTypeLegendsLegendItemTextSeparatorConfig,
 }
-type chartsV2LegendItemConfig = {
+type chartsV2ChartV2TokensTypeLegendsLegendItemConfig = {
   gap: string,
-  shape: chartsV2ShapeConfig,
-  text: chartsV2TextConfig,
+  shape: chartsV2ChartV2TokensTypeLegendsLegendItemShapeConfig,
+  text: chartsV2ChartV2TokensTypeLegendsLegendItemTextConfig,
 }
-type chartsV2LegendsConfig = {
+type chartsV2ChartV2TokensTypeLegendsConfig = {
   gap: string,
-  legendItem: chartsV2LegendItemConfig,
+  legendItem: chartsV2ChartV2TokensTypeLegendsLegendItemConfig,
 }
-type chartsV2TitleConfig = {
+type chartsV2ChartV2TokensTypeChartXAxisTitleConfig = {
   fontSize: string,
   color: string,
   fontWeight: string,
   lineHeight: string,
 }
-type chartsV2LineConfig = {
+type chartsV2ChartV2TokensTypeChartXAxisLineConfig = {
   width: string,
   color: string,
 }
-type chartsV2XAxisConfig = {
-  title: chartsV2TitleConfig,
-  labels: chartsV2TitleConfig,
-  line: chartsV2LineConfig,
-  gridLine: chartsV2LineConfig,
+type chartsV2ChartV2TokensTypeChartXAxisConfig = {
+  title: chartsV2ChartV2TokensTypeChartXAxisTitleConfig,
+  labels: chartsV2ChartV2TokensTypeChartXAxisTitleConfig,
+  line: chartsV2ChartV2TokensTypeChartXAxisLineConfig,
+  gridLine: chartsV2ChartV2TokensTypeChartXAxisLineConfig,
 }
-type chartsV2ChartConfig = {
+type chartsV2ChartV2TokensTypeChartConfig = {
   backgroundColor: string,
-  xAxis: chartsV2XAxisConfig,
-  yAxis: chartsV2XAxisConfig,
+  xAxis: chartsV2ChartV2TokensTypeChartXAxisConfig,
+  yAxis: chartsV2ChartV2TokensTypeChartXAxisConfig,
 }
 type chartV2TokensType = {
   border: string,
   borderRadius: string,
   boxShadow: string,
   backgroundColor: string,
-  header: chartsV2HeaderConfig,
-  legends: chartsV2LegendsConfig,
-  chart: chartsV2ChartConfig,
+  header: chartsV2ChartV2TokensTypeHeaderConfig,
+  legends: chartsV2ChartV2TokensTypeLegendsConfig,
+  chart: chartsV2ChartV2TokensTypeChartConfig,
 }
 type responsiveChartV2Tokens = {
   sm: chartV2TokensType,
@@ -93,7 +93,7 @@ type chartV2FullscreenControls = {
   enterFullscreen: unit => unit,
   exitFullscreen: unit => unit,
 }
-type chartsV2ValueConfig = {
+type chartsV2UseChartLegendConfig = {
   hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
   setHoveredItem: HighchartsSharedTypes.SetStateAction.t => unit,
   allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
@@ -101,7 +101,7 @@ type chartsV2ValueConfig = {
   chart: HighchartsSharedTypes.chart,
   charts: array<HighchartsSharedTypes.chart>,
 }
-type chartsV2ValueConfig2 = {
+type chartsV2UseChartLegendHoverConfig = {
   hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
   setHoveredItem: HighchartsSharedTypes.SetStateAction.t => unit,
   allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,

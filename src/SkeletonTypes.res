@@ -21,69 +21,63 @@ type skeletonShape =
 type shape =
   | @as("circle") Circle
   | @as("square") Square
-type skeletonAnimationConfig = {
+type skeletonSkeletonTokensTypeAnimationConfig = {
   duration: string,
   timingFunction: string,
   iterationCount: string,
   direction: string,
 }
-type skeletonColorsConfig = {
+type skeletonSkeletonTokensTypeColorsConfig = {
   base: string,
   highlight: string,
   shimmer: string,
 }
-type skeletonBorderRadiusConfig = {
+type skeletonSkeletonTokensTypeBorderRadiusConfig = {
   rectangle: string,
   rounded: string,
   circle: string,
 }
-type skeletonSpacingConfig = {
+type skeletonSkeletonTokensTypeSpacingConfig = {
   gap: string,
   margin: string,
 }
-type skeletonTextConfig = {
+type skeletonSkeletonTokensTypeSizesTextConfig = {
   height: string,
   minWidth: string,
 }
-type skeletonAvatarConfig = {
+type skeletonSkeletonTokensTypeSizesAvatarConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type skeletonButtonConfig = {
-  sm: skeletonTextConfig,
-  md: skeletonTextConfig,
-  lg: skeletonTextConfig,
+type skeletonSkeletonTokensTypeSizesButtonConfig = {
+  sm: skeletonSkeletonTokensTypeSizesTextConfig,
+  md: skeletonSkeletonTokensTypeSizesTextConfig,
+  lg: skeletonSkeletonTokensTypeSizesTextConfig,
 }
-type skeletonSizesConfig = {
-  text: skeletonTextConfig,
-  avatar: skeletonAvatarConfig,
-  button: skeletonButtonConfig,
+type skeletonSkeletonTokensTypeSizesConfig = {
+  text: skeletonSkeletonTokensTypeSizesTextConfig,
+  avatar: skeletonSkeletonTokensTypeSizesAvatarConfig,
+  button: skeletonSkeletonTokensTypeSizesButtonConfig,
 }
 type skeletonTokensType = {
-  animation: skeletonAnimationConfig,
-  colors: skeletonColorsConfig,
-  borderRadius: skeletonBorderRadiusConfig,
-  spacing: skeletonSpacingConfig,
-  sizes: skeletonSizesConfig,
+  animation: skeletonSkeletonTokensTypeAnimationConfig,
+  colors: skeletonSkeletonTokensTypeColorsConfig,
+  borderRadius: skeletonSkeletonTokensTypeBorderRadiusConfig,
+  spacing: skeletonSkeletonTokensTypeSpacingConfig,
+  sizes: skeletonSkeletonTokensTypeSizesConfig,
 }
 type responsiveSkeletonTokens = {
   sm: skeletonTokensType,
   lg: skeletonTokensType,
 }
-type skeletonValueConfig = {
+type skeletonUseSkeletonBaseConfig = {
   shouldRender: bool,
   fallback: React.element,
-  tokens: string,
-  prefersReducedMotion: bool,
-}
-type skeletonValueConfig2 = {
-  shouldRender: bool,
-  fallback: string,
   tokens: skeletonTokensType,
   prefersReducedMotion: bool,
 }
-type skeletonValueConfig3 = {
+type skeletonGetSkeletonStateConfig = {
   shouldShowSkeleton: bool,
   shouldShowContent: bool,
 }

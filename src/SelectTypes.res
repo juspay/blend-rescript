@@ -1,4 +1,4 @@
-type selectTooltipPropsConfig = {
+type selectSelectMenuItemTypeTooltipPropsConfig = {
   side?: TooltipTypes.tooltipSide,
   align?: TooltipTypes.tooltipAlign,
   size?: TooltipTypes.tooltipSize,
@@ -19,7 +19,7 @@ type rec selectMenuItemType = {
   onClick?: unit => unit,
   subMenu?: array<selectMenuItemType>,
   tooltip?: React.element,
-  tooltipProps?: selectTooltipPropsConfig,
+  tooltipProps?: selectSelectMenuItemTypeTooltipPropsConfig,
   disableTruncation?: bool,
   isDisabled?: bool,
 }

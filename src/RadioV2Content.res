@@ -7,7 +7,7 @@ external make: (
   ~size: SelectorV2Types.selectorV2Size,
   ~label: string=?,
   ~subLabel: string=?,
-  ~slot: SelectorV2Types.selectorV2SlotConfig2=?,
+  ~slot: SelectorV2Types.selectorV2SlotConfig=?,
   ~tokens: SelectorV2Types.radioV2TokensType,
   ~labelMaxLength: float=?,
   ~subLabelMaxLength: float=?,
