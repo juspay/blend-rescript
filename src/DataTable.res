@@ -69,6 +69,7 @@ external make: (
   ~getRowStyle: ('a, float) => JsxDOM.style=?,
   ~tableBodyHeight: CommonTypes.stringOrNumber=?,
   ~mobileColumnsToShow: float=?,
+  ~dateLabel: string=?,
   ~enablePivotTable: bool=?,
   ~pivotTableConfig: DataTableTypes.dataTablePivotTableConfigConfig=?,
 ) => React.element = "DataTable"

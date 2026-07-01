@@ -71,10 +71,10 @@ type responsiveSkeletonTokens = {
   sm: skeletonTokensType,
   lg: skeletonTokensType,
 }
-type skeletonUseSkeletonBaseConfig = {
+type useSkeletonBaseResult = {
   shouldRender: bool,
   fallback: React.element,
-  tokens: skeletonTokensType,
+  tokens: Nullable.t<skeletonTokensType>,
   prefersReducedMotion: bool,
 }
 type skeletonGetSkeletonStateConfig = {
