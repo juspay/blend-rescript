@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.6`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.7`
 
 **209** components · ✅ **209** usable · 🔍 **0** need review · 🛑 **0** broken
 
 **225** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2907** shared types deduplicated into **72** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2908** shared types deduplicated into **72** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 

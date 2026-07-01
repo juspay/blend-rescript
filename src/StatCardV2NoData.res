@@ -9,6 +9,7 @@ external make: (
   ~helpIconText: string=?,
   ~subtitle: string=?,
   ~dropdownProps: SingleSelectTypes.singleSelectProps=?,
+  ~showBorder: bool=?,
   ~tokens: StatCardV2Types.statCardV2TokensType,
   ~isSmallScreen: bool,
   ~filteredProps: JsxDOM.domProps,

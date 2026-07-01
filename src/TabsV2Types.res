@@ -106,6 +106,7 @@ type tabsV2TabsV2TokensTypeTabListConfig = {
   backgroundColor: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   borderRadius: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
   padding: tabsV2TabsV2TokensTypeTabListPaddingConfig,
+  borderBottom: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   activeIndicator: tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig,
   stickyHeader: tabsV2TabsV2TokensTypeTabListStickyHeaderConfig,
   trigger: tabsV2TabsV2TokensTypeTabListTriggerConfig,

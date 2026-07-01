@@ -91,7 +91,7 @@ external useSkeletonBase: (
   bool,
   ~children: React.element=?,
   unit,
-) => SkeletonTypes.skeletonUseSkeletonBaseConfig = "useSkeletonBase"
+) => SkeletonTypes.useSkeletonBaseResult = "useSkeletonBase"
 @module("@juspay/blend-design-system")
 external getSkeletonState: bool => SkeletonTypes.skeletonGetSkeletonStateConfig = "getSkeletonState"
 @module("@juspay/blend-design-system")
