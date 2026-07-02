@@ -10,14 +10,11 @@ type tagSize =
 type tagShape =
   | @as("rounded") Rounded
   | @as("squarical") Squarical
-type size2 =
+type tagsSize =
   | @as("xs") Xs
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type splitTagPosition =
-  | @as("left") Left
-  | @as("right") Right
 type tagsResponsiveTagTokensSmBackgroundColorNoFillConfig = {
   neutral: string,
   primary: string,
@@ -78,7 +75,7 @@ type tagsPrimaryTagConfig = {
   border?: string,
   text: string,
   inset?: string,
-  color?: SplitTagTypes.color4,
+  color?: SplitTagTypes.splitTagPrimaryTagColor,
   fontSize?: string,
   fontWeight?: string,
   borderBottom?: string,
@@ -131,15 +128,16 @@ type tagsPrimaryTagConfig = {
   overflow?: string,
   leftSlot?: React.element,
   rightSlot?: React.element,
+  pointerEvents?: string,
+  textOverflow?: string,
   whiteSpace?: string,
-  @as("as") as_?: SkeletonTypes.as_,
+  @as("as") as_?: SkeletonTypes.skeletonAs,
   _hover?: PrimitivesTypes.styledBlockProps,
   _focus?: PrimitivesTypes.styledBlockProps,
   _active?: PrimitivesTypes.styledBlockProps,
   _disabled?: PrimitivesTypes.styledBlockProps,
   _visited?: PrimitivesTypes.styledBlockProps,
   _focusVisible?: PrimitivesTypes.styledBlockProps,
-  pointerEvents?: string,
   paddingX?: CommonTypes.stringOrNumber,
   paddingY?: CommonTypes.stringOrNumber,
   marginX?: CommonTypes.stringOrNumber,
@@ -156,7 +154,6 @@ type tagsPrimaryTagConfig = {
   outlineWidth?: string,
   outlineStyle?: string,
   contentCentered?: bool,
-  textOverflow?: string,
   willChange?: string,
   transformOrigin?: string,
   backfaceVisibility?: string,

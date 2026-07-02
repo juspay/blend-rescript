@@ -13,10 +13,10 @@ type sliderLabelPosition =
   | @as("top") Top
   | @as("bottom") Bottom
   | @as("inline") Inline
-type orientation =
+type sliderOrientation =
   | @as("vertical") Vertical
   | @as("horizontal") Horizontal
-type position =
+type sliderGetSliderLabelStylesPosition =
   | @as("top") Top
   | @as("bottom") Bottom
   | @as("inline") Inline

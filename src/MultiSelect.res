@@ -55,7 +55,7 @@ type props = {
   customValueLabel?: string,
   showClearButton?: bool,
   onClearAllClick?: unit => unit,
-  multiSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  multiSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
 }
 
 @module("@juspay/blend-design-system")

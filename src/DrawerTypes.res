@@ -3,7 +3,7 @@ type drawerDirection =
   | @as("left") Left
   | @as("bottom") Bottom
   | @as("right") Right
-type overflowY =
+type drawerOverflowY =
   | @as("auto") Auto
   | @as("hidden") Hidden
   | @as("scroll") Scroll

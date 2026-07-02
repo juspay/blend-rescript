@@ -12,11 +12,11 @@ external make: (
   ~maxWidth: string=?,
   ~enableVirtualScrolling: bool=?,
   ~virtualScrolling: MenuV2Types.menuV2VirtualScrollingConfig=?,
-  ~alignment: DateRangePickerTypes.align=?,
-  ~side: DateRangePickerTypes.side=?,
+  ~alignment: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigAlign=?,
+  ~side: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide=?,
   ~sideOffset: float=?,
   ~alignOffset: float=?,
-  ~collisionBoundaryRef: MenuV2Types.CollisionBoundaryRef.t=?, // ⓘ was `HTMLElement | HTMLElement[]` — opaque; build with CollisionBoundaryRef.fromHTMLElement / CollisionBoundaryRef.fromHTMLElements
+  ~collisionBoundaryRef: MenuV2Types.MenuV2CollisionBoundaryRef.t=?, // ⓘ was `HTMLElement | HTMLElement[]` — opaque; build with MenuV2CollisionBoundaryRef.fromHTMLElement / MenuV2CollisionBoundaryRef.fromHTMLElements
   ~onInteractOutside: JSON.t => unit=?,
   ~onPointerDownOutside: JSON.t => unit=?,
   ~onFocusCapture: ReactEvent.Focus.t => unit=?,

@@ -3,7 +3,7 @@ external make: (
   ~count: int=?,
   ~maxCount: float=?,
   ~size: BadgeTypes.badgeSize=?,
-  ~color: BadgeTypes.color=?,
+  ~color: BadgeTypes.badgeColor=?,
   ~text: string=?,
   ~showBadge: bool=?,
   ~showZero: bool=?,

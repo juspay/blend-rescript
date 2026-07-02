@@ -7,12 +7,12 @@ type diffLineType =
   | @as("removed") Removed
   | @as("unchanged") Unchanged
 type supportedLanguage =
+  | @as("css") Css
   | @as("javascript") Javascript
   | @as("typescript") Typescript
   | @as("jsx") Jsx
   | @as("tsx") Tsx
   | @as("json") Json
-  | @as("css") Css
   | @as("html") Html
   | @as("markdown") Markdown
   | @as("yaml") Yaml

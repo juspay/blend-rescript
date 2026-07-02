@@ -2,12 +2,12 @@ type skeletonVariant =
   | @as("pulse") Pulse
   | @as("wave") Wave
   | @as("shimmer") Shimmer
-type as_ =
+type skeletonAs =
   | @as("article") Article
   | @as("button") Button
   | @as("main") Main
-  | @as("div") Div
   | @as("label") Label
+  | @as("div") Div
   | @as("nav") Nav
   | @as("span") Span
   | @as("footer") Footer
@@ -18,7 +18,7 @@ type skeletonShape =
   | @as("circle") Circle
   | @as("rectangle") Rectangle
   | @as("rounded") Rounded
-type shape =
+type skeletonShape2 =
   | @as("circle") Circle
   | @as("square") Square
 type skeletonSkeletonTokensTypeAnimationConfig = {

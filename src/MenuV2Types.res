@@ -179,7 +179,7 @@ type menuV2FlattenMenuV2GroupsItemConfig = {
   groupId: float,
   itemIndex: float,
 }
-module CollisionBoundaryRef = {
+module MenuV2CollisionBoundaryRef = {
   type t
   external fromHTMLElement: Dom.element => t = "%identity"
   external fromHTMLElements: array<Dom.element> => t = "%identity"

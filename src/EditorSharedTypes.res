@@ -1,4 +1,4 @@
-type theme =
+type contextCodeEditorV2TokensTheme =
   | @as("light") Light
   | @as("dark") Dark
 type inputSizeV2 =
@@ -22,12 +22,12 @@ type codeEditorV2Variant =
   | @as("no-gutter") NoGutter
   | @as("diff") Diff
 type codeEditorV2SupportedLanguage =
+  | @as("css") Css
   | @as("javascript") Javascript
   | @as("typescript") Typescript
   | @as("jsx") Jsx
   | @as("tsx") Tsx
   | @as("json") Json
-  | @as("css") Css
   | @as("html") Html
   | @as("markdown") Markdown
   | @as("yaml") Yaml
@@ -373,124 +373,124 @@ type trackedRangeStickiness =
 type textDirection =
   | @as(0) LTR
   | @as(1) RTL
-type cursorSurroundingLinesStyle =
+type codeEditorV2IEditorOptionsCursorSurroundingLinesStyle =
   | @as("all") All
   | @as("default") Default
-type renderFinalNewline =
+type codeEditorV2IEditorOptionsRenderFinalNewline =
   | @as("off") Off
   | @as("on") On
   | @as("dimmed") Dimmed
-type unusualLineTerminators =
+type codeEditorV2IEditorOptionsUnusualLineTerminators =
   | @as("auto") Auto
   | @as("off") Off
   | @as("prompt") Prompt
-type renderValidationDecorations =
+type codeEditorV2IEditorOptionsRenderValidationDecorations =
   | @as("off") Off
   | @as("on") On
   | @as("editable") Editable
-type vertical =
+type codeEditorV2IEditorScrollbarOptionsVertical =
   | @as("auto") Auto
   | @as("hidden") Hidden
   | @as("visible") Visible
-type defaultModel =
+type codeEditorV2IEditorStickyScrollOptionsDefaultModel =
   | @as("outlineModel") OutlineModel
   | @as("foldingProviderModel") FoldingProviderModel
   | @as("indentationModel") IndentationModel
-type autohide =
+type codeEditorV2IEditorMinimapOptionsAutohide =
   | @as("none") None
   | @as("scroll") Scroll
   | @as("mouseover") Mouseover
-type size3 =
+type codeEditorV2IEditorMinimapOptionsSize =
   | @as("fill") Fill
   | @as("proportional") Proportional
   | @as("fit") Fit
-type showSlider =
+type codeEditorV2IEditorMinimapOptionsShowSlider =
   | @as("always") Always
   | @as("mouseover") Mouseover
-type seedSearchStringFromSelection =
+type codeEditorV2IEditorFindOptionsSeedSearchStringFromSelection =
   | @as("always") Always
   | @as("never") Never
   | @as("selection") Selection
-type autoFindInSelection =
+type codeEditorV2IEditorFindOptionsAutoFindInSelection =
   | @as("always") Always
   | @as("never") Never
   | @as("multiline") Multiline
-type cursorBlinking =
+type codeEditorV2IEditorOptionsCursorBlinking =
   | @as("solid") Solid
   | @as("blink") Blink
   | @as("smooth") Smooth
   | @as("phase") Phase
   | @as("expand") Expand
-type mouseStyle =
+type codeEditorV2IEditorOptionsMouseStyle =
   | @as("text") Text
   | @as("default") Default
   | @as("copy") Copy
-type cursorSmoothCaretAnimation =
+type codeEditorV2IEditorOptionsCursorSmoothCaretAnimation =
   | @as("off") Off
   | @as("on") On
   | @as("explicit") Explicit
-type cursorStyle =
+type codeEditorV2IEditorOptionsCursorStyle =
   | @as("block") Block
   | @as("line") Line
   | @as("underline") Underline
   | @as("line-thin") LineThin
   | @as("block-outline") BlockOutline
   | @as("underline-thin") UnderlineThin
-type defaultColorDecorators =
+type codeEditorV2IEditorOptionsDefaultColorDecorators =
   | @as("auto") Auto
   | @as("always") Always
   | @as("never") Never
-type wordWrap =
+type codeEditorV2IEditorOptionsWordWrap =
   | @as("off") Off
   | @as("on") On
   | @as("wordWrapColumn") WordWrapColumn
   | @as("bounded") Bounded
-type wordWrapOverride1 =
+type codeEditorV2IEditorOptionsWordWrapOverride1 =
   | @as("inherit") Inherit
   | @as("off") Off
   | @as("on") On
-type wrappingIndent =
+type codeEditorV2IEditorOptionsWrappingIndent =
   | @as("none") None
   | @as("same") Same
   | @as("indent") Indent
   | @as("deepIndent") DeepIndent
-type wrappingStrategy =
+type codeEditorV2IEditorOptionsWrappingStrategy =
   | @as("simple") Simple
   | @as("advanced") Advanced
-type wordBreak =
+type codeEditorV2IEditorOptionsWordBreak =
   | @as("normal") Normal
   | @as("keepAll") KeepAll
-type colorDecoratorsActivatedOn =
+type codeEditorV2IEditorOptionsColorDecoratorsActivatedOn =
   | @as("hover") Hover
   | @as("click") Click
   | @as("clickAndHover") ClickAndHover
-type multiCursorModifier =
+type codeEditorV2IEditorOptionsMultiCursorModifier =
   | @as("alt") Alt
   | @as("ctrlCmd") CtrlCmd
-type multiCursorPaste =
+type codeEditorV2IEditorOptionsMultiCursorPaste =
   | @as("full") Full
   | @as("spread") Spread
 type mouseMiddleClickAction =
   | @as("default") Default
   | @as("openLink") OpenLink
   | @as("ctrlLeftClick") CtrlLeftClick
-type accessibilitySupport =
+type codeEditorV2IEditorOptionsAccessibilitySupport =
   | @as("auto") Auto
   | @as("off") Off
   | @as("on") On
-type insertMode =
+type codeEditorV2ISuggestOptionsInsertMode =
   | @as("replace") Replace
   | @as("insert") Insert
-type selectionMode =
+type codeEditorV2ISuggestOptionsSelectionMode =
   | @as("always") Always
   | @as("never") Never
   | @as("whenTriggerCharacter") WhenTriggerCharacter
   | @as("whenQuickSuggestion") WhenQuickSuggestion
-type previewMode =
+type codeEditorV2ISuggestOptionsPreviewMode =
   | @as("prefix") Prefix
   | @as("subword") Subword
   | @as("subwordSmart") SubwordSmart
-type showToolbar =
+type codeEditorV2IInlineSuggestOptionsShowToolbar =
   | @as("always") Always
   | @as("never") Never
   | @as("onHover") OnHover
@@ -512,30 +512,30 @@ type editorAutoSurroundStrategy =
   | @as("languageDefined") LanguageDefined
   | @as("quotes") Quotes
   | @as("brackets") Brackets
-type autoIndent =
+type codeEditorV2IEditorOptionsAutoIndent =
   | @as("none") None
   | @as("full") Full
   | @as("brackets") Brackets
   | @as("advanced") Advanced
   | @as("keep") Keep
-type acceptSuggestionOnEnter =
+type codeEditorV2IEditorOptionsAcceptSuggestionOnEnter =
   | @as("off") Off
   | @as("on") On
   | @as("smart") Smart
-type snippetSuggestions =
+type codeEditorV2IEditorOptionsSnippetSuggestions =
   | @as("none") None
   | @as("top") Top
   | @as("bottom") Bottom
   | @as("inline") Inline
-type suggestSelection =
+type codeEditorV2IEditorOptionsSuggestSelection =
   | @as("first") First
   | @as("recentlyUsed") RecentlyUsed
   | @as("recentlyUsedByPrefix") RecentlyUsedByPrefix
-type tabCompletion =
+type codeEditorV2IEditorOptionsTabCompletion =
   | @as("off") Off
   | @as("on") On
   | @as("onlySnippets") OnlySnippets
-type occurrencesHighlight =
+type codeEditorV2IEditorOptionsOccurrencesHighlight =
   | @as("off") Off
   | @as("singleFile") SingleFile
   | @as("multiFile") MultiFile
@@ -543,47 +543,47 @@ type showLightbulbIconMode =
   | @as("off") Off
   | @as("onCode") OnCode
   | @as("on") On
-type foldingStrategy =
+type codeEditorV2IEditorOptionsFoldingStrategy =
   | @as("auto") Auto
   | @as("indentation") Indentation
-type showFoldingControls =
+type codeEditorV2IEditorOptionsShowFoldingControls =
   | @as("always") Always
   | @as("never") Never
   | @as("mouseover") Mouseover
-type matchBrackets =
+type codeEditorV2IEditorOptionsMatchBrackets =
   | @as("always") Always
   | @as("never") Never
   | @as("near") Near
-type experimentalGpuAcceleration =
+type codeEditorV2IEditorOptionsExperimentalGpuAcceleration =
   | @as("off") Off
   | @as("on") On
-type experimentalWhitespaceRendering =
+type codeEditorV2IEditorOptionsExperimentalWhitespaceRendering =
   | @as("off") Off
   | @as("svg") Svg
   | @as("font") Font
-type renderWhitespace =
+type codeEditorV2IEditorOptionsRenderWhitespace =
   | @as("none") None
   | @as("all") All
   | @as("boundary") Boundary
   | @as("selection") Selection
   | @as("trailing") Trailing
-type renderLineHighlight =
+type codeEditorV2IEditorOptionsRenderLineHighlight =
   | @as("none") None
   | @as("all") All
   | @as("line") Line
   | @as("gutter") Gutter
-type peekWidgetDefaultFocus =
+type codeEditorV2IEditorOptionsPeekWidgetDefaultFocus =
   | @as("tree") Tree
   | @as("editor") Editor
-type enabled =
+type codeEditorV2IEditorInlayHintsOptionsEnabled =
   | @as("off") Off
   | @as("on") On
   | @as("offUnlessPressed") OffUnlessPressed
   | @as("onUnlessPressed") OnUnlessPressed
-type showDropSelector =
+type codeEditorV2IDropIntoEditorOptionsShowDropSelector =
   | @as("never") Never
   | @as("afterDrop") AfterDrop
-type showPasteSelector =
+type codeEditorV2IPasteAsOptionsShowPasteSelector =
   | @as("never") Never
   | @as("afterPaste") AfterPaste
 type scrollType =
@@ -603,24 +603,24 @@ type glyphMarginLane =
   | @as(1) Left
   | @as(2) Center
   | @as(3) Right
-type wordBasedSuggestions =
+type codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions =
   | @as("off") Off
   | @as("currentDocument") CurrentDocument
   | @as("matchingDocuments") MatchingDocuments
   | @as("allDocuments") AllDocuments
-type diffAlgorithm =
+type codeEditorV2IDiffEditorOptionsDiffAlgorithm =
   | @as("legacy") Legacy
   | @as("advanced") Advanced
-type goToDiff =
+type codeEditorV2IStandaloneDiffEditorGoToDiff =
   | @as("next") Next
   | @as("previous") Previous
 type multiSelectV2SelectionTagType =
   | @as("count") Count
   | @as("text") Text
-type type_5 =
+type multiSelectV2FlattenedMultiSelectV2ItemType =
   | @as("separator") Separator
-  | @as("label") Label
   | @as("item") Item
+  | @as("label") Label
 type inputsV2InputLabelsV2TokensLabelFontSizeConfig = {
   sm: string,
   md: string,
@@ -1335,7 +1335,7 @@ type codeEditorV2Tokens = {
   border: string,
   borderRadius: string,
   boxShadow: string,
-  theme: theme,
+  theme: contextCodeEditorV2TokensTheme,
   header: codeEditorV2CodeEditorV2TokensHeaderConfig,
   body: codeEditorV2CodeEditorV2TokensBodyConfig,
 }
@@ -1587,166 +1587,165 @@ type chatInputV2MobileTokensType = {
   secondaryAction: inputsV2ChatInputV2MobileTokensTypeSecondaryActionConfig,
 }
 type componentTokenType = {
-  @as("TAGS") tAGS?: TagsTypes.responsiveTagTokens,
-  @as("SEARCH_INPUT") sEARCH_INPUT?: InputsTypes.responsiveSearchInputTokens,
-  @as("TEXT_AREA") tEXT_AREA?: InputsTypes.responsiveTextAreaTokens,
-  @as("TEXT_AREA_V2") tEXT_AREA_V2?: responsiveTextAreaV2Tokens,
-  @as("RADIO") rADIO?: RadioTypes.responsiveRadioTokens,
-  @as("SWITCH") sWITCH?: SwitchTypes.responsiveSwitchTokens,
-  @as("TEXT_INPUT") tEXT_INPUT?: InputsTypes.responsiveTextInputTokens,
-  @as("NUMBER_INPUT") nUMBER_INPUT?: InputsTypes.responsiveNumberInputTokens,
-  @as("ALERT") aLERT?: AlertTypes.responsiveAlertTokens,
-  @as("OTP_INPUT") oTP_INPUT?: InputsTypes.responsiveOTPInputTokens,
-  @as("TOOLTIP") tOOLTIP?: TooltipTypes.responsiveTooltipTokens,
-  @as("UNIT_INPUT") uNIT_INPUT?: InputsTypes.responsiveUnitInputTokens,
-  @as("MULTI_VALUE_INPUT") mULTI_VALUE_INPUT?: InputsTypes.responsiveMultiValueInputTokens,
-  @as("DROPDOWN_INPUT") dROPDOWN_INPUT?: InputsTypes.responsiveDropdownInputTokens,
-  @as("CHECKBOX") cHECKBOX?: CheckboxTypes.responsiveCheckboxTokens,
-  @as("TABS") tABS?: TabsTypes.responsiveTabsTokens,
-  @as("BUTTON") bUTTON?: ButtonTypes.responsiveButtonTokens,
-  @as("MODAL") mODAL?: ModalTypes.responsiveModalTokens,
-  @as("BREADCRUMB") bREADCRUMB?: BreadcrumbTypes.responsiveBreadcrumbTokens,
-  @as("POPOVER") pOPOVER?: PopoverTypes.responsivePopoverTokens,
-  @as("MENU") mENU?: MenuTypes.responsiveMenuTokensType,
-  @as("MENU_V2") mENU_V2?: MenuV2Types.responsiveMenuV2TokensType,
-  @as("MULTI_SELECT") mULTI_SELECT?: MultiSelectTypes.responsiveMultiSelectTokens,
-  @as("SINGLE_SELECT") sINGLE_SELECT?: SingleSelectTypes.responsiveSingleSelectTokens,
-  @as("TABLE") tABLE?: DataTableTypes.responsiveTableTokens,
-  @as("CALENDAR") cALENDAR?: DateRangePickerTypes.responsiveCalendarTokens,
-  @as("ACCORDION") aCCORDION?: AccordionTypes.responsiveAccordionTokens,
-  @as("STAT_CARD") sTAT_CARD?: StatCardTypes.responsiveStatCardTokens,
-  @as("PROGRESS_BAR") pROGRESS_BAR?: ProgressBarTypes.responsiveProgressBarTokens,
-  @as("DRAWER") dRAWER?: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") cHARTS?: ChartsTypes.responsiveChartTokens,
-  @as("SNACKBAR") sNACKBAR?: SnackbarTypes.responsiveSnackbarTokens,
-  @as("STEPPER") sTEPPER?: StepperTypes.responsiveStepperTokens,
-  @as("KEYVALUEPAIR") kEYVALUEPAIR?: KeyValuePairTypes.responsiveKeyValuePairTokens,
-  @as("CARD") cARD?: CardTypes.responsiveCardTokens,
-  @as("SKELETON") sKELETON?: SkeletonTypes.responsiveSkeletonTokens,
-  @as("TOPBAR") tOPBAR?: TopbarTypes.responsiveTopbarTokens,
-  @as("TOPBARV2") tOPBARV2?: TopbarV2Types.responsiveTopbarV2Tokens,
-  @as("AVATAR") aVATAR?: AvatarTypes.responsiveAvatarTokens,
-  @as("AVATAR_GROUP") aVATAR_GROUP?: AvatarGroupTypes.responsiveAvatarGroupTokens,
-  @as("SIDEBAR") sIDEBAR?: SidebarTypes.responsiveSidebarTokens,
-  @as("DIRECTORY") dIRECTORY?: DirectoryTypes.responsiveDirectoryTokens,
-  @as("MOBILE_NAVIGATION") mOBILE_NAVIGATION?: SidebarTypes.responsiveMobileNavigationTokens,
+  @as("TAGS") tags?: TagsTypes.responsiveTagTokens,
+  @as("SEARCH_INPUT") searchInput?: InputsTypes.responsiveSearchInputTokens,
+  @as("TEXT_AREA") textArea?: InputsTypes.responsiveTextAreaTokens,
+  @as("TEXT_AREA_V2") textAreaV2?: responsiveTextAreaV2Tokens,
+  @as("RADIO") radio?: RadioTypes.responsiveRadioTokens,
+  @as("SWITCH") switch_?: SwitchTypes.responsiveSwitchTokens,
+  @as("TEXT_INPUT") textInput?: InputsTypes.responsiveTextInputTokens,
+  @as("NUMBER_INPUT") numberInput?: InputsTypes.responsiveNumberInputTokens,
+  @as("ALERT") alert?: AlertTypes.responsiveAlertTokens,
+  @as("OTP_INPUT") otpInput?: InputsTypes.responsiveOTPInputTokens,
+  @as("TOOLTIP") tooltip?: TooltipTypes.responsiveTooltipTokens,
+  @as("UNIT_INPUT") unitInput?: InputsTypes.responsiveUnitInputTokens,
+  @as("MULTI_VALUE_INPUT") multiValueInput?: InputsTypes.responsiveMultiValueInputTokens,
+  @as("DROPDOWN_INPUT") dropdownInput?: InputsTypes.responsiveDropdownInputTokens,
+  @as("CHECKBOX") checkbox?: CheckboxTypes.responsiveCheckboxTokens,
+  @as("TABS") tabs?: TabsTypes.responsiveTabsTokens,
+  @as("BUTTON") button?: ButtonTypes.responsiveButtonTokens,
+  @as("MODAL") modal?: ModalTypes.responsiveModalTokens,
+  @as("BREADCRUMB") breadcrumb?: BreadcrumbTypes.responsiveBreadcrumbTokens,
+  @as("POPOVER") popover?: PopoverTypes.responsivePopoverTokens,
+  @as("MENU") menu?: MenuTypes.responsiveMenuTokensType,
+  @as("MENU_V2") menuV2?: MenuV2Types.responsiveMenuV2TokensType,
+  @as("MULTI_SELECT") multiSelect?: MultiSelectTypes.responsiveMultiSelectTokens,
+  @as("SINGLE_SELECT") singleSelect?: SingleSelectTypes.responsiveSingleSelectTokens,
+  @as("TABLE") table?: DataTableTypes.responsiveTableTokens,
+  @as("CALENDAR") calendar?: DateRangePickerTypes.responsiveCalendarTokens,
+  @as("ACCORDION") accordion?: AccordionTypes.responsiveAccordionTokens,
+  @as("STAT_CARD") statCard?: StatCardTypes.responsiveStatCardTokens,
+  @as("PROGRESS_BAR") progressBar?: ProgressBarTypes.responsiveProgressBarTokens,
+  @as("DRAWER") drawer?: DrawerTypes.responsiveDrawerTokens,
+  @as("CHARTS") charts?: ChartsTypes.responsiveChartTokens,
+  @as("SNACKBAR") snackbar?: SnackbarTypes.responsiveSnackbarTokens,
+  @as("STEPPER") stepper?: StepperTypes.responsiveStepperTokens,
+  @as("KEYVALUEPAIR") keyvaluepair?: KeyValuePairTypes.responsiveKeyValuePairTokens,
+  @as("CARD") card?: CardTypes.responsiveCardTokens,
+  @as("SKELETON") skeleton?: SkeletonTypes.responsiveSkeletonTokens,
+  @as("TOPBAR") topbar?: TopbarTypes.responsiveTopbarTokens,
+  @as("TOPBARV2") topbarv2?: TopbarV2Types.responsiveTopbarV2Tokens,
+  @as("AVATAR") avatar?: AvatarTypes.responsiveAvatarTokens,
+  @as("AVATAR_GROUP") avatarGroup?: AvatarGroupTypes.responsiveAvatarGroupTokens,
+  @as("SIDEBAR") sidebar?: SidebarTypes.responsiveSidebarTokens,
+  @as("DIRECTORY") directory?: DirectoryTypes.responsiveDirectoryTokens,
+  @as("MOBILE_NAVIGATION") mobileNavigation?: SidebarTypes.responsiveMobileNavigationTokens,
   @as("MOBILE_NAVIGATION_V2")
-  mOBILE_NAVIGATION_V2?: SidebarV2Types.responsiveMobileNavigationV2Tokens,
-  @as("UPLOAD") uPLOAD?: UploadTypes.responsiveUploadTokens,
-  @as("CODE_BLOCK") cODE_BLOCK?: CodeBlockTypes.responsiveCodeBlockTokens,
-  @as("CHAT_INPUT") cHAT_INPUT?: ChatInputTypes.responsiveChatInputTokensType,
-  @as("CHAT_INPUTV2") cHAT_INPUTV2?: responsiveChatInputV2TokensType,
-  @as("TIMELINE") tIMELINE?: TimelineTypes.responsiveTimelineTokens,
-  @as("BUTTONV2") bUTTONV2?: ButtonV2Types.responsiveButtonV2Tokens,
-  @as("TAGV2") tAGV2?: TagV2Types.responsiveTagV2Tokens,
-  @as("ALERTV2") aLERTV2?: AlertV2Types.responsiveAlertV2Tokens,
-  @as("ACCORDIONV2") aCCORDIONV2?: AccordionV2Types.responsiveAccordionV2Tokens,
-  @as("SNACKBARV2") sNACKBARV2?: SnackbarV2Types.responsiveSnackbarV2Tokens,
-  @as("SWITCHV2") sWITCHV2?: SelectorV2Types.responsiveSwitchV2Tokens,
-  @as("SINGLE_SELECT_V2") sINGLE_SELECT_V2?: responsiveSingleSelectV2Tokens,
-  @as("MULTI_SELECT_V2") mULTI_SELECT_V2?: responsiveMultiSelectV2Tokens,
-  @as("AVATARV2") aVATARV2?: AvatarV2Types.responsiveAvatarV2Tokens,
-  @as("TEXT_INPUTV2") tEXT_INPUTV2?: responsiveTextInputV2Tokens,
-  @as("CHARTSV2") cHARTSV2?: ChartsV2Types.responsiveChartV2Tokens,
-  @as("CHECKBOXV2") cHECKBOXV2?: SelectorV2Types.responsiveCheckboxV2Tokens,
-  @as("KEYVALUEPAIRV2") kEYVALUEPAIRV2?: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
-  @as("STATCARDV2") sTATCARDV2?: StatCardV2Types.responsiveStatCardV2Tokens,
-  @as("TOOLTIPV2") tOOLTIPV2?: TooltipV2Types.responsiveTooltipV2Tokens,
-  @as("RADIOV2") rADIOV2?: SelectorV2Types.responsiveRadioV2Tokens,
-  @as("POPOVERV2") pOPOVERV2?: PopoverV2Types.responsivePopoverV2Tokens,
-  @as("SIDEBARV2") sIDEBARV2?: SidebarV2Types.responsiveSidebarV2Tokens,
-  @as("TABSV2") tABSV2?: TabsV2Types.responsiveTabsV2Tokens,
-  @as("BREADCRUMBV2") bREADCRUMBV2?: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
-  @as("CODEEDITORV2") cODEEDITORV2?: responsiveCodeEditorV2Tokens,
-  @as("PROGRESS_BARV2") pROGRESS_BARV2?: ProgressBarV2Types.responsiveProgressBarV2Tokens,
-  @as("MULTI_VALUE_INPUT_V2") mULTI_VALUE_INPUT_V2?: responsiveMultiValueInputV2Tokens,
-  @as("NUMBER_INPUT_V2") nUMBER_INPUT_V2?: responsiveNumberInputV2Tokens,
-  @as("OTP_INPUTV2") oTP_INPUTV2?: responsiveOTPInputV2Tokens,
-  @as("BADGE") bADGE?: BadgeTypes.responsiveBadgeTokens,
-  @as("SEARCH_INPUT_V2") sEARCH_INPUT_V2?: responsiveSearchInputV2Tokens,
-  @as("CHAT_INPUTV2_MOBILE") cHAT_INPUTV2_MOBILE?: chatInputV2MobileTokensType,
-  @as("STEPPERV2") sTEPPERV2?: StepperV2Types.responsiveStepperV2Tokens,
+  mobileNavigationV2?: SidebarV2Types.responsiveMobileNavigationV2Tokens,
+  @as("UPLOAD") upload?: UploadTypes.responsiveUploadTokens,
+  @as("CODE_BLOCK") codeBlock?: CodeBlockTypes.responsiveCodeBlockTokens,
+  @as("CHAT_INPUT") chatInput?: ChatInputTypes.responsiveChatInputTokensType,
+  @as("CHAT_INPUTV2") chatInputv2?: responsiveChatInputV2TokensType,
+  @as("TIMELINE") timeline?: TimelineTypes.responsiveTimelineTokens,
+  @as("BUTTONV2") buttonv2?: ButtonV2Types.responsiveButtonV2Tokens,
+  @as("TAGV2") tagv2?: TagV2Types.responsiveTagV2Tokens,
+  @as("ALERTV2") alertv2?: AlertV2Types.responsiveAlertV2Tokens,
+  @as("ACCORDIONV2") accordionv2?: AccordionV2Types.responsiveAccordionV2Tokens,
+  @as("SNACKBARV2") snackbarv2?: SnackbarV2Types.responsiveSnackbarV2Tokens,
+  @as("SWITCHV2") switchv2?: SelectorV2Types.responsiveSwitchV2Tokens,
+  @as("SINGLE_SELECT_V2") singleSelectV2?: responsiveSingleSelectV2Tokens,
+  @as("MULTI_SELECT_V2") multiSelectV2?: responsiveMultiSelectV2Tokens,
+  @as("AVATARV2") avatarv2?: AvatarV2Types.responsiveAvatarV2Tokens,
+  @as("TEXT_INPUTV2") textInputv2?: responsiveTextInputV2Tokens,
+  @as("CHARTSV2") chartsv2?: ChartsV2Types.responsiveChartV2Tokens,
+  @as("CHECKBOXV2") checkboxv2?: SelectorV2Types.responsiveCheckboxV2Tokens,
+  @as("KEYVALUEPAIRV2") keyvaluepairv2?: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
+  @as("STATCARDV2") statcardv2?: StatCardV2Types.responsiveStatCardV2Tokens,
+  @as("TOOLTIPV2") tooltipv2?: TooltipV2Types.responsiveTooltipV2Tokens,
+  @as("RADIOV2") radiov2?: SelectorV2Types.responsiveRadioV2Tokens,
+  @as("POPOVERV2") popoverv2?: PopoverV2Types.responsivePopoverV2Tokens,
+  @as("SIDEBARV2") sidebarv2?: SidebarV2Types.responsiveSidebarV2Tokens,
+  @as("TABSV2") tabsv2?: TabsV2Types.responsiveTabsV2Tokens,
+  @as("BREADCRUMBV2") breadcrumbv2?: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
+  @as("CODEEDITORV2") codeeditorv2?: responsiveCodeEditorV2Tokens,
+  @as("PROGRESS_BARV2") progressBarv2?: ProgressBarV2Types.responsiveProgressBarV2Tokens,
+  @as("MULTI_VALUE_INPUT_V2") multiValueInputV2?: responsiveMultiValueInputV2Tokens,
+  @as("NUMBER_INPUT_V2") numberInputV2?: responsiveNumberInputV2Tokens,
+  @as("OTP_INPUTV2") otpInputv2?: responsiveOTPInputV2Tokens,
+  @as("BADGE") badge?: BadgeTypes.responsiveBadgeTokens,
+  @as("SEARCH_INPUT_V2") searchInputV2?: responsiveSearchInputV2Tokens,
+  @as("CHAT_INPUTV2_MOBILE") chatInputv2Mobile?: chatInputV2MobileTokensType,
+  @as("STEPPERV2") stepperv2?: StepperV2Types.responsiveStepperV2Tokens,
 }
 type contextThemeContextTypeComponentTokensConfig = {
-  @as("TAGS") tAGS: TagsTypes.responsiveTagTokens,
-  @as("SEARCH_INPUT") sEARCH_INPUT: InputsTypes.responsiveSearchInputTokens,
-  @as("TEXT_AREA") tEXT_AREA: InputsTypes.responsiveTextAreaTokens,
-  @as("TEXT_AREA_V2") tEXT_AREA_V2: responsiveTextAreaV2Tokens,
-  @as("RADIO") rADIO: RadioTypes.responsiveRadioTokens,
-  @as("SWITCH") sWITCH: SwitchTypes.responsiveSwitchTokens,
-  @as("TEXT_INPUT") tEXT_INPUT: InputsTypes.responsiveTextInputTokens,
-  @as("NUMBER_INPUT") nUMBER_INPUT: InputsTypes.responsiveNumberInputTokens,
-  @as("ALERT") aLERT: AlertTypes.responsiveAlertTokens,
-  @as("OTP_INPUT") oTP_INPUT: InputsTypes.responsiveOTPInputTokens,
-  @as("TOOLTIP") tOOLTIP: TooltipTypes.responsiveTooltipTokens,
-  @as("UNIT_INPUT") uNIT_INPUT: InputsTypes.responsiveUnitInputTokens,
-  @as("MULTI_VALUE_INPUT") mULTI_VALUE_INPUT: InputsTypes.responsiveMultiValueInputTokens,
-  @as("DROPDOWN_INPUT") dROPDOWN_INPUT: InputsTypes.responsiveDropdownInputTokens,
-  @as("CHECKBOX") cHECKBOX: CheckboxTypes.responsiveCheckboxTokens,
-  @as("TABS") tABS: TabsTypes.responsiveTabsTokens,
-  @as("BUTTON") bUTTON: ButtonTypes.responsiveButtonTokens,
-  @as("MODAL") mODAL: ModalTypes.responsiveModalTokens,
-  @as("BREADCRUMB") bREADCRUMB: BreadcrumbTypes.responsiveBreadcrumbTokens,
-  @as("POPOVER") pOPOVER: PopoverTypes.responsivePopoverTokens,
-  @as("MENU") mENU: MenuTypes.responsiveMenuTokensType,
-  @as("MENU_V2") mENU_V2: MenuV2Types.responsiveMenuV2TokensType,
-  @as("MULTI_SELECT") mULTI_SELECT: MultiSelectTypes.responsiveMultiSelectTokens,
-  @as("SINGLE_SELECT") sINGLE_SELECT: SingleSelectTypes.responsiveSingleSelectTokens,
-  @as("TABLE") tABLE: DataTableTypes.responsiveTableTokens,
-  @as("CALENDAR") cALENDAR: DateRangePickerTypes.responsiveCalendarTokens,
-  @as("ACCORDION") aCCORDION: AccordionTypes.responsiveAccordionTokens,
-  @as("STAT_CARD") sTAT_CARD: StatCardTypes.responsiveStatCardTokens,
-  @as("PROGRESS_BAR") pROGRESS_BAR: ProgressBarTypes.responsiveProgressBarTokens,
-  @as("DRAWER") dRAWER: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") cHARTS: ChartsTypes.responsiveChartTokens,
-  @as("SNACKBAR") sNACKBAR: SnackbarTypes.responsiveSnackbarTokens,
-  @as("STEPPER") sTEPPER: StepperTypes.responsiveStepperTokens,
-  @as("KEYVALUEPAIR") kEYVALUEPAIR: KeyValuePairTypes.responsiveKeyValuePairTokens,
-  @as("CARD") cARD: CardTypes.responsiveCardTokens,
-  @as("SKELETON") sKELETON: SkeletonTypes.responsiveSkeletonTokens,
-  @as("TOPBAR") tOPBAR: TopbarTypes.responsiveTopbarTokens,
-  @as("TOPBARV2") tOPBARV2: TopbarV2Types.responsiveTopbarV2Tokens,
-  @as("AVATAR") aVATAR: AvatarTypes.responsiveAvatarTokens,
-  @as("AVATAR_GROUP") aVATAR_GROUP: AvatarGroupTypes.responsiveAvatarGroupTokens,
-  @as("SIDEBAR") sIDEBAR: SidebarTypes.responsiveSidebarTokens,
-  @as("DIRECTORY") dIRECTORY: DirectoryTypes.responsiveDirectoryTokens,
-  @as("MOBILE_NAVIGATION") mOBILE_NAVIGATION: SidebarTypes.responsiveMobileNavigationTokens,
-  @as("MOBILE_NAVIGATION_V2")
-  mOBILE_NAVIGATION_V2: SidebarV2Types.responsiveMobileNavigationV2Tokens,
-  @as("UPLOAD") uPLOAD: UploadTypes.responsiveUploadTokens,
-  @as("CODE_BLOCK") cODE_BLOCK: CodeBlockTypes.responsiveCodeBlockTokens,
-  @as("CHAT_INPUT") cHAT_INPUT: ChatInputTypes.responsiveChatInputTokensType,
-  @as("CHAT_INPUTV2") cHAT_INPUTV2: responsiveChatInputV2TokensType,
-  @as("TIMELINE") tIMELINE: TimelineTypes.responsiveTimelineTokens,
-  @as("BUTTONV2") bUTTONV2: ButtonV2Types.responsiveButtonV2Tokens,
-  @as("TAGV2") tAGV2: TagV2Types.responsiveTagV2Tokens,
-  @as("ALERTV2") aLERTV2: AlertV2Types.responsiveAlertV2Tokens,
-  @as("ACCORDIONV2") aCCORDIONV2: AccordionV2Types.responsiveAccordionV2Tokens,
-  @as("SNACKBARV2") sNACKBARV2: SnackbarV2Types.responsiveSnackbarV2Tokens,
-  @as("SWITCHV2") sWITCHV2: SelectorV2Types.responsiveSwitchV2Tokens,
-  @as("SINGLE_SELECT_V2") sINGLE_SELECT_V2: responsiveSingleSelectV2Tokens,
-  @as("MULTI_SELECT_V2") mULTI_SELECT_V2: responsiveMultiSelectV2Tokens,
-  @as("AVATARV2") aVATARV2: AvatarV2Types.responsiveAvatarV2Tokens,
-  @as("TEXT_INPUTV2") tEXT_INPUTV2: responsiveTextInputV2Tokens,
-  @as("CHARTSV2") cHARTSV2: ChartsV2Types.responsiveChartV2Tokens,
-  @as("CHECKBOXV2") cHECKBOXV2: SelectorV2Types.responsiveCheckboxV2Tokens,
-  @as("KEYVALUEPAIRV2") kEYVALUEPAIRV2: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
-  @as("STATCARDV2") sTATCARDV2: StatCardV2Types.responsiveStatCardV2Tokens,
-  @as("TOOLTIPV2") tOOLTIPV2: TooltipV2Types.responsiveTooltipV2Tokens,
-  @as("RADIOV2") rADIOV2: SelectorV2Types.responsiveRadioV2Tokens,
-  @as("POPOVERV2") pOPOVERV2: PopoverV2Types.responsivePopoverV2Tokens,
-  @as("SIDEBARV2") sIDEBARV2: SidebarV2Types.responsiveSidebarV2Tokens,
-  @as("TABSV2") tABSV2: TabsV2Types.responsiveTabsV2Tokens,
-  @as("BREADCRUMBV2") bREADCRUMBV2: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
-  @as("CODEEDITORV2") cODEEDITORV2: responsiveCodeEditorV2Tokens,
-  @as("PROGRESS_BARV2") pROGRESS_BARV2: ProgressBarV2Types.responsiveProgressBarV2Tokens,
-  @as("MULTI_VALUE_INPUT_V2") mULTI_VALUE_INPUT_V2: responsiveMultiValueInputV2Tokens,
-  @as("NUMBER_INPUT_V2") nUMBER_INPUT_V2: responsiveNumberInputV2Tokens,
-  @as("OTP_INPUTV2") oTP_INPUTV2: responsiveOTPInputV2Tokens,
-  @as("BADGE") bADGE: BadgeTypes.responsiveBadgeTokens,
-  @as("SEARCH_INPUT_V2") sEARCH_INPUT_V2: responsiveSearchInputV2Tokens,
-  @as("CHAT_INPUTV2_MOBILE") cHAT_INPUTV2_MOBILE: chatInputV2MobileTokensType,
-  @as("STEPPERV2") sTEPPERV2: StepperV2Types.responsiveStepperV2Tokens,
+  @as("TAGS") tags: TagsTypes.responsiveTagTokens,
+  @as("SEARCH_INPUT") searchInput: InputsTypes.responsiveSearchInputTokens,
+  @as("TEXT_AREA") textArea: InputsTypes.responsiveTextAreaTokens,
+  @as("TEXT_AREA_V2") textAreaV2: responsiveTextAreaV2Tokens,
+  @as("RADIO") radio: RadioTypes.responsiveRadioTokens,
+  @as("SWITCH") switch_: SwitchTypes.responsiveSwitchTokens,
+  @as("TEXT_INPUT") textInput: InputsTypes.responsiveTextInputTokens,
+  @as("NUMBER_INPUT") numberInput: InputsTypes.responsiveNumberInputTokens,
+  @as("ALERT") alert: AlertTypes.responsiveAlertTokens,
+  @as("OTP_INPUT") otpInput: InputsTypes.responsiveOTPInputTokens,
+  @as("TOOLTIP") tooltip: TooltipTypes.responsiveTooltipTokens,
+  @as("UNIT_INPUT") unitInput: InputsTypes.responsiveUnitInputTokens,
+  @as("MULTI_VALUE_INPUT") multiValueInput: InputsTypes.responsiveMultiValueInputTokens,
+  @as("DROPDOWN_INPUT") dropdownInput: InputsTypes.responsiveDropdownInputTokens,
+  @as("CHECKBOX") checkbox: CheckboxTypes.responsiveCheckboxTokens,
+  @as("TABS") tabs: TabsTypes.responsiveTabsTokens,
+  @as("BUTTON") button: ButtonTypes.responsiveButtonTokens,
+  @as("MODAL") modal: ModalTypes.responsiveModalTokens,
+  @as("BREADCRUMB") breadcrumb: BreadcrumbTypes.responsiveBreadcrumbTokens,
+  @as("POPOVER") popover: PopoverTypes.responsivePopoverTokens,
+  @as("MENU") menu: MenuTypes.responsiveMenuTokensType,
+  @as("MENU_V2") menuV2: MenuV2Types.responsiveMenuV2TokensType,
+  @as("MULTI_SELECT") multiSelect: MultiSelectTypes.responsiveMultiSelectTokens,
+  @as("SINGLE_SELECT") singleSelect: SingleSelectTypes.responsiveSingleSelectTokens,
+  @as("TABLE") table: DataTableTypes.responsiveTableTokens,
+  @as("CALENDAR") calendar: DateRangePickerTypes.responsiveCalendarTokens,
+  @as("ACCORDION") accordion: AccordionTypes.responsiveAccordionTokens,
+  @as("STAT_CARD") statCard: StatCardTypes.responsiveStatCardTokens,
+  @as("PROGRESS_BAR") progressBar: ProgressBarTypes.responsiveProgressBarTokens,
+  @as("DRAWER") drawer: DrawerTypes.responsiveDrawerTokens,
+  @as("CHARTS") charts: ChartsTypes.responsiveChartTokens,
+  @as("SNACKBAR") snackbar: SnackbarTypes.responsiveSnackbarTokens,
+  @as("STEPPER") stepper: StepperTypes.responsiveStepperTokens,
+  @as("KEYVALUEPAIR") keyvaluepair: KeyValuePairTypes.responsiveKeyValuePairTokens,
+  @as("CARD") card: CardTypes.responsiveCardTokens,
+  @as("SKELETON") skeleton: SkeletonTypes.responsiveSkeletonTokens,
+  @as("TOPBAR") topbar: TopbarTypes.responsiveTopbarTokens,
+  @as("TOPBARV2") topbarv2: TopbarV2Types.responsiveTopbarV2Tokens,
+  @as("AVATAR") avatar: AvatarTypes.responsiveAvatarTokens,
+  @as("AVATAR_GROUP") avatarGroup: AvatarGroupTypes.responsiveAvatarGroupTokens,
+  @as("SIDEBAR") sidebar: SidebarTypes.responsiveSidebarTokens,
+  @as("DIRECTORY") directory: DirectoryTypes.responsiveDirectoryTokens,
+  @as("MOBILE_NAVIGATION") mobileNavigation: SidebarTypes.responsiveMobileNavigationTokens,
+  @as("MOBILE_NAVIGATION_V2") mobileNavigationV2: SidebarV2Types.responsiveMobileNavigationV2Tokens,
+  @as("UPLOAD") upload: UploadTypes.responsiveUploadTokens,
+  @as("CODE_BLOCK") codeBlock: CodeBlockTypes.responsiveCodeBlockTokens,
+  @as("CHAT_INPUT") chatInput: ChatInputTypes.responsiveChatInputTokensType,
+  @as("CHAT_INPUTV2") chatInputv2: responsiveChatInputV2TokensType,
+  @as("TIMELINE") timeline: TimelineTypes.responsiveTimelineTokens,
+  @as("BUTTONV2") buttonv2: ButtonV2Types.responsiveButtonV2Tokens,
+  @as("TAGV2") tagv2: TagV2Types.responsiveTagV2Tokens,
+  @as("ALERTV2") alertv2: AlertV2Types.responsiveAlertV2Tokens,
+  @as("ACCORDIONV2") accordionv2: AccordionV2Types.responsiveAccordionV2Tokens,
+  @as("SNACKBARV2") snackbarv2: SnackbarV2Types.responsiveSnackbarV2Tokens,
+  @as("SWITCHV2") switchv2: SelectorV2Types.responsiveSwitchV2Tokens,
+  @as("SINGLE_SELECT_V2") singleSelectV2: responsiveSingleSelectV2Tokens,
+  @as("MULTI_SELECT_V2") multiSelectV2: responsiveMultiSelectV2Tokens,
+  @as("AVATARV2") avatarv2: AvatarV2Types.responsiveAvatarV2Tokens,
+  @as("TEXT_INPUTV2") textInputv2: responsiveTextInputV2Tokens,
+  @as("CHARTSV2") chartsv2: ChartsV2Types.responsiveChartV2Tokens,
+  @as("CHECKBOXV2") checkboxv2: SelectorV2Types.responsiveCheckboxV2Tokens,
+  @as("KEYVALUEPAIRV2") keyvaluepairv2: KeyValuePairV2Types.responsiveKeyValuePairV2Tokens,
+  @as("STATCARDV2") statcardv2: StatCardV2Types.responsiveStatCardV2Tokens,
+  @as("TOOLTIPV2") tooltipv2: TooltipV2Types.responsiveTooltipV2Tokens,
+  @as("RADIOV2") radiov2: SelectorV2Types.responsiveRadioV2Tokens,
+  @as("POPOVERV2") popoverv2: PopoverV2Types.responsivePopoverV2Tokens,
+  @as("SIDEBARV2") sidebarv2: SidebarV2Types.responsiveSidebarV2Tokens,
+  @as("TABSV2") tabsv2: TabsV2Types.responsiveTabsV2Tokens,
+  @as("BREADCRUMBV2") breadcrumbv2: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
+  @as("CODEEDITORV2") codeeditorv2: responsiveCodeEditorV2Tokens,
+  @as("PROGRESS_BARV2") progressBarv2: ProgressBarV2Types.responsiveProgressBarV2Tokens,
+  @as("MULTI_VALUE_INPUT_V2") multiValueInputV2: responsiveMultiValueInputV2Tokens,
+  @as("NUMBER_INPUT_V2") numberInputV2: responsiveNumberInputV2Tokens,
+  @as("OTP_INPUTV2") otpInputv2: responsiveOTPInputV2Tokens,
+  @as("BADGE") badge: BadgeTypes.responsiveBadgeTokens,
+  @as("SEARCH_INPUT_V2") searchInputV2: responsiveSearchInputV2Tokens,
+  @as("CHAT_INPUTV2_MOBILE") chatInputv2Mobile: chatInputV2MobileTokensType,
+  @as("STEPPERV2") stepperv2: StepperV2Types.responsiveStepperV2Tokens,
 }
 type themeContextType = {
   foundationTokens: string,
@@ -1840,7 +1839,7 @@ type textInputV2Dropdown = {
   skeleton?: SelectV2Types.selectV2SkeletonProps,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   position: textInputV2DropdownPosition,
 }
 type inputsV2LeftSlotConfig = {
@@ -1880,7 +1879,7 @@ type singleSelectV2Props = {
   skeleton?: SelectV2Types.selectV2SkeletonProps,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
 }
 type embeddedSingleSelectOptions = {
   fieldLabel?: string,
@@ -1889,7 +1888,11 @@ type embeddedSingleSelectOptions = {
   menuAlignment: SelectV2Types.selectV2Alignment,
   menuSideOffset: float,
   menuAlignOffset: float,
-  defaultSingleSelectGroupPosition: TagsTypes.splitTagPosition,
+  defaultSingleSelectGroupPosition: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
+}
+type inputsV2FOCUSRINGSTYLESConfig = {
+  boxShadow: string,
+  backgroundColor: string,
 }
 type inputsV2GetInputStateErrorConfig = {
   show: bool,
@@ -1983,21 +1986,21 @@ type iModelOptionsChangedEvent = {
 type configurationChangedEvent = {
   hasChanged: editorOption => bool,
 }
-type rec position2 = {
+type rec position = {
   lineNumber: float,
   column: float,
-  @as("with") with_: (option<string>, option<string>) => position2,
-  delta: (option<string>, option<string>) => position2,
+  @as("with") with_: (option<string>, option<string>) => position,
+  delta: (option<string>, option<string>) => position,
   equals: string => string,
   isBefore: string => string,
   isBeforeOrEqual: string => string,
-  clone: unit => position2,
+  clone: unit => position,
   toString: unit => string,
   toJSON: unit => string,
 }
 type iCursorPositionChangedEvent = {
-  position: position2,
-  secondaryPositions: array<position2>,
+  position: position,
+  secondaryPositions: array<position>,
   reason: cursorChangeReason,
   source: string,
 }
@@ -2381,12 +2384,12 @@ type iTextModel<'a> = {
   getLineMaxColumn: float => float,
   getLineFirstNonWhitespaceColumn: float => float,
   getLineLastNonWhitespaceColumn: float => float,
-  validatePosition: iPosition => position2,
-  modifyPosition: (iPosition, float) => position2,
+  validatePosition: iPosition => position,
+  modifyPosition: (iPosition, float) => position,
   validateRange: iRange => range,
   isValidRange: iRange => bool,
   getOffsetAt: iPosition => float,
-  getPositionAt: float => position2,
+  getPositionAt: float => position,
   getFullModelRange: unit => range,
   isDisposed: unit => bool,
   findMatches: string,
@@ -2494,8 +2497,8 @@ type iMarkdownString = {
 }
 type iEditorScrollbarOptions = {
   arrowSize?: float,
-  vertical?: vertical,
-  horizontal?: vertical,
+  vertical?: codeEditorV2IEditorScrollbarOptionsVertical,
+  horizontal?: codeEditorV2IEditorScrollbarOptionsVertical,
   useShadows?: bool,
   verticalHasArrows?: bool,
   horizontalHasArrows?: bool,
@@ -2511,15 +2514,15 @@ type iEditorScrollbarOptions = {
 type iEditorStickyScrollOptions = {
   enabled?: bool,
   maxLineCount?: float,
-  defaultModel?: defaultModel,
+  defaultModel?: codeEditorV2IEditorStickyScrollOptionsDefaultModel,
   scrollWithEditor?: bool,
 }
 type iEditorMinimapOptions = {
   enabled?: bool,
-  autohide?: autohide,
-  side?: TagsTypes.splitTagPosition,
-  size?: size3,
-  showSlider?: showSlider,
+  autohide?: codeEditorV2IEditorMinimapOptionsAutohide,
+  side?: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
+  size?: codeEditorV2IEditorMinimapOptionsSize,
+  showSlider?: codeEditorV2IEditorMinimapOptionsShowSlider,
   renderCharacters?: bool,
   maxColumn?: float,
   scale?: float,
@@ -2532,8 +2535,8 @@ type iEditorMinimapOptions = {
 type iEditorFindOptions = {
   cursorMoveOnType?: bool,
   findOnType?: bool,
-  seedSearchStringFromSelection?: seedSearchStringFromSelection,
-  autoFindInSelection?: autoFindInSelection,
+  seedSearchStringFromSelection?: codeEditorV2IEditorFindOptionsSeedSearchStringFromSelection,
+  autoFindInSelection?: codeEditorV2IEditorFindOptionsAutoFindInSelection,
   addExtraSpaceOnTop?: bool,
   loop?: bool,
 }
@@ -2549,16 +2552,16 @@ type iEditorCommentsOptions = {
   ignoreEmptyLines?: bool,
 }
 type iSuggestOptions = {
-  insertMode?: insertMode,
+  insertMode?: codeEditorV2ISuggestOptionsInsertMode,
   filterGraceful?: bool,
   snippetsPreventQuickSuggestions?: bool,
   localityBonus?: bool,
   shareSuggestSelections?: bool,
-  selectionMode?: selectionMode,
+  selectionMode?: codeEditorV2ISuggestOptionsSelectionMode,
   showIcons?: bool,
   showStatusBar?: bool,
   preview?: bool,
-  previewMode?: previewMode,
+  previewMode?: codeEditorV2ISuggestOptionsPreviewMode,
   showInlineDetails?: bool,
   showMethods?: bool,
   showFunctions?: bool,
@@ -2592,8 +2595,8 @@ type iSuggestOptions = {
 }
 type iInlineSuggestOptions = {
   enabled?: bool,
-  mode?: previewMode,
-  showToolbar?: showToolbar,
+  mode?: codeEditorV2ISuggestOptionsPreviewMode,
+  showToolbar?: codeEditorV2IInlineSuggestOptionsShowToolbar,
   syntaxHighlightingEnabled?: bool,
   suppressSuggestions?: bool,
   minShowDelay?: float,
@@ -2642,7 +2645,7 @@ type iEditorLightbulbOptions = {
   enabled?: showLightbulbIconMode,
 }
 type iEditorInlayHintsOptions = {
-  enabled?: enabled,
+  enabled?: codeEditorV2IEditorInlayHintsOptionsEnabled,
   fontSize?: float,
   fontFamily?: string,
   padding?: bool,
@@ -2670,11 +2673,11 @@ type iBracketPairColorizationOptions = {
 }
 type iDropIntoEditorOptions = {
   enabled?: bool,
-  showDropSelector?: showDropSelector,
+  showDropSelector?: codeEditorV2IDropIntoEditorOptionsShowDropSelector,
 }
 type iPasteAsOptions = {
   enabled?: bool,
-  showPasteSelector?: showPasteSelector,
+  showPasteSelector?: codeEditorV2IPasteAsOptionsShowPasteSelector,
 }
 type iEditorOptions = {
   inDiffEditor?: bool,
@@ -2689,11 +2692,11 @@ type iEditorOptions = {
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.lineNumbers,
+  lineNumbers?: CommonTypes.editorIEditorOptionsLineNumbers,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -2706,7 +2709,7 @@ type iEditorOptions = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -2715,18 +2718,18 @@ type iEditorOptions = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -2735,21 +2738,21 @@ type iEditorOptions = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -2758,12 +2761,12 @@ type iEditorOptions = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -2779,7 +2782,7 @@ type iEditorOptions = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -2787,19 +2790,19 @@ type iEditorOptions = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -2807,18 +2810,18 @@ type iEditorOptions = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -2828,7 +2831,7 @@ type iEditorOptions = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -2893,7 +2896,7 @@ type iCommand<'a> = {
   computeCursorState: (iTextModel<'a>, iCursorStateComputerData) => selection,
 }
 @unboxed
-type executeEdits =
+type codeEditorV2ICodeEditorExecuteEdits =
   Arr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
 type iContentWidgetPosition = {
   position: Nullable.t<iPosition>,
@@ -3058,7 +3061,7 @@ type iCodeEditor<'a> = {
   executeEdits: (
     Nullable.t<string>,
     array<iIdentifiedSingleEditOperation>,
-    option<executeEdits>,
+    option<codeEditorV2ICodeEditorExecuteEdits>,
   ) => bool,
   executeCommands: (Nullable.t<string>, array<iCommand<'a>>) => unit,
   getLineDecorations: float => Nullable.t<array<iModelDecoration>>,
@@ -3104,7 +3107,7 @@ type iCodeEditor<'a> = {
   hasTextFocus: unit => bool,
   getSupportedActions: unit => array<iEditorAction>,
   getVisibleColumnFromPosition: iPosition => float,
-  getPosition: unit => Nullable.t<position2>,
+  getPosition: unit => Nullable.t<position>,
   setPosition: (iPosition, option<string>) => unit,
   revealLine: (float, option<scrollType>) => unit,
   revealLineInCenter: (float, option<scrollType>) => unit,
@@ -3144,11 +3147,11 @@ type editorGetMonacoViewModeOptionsConfig = {
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.lineNumbers,
+  lineNumbers?: CommonTypes.editorGetMonacoViewModeOptionsLineNumbers,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -3161,7 +3164,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -3170,18 +3173,18 @@ type editorGetMonacoViewModeOptionsConfig = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3190,21 +3193,21 @@ type editorGetMonacoViewModeOptionsConfig = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -3213,12 +3216,12 @@ type editorGetMonacoViewModeOptionsConfig = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -3234,7 +3237,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -3242,19 +3245,19 @@ type editorGetMonacoViewModeOptionsConfig = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -3262,18 +3265,18 @@ type editorGetMonacoViewModeOptionsConfig = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -3283,7 +3286,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -3330,9 +3333,9 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   selectionClipboard?: bool,
   lineNumbers?: string,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -3345,7 +3348,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -3354,18 +3357,18 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3374,21 +3377,21 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -3397,12 +3400,12 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -3418,7 +3421,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -3426,19 +3429,19 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -3446,18 +3449,18 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -3467,7 +3470,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -3488,7 +3491,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   detectIndentation?: bool,
   trimAutoWhitespace?: bool,
   largeFileOptimizations?: bool,
-  wordBasedSuggestions?: wordBasedSuggestions,
+  wordBasedSuggestions?: codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions,
   wordBasedSuggestionsOnlySameLanguage?: bool,
   @as("semanticHighlighting.enabled")
   semanticHighlighting_enabled?: CommonTypes.boolOrConfiguredByTheme,
@@ -3609,7 +3612,7 @@ type iStandaloneCodeEditor<'a, 'b> = {
   hasTextFocus: unit => bool,
   getSupportedActions: unit => array<iEditorAction>,
   getVisibleColumnFromPosition: iPosition => float,
-  getPosition: unit => Nullable.t<position2>,
+  getPosition: unit => Nullable.t<position>,
   setPosition: (iPosition, option<string>) => unit,
   revealLine: (float, option<scrollType>) => unit,
   revealLineInCenter: (float, option<scrollType>) => unit,
@@ -3650,7 +3653,7 @@ type iDiffEditorViewModel<'a> = {
   waitForDiff: unit => promise<unit>,
   dispose: unit => unit,
 }
-module SetModel = {
+module CodeEditorV2IStandaloneDiffEditorSetModel = {
   type t
   external fromIDiffEditorModel: iDiffEditorModel<'a> => t = "%identity"
   external fromIDiffEditorViewModel: iDiffEditorViewModel<'a> => t = "%identity"
@@ -3696,11 +3699,11 @@ type iDiffEditorOptions = {
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.lineNumbers,
+  lineNumbers?: CommonTypes.editorIDiffEditorOptionsLineNumbers,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -3713,7 +3716,7 @@ type iDiffEditorOptions = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -3722,18 +3725,18 @@ type iDiffEditorOptions = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3742,21 +3745,21 @@ type iDiffEditorOptions = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -3765,12 +3768,12 @@ type iDiffEditorOptions = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -3786,7 +3789,7 @@ type iDiffEditorOptions = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -3794,19 +3797,19 @@ type iDiffEditorOptions = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -3814,18 +3817,18 @@ type iDiffEditorOptions = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -3835,7 +3838,7 @@ type iDiffEditorOptions = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -3866,8 +3869,8 @@ type iDiffEditorOptions = {
   originalEditable?: bool,
   diffCodeLens?: bool,
   renderOverviewRuler?: bool,
-  diffWordWrap?: wordWrapOverride1,
-  diffAlgorithm?: diffAlgorithm,
+  diffWordWrap?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  diffAlgorithm?: codeEditorV2IDiffEditorOptionsDiffAlgorithm,
   accessibilityVerbose?: bool,
   experimental?: editorIDiffEditorOptionsExperimentalConfig,
   isInEmbeddedEditor?: bool,
@@ -3887,10 +3890,10 @@ type iStandaloneDiffEditor<'a, 'b> = {
   restoreViewState: Nullable.t<iDiffEditorViewState> => unit,
   getModel: unit => Nullable.t<iDiffEditorModel<'a>>,
   createViewModel: iDiffEditorModel<'a> => iDiffEditorViewModel<'a>,
-  setModel: SetModel.t => unit,
+  setModel: CodeEditorV2IStandaloneDiffEditorSetModel.t => unit,
   getLineChanges: unit => Nullable.t<array<iLineChange>>,
   updateOptions: iDiffEditorOptions => unit,
-  goToDiff: goToDiff => unit,
+  goToDiff: codeEditorV2IStandaloneDiffEditorGoToDiff => unit,
   revealFirstDiff: unit => JSON.t,
   accessibleDiffViewerNext: unit => unit,
   accessibleDiffViewerPrev: unit => unit,
@@ -3904,7 +3907,7 @@ type iStandaloneDiffEditor<'a, 'b> = {
   hasTextFocus: unit => bool,
   getSupportedActions: unit => array<iEditorAction>,
   getVisibleColumnFromPosition: iPosition => float,
-  getPosition: unit => Nullable.t<position2>,
+  getPosition: unit => Nullable.t<position>,
   setPosition: (iPosition, option<string>) => unit,
   revealLine: (float, option<scrollType>) => unit,
   revealLineInCenter: (float, option<scrollType>) => unit,
@@ -3953,11 +3956,11 @@ type iStandaloneEditorConstructionOptions<'a> = {
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.lineNumbers,
+  lineNumbers?: CommonTypes.editorIStandaloneEditorConstructionOptionsLineNumbers,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -3970,7 +3973,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -3979,18 +3982,18 @@ type iStandaloneEditorConstructionOptions<'a> = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3999,21 +4002,21 @@ type iStandaloneEditorConstructionOptions<'a> = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -4022,12 +4025,12 @@ type iStandaloneEditorConstructionOptions<'a> = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -4043,7 +4046,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -4051,19 +4054,19 @@ type iStandaloneEditorConstructionOptions<'a> = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -4071,18 +4074,18 @@ type iStandaloneEditorConstructionOptions<'a> = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -4092,7 +4095,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -4113,7 +4116,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   detectIndentation?: bool,
   trimAutoWhitespace?: bool,
   largeFileOptimizations?: bool,
-  wordBasedSuggestions?: wordBasedSuggestions,
+  wordBasedSuggestions?: codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions,
   wordBasedSuggestionsOnlySameLanguage?: bool,
   @as("semanticHighlighting.enabled")
   semanticHighlighting_enabled?: CommonTypes.boolOrConfiguredByTheme,
@@ -4136,11 +4139,11 @@ type iDiffEditorConstructionOptions = {
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.lineNumbers,
+  lineNumbers?: CommonTypes.editorIDiffEditorConstructionOptionsLineNumbers,
   cursorSurroundingLines?: float,
-  cursorSurroundingLinesStyle?: cursorSurroundingLinesStyle,
-  renderFinalNewline?: renderFinalNewline,
-  unusualLineTerminators?: unusualLineTerminators,
+  cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
+  renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
+  unusualLineTerminators?: codeEditorV2IEditorOptionsUnusualLineTerminators,
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
@@ -4153,7 +4156,7 @@ type iDiffEditorConstructionOptions = {
   domReadOnly?: bool,
   linkedEditing?: bool,
   renameOnType?: bool,
-  renderValidationDecorations?: renderValidationDecorations,
+  renderValidationDecorations?: codeEditorV2IEditorOptionsRenderValidationDecorations,
   scrollbar?: iEditorScrollbarOptions,
   stickyScroll?: iEditorStickyScrollOptions,
   minimap?: iEditorMinimapOptions,
@@ -4162,18 +4165,18 @@ type iDiffEditorConstructionOptions = {
   allowOverflow?: bool,
   overviewRulerLanes?: float,
   overviewRulerBorder?: bool,
-  cursorBlinking?: cursorBlinking,
+  cursorBlinking?: codeEditorV2IEditorOptionsCursorBlinking,
   mouseWheelZoom?: bool,
-  mouseStyle?: mouseStyle,
-  cursorSmoothCaretAnimation?: cursorSmoothCaretAnimation,
-  cursorStyle?: cursorStyle,
-  overtypeCursorStyle?: cursorStyle,
+  mouseStyle?: codeEditorV2IEditorOptionsMouseStyle,
+  cursorSmoothCaretAnimation?: codeEditorV2IEditorOptionsCursorSmoothCaretAnimation,
+  cursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
+  overtypeCursorStyle?: codeEditorV2IEditorOptionsCursorStyle,
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: defaultColorDecorators,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4182,21 +4185,21 @@ type iDiffEditorConstructionOptions = {
   scrollBeyondLastColumn?: float,
   smoothScrolling?: bool,
   automaticLayout?: bool,
-  wordWrap?: wordWrap,
-  wordWrapOverride1?: wordWrapOverride1,
-  wordWrapOverride2?: wordWrapOverride1,
+  wordWrap?: codeEditorV2IEditorOptionsWordWrap,
+  wordWrapOverride1?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  wordWrapOverride2?: codeEditorV2IEditorOptionsWordWrapOverride1,
   wordWrapColumn?: float,
-  wrappingIndent?: wrappingIndent,
-  wrappingStrategy?: wrappingStrategy,
+  wrappingIndent?: codeEditorV2IEditorOptionsWrappingIndent,
+  wrappingStrategy?: codeEditorV2IEditorOptionsWrappingStrategy,
   wrapOnEscapedLineFeeds?: bool,
   wordWrapBreakBeforeCharacters?: string,
   wordWrapBreakAfterCharacters?: string,
-  wordBreak?: wordBreak,
+  wordBreak?: codeEditorV2IEditorOptionsWordBreak,
   stopRenderingLineAfter?: float,
   hover?: iEditorHoverOptions,
   links?: bool,
   colorDecorators?: bool,
-  colorDecoratorsActivatedOn?: colorDecoratorsActivatedOn,
+  colorDecoratorsActivatedOn?: codeEditorV2IEditorOptionsColorDecoratorsActivatedOn,
   colorDecoratorsLimit?: float,
   comments?: iEditorCommentsOptions,
   contextmenu?: bool,
@@ -4205,12 +4208,12 @@ type iDiffEditorConstructionOptions = {
   scrollPredominantAxis?: bool,
   inertialScroll?: bool,
   columnSelection?: bool,
-  multiCursorModifier?: multiCursorModifier,
+  multiCursorModifier?: codeEditorV2IEditorOptionsMultiCursorModifier,
   multiCursorMergeOverlapping?: bool,
-  multiCursorPaste?: multiCursorPaste,
+  multiCursorPaste?: codeEditorV2IEditorOptionsMultiCursorPaste,
   multiCursorLimit?: float,
   mouseMiddleClickAction?: mouseMiddleClickAction,
-  accessibilitySupport?: accessibilitySupport,
+  accessibilitySupport?: codeEditorV2IEditorOptionsAccessibilitySupport,
   accessibilityPageSize?: float,
   suggest?: iSuggestOptions,
   inlineSuggest?: iInlineSuggestOptions,
@@ -4226,7 +4229,7 @@ type iDiffEditorConstructionOptions = {
   autoClosingDelete?: editorAutoClosingEditStrategy,
   autoClosingOvertype?: editorAutoClosingEditStrategy,
   autoSurround?: editorAutoSurroundStrategy,
-  autoIndent?: autoIndent,
+  autoIndent?: codeEditorV2IEditorOptionsAutoIndent,
   autoIndentOnPaste?: bool,
   autoIndentOnPasteWithinString?: bool,
   stickyTabStops?: bool,
@@ -4234,19 +4237,19 @@ type iDiffEditorConstructionOptions = {
   formatOnPaste?: bool,
   dragAndDrop?: bool,
   suggestOnTriggerCharacters?: bool,
-  acceptSuggestionOnEnter?: acceptSuggestionOnEnter,
+  acceptSuggestionOnEnter?: codeEditorV2IEditorOptionsAcceptSuggestionOnEnter,
   acceptSuggestionOnCommitCharacter?: bool,
-  snippetSuggestions?: snippetSuggestions,
+  snippetSuggestions?: codeEditorV2IEditorOptionsSnippetSuggestions,
   emptySelectionClipboard?: bool,
   copyWithSyntaxHighlighting?: bool,
-  suggestSelection?: suggestSelection,
+  suggestSelection?: codeEditorV2IEditorOptionsSuggestSelection,
   suggestFontSize?: float,
   suggestLineHeight?: float,
-  tabCompletion?: tabCompletion,
+  tabCompletion?: codeEditorV2IEditorOptionsTabCompletion,
   selectionHighlight?: bool,
   selectionHighlightMultiline?: bool,
   selectionHighlightMaxLength?: float,
-  occurrencesHighlight?: occurrencesHighlight,
+  occurrencesHighlight?: codeEditorV2IEditorOptionsOccurrencesHighlight,
   occurrencesHighlightDelay?: float,
   codeLens?: bool,
   codeLensFontFamily?: string,
@@ -4254,18 +4257,18 @@ type iDiffEditorConstructionOptions = {
   lightbulb?: iEditorLightbulbOptions,
   codeActionsOnSaveTimeout?: float,
   folding?: bool,
-  foldingStrategy?: foldingStrategy,
+  foldingStrategy?: codeEditorV2IEditorOptionsFoldingStrategy,
   foldingHighlight?: bool,
   foldingImportsByDefault?: bool,
   foldingMaximumRegions?: float,
-  showFoldingControls?: showFoldingControls,
+  showFoldingControls?: codeEditorV2IEditorOptionsShowFoldingControls,
   unfoldOnClickAfterEndOfLine?: bool,
-  matchBrackets?: matchBrackets,
-  experimentalGpuAcceleration?: experimentalGpuAcceleration,
-  experimentalWhitespaceRendering?: experimentalWhitespaceRendering,
-  renderWhitespace?: renderWhitespace,
+  matchBrackets?: codeEditorV2IEditorOptionsMatchBrackets,
+  experimentalGpuAcceleration?: codeEditorV2IEditorOptionsExperimentalGpuAcceleration,
+  experimentalWhitespaceRendering?: codeEditorV2IEditorOptionsExperimentalWhitespaceRendering,
+  renderWhitespace?: codeEditorV2IEditorOptionsRenderWhitespace,
   renderControlCharacters?: bool,
-  renderLineHighlight?: renderLineHighlight,
+  renderLineHighlight?: codeEditorV2IEditorOptionsRenderLineHighlight,
   renderLineHighlightOnlyWhenFocus?: bool,
   useTabStops?: bool,
   trimWhitespaceOnDelete?: bool,
@@ -4275,7 +4278,7 @@ type iDiffEditorConstructionOptions = {
   lineHeight?: float,
   letterSpacing?: float,
   showUnused?: bool,
-  peekWidgetDefaultFocus?: peekWidgetDefaultFocus,
+  peekWidgetDefaultFocus?: codeEditorV2IEditorOptionsPeekWidgetDefaultFocus,
   placeholder?: string,
   definitionLinkOpensInPeek?: bool,
   showDeprecated?: bool,
@@ -4306,8 +4309,8 @@ type iDiffEditorConstructionOptions = {
   originalEditable?: bool,
   diffCodeLens?: bool,
   renderOverviewRuler?: bool,
-  diffWordWrap?: wordWrapOverride1,
-  diffAlgorithm?: diffAlgorithm,
+  diffWordWrap?: codeEditorV2IEditorOptionsWordWrapOverride1,
+  diffAlgorithm?: codeEditorV2IDiffEditorOptionsDiffAlgorithm,
   accessibilityVerbose?: bool,
   experimental?: editorIDiffEditorOptionsExperimentalConfig,
   isInEmbeddedEditor?: bool,
@@ -4317,6 +4320,23 @@ type iDiffEditorConstructionOptions = {
 }
 type copyFeedbackTimeoutRef = {
   ...JsxDOM.domProps,
+}
+type codeEditorV2BackupColorBodyGutterConfig = {
+  color: string,
+  backgroundColor: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
+  borderColor: codeEditorV2CodeEditorV2TokensBodyGutterBackgroundColorConfig,
+}
+type codeEditorV2BackupColorBodyHighlightedLineConfig = {
+  backgroundColor: string,
+}
+type codeEditorV2BackupColorBodyConfig = {
+  backgroundColor: string,
+  gutter: codeEditorV2BackupColorBodyGutterConfig,
+  highlightedLine: codeEditorV2BackupColorBodyHighlightedLineConfig,
+}
+type codeEditorV2BackupColorConfig = {
+  body: codeEditorV2BackupColorBodyConfig,
+  header: codeEditorV2BackupColorBodyHighlightedLineConfig,
 }
 type rec multiSelectV2ItemType = {
   label: string,
@@ -4354,7 +4374,7 @@ type multiSelectV2SecondaryActionConfig = {
 }
 type flattenedMultiSelectV2Item = {
   id: string,
-  @as("type") type_: type_5,
+  @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
   item?: multiSelectV2ItemType,
   label?: string,
   groupId?: float,
@@ -4369,7 +4389,7 @@ type multiSelectV2GetSelectAllStateConfig = {
 }
 type flattenedItem = {
   id: string,
-  @as("type") type_: type_5,
+  @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
   item?: singleSelectV2ItemType,
   label?: string,
   groupId?: float,
@@ -4433,6 +4453,12 @@ type accessibilitySetupResult = {
   menuId?: string,
   ariaAttributes: ariaAttributes,
 }
+type singleSelectV2VIRTUALROWESTIMATESConfig = {
+  label: string,
+  separator: string,
+  item: string,
+  itemWithSubLabel: string,
+}
 type chatInputV2TopQuery = {
   id: string,
   text: string,
@@ -4440,12 +4466,12 @@ type chatInputV2TopQuery = {
 type chatInputV2AttachedFile = {
   id: string,
   name: string,
-  @as("type") type_: ChatInputTypes.type_,
+  @as("type") type_: ChatInputTypes.chatInputAttachedFileType,
   size?: float,
   url?: string,
   preview?: string,
 }
-module Dropdown = {
+module InputsV2Dropdown = {
   type t
   external fromTextInputV2Dropdown: textInputV2Dropdown => t = "%identity"
   external fromTextInputV2Dropdowns: array<textInputV2Dropdown> => t = "%identity"

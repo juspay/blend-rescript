@@ -1,7 +1,7 @@
 type popoverSize =
   | @as("small") Small
   | @as("medium") Medium
-type shadow =
+type popoverShadow =
   | @as("sm") Sm
   | @as("lg") Lg
   | @as("xs") Xs

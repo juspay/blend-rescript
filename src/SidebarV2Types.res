@@ -1,4 +1,4 @@
-type onSidebarStateChange =
+type sidebarV2OnSidebarStateChange =
   | @as("expanded") Expanded
   | @as("collapsed") Collapsed
   | @as("intermediate") Intermediate

@@ -1,10 +1,10 @@
 # Binding report — `@juspay/blend-design-system@0.0.37-beta.7`
 
-**209** components · ✅ **209** usable · 🔍 **0** need review · 🛑 **0** broken
+**211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**225** function binding(s) → `BlendDesignSystemBindings.res`.
+**231** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2908** shared types deduplicated into **72** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2926** shared types deduplicated into **72** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -29,6 +29,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getCardTokens`
 - `getChartTokens`
 - `getChatInputTokens`
+- `validateColumnData`
 - `getColumnTypeConfig`
 - `getTableToken`
 - `getCalendarToken`
@@ -120,6 +121,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getStatusPositionStyles`
 - `createAvatarKeyboardHandler`
 - `isInteractive`
+- `DEFAULT_POSITION`
 - `getTooltipV2Tokens`
 - `getProgressBarV2Tokens`
 - `normalizeRange`
@@ -139,6 +141,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getAccordionV2Tokens`
 - `getTextInputV2Tokens`
 - `toEmbeddedSingleSelectV2Props`
+- `FOCUS_RING_STYLES`
 - `getInputState`
 - `getVerticalInputPadding`
 - `getTextAreaV2Tokens`
@@ -200,6 +203,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getCodeEditorV2ContainerStyles`
 - `toCssValue`
 - `toNumericValue`
+- `backupColor`
 - `getKeyValuePairV2Tokens`
 - `getKeyValuePairV2ContainerStyles`
 - `getLayoutStyles`
@@ -236,11 +240,13 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getMenuItemIndex`
 - `getVirtualRowEstimate`
 - `getItemOrdinalIndex`
+- `defaultSingleSelectV2Skeleton`
 - `generateAccessibilityIds`
 - `extractSingleSelectV2AriaProps`
 - `mergeSingleSelectV2AriaDescribedBy`
 - `buildAriaAttributes`
 - `setupAccessibility`
+- `VIRTUAL_ROW_ESTIMATES`
 - `getChatInputV2Tokens`
 
 ## ✅ Usable
@@ -260,6 +266,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - AvatarGroup
 - AvatarV2
 - Badge
+- BlendChart  _(2 loose)_
 - BlendChartContainer
 - BlendChartHeader
 - Breadcrumb
@@ -281,6 +288,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeaderV2
 - ChartLegends
 - Charts
+- ChartV2  _(1 loose)_
 - ChartV2Fullscreen
 - ChartV2Legend
 - ChartV2NoData
@@ -464,6 +472,8 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 | Resolved TypeScript type | → emitted | count | example props |
 |--------------------------|-----------|-------|---------------|
+| `typeof import("/Users/roshan.chourasiya/work/FE/opensource/blend-rescript/node_modules/highcharts/highcharts")` | `string` | 2 | highcharts |
+| `[boolean] \| [boolean, boolean] \| [boolean, boolean, boolean]` | `string` | 1 | updateArgs |
 | `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |

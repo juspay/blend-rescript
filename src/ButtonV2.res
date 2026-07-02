@@ -8,7 +8,7 @@ type props = {
   rightSlot?: ButtonV2Types.buttonSlot,
   loading?: bool,
   skeleton?: ButtonV2Types.buttonSkeleton,
-  buttonGroupPosition?: ButtonTypes.buttonGroupPosition,
+  buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   width?: CommonTypes.stringOrNumber,
   minWidth?: CommonTypes.stringOrNumber,
   maxWidth?: CommonTypes.stringOrNumber,

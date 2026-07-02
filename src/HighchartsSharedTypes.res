@@ -14,12 +14,12 @@ type dashStyleValue =
   | @as("Solid") Solid
 type svgPathCommand =
   | @as("a") A
-  | @as("q") Q
-  | @as("s") S
   | @as("c") C
   | @as("h") H
   | @as("l") L
   | @as("m") M
+  | @as("q") Q
+  | @as("s") S
   | @as("t") T
   | @as("v") V
   | @as("z") Z
@@ -96,15 +96,15 @@ type verticalAlignValue =
 type optionsPanKeyValue =
   | @as("shift") Shift
   | @as("alt") Alt
-  | @as("meta") Meta
   | @as("ctrl") Ctrl
+  | @as("meta") Meta
 type optionsChartPanningTypeValue =
   | @as("x") X
   | @as("y") Y
   | @as("xy") Xy
 type optionsPosition3dValue =
-  | @as("offset") Offset
   | @as("chart") Chart
+  | @as("offset") Offset
   | @as("flap") Flap
   | @as("ortho") Ortho
 type optionsMinorTickPositionValue =
@@ -117,8 +117,8 @@ type dataLabelsOverflowValue =
   | @as("justify") Justify
   | @as("allow") Allow
 type optionsTickmarkPlacementValue =
-  | @as("on") On
   | @as("between") Between
+  | @as("on") On
 type optionsTickPositionValue =
   | @as("inside") Inside
   | @as("outside") Outside
@@ -138,8 +138,8 @@ type buttonRelativeToValue =
 type optionsKeyValue =
   | @as("shift") Shift
   | @as("alt") Alt
-  | @as("meta") Meta
   | @as("ctrl") Ctrl
+  | @as("meta") Meta
 type optionsPinchTypeValue =
   | @as("x") X
   | @as("y") Y
@@ -185,8 +185,8 @@ type optionsUnitsValue =
   | @as("pixels") Pixels
 type paneBackgroundShapeValue =
   | @as("solid") Solid
-  | @as("circle") Circle
   | @as("arc") Arc
+  | @as("circle") Circle
 type optionsBoostBlendingValue =
   | @as("add") Add
   | @as("darken") Darken
@@ -210,16 +210,16 @@ type optionsValueMapFunctionValue =
 type optionsAlgorithmValue =
   | @as("middle") Middle
   | @as("first") First
-  | @as("last") Last
   | @as("firstlast") Firstlast
+  | @as("last") Last
   | @as("minmax") Minmax
 type optionsStepValue =
   | @as("left") Left
   | @as("center") Center
   | @as("right") Right
 type optionsRelativeToValue =
-  | @as("pane") Pane
   | @as("chart") Chart
+  | @as("pane") Pane
   | @as("plotBox") PlotBox
   | @as("spacingBox") SpacingBox
 type optionsCompareValue =
@@ -231,10 +231,10 @@ type optionsPointIntervalUnitValue =
   | @as("year") Year
 type optionsStackingValue =
   | @as("normal") Normal
-  | @as("stream") Stream
   | @as("percent") Percent
   | @as("null") Null
   | @as("overlap") Overlap
+  | @as("stream") Stream
 type optionsPointValKeyValue =
   | @as("open") Open
   | @as("close") Close
@@ -282,8 +282,8 @@ type optionsUnitValue =
   | @as("pixels") Pixels
 type tilemapShapeValue =
   | @as("circle") Circle
-  | @as("square") Square
   | @as("diamond") Diamond
+  | @as("square") Square
   | @as("hexagon") Hexagon
 type optionsLayoutAlgorithmValue =
   | @as("squarified") Squarified
@@ -629,7 +629,7 @@ type pointOptionsObject = {
   y?: float,
   z?: float,
 }
-module D = {
+module ChartsPointShapeArgsD = {
   type t
   external fromSVGPathCommands: array<svgPathCommand> => t = "%identity"
   external fromTuple2: ((svgPathCommand, float)) => t = "%identity"
@@ -640,9 +640,10 @@ module D = {
   external fromTuple8: ((svgPathCommand, float, float, float, float, float, float, float)) => t =
     "%identity"
 }
-@unboxed type stringOrDTArray = Str(string) | Arr(array<D.t>)
+@unboxed
+type stringOrChartsPointShapeArgsDTArray = Str(string) | Arr(array<ChartsPointShapeArgsD.t>)
 type highchartsPointShapeArgsConfig = {
-  d?: stringOrDTArray,
+  d?: stringOrChartsPointShapeArgsDTArray,
   dx?: float,
   dy?: float,
   fill?: ColorType.t,
@@ -696,7 +697,7 @@ type rec point = {
   y?: float,
   getClassName: unit => string,
   getZone: unit => seriesZonesOptionsObject,
-  haloPath: float => array<D.t>,
+  haloPath: float => array<ChartsPointShapeArgsD.t>,
   onMouseOut: unit => unit,
   onMouseOver: option<pointerEventObject> => unit,
   optionsToObject: string => Dict.t<string>,
@@ -704,7 +705,7 @@ type rec point = {
   remove: (option<bool>, option<string>) => unit,
   select: (option<bool>, option<bool>) => unit,
   setNestedProperty: (string, string, string) => string,
-  setState: (option<StatCardV2Types.setState>, option<bool>) => unit,
+  setState: (option<ChartsTypes.chartsPointSetState>, option<bool>) => unit,
   setVisible: (option<bool>, option<bool>) => unit,
   tooltipFormatter: string => string,
   update: (string, option<bool>, option<string>) => unit,
@@ -815,7 +816,7 @@ type highchartsAnnotationsOptionsAnimationConfig = {
 type annotationsAnimationOptions = {
   defer?: float,
 }
-module Animation = {
+module ChartsAnnotationsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -831,7 +832,7 @@ type annotationsControlPointStyleOptions = {
   stroke?: string,
   @as("stroke-width") strokeWidth?: float,
 }
-module Style = {
+module ChartsAnnotationControlPointOptionsObjectStyle = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromAnnotationsControlPointStyleOptions: annotationsControlPointStyleOptions => t =
@@ -1926,104 +1927,104 @@ type annotationsTypesVerticalLineOptions = {
   labelOptions?: annotationsTypesVerticalLineLabelOptions,
   typeOptions?: annotationsTypesVerticalLineTypeOptions,
 }
-type rec annotationsTypesTunnelTypeOptions<'a> = {
+type rec annotationsTypesTunnelTypeOptions<'b> = {
   background?: string,
   height?: float,
-  heightControlPoint?: annotationControlPointOptionsObject<'a>,
+  heightControlPoint?: annotationControlPointOptionsObject<'b>,
   line?: annotationsTypesElliottWaveTypeLineOptions,
   points?: array<string>,
   xAxis?: float,
   yAxis?: float,
 }
-and annotationsTypesTunnelOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesTunnelOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesCrookedLineLabelOptions,
-  typeOptions?: annotationsTypesTunnelTypeOptions<'a>,
+  typeOptions?: annotationsTypesTunnelTypeOptions<'b>,
 }
-and annotationsTypesTimeCyclesOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesTimeCyclesOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   typeOptions?: annotationsTypesCrookedLineTypeOptions,
 }
-and annotationsTypesPitchforkOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesPitchforkOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesCrookedLineLabelOptions,
   typeOptions?: annotationsTypesPitchforkTypeOptions,
 }
-and annotationsTypesMeasureOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesMeasureOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   typeOptions?: annotationsTypesMeasureTypeOptions,
 }
-and annotationsTypesFibonacciTimeZonesOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesFibonacciTimeZonesOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesCrookedLineLabelOptions,
   typeOptions?: annotationsTypesFibonacciTimeZonesTypeOptions,
 }
-and annotationsTypesFibonacciOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesFibonacciOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesFibonacciLabelOptions,
   typeOptions?: annotationsTypesFibonacciTypeOptions,
 }
-and annotationsTypesElliottWaveOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesElliottWaveOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesElliottWaveLabelOptions,
   typeOptions?: annotationsTypesElliottWaveTypeOptions,
 }
-and annotationsTypesCrookedLineOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+and annotationsTypesCrookedLineOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: annotationsTypesCrookedLineLabelOptions,
   typeOptions?: annotationsTypesCrookedLineTypeOptions,
 }
-and annotationsTypesOptions<'a> = {
-  crookedLine?: annotationsTypesCrookedLineOptions<'a>,
-  elliottWave?: annotationsTypesElliottWaveOptions<'a>,
-  fibonacci?: annotationsTypesFibonacciOptions<'a>,
-  fibonacciTimeZones?: annotationsTypesFibonacciTimeZonesOptions<'a>,
-  infinityLine?: annotationsTypesCrookedLineOptions<'a>,
-  measure?: annotationsTypesMeasureOptions<'a>,
-  pitchfork?: annotationsTypesPitchforkOptions<'a>,
-  timeCycles?: annotationsTypesTimeCyclesOptions<'a>,
-  tunnel?: annotationsTypesTunnelOptions<'a>,
+and annotationsTypesOptions<'b> = {
+  crookedLine?: annotationsTypesCrookedLineOptions<'b>,
+  elliottWave?: annotationsTypesElliottWaveOptions<'b>,
+  fibonacci?: annotationsTypesFibonacciOptions<'b>,
+  fibonacciTimeZones?: annotationsTypesFibonacciTimeZonesOptions<'b>,
+  infinityLine?: annotationsTypesCrookedLineOptions<'b>,
+  measure?: annotationsTypesMeasureOptions<'b>,
+  pitchfork?: annotationsTypesPitchforkOptions<'b>,
+  timeCycles?: annotationsTypesTimeCyclesOptions<'b>,
+  tunnel?: annotationsTypesTunnelOptions<'b>,
   verticalLine?: annotationsTypesVerticalLineOptions,
 }
-and annotationsEventsOptions<'a> = {
-  add?: (option<string>, option<annotation<'a>>) => bool,
-  afterUpdate?: (option<string>, option<annotation<'a>>) => bool,
-  click?: (option<string>, option<annotation<'a>>) => bool,
-  drag?: (option<string>, option<annotation<'a>>) => bool,
-  remove?: (option<string>, option<annotation<'a>>) => bool,
+and annotationsEventsOptions<'b> = {
+  add?: (option<string>, option<annotation<'b>>) => bool,
+  afterUpdate?: (option<string>, option<annotation<'b>>) => bool,
+  click?: (option<string>, option<annotation<'b>>) => bool,
+  drag?: (option<string>, option<annotation<'b>>) => bool,
+  remove?: (option<string>, option<annotation<'b>>) => bool,
 }
-and annotation<'a> = {
+and annotation<'b> = {
   chart: chart,
   group: Dom.element,
   labelsGroup: Dom.element,
-  options: annotationsOptions<'a>,
+  options: annotationsOptions<'b>,
   points: array<point>,
   shapesGroup: Dom.element,
-  userOptions: annotationsOptions<'a>,
-  update: (annotationsOptions<'a>, option<bool>) => unit,
+  userOptions: annotationsOptions<'b>,
+  update: (annotationsOptions<'b>, option<bool>) => unit,
 }
-and annotationControllable<'a> = {
-  annotation: annotation<'a>,
+and annotationControllable<'b> = {
+  annotation: annotation<'b>,
   chart: chart,
   collection: string,
   points: array<string>,
 }
-and annotationControlPointOptionsObject<'a> = {
-  events?: 'a,
+and annotationControlPointOptionsObject<'b> = {
+  events?: 'b,
   height?: float,
-  positioner?: annotationControllable<'a> => positionObject,
-  style?: Style.t,
+  positioner?: annotationControllable<'b> => positionObject,
+  style?: ChartsAnnotationControlPointOptionsObjectStyle.t,
   symbol?: string,
   visible?: bool,
   width?: float,
 }
-and annotationsOptions<'a> = {
-  animation?: Animation.t,
+and annotationsOptions<'b> = {
+  animation?: ChartsAnnotationsOptionsAnimation.t,
   className?: string,
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   crop?: bool,
   draggable?: annotationDraggableValue,
-  events?: annotationsEventsOptions<'a>,
+  events?: annotationsEventsOptions<'b>,
   id?: CommonTypes.stringOrNumber,
   labelOptions?: annotationsLabelOptions,
   labels?: array<annotationsLabelsOptions>,
@@ -2031,7 +2032,7 @@ and annotationsOptions<'a> = {
   shapes?: array<annotationsShapesOptions>,
   @as("type") type_?: string,
   typeOptions?: annotationsTypeOptions,
-  types?: annotationsTypesOptions<'a>,
+  types?: annotationsTypesOptions<'b>,
   visible?: bool,
   zIndex?: int,
 }
@@ -2057,7 +2058,7 @@ type captionStyleOptions = {
   color?: string,
   fontSize?: CommonTypes.stringOrNumber,
 }
-module Style2 = {
+module ChartsCaptionOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromCaptionStyleOptions: captionStyleOptions => t = "%identity"
@@ -2066,7 +2067,7 @@ type captionOptions = {
   align?: alignValue,
   floating?: bool,
   margin?: float,
-  style?: Style2.t,
+  style?: ChartsCaptionOptionsStyle.t,
   text?: string,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -2098,7 +2099,7 @@ type plotAdAccessibilityPointOptions = {
   valuePrefix?: string,
   valueSuffix?: string,
 }
-module Point = {
+module ChartsSeriesAccessibilityOptionsObjectPoint = {
   type t
   external fromPlotAbandsAccessibilityPointOptions: plotAbandsAccessibilityPointOptions => t =
     "%identity"
@@ -2320,7 +2321,7 @@ type seriesAccessibilityOptionsObject = {
   enabled?: bool,
   exposeAsGroupOnly?: bool,
   keyboardNavigation?: exportingAccessibilityOptions,
-  point?: Point.t,
+  point?: ChartsSeriesAccessibilityOptionsObjectPoint.t,
 }
 type plotAbandsBottomLineStylesOptions = {
   lineWidth?: float,
@@ -2343,7 +2344,7 @@ type dataGroupingOptionsObject = {
 type plotAbandsDataLabelsAnimationOptions = {
   defer?: float,
 }
-module Animation3 = {
+module ChartsPlotAbandsDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -2401,7 +2402,7 @@ type plotAbandsDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation3.t,
+  animation?: ChartsPlotAbandsDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -2431,7 +2432,7 @@ type plotAbandsDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels2 = {
+module ChartsPlotAbandsOptionsDataLabels = {
   type t
   external fromPlotAbandsDataLabelsOptions: plotAbandsDataLabelsOptions => t = "%identity"
   external fromPlotAbandsDataLabelsOptionss: array<plotAbandsDataLabelsOptions> => t = "%identity"
@@ -2441,7 +2442,7 @@ type dataSortingOptionsObject = {
   matchByName?: bool,
   sortKey?: string,
 }
-module DataSorting = {
+module ChartsPlotAbandsOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAbandsDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -2482,12 +2483,12 @@ type rGBA = {
   ...JsxDOM.domProps,
   length: string,
 }
-type rec color6 = {
+type rec color = {
   rgba: rGBA,
-  brighten: float => color6,
+  brighten: float => color,
   get: option<string> => ColorType.t,
-  setOpacity: float => color6,
-  tweenTo: (color6, float) => ColorType.t,
+  setOpacity: float => color,
+  tweenTo: (color, float) => ColorType.t,
 }
 type labelIntersectBoxObject = {
   bottom: float,
@@ -2501,7 +2502,7 @@ type plotAbandsLabelStyleOptions = {
 type colorAxisLabelsStyleOptions = {
   fontSize?: CommonTypes.stringOrNumber,
 }
-module Style16 = {
+module ChartsSeriesLabelOptionsObjectStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotAbandsLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
@@ -2623,7 +2624,7 @@ type seriesLabelOptionsObject = {
   maxFontSize?: float,
   minFontSize?: float,
   onArea?: bool,
-  style?: Style16.t,
+  style?: ChartsSeriesLabelOptionsObjectStyle.t,
   useHTML?: bool,
 }
 type seriesLastPriceLabelOptionsObject = {
@@ -2878,7 +2879,7 @@ type plotAdTooltipPositionOptions = {
   x?: float,
   y?: float,
 }
-module Position7 = {
+module ChartsSeriesTooltipOptionsObjectPosition = {
   type t
   external fromPlotAbandsTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
   external fromPlotAdTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
@@ -3061,7 +3062,7 @@ type seriesTooltipOptionsObject = {
   nullFormatter?: (tooltip, option<point>) => CommonTypes.boolOrStringOrStringArray,
   pointFormat?: string,
   pointFormatter?: option<point> => string,
-  position?: Position7.t,
+  position?: ChartsSeriesTooltipOptionsObjectPosition.t,
   showDelay?: float,
   valueDecimals?: float,
   valuePrefix?: string,
@@ -3096,12 +3097,12 @@ type seriesAbandsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels2.t,
-  dataSorting?: DataSorting.t,
+  dataLabels?: ChartsPlotAbandsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAbandsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color6,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -3157,7 +3158,7 @@ type seriesAbandsOptions = {
 type plotAdDataLabelsAnimationOptions = {
   defer?: float,
 }
-module Animation4 = {
+module ChartsPlotAdDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -3167,7 +3168,7 @@ type plotAdDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation4.t,
+  animation?: ChartsPlotAdDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -3197,7 +3198,7 @@ type plotAdDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels3 = {
+module ChartsPlotAdOptionsDataLabels = {
   type t
   external fromPlotAdDataLabelsOptions: plotAdDataLabelsOptions => t = "%identity"
   external fromPlotAdDataLabelsOptionss: array<plotAdDataLabelsOptions> => t = "%identity"
@@ -3207,7 +3208,7 @@ type plotAdDataSortingOptions = {
   matchByName?: bool,
   sortKey?: string,
 }
-module DataSorting2 = {
+module ChartsPlotAdOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAdDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -3245,8 +3246,8 @@ type seriesAdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels3.t,
-  dataSorting?: DataSorting2.t,
+  dataLabels?: ChartsPlotAdOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -3301,7 +3302,7 @@ type seriesAdOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation5 = {
+module ChartsPlotAoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -3312,7 +3313,7 @@ type plotAoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation5.t,
+  animation?: ChartsPlotAoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -3342,12 +3343,12 @@ type plotAoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels4 = {
+module ChartsPlotAoOptionsDataLabels = {
   type t
   external fromPlotAoDataLabelsOptions: plotAoDataLabelsOptions => t = "%identity"
   external fromPlotAoDataLabelsOptionss: array<plotAoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting3 = {
+module ChartsPlotAoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -3385,8 +3386,8 @@ type seriesAoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels4.t,
-  dataSorting?: DataSorting3.t,
+  dataLabels?: ChartsPlotAoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -3445,7 +3446,7 @@ type seriesAoOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation6 = {
+module ChartsPlotApoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -3456,7 +3457,7 @@ type plotApoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation6.t,
+  animation?: ChartsPlotApoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -3486,12 +3487,12 @@ type plotApoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels5 = {
+module ChartsPlotApoOptionsDataLabels = {
   type t
   external fromPlotApoDataLabelsOptions: plotApoDataLabelsOptions => t = "%identity"
   external fromPlotApoDataLabelsOptionss: array<plotApoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting4 = {
+module ChartsPlotApoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotApoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -3530,8 +3531,8 @@ type seriesApoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels5.t,
-  dataSorting?: DataSorting4.t,
+  dataLabels?: ChartsPlotApoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotApoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4059,7 +4060,7 @@ type plotAroonAroonDownStylesOptions = {
 type plotAroonAroonDownOptions = {
   styles?: plotAroonAroonDownStylesOptions,
 }
-module Animation11 = {
+module ChartsPlotAroonDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -4070,7 +4071,7 @@ type plotAroonDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation11.t,
+  animation?: ChartsPlotAroonDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -4100,12 +4101,12 @@ type plotAroonDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels11 = {
+module ChartsPlotAroonOptionsDataLabels = {
   type t
   external fromPlotAroonDataLabelsOptions: plotAroonDataLabelsOptions => t = "%identity"
   external fromPlotAroonDataLabelsOptionss: array<plotAroonDataLabelsOptions> => t = "%identity"
 }
-module DataSorting10 = {
+module ChartsPlotAroonOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAroonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -4142,8 +4143,8 @@ type seriesAroonOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels11.t,
-  dataSorting?: DataSorting10.t,
+  dataLabels?: ChartsPlotAroonOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAroonOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4198,7 +4199,7 @@ type seriesAroonOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation12 = {
+module ChartsPlotAroonoscillatorDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -4209,7 +4210,7 @@ type plotAroonoscillatorDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation12.t,
+  animation?: ChartsPlotAroonoscillatorDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -4239,7 +4240,7 @@ type plotAroonoscillatorDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels12 = {
+module ChartsPlotAroonoscillatorOptionsDataLabels = {
   type t
   external fromPlotAroonoscillatorDataLabelsOptions: plotAroonoscillatorDataLabelsOptions => t =
     "%identity"
@@ -4247,7 +4248,7 @@ module DataLabels12 = {
     plotAroonoscillatorDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting11 = {
+module ChartsPlotAroonoscillatorOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAroonoscillatorDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -4284,8 +4285,8 @@ type seriesAroonoscillatorOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels12.t,
-  dataSorting?: DataSorting11.t,
+  dataLabels?: ChartsPlotAroonoscillatorOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAroonoscillatorOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4433,7 +4434,7 @@ type seriesBarOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation15 = {
+module ChartsPlotBbDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -4443,7 +4444,7 @@ type plotBbDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation15.t,
+  animation?: ChartsPlotBbDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -4473,12 +4474,12 @@ type plotBbDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels15 = {
+module ChartsPlotBbOptionsDataLabels = {
   type t
   external fromPlotBbDataLabelsOptions: plotBbDataLabelsOptions => t = "%identity"
   external fromPlotBbDataLabelsOptionss: array<plotBbDataLabelsOptions> => t = "%identity"
 }
-module DataSorting14 = {
+module ChartsPlotBbOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotBbDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -4517,8 +4518,8 @@ type seriesBbOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels15.t,
-  dataSorting?: DataSorting14.t,
+  dataLabels?: ChartsPlotBbOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBbOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -4575,7 +4576,7 @@ type seriesBbOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation16 = {
+module ChartsPlotBellcurveDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -4586,7 +4587,7 @@ type plotBellcurveDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation16.t,
+  animation?: ChartsPlotBellcurveDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -4616,13 +4617,13 @@ type plotBellcurveDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels16 = {
+module ChartsPlotBellcurveOptionsDataLabels = {
   type t
   external fromPlotBellcurveDataLabelsOptions: plotBellcurveDataLabelsOptions => t = "%identity"
   external fromPlotBellcurveDataLabelsOptionss: array<plotBellcurveDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting15 = {
+module ChartsPlotBellcurveOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotBellcurveDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -4649,8 +4650,8 @@ type seriesBellcurveOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels16.t,
-  dataSorting?: DataSorting15.t,
+  dataLabels?: ChartsPlotBellcurveOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBellcurveOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5099,7 +5100,7 @@ type seriesCandlestickOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation21 = {
+module ChartsPlotCciDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -5110,7 +5111,7 @@ type plotCciDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation21.t,
+  animation?: ChartsPlotCciDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -5140,12 +5141,12 @@ type plotCciDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels21 = {
+module ChartsPlotCciOptionsDataLabels = {
   type t
   external fromPlotCciDataLabelsOptions: plotCciDataLabelsOptions => t = "%identity"
   external fromPlotCciDataLabelsOptionss: array<plotCciDataLabelsOptions> => t = "%identity"
 }
-module DataSorting19 = {
+module ChartsPlotCciOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotCciDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -5178,8 +5179,8 @@ type seriesCciOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels21.t,
-  dataSorting?: DataSorting19.t,
+  dataLabels?: ChartsPlotCciOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCciOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5234,7 +5235,7 @@ type seriesCciOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation23 = {
+module ChartsPlotCmfDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -5245,7 +5246,7 @@ type plotCmfDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation23.t,
+  animation?: ChartsPlotCmfDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -5275,12 +5276,12 @@ type plotCmfDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels23 = {
+module ChartsPlotCmfOptionsDataLabels = {
   type t
   external fromPlotCmfDataLabelsOptions: plotCmfDataLabelsOptions => t = "%identity"
   external fromPlotCmfDataLabelsOptionss: array<plotCmfDataLabelsOptions> => t = "%identity"
 }
-module DataSorting21 = {
+module ChartsPlotCmfOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotCmfDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -5312,8 +5313,8 @@ type seriesCmfOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels23.t,
-  dataSorting?: DataSorting21.t,
+  dataLabels?: ChartsPlotCmfOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCmfOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -5824,7 +5825,7 @@ type seriesCylinderOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation29 = {
+module ChartsPlotDemaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -5835,7 +5836,7 @@ type plotDemaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation29.t,
+  animation?: ChartsPlotDemaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -5865,12 +5866,12 @@ type plotDemaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels29 = {
+module ChartsPlotDemaOptionsDataLabels = {
   type t
   external fromPlotDemaDataLabelsOptions: plotDemaDataLabelsOptions => t = "%identity"
   external fromPlotDemaDataLabelsOptionss: array<plotDemaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting28 = {
+module ChartsPlotDemaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotDemaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -5906,8 +5907,8 @@ type seriesDemaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels29.t,
-  dataSorting?: DataSorting28.t,
+  dataLabels?: ChartsPlotDemaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDemaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6031,7 +6032,7 @@ type seriesDependencywheelOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation30 = {
+module ChartsPlotDisparityindexDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -6042,7 +6043,7 @@ type plotDisparityindexDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation30.t,
+  animation?: ChartsPlotDisparityindexDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -6072,7 +6073,7 @@ type plotDisparityindexDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels31 = {
+module ChartsPlotDisparityindexOptionsDataLabels = {
   type t
   external fromPlotDisparityindexDataLabelsOptions: plotDisparityindexDataLabelsOptions => t =
     "%identity"
@@ -6080,7 +6081,7 @@ module DataLabels31 = {
     plotDisparityindexDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting29 = {
+module ChartsPlotDisparityindexOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotDisparityindexDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -6119,8 +6120,8 @@ type seriesDisparityindexOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels31.t,
-  dataSorting?: DataSorting29.t,
+  dataLabels?: ChartsPlotDisparityindexOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDisparityindexOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6175,7 +6176,7 @@ type seriesDisparityindexOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation31 = {
+module ChartsPlotDmiDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -6186,7 +6187,7 @@ type plotDmiDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation31.t,
+  animation?: ChartsPlotDmiDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -6216,12 +6217,12 @@ type plotDmiDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels32 = {
+module ChartsPlotDmiOptionsDataLabels = {
   type t
   external fromPlotDmiDataLabelsOptions: plotDmiDataLabelsOptions => t = "%identity"
   external fromPlotDmiDataLabelsOptionss: array<plotDmiDataLabelsOptions> => t = "%identity"
 }
-module DataSorting30 = {
+module ChartsPlotDmiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotDmiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -6262,8 +6263,8 @@ type seriesDmiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels32.t,
-  dataSorting?: DataSorting30.t,
+  dataLabels?: ChartsPlotDmiOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDmiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6320,7 +6321,7 @@ type seriesDmiOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation32 = {
+module ChartsPlotDpoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -6331,7 +6332,7 @@ type plotDpoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation32.t,
+  animation?: ChartsPlotDpoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -6361,12 +6362,12 @@ type plotDpoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels33 = {
+module ChartsPlotDpoOptionsDataLabels = {
   type t
   external fromPlotDpoDataLabelsOptions: plotDpoDataLabelsOptions => t = "%identity"
   external fromPlotDpoDataLabelsOptionss: array<plotDpoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting31 = {
+module ChartsPlotDpoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotDpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -6398,8 +6399,8 @@ type seriesDpoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels33.t,
-  dataSorting?: DataSorting31.t,
+  dataLabels?: ChartsPlotDpoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDpoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -6551,7 +6552,7 @@ type seriesDumbbellOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation35 = {
+module ChartsPlotFlagsDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -6562,7 +6563,7 @@ type plotFlagsDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation35.t,
+  animation?: ChartsPlotFlagsDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -6592,12 +6593,12 @@ type plotFlagsDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels36 = {
+module ChartsPlotFlagsOptionsDataLabels = {
   type t
   external fromPlotFlagsDataLabelsOptions: plotFlagsDataLabelsOptions => t = "%identity"
   external fromPlotFlagsDataLabelsOptionss: array<plotFlagsDataLabelsOptions> => t = "%identity"
 }
-module DataSorting35 = {
+module ChartsPlotFlagsOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotFlagsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -6701,12 +6702,12 @@ type plotSeriesDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels8 = {
+module ChartsPlotSeriesOptionsDataLabels = {
   type t
   external fromPlotSeriesDataLabelsOptions: plotSeriesDataLabelsOptions => t = "%identity"
   external fromPlotSeriesDataLabelsOptionss: array<plotSeriesDataLabelsOptions> => t = "%identity"
 }
-module DataSorting6 = {
+module ChartsPlotSeriesOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotSeriesDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -6740,8 +6741,8 @@ type rec plotSeriesOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels8.t,
-  dataSorting?: DataSorting6.t,
+  dataLabels?: ChartsPlotSeriesOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSeriesOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -6831,8 +6832,8 @@ type seriesFlagsOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels36.t,
-  dataSorting?: DataSorting35.t,
+  dataLabels?: ChartsPlotFlagsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotFlagsOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -7066,7 +7067,7 @@ type seriesFunnel3dOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation36 = {
+module ChartsSeriesPieDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -7083,7 +7084,7 @@ module Animation36 = {
 }
 type seriesPieDataLabelsOptionsObject = {
   alignTo?: string,
-  animation?: Animation36.t,
+  animation?: ChartsSeriesPieDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -7119,7 +7120,7 @@ type seriesPieDataLabelsOptionsObject = {
   x?: float,
   y?: float,
 }
-module DataLabels37 = {
+module ChartsPlotFunnelOptionsDataLabels = {
   type t
   external fromSeriesPieDataLabelsOptionsObject: seriesPieDataLabelsOptionsObject => t = "%identity"
   external fromSeriesPieDataLabelsOptionsObjects: array<seriesPieDataLabelsOptionsObject> => t =
@@ -7150,7 +7151,7 @@ type seriesFunnelOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -7267,7 +7268,7 @@ type seriesGanttOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation39 = {
+module ChartsPlotGaugeDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -7278,7 +7279,7 @@ type plotGaugeDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation39.t,
+  animation?: ChartsPlotGaugeDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: string,
   borderRadius?: float,
@@ -7309,7 +7310,7 @@ type plotGaugeDataLabelsOptions = {
   y?: float,
   zIndex?: int,
 }
-module DataLabels40 = {
+module ChartsPlotGaugeOptionsDataLabels = {
   type t
   external fromPlotGaugeDataLabelsOptions: plotGaugeDataLabelsOptions => t = "%identity"
   external fromPlotGaugeDataLabelsOptionss: array<plotGaugeDataLabelsOptions> => t = "%identity"
@@ -7320,7 +7321,7 @@ type plotGaugeDialOptions = {
   baseWidth?: float,
   borderColor?: ColorType.t,
   borderWidth?: float,
-  path?: array<D.t>,
+  path?: array<ChartsPointShapeArgsD.t>,
   radius?: string,
   rearLength?: string,
   topWidth?: float,
@@ -7347,7 +7348,7 @@ type seriesGaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels40.t,
+  dataLabels?: ChartsPlotGaugeOptionsDataLabels.t,
   description?: string,
   dial?: plotGaugeDialOptions,
   enableMouseTracking?: bool,
@@ -7528,7 +7529,7 @@ type seriesHeatmapOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-module Animation43 = {
+module ChartsPlotHistogramDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -7539,7 +7540,7 @@ type plotHistogramDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation43.t,
+  animation?: ChartsPlotHistogramDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -7569,13 +7570,13 @@ type plotHistogramDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels44 = {
+module ChartsPlotHistogramOptionsDataLabels = {
   type t
   external fromPlotHistogramDataLabelsOptions: plotHistogramDataLabelsOptions => t = "%identity"
   external fromPlotHistogramDataLabelsOptionss: array<plotHistogramDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting38 = {
+module ChartsPlotHistogramOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotHistogramDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -7609,8 +7610,8 @@ type seriesHistogramOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels44.t,
-  dataSorting?: DataSorting38.t,
+  dataLabels?: ChartsPlotHistogramOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHistogramOptionsDataSorting.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -7864,7 +7865,7 @@ type seriesHollowcandlestickOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation46 = {
+module ChartsPlotIkhDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -7875,7 +7876,7 @@ type plotIkhDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation46.t,
+  animation?: ChartsPlotIkhDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -7905,12 +7906,12 @@ type plotIkhDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels47 = {
+module ChartsPlotIkhOptionsDataLabels = {
   type t
   external fromPlotIkhDataLabelsOptions: plotIkhDataLabelsOptions => t = "%identity"
   external fromPlotIkhDataLabelsOptionss: array<plotIkhDataLabelsOptions> => t = "%identity"
 }
-module DataSorting41 = {
+module ChartsPlotIkhOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotIkhDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -7952,8 +7953,8 @@ type seriesIkhOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels47.t,
-  dataSorting?: DataSorting41.t,
+  dataLabels?: ChartsPlotIkhOptionsDataLabels.t,
+  dataSorting?: ChartsPlotIkhOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8083,7 +8084,7 @@ type seriesItemOptions = {
   name?: string,
   zIndex?: string,
 }
-module Animation47 = {
+module ChartsPlotKeltnerchannelsDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -8094,7 +8095,7 @@ type plotKeltnerchannelsDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation47.t,
+  animation?: ChartsPlotKeltnerchannelsDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -8124,7 +8125,7 @@ type plotKeltnerchannelsDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels48 = {
+module ChartsPlotKeltnerchannelsOptionsDataLabels = {
   type t
   external fromPlotKeltnerchannelsDataLabelsOptions: plotKeltnerchannelsDataLabelsOptions => t =
     "%identity"
@@ -8132,7 +8133,7 @@ module DataLabels48 = {
     plotKeltnerchannelsDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting42 = {
+module ChartsPlotKeltnerchannelsOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotKeltnerchannelsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -8165,12 +8166,12 @@ type seriesKeltnerchannelsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels48.t,
-  dataSorting?: DataSorting42.t,
+  dataLabels?: ChartsPlotKeltnerchannelsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotKeltnerchannelsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color6,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -8223,7 +8224,7 @@ type seriesKeltnerchannelsOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation48 = {
+module ChartsPlotKlingerDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -8234,7 +8235,7 @@ type plotKlingerDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation48.t,
+  animation?: ChartsPlotKlingerDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -8264,12 +8265,12 @@ type plotKlingerDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels49 = {
+module ChartsPlotKlingerOptionsDataLabels = {
   type t
   external fromPlotKlingerDataLabelsOptions: plotKlingerDataLabelsOptions => t = "%identity"
   external fromPlotKlingerDataLabelsOptionss: array<plotKlingerDataLabelsOptions> => t = "%identity"
 }
-module DataSorting43 = {
+module ChartsPlotKlingerOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotKlingerDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -8308,8 +8309,8 @@ type seriesKlingerOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels49.t,
-  dataSorting?: DataSorting43.t,
+  dataLabels?: ChartsPlotKlingerOptionsDataLabels.t,
+  dataSorting?: ChartsPlotKlingerOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8557,7 +8558,7 @@ type seriesLollipopOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation54 = {
+module ChartsPlotMacdDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -8568,7 +8569,7 @@ type plotMacdDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation54.t,
+  animation?: ChartsPlotMacdDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -8598,12 +8599,12 @@ type plotMacdDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels55 = {
+module ChartsPlotMacdOptionsDataLabels = {
   type t
   external fromPlotMacdDataLabelsOptions: plotMacdDataLabelsOptions => t = "%identity"
   external fromPlotMacdDataLabelsOptionss: array<plotMacdDataLabelsOptions> => t = "%identity"
 }
-module DataSorting50 = {
+module ChartsPlotMacdOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotMacdDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -8647,8 +8648,8 @@ type seriesMacdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels55.t,
-  dataSorting?: DataSorting50.t,
+  dataLabels?: ChartsPlotMacdOptionsDataLabels.t,
+  dataSorting?: ChartsPlotMacdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -8708,7 +8709,7 @@ type seriesMacdOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation56 = {
+module ChartsPlotMapbubbleDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -8719,7 +8720,7 @@ type plotMapbubbleDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation56.t,
+  animation?: ChartsPlotMapbubbleDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -8749,7 +8750,7 @@ type plotMapbubbleDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels57 = {
+module ChartsPlotMapbubbleOptionsDataLabels = {
   type t
   external fromPlotMapbubbleDataLabelsOptions: plotMapbubbleDataLabelsOptions => t = "%identity"
   external fromPlotMapbubbleDataLabelsOptionss: array<plotMapbubbleDataLabelsOptions> => t =
@@ -8777,7 +8778,7 @@ type seriesMapbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels57.t,
+  dataLabels?: ChartsPlotMapbubbleOptionsDataLabels.t,
   description?: string,
   displayNegative?: bool,
   dragDrop?: seriesDragDropOptionsObject,
@@ -9236,7 +9237,7 @@ type seriesOrganizationOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation65 = {
+module ChartsSeriesPackedBubbleDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -9246,7 +9247,7 @@ module Animation65 = {
 type plotPackedbubbleDataLabelsStyleOptions = {
   transition?: string,
 }
-module Style19 = {
+module ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotPackedbubbleDataLabelsStyleOptions: plotPackedbubbleDataLabelsStyleOptions => t =
@@ -9256,7 +9257,7 @@ type seriesPackedBubbleDataLabelsOptionsObject = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation65.t,
+  animation?: ChartsSeriesPackedBubbleDataLabelsOptionsObjectAnimation.t,
   attributes?: highchartsPointShapeArgsConfig,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
@@ -9283,14 +9284,14 @@ type seriesPackedBubbleDataLabelsOptionsObject = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style19.t,
+  style?: ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
   x?: float,
   y?: float,
 }
-module DataLabels66 = {
+module ChartsPlotPackedbubbleOptionsDataLabels = {
   type t
   external fromSeriesPackedBubbleDataLabelsOptionsObject: seriesPackedBubbleDataLabelsOptionsObject => t =
     "%identity"
@@ -9352,7 +9353,7 @@ type seriesPackedbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels66.t,
+  dataLabels?: ChartsPlotPackedbubbleOptionsDataLabels.t,
   description?: string,
   displayNegative?: bool,
   draggable?: bool,
@@ -9814,7 +9815,7 @@ type seriesPolygonOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation73 = {
+module ChartsPlotPriceenvelopesDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -9825,7 +9826,7 @@ type plotPriceenvelopesDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation73.t,
+  animation?: ChartsPlotPriceenvelopesDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -9855,7 +9856,7 @@ type plotPriceenvelopesDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels74 = {
+module ChartsPlotPriceenvelopesOptionsDataLabels = {
   type t
   external fromPlotPriceenvelopesDataLabelsOptions: plotPriceenvelopesDataLabelsOptions => t =
     "%identity"
@@ -9863,7 +9864,7 @@ module DataLabels74 = {
     plotPriceenvelopesDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting62 = {
+module ChartsPlotPriceenvelopesOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPriceenvelopesDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -9903,8 +9904,8 @@ type seriesPriceenvelopesOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels74.t,
-  dataSorting?: DataSorting62.t,
+  dataLabels?: ChartsPlotPriceenvelopesOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPriceenvelopesOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10078,7 +10079,7 @@ type seriesPyramidOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -10459,7 +10460,7 @@ type seriesScatterOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation81 = {
+module ChartsPlotSlowstochasticDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -10470,7 +10471,7 @@ type plotSlowstochasticDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation81.t,
+  animation?: ChartsPlotSlowstochasticDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -10500,7 +10501,7 @@ type plotSlowstochasticDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels83 = {
+module ChartsPlotSlowstochasticOptionsDataLabels = {
   type t
   external fromPlotSlowstochasticDataLabelsOptions: plotSlowstochasticDataLabelsOptions => t =
     "%identity"
@@ -10508,7 +10509,7 @@ module DataLabels83 = {
     plotSlowstochasticDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting68 = {
+module ChartsPlotSlowstochasticOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotSlowstochasticDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -10545,8 +10546,8 @@ type seriesSlowstochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels83.t,
-  dataSorting?: DataSorting68.t,
+  dataLabels?: ChartsPlotSlowstochasticOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSlowstochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10602,7 +10603,7 @@ type seriesSlowstochasticOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation82 = {
+module ChartsPlotSmaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -10613,7 +10614,7 @@ type plotSmaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation82.t,
+  animation?: ChartsPlotSmaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -10643,12 +10644,12 @@ type plotSmaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels84 = {
+module ChartsPlotSmaOptionsDataLabels = {
   type t
   external fromPlotSmaDataLabelsOptions: plotSmaDataLabelsOptions => t = "%identity"
   external fromPlotSmaDataLabelsOptionss: array<plotSmaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting69 = {
+module ChartsPlotSmaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotSmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -10682,8 +10683,8 @@ type seriesSmaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels84.t,
-  dataSorting?: DataSorting69.t,
+  dataLabels?: ChartsPlotSmaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10738,7 +10739,7 @@ type seriesSmaOptions = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Animation83 = {
+module ChartsPlotSolidgaugeDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -10749,7 +10750,7 @@ type plotSolidgaugeDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation83.t,
+  animation?: ChartsPlotSolidgaugeDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: string,
   borderRadius?: float,
@@ -10780,7 +10781,7 @@ type plotSolidgaugeDataLabelsOptions = {
   y?: float,
   zIndex?: int,
 }
-module DataLabels85 = {
+module ChartsPlotSolidgaugeOptionsDataLabels = {
   type t
   external fromPlotSolidgaugeDataLabelsOptions: plotSolidgaugeDataLabelsOptions => t = "%identity"
   external fromPlotSolidgaugeDataLabelsOptionss: array<plotSolidgaugeDataLabelsOptions> => t =
@@ -10807,7 +10808,7 @@ type seriesSolidgaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels85.t,
+  dataLabels?: ChartsPlotSolidgaugeOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -10947,7 +10948,7 @@ type seriesSplineOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation85 = {
+module ChartsPlotStochasticDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -10958,7 +10959,7 @@ type plotStochasticDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation85.t,
+  animation?: ChartsPlotStochasticDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -10988,13 +10989,13 @@ type plotStochasticDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels87 = {
+module ChartsPlotStochasticOptionsDataLabels = {
   type t
   external fromPlotStochasticDataLabelsOptions: plotStochasticDataLabelsOptions => t = "%identity"
   external fromPlotStochasticDataLabelsOptionss: array<plotStochasticDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting71 = {
+module ChartsPlotStochasticOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotStochasticDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -11033,8 +11034,8 @@ type seriesStochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels87.t,
-  dataSorting?: DataSorting71.t,
+  dataLabels?: ChartsPlotStochasticOptionsDataLabels.t,
+  dataSorting?: ChartsPlotStochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -11096,7 +11097,7 @@ type plotSunburstBreadcrumbsButtonThemeStyleOptions = {
 type plotSunburstBreadcrumbsButtonThemeOptions = {
   style?: plotSunburstBreadcrumbsButtonThemeStyleOptions,
 }
-module ButtonTheme3 = {
+module ChartsPlotSunburstBreadcrumbsOptionsButtonTheme = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromPlotSunburstBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
@@ -11121,7 +11122,7 @@ type drilldownBreadcrumbsPositionOptions = {
   x?: float,
   y?: float,
 }
-module Position8 = {
+module ChartsPlotSunburstBreadcrumbsOptionsPosition = {
   type t
   external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
   external fromPlotSunburstBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
@@ -11131,24 +11132,24 @@ type plotSunburstBreadcrumbsSeparatorStyleOptions = {
   color?: string,
   fontSize?: float,
 }
-module Style20 = {
+module ChartsPlotSunburstBreadcrumbsSeparatorOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotSunburstBreadcrumbsSeparatorStyleOptions: plotSunburstBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
 type plotSunburstBreadcrumbsSeparatorOptions = {
-  style?: Style20.t,
+  style?: ChartsPlotSunburstBreadcrumbsSeparatorOptionsStyle.t,
   text?: string,
 }
 type plotSunburstBreadcrumbsOptions = {
   buttonSpacing?: float,
-  buttonTheme?: ButtonTheme3.t,
+  buttonTheme?: ChartsPlotSunburstBreadcrumbsOptionsButtonTheme.t,
   events?: drilldownBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
   formatter?: breadcrumbOptions => string,
-  position?: Position8.t,
+  position?: ChartsPlotSunburstBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
   separator?: plotSunburstBreadcrumbsSeparatorOptions,
@@ -11157,7 +11158,7 @@ type plotSunburstBreadcrumbsOptions = {
   useHTML?: bool,
   zIndex?: int,
 }
-module Animation87 = {
+module ChartsSeriesSunburstDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -11169,7 +11170,7 @@ module Animation87 = {
 type seriesSunburstDataLabelsOptionsObject = {
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation87.t,
+  animation?: ChartsSeriesSunburstDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -11206,7 +11207,7 @@ type seriesSunburstDataLabelsOptionsObject = {
   x?: float,
   y?: float,
 }
-module DataLabels89 = {
+module ChartsPlotSunburstOptionsDataLabels = {
   type t
   external fromSeriesSunburstDataLabelsOptionsObject: seriesSunburstDataLabelsOptionsObject => t =
     "%identity"
@@ -11225,7 +11226,7 @@ type plotSunburstLevelsOptions = {
   color?: ColorType.t,
   colorByPoint?: bool,
   colorVariation?: plotSunburstLevelsColorVariationOptions,
-  dataLabels?: DataLabels89.t,
+  dataLabels?: ChartsPlotSunburstOptionsDataLabels.t,
   level?: int,
   levelSize?: string,
 }
@@ -11257,7 +11258,7 @@ type seriesSunburstOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels89.t,
+  dataLabels?: ChartsPlotSunburstOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -11310,7 +11311,7 @@ type plotSupertrendChangeTrendLineStylesOptions = {
 type plotSupertrendChangeTrendLineOptions = {
   styles?: plotSupertrendChangeTrendLineStylesOptions,
 }
-module Animation88 = {
+module ChartsPlotSupertrendDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -11321,7 +11322,7 @@ type plotSupertrendDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation88.t,
+  animation?: ChartsPlotSupertrendDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -11351,13 +11352,13 @@ type plotSupertrendDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels90 = {
+module ChartsPlotSupertrendOptionsDataLabels = {
   type t
   external fromPlotSupertrendDataLabelsOptions: plotSupertrendDataLabelsOptions => t = "%identity"
   external fromPlotSupertrendDataLabelsOptionss: array<plotSupertrendDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting73 = {
+module ChartsPlotSupertrendOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotSupertrendDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -11397,8 +11398,8 @@ type seriesSupertrendOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels90.t,
-  dataSorting?: DataSorting73.t,
+  dataLabels?: ChartsPlotSupertrendOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSupertrendOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -11567,7 +11568,7 @@ type seriesTilemapOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-module Animation91 = {
+module ChartsTimelineDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -11579,7 +11580,7 @@ type timelineDataLabelsOptionsObject = {
   alignTo?: string,
   allowOverlap?: bool,
   alternate?: bool,
-  animation?: Animation91.t,
+  animation?: ChartsTimelineDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: string,
   borderColor?: string,
   borderRadius?: float,
@@ -11613,7 +11614,7 @@ type timelineDataLabelsOptionsObject = {
   x?: float,
   y?: float,
 }
-module DataLabels93 = {
+module ChartsPlotTimelineOptionsDataLabels = {
   type t
   external fromTimelineDataLabelsOptionsObject: timelineDataLabelsOptionsObject => t = "%identity"
   external fromTimelineDataLabelsOptionsObjects: array<timelineDataLabelsOptionsObject> => t =
@@ -11638,7 +11639,7 @@ type seriesTimelineOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels93.t,
+  dataLabels?: ChartsPlotTimelineOptionsDataLabels.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -11699,7 +11700,7 @@ type plotTreegraphCollapseButtonOptions = {
   x?: float,
   y?: float,
 }
-module Animation92 = {
+module ChartsSeriesTreegraphDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -11714,7 +11715,7 @@ type plotTreegraphDataLabelsStyleOptions = {
 type plotTreegraphLevelsDataLabelsStyleOptions = {
   textOverflow?: string,
 }
-module Style21 = {
+module ChartsSeriesTreegraphDataLabelsOptionsObjectStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotTreegraphDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
@@ -11726,7 +11727,7 @@ type seriesTreegraphDataLabelsOptionsObject = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation92.t,
+  animation?: ChartsSeriesTreegraphDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -11752,14 +11753,14 @@ type seriesTreegraphDataLabelsOptionsObject = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style21.t,
+  style?: ChartsSeriesTreegraphDataLabelsOptionsObjectStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
   x?: float,
   y?: float,
 }
-module DataLabels94 = {
+module ChartsPlotTreegraphOptionsDataLabels = {
   type t
   external fromSeriesTreegraphDataLabelsOptionsObject: seriesTreegraphDataLabelsOptionsObject => t =
     "%identity"
@@ -11777,7 +11778,7 @@ type plotTreegraphLevelsOptions = {
   borderWidth?: float,
   color?: ColorType.t,
   colorVariation?: plotTreegraphLevelsColorVariationOptions,
-  dataLabels?: DataLabels94.t,
+  dataLabels?: ChartsPlotTreegraphOptionsDataLabels.t,
   layoutAlgorithm?: optionsLayoutAlgorithmValue,
   layoutStartingDirection?: optionsLayoutStartingDirectionValue,
   level?: int,
@@ -11789,7 +11790,7 @@ type plotTreegraphLinkOptions = {
   curveFactor?: float,
   lineWidth?: float,
   radius?: float,
-  @as("type") type_?: StatCardV2Types.type_4,
+  @as("type") type_?: ChartsTypes.chartsPlotOrganizationLinkOptionsType,
 }
 type seriesTreegraphOptions = {
   allowDrillToNode?: string,
@@ -11821,7 +11822,7 @@ type seriesTreegraphOptions = {
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels94.t,
+  dataLabels?: ChartsPlotTreegraphOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -11874,36 +11875,36 @@ type seriesTreegraphOptions = {
   name?: string,
   zIndex?: int,
 }
-module ButtonTheme4 = {
+module ChartsPlotTreemapBreadcrumbsOptionsButtonTheme = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromPlotTreemapBreadcrumbsButtonThemeOptions: plotSunburstBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
-module Position9 = {
+module ChartsPlotTreemapBreadcrumbsOptionsPosition = {
   type t
   external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
   external fromPlotTreemapBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
     "%identity"
 }
-module Style22 = {
+module ChartsPlotTreemapBreadcrumbsSeparatorOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotTreemapBreadcrumbsSeparatorStyleOptions: plotSunburstBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
 type plotTreemapBreadcrumbsSeparatorOptions = {
-  style?: Style22.t,
+  style?: ChartsPlotTreemapBreadcrumbsSeparatorOptionsStyle.t,
   text?: string,
 }
 type plotTreemapBreadcrumbsOptions = {
   buttonSpacing?: float,
-  buttonTheme?: ButtonTheme4.t,
+  buttonTheme?: ChartsPlotTreemapBreadcrumbsOptionsButtonTheme.t,
   events?: drilldownBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
   formatter?: breadcrumbOptions => string,
-  position?: Position9.t,
+  position?: ChartsPlotTreemapBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
   separator?: plotTreemapBreadcrumbsSeparatorOptions,
@@ -11933,14 +11934,14 @@ type plotTreemapClusterOptions = {
   pixelWidth?: float,
   reductionFactor?: float,
 }
-module Animation93 = {
+module ChartsPlotTreemapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotTreemapDataLabelsAnimationOptions: plotAbandsDataLabelsAnimationOptions => t =
     "%identity"
 }
-module Style23 = {
+module ChartsPlotTreemapDataLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotTreemapDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
@@ -11950,7 +11951,7 @@ type plotTreemapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation93.t,
+  animation?: ChartsPlotTreemapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -11974,14 +11975,14 @@ type plotTreemapDataLabelsOptions = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style23.t,
+  style?: ChartsPlotTreemapDataLabelsOptionsStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
   x?: float,
   y?: float,
 }
-module DataLabels95 = {
+module ChartsPlotTreemapOptionsDataLabels = {
   type t
   external fromPlotTreemapDataLabelsOptions: plotTreemapDataLabelsOptions => t = "%identity"
   external fromPlotTreemapDataLabelsOptionss: array<plotTreemapDataLabelsOptions> => t = "%identity"
@@ -12027,7 +12028,7 @@ type seriesTreemapOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels95.t,
+  dataLabels?: ChartsPlotTreemapOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -12251,7 +12252,7 @@ type seriesVariwideOptions = {
   yAxis?: string,
   zIndex?: string,
 }
-module Animation97 = {
+module ChartsPlotVbpDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -12262,7 +12263,7 @@ type plotVbpDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation97.t,
+  animation?: ChartsPlotVbpDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -12292,12 +12293,12 @@ type plotVbpDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels99 = {
+module ChartsPlotVbpOptionsDataLabels = {
   type t
   external fromPlotVbpDataLabelsOptions: plotVbpDataLabelsOptions => t = "%identity"
   external fromPlotVbpDataLabelsOptionss: array<plotVbpDataLabelsOptions> => t = "%identity"
 }
-module DataSorting78 = {
+module ChartsPlotVbpOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotVbpDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -12348,8 +12349,8 @@ type seriesVbpOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels99.t,
-  dataSorting?: DataSorting78.t,
+  dataLabels?: ChartsPlotVbpOptionsDataLabels.t,
+  dataSorting?: ChartsPlotVbpOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -12492,7 +12493,7 @@ type seriesVectorOptions = {
 type plotScatterClusterDataLabelsOptions = {
   style?: string,
 }
-module DataLabels102 = {
+module ChartsPlotVennClusterOptionsDataLabels = {
   type t
   external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
   external fromPlotVennClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
@@ -12529,7 +12530,7 @@ type plotScatterClusterZonesOptions = {
 type plotVennClusterOptions = {
   allowOverlap?: bool,
   animation?: string,
-  dataLabels?: DataLabels102.t,
+  dataLabels?: ChartsPlotVennClusterOptionsDataLabels.t,
   drillToCluster?: bool,
   enabled?: bool,
   events?: plotScatterClusterEventsOptions,
@@ -12539,7 +12540,7 @@ type plotVennClusterOptions = {
   states?: plotScatterClusterStatesOptions,
   zones?: array<plotScatterClusterZonesOptions>,
 }
-module Animation99 = {
+module ChartsPlotVennDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -12550,7 +12551,7 @@ type plotVennDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation99.t,
+  animation?: ChartsPlotVennDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -12580,7 +12581,7 @@ type plotVennDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels103 = {
+module ChartsPlotVennOptionsDataLabels = {
   type t
   external fromPlotVennDataLabelsOptions: plotVennDataLabelsOptions => t = "%identity"
   external fromPlotVennDataLabelsOptionss: array<plotVennDataLabelsOptions> => t = "%identity"
@@ -12612,7 +12613,7 @@ type seriesVennOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels103.t,
+  dataLabels?: ChartsPlotVennOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -13259,7 +13260,7 @@ type axisLabelsFormatterContextObject = {
 type chartParallelAxesLabelsStyleOptions = {
   fontSize?: CommonTypes.stringOrNumber,
 }
-module Style3 = {
+module ChartsChartParallelAxesLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromChartParallelAxesLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -13282,7 +13283,7 @@ type chartParallelAxesLabelsOptions = {
   skew3d?: bool,
   staggerLines?: float,
   step?: float,
-  style?: Style3.t,
+  style?: ChartsChartParallelAxesLabelsOptionsStyle.t,
   useHTML?: bool,
   x?: float,
   y?: float,
@@ -13438,7 +13439,7 @@ type yAxisTitleOptions = {
   align?: axisTitleAlignValue,
   margin?: float,
   offset?: float,
-  position3d?: StatCardV2Types.position3d,
+  position3d?: ChartsTypes.chartsYAxisTitleOptionsPosition3d,
   reserveSpace?: bool,
   rotation?: float,
   skew3d?: bool,
@@ -13547,7 +13548,7 @@ type rec yAxisOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Style4 = {
+module ChartsChartParallelAxesTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromChartParallelAxesTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -13557,11 +13558,11 @@ type chartParallelAxesTitleOptions = {
   align?: axisTitleAlignValue,
   margin?: float,
   offset?: float,
-  position3d?: StatCardV2Types.position3d,
+  position3d?: ChartsTypes.chartsYAxisTitleOptionsPosition3d,
   reserveSpace?: bool,
   rotation?: float,
   skew3d?: bool,
-  style?: Style4.t,
+  style?: ChartsChartParallelAxesTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
@@ -13638,7 +13639,7 @@ type chartParallelAxesOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module ParallelAxes = {
+module ChartsChartOptionsParallelAxes = {
   type t
   external fromChartParallelAxesOptions: chartParallelAxesOptions => t = "%identity"
   external fromChartParallelAxesOptionss: array<chartParallelAxesOptions> => t = "%identity"
@@ -13656,7 +13657,7 @@ type chartResetZoomButtonPositionOptions = {
   x?: float,
   y?: float,
 }
-module Position = {
+module ChartsChartResetZoomButtonOptionsPosition = {
   type t
   external fromAlignObject: alignObject => t = "%identity"
   external fromChartResetZoomButtonPositionOptions: chartResetZoomButtonPositionOptions => t =
@@ -13665,15 +13666,15 @@ module Position = {
 type chartResetZoomButtonThemeOptions = {
   zIndex?: int,
 }
-module Theme = {
+module ChartsChartResetZoomButtonOptionsTheme = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromChartResetZoomButtonThemeOptions: chartResetZoomButtonThemeOptions => t = "%identity"
 }
 type chartResetZoomButtonOptions = {
-  position?: Position.t,
+  position?: ChartsChartResetZoomButtonOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
-  theme?: Theme.t,
+  theme?: ChartsChartResetZoomButtonOptionsTheme.t,
 }
 type chartScrollablePlotAreaOptions = {
   minHeight?: float,
@@ -13685,14 +13686,14 @@ type chartScrollablePlotAreaOptions = {
 type chartZoomingResetButtonPositionOptions = {
   verticalAlign?: verticalAlignValue,
 }
-module Position2 = {
+module ChartsChartZoomingResetButtonOptionsPosition = {
   type t
   external fromAlignObject: alignObject => t = "%identity"
   external fromChartZoomingResetButtonPositionOptions: chartZoomingResetButtonPositionOptions => t =
     "%identity"
 }
 type chartZoomingResetButtonOptions = {
-  position?: Position2.t,
+  position?: ChartsChartZoomingResetButtonOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   theme?: highchartsPointShapeArgsConfig,
 }
@@ -13732,7 +13733,7 @@ type chartOptions = {
   options3d?: chart3dOptions,
   panKey?: optionsPanKeyValue,
   panning?: chartPanningOptions,
-  parallelAxes?: ParallelAxes.t,
+  parallelAxes?: ChartsChartOptionsParallelAxes.t,
   parallelCoordinates?: bool,
   plotBackgroundColor?: ColorType.t,
   plotBackgroundImage?: string,
@@ -13771,7 +13772,7 @@ type colorAxisEventsOptions = {
   legendItemClick?: string,
   setExtremes?: axisSetExtremesEventObject => unit,
 }
-module Style5 = {
+module ChartsColorAxisLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromColorAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
@@ -13793,13 +13794,13 @@ type colorAxisLabelsOptions = {
   skew3d?: bool,
   staggerLines?: float,
   step?: float,
-  style?: Style5.t,
+  style?: ChartsColorAxisLabelsOptionsStyle.t,
   useHTML?: bool,
   x?: float,
   y?: float,
   zIndex?: int,
 }
-module Style6 = {
+module ChartsXAxisTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
@@ -13808,18 +13809,18 @@ type xAxisTitleOptions = {
   align?: axisTitleAlignValue,
   margin?: float,
   offset?: float,
-  position3d?: StatCardV2Types.position3d,
+  position3d?: ChartsTypes.chartsYAxisTitleOptionsPosition3d,
   reserveSpace?: bool,
   rotation?: float,
   skew3d?: bool,
-  style?: Style6.t,
+  style?: ChartsXAxisTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
   x?: float,
   y?: float,
 }
-module Style7 = {
+module ChartsZAxisTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromZAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
@@ -13828,18 +13829,18 @@ type zAxisTitleOptions = {
   align?: axisTitleAlignValue,
   margin?: float,
   offset?: float,
-  position3d?: StatCardV2Types.position3d,
+  position3d?: ChartsTypes.chartsYAxisTitleOptionsPosition3d,
   reserveSpace?: bool,
   rotation?: float,
   skew3d?: bool,
-  style?: Style7.t,
+  style?: ChartsZAxisTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
   x?: float,
   y?: float,
 }
-module Style8 = {
+module ChartsColorAxisTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromColorAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
@@ -13848,18 +13849,18 @@ type colorAxisTitleOptions = {
   align?: axisTitleAlignValue,
   margin?: float,
   offset?: float,
-  position3d?: StatCardV2Types.position3d,
+  position3d?: ChartsTypes.chartsYAxisTitleOptionsPosition3d,
   reserveSpace?: bool,
   rotation?: float,
   skew3d?: bool,
-  style?: Style8.t,
+  style?: ChartsColorAxisTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
   x?: float,
   y?: float,
 }
-module Title = {
+module ChartsColorAxisOptionsTitle = {
   type t
   external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
   external fromYAxisTitleOptions: yAxisTitleOptions => t = "%identity"
@@ -13931,7 +13932,7 @@ type colorAxisOptions = {
   tickPositioner?: (float, float, option<axis>) => axisTickPositionsArray,
   tickPositions?: array<float>,
   tickWidth?: float,
-  title?: Title.t,
+  title?: ChartsColorAxisOptionsTitle.t,
   @as("type") type_?: colorAxisTypeValue,
   uniqueNames?: bool,
   units?: array<(string, array<float>)>,
@@ -13939,7 +13940,7 @@ type colorAxisOptions = {
   width?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module ColorAxis = {
+module ChartsOptionsColorAxis = {
   type t
   external fromColorAxisOptions: colorAxisOptions => t = "%identity"
   external fromColorAxisOptionss: array<colorAxisOptions> => t = "%identity"
@@ -13956,7 +13957,7 @@ type connectorsOptions = {
   startMarker?: connectorsEndMarkerOptions,
   @as("type") type_?: string,
 }
-module Style9 = {
+module ChartsCreditsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromCreditsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
@@ -13967,7 +13968,7 @@ type creditsOptions = {
   mapText?: string,
   mapTextFull?: string,
   position?: alignObject,
-  style?: Style9.t,
+  style?: ChartsCreditsOptionsStyle.t,
   text?: string,
 }
 type drilldownActiveDataLabelStyleOptions = {
@@ -13976,7 +13977,7 @@ type drilldownActiveDataLabelStyleOptions = {
   fontWeight?: string,
   textDecoration?: string,
 }
-module ActiveDataLabelStyle = {
+module ChartsDrilldownOptionsActiveDataLabelStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromDrilldownActiveDataLabelStyleOptions: drilldownActiveDataLabelStyleOptions => t =
@@ -13988,13 +13989,13 @@ type drilldownBreadcrumbsButtonThemeStyleOptions = {
 type drilldownBreadcrumbsButtonThemeOptions = {
   style?: drilldownBreadcrumbsButtonThemeStyleOptions,
 }
-module ButtonTheme = {
+module ChartsDrilldownBreadcrumbsOptionsButtonTheme = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromDrilldownBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
-module Position3 = {
+module ChartsDrilldownBreadcrumbsOptionsPosition = {
   type t
   external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
   external fromDrilldownBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
@@ -14004,24 +14005,24 @@ type drilldownBreadcrumbsSeparatorStyleOptions = {
   color?: string,
   fontSize?: float,
 }
-module Style10 = {
+module ChartsDrilldownBreadcrumbsSeparatorOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromDrilldownBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
 type drilldownBreadcrumbsSeparatorOptions = {
-  style?: Style10.t,
+  style?: ChartsDrilldownBreadcrumbsSeparatorOptionsStyle.t,
   text?: string,
 }
 type drilldownBreadcrumbsOptions = {
   buttonSpacing?: float,
-  buttonTheme?: ButtonTheme.t,
+  buttonTheme?: ChartsDrilldownBreadcrumbsOptionsButtonTheme.t,
   events?: drilldownBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
   formatter?: breadcrumbOptions => string,
-  position?: Position3.t,
+  position?: ChartsDrilldownBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
   separator?: drilldownBreadcrumbsSeparatorOptions,
@@ -14030,20 +14031,20 @@ type drilldownBreadcrumbsOptions = {
   useHTML?: bool,
   zIndex?: int,
 }
-module Position4 = {
+module ChartsDrilldownDrillUpButtonOptionsPosition = {
   type t
   external fromAlignObject: alignObject => t = "%identity"
   external fromDrilldownDrillUpButtonPositionOptions: drilldownBreadcrumbsPositionOptions => t =
     "%identity"
 }
 type drilldownDrillUpButtonOptions = {
-  position?: Position4.t,
+  position?: ChartsDrilldownDrillUpButtonOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   theme?: string,
 }
 type drilldownOptions = {
   activeAxisLabelStyle?: cssObject,
-  activeDataLabelStyle?: ActiveDataLabelStyle.t,
+  activeDataLabelStyle?: ChartsDrilldownOptionsActiveDataLabelStyle.t,
   allowPointDrilldown?: bool,
   animation?: string,
   breadcrumbs?: drilldownBreadcrumbsOptions,
@@ -14591,13 +14592,13 @@ type legendBubbleLegendOptions = {
   zIndex?: int,
   zThreshold?: float,
 }
-module LegendItem = {
+module ChartsLegendItemClickEventObjectLegendItem = {
   type t
   external fromSeries: series => t = "%identity"
   external fromPoint: point => t = "%identity"
   external fromLegendItemObject: legendItemObject => t = "%identity"
 }
-module LabelFormatter = {
+module ChartsLegendOptionsLabelFormatter = {
   type t
   external fromSeries: series => t = "%identity"
   external fromPoint: point => t = "%identity"
@@ -14626,7 +14627,7 @@ type rec legend = {
 }
 and legendItemClickEventObject = {
   browserEvent: Dom.event,
-  legendItem: LegendItem.t,
+  legendItem: ChartsLegendItemClickEventObjectLegendItem.t,
   preventDefault: string,
   target: legend,
   @as("type") type_: string,
@@ -14656,7 +14657,7 @@ and legendOptions = {
   itemStyle?: cssObject,
   itemWidth?: float,
   labelFormat?: string,
-  labelFormatter?: option<LabelFormatter.t> => string,
+  labelFormatter?: option<ChartsLegendOptionsLabelFormatter.t> => string,
   layout?: optionsLayoutValue,
   margin?: float,
   maxHeight?: float,
@@ -14743,7 +14744,7 @@ type mapViewOptions = {
   projection?: string,
   zoom?: float,
 }
-module Animation2 = {
+module ChartsNavigationAnnotationsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -14807,8 +14808,8 @@ type navigationAnnotationsTypesCrookedLineTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesCrookedLineOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesCrookedLineOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
 }
@@ -14838,8 +14839,8 @@ type navigationAnnotationsTypesElliottWaveLabelOptions = {
   x?: string,
   y?: string,
 }
-type navigationAnnotationsTypesElliottWaveOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesElliottWaveOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesElliottWaveLabelOptions,
   typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
 }
@@ -14855,8 +14856,8 @@ type navigationAnnotationsTypesFibonacciTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesFibonacciOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesFibonacciOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesFibonacciTypeOptions,
 }
@@ -14867,8 +14868,8 @@ type navigationAnnotationsTypesFibonacciTimeZonesTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesFibonacciTimeZonesOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesFibonacciTimeZonesOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesFibonacciTimeZonesTypeOptions,
 }
@@ -14883,8 +14884,8 @@ type navigationAnnotationsTypesMeasureTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesMeasureOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesMeasureOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   typeOptions?: navigationAnnotationsTypesMeasureTypeOptions,
 }
 type navigationAnnotationsTypesPitchforkTypeOptions = {
@@ -14894,13 +14895,13 @@ type navigationAnnotationsTypesPitchforkTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesPitchforkOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesPitchforkOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesPitchforkTypeOptions,
 }
-type navigationAnnotationsTypesTimeCyclesOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesTimeCyclesOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   typeOptions?: navigationAnnotationsTypesCrookedLineTypeOptions,
 }
 type navigationAnnotationsTypesTunnelTypeOptions = {
@@ -14912,8 +14913,8 @@ type navigationAnnotationsTypesTunnelTypeOptions = {
   xAxis?: string,
   yAxis?: string,
 }
-type navigationAnnotationsTypesTunnelOptions<'a> = {
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+type navigationAnnotationsTypesTunnelOptions<'b> = {
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesTunnelTypeOptions,
 }
@@ -14929,25 +14930,25 @@ type navigationAnnotationsTypesVerticalLineOptions = {
   labelOptions?: navigationAnnotationsTypesCrookedLineLabelOptions,
   typeOptions?: navigationAnnotationsTypesVerticalLineTypeOptions,
 }
-type navigationAnnotationsTypesOptions<'a> = {
-  crookedLine?: navigationAnnotationsTypesCrookedLineOptions<'a>,
-  elliottWave?: navigationAnnotationsTypesElliottWaveOptions<'a>,
-  fibonacci?: navigationAnnotationsTypesFibonacciOptions<'a>,
-  fibonacciTimeZones?: navigationAnnotationsTypesFibonacciTimeZonesOptions<'a>,
-  infinityLine?: navigationAnnotationsTypesCrookedLineOptions<'a>,
-  measure?: navigationAnnotationsTypesMeasureOptions<'a>,
-  pitchfork?: navigationAnnotationsTypesPitchforkOptions<'a>,
-  timeCycles?: navigationAnnotationsTypesTimeCyclesOptions<'a>,
-  tunnel?: navigationAnnotationsTypesTunnelOptions<'a>,
+type navigationAnnotationsTypesOptions<'b> = {
+  crookedLine?: navigationAnnotationsTypesCrookedLineOptions<'b>,
+  elliottWave?: navigationAnnotationsTypesElliottWaveOptions<'b>,
+  fibonacci?: navigationAnnotationsTypesFibonacciOptions<'b>,
+  fibonacciTimeZones?: navigationAnnotationsTypesFibonacciTimeZonesOptions<'b>,
+  infinityLine?: navigationAnnotationsTypesCrookedLineOptions<'b>,
+  measure?: navigationAnnotationsTypesMeasureOptions<'b>,
+  pitchfork?: navigationAnnotationsTypesPitchforkOptions<'b>,
+  timeCycles?: navigationAnnotationsTypesTimeCyclesOptions<'b>,
+  tunnel?: navigationAnnotationsTypesTunnelOptions<'b>,
   verticalLine?: navigationAnnotationsTypesVerticalLineOptions,
 }
-type navigationAnnotationsOptions<'a> = {
-  animation?: Animation2.t,
+type navigationAnnotationsOptions<'b> = {
+  animation?: ChartsNavigationAnnotationsOptionsAnimation.t,
   className?: string,
-  controlPointOptions?: annotationControlPointOptionsObject<'a>,
+  controlPointOptions?: annotationControlPointOptionsObject<'b>,
   crop?: bool,
   draggable?: annotationDraggableValue,
-  events?: annotationsEventsOptions<'a>,
+  events?: annotationsEventsOptions<'b>,
   id?: CommonTypes.stringOrNumber,
   labelOptions?: annotationsLabelOptions,
   labels?: array<navigationAnnotationsLabelsOptions>,
@@ -14955,45 +14956,45 @@ type navigationAnnotationsOptions<'a> = {
   shapes?: array<annotationsShapesOptions>,
   @as("type") type_?: string,
   typeOptions?: annotationsTypeOptions,
-  types?: navigationAnnotationsTypesOptions<'a>,
+  types?: navigationAnnotationsTypesOptions<'b>,
   visible?: bool,
   zIndex?: int,
 }
-module AnnotationsOptions = {
+module ChartsNavigationOptionsAnnotationsOptions = {
   type t
-  external fromAnnotationsOptions: annotationsOptions<'a> => t = "%identity"
-  external fromNavigationAnnotationsOptions: navigationAnnotationsOptions<'a> => t = "%identity"
+  external fromAnnotationsOptions: annotationsOptions<'b> => t = "%identity"
+  external fromNavigationAnnotationsOptions: navigationAnnotationsOptions<'b> => t = "%identity"
 }
-module ButtonTheme2 = {
+module ChartsNavigationBreadcrumbsOptionsButtonTheme = {
   type t
   external fromSVGAttributes: highchartsPointShapeArgsConfig => t = "%identity"
   external fromNavigationBreadcrumbsButtonThemeOptions: drilldownBreadcrumbsButtonThemeOptions => t =
     "%identity"
 }
-module Position5 = {
+module ChartsNavigationBreadcrumbsOptionsPosition = {
   type t
   external fromBreadcrumbsAlignOptions: breadcrumbsAlignOptions => t = "%identity"
   external fromNavigationBreadcrumbsPositionOptions: drilldownBreadcrumbsPositionOptions => t =
     "%identity"
 }
-module Style11 = {
+module ChartsNavigationBreadcrumbsSeparatorOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromNavigationBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
 type navigationBreadcrumbsSeparatorOptions = {
-  style?: Style11.t,
+  style?: ChartsNavigationBreadcrumbsSeparatorOptionsStyle.t,
   text?: string,
 }
 type navigationBreadcrumbsOptions = {
   buttonSpacing?: float,
-  buttonTheme?: ButtonTheme2.t,
+  buttonTheme?: ChartsNavigationBreadcrumbsOptionsButtonTheme.t,
   events?: drilldownBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
   formatter?: breadcrumbOptions => string,
-  position?: Position5.t,
+  position?: ChartsNavigationBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
   separator?: navigationBreadcrumbsSeparatorOptions,
@@ -15033,7 +15034,7 @@ type navigationEventsOptions = {
   showPopup?: string,
 }
 type navigationOptions = {
-  annotationsOptions?: AnnotationsOptions.t,
+  annotationsOptions?: ChartsNavigationOptionsAnnotationsOptions.t,
   bindings?: string,
   bindingsClassName?: string,
   breadcrumbs?: navigationBreadcrumbsOptions,
@@ -15089,7 +15090,7 @@ type navigatorSeriesDataLabelsOptions = {
   y?: float,
   zIndex?: int,
 }
-module DataLabels = {
+module ChartsNavigatorSeriesOptionsDataLabels = {
   type t
   external fromNavigatorSeriesDataLabelsOptions: navigatorSeriesDataLabelsOptions => t = "%identity"
   external fromNavigatorSeriesDataLabelsOptionss: array<navigatorSeriesDataLabelsOptions> => t =
@@ -15100,7 +15101,7 @@ type navigatorSeriesOptions = {
   color?: ColorType.t,
   data?: array<string>,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels.t,
+  dataLabels?: ChartsNavigatorSeriesOptionsDataLabels.t,
   fillOpacity?: float,
   id?: string,
   lineColor?: string,
@@ -15110,7 +15111,7 @@ type navigatorSeriesOptions = {
   threshold?: float,
   @as("type") type_?: string,
 }
-module Series = {
+module ChartsNavigatorOptionsSeries = {
   type t
   external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
   external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
@@ -15335,7 +15336,7 @@ type navigatorXAxisGridOptions = {
   columns?: array<xAxisOptions>,
   enabled?: bool,
 }
-module Style12 = {
+module ChartsNavigatorXAxisLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromNavigatorXAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -15357,7 +15358,7 @@ type navigatorXAxisLabelsOptions = {
   rotation?: float,
   staggerLines?: float,
   step?: float,
-  style?: Style12.t,
+  style?: ChartsNavigatorXAxisLabelsOptionsStyle.t,
   useHTML?: bool,
   x?: float,
   y?: float,
@@ -15424,7 +15425,7 @@ type navigatorXAxisPlotLinesOptions = {
   width?: float,
   zIndex?: int,
 }
-module Style13 = {
+module ChartsNavigatorXAxisTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromNavigatorXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -15436,7 +15437,7 @@ type navigatorXAxisTitleOptions = {
   offset?: float,
   reserveSpace?: bool,
   rotation?: float,
-  style?: Style13.t,
+  style?: ChartsNavigatorXAxisTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
@@ -15521,7 +15522,7 @@ type navigatorXAxisOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module XAxis = {
+module ChartsNavigatorOptionsXAxis = {
   type t
   external fromNavigatorXAxisOptions: navigatorXAxisOptions => t = "%identity"
   external fromNavigatorXAxisOptionss: array<navigatorXAxisOptions> => t = "%identity"
@@ -15530,7 +15531,7 @@ type navigatorYAxisLabelsLevelsOptions = {
   level?: int,
   style?: cssObject,
 }
-module Style14 = {
+module ChartsNavigatorYAxisLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromNavigatorYAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -15558,7 +15559,7 @@ type navigatorYAxisLabelsOptions = {
   rotation?: float,
   staggerLines?: float,
   step?: float,
-  style?: Style14.t,
+  style?: ChartsNavigatorYAxisLabelsOptionsStyle.t,
   symbol?: navigatorYAxisLabelsSymbolOptions,
   useHTML?: bool,
   x?: float,
@@ -15582,7 +15583,7 @@ type navigatorYAxisPlotBandsOptions = {
   @as("to") to_?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-module Style15 = {
+module ChartsNavigatorYAxisTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromNavigatorYAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
@@ -15594,7 +15595,7 @@ type navigatorYAxisTitleOptions = {
   offset?: float,
   reserveSpace?: bool,
   rotation?: float,
-  style?: Style15.t,
+  style?: ChartsNavigatorYAxisTitleOptionsStyle.t,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
@@ -15674,7 +15675,7 @@ type navigatorYAxisOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module YAxis = {
+module ChartsNavigatorOptionsYAxis = {
   type t
   external fromNavigatorYAxisOptions: navigatorYAxisOptions => t = "%identity"
   external fromNavigatorYAxisOptionss: array<navigatorYAxisOptions> => t = "%identity"
@@ -15691,19 +15692,19 @@ type navigatorOptions = {
   opposite?: bool,
   outlineColor?: ColorType.t,
   outlineWidth?: float,
-  series?: Series.t,
+  series?: ChartsNavigatorOptionsSeries.t,
   stickToMax?: bool,
-  xAxis?: XAxis.t,
-  yAxis?: YAxis.t,
+  xAxis?: ChartsNavigatorOptionsXAxis.t,
+  yAxis?: ChartsNavigatorOptionsYAxis.t,
 }
-module Position6 = {
+module ChartsNoDataOptionsPosition = {
   type t
   external fromAlignObject: alignObject => t = "%identity"
   external fromNoDataPositionOptions: drilldownBreadcrumbsPositionOptions => t = "%identity"
 }
 type noDataOptions = {
   attr?: highchartsPointShapeArgsConfig,
-  position?: Position6.t,
+  position?: ChartsNoDataOptionsPosition.t,
   style?: cssObject,
   useHTML?: string,
 }
@@ -15717,20 +15718,20 @@ type paneBackgroundOptions = {
   outerRadius?: CommonTypes.stringOrNumber,
   shape?: paneBackgroundShapeValue,
 }
-module Background = {
+module ChartsPaneOptionsBackground = {
   type t
   external fromPaneBackgroundOptions: paneBackgroundOptions => t = "%identity"
   external fromPaneBackgroundOptionss: array<paneBackgroundOptions> => t = "%identity"
 }
 type paneOptions = {
-  background?: Background.t,
+  background?: ChartsPaneOptionsBackground.t,
   center?: array<CommonTypes.stringOrNumber>,
   endAngle?: float,
   innerSize?: CommonTypes.stringOrNumber,
   size?: CommonTypes.stringOrNumber,
   startAngle?: float,
 }
-module Pane = {
+module ChartsOptionsPane = {
   type t
   external fromPaneOptions: paneOptions => t = "%identity"
   external fromPaneOptionss: array<paneOptions> => t = "%identity"
@@ -15759,12 +15760,12 @@ type plotAbandsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels2.t,
-  dataSorting?: DataSorting.t,
+  dataLabels?: ChartsPlotAbandsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAbandsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color6,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -15834,8 +15835,8 @@ type plotAdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels3.t,
-  dataSorting?: DataSorting2.t,
+  dataLabels?: ChartsPlotAdOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -15907,8 +15908,8 @@ type plotAoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels4.t,
-  dataSorting?: DataSorting3.t,
+  dataLabels?: ChartsPlotAoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -15984,8 +15985,8 @@ type plotApoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels5.t,
-  dataSorting?: DataSorting4.t,
+  dataLabels?: ChartsPlotApoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotApoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -16032,7 +16033,7 @@ type plotApoOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation7 = {
+module ChartsSeriesArcDiagramDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16043,7 +16044,7 @@ type seriesArcDiagramDataLabelsOptionsObject = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation7.t,
+  animation?: ChartsSeriesArcDiagramDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: string,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16076,7 +16077,7 @@ type seriesArcDiagramDataLabelsOptionsObject = {
   x?: float,
   y?: float,
 }
-module DataLabels6 = {
+module ChartsPlotArcdiagramOptionsDataLabels = {
   type t
   external fromSeriesArcDiagramDataLabelsOptionsObject: seriesArcDiagramDataLabelsOptionsObject => t =
     "%identity"
@@ -16110,7 +16111,7 @@ type plotArcdiagramOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels6.t,
+  dataLabels?: ChartsPlotArcdiagramOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   equalNodes?: bool,
@@ -16121,7 +16122,7 @@ type plotArcdiagramOptions = {
   label?: seriesLabelOptionsObject,
   legendSymbol?: optionsLegendSymbolValue,
   levels?: array<plotArcdiagramLevelsOptions>,
-  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkColorMode?: ChartsTypes.chartsPlotArcdiagramOptionsLinkColorMode,
   linkedTo?: string,
   linkOpacity?: float,
   marker?: pointMarkerOptionsObject,
@@ -16147,7 +16148,7 @@ type plotArcdiagramOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module Animation8 = {
+module ChartsPlotAreaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16158,7 +16159,7 @@ type plotAreaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation8.t,
+  animation?: ChartsPlotAreaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16188,12 +16189,12 @@ type plotAreaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels7 = {
+module ChartsPlotAreaOptionsDataLabels = {
   type t
   external fromPlotAreaDataLabelsOptions: plotAreaDataLabelsOptions => t = "%identity"
   external fromPlotAreaDataLabelsOptionss: array<plotAreaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting5 = {
+module ChartsPlotAreaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAreaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -16224,8 +16225,8 @@ type plotAreaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels7.t,
-  dataSorting?: DataSorting5.t,
+  dataLabels?: ChartsPlotAreaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAreaOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -16285,7 +16286,7 @@ type plotAreaOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation9 = {
+module ChartsSeriesAreaRangeDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16304,7 +16305,7 @@ type seriesAreaRangeDataLabelsOptionsObject = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation9.t,
+  animation?: ChartsSeriesAreaRangeDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16338,7 +16339,7 @@ type seriesAreaRangeDataLabelsOptionsObject = {
   yHigh?: float,
   yLow?: float,
 }
-module DataLabels9 = {
+module ChartsPlotArearangeOptionsDataLabels = {
   type t
   external fromSeriesAreaRangeDataLabelsOptionsObject: seriesAreaRangeDataLabelsOptionsObject => t =
     "%identity"
@@ -16346,7 +16347,7 @@ module DataLabels9 = {
     seriesAreaRangeDataLabelsOptionsObject,
   > => t = "%identity"
 }
-module DataSorting7 = {
+module ChartsPlotArearangeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotArearangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -16377,8 +16378,8 @@ type plotArearangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels9.t,
-  dataSorting?: DataSorting7.t,
+  dataLabels?: ChartsPlotArearangeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotArearangeOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -16438,7 +16439,7 @@ type plotArearangeOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation10 = {
+module ChartsPlotAreasplineDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16449,7 +16450,7 @@ type plotAreasplineDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation10.t,
+  animation?: ChartsPlotAreasplineDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16479,13 +16480,13 @@ type plotAreasplineDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels10 = {
+module ChartsPlotAreasplineOptionsDataLabels = {
   type t
   external fromPlotAreasplineDataLabelsOptions: plotAreasplineDataLabelsOptions => t = "%identity"
   external fromPlotAreasplineDataLabelsOptionss: array<plotAreasplineDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting8 = {
+module ChartsPlotAreasplineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAreasplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -16514,8 +16515,8 @@ type plotAreasplineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels10.t,
-  dataSorting?: DataSorting8.t,
+  dataLabels?: ChartsPlotAreasplineOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAreasplineOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -16574,7 +16575,7 @@ type plotAreasplineOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module DataSorting9 = {
+module ChartsPlotAreasplinerangeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAreasplinerangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -16603,8 +16604,8 @@ type plotAreasplinerangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels9.t,
-  dataSorting?: DataSorting9.t,
+  dataLabels?: ChartsPlotArearangeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAreasplinerangeOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -16687,8 +16688,8 @@ type plotAroonOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels11.t,
-  dataSorting?: DataSorting10.t,
+  dataLabels?: ChartsPlotAroonOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAroonOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -16758,8 +16759,8 @@ type plotAroonoscillatorOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels12.t,
-  dataSorting?: DataSorting11.t,
+  dataLabels?: ChartsPlotAroonoscillatorOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAroonoscillatorOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -16806,7 +16807,7 @@ type plotAroonoscillatorOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation13 = {
+module ChartsPlotAtrDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16817,7 +16818,7 @@ type plotAtrDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation13.t,
+  animation?: ChartsPlotAtrDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16847,12 +16848,12 @@ type plotAtrDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels13 = {
+module ChartsPlotAtrOptionsDataLabels = {
   type t
   external fromPlotAtrDataLabelsOptions: plotAtrDataLabelsOptions => t = "%identity"
   external fromPlotAtrDataLabelsOptionss: array<plotAtrDataLabelsOptions> => t = "%identity"
 }
-module DataSorting12 = {
+module ChartsPlotAtrOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAtrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -16882,8 +16883,8 @@ type plotAtrOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels13.t,
-  dataSorting?: DataSorting12.t,
+  dataLabels?: ChartsPlotAtrOptionsDataLabels.t,
+  dataSorting?: ChartsPlotAtrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -16930,7 +16931,7 @@ type plotAtrOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation14 = {
+module ChartsPlotBarDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -16941,7 +16942,7 @@ type plotBarDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation14.t,
+  animation?: ChartsPlotBarDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -16971,12 +16972,12 @@ type plotBarDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels14 = {
+module ChartsPlotBarOptionsDataLabels = {
   type t
   external fromPlotBarDataLabelsOptions: plotBarDataLabelsOptions => t = "%identity"
   external fromPlotBarDataLabelsOptionss: array<plotBarDataLabelsOptions> => t = "%identity"
 }
-module DataSorting13 = {
+module ChartsPlotBarOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotBarDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -17005,8 +17006,8 @@ type plotBarOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels14.t,
-  dataSorting?: DataSorting13.t,
+  dataLabels?: ChartsPlotBarOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBarOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -17087,8 +17088,8 @@ type plotBbOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels15.t,
-  dataSorting?: DataSorting14.t,
+  dataLabels?: ChartsPlotBbOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBbOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -17154,8 +17155,8 @@ type plotBellcurveOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels16.t,
-  dataSorting?: DataSorting15.t,
+  dataLabels?: ChartsPlotBellcurveOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBellcurveOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -17207,7 +17208,7 @@ type plotBellcurveOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation17 = {
+module ChartsPlotBoxplotDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -17218,7 +17219,7 @@ type plotBoxplotDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation17.t,
+  animation?: ChartsPlotBoxplotDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -17248,12 +17249,12 @@ type plotBoxplotDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels17 = {
+module ChartsPlotBoxplotOptionsDataLabels = {
   type t
   external fromPlotBoxplotDataLabelsOptions: plotBoxplotDataLabelsOptions => t = "%identity"
   external fromPlotBoxplotDataLabelsOptionss: array<plotBoxplotDataLabelsOptions> => t = "%identity"
 }
-module DataSorting16 = {
+module ChartsPlotBoxplotOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotBoxplotDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -17278,8 +17279,8 @@ type plotBoxplotOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels17.t,
-  dataSorting?: DataSorting16.t,
+  dataLabels?: ChartsPlotBoxplotOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBoxplotOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -17344,7 +17345,7 @@ type plotBoxplotOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation18 = {
+module ChartsPlotBubbleDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -17355,7 +17356,7 @@ type plotBubbleDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation18.t,
+  animation?: ChartsPlotBubbleDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -17385,12 +17386,12 @@ type plotBubbleDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels18 = {
+module ChartsPlotBubbleOptionsDataLabels = {
   type t
   external fromPlotBubbleDataLabelsOptions: plotBubbleDataLabelsOptions => t = "%identity"
   external fromPlotBubbleDataLabelsOptionss: array<plotBubbleDataLabelsOptions> => t = "%identity"
 }
-module DataSorting17 = {
+module ChartsPlotBubbleOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotBubbleDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -17424,8 +17425,8 @@ type plotBubbleOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels18.t,
-  dataSorting?: DataSorting17.t,
+  dataLabels?: ChartsPlotBubbleOptionsDataLabels.t,
+  dataSorting?: ChartsPlotBubbleOptionsDataSorting.t,
   description?: string,
   displayNegative?: bool,
   dragDrop?: seriesDragDropOptionsObject,
@@ -17486,7 +17487,7 @@ type plotBubbleOptions = {
   zoomEnabled?: bool,
   zThreshold?: float,
 }
-module Animation19 = {
+module ChartsPlotBulletDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -17497,7 +17498,7 @@ type plotBulletDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation19.t,
+  animation?: ChartsPlotBulletDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -17527,7 +17528,7 @@ type plotBulletDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels19 = {
+module ChartsPlotBulletOptionsDataLabels = {
   type t
   external fromPlotBulletDataLabelsOptions: plotBulletDataLabelsOptions => t = "%identity"
   external fromPlotBulletDataLabelsOptionss: array<plotBulletDataLabelsOptions> => t = "%identity"
@@ -17561,7 +17562,7 @@ type plotBulletOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels19.t,
+  dataLabels?: ChartsPlotBulletOptionsDataLabels.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -17617,7 +17618,7 @@ type plotBulletOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation20 = {
+module ChartsPlotCandlestickDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -17628,7 +17629,7 @@ type plotCandlestickDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation20.t,
+  animation?: ChartsPlotCandlestickDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -17658,13 +17659,13 @@ type plotCandlestickDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels20 = {
+module ChartsPlotCandlestickOptionsDataLabels = {
   type t
   external fromPlotCandlestickDataLabelsOptions: plotCandlestickDataLabelsOptions => t = "%identity"
   external fromPlotCandlestickDataLabelsOptionss: array<plotCandlestickDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting18 = {
+module ChartsPlotCandlestickOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotCandlestickDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -17695,8 +17696,8 @@ type plotCandlestickOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels20.t,
-  dataSorting?: DataSorting18.t,
+  dataLabels?: ChartsPlotCandlestickOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCandlestickOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -17780,8 +17781,8 @@ type plotCciOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels21.t,
-  dataSorting?: DataSorting19.t,
+  dataLabels?: ChartsPlotCciOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCciOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -17828,7 +17829,7 @@ type plotCciOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation22 = {
+module ChartsPlotChaikinDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -17839,7 +17840,7 @@ type plotChaikinDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation22.t,
+  animation?: ChartsPlotChaikinDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -17869,12 +17870,12 @@ type plotChaikinDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels22 = {
+module ChartsPlotChaikinOptionsDataLabels = {
   type t
   external fromPlotChaikinDataLabelsOptions: plotChaikinDataLabelsOptions => t = "%identity"
   external fromPlotChaikinDataLabelsOptionss: array<plotChaikinDataLabelsOptions> => t = "%identity"
 }
-module DataSorting20 = {
+module ChartsPlotChaikinOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotChaikinDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -17910,8 +17911,8 @@ type plotChaikinOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels22.t,
-  dataSorting?: DataSorting20.t,
+  dataLabels?: ChartsPlotChaikinOptionsDataLabels.t,
+  dataSorting?: ChartsPlotChaikinOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -17982,8 +17983,8 @@ type plotCmfOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels23.t,
-  dataSorting?: DataSorting21.t,
+  dataLabels?: ChartsPlotCmfOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCmfOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -18030,7 +18031,7 @@ type plotCmfOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation24 = {
+module ChartsPlotCmoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -18041,7 +18042,7 @@ type plotCmoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation24.t,
+  animation?: ChartsPlotCmoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -18071,12 +18072,12 @@ type plotCmoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels24 = {
+module ChartsPlotCmoOptionsDataLabels = {
   type t
   external fromPlotCmoDataLabelsOptions: plotCmoDataLabelsOptions => t = "%identity"
   external fromPlotCmoDataLabelsOptionss: array<plotCmoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting22 = {
+module ChartsPlotCmoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotCmoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -18106,8 +18107,8 @@ type plotCmoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels24.t,
-  dataSorting?: DataSorting22.t,
+  dataLabels?: ChartsPlotCmoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCmoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -18154,7 +18155,7 @@ type plotCmoOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation25 = {
+module ChartsPlotColumnDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -18165,7 +18166,7 @@ type plotColumnDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation25.t,
+  animation?: ChartsPlotColumnDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -18195,12 +18196,12 @@ type plotColumnDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels25 = {
+module ChartsPlotColumnOptionsDataLabels = {
   type t
   external fromPlotColumnDataLabelsOptions: plotColumnDataLabelsOptions => t = "%identity"
   external fromPlotColumnDataLabelsOptionss: array<plotColumnDataLabelsOptions> => t = "%identity"
 }
-module DataSorting23 = {
+module ChartsPlotColumnOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotColumnDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -18235,8 +18236,8 @@ type plotColumnOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels25.t,
-  dataSorting?: DataSorting23.t,
+  dataLabels?: ChartsPlotColumnOptionsDataLabels.t,
+  dataSorting?: ChartsPlotColumnOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -18295,7 +18296,7 @@ type plotColumnOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation26 = {
+module ChartsPlotColumnpyramidDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -18306,7 +18307,7 @@ type plotColumnpyramidDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation26.t,
+  animation?: ChartsPlotColumnpyramidDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -18336,14 +18337,14 @@ type plotColumnpyramidDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels26 = {
+module ChartsPlotColumnpyramidOptionsDataLabels = {
   type t
   external fromPlotColumnpyramidDataLabelsOptions: plotColumnpyramidDataLabelsOptions => t =
     "%identity"
   external fromPlotColumnpyramidDataLabelsOptionss: array<plotColumnpyramidDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting24 = {
+module ChartsPlotColumnpyramidOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotColumnpyramidDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -18374,8 +18375,8 @@ type plotColumnpyramidOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels26.t,
-  dataSorting?: DataSorting24.t,
+  dataLabels?: ChartsPlotColumnpyramidOptionsDataLabels.t,
+  dataSorting?: ChartsPlotColumnpyramidOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -18427,13 +18428,13 @@ type plotColumnpyramidOptions = {
 }
 type borderRadiusOptionsObject = {
   radius: CommonTypes.stringOrNumber,
-  scope: StatCardV2Types.scope,
-  where: StatCardV2Types.where,
+  scope: ChartsTypes.chartsBorderRadiusOptionsObjectScope,
+  where: ChartsTypes.chartsBorderRadiusOptionsObjectWhere,
 }
 type plotColumnrangeBorderRadiusOptions = {
   where?: string,
 }
-module BorderRadius = {
+module ChartsPlotColumnrangeOptionsBorderRadius = {
   type t
   external fromString: string => t = "%identity"
   external fromNumber: float => t = "%identity"
@@ -18441,7 +18442,7 @@ module BorderRadius = {
   external fromPlotColumnrangeBorderRadiusOptions: plotColumnrangeBorderRadiusOptions => t =
     "%identity"
 }
-module DataSorting25 = {
+module ChartsPlotColumnrangeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotColumnrangeDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -18454,7 +18455,7 @@ type plotColumnrangeOptions = {
   boostBlending?: optionsBoostBlendingValue,
   boostThreshold?: float,
   borderColor?: ColorType.t,
-  borderRadius?: BorderRadius.t,
+  borderRadius?: ChartsPlotColumnrangeOptionsBorderRadius.t,
   borderWidth?: float,
   centerInCategory?: bool,
   className?: string,
@@ -18476,8 +18477,8 @@ type plotColumnrangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels9.t,
-  dataSorting?: DataSorting25.t,
+  dataLabels?: ChartsPlotArearangeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotColumnrangeOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -18532,7 +18533,7 @@ type plotColumnrangeOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation27 = {
+module ChartsPlotContourDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -18543,7 +18544,7 @@ type plotContourDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation27.t,
+  animation?: ChartsPlotContourDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -18573,12 +18574,12 @@ type plotContourDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels27 = {
+module ChartsPlotContourOptionsDataLabels = {
   type t
   external fromPlotContourDataLabelsOptions: plotContourDataLabelsOptions => t = "%identity"
   external fromPlotContourDataLabelsOptionss: array<plotContourDataLabelsOptions> => t = "%identity"
 }
-module DataSorting26 = {
+module ChartsPlotContourOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotContourDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -18602,8 +18603,8 @@ type plotContourOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels27.t,
-  dataSorting?: DataSorting26.t,
+  dataLabels?: ChartsPlotContourOptionsDataLabels.t,
+  dataSorting?: ChartsPlotContourOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -18643,7 +18644,7 @@ type plotContourOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation28 = {
+module ChartsPlotCylinderDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -18654,7 +18655,7 @@ type plotCylinderDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation28.t,
+  animation?: ChartsPlotCylinderDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -18684,13 +18685,13 @@ type plotCylinderDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels28 = {
+module ChartsPlotCylinderOptionsDataLabels = {
   type t
   external fromPlotCylinderDataLabelsOptions: plotCylinderDataLabelsOptions => t = "%identity"
   external fromPlotCylinderDataLabelsOptionss: array<plotCylinderDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting27 = {
+module ChartsPlotCylinderOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotCylinderDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -18716,8 +18717,8 @@ type plotCylinderOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels28.t,
-  dataSorting?: DataSorting27.t,
+  dataLabels?: ChartsPlotCylinderOptionsDataLabels.t,
+  dataSorting?: ChartsPlotCylinderOptionsDataSorting.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -18794,8 +18795,8 @@ type plotDemaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels29.t,
-  dataSorting?: DataSorting28.t,
+  dataLabels?: ChartsPlotDemaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDemaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -18879,7 +18880,7 @@ type seriesSankeyDataLabelsOptionsObject = {
   x?: string,
   y?: string,
 }
-module DataLabels30 = {
+module ChartsPlotDependencywheelOptionsDataLabels = {
   type t
   external fromSeriesSankeyDataLabelsOptionsObject: seriesSankeyDataLabelsOptionsObject => t =
     "%identity"
@@ -18892,7 +18893,7 @@ type plotDependencywheelLevelsOptions = {
   borderWidth?: float,
   color?: ColorType.t,
   colorByPoint?: bool,
-  dataLabels?: DataLabels30.t,
+  dataLabels?: ChartsPlotDependencywheelOptionsDataLabels.t,
   level?: int,
   linkOpacity?: float,
   states?: seriesStatesOptionsObject,
@@ -18916,7 +18917,7 @@ type plotDependencywheelOptions = {
   curveFactor?: float,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels30.t,
+  dataLabels?: ChartsPlotDependencywheelOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -18927,7 +18928,7 @@ type plotDependencywheelOptions = {
   label?: seriesLabelOptionsObject,
   legendSymbol?: optionsLegendSymbolValue,
   levels?: array<plotDependencywheelLevelsOptions>,
-  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkColorMode?: ChartsTypes.chartsPlotArcdiagramOptionsLinkColorMode,
   linkedTo?: string,
   linkOpacity?: float,
   minLinkWidth?: float,
@@ -18979,8 +18980,8 @@ type plotDisparityindexOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels31.t,
-  dataSorting?: DataSorting29.t,
+  dataLabels?: ChartsPlotDisparityindexOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDisparityindexOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -19052,8 +19053,8 @@ type plotDmiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels32.t,
-  dataSorting?: DataSorting30.t,
+  dataLabels?: ChartsPlotDmiOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDmiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -19125,8 +19126,8 @@ type plotDpoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels33.t,
-  dataSorting?: DataSorting31.t,
+  dataLabels?: ChartsPlotDpoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDpoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -19173,7 +19174,7 @@ type plotDpoOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module DataSorting32 = {
+module ChartsPlotDumbbellOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotDumbbellDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -19205,8 +19206,8 @@ type plotDumbbellOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels9.t,
-  dataSorting?: DataSorting32.t,
+  dataLabels?: ChartsPlotArearangeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotDumbbellOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -19264,7 +19265,7 @@ type plotDumbbellOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation33 = {
+module ChartsPlotEmaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -19275,7 +19276,7 @@ type plotEmaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation33.t,
+  animation?: ChartsPlotEmaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -19305,12 +19306,12 @@ type plotEmaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels34 = {
+module ChartsPlotEmaOptionsDataLabels = {
   type t
   external fromPlotEmaDataLabelsOptions: plotEmaDataLabelsOptions => t = "%identity"
   external fromPlotEmaDataLabelsOptionss: array<plotEmaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting33 = {
+module ChartsPlotEmaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotEmaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -19340,8 +19341,8 @@ type plotEmaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels34.t,
-  dataSorting?: DataSorting33.t,
+  dataLabels?: ChartsPlotEmaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotEmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -19388,7 +19389,7 @@ type plotEmaOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation34 = {
+module ChartsPlotErrorbarDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -19399,7 +19400,7 @@ type plotErrorbarDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation34.t,
+  animation?: ChartsPlotErrorbarDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -19429,13 +19430,13 @@ type plotErrorbarDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels35 = {
+module ChartsPlotErrorbarOptionsDataLabels = {
   type t
   external fromPlotErrorbarDataLabelsOptions: plotErrorbarDataLabelsOptions => t = "%identity"
   external fromPlotErrorbarDataLabelsOptionss: array<plotErrorbarDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting34 = {
+module ChartsPlotErrorbarOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotErrorbarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -19460,8 +19461,8 @@ type plotErrorbarOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels35.t,
-  dataSorting?: DataSorting34.t,
+  dataLabels?: ChartsPlotErrorbarOptionsDataLabels.t,
+  dataSorting?: ChartsPlotErrorbarOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -19551,8 +19552,8 @@ type plotFlagsOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels36.t,
-  dataSorting?: DataSorting35.t,
+  dataLabels?: ChartsPlotFlagsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotFlagsOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -19683,7 +19684,7 @@ type plotFunnelOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -19727,7 +19728,7 @@ type plotFunnelOptions = {
   width?: CommonTypes.stringOrNumber,
   zoomEnabled?: bool,
 }
-module Animation37 = {
+module ChartsPlotFunnel3dDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -19738,7 +19739,7 @@ type plotFunnel3dDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation37.t,
+  animation?: ChartsPlotFunnel3dDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -19768,7 +19769,7 @@ type plotFunnel3dDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels38 = {
+module ChartsPlotFunnel3dOptionsDataLabels = {
   type t
   external fromPlotFunnel3dDataLabelsOptions: plotFunnel3dDataLabelsOptions => t = "%identity"
   external fromPlotFunnel3dDataLabelsOptionss: array<plotFunnel3dDataLabelsOptions> => t =
@@ -19795,7 +19796,7 @@ type plotFunnel3dOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels38.t,
+  dataLabels?: ChartsPlotFunnel3dOptionsDataLabels.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -19856,7 +19857,7 @@ type plotFunnel3dOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation38 = {
+module ChartsPlotGanttDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -19866,7 +19867,7 @@ module Animation38 = {
 type plotGanttDataLabelsStyleOptions = {
   whiteSpace?: string,
 }
-module Style17 = {
+module ChartsPlotGanttDataLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotGanttDataLabelsStyleOptions: plotGanttDataLabelsStyleOptions => t = "%identity"
@@ -19875,7 +19876,7 @@ type plotGanttDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation38.t,
+  animation?: ChartsPlotGanttDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -19898,14 +19899,14 @@ type plotGanttDataLabelsOptions = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style17.t,
+  style?: ChartsPlotGanttDataLabelsOptionsStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
   x?: float,
   y?: float,
 }
-module DataLabels39 = {
+module ChartsPlotGanttOptionsDataLabels = {
   type t
   external fromPlotGanttDataLabelsOptions: plotGanttDataLabelsOptions => t = "%identity"
   external fromPlotGanttDataLabelsOptionss: array<plotGanttDataLabelsOptions> => t = "%identity"
@@ -19932,7 +19933,7 @@ type plotGanttOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels39.t,
+  dataLabels?: ChartsPlotGanttOptionsDataLabels.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -19980,7 +19981,7 @@ type plotGaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels40.t,
+  dataLabels?: ChartsPlotGaugeOptionsDataLabels.t,
   description?: string,
   dial?: plotGaugeDialOptions,
   enableMouseTracking?: bool,
@@ -20019,7 +20020,7 @@ type plotGaugeOptions = {
   wrap?: bool,
   zoomEnabled?: bool,
 }
-module Animation40 = {
+module ChartsPlotGeoheatmapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -20030,7 +20031,7 @@ type plotGeoheatmapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation40.t,
+  animation?: ChartsPlotGeoheatmapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -20060,7 +20061,7 @@ type plotGeoheatmapDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels41 = {
+module ChartsPlotGeoheatmapOptionsDataLabels = {
   type t
   external fromPlotGeoheatmapDataLabelsOptions: plotGeoheatmapDataLabelsOptions => t = "%identity"
   external fromPlotGeoheatmapDataLabelsOptionss: array<plotGeoheatmapDataLabelsOptions> => t =
@@ -20074,7 +20075,7 @@ type plotGeoheatmapInterpolationOptions = {
   blur?: float,
   enabled?: bool,
 }
-module Interpolation = {
+module ChartsPlotGeoheatmapOptionsInterpolation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromInterpolationOptionsObject: interpolationOptionsObject => t = "%identity"
@@ -20101,13 +20102,13 @@ type plotGeoheatmapOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels41.t,
+  dataLabels?: ChartsPlotGeoheatmapOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  interpolation?: Interpolation.t,
+  interpolation?: ChartsPlotGeoheatmapOptionsInterpolation.t,
   keys?: array<string>,
   legendSymbol?: optionsLegendSymbolValue,
   linecap?: string,
@@ -20129,7 +20130,7 @@ type plotGeoheatmapOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Animation41 = {
+module ChartsPlotHeatmapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -20140,7 +20141,7 @@ type plotHeatmapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation41.t,
+  animation?: ChartsPlotHeatmapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -20170,12 +20171,12 @@ type plotHeatmapDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels42 = {
+module ChartsPlotHeatmapOptionsDataLabels = {
   type t
   external fromPlotHeatmapDataLabelsOptions: plotHeatmapDataLabelsOptions => t = "%identity"
   external fromPlotHeatmapDataLabelsOptionss: array<plotHeatmapDataLabelsOptions> => t = "%identity"
 }
-module DataSorting36 = {
+module ChartsPlotHeatmapOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotHeatmapDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -20199,8 +20200,8 @@ type plotHeatmapOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels42.t,
-  dataSorting?: DataSorting36.t,
+  dataLabels?: ChartsPlotHeatmapOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHeatmapOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -20241,7 +20242,7 @@ type plotHeatmapOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation42 = {
+module ChartsPlotHeikinashiDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -20252,7 +20253,7 @@ type plotHeikinashiDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation42.t,
+  animation?: ChartsPlotHeikinashiDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -20282,13 +20283,13 @@ type plotHeikinashiDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels43 = {
+module ChartsPlotHeikinashiOptionsDataLabels = {
   type t
   external fromPlotHeikinashiDataLabelsOptions: plotHeikinashiDataLabelsOptions => t = "%identity"
   external fromPlotHeikinashiDataLabelsOptionss: array<plotHeikinashiDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting37 = {
+module ChartsPlotHeikinashiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotHeikinashiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -20319,8 +20320,8 @@ type plotHeikinashiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels43.t,
-  dataSorting?: DataSorting37.t,
+  dataLabels?: ChartsPlotHeikinashiOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHeikinashiOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -20403,8 +20404,8 @@ type plotHistogramOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels44.t,
-  dataSorting?: DataSorting38.t,
+  dataLabels?: ChartsPlotHistogramOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHistogramOptionsDataSorting.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -20455,7 +20456,7 @@ type plotHistogramOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation44 = {
+module ChartsPlotHlcDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -20466,7 +20467,7 @@ type plotHlcDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation44.t,
+  animation?: ChartsPlotHlcDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -20496,12 +20497,12 @@ type plotHlcDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels45 = {
+module ChartsPlotHlcOptionsDataLabels = {
   type t
   external fromPlotHlcDataLabelsOptions: plotHlcDataLabelsOptions => t = "%identity"
   external fromPlotHlcDataLabelsOptionss: array<plotHlcDataLabelsOptions> => t = "%identity"
 }
-module DataSorting39 = {
+module ChartsPlotHlcOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotHlcDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -20532,8 +20533,8 @@ type plotHlcOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels45.t,
-  dataSorting?: DataSorting39.t,
+  dataLabels?: ChartsPlotHlcOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHlcOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -20588,7 +20589,7 @@ type plotHlcOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation45 = {
+module ChartsPlotHollowcandlestickDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -20599,7 +20600,7 @@ type plotHollowcandlestickDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation45.t,
+  animation?: ChartsPlotHollowcandlestickDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -20629,7 +20630,7 @@ type plotHollowcandlestickDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels46 = {
+module ChartsPlotHollowcandlestickOptionsDataLabels = {
   type t
   external fromPlotHollowcandlestickDataLabelsOptions: plotHollowcandlestickDataLabelsOptions => t =
     "%identity"
@@ -20637,7 +20638,7 @@ module DataLabels46 = {
     plotHollowcandlestickDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting40 = {
+module ChartsPlotHollowcandlestickOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotHollowcandlestickDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -20668,8 +20669,8 @@ type plotHollowcandlestickOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels46.t,
-  dataSorting?: DataSorting40.t,
+  dataLabels?: ChartsPlotHollowcandlestickOptionsDataLabels.t,
+  dataSorting?: ChartsPlotHollowcandlestickOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -20752,8 +20753,8 @@ type plotIkhOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels47.t,
-  dataSorting?: DataSorting41.t,
+  dataLabels?: ChartsPlotIkhOptionsDataLabels.t,
+  dataSorting?: ChartsPlotIkhOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -20821,7 +20822,7 @@ type plotItemOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
@@ -20886,12 +20887,12 @@ type plotKeltnerchannelsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels48.t,
-  dataSorting?: DataSorting42.t,
+  dataLabels?: ChartsPlotKeltnerchannelsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotKeltnerchannelsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color6,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20961,8 +20962,8 @@ type plotKlingerOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels49.t,
-  dataSorting?: DataSorting43.t,
+  dataLabels?: ChartsPlotKlingerOptionsDataLabels.t,
+  dataSorting?: ChartsPlotKlingerOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21010,7 +21011,7 @@ type plotKlingerOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation49 = {
+module ChartsPlotLineDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21021,7 +21022,7 @@ type plotLineDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation49.t,
+  animation?: ChartsPlotLineDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21051,12 +21052,12 @@ type plotLineDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels50 = {
+module ChartsPlotLineOptionsDataLabels = {
   type t
   external fromPlotLineDataLabelsOptions: plotLineDataLabelsOptions => t = "%identity"
   external fromPlotLineDataLabelsOptionss: array<plotLineDataLabelsOptions> => t = "%identity"
 }
-module DataSorting44 = {
+module ChartsPlotLineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -21087,8 +21088,8 @@ type plotLineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels50.t,
-  dataSorting?: DataSorting44.t,
+  dataLabels?: ChartsPlotLineOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLineOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -21144,7 +21145,7 @@ type plotLineOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation50 = {
+module ChartsPlotLinearregressionDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21155,7 +21156,7 @@ type plotLinearregressionDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation50.t,
+  animation?: ChartsPlotLinearregressionDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21185,7 +21186,7 @@ type plotLinearregressionDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels51 = {
+module ChartsPlotLinearregressionOptionsDataLabels = {
   type t
   external fromPlotLinearregressionDataLabelsOptions: plotLinearregressionDataLabelsOptions => t =
     "%identity"
@@ -21193,7 +21194,7 @@ module DataLabels51 = {
     plotLinearregressionDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting45 = {
+module ChartsPlotLinearregressionOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLinearregressionDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -21228,8 +21229,8 @@ type plotLinearregressionOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels51.t,
-  dataSorting?: DataSorting45.t,
+  dataLabels?: ChartsPlotLinearregressionOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLinearregressionOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21276,7 +21277,7 @@ type plotLinearregressionOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation51 = {
+module ChartsPlotLinearregressionangleDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21287,7 +21288,7 @@ type plotLinearregressionangleDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation51.t,
+  animation?: ChartsPlotLinearregressionangleDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21317,7 +21318,7 @@ type plotLinearregressionangleDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels52 = {
+module ChartsPlotLinearregressionangleOptionsDataLabels = {
   type t
   external fromPlotLinearregressionangleDataLabelsOptions: plotLinearregressionangleDataLabelsOptions => t =
     "%identity"
@@ -21325,7 +21326,7 @@ module DataLabels52 = {
     plotLinearregressionangleDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting46 = {
+module ChartsPlotLinearregressionangleOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLinearregressionangleDataSortingOptions: plotAdDataSortingOptions => t =
@@ -21361,8 +21362,8 @@ type plotLinearregressionangleOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels52.t,
-  dataSorting?: DataSorting46.t,
+  dataLabels?: ChartsPlotLinearregressionangleOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLinearregressionangleOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21409,7 +21410,7 @@ type plotLinearregressionangleOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation52 = {
+module ChartsPlotLinearregressioninterceptDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21420,7 +21421,7 @@ type plotLinearregressioninterceptDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation52.t,
+  animation?: ChartsPlotLinearregressioninterceptDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21450,7 +21451,7 @@ type plotLinearregressioninterceptDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels53 = {
+module ChartsPlotLinearregressioninterceptOptionsDataLabels = {
   type t
   external fromPlotLinearregressioninterceptDataLabelsOptions: plotLinearregressioninterceptDataLabelsOptions => t =
     "%identity"
@@ -21458,7 +21459,7 @@ module DataLabels53 = {
     plotLinearregressioninterceptDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting47 = {
+module ChartsPlotLinearregressioninterceptOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLinearregressioninterceptDataSortingOptions: plotAdDataSortingOptions => t =
@@ -21489,8 +21490,8 @@ type plotLinearregressioninterceptOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels53.t,
-  dataSorting?: DataSorting47.t,
+  dataLabels?: ChartsPlotLinearregressioninterceptOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLinearregressioninterceptOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21537,7 +21538,7 @@ type plotLinearregressioninterceptOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation53 = {
+module ChartsPlotLinearregressionslopeDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21548,7 +21549,7 @@ type plotLinearregressionslopeDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation53.t,
+  animation?: ChartsPlotLinearregressionslopeDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21578,7 +21579,7 @@ type plotLinearregressionslopeDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels54 = {
+module ChartsPlotLinearregressionslopeOptionsDataLabels = {
   type t
   external fromPlotLinearregressionslopeDataLabelsOptions: plotLinearregressionslopeDataLabelsOptions => t =
     "%identity"
@@ -21586,7 +21587,7 @@ module DataLabels54 = {
     plotLinearregressionslopeDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting48 = {
+module ChartsPlotLinearregressionslopeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLinearregressionslopeDataSortingOptions: plotAdDataSortingOptions => t =
@@ -21617,8 +21618,8 @@ type plotLinearregressionslopeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels54.t,
-  dataSorting?: DataSorting48.t,
+  dataLabels?: ChartsPlotLinearregressionslopeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLinearregressionslopeOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21665,7 +21666,7 @@ type plotLinearregressionslopeOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module DataSorting49 = {
+module ChartsPlotLollipopOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotLollipopDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -21697,8 +21698,8 @@ type plotLollipopOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels9.t,
-  dataSorting?: DataSorting49.t,
+  dataLabels?: ChartsPlotArearangeOptionsDataLabels.t,
+  dataSorting?: ChartsPlotLollipopOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -21780,8 +21781,8 @@ type plotMacdOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels55.t,
-  dataSorting?: DataSorting50.t,
+  dataLabels?: ChartsPlotMacdOptionsDataLabels.t,
+  dataSorting?: ChartsPlotMacdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21833,7 +21834,7 @@ type plotMacdOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation55 = {
+module ChartsPlotMapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21844,7 +21845,7 @@ type plotMapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation55.t,
+  animation?: ChartsPlotMapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -21874,7 +21875,7 @@ type plotMapDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels56 = {
+module ChartsPlotMapOptionsDataLabels = {
   type t
   external fromPlotMapDataLabelsOptions: plotMapDataLabelsOptions => t = "%identity"
   external fromPlotMapDataLabelsOptionss: array<plotMapDataLabelsOptions> => t = "%identity"
@@ -21899,7 +21900,7 @@ type plotMapOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels56.t,
+  dataLabels?: ChartsPlotMapOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -21947,7 +21948,7 @@ type plotMapbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels57.t,
+  dataLabels?: ChartsPlotMapbubbleOptionsDataLabels.t,
   description?: string,
   displayNegative?: bool,
   dragDrop?: seriesDragDropOptionsObject,
@@ -21983,7 +21984,7 @@ type plotMapbubbleOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Animation57 = {
+module ChartsPlotMaplineDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -21994,7 +21995,7 @@ type plotMaplineDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation57.t,
+  animation?: ChartsPlotMaplineDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22024,7 +22025,7 @@ type plotMaplineDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels58 = {
+module ChartsPlotMaplineOptionsDataLabels = {
   type t
   external fromPlotMaplineDataLabelsOptions: plotMaplineDataLabelsOptions => t = "%identity"
   external fromPlotMaplineDataLabelsOptionss: array<plotMaplineDataLabelsOptions> => t = "%identity"
@@ -22049,7 +22050,7 @@ type plotMaplineOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels58.t,
+  dataLabels?: ChartsPlotMaplineOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -22081,7 +22082,7 @@ type plotMaplineOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Animation58 = {
+module ChartsPlotMfiDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22092,7 +22093,7 @@ type plotMfiDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation58.t,
+  animation?: ChartsPlotMfiDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22122,12 +22123,12 @@ type plotMfiDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels59 = {
+module ChartsPlotMfiOptionsDataLabels = {
   type t
   external fromPlotMfiDataLabelsOptions: plotMfiDataLabelsOptions => t = "%identity"
   external fromPlotMfiDataLabelsOptionss: array<plotMfiDataLabelsOptions> => t = "%identity"
 }
-module DataSorting51 = {
+module ChartsPlotMfiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotMfiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -22163,8 +22164,8 @@ type plotMfiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels59.t,
-  dataSorting?: DataSorting51.t,
+  dataLabels?: ChartsPlotMfiOptionsDataLabels.t,
+  dataSorting?: ChartsPlotMfiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -22211,7 +22212,7 @@ type plotMfiOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation59 = {
+module ChartsPlotMomentumDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22222,7 +22223,7 @@ type plotMomentumDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation59.t,
+  animation?: ChartsPlotMomentumDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22252,13 +22253,13 @@ type plotMomentumDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels60 = {
+module ChartsPlotMomentumOptionsDataLabels = {
   type t
   external fromPlotMomentumDataLabelsOptions: plotMomentumDataLabelsOptions => t = "%identity"
   external fromPlotMomentumDataLabelsOptionss: array<plotMomentumDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting52 = {
+module ChartsPlotMomentumOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotMomentumDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -22288,8 +22289,8 @@ type plotMomentumOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels60.t,
-  dataSorting?: DataSorting52.t,
+  dataLabels?: ChartsPlotMomentumOptionsDataLabels.t,
+  dataSorting?: ChartsPlotMomentumOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -22336,7 +22337,7 @@ type plotMomentumOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation60 = {
+module ChartsPlotNatrDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22347,7 +22348,7 @@ type plotNatrDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation60.t,
+  animation?: ChartsPlotNatrDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22377,12 +22378,12 @@ type plotNatrDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels61 = {
+module ChartsPlotNatrOptionsDataLabels = {
   type t
   external fromPlotNatrDataLabelsOptions: plotNatrDataLabelsOptions => t = "%identity"
   external fromPlotNatrDataLabelsOptionss: array<plotNatrDataLabelsOptions> => t = "%identity"
 }
-module DataSorting53 = {
+module ChartsPlotNatrOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotNatrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -22412,8 +22413,8 @@ type plotNatrOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels61.t,
-  dataSorting?: DataSorting53.t,
+  dataLabels?: ChartsPlotNatrOptionsDataLabels.t,
+  dataSorting?: ChartsPlotNatrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -22460,7 +22461,7 @@ type plotNatrOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation61 = {
+module ChartsSeriesNetworkgraphDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22470,7 +22471,7 @@ module Animation61 = {
 type plotNetworkgraphDataLabelsStyleOptions = {
   transition?: string,
 }
-module Style18 = {
+module ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotNetworkgraphDataLabelsStyleOptions: plotNetworkgraphDataLabelsStyleOptions => t =
@@ -22480,7 +22481,7 @@ type seriesNetworkgraphDataLabelsOptionsObject = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation61.t,
+  animation?: ChartsSeriesNetworkgraphDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22506,14 +22507,14 @@ type seriesNetworkgraphDataLabelsOptionsObject = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style18.t,
+  style?: ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
   x?: float,
   y?: float,
 }
-module DataLabels62 = {
+module ChartsPlotNetworkgraphOptionsDataLabels = {
   type t
   external fromSeriesNetworkgraphDataLabelsOptionsObject: seriesNetworkgraphDataLabelsOptionsObject => t =
     "%identity"
@@ -22554,7 +22555,7 @@ type plotNetworkgraphOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels62.t,
+  dataLabels?: ChartsPlotNetworkgraphOptionsDataLabels.t,
   description?: string,
   draggable?: bool,
   enableMouseTracking?: bool,
@@ -22593,7 +22594,7 @@ type plotNetworkgraphOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation62 = {
+module ChartsPlotObvDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22604,7 +22605,7 @@ type plotObvDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation62.t,
+  animation?: ChartsPlotObvDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22634,12 +22635,12 @@ type plotObvDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels63 = {
+module ChartsPlotObvOptionsDataLabels = {
   type t
   external fromPlotObvDataLabelsOptions: plotObvDataLabelsOptions => t = "%identity"
   external fromPlotObvDataLabelsOptionss: array<plotObvDataLabelsOptions> => t = "%identity"
 }
-module DataSorting54 = {
+module ChartsPlotObvOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotObvDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -22674,8 +22675,8 @@ type plotObvOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels63.t,
-  dataSorting?: DataSorting54.t,
+  dataLabels?: ChartsPlotObvOptionsDataLabels.t,
+  dataSorting?: ChartsPlotObvOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -22722,7 +22723,7 @@ type plotObvOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation63 = {
+module ChartsPlotOhlcDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22733,7 +22734,7 @@ type plotOhlcDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation63.t,
+  animation?: ChartsPlotOhlcDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22763,12 +22764,12 @@ type plotOhlcDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels64 = {
+module ChartsPlotOhlcOptionsDataLabels = {
   type t
   external fromPlotOhlcDataLabelsOptions: plotOhlcDataLabelsOptions => t = "%identity"
   external fromPlotOhlcDataLabelsOptionss: array<plotOhlcDataLabelsOptions> => t = "%identity"
 }
-module DataSorting55 = {
+module ChartsPlotOhlcOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotOhlcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -22799,8 +22800,8 @@ type plotOhlcOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels64.t,
-  dataSorting?: DataSorting55.t,
+  dataLabels?: ChartsPlotOhlcOptionsDataLabels.t,
+  dataSorting?: ChartsPlotOhlcOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -22856,7 +22857,7 @@ type plotOhlcOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation64 = {
+module ChartsSeriesOrganizationDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -22874,7 +22875,7 @@ type seriesOrganizationDataLabelsOptionsObject = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation64.t,
+  animation?: ChartsSeriesOrganizationDataLabelsOptionsObjectAnimation.t,
   backgroundColor?: string,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -22907,7 +22908,7 @@ type seriesOrganizationDataLabelsOptionsObject = {
   x?: float,
   y?: float,
 }
-module DataLabels65 = {
+module ChartsPlotOrganizationOptionsDataLabels = {
   type t
   external fromSeriesOrganizationDataLabelsOptionsObject: seriesOrganizationDataLabelsOptionsObject => t =
     "%identity"
@@ -22920,7 +22921,7 @@ type plotOrganizationLevelsOptions = {
   borderWidth?: float,
   color?: ColorType.t,
   colorByPoint?: bool,
-  dataLabels?: DataLabels30.t,
+  dataLabels?: ChartsPlotDependencywheelOptionsDataLabels.t,
   level?: int,
   linkOpacity?: float,
   states?: seriesStatesOptionsObject,
@@ -22929,7 +22930,7 @@ type plotOrganizationLinkOptions = {
   color?: string,
   lineWidth?: float,
   radius?: float,
-  @as("type") type_?: StatCardV2Types.type_4,
+  @as("type") type_?: ChartsTypes.chartsPlotOrganizationLinkOptionsType,
 }
 type plotOrganizationOptions = {
   accessibility?: seriesAccessibilityOptionsObject,
@@ -22947,14 +22948,14 @@ type plotOrganizationOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels65.t,
+  dataLabels?: ChartsPlotOrganizationOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
   getExtremesFromAll?: bool,
   hangingIndent?: float,
   hangingIndentTranslation?: organizationHangingIndentTranslationValue,
-  hangingSide?: TagsTypes.splitTagPosition,
+  hangingSide?: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   keys?: array<string>,
@@ -22962,12 +22963,12 @@ type plotOrganizationOptions = {
   legendSymbol?: optionsLegendSymbolValue,
   levels?: array<plotOrganizationLevelsOptions>,
   link?: plotOrganizationLinkOptions,
-  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkColorMode?: ChartsTypes.chartsPlotArcdiagramOptionsLinkColorMode,
   linkedTo?: string,
   linkOpacity?: float,
   minLinkWidth?: float,
   minNodeLength?: float,
-  nodeAlignment?: StatCardV2Types.nodeAlignment,
+  nodeAlignment?: ChartsTypes.chartsPlotOrganizationOptionsNodeAlignment,
   nodeDistance?: CommonTypes.stringOrNumber,
   nodePadding?: float,
   nodeWidth?: float,
@@ -23005,7 +23006,7 @@ type plotPackedbubbleOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels66.t,
+  dataLabels?: ChartsPlotPackedbubbleOptionsDataLabels.t,
   description?: string,
   displayNegative?: bool,
   draggable?: bool,
@@ -23060,7 +23061,7 @@ type plotPackedbubbleOptions = {
   zoomEnabled?: bool,
   zThreshold?: float,
 }
-module Animation66 = {
+module ChartsPlotParetoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23071,7 +23072,7 @@ type plotParetoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation66.t,
+  animation?: ChartsPlotParetoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23101,12 +23102,12 @@ type plotParetoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels67 = {
+module ChartsPlotParetoOptionsDataLabels = {
   type t
   external fromPlotParetoDataLabelsOptions: plotParetoDataLabelsOptions => t = "%identity"
   external fromPlotParetoDataLabelsOptionss: array<plotParetoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting56 = {
+module ChartsPlotParetoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotParetoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23127,8 +23128,8 @@ type plotParetoOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels67.t,
-  dataSorting?: DataSorting56.t,
+  dataLabels?: ChartsPlotParetoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotParetoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -23161,7 +23162,7 @@ type plotParetoOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module Animation67 = {
+module ChartsPlotPcDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23171,7 +23172,7 @@ type plotPcDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation67.t,
+  animation?: ChartsPlotPcDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23201,12 +23202,12 @@ type plotPcDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels68 = {
+module ChartsPlotPcOptionsDataLabels = {
   type t
   external fromPlotPcDataLabelsOptions: plotPcDataLabelsOptions => t = "%identity"
   external fromPlotPcDataLabelsOptionss: array<plotPcDataLabelsOptions> => t = "%identity"
 }
-module DataSorting57 = {
+module ChartsPlotPcOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23235,12 +23236,12 @@ type plotPcOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels68.t,
-  dataSorting?: DataSorting57.t,
+  dataLabels?: ChartsPlotPcOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPcOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
-  fillColor?: color6,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23285,7 +23286,7 @@ type plotPcOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation68 = {
+module ChartsPlotPictorialDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23296,7 +23297,7 @@ type plotPictorialDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation68.t,
+  animation?: ChartsPlotPictorialDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23326,7 +23327,7 @@ type plotPictorialDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels69 = {
+module ChartsPlotPictorialOptionsDataLabels = {
   type t
   external fromPlotPictorialDataLabelsOptions: plotPictorialDataLabelsOptions => t = "%identity"
   external fromPlotPictorialDataLabelsOptionss: array<plotPictorialDataLabelsOptions> => t =
@@ -23350,7 +23351,7 @@ type plotPictorialOptions = {
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels69.t,
+  dataLabels?: ChartsPlotPictorialOptionsDataLabels.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -23421,7 +23422,7 @@ type plotPieOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -23464,7 +23465,7 @@ type plotPieOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Animation69 = {
+module ChartsPlotPivotpointsDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23475,7 +23476,7 @@ type plotPivotpointsDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation69.t,
+  animation?: ChartsPlotPivotpointsDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23505,13 +23506,13 @@ type plotPivotpointsDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels70 = {
+module ChartsPlotPivotpointsOptionsDataLabels = {
   type t
   external fromPlotPivotpointsDataLabelsOptions: plotPivotpointsDataLabelsOptions => t = "%identity"
   external fromPlotPivotpointsDataLabelsOptionss: array<plotPivotpointsDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting58 = {
+module ChartsPlotPivotpointsOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPivotpointsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23546,8 +23547,8 @@ type plotPivotpointsOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels70.t,
-  dataSorting?: DataSorting58.t,
+  dataLabels?: ChartsPlotPivotpointsOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPivotpointsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -23594,7 +23595,7 @@ type plotPivotpointsOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation70 = {
+module ChartsPlotPointandfigureDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23605,7 +23606,7 @@ type plotPointandfigureDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation70.t,
+  animation?: ChartsPlotPointandfigureDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23635,7 +23636,7 @@ type plotPointandfigureDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels71 = {
+module ChartsPlotPointandfigureOptionsDataLabels = {
   type t
   external fromPlotPointandfigureDataLabelsOptions: plotPointandfigureDataLabelsOptions => t =
     "%identity"
@@ -23643,7 +23644,7 @@ module DataLabels71 = {
     plotPointandfigureDataLabelsOptions,
   > => t = "%identity"
 }
-module DataSorting59 = {
+module ChartsPlotPointandfigureOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPointandfigureDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23670,8 +23671,8 @@ type plotPointandfigureOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: exportingAccessibilityOptions,
-  dataLabels?: DataLabels71.t,
-  dataSorting?: DataSorting59.t,
+  dataLabels?: ChartsPlotPointandfigureOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPointandfigureOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -23727,7 +23728,7 @@ type plotPointandfigureOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation71 = {
+module ChartsPlotPolygonDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23738,7 +23739,7 @@ type plotPolygonDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation71.t,
+  animation?: ChartsPlotPolygonDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23768,12 +23769,12 @@ type plotPolygonDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels72 = {
+module ChartsPlotPolygonOptionsDataLabels = {
   type t
   external fromPlotPolygonDataLabelsOptions: plotPolygonDataLabelsOptions => t = "%identity"
   external fromPlotPolygonDataLabelsOptionss: array<plotPolygonDataLabelsOptions> => t = "%identity"
 }
-module DataSorting60 = {
+module ChartsPlotPolygonOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPolygonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23801,8 +23802,8 @@ type plotPolygonOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels72.t,
-  dataSorting?: DataSorting60.t,
+  dataLabels?: ChartsPlotPolygonOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPolygonOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -23853,7 +23854,7 @@ type plotPolygonOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation72 = {
+module ChartsPlotPpoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -23864,7 +23865,7 @@ type plotPpoDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation72.t,
+  animation?: ChartsPlotPpoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -23894,12 +23895,12 @@ type plotPpoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels73 = {
+module ChartsPlotPpoOptionsDataLabels = {
   type t
   external fromPlotPpoDataLabelsOptions: plotPpoDataLabelsOptions => t = "%identity"
   external fromPlotPpoDataLabelsOptionss: array<plotPpoDataLabelsOptions> => t = "%identity"
 }
-module DataSorting61 = {
+module ChartsPlotPpoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -23929,8 +23930,8 @@ type plotPpoOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels73.t,
-  dataSorting?: DataSorting61.t,
+  dataLabels?: ChartsPlotPpoOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPpoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24003,8 +24004,8 @@ type plotPriceenvelopesOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels74.t,
-  dataSorting?: DataSorting62.t,
+  dataLabels?: ChartsPlotPriceenvelopesOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPriceenvelopesOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24052,7 +24053,7 @@ type plotPriceenvelopesOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation74 = {
+module ChartsPlotPsarDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24063,7 +24064,7 @@ type plotPsarDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation74.t,
+  animation?: ChartsPlotPsarDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24093,12 +24094,12 @@ type plotPsarDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels75 = {
+module ChartsPlotPsarOptionsDataLabels = {
   type t
   external fromPlotPsarDataLabelsOptions: plotPsarDataLabelsOptions => t = "%identity"
   external fromPlotPsarDataLabelsOptionss: array<plotPsarDataLabelsOptions> => t = "%identity"
 }
-module DataSorting63 = {
+module ChartsPlotPsarOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotPsarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -24136,8 +24137,8 @@ type plotPsarOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels75.t,
-  dataSorting?: DataSorting63.t,
+  dataLabels?: ChartsPlotPsarOptionsDataLabels.t,
+  dataSorting?: ChartsPlotPsarOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24184,7 +24185,7 @@ type plotPsarOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation75 = {
+module ChartsPlotPyramid3dDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24195,7 +24196,7 @@ type plotPyramid3dDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation75.t,
+  animation?: ChartsPlotPyramid3dDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24225,7 +24226,7 @@ type plotPyramid3dDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels76 = {
+module ChartsPlotPyramid3dOptionsDataLabels = {
   type t
   external fromPlotPyramid3dDataLabelsOptions: plotPyramid3dDataLabelsOptions => t = "%identity"
   external fromPlotPyramid3dDataLabelsOptionss: array<plotPyramid3dDataLabelsOptions> => t =
@@ -24252,7 +24253,7 @@ type plotPyramid3dOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels76.t,
+  dataLabels?: ChartsPlotPyramid3dOptionsDataLabels.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -24315,14 +24316,14 @@ type plotPyramid3dOptions = {
 type plotRenkoBorderRadiusOptions = {
   where?: string,
 }
-module BorderRadius2 = {
+module ChartsPlotRenkoOptionsBorderRadius = {
   type t
   external fromString: string => t = "%identity"
   external fromNumber: float => t = "%identity"
   external fromBorderRadiusOptionsObject: borderRadiusOptionsObject => t = "%identity"
   external fromPlotRenkoBorderRadiusOptions: plotRenkoBorderRadiusOptions => t = "%identity"
 }
-module Animation76 = {
+module ChartsPlotRenkoDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24333,7 +24334,7 @@ type plotRenkoDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation76.t,
+  animation?: ChartsPlotRenkoDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24363,7 +24364,7 @@ type plotRenkoDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels77 = {
+module ChartsPlotRenkoOptionsDataLabels = {
   type t
   external fromPlotRenkoDataLabelsOptions: plotRenkoDataLabelsOptions => t = "%identity"
   external fromPlotRenkoDataLabelsOptionss: array<plotRenkoDataLabelsOptions> => t = "%identity"
@@ -24371,7 +24372,7 @@ module DataLabels77 = {
 type plotRenkoNavigatorOptions = {
   @as("type") type_?: string,
 }
-module NavigatorOptions = {
+module ChartsPlotRenkoOptionsNavigatorOptions = {
   type t
   external fromPlotSeriesOptions: plotSeriesOptions => t = "%identity"
   external fromPlotRenkoNavigatorOptions: plotRenkoNavigatorOptions => t = "%identity"
@@ -24382,7 +24383,7 @@ type plotRenkoOptions = {
   animation?: string,
   animationLimit?: float,
   borderColor?: ColorType.t,
-  borderRadius?: BorderRadius2.t,
+  borderRadius?: ChartsPlotRenkoOptionsBorderRadius.t,
   borderWidth?: float,
   boxSize?: float,
   className?: string,
@@ -24395,7 +24396,7 @@ type plotRenkoOptions = {
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels77.t,
+  dataLabels?: ChartsPlotRenkoOptionsDataLabels.t,
   description?: string,
   downColor?: string,
   enableMouseTracking?: bool,
@@ -24415,7 +24416,7 @@ type plotRenkoOptions = {
   lineWidth?: float,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: NavigatorOptions.t,
+  navigatorOptions?: ChartsPlotRenkoOptionsNavigatorOptions.t,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string,
@@ -24444,7 +24445,7 @@ type plotRenkoOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation77 = {
+module ChartsPlotRocDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24455,7 +24456,7 @@ type plotRocDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation77.t,
+  animation?: ChartsPlotRocDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24485,12 +24486,12 @@ type plotRocDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels78 = {
+module ChartsPlotRocOptionsDataLabels = {
   type t
   external fromPlotRocDataLabelsOptions: plotRocDataLabelsOptions => t = "%identity"
   external fromPlotRocDataLabelsOptionss: array<plotRocDataLabelsOptions> => t = "%identity"
 }
-module DataSorting64 = {
+module ChartsPlotRocOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotRocDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -24520,8 +24521,8 @@ type plotRocOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels78.t,
-  dataSorting?: DataSorting64.t,
+  dataLabels?: ChartsPlotRocOptionsDataLabels.t,
+  dataSorting?: ChartsPlotRocOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24568,7 +24569,7 @@ type plotRocOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation78 = {
+module ChartsPlotRsiDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24579,7 +24580,7 @@ type plotRsiDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation78.t,
+  animation?: ChartsPlotRsiDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24609,12 +24610,12 @@ type plotRsiDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels79 = {
+module ChartsPlotRsiOptionsDataLabels = {
   type t
   external fromPlotRsiDataLabelsOptions: plotRsiDataLabelsOptions => t = "%identity"
   external fromPlotRsiDataLabelsOptionss: array<plotRsiDataLabelsOptions> => t = "%identity"
 }
-module DataSorting65 = {
+module ChartsPlotRsiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotRsiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -24649,8 +24650,8 @@ type plotRsiOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels79.t,
-  dataSorting?: DataSorting65.t,
+  dataLabels?: ChartsPlotRsiOptionsDataLabels.t,
+  dataSorting?: ChartsPlotRsiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24714,7 +24715,7 @@ type plotSankeyOptions = {
   curveFactor?: float,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels30.t,
+  dataLabels?: ChartsPlotDependencywheelOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -24725,11 +24726,11 @@ type plotSankeyOptions = {
   label?: seriesLabelOptionsObject,
   legendSymbol?: optionsLegendSymbolValue,
   levels?: array<plotOrganizationLevelsOptions>,
-  linkColorMode?: StatCardV2Types.linkColorMode,
+  linkColorMode?: ChartsTypes.chartsPlotArcdiagramOptionsLinkColorMode,
   linkedTo?: string,
   linkOpacity?: float,
   minLinkWidth?: float,
-  nodeAlignment?: StatCardV2Types.nodeAlignment,
+  nodeAlignment?: ChartsTypes.chartsPlotOrganizationOptionsNodeAlignment,
   nodeDistance?: CommonTypes.stringOrNumber,
   nodePadding?: float,
   nodeWidth?: CommonTypes.stringOrNumber,
@@ -24752,7 +24753,7 @@ type plotSankeyOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module DataLabels80 = {
+module ChartsPlotScatterClusterOptionsDataLabels = {
   type t
   external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
   external fromPlotScatterClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
@@ -24761,7 +24762,7 @@ module DataLabels80 = {
 type plotScatterClusterOptions = {
   allowOverlap?: bool,
   animation?: string,
-  dataLabels?: DataLabels80.t,
+  dataLabels?: ChartsPlotScatterClusterOptionsDataLabels.t,
   drillToCluster?: bool,
   enabled?: bool,
   events?: plotScatterClusterEventsOptions,
@@ -24771,7 +24772,7 @@ type plotScatterClusterOptions = {
   states?: plotScatterClusterStatesOptions,
   zones?: array<plotScatterClusterZonesOptions>,
 }
-module Animation79 = {
+module ChartsPlotScatterDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24782,7 +24783,7 @@ type plotScatterDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation79.t,
+  animation?: ChartsPlotScatterDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24812,12 +24813,12 @@ type plotScatterDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels81 = {
+module ChartsPlotScatterOptionsDataLabels = {
   type t
   external fromPlotScatterDataLabelsOptions: plotScatterDataLabelsOptions => t = "%identity"
   external fromPlotScatterDataLabelsOptionss: array<plotScatterDataLabelsOptions> => t = "%identity"
 }
-module DataSorting66 = {
+module ChartsPlotScatterOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotScatterDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -24848,8 +24849,8 @@ type plotScatterOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels81.t,
-  dataSorting?: DataSorting66.t,
+  dataLabels?: ChartsPlotScatterOptionsDataLabels.t,
+  dataSorting?: ChartsPlotScatterOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -24902,7 +24903,7 @@ type plotScatterOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation80 = {
+module ChartsPlotScatter3dDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -24913,7 +24914,7 @@ type plotScatter3dDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation80.t,
+  animation?: ChartsPlotScatter3dDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -24943,13 +24944,13 @@ type plotScatter3dDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels82 = {
+module ChartsPlotScatter3dOptionsDataLabels = {
   type t
   external fromPlotScatter3dDataLabelsOptions: plotScatter3dDataLabelsOptions => t = "%identity"
   external fromPlotScatter3dDataLabelsOptionss: array<plotScatter3dDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting67 = {
+module ChartsPlotScatter3dOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotScatter3dDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -24971,8 +24972,8 @@ type plotScatter3dOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels82.t,
-  dataSorting?: DataSorting67.t,
+  dataLabels?: ChartsPlotScatter3dOptionsDataLabels.t,
+  dataSorting?: ChartsPlotScatter3dOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25044,8 +25045,8 @@ type plotSlowstochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels83.t,
-  dataSorting?: DataSorting68.t,
+  dataLabels?: ChartsPlotSlowstochasticOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSlowstochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25118,8 +25119,8 @@ type plotSmaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels84.t,
-  dataSorting?: DataSorting69.t,
+  dataLabels?: ChartsPlotSmaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25179,7 +25180,7 @@ type plotSolidgaugeOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels85.t,
+  dataLabels?: ChartsPlotSolidgaugeOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25219,7 +25220,7 @@ type plotSolidgaugeOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module Animation84 = {
+module ChartsPlotSplineDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -25230,7 +25231,7 @@ type plotSplineDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation84.t,
+  animation?: ChartsPlotSplineDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -25260,12 +25261,12 @@ type plotSplineDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels86 = {
+module ChartsPlotSplineOptionsDataLabels = {
   type t
   external fromPlotSplineDataLabelsOptions: plotSplineDataLabelsOptions => t = "%identity"
   external fromPlotSplineDataLabelsOptionss: array<plotSplineDataLabelsOptions> => t = "%identity"
 }
-module DataSorting70 = {
+module ChartsPlotSplineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotSplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -25294,8 +25295,8 @@ type plotSplineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels86.t,
-  dataSorting?: DataSorting70.t,
+  dataLabels?: ChartsPlotSplineOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSplineOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -25374,8 +25375,8 @@ type plotStochasticOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels87.t,
-  dataSorting?: DataSorting71.t,
+  dataLabels?: ChartsPlotStochasticOptionsDataLabels.t,
+  dataSorting?: ChartsPlotStochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25423,7 +25424,7 @@ type plotStochasticOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation86 = {
+module ChartsPlotStreamgraphDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -25434,7 +25435,7 @@ type plotStreamgraphDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation86.t,
+  animation?: ChartsPlotStreamgraphDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -25464,13 +25465,13 @@ type plotStreamgraphDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels88 = {
+module ChartsPlotStreamgraphOptionsDataLabels = {
   type t
   external fromPlotStreamgraphDataLabelsOptions: plotStreamgraphDataLabelsOptions => t = "%identity"
   external fromPlotStreamgraphDataLabelsOptionss: array<plotStreamgraphDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting72 = {
+module ChartsPlotStreamgraphOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotStreamgraphDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -25499,8 +25500,8 @@ type plotStreamgraphOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels88.t,
-  dataSorting?: DataSorting72.t,
+  dataLabels?: ChartsPlotStreamgraphOptionsDataLabels.t,
+  dataSorting?: ChartsPlotStreamgraphOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -25578,7 +25579,7 @@ type plotSunburstOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels89.t,
+  dataLabels?: ChartsPlotSunburstOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25640,8 +25641,8 @@ type plotSupertrendOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels90.t,
-  dataSorting?: DataSorting73.t,
+  dataLabels?: ChartsPlotSupertrendOptionsDataLabels.t,
+  dataSorting?: ChartsPlotSupertrendOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25688,7 +25689,7 @@ type plotSupertrendOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation89 = {
+module ChartsPlotTemaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -25699,7 +25700,7 @@ type plotTemaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation89.t,
+  animation?: ChartsPlotTemaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -25729,12 +25730,12 @@ type plotTemaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels91 = {
+module ChartsPlotTemaOptionsDataLabels = {
   type t
   external fromPlotTemaDataLabelsOptions: plotTemaDataLabelsOptions => t = "%identity"
   external fromPlotTemaDataLabelsOptionss: array<plotTemaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting74 = {
+module ChartsPlotTemaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotTemaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -25762,8 +25763,8 @@ type plotTemaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels91.t,
-  dataSorting?: DataSorting74.t,
+  dataLabels?: ChartsPlotTemaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotTemaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25830,7 +25831,7 @@ type plotTiledwebmapOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module Animation90 = {
+module ChartsPlotTilemapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -25841,7 +25842,7 @@ type plotTilemapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation90.t,
+  animation?: ChartsPlotTilemapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -25871,7 +25872,7 @@ type plotTilemapDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels92 = {
+module ChartsPlotTilemapOptionsDataLabels = {
   type t
   external fromPlotTilemapDataLabelsOptions: plotTilemapDataLabelsOptions => t = "%identity"
   external fromPlotTilemapDataLabelsOptionss: array<plotTilemapDataLabelsOptions> => t = "%identity"
@@ -25893,7 +25894,7 @@ type plotTilemapOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels92.t,
+  dataLabels?: ChartsPlotTilemapOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -25948,7 +25949,7 @@ type plotTimelineOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels93.t,
+  dataLabels?: ChartsPlotTimelineOptionsDataLabels.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -26003,7 +26004,7 @@ type plotTreegraphOptions = {
   cropThreshold?: float,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels94.t,
+  dataLabels?: ChartsPlotTreegraphOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26075,7 +26076,7 @@ type plotTreemapOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels95.t,
+  dataLabels?: ChartsPlotTreemapOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26130,7 +26131,7 @@ type plotTreemapOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation94 = {
+module ChartsPlotTrendlineDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26141,7 +26142,7 @@ type plotTrendlineDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation94.t,
+  animation?: ChartsPlotTrendlineDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26171,13 +26172,13 @@ type plotTrendlineDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels96 = {
+module ChartsPlotTrendlineOptionsDataLabels = {
   type t
   external fromPlotTrendlineDataLabelsOptions: plotTrendlineDataLabelsOptions => t = "%identity"
   external fromPlotTrendlineDataLabelsOptionss: array<plotTrendlineDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting75 = {
+module ChartsPlotTrendlineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotTrendlineDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -26211,8 +26212,8 @@ type plotTrendlineOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels96.t,
-  dataSorting?: DataSorting75.t,
+  dataLabels?: ChartsPlotTrendlineOptionsDataLabels.t,
+  dataSorting?: ChartsPlotTrendlineOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26259,7 +26260,7 @@ type plotTrendlineOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation95 = {
+module ChartsPlotTrixDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26270,7 +26271,7 @@ type plotTrixDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation95.t,
+  animation?: ChartsPlotTrixDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26300,12 +26301,12 @@ type plotTrixDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels97 = {
+module ChartsPlotTrixOptionsDataLabels = {
   type t
   external fromPlotTrixDataLabelsOptions: plotTrixDataLabelsOptions => t = "%identity"
   external fromPlotTrixDataLabelsOptionss: array<plotTrixDataLabelsOptions> => t = "%identity"
 }
-module DataSorting76 = {
+module ChartsPlotTrixOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotTrixDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -26333,8 +26334,8 @@ type plotTrixOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels97.t,
-  dataSorting?: DataSorting76.t,
+  dataLabels?: ChartsPlotTrixOptionsDataLabels.t,
+  dataSorting?: ChartsPlotTrixOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26399,7 +26400,7 @@ type plotVariablepieOptions = {
   crisp?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels37.t,
+  dataLabels?: ChartsPlotFunnelOptionsDataLabels.t,
   depth?: float,
   description?: string,
   enableMouseTracking?: bool,
@@ -26445,7 +26446,7 @@ type plotVariablepieOptions = {
   zMin?: float,
   zoomEnabled?: bool,
 }
-module Animation96 = {
+module ChartsPlotVariwideDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26456,7 +26457,7 @@ type plotVariwideDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation96.t,
+  animation?: ChartsPlotVariwideDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26486,13 +26487,13 @@ type plotVariwideDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels98 = {
+module ChartsPlotVariwideOptionsDataLabels = {
   type t
   external fromPlotVariwideDataLabelsOptions: plotVariwideDataLabelsOptions => t = "%identity"
   external fromPlotVariwideDataLabelsOptionss: array<plotVariwideDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting77 = {
+module ChartsPlotVariwideOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotVariwideDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -26518,8 +26519,8 @@ type plotVariwideOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels98.t,
-  dataSorting?: DataSorting77.t,
+  dataLabels?: ChartsPlotVariwideOptionsDataLabels.t,
+  dataSorting?: ChartsPlotVariwideOptionsDataSorting.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -26595,8 +26596,8 @@ type plotVbpOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels99.t,
-  dataSorting?: DataSorting78.t,
+  dataLabels?: ChartsPlotVbpOptionsDataLabels.t,
+  dataSorting?: ChartsPlotVbpOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26646,7 +26647,7 @@ type plotVbpOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module DataLabels100 = {
+module ChartsPlotVectorClusterOptionsDataLabels = {
   type t
   external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
   external fromPlotVectorClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
@@ -26655,7 +26656,7 @@ module DataLabels100 = {
 type plotVectorClusterOptions = {
   allowOverlap?: bool,
   animation?: string,
-  dataLabels?: DataLabels100.t,
+  dataLabels?: ChartsPlotVectorClusterOptionsDataLabels.t,
   drillToCluster?: bool,
   enabled?: bool,
   events?: plotScatterClusterEventsOptions,
@@ -26665,7 +26666,7 @@ type plotVectorClusterOptions = {
   states?: plotScatterClusterStatesOptions,
   zones?: array<plotScatterClusterZonesOptions>,
 }
-module Animation98 = {
+module ChartsPlotVectorDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26676,7 +26677,7 @@ type plotVectorDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation98.t,
+  animation?: ChartsPlotVectorDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26706,12 +26707,12 @@ type plotVectorDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels101 = {
+module ChartsPlotVectorOptionsDataLabels = {
   type t
   external fromPlotVectorDataLabelsOptions: plotVectorDataLabelsOptions => t = "%identity"
   external fromPlotVectorDataLabelsOptionss: array<plotVectorDataLabelsOptions> => t = "%identity"
 }
-module DataSorting79 = {
+module ChartsPlotVectorOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotVectorDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -26736,8 +26737,8 @@ type plotVectorOptions = {
   cumulativeStart?: bool,
   cursor?: string,
   custom?: Dict.t<string>,
-  dataLabels?: DataLabels101.t,
-  dataSorting?: DataSorting79.t,
+  dataLabels?: ChartsPlotVectorOptionsDataLabels.t,
+  dataSorting?: ChartsPlotVectorOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26804,7 +26805,7 @@ type plotVennOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels103.t,
+  dataLabels?: ChartsPlotVennOptionsDataLabels.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26834,7 +26835,7 @@ type plotVennOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module Animation100 = {
+module ChartsPlotVwapDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26845,7 +26846,7 @@ type plotVwapDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation100.t,
+  animation?: ChartsPlotVwapDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26875,12 +26876,12 @@ type plotVwapDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels104 = {
+module ChartsPlotVwapOptionsDataLabels = {
   type t
   external fromPlotVwapDataLabelsOptions: plotVwapDataLabelsOptions => t = "%identity"
   external fromPlotVwapDataLabelsOptionss: array<plotVwapDataLabelsOptions> => t = "%identity"
 }
-module DataSorting80 = {
+module ChartsPlotVwapOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotVwapDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -26910,8 +26911,8 @@ type plotVwapOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels104.t,
-  dataSorting?: DataSorting80.t,
+  dataLabels?: ChartsPlotVwapOptionsDataLabels.t,
+  dataSorting?: ChartsPlotVwapOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -26958,7 +26959,7 @@ type plotVwapOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation101 = {
+module ChartsPlotWaterfallDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -26969,7 +26970,7 @@ type plotWaterfallDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation101.t,
+  animation?: ChartsPlotWaterfallDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -26999,13 +27000,13 @@ type plotWaterfallDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels105 = {
+module ChartsPlotWaterfallOptionsDataLabels = {
   type t
   external fromPlotWaterfallDataLabelsOptions: plotWaterfallDataLabelsOptions => t = "%identity"
   external fromPlotWaterfallDataLabelsOptionss: array<plotWaterfallDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting81 = {
+module ChartsPlotWaterfallOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotWaterfallDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -27032,8 +27033,8 @@ type plotWaterfallOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
-  dataLabels?: DataLabels105.t,
-  dataSorting?: DataSorting81.t,
+  dataLabels?: ChartsPlotWaterfallOptionsDataLabels.t,
+  dataSorting?: ChartsPlotWaterfallOptionsDataSorting.t,
   depth?: float,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
@@ -27091,7 +27092,7 @@ type plotWaterfallOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation102 = {
+module ChartsPlotWilliamsrDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -27102,7 +27103,7 @@ type plotWilliamsrDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation102.t,
+  animation?: ChartsPlotWilliamsrDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -27132,13 +27133,13 @@ type plotWilliamsrDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels106 = {
+module ChartsPlotWilliamsrOptionsDataLabels = {
   type t
   external fromPlotWilliamsrDataLabelsOptions: plotWilliamsrDataLabelsOptions => t = "%identity"
   external fromPlotWilliamsrDataLabelsOptionss: array<plotWilliamsrDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting82 = {
+module ChartsPlotWilliamsrOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotWilliamsrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -27168,8 +27169,8 @@ type plotWilliamsrOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels106.t,
-  dataSorting?: DataSorting82.t,
+  dataLabels?: ChartsPlotWilliamsrOptionsDataLabels.t,
+  dataSorting?: ChartsPlotWilliamsrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -27216,7 +27217,7 @@ type plotWilliamsrOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation103 = {
+module ChartsPlotWindbarbDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -27227,7 +27228,7 @@ type plotWindbarbDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation103.t,
+  animation?: ChartsPlotWindbarbDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -27257,13 +27258,13 @@ type plotWindbarbDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels107 = {
+module ChartsPlotWindbarbOptionsDataLabels = {
   type t
   external fromPlotWindbarbDataLabelsOptions: plotWindbarbDataLabelsOptions => t = "%identity"
   external fromPlotWindbarbDataLabelsOptionss: array<plotWindbarbDataLabelsOptions> => t =
     "%identity"
 }
-module DataSorting83 = {
+module ChartsPlotWindbarbOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotWindbarbDataSortingOptions: dataSortingOptionsObject => t = "%identity"
@@ -27294,8 +27295,8 @@ type plotWindbarbOptions = {
   cursor?: string,
   custom?: Dict.t<string>,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels107.t,
-  dataSorting?: DataSorting83.t,
+  dataLabels?: ChartsPlotWindbarbOptionsDataLabels.t,
+  dataSorting?: ChartsPlotWindbarbOptionsDataSorting.t,
   depth?: float,
   description?: string,
   edgeColor?: string,
@@ -27356,7 +27357,7 @@ type plotWindbarbOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation104 = {
+module ChartsPlotWmaDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -27367,7 +27368,7 @@ type plotWmaDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation104.t,
+  animation?: ChartsPlotWmaDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -27397,12 +27398,12 @@ type plotWmaDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels108 = {
+module ChartsPlotWmaOptionsDataLabels = {
   type t
   external fromPlotWmaDataLabelsOptions: plotWmaDataLabelsOptions => t = "%identity"
   external fromPlotWmaDataLabelsOptionss: array<plotWmaDataLabelsOptions> => t = "%identity"
 }
-module DataSorting84 = {
+module ChartsPlotWmaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotWmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -27432,8 +27433,8 @@ type plotWmaOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels108.t,
-  dataSorting?: DataSorting84.t,
+  dataLabels?: ChartsPlotWmaOptionsDataLabels.t,
+  dataSorting?: ChartsPlotWmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -27538,7 +27539,7 @@ type plotWordcloudOptions = {
   visible?: bool,
   zoomEnabled?: bool,
 }
-module Animation105 = {
+module ChartsPlotXrangeDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -27548,7 +27549,7 @@ module Animation105 = {
 type plotXrangeDataLabelsStyleOptions = {
   whiteSpace?: string,
 }
-module Style24 = {
+module ChartsPlotXrangeDataLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromPlotXrangeDataLabelsStyleOptions: plotXrangeDataLabelsStyleOptions => t = "%identity"
@@ -27557,7 +27558,7 @@ type plotXrangeDataLabelsOptions = {
   align?: string,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation105.t,
+  animation?: ChartsPlotXrangeDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -27580,14 +27581,14 @@ type plotXrangeDataLabelsOptions = {
   rotation?: float,
   shadow?: string,
   shape?: string,
-  style?: Style24.t,
+  style?: ChartsPlotXrangeDataLabelsOptionsStyle.t,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
   x?: float,
   y?: float,
 }
-module DataLabels109 = {
+module ChartsPlotXrangeOptionsDataLabels = {
   type t
   external fromPlotXrangeDataLabelsOptions: plotXrangeDataLabelsOptions => t = "%identity"
   external fromPlotXrangeDataLabelsOptionss: array<plotXrangeDataLabelsOptions> => t = "%identity"
@@ -27622,7 +27623,7 @@ type plotXrangeOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels109.t,
+  dataLabels?: ChartsPlotXrangeOptionsDataLabels.t,
   description?: string,
   dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
@@ -27669,7 +27670,7 @@ type plotXrangeOptions = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-module Animation106 = {
+module ChartsPlotZigzagDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
@@ -27680,7 +27681,7 @@ type plotZigzagDataLabelsOptions = {
   align?: alignValue,
   alignTo?: string,
   allowOverlap?: bool,
-  animation?: Animation106.t,
+  animation?: ChartsPlotZigzagDataLabelsOptionsAnimation.t,
   backgroundColor?: ColorType.t,
   borderColor?: ColorType.t,
   borderRadius?: float,
@@ -27710,12 +27711,12 @@ type plotZigzagDataLabelsOptions = {
   x?: float,
   y?: float,
 }
-module DataLabels110 = {
+module ChartsPlotZigzagOptionsDataLabels = {
   type t
   external fromPlotZigzagDataLabelsOptions: plotZigzagDataLabelsOptions => t = "%identity"
   external fromPlotZigzagDataLabelsOptionss: array<plotZigzagDataLabelsOptions> => t = "%identity"
 }
-module DataSorting85 = {
+module ChartsPlotZigzagOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotZigzagDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
@@ -27752,8 +27753,8 @@ type plotZigzagOptions = {
   custom?: Dict.t<string>,
   dashStyle?: dashStyleValue,
   dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: DataLabels110.t,
-  dataSorting?: DataSorting85.t,
+  dataLabels?: ChartsPlotZigzagOptionsDataLabels.t,
+  dataSorting?: ChartsPlotZigzagOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
   events?: seriesEventsOptionsObject,
@@ -28003,7 +28004,6 @@ type unknownSeriesOptions = {
   className?: string,
   id?: string,
   name?: string,
-  description?: string,
   events?: seriesEventsOptionsObject,
   index?: int,
   xAxis?: CommonTypes.stringOrNumber,
@@ -28014,6 +28014,7 @@ type unknownSeriesOptions = {
   mapData?: string,
   stack?: CommonTypes.stringOrNumber,
   custom?: Dict.t<string>,
+  description?: string,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   legendSymbol?: optionsLegendSymbolValue,
@@ -28022,7 +28023,7 @@ type unknownSeriesOptions = {
   legendIndex?: float,
   data?: array<JSON.t>,
 }
-module Series2 = {
+module ChartsOptionsSeries = {
   type t
   external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
   external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
@@ -28273,7 +28274,7 @@ type stockToolsGuiOptions = {
 type stockToolsOptions = {
   gui?: stockToolsGuiOptions,
 }
-module Style25 = {
+module ChartsSubtitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromSubtitleStyleOptions: captionStyleOptions => t = "%identity"
@@ -28281,7 +28282,7 @@ module Style25 = {
 type subtitleOptions = {
   align?: alignValue,
   floating?: bool,
-  style?: Style25.t,
+  style?: ChartsSubtitleOptionsStyle.t,
   text?: string,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -28293,7 +28294,7 @@ type timeOptions = {
   timezone?: string,
   timezoneOffset?: float,
 }
-module Style26 = {
+module ChartsTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromTitleStyleOptions: globalButtonThemeStatesSelectStyleOptions => t = "%identity"
@@ -28303,24 +28304,24 @@ type titleOptions = {
   floating?: bool,
   margin?: float,
   minScale?: float,
-  style?: Style26.t,
+  style?: ChartsTitleOptionsStyle.t,
   text?: string,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
   x?: float,
   y?: float,
 }
-module XAxis2 = {
+module ChartsOptionsXAxis = {
   type t
   external fromXAxisOptions: xAxisOptions => t = "%identity"
   external fromXAxisOptionss: array<xAxisOptions> => t = "%identity"
 }
-module YAxis2 = {
+module ChartsOptionsYAxis = {
   type t
   external fromYAxisOptions: yAxisOptions => t = "%identity"
   external fromYAxisOptionss: array<yAxisOptions> => t = "%identity"
 }
-module Style27 = {
+module ChartsZAxisLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObject => t = "%identity"
   external fromZAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
@@ -28342,7 +28343,7 @@ type zAxisLabelsOptions = {
   skew3d?: bool,
   staggerLines?: float,
   step?: float,
-  style?: Style27.t,
+  style?: ChartsZAxisLabelsOptionsStyle.t,
   useHTML?: bool,
   x?: float,
   y?: float,
@@ -28481,28 +28482,28 @@ type zAxisOptions = {
   zIndex?: int,
   zoomEnabled?: bool,
 }
-module ZAxis = {
+module ChartsOptionsZAxis = {
   type t
   external fromZAxisOptions: zAxisOptions => t = "%identity"
   external fromZAxisOptionss: array<zAxisOptions> => t = "%identity"
 }
-type rec responsiveRulesOptions<'a> = {
-  chartOptions?: options<'a>,
+type rec responsiveRulesOptions<'b> = {
+  chartOptions?: options<'b>,
   condition?: responsiveRulesConditionOptions,
 }
-and responsiveOptions<'a> = {
-  rules?: array<responsiveRulesOptions<'a>>,
+and responsiveOptions<'b> = {
+  rules?: array<responsiveRulesOptions<'b>>,
 }
-and exportingOptions<'a> = {
+and exportingOptions<'b> = {
   accessibility?: exportingAccessibilityOptions,
   allowHTML?: bool,
   allowTableSorting?: bool,
   applyStyleSheets?: bool,
   buttons?: string,
-  chartOptions?: options<'a>,
+  chartOptions?: options<'b>,
   csv?: exportingCsvOptions,
   enabled?: bool,
-  error?: (exportingOptions<'a>, JsError.t) => unit,
+  error?: (exportingOptions<'b>, JsError.t) => unit,
   fallbackToExportServer?: bool,
   fetchOptions?: string,
   filename?: string,
@@ -28523,12 +28524,12 @@ and exportingOptions<'a> = {
   useRowspanHeaders?: bool,
   width?: float,
 }
-and dataOptions<'a> = {
+and dataOptions<'b> = {
   beforeParse?: string => string,
   columns?: array<array<CommonTypes.stringOrNumber>>,
   columnsURL?: string,
   columnTypes?: optionsColumnTypesValue,
-  complete?: options<'a> => unit,
+  complete?: options<'b> => unit,
   csv?: string,
   csvURL?: string,
   dataRefreshRate?: float,
@@ -28553,20 +28554,20 @@ and dataOptions<'a> = {
   switchRowsAndColumns?: bool,
   table?: string,
 }
-and options<'a> = {
+and options<'b> = {
   accessibility?: accessibilityOptions,
-  annotations?: array<annotationsOptions<'a>>,
+  annotations?: array<annotationsOptions<'b>>,
   boost?: boostOptions,
   caption?: captionOptions,
   chart?: chartOptions,
-  colorAxis?: ColorAxis.t,
+  colorAxis?: ChartsOptionsColorAxis.t,
   colors?: array<ColorType.t>,
   connectors?: connectorsOptions,
   credits?: creditsOptions,
-  data?: dataOptions<'a>,
+  data?: dataOptions<'b>,
   defs?: string,
   drilldown?: drilldownOptions,
-  exporting?: exportingOptions<'a>,
+  exporting?: exportingOptions<'b>,
   global?: globalOptions,
   lang?: langOptions,
   legend?: legendOptions,
@@ -28576,21 +28577,21 @@ and options<'a> = {
   navigation?: navigationOptions,
   navigator?: navigatorOptions,
   noData?: noDataOptions,
-  pane?: Pane.t,
+  pane?: ChartsOptionsPane.t,
   plotOptions?: plotOptions,
   rangeSelector?: rangeSelectorOptions,
-  responsive?: responsiveOptions<'a>,
+  responsive?: responsiveOptions<'b>,
   scrollbar?: scrollbarOptions,
-  series?: array<Series2.t>,
+  series?: array<ChartsOptionsSeries.t>,
   sonification?: sonificationOptions,
   stockTools?: stockToolsOptions,
   subtitle?: subtitleOptions,
   time?: timeOptions,
   title?: titleOptions,
   tooltip?: tooltipOptions,
-  xAxis?: XAxis2.t,
-  yAxis?: YAxis2.t,
-  zAxis?: ZAxis.t,
+  xAxis?: ChartsOptionsXAxis.t,
+  yAxis?: ChartsOptionsYAxis.t,
+  zAxis?: ChartsOptionsZAxis.t,
 }
 type mapViewInsetsOptions = {
   borderColor?: ColorType.t,

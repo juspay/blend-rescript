@@ -74,6 +74,17 @@ type responsiveChartV2Tokens = {
   sm: chartV2TokensType,
   lg: chartV2TokensType,
 }
+type chartV2SkeletonProps = {
+  show: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+  height?: float,
+}
+type chartV2NoDataProps = {
+  title?: string,
+  subtitle?: string,
+  slot?: React.element,
+  button?: ButtonTypes.buttonProps,
+}
 type chartV2CustomLegendItem = {
   key: string,
   name: string,

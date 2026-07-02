@@ -15,7 +15,7 @@ external make: (
   ~onCancel: unit => unit=?,
   ~onConfirm: unit => unit=?,
   ~showCancelButton: bool=?,
-  ~direction: DateRangePickerTypes.side=?,
+  ~direction: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide=?,
   ~modal: bool=?,
   ~dismissible: bool=?,
   ~mobileOffset: DrawerTypes.drawerMobileOffsetConfig=?,
