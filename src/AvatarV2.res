@@ -5,7 +5,7 @@ type props = {
   fallbackText?: string,
   size?: AvatarV2Types.avatarV2Size,
   shape?: AvatarV2Types.avatarV2Shape,
-  status?: AvatarV2Types.avatarV2StatusConfig2,
+  status?: AvatarV2Types.avatarV2StatusConfig,
   leftSlot?: React.element,
   rightSlot?: React.element,
   skeleton?: AvatarV2Types.avatarV2SkeletonConfig,

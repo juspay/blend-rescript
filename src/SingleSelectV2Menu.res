@@ -8,7 +8,7 @@ external make: (
   ~search: EditorSharedTypes.selectV2SearchConfig=?,
   ~disabled: bool=?,
   ~menuPosition: EditorSharedTypes.selectV2MenuPosition=?,
-  ~collisionBoundary: ChatInputTypes.CollisonBoundaryRef.t=?, // ⓘ was `Element | Element[]` — opaque; build with CollisonBoundaryRef.fromElement / CollisonBoundaryRef.fromElements
+  ~collisionBoundary: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t=?, // ⓘ was `Element | Element[]` — opaque; build with ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElement / ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElements
   @as("open") ~open_: bool,
   ~onOpenChange: bool => unit,
   ~size: SelectV2Types.selectV2Size=?,

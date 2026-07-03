@@ -8,32 +8,32 @@ type stepperV2StepStatus =
 type stepperV2Type =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
-type stepperV2DefaultConfig = {
+type stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig = {
   default: string,
   hover: string,
   disabled: string,
   focus: string,
 }
-type stepperV2CircleConfig = {
-  default: stepperV2DefaultConfig,
-  completed: stepperV2DefaultConfig,
-  current: stepperV2DefaultConfig,
-  pending: stepperV2DefaultConfig,
-  disabled: stepperV2DefaultConfig,
-  skipped: stepperV2DefaultConfig,
+type stepperV2StepperV2TokensTypeContainerStepCircleConfig = {
+  default: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  completed: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  current: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  pending: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  disabled: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  skipped: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
 }
-type stepperV2StepConfig = {
-  circle: stepperV2CircleConfig,
-  icon: stepperV2CircleConfig,
+type stepperV2StepperV2TokensTypeContainerStepConfig = {
+  circle: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
+  icon: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
 }
-type stepperV2LineConfig = {
+type stepperV2StepperV2TokensTypeContainerConnectorLineConfig = {
   color: string,
   height: string,
 }
-type stepperV2ConnectorConfig = {
-  line: stepperV2LineConfig,
+type stepperV2StepperV2TokensTypeContainerConnectorConfig = {
+  line: stepperV2StepperV2TokensTypeContainerConnectorLineConfig,
 }
-type stepperV2DotConfig = {
+type stepperV2StepperV2TokensTypeContainerSubConnectorDotConfig = {
   border: string,
   borderRadius: string,
   height: string,
@@ -43,53 +43,53 @@ type stepperV2DotConfig = {
   paddingBottom: string,
   paddingLeft: string,
 }
-type stepperV2IconConfig = {
+type stepperV2StepperV2TokensTypeContainerSubConnectorExpanderIconConfig = {
   color: string,
 }
-type stepperV2ExpanderConfig = {
-  icon: stepperV2IconConfig,
+type stepperV2StepperV2TokensTypeContainerSubConnectorExpanderConfig = {
+  icon: stepperV2StepperV2TokensTypeContainerSubConnectorExpanderIconConfig,
   width: string,
 }
-type stepperV2DefaultConfig2 = {
+type stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type stepperV2TextConfig = {
-  default: stepperV2DefaultConfig2,
-  completed: stepperV2DefaultConfig2,
-  current: stepperV2DefaultConfig2,
-  pending: stepperV2DefaultConfig2,
-  disabled: stepperV2DefaultConfig2,
-  skipped: stepperV2DefaultConfig2,
+type stepperV2StepperV2TokensTypeContainerSubConnectorTextConfig = {
+  default: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  completed: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  current: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  pending: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  disabled: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  skipped: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
 }
-type stepperV2SubConnectorConfig = {
-  line: stepperV2LineConfig,
-  dot: stepperV2DotConfig,
-  expander: stepperV2ExpanderConfig,
-  text: stepperV2TextConfig,
+type stepperV2StepperV2TokensTypeContainerSubConnectorConfig = {
+  line: stepperV2StepperV2TokensTypeContainerConnectorLineConfig,
+  dot: stepperV2StepperV2TokensTypeContainerSubConnectorDotConfig,
+  expander: stepperV2StepperV2TokensTypeContainerSubConnectorExpanderConfig,
+  text: stepperV2StepperV2TokensTypeContainerSubConnectorTextConfig,
 }
-type stepperV2TitleConfig = {
-  text: stepperV2CircleConfig,
+type stepperV2StepperV2TokensTypeContainerTitleConfig = {
+  text: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
 }
-type stepperV2TextConfig2 = {
+type stepperV2StepperV2TokensTypeContainerDescriptionTextConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type stepperV2DescriptionConfig = {
-  text: stepperV2TextConfig2,
+type stepperV2StepperV2TokensTypeContainerDescriptionConfig = {
+  text: stepperV2StepperV2TokensTypeContainerDescriptionTextConfig,
 }
-type stepperV2ContainerConfig = {
+type stepperV2StepperV2TokensTypeContainerConfig = {
   gap: string,
-  step: stepperV2StepConfig,
-  connector: stepperV2ConnectorConfig,
-  subConnector: stepperV2SubConnectorConfig,
-  title: stepperV2TitleConfig,
-  description: stepperV2DescriptionConfig,
+  step: stepperV2StepperV2TokensTypeContainerStepConfig,
+  connector: stepperV2StepperV2TokensTypeContainerConnectorConfig,
+  subConnector: stepperV2StepperV2TokensTypeContainerSubConnectorConfig,
+  title: stepperV2StepperV2TokensTypeContainerTitleConfig,
+  description: stepperV2StepperV2TokensTypeContainerDescriptionConfig,
 }
 type stepperV2TokensType = {
-  container: stepperV2ContainerConfig,
+  container: stepperV2StepperV2TokensTypeContainerConfig,
 }
 type responsiveStepperV2Tokens = {
   sm: stepperV2TokensType,

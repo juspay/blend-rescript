@@ -12,7 +12,7 @@ external make: (
   ~onSelectAll: (bool, array<EditorSharedTypes.multiSelectV2GroupType>) => unit=?,
   ~maxSelections: float=?,
   ~menuPosition: EditorSharedTypes.selectV2MenuPosition=?,
-  ~collisionBoundary: ChatInputTypes.CollisonBoundaryRef.t=?, // ⓘ was `Element | Element[]` — opaque; build with CollisonBoundaryRef.fromElement / CollisonBoundaryRef.fromElements
+  ~collisionBoundary: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t=?, // ⓘ was `Element | Element[]` — opaque; build with ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElement / ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElements
   @as("open") ~open_: bool=?,
   ~onOpenChange: bool => unit=?,
   ~showActionButtons: bool=?,

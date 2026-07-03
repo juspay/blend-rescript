@@ -32,7 +32,7 @@ type props = {
   skeleton?: SelectV2Types.selectV2SkeletonProps,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonGroupPosition,
+  singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
 }
 
 @module("@juspay/blend-design-system")

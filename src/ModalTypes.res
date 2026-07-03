@@ -1,46 +1,46 @@
-type modalOverlayConfig = {
+type modalModalTokensTypeOverlayConfig = {
   backgroundColor: string,
 }
-type modalPaddingConfig = {
+type modalModalTokensTypeHeaderPaddingConfig = {
   x: string,
   y: string,
 }
-type modalTitleConfig = {
+type modalModalTokensTypeHeaderTextTitleConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
 }
-type modalTextConfig = {
-  title: modalTitleConfig,
-  subtitle: modalTitleConfig,
+type modalModalTokensTypeHeaderTextConfig = {
+  title: modalModalTokensTypeHeaderTextTitleConfig,
+  subtitle: modalModalTokensTypeHeaderTextTitleConfig,
 }
-type modalHeaderConfig = {
-  padding: modalPaddingConfig,
+type modalModalTokensTypeHeaderConfig = {
+  padding: modalModalTokensTypeHeaderPaddingConfig,
   borderBottom: string,
   backgroundColor: string,
-  text: modalTextConfig,
+  text: modalModalTokensTypeHeaderTextConfig,
 }
-type modalBodyConfig = {
+type modalModalTokensTypeBodyConfig = {
   padding: string,
   backgroundColor: string,
 }
-type modalFooterConfig = {
+type modalModalTokensTypeFooterConfig = {
   padding: string,
   borderTop: string,
   backgroundColor: string,
   gap: string,
 }
-type modalCloseButtonConfig = {
+type modalModalTokensTypeCloseButtonConfig = {
   color: string,
 }
 type modalTokensType = {
   boxShadow: string,
   borderRadius: string,
-  overlay: modalOverlayConfig,
-  header: modalHeaderConfig,
-  body: modalBodyConfig,
-  footer: modalFooterConfig,
-  closeButton: modalCloseButtonConfig,
+  overlay: modalModalTokensTypeOverlayConfig,
+  header: modalModalTokensTypeHeaderConfig,
+  body: modalModalTokensTypeBodyConfig,
+  footer: modalModalTokensTypeFooterConfig,
+  closeButton: modalModalTokensTypeCloseButtonConfig,
 }
 type responsiveModalTokens = {
   sm: modalTokensType,

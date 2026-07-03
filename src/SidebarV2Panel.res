@@ -16,6 +16,6 @@ external make: (
   ~hideToggleButton: bool=?,
   ~footer: React.element=?,
   ~setIsHovering: bool => unit=?,
-  ~sidebarState: SidebarV2Types.onSidebarStateChange=?,
+  ~sidebarState: SidebarV2Types.sidebarV2OnSidebarStateChange=?,
   ~tokens: SidebarV2Types.sidebarV2TokensType,
 ) => React.element = "SidebarV2Panel"

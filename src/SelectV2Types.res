@@ -14,13 +14,13 @@ type selectV2Side =
   | @as("left") Left
   | @as("right") Right
   | @as("bottom") Bottom
-type selectedPosition =
+type selectV2SelectedPosition =
   | @as("none") None
   | @as("middle") Middle
   | @as("first") First
   | @as("last") Last
   | @as("only") Only
-type mode =
+type selectV2Mode =
   | @as("single") Single
   | @as("multi") Multi
 type selectV2ItemStates =
@@ -44,7 +44,7 @@ type selectV2SkeletonProps = {
   show?: bool,
   variant?: SkeletonTypes.skeletonVariant,
 }
-type selectV2TooltipPropsConfig = {
+type selectV2SelectV2ItemTypeTooltipPropsConfig = {
   side?: TooltipTypes.tooltipSide,
   align?: TooltipTypes.tooltipAlign,
   size?: TooltipTypes.tooltipSize,
@@ -65,7 +65,7 @@ type rec selectV2ItemType = {
   onClick?: unit => unit,
   subMenu?: array<selectV2ItemType>,
   tooltip?: React.element,
-  tooltipProps?: selectV2TooltipPropsConfig,
+  tooltipProps?: selectV2SelectV2ItemTypeTooltipPropsConfig,
   disableTruncation?: bool,
 }
 type selectV2ItemStateToken = {
@@ -77,7 +77,7 @@ type selectV2ItemStateToken = {
   disabled: string,
   selected: string,
 }
-type selectV2OptionConfig = {
+type selectV2SelectV2MenuItemTokensBaseOptionConfig = {
   fontSize: string,
   fontWeight: string,
   color: selectV2ItemStateToken,
@@ -91,8 +91,8 @@ type selectV2MenuItemTokensBase = {
   borderRadius: string,
   gap: string,
   backgroundColor: selectV2ItemStateToken,
-  option: selectV2OptionConfig,
-  description: selectV2OptionConfig,
+  option: selectV2SelectV2MenuItemTokensBaseOptionConfig,
+  description: selectV2SelectV2MenuItemTokensBaseOptionConfig,
 }
 type useSelectV2MenuBehaviorParams = {
   @as("open") open_: bool,

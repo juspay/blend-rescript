@@ -1,6 +1,6 @@
 type props = {
   ...HtmlAttrs.inputHTMLAttributesOmitClassNameMaxMinNameOnBlurOnChangeOnFocusSizeSlotStepStyleValue,
-  slot?: EditorSharedTypes.inputsV2SlotConfig3,
+  slot?: EditorSharedTypes.inputsV2SlotConfig,
   value: Nullable.t<float>,
   unit?: string,
   onChange: ReactEvent.Form.t => unit,
@@ -9,7 +9,7 @@ type props = {
   step?: float,
   error?: EditorSharedTypes.inputsV2ErrorConfig,
   size?: EditorSharedTypes.inputSizeV2,
-  label?: EditorSharedTypes.inputsV2LabelConfig3,
+  label?: EditorSharedTypes.inputsV2LabelConfig,
   unitDirection?: EditorSharedTypes.numberInputV2Direction,
   helpIconText?: string,
   hintText?: string,

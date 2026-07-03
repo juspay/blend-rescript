@@ -13,41 +13,41 @@ type keyValuePairV2TextOverflowMode2 =
   | @as("wrap") Wrap
   | @as("truncate") Truncate
   | @as("wrap-clamp") WrapClamp
-type keyValuePairV2GapConfig = {
+type keyValuePairV2KeyValuePairV2TokensTypeGapConfig = {
   vertical: string,
   horizontal: string,
 }
-type keyValuePairV2KeyConfig = {
+type keyValuePairV2KeyValuePairV2TokensTypeKeyConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
   gap: string,
 }
-type keyValuePairV2FontSizeConfig = {
+type keyValuePairV2KeyValuePairV2TokensTypeValueFontSizeConfig = {
   sm: string,
   md: string,
   lg: string,
 }
-type keyValuePairV2ValueConfig = {
+type keyValuePairV2KeyValuePairV2TokensTypeValueConfig = {
   color: string,
-  fontSize: keyValuePairV2FontSizeConfig,
+  fontSize: keyValuePairV2KeyValuePairV2TokensTypeValueFontSizeConfig,
   fontWeight: string,
   gap: string,
 }
 type keyValuePairV2TokensType = {
-  gap: keyValuePairV2GapConfig,
-  key: keyValuePairV2KeyConfig,
-  value: keyValuePairV2ValueConfig,
+  gap: keyValuePairV2KeyValuePairV2TokensTypeGapConfig,
+  key: keyValuePairV2KeyValuePairV2TokensTypeKeyConfig,
+  value: keyValuePairV2KeyValuePairV2TokensTypeValueConfig,
 }
 type responsiveKeyValuePairV2Tokens = {
   sm: keyValuePairV2TokensType,
   lg: keyValuePairV2TokensType,
 }
-type keyValuePairV2ValueConfig2 = {
+type keyValuePairV2SlotsValueConfig = {
   left?: React.element,
   right?: React.element,
 }
 type keyValuePairV2SlotsConfig = {
   key?: React.element,
-  value?: keyValuePairV2ValueConfig2,
+  value?: keyValuePairV2SlotsValueConfig,
 }

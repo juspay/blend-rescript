@@ -15,7 +15,7 @@ type props = {
   helpIconText?: string,
   required?: bool,
   error?: EditorSharedTypes.inputsV2ErrorConfig,
-  resize?: InputsTypes.resize,
+  resize?: InputsTypes.inputsResize,
 }
 
 @module("@juspay/blend-design-system")

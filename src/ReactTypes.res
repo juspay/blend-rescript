@@ -38,17 +38,30 @@ module ElementType = {
     | #option
     | #"switch"
     | #time
-    | #image
     | #animate
-    | #html
+    | #stop
+    | #circle
+    | #rect
+    | #linearGradient
+    | #radialGradient
+    | #area
+    | #line
+    | #polygon
+    | #label
+    | #marker
     | #select
-    | #data
+    | #textPath
     | #a
+    | #q
+    | #s
+    | #meta
+    | #data
+    | #image
+    | #html
     | #div
     | #h2
     | #h3
     | #input
-    | #label
     | #li
     | #nav
     | #ol
@@ -58,7 +71,6 @@ module ElementType = {
     | #ul
     | #abbr
     | #address
-    | #area
     | #aside
     | #audio
     | #b
@@ -98,7 +110,6 @@ module ElementType = {
     | #keygen
     | #legend
     | #mark
-    | #meta
     | #meter
     | #noindex
     | #noscript
@@ -107,10 +118,8 @@ module ElementType = {
     | #param
     | #picture
     | #pre
-    | #q
     | #rp
     | #rt
-    | #s
     | #samp
     | #script
     | #section
@@ -132,7 +141,6 @@ module ElementType = {
     | #webview
     | #animateMotion
     | #animateTransform
-    | #circle
     | #clipPath
     | #defs
     | #desc
@@ -164,21 +172,13 @@ module ElementType = {
     | #feTurbulence
     | #foreignObject
     | #g
-    | #line
-    | #linearGradient
-    | #marker
     | #mask
     | #metadata
     | #mpath
     | #path
     | #pattern
-    | #polygon
     | #polyline
-    | #radialGradient
-    | #rect
     | #set
-    | #stop
-    | #textPath
     | #tspan
     | #use
     | #view

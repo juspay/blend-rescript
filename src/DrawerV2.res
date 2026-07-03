@@ -18,7 +18,7 @@ external make: (
   ~modal: bool=?,
   ~nested: bool=?,
   ~onClose: unit => unit=?,
-  ~direction: DateRangePickerTypes.side=?,
+  ~direction: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide=?,
   ~defaultOpen: bool=?,
   ~disablePreventScroll: bool=?,
   ~repositionInputs: bool=?,

@@ -16,7 +16,7 @@ external make: (
   ~defaultIsTopbarVisible: bool=?,
   ~isExpanded: bool=?,
   ~onExpandedChange: bool => unit=?,
-  ~onSidebarStateChange: SidebarV2Types.onSidebarStateChange => unit=?,
+  ~onSidebarStateChange: SidebarV2Types.sidebarV2OnSidebarStateChange => unit=?,
   ~defaultIsExpanded: bool=?,
   ~showMobilePrimaryActionButton: bool=?,
   ~mobilePrimaryActionButtonProps: ReactTypes.reactPrimaryActionButtonPropsConfig=?,

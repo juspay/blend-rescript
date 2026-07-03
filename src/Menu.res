@@ -19,7 +19,7 @@ type props = {
   side?: MenuTypes.menuSide,
   sideOffset?: float,
   alignOffset?: float,
-  collisonBoundaryRef?: ChatInputTypes.CollisonBoundaryRef.t, // ⓘ was `Element | Element[]` — opaque; build with CollisonBoundaryRef.fromElement / CollisonBoundaryRef.fromElements
+  collisonBoundaryRef?: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t, // ⓘ was `Element | Element[]` — opaque; build with ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElement / ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElements
   skeleton?: MenuTypes.menuSkeletonProps,
 }
 

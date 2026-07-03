@@ -1,4 +1,4 @@
-type color4 =
+type splitTagPrimaryTagColor =
   | @as("neutral") Neutral
   | @as("primary") Primary
   | @as("success") Success
