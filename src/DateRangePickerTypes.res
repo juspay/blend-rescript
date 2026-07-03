@@ -31,15 +31,15 @@ type dateFormatPreset =
   | @as("iso-range") IsoRange
   | @as("us-range") UsRange
   | @as("custom") Custom
-type timeFormat =
+type dateRangePickerDateFormatConfigTimeFormat =
   | @as("12h") V12h
   | @as("24h") V24h
-type side =
+type dateRangePickerDateRangePickerPopoverConfigSide =
   | @as("top") Top
   | @as("left") Left
   | @as("bottom") Bottom
   | @as("right") Right
-type align =
+type dateRangePickerDateRangePickerPopoverConfigAlign =
   | @as("center") Center
   | @as("end") End
   | @as("start") Start
@@ -264,7 +264,7 @@ type dateFormatConfig = {
   includeYear?: bool,
   separator?: string,
   locale?: string,
-  timeFormat?: timeFormat,
+  timeFormat?: dateRangePickerDateFormatConfigTimeFormat,
 }
 type dateRangePickerTriggerConfigRenderTriggerConfig = {
   selectedRange?: dateRange,
@@ -282,8 +282,8 @@ type triggerConfig = {
   renderTrigger?: dateRangePickerTriggerConfigRenderTriggerConfig => React.element,
 }
 type dateRangePickerPopoverConfig = {
-  side?: side,
-  align?: align,
+  side?: dateRangePickerDateRangePickerPopoverConfigSide,
+  align?: dateRangePickerDateRangePickerPopoverConfigAlign,
   sideOffset?: float,
 }
 module PresetsConfig = {

@@ -1,7 +1,7 @@
 type tenantBadge = {
   text: string,
   size?: BadgeTypes.badgeSize,
-  color?: BadgeTypes.badgeColor,
+  color?: BadgeTypes.badgeColor2,
   position?: BadgeTypes.badgePosition,
 }
 type leftPanelItem = {

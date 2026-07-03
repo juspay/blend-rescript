@@ -1,4 +1,4 @@
-type props<'a> = {
+type props<'b> = {
   ...HtmlAttrs.htmlAttributesOmitTitle,
   title: string,
   variant?: StatCardV2Types.statCardV2Variant,
@@ -10,7 +10,7 @@ type props<'a> = {
   valueTooltip?: React.element,
   change?: StatCardV2Types.statCardV2Change,
   subtitle?: string,
-  options?: HighchartsSharedTypes.options<'a>,
+  options?: HighchartsSharedTypes.options<'b>,
   skeleton?: StatCardV2Types.statCardV2SkeletonProps,
   dropdownProps?: SingleSelectTypes.singleSelectProps,
   showBorder?: bool,
@@ -21,4 +21,4 @@ type props<'a> = {
 }
 
 @module("@juspay/blend-design-system")
-external make: React.component<props<'a>> = "StatCardV2"
+external make: React.component<props<'b>> = "StatCardV2"

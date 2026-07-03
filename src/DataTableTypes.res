@@ -8,31 +8,31 @@ type filterType =
   | @as("slider") Slider
 type tEXT = | @as("text") Text
 type nUMBER = | @as("number") Number
-type format =
+type dataTableColumnsNumberFormat =
+  | @as("percentage") Percentage
   | @as("integer") Integer
   | @as("decimal") Decimal
   | @as("currency") Currency
-  | @as("percentage") Percentage
 type aVATAR = | @as("avatar") Avatar
 type tAG = | @as("tag") Tag
-type variant2 =
+type dataTableTagColumnPropsVariant =
   | @as("filled") Filled
   | @as("subtle") Subtle
   | @as("outlined") Outlined
   | @as("no_fill") NoFill
-type color2 =
+type dataTableTagColumnPropsColor =
   | @as("error") Error
   | @as("primary") Primary
   | @as("secondary") Secondary
   | @as("success") Success
   | @as("warning") Warning
   | @as("neutral") Neutral
-type size =
+type dataTableTagColumnPropsSize =
   | @as("sm") Sm
   | @as("lg") Lg
   | @as("md") Md
 type pROGRESS = | @as("progress") Progress
-type color3 =
+type dataTableProgressColumnPropsColor =
   | @as("error") Error
   | @as("primary") Primary
   | @as("secondary") Secondary
@@ -51,12 +51,12 @@ type dateFormat =
   | @as("YYYY/MM/DD HH:mm") YYYYMMDDHHMm
   | @as("HH:mm:ss") HHMmSs
 type sLIDER = | @as("slider") Slider
-type valueType =
+type dataTableSliderColumnPropsValueType =
   | @as("number") Number
-  | @as("decimal") Decimal
   | @as("percentage") Percentage
+  | @as("decimal") Decimal
 type rEACT_ELEMENT = | @as("react_element") ReactElement
-type type_2 =
+type dataTableColumnsFilterTypeType =
   | @as("select") Select
   | @as("multiselect") Multiselect
   | @as("date_range") DateRange
@@ -65,16 +65,16 @@ type sortDirection =
   | @as("none") None
   | @as("asc") Asc
   | @as("desc") Desc
-type operator =
+type dataTableColumnFilterOperator =
   | @as("endsWith") EndsWith
   | @as("startsWith") StartsWith
   | @as("contains") Contains
+  | @as("range") Range
   | @as("equals") Equals
   | @as("gt") Gt
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
-  | @as("range") Range
 type pivotAggregationType =
   | @as("sum") Sum
   | @as("count") Count
@@ -97,14 +97,14 @@ type columnType =
   | @as("date_range") DateRange
   | @as("slider") Slider
   | @as("custom") Custom
-type filterComponent =
+type dataTableColumnTypeConfigFilterComponent =
   | @as("search") Search
   | @as("slider") Slider
   | @as("select") Select
   | @as("multiselect") Multiselect
   | @as("dateRange") DateRange
   | @as("numberRange") NumberRange
-type pivotRowType =
+type dataTablePivotPreviewRowPivotRowType =
   | @as("data") Data
   | @as("subtotal") Subtotal
   | @as("grand_total") GrandTotal
@@ -379,7 +379,7 @@ type dataTableColumnsNumberConfig<'a> = {
   sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
   @as("type") type_: nUMBER,
   renderCell?: (float, 'a, float) => React.element,
-  format?: format,
+  format?: dataTableColumnsNumberFormat,
   precision?: float,
 }
 type avatarColumnProps = {
@@ -414,9 +414,9 @@ type dataTableColumnsAvatarConfig<'a> = {
 }
 type tagColumnProps = {
   text: string,
-  variant?: variant2,
-  color?: color2,
-  size?: size,
+  variant?: dataTableTagColumnPropsVariant,
+  color?: dataTableTagColumnPropsColor,
+  size?: dataTableTagColumnPropsSize,
   leftSlot?: React.element,
   rightSlot?: React.element,
 }
@@ -448,7 +448,7 @@ type progressColumnProps = {
   max?: float,
   label?: string,
   showPercentage?: bool,
-  color?: color3,
+  color?: dataTableProgressColumnPropsColor,
 }
 type dataTableColumnsProgressConfig<'a> = {
   field: string,
@@ -550,7 +550,7 @@ type sliderColumnProps = {
   min: float,
   max: float,
   step?: float,
-  valueType?: valueType,
+  valueType?: dataTableSliderColumnPropsValueType,
   decimalPlaces?: float,
   prefix?: string,
   suffix?: string,
@@ -622,7 +622,7 @@ type dataTableColumnsFilterTypeConfig<'a> = {
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
   sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
-  @as("type") type_: type_2,
+  @as("type") type_: dataTableColumnsFilterTypeType,
   renderCell?: (JSON.t, 'a, option<float>) => React.element,
 }
 type dataTableDescriptionTooltipPropsConfig = {
@@ -661,7 +661,7 @@ type columnFilter = {
   field: string,
   @as("type") type_: filterType,
   value: stringOrStringArrayOrDataTableColumnFilterValueConfig,
-  operator: operator,
+  operator: dataTableColumnFilterOperator,
 }
 type dataTableColumnManagerPrimaryActionConfig = {
   text: string,
@@ -707,8 +707,8 @@ type rowActionConfig<'a> = {
   subType?: ButtonTypes.buttonSubType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,
-  disabled?: CommonTypes.disabled<'a>,
-  hidden?: CommonTypes.hidden<'a>,
+  disabled?: CommonTypes.dataTableRowActionConfigDisabled<'a>,
+  hidden?: CommonTypes.dataTableRowActionConfigHidden<'a>,
   onClick: ('a, float) => unit,
 }
 type rowActionsConfig<'a> = {
@@ -750,6 +750,21 @@ type dataTablePivotTableConfigConfig = {
   onConfigChange?: dataTablePivotTableConfigOnConfigChangeConfig => unit,
   onExport?: dataTablePivotTableConfigOnConfigChangeConfig => unit,
 }
+type dataTableValidateColumnDataConfig = {
+  text: JSON.t => bool,
+  number: JSON.t => bool,
+  select: JSON.t => bool,
+  multiselect: JSON.t => bool,
+  date: JSON.t => bool,
+  date_range: JSON.t => bool,
+  avatar: JSON.t => bool,
+  tag: JSON.t => bool,
+  slider: JSON.t => bool,
+  custom: JSON.t => bool,
+  progress: JSON.t => bool,
+  dropdown: JSON.t => bool,
+  react_element: JSON.t => bool,
+}
 type columnTypeConfig = {
   @as("type") type_: columnType,
   filterType: filterType,
@@ -757,11 +772,11 @@ type columnTypeConfig = {
   supportsSorting: bool,
   supportsFiltering: bool,
   enableSearch?: bool,
-  filterComponent?: filterComponent,
+  filterComponent?: dataTableColumnTypeConfigFilterComponent,
 }
 type pivotPreviewRow = {
   __pivotId: string,
-  __pivotRowType?: pivotRowType,
+  __pivotRowType?: dataTablePivotPreviewRowPivotRowType,
 }
 module ColumnDefinition = {
   type t

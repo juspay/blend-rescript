@@ -2,7 +2,7 @@ type badgeSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type color =
+type badgeColor =
   | @as("alert") Alert
   | @as("neutral") Neutral
   | @as("warning") Warning
@@ -13,7 +13,7 @@ type badgePosition =
   | @as("top-left") TopLeft
   | @as("bottom-right") BottomRight
   | @as("bottom-left") BottomLeft
-type badgeColor =
+type badgeColor2 =
   | @as("alert") Alert
   | @as("neutral") Neutral
   | @as("warning") Warning

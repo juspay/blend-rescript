@@ -149,6 +149,6 @@ type menuOverflowMenuPropsConfig = {
   side?: menuSide,
   sideOffset?: float,
   alignOffset?: float,
-  collisonBoundaryRef?: ChatInputTypes.CollisonBoundaryRef.t,
+  collisonBoundaryRef?: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t,
   skeleton?: menuSkeletonProps,
 }

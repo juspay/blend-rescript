@@ -6,7 +6,7 @@ external make: (
   @as("aria-label") ~ariaLabel: string=?,
   @as("aria-describedby") ~ariaDescribedby: string=?,
   ~fullScreen: bool=?,
-  ~direction: DateRangePickerTypes.side=?,
+  ~direction: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide=?,
   ~showHandle: bool=?,
   ~handle: React.element=?,
   ~hasSnapPoints: bool=?,

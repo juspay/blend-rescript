@@ -1,4 +1,4 @@
-type activationMode =
+type tabsActivationMode =
   | @as("manual") Manual
   | @as("automatic") Automatic
 type tabsVariant =
@@ -10,7 +10,7 @@ type tabsSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type type_3 =
+type tabsType =
   | @as("button") Button
   | @as("reset") Reset
   | @as("submit") Submit

@@ -33,6 +33,8 @@ external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsi
 external getChatInputTokens: TokensTypes.foundationTokenType => ChatInputTypes.responsiveChatInputTokensType =
   "getChatInputTokens"
 @module("@juspay/blend-design-system")
+external validateColumnData: DataTableTypes.dataTableValidateColumnDataConfig = "validateColumnData"
+@module("@juspay/blend-design-system")
 external getColumnTypeConfig: DataTableTypes.columnType => DataTableTypes.columnTypeConfig =
   "getColumnTypeConfig"
 @module("@juspay/blend-design-system")
@@ -136,7 +138,7 @@ external buildThumbAriaAttributes: SliderTypes.sliderBuildThumbAriaAttributesOpt
 > = "buildThumbAriaAttributes"
 @module("@juspay/blend-design-system")
 external getSliderLabelStyles: (
-  ~position: SliderTypes.position=?,
+  ~position: SliderTypes.sliderGetSliderLabelStylesPosition=?,
   unit,
 ) => SliderTypes.sliderCSSProperties = "getSliderLabelStyles"
 @module("@juspay/blend-design-system")
@@ -175,7 +177,7 @@ external getButtonV2BorderRadius: (
   ButtonV2Types.buttonV2Size,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getButtonV2BorderRadius"
 @module("@juspay/blend-design-system")
@@ -196,7 +198,7 @@ external getIconMaxHeight: (
   ButtonV2Types.buttonV2Size,
 ) => string = "getIconMaxHeight"
 @module("@juspay/blend-design-system")
-external getButtonStatus: (bool, bool) => ButtonV2Types.value = "getButtonStatus"
+external getButtonStatus: (bool, bool) => ButtonV2Types.buttonV2GetButtonStatus = "getButtonStatus"
 @module("@juspay/blend-design-system")
 external getButtonTabIndex: (bool, ~providedTabIndex: float=?, unit) => float = "getButtonTabIndex"
 @module("@juspay/blend-design-system")
@@ -204,7 +206,7 @@ external getSkeletonBorderRadius: (
   ButtonV2Types.buttonV2Size,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getSkeletonBorderRadius"
 @module("@juspay/blend-design-system")
@@ -212,7 +214,7 @@ external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => strin
   "getSkeletonWidth"
 @module("@juspay/blend-design-system")
 external getButtonBorderStyles: (
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   string,
 ) => ButtonV2Types.buttonV2GetButtonBorderStylesConfig = "getButtonBorderStyles"
 @module("@juspay/blend-design-system")
@@ -222,7 +224,7 @@ external getButtonStyles: (
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
-  ~buttonGroupPosition: ButtonTypes.buttonGroupPosition=?,
+  ~buttonGroupPosition: ButtonTypes.buttonButtonGroupPosition=?,
   unit,
 ) => ButtonV2Types.buttonStylesReturn = "getButtonStyles"
 @module("@juspay/blend-design-system")
@@ -270,7 +272,7 @@ external getTagV2Tokens: (
 external getTagBorderRadius: (
   TagV2Types.tagV2Size,
   TagV2Types.tagV2SubType,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   TagV2Types.tagV2ResponsiveTagV2TokensSmConfig,
 ) => string = "getTagBorderRadius"
 @module("@juspay/blend-design-system")
@@ -418,6 +420,8 @@ external createAvatarKeyboardHandler: (
 @module("@juspay/blend-design-system")
 external isInteractive: (ReactEvent.Mouse.t => unit) => bool = "isInteractive"
 @module("@juspay/blend-design-system")
+external defaultPosition: AvatarV2Types.avatarV2DEFAULTPOSITIONConfig = "DEFAULT_POSITION"
+@module("@juspay/blend-design-system")
 external getTooltipV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
@@ -476,9 +480,9 @@ external renderVariantFallbackValue: (
 ) => Dom.element = "renderVariantFallbackValue"
 @module("@juspay/blend-design-system")
 external buildStatCardV2ChartOptions: (
-  ~overrides: HighchartsSharedTypes.options<'a>=?,
+  ~overrides: HighchartsSharedTypes.options<'b>=?,
   unit,
-) => HighchartsSharedTypes.options<'a> = "buildStatCardV2ChartOptions"
+) => HighchartsSharedTypes.options<'b> = "buildStatCardV2ChartOptions"
 @module("@juspay/blend-design-system")
 external getStatCardV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -505,6 +509,8 @@ external toEmbeddedSingleSelectV2Props: (
   EditorSharedTypes.singleSelectV2Props,
   EditorSharedTypes.embeddedSingleSelectOptions,
 ) => EditorSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
+@module("@juspay/blend-design-system")
+external focusRingStyles: EditorSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
 @module("@juspay/blend-design-system")
 external getInputState: (
   ~error: EditorSharedTypes.inputsV2GetInputStateErrorConfig=?,
@@ -589,7 +595,7 @@ external applyHoverState: (
 ) => unit = "applyHoverState"
 @module("@juspay/blend-design-system")
 external mergeChartOptions: (
-  HighchartsSharedTypes.options<'a>,
+  HighchartsSharedTypes.options<'b>,
   ChartsV2Types.chartV2TokensType,
 ) => Dict.t<JSON.t> = "mergeChartOptions"
 @module("@juspay/blend-design-system")
@@ -599,7 +605,7 @@ external getChartV2Tokens: (
   unit,
 ) => ChartsV2Types.responsiveChartV2Tokens = "getChartV2Tokens"
 @module("@juspay/blend-design-system")
-external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPosition2 =
+external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPosition =
   "getButtonGroupPosition"
 @module("@juspay/blend-design-system")
 external getButtonGroupGap: (
@@ -622,7 +628,7 @@ external getSidebarV2Tokens: (
 @module("@juspay/blend-design-system")
 external isControlledSidebarV2: bool => bool = "isControlledSidebarV2"
 @module("@juspay/blend-design-system")
-external getSidebarV2Status: (bool, bool) => SidebarV2Types.onSidebarStateChange =
+external getSidebarV2Status: (bool, bool) => SidebarV2Types.sidebarV2OnSidebarStateChange =
   "getSidebarV2Status"
 @module("@juspay/blend-design-system")
 external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
@@ -778,7 +784,7 @@ external getInitialEditorOptions: (
 @module("@juspay/blend-design-system")
 external copyToClipboardWithTemporaryFeedback: (
   string,
-  CommonTypes.setIsCopied => unit,
+  CommonTypes.reactCopyToClipboardWithTemporaryFeedbackSetIsCopied => unit,
   EditorSharedTypes.copyFeedbackTimeoutRef,
   ~resetMs: float=?,
   unit,
@@ -800,6 +806,8 @@ external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "t
 @module("@juspay/blend-design-system")
 external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
   "toNumericValue"
+@module("@juspay/blend-design-system")
+external backupColor: EditorSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
 @module("@juspay/blend-design-system")
 external getKeyValuePairV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -867,7 +875,7 @@ external getMultiSelectV2Tokens: (
 external getMultiSelectBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   EditorSharedTypes.multiSelectV2TokensType,
   bool,
 ) => string = "getMultiSelectBorderRadius"
@@ -875,7 +883,7 @@ external getMultiSelectBorderRadius: (
 external getMultiSelectCrossBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   EditorSharedTypes.multiSelectV2TokensType,
 ) => EditorSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
   "getMultiSelectCrossBorderRadius"
@@ -946,7 +954,7 @@ external getSingleSelectV2Tokens: (
 external getSingleSelectV2BorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonGroupPosition,
+  ButtonTypes.buttonButtonGroupPosition,
   EditorSharedTypes.singleSelectV2TokensType,
 ) => EditorSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
   "getSingleSelectV2BorderRadius"
@@ -983,6 +991,9 @@ external getVirtualRowEstimate: (array<EditorSharedTypes.flattenedItem>, int) =>
 external getItemOrdinalIndex: (array<EditorSharedTypes.flattenedItem>, float) => float =
   "getItemOrdinalIndex"
 @module("@juspay/blend-design-system")
+external defaultSingleSelectV2Skeleton: SelectV2Types.selectV2SkeletonProps =
+  "defaultSingleSelectV2Skeleton"
+@module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
   EditorSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
@@ -999,6 +1010,9 @@ external buildAriaAttributes: EditorSharedTypes.singleSelectV2BuildAriaAttribute
 @module("@juspay/blend-design-system")
 external setupAccessibility: EditorSharedTypes.accessibilitySetupOptions => EditorSharedTypes.accessibilitySetupResult =
   "setupAccessibility"
+@module("@juspay/blend-design-system")
+external virtualRowEstimates: EditorSharedTypes.singleSelectV2VIRTUALROWESTIMATESConfig =
+  "VIRTUAL_ROW_ESTIMATES"
 @module("@juspay/blend-design-system")
 external getChatInputV2Tokens: (
   TokensTypes.foundationTokenType,

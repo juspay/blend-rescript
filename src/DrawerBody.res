@@ -2,8 +2,8 @@
 external make: (
   ~children: React.element,
   ~className: string=?,
-  ~overflowY: DrawerTypes.overflowY=?,
+  ~overflowY: DrawerTypes.drawerOverflowY=?,
   ~noPadding: bool=?,
   ~hasFooter: bool=?,
-  ~direction: DateRangePickerTypes.side=?,
+  ~direction: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide=?,
 ) => React.element = "DrawerBody"

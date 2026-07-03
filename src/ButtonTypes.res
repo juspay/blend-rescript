@@ -11,7 +11,7 @@ type buttonSubType =
   | @as("default") Default
   | @as("iconOnly") IconOnly
   | @as("inline") Inline
-type buttonGroupPosition =
+type buttonButtonGroupPosition =
   | @as("left") Left
   | @as("center") Center
   | @as("right") Right
@@ -116,7 +116,7 @@ type buttonProps = {
   loading?: bool,
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
-  buttonGroupPosition?: buttonGroupPosition,
+  buttonGroupPosition?: buttonButtonGroupPosition,
   fullWidth?: bool,
   width?: CommonTypes.stringOrNumber,
   justifyContent?: string,

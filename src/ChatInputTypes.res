@@ -1,4 +1,4 @@
-type type_ =
+type chatInputAttachedFileType =
   | @as("text") Text
   | @as("image") Image
   | @as("pdf") Pdf
@@ -174,7 +174,7 @@ type responsiveChatInputTokensType = {
 type attachedFile = {
   id: string,
   name: string,
-  @as("type") type_: type_,
+  @as("type") type_: chatInputAttachedFileType,
   size?: float,
   url?: string,
   preview?: string,
@@ -183,7 +183,7 @@ type topQuery = {
   id: string,
   text: string,
 }
-module CollisonBoundaryRef = {
+module ChatInputOverflowMenuPropsCollisonBoundaryRef = {
   type t
   external fromElement: Dom.element => t = "%identity"
   external fromElements: array<Dom.element> => t = "%identity"

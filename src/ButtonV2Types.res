@@ -16,11 +16,11 @@ type buttonV2State =
   | @as("hover") Hover
   | @as("active") Active
   | @as("disabled") Disabled
-type value =
+type buttonV2GetButtonStatus =
   | @as("disabled") Disabled
-  | @as("loading") Loading
   | @as("enabled") Enabled
-type buttonGroupPosition2 =
+  | @as("loading") Loading
+type buttonGroupPosition =
   | @as("left") Left
   | @as("center") Center
   | @as("right") Right
@@ -163,7 +163,7 @@ type buttonV2ButtonPropsConfig = {
   rightSlot?: buttonSlot,
   size?: buttonV2Size,
   skeleton?: buttonSkeleton,
-  buttonGroupPosition?: ButtonTypes.buttonGroupPosition,
+  buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   buttonType?: buttonV2Type,
   subType?: buttonV2SubType,
   loading?: bool,

@@ -14,13 +14,13 @@ type selectV2Side =
   | @as("left") Left
   | @as("right") Right
   | @as("bottom") Bottom
-type selectedPosition =
+type selectV2SelectedPosition =
   | @as("none") None
   | @as("middle") Middle
   | @as("first") First
   | @as("last") Last
   | @as("only") Only
-type mode =
+type selectV2Mode =
   | @as("single") Single
   | @as("multi") Multi
 type selectV2ItemStates =

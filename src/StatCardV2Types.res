@@ -8,35 +8,6 @@ type statCardV2ChangeType =
 type statCardV2ArrowDirection =
   | @as("up") Up
   | @as("down") Down
-type setState =
-  | @as("") Value
-  | @as("normal") Normal
-  | @as("inactive") Inactive
-  | @as("hover") Hover
-  | @as("select") Select
-type position3d =
-  | @as("offset") Offset
-  | @as("chart") Chart
-  | @as("flap") Flap
-  | @as("ortho") Ortho
-type linkColorMode =
-  | @as("from") From
-  | @as("gradient") Gradient
-  | @as("to") To
-type scope =
-  | @as("point") Point
-  | @as("stack") Stack
-type where =
-  | @as("all") All
-  | @as("end") End
-type type_4 =
-  | @as("straight") Straight
-  | @as("curved") Curved
-  | @as("orthogonal") Orthogonal
-type nodeAlignment =
-  | @as("top") Top
-  | @as("bottom") Bottom
-  | @as("center") Center
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig = {
   fontSize: string,
   fontWeight: string,

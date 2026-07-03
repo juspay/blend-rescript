@@ -2,7 +2,7 @@ type selectorV2Size =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type cursor2 =
+type selectorV2GetCheckboxLabelStylesCursor =
   | @as("not-allowed") NotAllowed
   | @as("pointer") Pointer
 type checkboxV2CheckedState =
@@ -200,7 +200,7 @@ type selectorV2GetCheckboxSubtextPropsConfig = {
   color: string,
 }
 type selectorV2GetCheckboxLabelStylesConfig = {
-  cursor: cursor2,
+  cursor: selectorV2GetCheckboxLabelStylesCursor,
   display: string,
   alignItems: string,
   margin: float,

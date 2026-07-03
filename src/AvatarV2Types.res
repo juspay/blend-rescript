@@ -18,7 +18,7 @@ type avatarV2StatusPosition =
   | @as("bottomRight") BottomRight
   | @as("topLeft") TopLeft
   | @as("bottomLeft") BottomLeft
-type variant3 =
+type avatarV2AvatarV2SkeletonConfigVariant =
   | @as("pulse") Pulse
   | @as("wave") Wave
 type avatarV2AvatarV2TokensTypeContainerWidthConfig = {
@@ -103,7 +103,12 @@ type avatarV2StatusConfig = {
 }
 type avatarV2SkeletonConfig = {
   show: bool,
-  variant?: variant3,
+  variant?: avatarV2AvatarV2SkeletonConfigVariant,
+}
+type avatarV2DEFAULTPOSITIONConfig = {
+  top: string,
+  right: string,
+  bottom: string,
 }
 type avatarV2AvatarPropsConfig = {
   width?: string,
