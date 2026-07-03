@@ -16,10 +16,6 @@ type directoryDirectoryTokenTypeSectionHeaderConfig = {
   label: directoryDirectoryTokenTypeSectionHeaderLabelConfig,
   chevron: directoryDirectoryTokenTypeSectionHeaderChevronConfig,
 }
-type directoryDirectoryTokenTypeSectionItemListItemPaddingConfig = {
-  x: string,
-  y: string,
-}
 type directoryDirectoryTokenTypeSectionItemListItemIconOnlyPaddingConfig = {
   paddingTop: string,
   paddingBottom: string,
@@ -34,12 +30,8 @@ type directoryDirectoryTokenTypeSectionItemListItemBackgroundColorConfig = {
 type directoryDirectoryTokenTypeSectionItemListItemIconConfig = {
   width: string,
 }
-type directoryDirectoryTokenTypeSectionItemListItemChevronConfig = {
-  width: string,
-  color: string,
-}
 type directoryDirectoryTokenTypeSectionItemListItemConfig = {
-  padding: directoryDirectoryTokenTypeSectionItemListItemPaddingConfig,
+  padding: directoryDirectoryTokenTypeSectionHeaderPaddingConfig,
   iconOnlyPadding: directoryDirectoryTokenTypeSectionItemListItemIconOnlyPaddingConfig,
   gap: string,
   borderRadius: string,
@@ -49,7 +41,7 @@ type directoryDirectoryTokenTypeSectionItemListItemConfig = {
   backgroundColor: directoryDirectoryTokenTypeSectionItemListItemBackgroundColorConfig,
   color: directoryDirectoryTokenTypeSectionItemListItemBackgroundColorConfig,
   icon: directoryDirectoryTokenTypeSectionItemListItemIconConfig,
-  chevron: directoryDirectoryTokenTypeSectionItemListItemChevronConfig,
+  chevron: directoryDirectoryTokenTypeSectionHeaderChevronConfig,
 }
 type directoryDirectoryTokenTypeSectionItemListNestedBorderConfig = {
   width: string,

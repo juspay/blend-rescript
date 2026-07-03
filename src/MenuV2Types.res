@@ -55,7 +55,7 @@ type menuV2MenuV2TokensTypeGroupItemTextSubTextConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
-  color: menuV2VariantToken2,
+  color: string, // ⚪ loose — was `MenuV2VariantToken<StateToken<Color>>`
 }
 type menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig = {
   maxWidth: string,
@@ -164,16 +164,16 @@ type menuV2VirtualScrollingConfig = {
   threshold?: float,
 }
 type menuV2FlattenMenuV2GroupsLabelConfig = {
-  @as("type") type_: string,
+  @as("type") type_: string, // ⚪ loose — was `"label"`
   id: string,
   label: string,
 }
 type menuV2FlattenMenuV2GroupsSeparatorConfig = {
-  @as("type") type_: string,
+  @as("type") type_: string, // ⚪ loose — was `"separator"`
   id: string,
 }
 type menuV2FlattenMenuV2GroupsItemConfig = {
-  @as("type") type_: string,
+  @as("type") type_: string, // ⚪ loose — was `"item"`
   id: string,
   item: menuV2ItemType,
   groupId: float,

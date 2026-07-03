@@ -149,7 +149,7 @@ type dataTableHeaderTypeActionIconsColumnManagerTriggerFocusVisibleConfig = {
 }
 type dataTableHeaderTypeActionIconsColumnManagerTriggerConfig = {
   backgroundColor: string,
-  opacity: string,
+  opacity: string, // ⚠️ REVIEW — was `string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>` — match the real type by hand
   focusVisible: dataTableHeaderTypeActionIconsColumnManagerTriggerFocusVisibleConfig,
 }
 type dataTableHeaderTypeActionIconsConfig = {
@@ -205,7 +205,7 @@ type bulkActionsType = {
 }
 type dataTableTableTokenTypeDataTableTableHeaderRowConfig = {
   height: string,
-  @as("&:hover") __hover: string,
+  @as("&:hover") __hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; }`
 }
 type dataTableTableTokenTypeDataTableTableHeaderCellConfig = {
   padding: string,
@@ -229,7 +229,7 @@ type dataTableTableTokenTypeDataTableTableHeaderFilterConfig = {
   maxHeight: string,
   overflowY: string,
   gap: string,
-  sortOption: string,
+  sortOption: string, // ⚪ loose — was `{ padding: Padding<number | (string & {})>; borderRadius: BorderRadius<number | (string & {})>; hoverBackgroun`
   selectedBackground: string,
   hoverBackground: string,
   selectedTextColor: string,
@@ -259,7 +259,7 @@ type dataTableTableTokenTypeDataTableTableHeaderConfig = {
 }
 type dataTableTableTokenTypeDataTableTableBodyRowConfig = {
   height: string,
-  @as("&:hover") __hover: string,
+  @as("&:hover") __hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; cursor: Cursor; }`
   backgroundColor: string,
 }
 type dataTableTableTokenTypeDataTableTableBodyCellConfig = {
@@ -268,8 +268,8 @@ type dataTableTableTokenTypeDataTableTableBodyCellConfig = {
   color: string,
   fontSize: string,
   borderTop: string,
-  dateLabel: string,
-  expandable: string,
+  dateLabel: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; }`
+  expandable: string, // ⚪ loose — was `{ padding: Padding<number | (string & {})>; borderTop: BorderTop<number | (string & {})>; expandButton: { disp`
 }
 type dataTableTableTokenTypeDataTableTableBodyConfig = {
   backgroundColor: string,
@@ -278,9 +278,9 @@ type dataTableTableTokenTypeDataTableTableBodyConfig = {
   cell: dataTableTableTokenTypeDataTableTableBodyCellConfig,
 }
 type dataTableTableTokenTypeDataTableTableFooterPaginationConfig = {
-  pageText: string,
-  pageSizeSelector: string,
-  pageNavigation: string,
+  pageText: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; }`
+  pageSizeSelector: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; padding: Padding<number | (string & {})>; borderRadius: BorderRadius<numbe`
+  pageNavigation: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; }`
 }
 type dataTableTableTokenTypeDataTableTableFooterConfig = {
   display: string,
@@ -353,7 +353,7 @@ type dataTableColumnsTextConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: tEXT,
   renderCell?: (string, 'a, float) => React.element,
 }
@@ -376,7 +376,7 @@ type dataTableColumnsNumberConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: nUMBER,
   renderCell?: (float, 'a, float) => React.element,
   format?: dataTableColumnsNumberFormat,
@@ -408,7 +408,7 @@ type dataTableColumnsAvatarConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: aVATAR,
   renderCell?: (avatarColumnProps, 'a, float) => React.element,
 }
@@ -439,7 +439,7 @@ type dataTableColumnsTagConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: tAG,
   renderCell?: (tagColumnProps, 'a, float) => React.element,
 }
@@ -469,7 +469,7 @@ type dataTableColumnsProgressConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: pROGRESS,
   renderCell?: (progressColumnProps, 'a, float) => React.element,
 }
@@ -509,13 +509,13 @@ type dataTableColumnsDropdownConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: dROPDOWN,
   renderCell?: (dropdownColumnProps, 'a, float) => React.element,
   dropdownOptions?: array<dataTableColumnsDropdownDropdownOptionsConfig>,
 }
 type dateColumnProps = {
-  date: string,
+  date: string, // ⚠️ REVIEW — was `string | Date` — match the real type by hand
   format?: dateFormat,
   showTime?: bool,
   dateLabel?: string,
@@ -539,7 +539,7 @@ type dataTableColumnsDateConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: dATE,
   renderCell?: (dateColumnProps, 'a, float) => React.element,
   dateFormat?: dateFormat,
@@ -574,7 +574,7 @@ type dataTableColumnsSliderConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: sLIDER,
   renderCell?: (float, 'a, float) => React.element,
   sliderConfig: sliderColumnProps,
@@ -598,7 +598,7 @@ type dataTableColumnsReactElementConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: rEACT_ELEMENT,
   renderCell: (JSON.t, 'a, float) => React.element,
 }
@@ -621,7 +621,7 @@ type dataTableColumnsFilterTypeConfig<'a> = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   getSortField?: option<string> => string,
   isDeltaSortable?: bool,
-  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t,
+  sortValueFormatter?: (JSON.t, 'a, string, option<string>) => JSON.t, // ⚪ loose — was `ColumnDefinition<T>`
   @as("type") type_: dataTableColumnsFilterTypeType,
   renderCell?: (JSON.t, 'a, option<float>) => React.element,
 }

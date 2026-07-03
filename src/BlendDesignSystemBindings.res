@@ -30,6 +30,8 @@ external getCardTokens: TokensTypes.foundationTokenType => CardTypes.responsiveC
 external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
+external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
+@module("@juspay/blend-design-system")
 external getChatInputTokens: TokensTypes.foundationTokenType => ChatInputTypes.responsiveChatInputTokensType =
   "getChatInputTokens"
 @module("@juspay/blend-design-system")
@@ -605,6 +607,8 @@ external getChartV2Tokens: (
   unit,
 ) => ChartsV2Types.responsiveChartV2Tokens = "getChartV2Tokens"
 @module("@juspay/blend-design-system")
+external chartV2BaseInstance: InstanceTypes.highchartsModule = "ChartV2BaseInstance"
+@module("@juspay/blend-design-system")
 external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPosition =
   "getButtonGroupPosition"
 @module("@juspay/blend-design-system")
@@ -730,9 +734,9 @@ external getPlaceholderPosition: (
   EditorSharedTypes.editorMetrics,
   bool,
 ) => EditorSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
-// ⚪ loose: `configureLanguageDefaults` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external configureLanguageDefaults: string => unit = "configureLanguageDefaults"
+external configureLanguageDefaults: InstanceTypes.editorApiModule => unit =
+  "configureLanguageDefaults"
 @module("@juspay/blend-design-system")
 external blurMonacoEditorDom: EditorSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
 @module("@juspay/blend-design-system")

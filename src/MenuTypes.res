@@ -30,8 +30,8 @@ type menuMenuTokensTypeItemBackgroundColorDefaultConfig = {
   disabled: menuMenuTokensTypeItemBackgroundColorDefaultEnabledConfig,
 }
 type menuMenuTokensTypeItemBackgroundColorActionPrimaryConfig = {
-  enabled: string,
-  disabled: string,
+  enabled: menuMenuTokensTypeItemBackgroundColorDefaultEnabledConfig,
+  disabled: menuMenuTokensTypeItemBackgroundColorDefaultEnabledConfig,
 }
 type menuMenuTokensTypeItemBackgroundColorActionConfig = {
   primary: menuMenuTokensTypeItemBackgroundColorActionPrimaryConfig,
@@ -49,8 +49,8 @@ type menuMenuTokensTypeItemOptionsLabelConfig = {
   margin: menuMenuTokensTypePaddingConfig,
 }
 type menuMenuTokensTypeItemOptionColorActionConfig = {
-  primary: string,
-  danger: string,
+  primary: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+  danger: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
 }
 type menuMenuTokensTypeItemOptionColorConfig = {
   default: menuMenuTokensTypeItemBackgroundColorActionPrimaryConfig,

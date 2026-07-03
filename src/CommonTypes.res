@@ -23,6 +23,7 @@ type preserveStartOrPreserveEndOrPreserveStartEndOrNumber =
 @unboxed type tabsFormAction<'a> = Str(string) | Fn(Webapi.FormData.t => 'a)
 @unboxed type buttonV2FormAction<'a> = Str(string) | Fn(Webapi.FormData.t => 'a)
 @unboxed type boolOrMixed = Bool(bool) | @as("mixed") Mixed
+@unboxed type selectorV2FormAction<'a> = Str(string) | Fn(Webapi.FormData.t => 'a)
 @unboxed type drawerV2FormAction<'a> = Str(string) | Fn(Webapi.FormData.t => 'a)
 @unboxed type tabsV2FormAction<'a> = Str(string) | Fn(Webapi.FormData.t => 'a)
 @unboxed type tabSizeOrNumber = | @as("tabSize") TabSize | Num(float)
@@ -41,6 +42,13 @@ type boolOrInlineOrOffOrOn = Bool(bool) | @as("inline") Inline | @as("off") Off 
 type boolOrInUntrustedWorkspace = Bool(bool) | @as("inUntrustedWorkspace") InUntrustedWorkspace
 @unboxed
 type editorGetMonacoViewModeOptionsLineNumbers =
+  | @as("relative") Relative
+  | @as("off") Off
+  | @as("on") On
+  | @as("interval") Interval
+  | Fn(float => string)
+@unboxed
+type editorIStandaloneCodeEditorUpdateOptionsLineNumbers =
   | @as("relative") Relative
   | @as("off") Off
   | @as("on") On
