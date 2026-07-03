@@ -4,11 +4,35 @@ name: Release and Publish
 # The version lives in package.json (set by the sync PR). On push to main we publish
 # that version — but only if it isn't already on npm, so docs/chore commits don't
 # trigger a duplicate-publish failure. (Replaces semantic-release.)
+#
+# workflow_dispatch adds an on-demand BINDING-ONLY RE-RELEASE path for an OLD blend
+# line that can't go through main (main tracks the newest blend). Pass `ref` = the
+# line's release branch; it cuts the next `-N` (base 0.0.37-beta.5 → -1, -2, …),
+# publishes, tags, and commits the bump back to that branch. Publishing runs from
+# THIS workflow file so it stays within npm's trusted-publisher (OIDC) config.
+# A push, or a dispatch with an empty `ref`, behaves exactly like the normal release.
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Binding-only re-release: source branch (leave EMPTY for a normal release)"
+        required: false
+        default: ""
+        type: string
+      dist_tag:
+        description: "dist-tag override (empty = auto: prerelease→beta, stable→latest)"
+        required: false
+        default: ""
+        type: string
+      regenerate:
+        description: "Re-release only: regenerate bindings before publishing"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -23,6 +47,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # Normal release → main (empty input). Re-release → the given branch.
+          ref: ${{ github.event.inputs.ref || github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -53,6 +80,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: ${{ github.event.inputs.ref || github.ref }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -73,30 +101,63 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Re-release only, opt-in — deterministic regen of the branch's bindings.
+      - name: Regenerate bindings
+        if: ${{ github.event.inputs.ref != '' && github.event.inputs.regenerate == 'true' }}
+        run: npm run generate
+
       - name: Build package
         run: npm run build
 
-      # 1:1 version comes from package.json. Each registry is gated independently
-      # against its OWN published state, so a failure on one never permanently
-      # skips the other on later runs.
+      # Normal release: version = package.json (1:1 with blend), as before.
+      # Re-release (ref set): compute the next `-N` on top of package.json's base
+      # version, write it, and refresh the lockfile.
       - name: Resolve package name + version + dist-tag
         id: meta
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
-          # Dist-tag policy:
-          #  - Prerelease (e.g. 0.0.37-beta.6) → `beta`, so a manually-synced beta
-          #    NEVER moves `latest` onto an unstable version.
-          #  - Stable (e.g. 0.0.37) → `latest`, set EXPLICITLY because with 1:1
-          #    versioning the 0.0.x line is lower than the legacy 1.0.2 still on npm,
-          #    so npm won't move `latest` implicitly.
-          if [[ "$VERSION" =~ -(beta|alpha|rc) ]]; then
-            echo "tag=beta" >> $GITHUB_OUTPUT
+          REF="${{ github.event.inputs.ref }}"
+          NAME=$(node -p "require('./package.json').name")
+          if [ -n "$REF" ]; then
+            RAW=$(node -p "require('./package.json').version")
+            BASE=$(echo "$RAW" | sed -E 's/-[0-9]+$//')
+            EXISTING=$(npm view "$NAME" versions --json 2>/dev/null || echo "[]")
+            NEXT=$(EXISTING="$EXISTING" BASE="$BASE" node -e '
+              const raw = JSON.parse(process.env.EXISTING || "[]");
+              const list = Array.isArray(raw) ? raw : [raw];
+              const prefix = process.env.BASE + "-";
+              let max = 0;
+              for (const s of list) {
+                if (typeof s === "string" && s.startsWith(prefix)) {
+                  const rest = s.slice(prefix.length);
+                  if (/^\d+$/.test(rest)) max = Math.max(max, parseInt(rest, 10));
+                }
+              }
+              process.stdout.write(String(max + 1));
+            ')
+            VERSION="${BASE}-${NEXT}"
+            node -e "const p=require('./package.json'); p.version='$VERSION'; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n');"
+            npm install --package-lock-only
+            echo "rerelease=true" >> $GITHUB_OUTPUT
+            echo "Binding-only re-release: $BASE → $VERSION"
           else
-            echo "tag=latest" >> $GITHUB_OUTPUT
+            VERSION=$(node -p "require('./package.json').version")
+            echo "rerelease=false" >> $GITHUB_OUTPUT
           fi
-          echo "Resolved dist-tag for $VERSION"
+          echo "name=$NAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          # Dist-tag policy (explicit input wins):
+          #  - Prerelease (e.g. 0.0.37-beta.6) → `beta`, so a beta NEVER moves `latest`.
+          #  - Stable (e.g. 0.0.37) → `latest`, set EXPLICITLY because with 1:1
+          #    versioning the 0.0.x line is lower than the legacy 1.0.2 still on npm.
+          DTAG="${{ github.event.inputs.dist_tag }}"
+          if [ -z "$DTAG" ]; then
+            if [[ "$VERSION" =~ -(beta|alpha|rc) ]]; then DTAG=beta; else DTAG=latest; fi
+          fi
+          if [[ "$DTAG" == "latest" && "$VERSION" =~ -(beta|alpha|rc) ]]; then
+            echo "Refusing to publish prerelease $VERSION under 'latest'."; exit 1
+          fi
+          echo "tag=$DTAG" >> $GITHUB_OUTPUT
+          echo "Resolved dist-tag '$DTAG' for $VERSION"
 
       - name: Check npm registry
         id: npm
@@ -114,6 +175,16 @@ jobs:
           echo "Publishing ${{ steps.meta.outputs.version }} to npm under dist-tag '${{ steps.meta.outputs.tag }}'..."
           npm publish --provenance --access public --tag "${{ steps.meta.outputs.tag }}"
           echo "Published to npm successfully!"
+
+      # Re-release only: commit the version bump back onto the source branch so its
+      # package.json records the shipped `-N` (normal releases already carry it).
+      - name: Commit re-release version bump
+        if: steps.meta.outputs.rerelease == 'true' && steps.npm.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(release): binding-only re-release ${{ steps.meta.outputs.version }}" || echo "Nothing to commit."
+          git push origin "HEAD:${{ github.event.inputs.ref }}"
 
       # Tag AFTER a successful npm publish, and tolerate an existing tag, so a
       # mid-run failure can't leave a pushed tag that permanently breaks re-runs.
