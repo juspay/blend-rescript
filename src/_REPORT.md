@@ -288,7 +288,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeaderV2
 - ChartLegends
 - Charts
-- ChartV2  _(1 loose)_
+- ChartV2  _(2 loose)_
 - ChartV2Fullscreen
 - ChartV2Legend
 - ChartV2NoData
@@ -473,7 +473,7 @@ These resolved to a real but complex type and were widened to `string` (they com
 | Resolved TypeScript type | → emitted | count | example props |
 |--------------------------|-----------|-------|---------------|
 | `typeof import("/Users/roshan.chourasiya/work/FE/opensource/blend-rescript/node_modules/highcharts/highcharts")` | `string` | 2 | highcharts |
-| `[boolean] \| [boolean, boolean] \| [boolean, boolean, boolean]` | `string` | 1 | updateArgs |
+| `[boolean] \| [boolean, boolean] \| [boolean, boolean, boolean]` | `string` | 2 | updateArgs |
 | `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
 | `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
 | `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
