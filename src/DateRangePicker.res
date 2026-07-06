@@ -32,4 +32,5 @@ external make: (
   ~showPreset: bool=?,
   ~timezone: string=?,
   ~maxYearOffset: float=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DateRangePicker"

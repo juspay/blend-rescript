@@ -5,6 +5,7 @@ type props = {
   onSubstepClick?: (float, float) => unit,
   clickable?: bool,
   stepperType?: StepperV2Types.stepperV2Type,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

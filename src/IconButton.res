@@ -72,4 +72,5 @@ external make: (
   ~loading: bool=?,
   ~state: ButtonV2Types.buttonV2State=?,
   ~icon: React.element,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "IconButton"

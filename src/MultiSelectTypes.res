@@ -103,20 +103,6 @@ type multiSelectMultiSelectTokensTypeTriggerConfig = {
   placeholder: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
   selectedValue: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
 }
-type multiSelectMultiSelectTokensTypeMenuItemOptionsLabelColorConfig = {
-  active: string,
-  default: string,
-  hover: string,
-  disabled: string,
-  focus: string,
-  focusVisible: string,
-  selected: string,
-}
-type multiSelectMultiSelectTokensTypeMenuItemOptionsLabelConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: multiSelectMultiSelectTokensTypeMenuItemOptionsLabelColorConfig,
-}
 type multiSelectMultiSelectTokensTypeMenuItemSeperatorConfig = {
   color: string,
   height: string,
@@ -128,9 +114,9 @@ type multiSelectMultiSelectTokensTypeMenuItemConfig = {
   borderRadius: string,
   gap: string,
   backgroundColor: multiSelectMultiSelectTokensTypeLabelColorConfig,
-  optionsLabel: multiSelectMultiSelectTokensTypeMenuItemOptionsLabelConfig,
-  option: multiSelectMultiSelectTokensTypeMenuItemOptionsLabelConfig,
-  description: multiSelectMultiSelectTokensTypeMenuItemOptionsLabelConfig,
+  optionsLabel: multiSelectMultiSelectTokensTypeLabelConfig,
+  option: multiSelectMultiSelectTokensTypeLabelConfig,
+  description: multiSelectMultiSelectTokensTypeLabelConfig,
   seperator: multiSelectMultiSelectTokensTypeMenuItemSeperatorConfig,
 }
 type multiSelectMultiSelectTokensTypeMenuConfig = {

@@ -15,4 +15,5 @@ external make: (
   ~keyDataId: string=?,
   ~valueDataElement: string=?,
   ~valueDataId: string=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "KeyValuePairLayout"

@@ -29,4 +29,5 @@ external make: (
   ~autoFocus: bool=?,
   ~snapPoints: array<CommonTypes.stringOrNumber>=?,
   ~fadeFromIndex: float=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DrawerV2"

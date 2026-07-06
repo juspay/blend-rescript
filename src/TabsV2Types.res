@@ -64,16 +64,16 @@ type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig = {
   underline: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
   pills: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
 }
-type tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig = {
-  boxed: string,
-  floating: string,
-  underline: string,
-  pills: string,
+type tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig = {
+  boxed: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  floating: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  underline: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
+  pills: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
 }
-type tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig = {
-  sm: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
-  md: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
-  lg: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
+type tabsV2TabsV2TokensTypeTabListTriggerPaddingConfig = {
+  sm: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
+  md: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
+  lg: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
 }
 type tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig = {
   sm: string,
@@ -81,7 +81,7 @@ type tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig = {
   lg: string,
 }
 type tabsV2TabsV2TokensTypeTabListTriggerTextConfig = {
-  color: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusSmConfig,
+  color: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
   fontSize: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
   fontWeight: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
 }
@@ -94,9 +94,9 @@ type tabsV2TabsV2TokensTypeTabListTriggerConfig = {
   gap: string,
   icon: tabsV2TabsV2TokensTypeTabListTriggerIconConfig,
   backgroundColor: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig,
-  borderRadius: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig,
+  borderRadius: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
   border: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
-  padding: tabsV2TabsV2TokensTypeTabListTriggerBorderRadiusConfig,
+  padding: tabsV2TabsV2TokensTypeTabListTriggerPaddingConfig,
   text: tabsV2TabsV2TokensTypeTabListTriggerTextConfig,
   closeButton: tabsV2TabsV2TokensTypeTabListTriggerCloseButtonConfig,
   transition: string,

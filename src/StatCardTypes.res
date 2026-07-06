@@ -46,8 +46,8 @@ type statCardStatCardTokenTypeTextContainerStatsTitleValueConfig = {
 }
 type statCardStatCardTokenTypeTextContainerStatsTitleChangeConfig = {
   margin: string,
-  arrow: string,
-  text: string,
+  arrow: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; }`
+  text: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { increase: Color; decrease: Colo`
 }
 type statCardStatCardTokenTypeTextContainerStatsTitleConfig = {
   gap: string,
@@ -86,16 +86,12 @@ type statCardStatCardTokenTypeChartLineConfig = {
   strokeWidth: string,
   activeDot: statCardStatCardTokenTypeChartLineActiveDotConfig,
 }
-type statCardStatCardTokenTypeChartBarFillConfig = {
-  default: string,
-  hover: string,
-}
 type statCardStatCardTokenTypeChartBarConfig = {
   borderTopRightRadius: string,
   borderTopLeftRadius: string,
   borderBottomRightRadius: string,
   borderBottomLeftRadius: string,
-  fill: statCardStatCardTokenTypeChartBarFillConfig,
+  fill: statCardStatCardTokenTypeTextContainerHeaderHelpIconColorConfig,
 }
 type statCardStatCardTokenTypeChartProgressBarBackgroundPatternConfig = {
   color: string,

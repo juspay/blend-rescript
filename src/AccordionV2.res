@@ -9,4 +9,5 @@ external make: (
   ~width: string=?,
   ~maxWidth: string=?,
   ~minWidth: string=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "AccordionV2"

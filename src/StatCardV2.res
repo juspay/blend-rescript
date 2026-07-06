@@ -16,6 +16,7 @@ type props<'b> = {
   maxWidth?: string,
   minWidth?: string,
   height?: string,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

@@ -32,9 +32,9 @@ type selectV2ItemStates =
   | @as("focusVisible") FocusVisible
   | @as("selected") Selected
 type selectV2TooltipProps = {
-  side?: TooltipTypes.tooltipSide,
-  align?: TooltipTypes.tooltipAlign,
-  size?: TooltipTypes.tooltipSize,
+  side?: string, // ⚪ loose — was `TooltipSide`
+  align?: string, // ⚪ loose — was `TooltipAlign`
+  size?: string, // ⚪ loose — was `TooltipSize`
   showArrow?: bool,
   delayDuration?: float,
   offset?: float,

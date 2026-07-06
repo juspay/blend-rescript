@@ -698,16 +698,9 @@ type responsiveTextAreaV2Tokens = {
   sm: textAreaV2TokensType,
   lg: textAreaV2TokensType,
 }
-type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig = {
-  default: string,
-  hover: string,
-  focus: string,
-  error: string,
-  disabled: string,
-}
 type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuConfig = {
   gap: string,
-  backgroundColor: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig,
+  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
   borderRadius: string,
   padding: string,
   top: string,
@@ -760,8 +753,8 @@ type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerHead
   backgroundColor: string,
 }
 type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerItemConfig = {
-  backgroundColor: inputsV2InputLabelsV2TokensLabelColorConfig,
-  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  backgroundColor: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: BackgroundColor; disabled: `
+  color: string, // ⚪ loose — was `{ default: Color; hover: Color; focus: Color; error: Color; disabled: Color; }`
   fontSize: string,
   fontWeight: string,
   paddingTop: string,
@@ -771,7 +764,7 @@ type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerItem
   border: string,
   transition: string,
   cursor: string,
-  opacity: inputsV2InputLabelsV2TokensLabelColorConfig,
+  opacity: string, // ⚪ loose — was `{ default: Opacity; hover: Opacity; focus: Opacity; error: Opacity; disabled: Opacity; }`
 }
 type inputsV2ChatInputV2TokensTypeContainerInputContainerTopQueriesContainerConfig = {
   marginRight: string,
@@ -1392,14 +1385,9 @@ type responsiveMultiValueInputV2Tokens = {
   sm: multiValueInputV2TokensType,
   lg: multiValueInputV2TokensType,
 }
-type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
 type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconConfig = {
-  color: inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuBackgroundColorConfig,
-  width: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
+  color: inputsV2InputLabelsV2TokensLabelColorConfig,
+  width: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
 }
 type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonConfig = {
   width: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
@@ -1407,9 +1395,9 @@ type inputsV2NumberInputV2TokensTypeInputContainerStepperButtonConfig = {
   icon: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconConfig,
 }
 type inputsV2NumberInputV2TokensTypeInputContainerSlotLeftConfig = {
-  width: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
-  height: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
-  margin: inputsV2NumberInputV2TokensTypeInputContainerStepperButtonIconWidthConfig,
+  width: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  height: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
+  margin: inputsV2InputLabelsV2TokensLabelFontSizeConfig,
 }
 type inputsV2NumberInputV2TokensTypeInputContainerSlotConfig = {
   left: inputsV2NumberInputV2TokensTypeInputContainerSlotLeftConfig,
@@ -1748,7 +1736,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STEPPERV2") stepperv2: StepperV2Types.responsiveStepperV2Tokens,
 }
 type themeContextType = {
-  foundationTokens: string,
+  foundationTokens: string, // 🛑 BROKEN — contains `any`
   componentTokens: contextThemeContextTypeComponentTokensConfig,
   breakpoints: BreakpointsTypes.breakpointType,
   theme: string,
@@ -1891,8 +1879,8 @@ type embeddedSingleSelectOptions = {
   defaultSingleSelectGroupPosition: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
 }
 type inputsV2FOCUSRINGSTYLESConfig = {
-  boxShadow: string,
-  backgroundColor: string,
+  boxShadow: string, // ⚪ loose — was `"0 0 0 3px #EFF6FF"`
+  backgroundColor: string, // ⚪ loose — was `"rgba(239, 246, 255, 0.15)"`
 }
 type inputsV2GetInputStateErrorConfig = {
   show: bool,
@@ -1950,14 +1938,8 @@ type codeEditorV2GetPlaceholderPositionConfig = {
 type iDisposable = {
   dispose: unit => unit,
 }
-type iRange = {
-  startLineNumber: float,
-  startColumn: float,
-  endLineNumber: float,
-  endColumn: float,
-}
 type iModelContentChange = {
-  range: iRange,
+  range: string, // ⚪ loose — was `IRange`
   rangeOffset: float,
   rangeLength: float,
   text: string,
@@ -1989,14 +1971,14 @@ type configurationChangedEvent = {
 type rec position = {
   lineNumber: float,
   column: float,
-  @as("with") with_: (option<string>, option<string>) => position,
-  delta: (option<string>, option<string>) => position,
-  equals: string => string,
-  isBefore: string => string,
-  isBeforeOrEqual: string => string,
+  @as("with") with_: (option<float>, option<float>) => position,
+  delta: (option<float>, option<float>) => position,
+  equals: string => bool, // ⚪ loose — was `IPosition`
+  isBefore: string => bool, // ⚪ loose — was `IPosition`
+  isBeforeOrEqual: string => bool, // ⚪ loose — was `IPosition`
   clone: unit => position,
   toString: unit => string,
-  toJSON: unit => string,
+  toJSON: unit => string, // ⚪ loose — was `IPosition`
 }
 type iCursorPositionChangedEvent = {
   position: position,
@@ -2010,30 +1992,30 @@ type rec selection = {
   positionLineNumber: float,
   positionColumn: float,
   toString: unit => string,
-  equalsSelection: string => string,
-  getDirection: unit => string,
-  setEndPosition: (string, string) => selection,
-  getPosition: unit => string,
-  getSelectionStart: unit => string,
-  setStartPosition: (string, string) => selection,
+  equalsSelection: string => bool, // ⚪ loose — was `ISelection`
+  getDirection: unit => string, // ⚪ loose — was `SelectionDirection`
+  setEndPosition: (float, float) => selection,
+  getPosition: unit => position,
+  getSelectionStart: unit => position,
+  setStartPosition: (float, float) => selection,
   startLineNumber: float,
   startColumn: float,
   endLineNumber: float,
   endColumn: float,
-  isEmpty: unit => string,
-  containsPosition: string => string,
-  containsRange: string => string,
-  strictContainsRange: string => string,
-  plusRange: string => string,
-  intersectRanges: string => string,
-  equalsRange: string => string,
-  getEndPosition: unit => string,
-  getStartPosition: unit => string,
-  collapseToStart: unit => string,
-  collapseToEnd: unit => string,
-  delta: string => string,
-  isSingleLine: unit => string,
-  toJSON: unit => string,
+  isEmpty: unit => bool,
+  containsPosition: string => bool, // ⚪ loose — was `IPosition`
+  containsRange: string => bool, // ⚪ loose — was `IRange`
+  strictContainsRange: string => bool, // ⚪ loose — was `IRange`
+  plusRange: string => string, // ⚪ loose — was `Range`
+  intersectRanges: string => string, // ⚪ loose — was `Range`
+  equalsRange: string => bool, // ⚪ loose — was `IRange`
+  getEndPosition: unit => position,
+  getStartPosition: unit => position,
+  collapseToStart: unit => string, // ⚪ loose — was `Range`
+  collapseToEnd: unit => string, // ⚪ loose — was `Range`
+  delta: float => string, // ⚪ loose — was `Range`
+  isSingleLine: unit => bool,
+  toJSON: unit => string, // ⚪ loose — was `IRange`
 }
 type iCursorSelectionChangedEvent = {
   selection: selection,
@@ -2051,9 +2033,9 @@ type rec uri = {
   query: string,
   fragment: string,
   fsPath: string,
-  @as("with") with_: string => uri,
-  toString: option<string> => string,
-  toJSON: unit => string,
+  @as("with") with_: string => uri, // ⚪ loose — was `{ scheme?: string; authority?: string; path?: string; query?: string; fragment?: string; }`
+  toString: option<bool> => string,
+  toJSON: unit => string, // ⚪ loose — was `UriComponents`
 }
 type iModelChangedEvent = {
   oldModelUrl: Nullable.t<uri>,
@@ -2070,23 +2052,23 @@ type rec range = {
   startColumn: float,
   endLineNumber: float,
   endColumn: float,
-  isEmpty: unit => string,
-  containsPosition: string => string,
-  containsRange: string => string,
-  strictContainsRange: string => string,
-  plusRange: string => range,
-  intersectRanges: string => Nullable.t<range>,
-  equalsRange: string => string,
-  getEndPosition: unit => string,
-  getStartPosition: unit => string,
+  isEmpty: unit => bool,
+  containsPosition: string => bool, // ⚪ loose — was `IPosition`
+  containsRange: string => bool, // ⚪ loose — was `IRange`
+  strictContainsRange: string => bool, // ⚪ loose — was `IRange`
+  plusRange: string => range, // ⚪ loose — was `IRange`
+  intersectRanges: string => Nullable.t<range>, // ⚪ loose — was `IRange`
+  equalsRange: string => bool, // ⚪ loose — was `IRange`
+  getEndPosition: unit => position,
+  getStartPosition: unit => position,
   toString: unit => string,
-  setEndPosition: (string, string) => range,
-  setStartPosition: (string, string) => range,
+  setEndPosition: (float, float) => range,
+  setStartPosition: (float, float) => range,
   collapseToStart: unit => range,
   collapseToEnd: unit => range,
-  delta: string => range,
-  isSingleLine: unit => string,
-  toJSON: unit => string,
+  delta: float => range,
+  isSingleLine: unit => bool,
+  toJSON: unit => string, // ⚪ loose — was `IRange`
 }
 type iPasteEvent = {
   range: range,
@@ -2113,35 +2095,58 @@ type iMouseEvent = {
   stopPropagation: unit => unit,
 }
 type iMouseTargetUnknown = {
-  @as("type") type_: string,
-  element: string,
-  position: string,
-  mouseColumn: string,
-  range: string,
+  @as("type") type_: float,
+  element: string, // ⚪ loose — was `HTMLElement`
+  position: Nullable.t<position>,
+  mouseColumn: float,
+  range: Nullable.t<range>,
 }
 type iMouseTargetTextarea = {
-  @as("type") type_: string,
-  position: string,
-  range: string,
-  element: string,
-  mouseColumn: string,
+  @as("type") type_: float,
+  position: string, // ⚪ loose — was `null`
+  range: string, // ⚪ loose — was `null`
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
 }
 type iMouseTargetMargin = {
-  @as("type") type_: string,
-  position: string,
-  range: string,
+  @as("type") type_: string, // ⚪ loose — was `MouseTargetType.GUTTER_GLYPH_MARGIN | MouseTargetType.GUTTER_LINE_NUMBERS | MouseTargetType.GUTTER_LINE_DECORA`
+  position: position,
+  range: range,
+  detail: string, // ⚪ loose — was `IMouseTargetMarginData`
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
+type iMouseTargetContentText = {
+  @as("type") type_: float,
+  position: position,
+  range: range,
+  detail: string, // ⚪ loose — was `IMouseTargetContentTextData`
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
+type iMouseTargetContentWidget = {
+  @as("type") type_: float,
+  position: string, // ⚪ loose — was `null`
+  range: string, // ⚪ loose — was `null`
   detail: string,
-  element: string,
-  mouseColumn: string,
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
+type iMouseTargetScrollbar = {
+  @as("type") type_: float,
+  position: position,
+  range: range,
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
 }
 type iMouseTargetOutsideEditor = {
-  @as("type") type_: string,
-  outsidePosition: string,
-  outsideDistance: string,
-  element: string,
-  position: string,
-  mouseColumn: string,
-  range: string,
+  @as("type") type_: float,
+  outsidePosition: string, // ⚪ loose — was `"left" | "right" | "above" | "below"`
+  outsideDistance: float,
+  element: string, // ⚪ loose — was `HTMLElement`
+  position: Nullable.t<position>,
+  mouseColumn: float,
+  range: Nullable.t<range>,
 }
 module IMouseTarget = {
   type t
@@ -2149,11 +2154,11 @@ module IMouseTarget = {
   external fromIMouseTargetTextarea: iMouseTargetTextarea => t = "%identity"
   external fromIMouseTargetMargin: iMouseTargetMargin => t = "%identity"
   external fromIMouseTargetViewZone: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetContentText: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetContentEmpty: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetContentWidget: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetOverlayWidget: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetScrollbar: iMouseTargetTextarea => t = "%identity"
+  external fromIMouseTargetContentText: iMouseTargetContentText => t = "%identity"
+  external fromIMouseTargetContentEmpty: iMouseTargetContentText => t = "%identity"
+  external fromIMouseTargetContentWidget: iMouseTargetContentWidget => t = "%identity"
+  external fromIMouseTargetOverlayWidget: iMouseTargetContentWidget => t = "%identity"
+  external fromIMouseTargetScrollbar: iMouseTargetScrollbar => t = "%identity"
   external fromIMouseTargetOverviewRuler: iMouseTargetUnknown => t = "%identity"
   external fromIMouseTargetOutsideEditor: iMouseTargetOutsideEditor => t = "%identity"
 }
@@ -2251,14 +2256,14 @@ type iViewState = {
 type iCodeEditorViewState = {
   cursorState: array<iCursorState>,
   viewState: iViewState,
-  contributionsState: Dict.t<string>,
+  contributionsState: Dict.t<string>, // 🛑 BROKEN — contains `any`
 }
 type bracketPairColorizationOptions = {
   enabled: bool,
   independentColorPoolPerBracketType: bool,
 }
 type textModelResolvedOptions = {
-  _textModelResolvedOptionsBrand: string,
+  _textModelResolvedOptionsBrand: string, // ⚪ loose — was `void`
   tabSize: float,
   indentSize: float,
   insertSpaces: bool,
@@ -2270,8 +2275,14 @@ type textModelResolvedOptions = {
 type iTextSnapshot = {
   read: unit => Nullable.t<string>,
 }
+type iRange = {
+  startLineNumber: float,
+  startColumn: float,
+  endLineNumber: float,
+  endColumn: float,
+}
 type findMatch = {
-  _findMatchBrand: string,
+  _findMatchBrand: string, // ⚪ loose — was `void`
   range: range,
   matches: array<string>,
 }
@@ -2280,28 +2291,32 @@ type iWordAtPosition = {
   startColumn: float,
   endColumn: float,
 }
+type iModelDeltaDecoration = {
+  range: iRange,
+  options: string, // ⚪ loose — was `IModelDecorationOptions`
+}
 type iModelDecorationOverviewRulerOptions = {
-  position: string,
-  color?: string,
-  darkColor?: string,
+  position: string, // ⚪ loose — was `OverviewRulerLane`
+  color?: string, // ⚪ loose — was `string | ThemeColor`
+  darkColor?: string, // ⚪ loose — was `string | ThemeColor`
 }
 type iModelDecorationMinimapOptions = {
-  position: string,
-  sectionHeaderStyle?: string,
-  sectionHeaderText?: string,
-  color?: string,
-  darkColor?: string,
+  position: string, // ⚪ loose — was `MinimapPosition`
+  sectionHeaderStyle?: string, // ⚪ loose — was `MinimapSectionHeaderStyle`
+  sectionHeaderText?: Nullable.t<string>,
+  color?: string, // ⚪ loose — was `string | ThemeColor`
+  darkColor?: string, // ⚪ loose — was `string | ThemeColor`
 }
 type iModelDecorationGlyphMarginOptions = {
-  position: glyphMarginLane,
+  position: string, // ⚪ loose — was `GlyphMarginLane`
   persistLane?: bool,
 }
 type injectedTextOptions = {
   content: string,
-  inlineClassName?: string,
-  inlineClassNameAffectsLetterSpacing?: string,
-  attachedData?: string,
-  cursorStops?: string,
+  inlineClassName?: Nullable.t<string>,
+  inlineClassNameAffectsLetterSpacing?: bool,
+  attachedData?: JSON.t,
+  cursorStops?: string, // ⚪ loose — was `InjectedTextCursorStops`
 }
 type iModelDecorationOptions = {
   stickiness?: trackedRangeStickiness,
@@ -2310,10 +2325,10 @@ type iModelDecorationOptions = {
   blockClassName?: Nullable.t<string>,
   blockIsAfterEnd?: Nullable.t<bool>,
   blockDoesNotCollapse?: Nullable.t<bool>,
-  blockPadding?: Nullable.t<(string, string, string, string)>,
-  glyphMarginHoverMessage?: string,
-  hoverMessage?: string,
-  lineNumberHoverMessage?: string,
+  blockPadding?: Nullable.t<(float, float, float, float)>,
+  glyphMarginHoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
+  hoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
+  lineNumberHoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
   isWholeLine?: bool,
   showIfCollapsed?: bool,
   zIndex?: int,
@@ -2339,10 +2354,6 @@ type iModelDecorationOptions = {
   before?: Nullable.t<injectedTextOptions>,
   textDirection?: Nullable.t<textDirection>,
 }
-type iModelDeltaDecoration = {
-  range: iRange,
-  options: iModelDecorationOptions,
-}
 type iModelDecoration = {
   id: string,
   ownerId: float,
@@ -2367,7 +2378,7 @@ type iTextModel<'a> = {
   getOptions: unit => textModelResolvedOptions,
   getVersionId: unit => float,
   getAlternativeVersionId: unit => float,
-  setValue: string => unit,
+  setValue: string => unit, // ⚠️ REVIEW — was `string | ITextSnapshot` — match the real type by hand
   getValue: (option<endOfLinePreference>, option<bool>) => string,
   createSnapshot: option<bool> => iTextSnapshot,
   getValueLength: (option<endOfLinePreference>, option<bool>) => float,
@@ -2392,7 +2403,7 @@ type iTextModel<'a> = {
   getPositionAt: float => position,
   getFullModelRange: unit => range,
   isDisposed: unit => bool,
-  findMatches: string,
+  findMatches: string, // ⚠️ REVIEW — match the real type by hand
   findNextMatch: (string, iPosition, bool, bool, Nullable.t<string>, bool) => Nullable.t<findMatch>,
   findPreviousMatch: (
     string,
@@ -2441,27 +2452,27 @@ type iTextModel<'a> = {
   pushEditOperations: (
     Nullable.t<array<selection>>,
     array<iIdentifiedSingleEditOperation>,
-    array<string> => Nullable.t<array<string>>,
-  ) => Nullable.t<array<selection>>,
+    array<string> => Nullable.t<array<selection>>,
+  ) => Nullable.t<array<selection>>, // ⚪ loose — was `IValidEditOperation`
   pushEOL: endOfLineSequence => unit,
-  applyEdits: string,
+  applyEdits: string, // ⚠️ REVIEW — match the real type by hand
   setEOL: endOfLineSequence => unit,
   undo: unit => 'a,
   canUndo: unit => bool,
   redo: unit => 'a,
   canRedo: unit => bool,
   onDidChangeContent: iModelContentChangedEvent => unit => iDisposable,
-  onDidChangeDecorations: (iModelDecorationsChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable,
-  onDidChangeAttached: (string => string, option<string>) => iDisposable,
-  onWillDispose: (string => string, option<string>) => iDisposable,
+  onDidChangeDecorations: (iModelDecorationsChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeAttached: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onWillDispose: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   dispose: unit => unit,
   isAttachedToEditor: unit => bool,
 }
 type iComputedEditorOptions = {
-  get: string => JSON.t,
+  get: string => JSON.t, // 🛑 BROKEN — contains `unknown`
 }
 type iRulerOption = {
   column: float,
@@ -2883,17 +2894,17 @@ type iEditOperationBuilder = {
   addTrackedEditOperation: (iRange, Nullable.t<string>, option<bool>) => unit,
   trackSelection: (selection, option<bool>) => string,
 }
-type iValidEditOperation = {
-  range: range,
-  text: string,
-}
 type iCursorStateComputerData = {
-  getInverseEditOperations: unit => array<iValidEditOperation>,
+  getInverseEditOperations: unit => string, // ⚪ loose — was `IValidEditOperation[]`
   getTrackedSelection: string => selection,
 }
 type iCommand<'a> = {
   getEditOperations: (iTextModel<'a>, iEditOperationBuilder) => unit,
   computeCursorState: (iTextModel<'a>, iCursorStateComputerData) => selection,
+}
+type iValidEditOperation = {
+  range: range,
+  text: string,
 }
 @unboxed
 type codeEditorV2ICodeEditorExecuteEdits =
@@ -2901,7 +2912,7 @@ type codeEditorV2ICodeEditorExecuteEdits =
 type iContentWidgetPosition = {
   position: Nullable.t<iPosition>,
   secondaryPosition?: Nullable.t<iPosition>,
-  preference: array<string>,
+  preference: array<string>, // ⚪ loose — was `ContentWidgetPositionPreference`
   positionAffinity?: positionAffinity,
 }
 type iDimension = {
@@ -2925,11 +2936,11 @@ type iContentWidget = {
   ) => unit,
 }
 type iOverlayWidgetPosition = {
-  preference: string,
+  preference: string, // ⚠️ REVIEW — was `OverlayWidgetPositionPreference | IOverlayWidgetPositionCoordinates` — match the real type by hand
   stackOridinal?: float,
 }
 type iOverlayWidget = {
-  onDidLayout?: (string => string, option<string>) => iDisposable,
+  onDidLayout?: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   allowEditorOverflow?: bool,
   getId: unit => string,
   getDomNode: unit => Dom.element,
@@ -2949,15 +2960,15 @@ type iGlyphMarginWidget = {
 type iViewZone = {
   afterLineNumber: float,
   afterColumn?: float,
-  afterColumnAffinity?: positionAffinity,
+  afterColumnAffinity?: string, // ⚪ loose — was `PositionAffinity`
   showInHiddenAreas?: bool,
   ordinal?: float,
   suppressMouseDown?: bool,
   heightInLines?: float,
   heightInPx?: float,
   minWidthInPx?: float,
-  domNode: Dom.element,
-  marginDomNode?: Nullable.t<Dom.element>,
+  domNode: string, // ⚪ loose — was `HTMLElement`
+  marginDomNode?: string, // ⚪ loose — was `HTMLElement`
   onDomNodeTop?: float => unit,
   onComputedHeight?: float => unit,
 }
@@ -2985,7 +2996,7 @@ module SetSelection = {
   external asSelection4: t => (selection, option<string>) => unit = "%identity"
 }
 type iEditorDecorationsCollection = {
-  onDidChange: (iModelDecorationsChangedEvent => string, option<string>) => iDisposable,
+  onDidChange: (iModelDecorationsChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
   length: float,
   getRange: float => Nullable.t<range>,
   getRanges: unit => array<range>,
@@ -2995,52 +3006,52 @@ type iEditorDecorationsCollection = {
   clear: unit => unit,
 }
 type iCodeEditor<'a> = {
-  onDidChangeModelContent: (iModelContentChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModelLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModelLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable,
-  onDidChangeModelOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeConfiguration: (configurationChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeCursorPosition: (iCursorPositionChangedEvent => string, option<string>) => iDisposable,
+  onDidChangeModelContent: (iModelContentChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeConfiguration: (configurationChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeCursorPosition: (iCursorPositionChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
   onDidChangeCursorSelection: (
     iCursorSelectionChangedEvent => string,
     option<string>,
-  ) => iDisposable,
-  onWillChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable,
+  ) => iDisposable, // 🛑 BROKEN — contains `any`
+  onWillChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
   onDidChangeModelDecorations: (
     iModelDecorationsChangedEvent => string,
     option<string>,
-  ) => iDisposable,
-  onDidFocusEditorText: (string => string, option<string>) => iDisposable,
-  onDidBlurEditorText: (string => string, option<string>) => iDisposable,
-  onDidFocusEditorWidget: (string => string, option<string>) => iDisposable,
-  onDidBlurEditorWidget: (string => string, option<string>) => iDisposable,
+  ) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidFocusEditorText: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidBlurEditorText: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidFocusEditorWidget: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidBlurEditorWidget: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   inComposition: bool,
-  onDidCompositionStart: (string => string, option<string>) => iDisposable,
-  onDidCompositionEnd: (string => string, option<string>) => iDisposable,
-  onDidAttemptReadOnlyEdit: (string => string, option<string>) => iDisposable,
-  onDidPaste: (iPasteEvent => string, option<string>) => iDisposable,
-  onMouseUp: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseDown: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onContextMenu: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseMove: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseLeave: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onKeyUp: (iKeyboardEvent => string, option<string>) => iDisposable,
-  onKeyDown: (iKeyboardEvent => string, option<string>) => iDisposable,
-  onDidLayoutChange: (editorLayoutInfo => string, option<string>) => iDisposable,
-  onDidContentSizeChange: (iContentSizeChangedEvent => string, option<string>) => iDisposable,
-  onDidScrollChange: (iScrollEvent => string, option<string>) => iDisposable,
-  onDidChangeHiddenAreas: (string => string, option<string>) => iDisposable,
-  onBeginUpdate: (string => string, option<string>) => iDisposable,
-  onEndUpdate: (string => string, option<string>) => iDisposable,
+  onDidCompositionStart: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidCompositionEnd: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidAttemptReadOnlyEdit: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidPaste: (iPasteEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseUp: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseDown: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onContextMenu: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseMove: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseLeave: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onKeyUp: (iKeyboardEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onKeyDown: (iKeyboardEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidLayoutChange: (editorLayoutInfo => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidContentSizeChange: (iContentSizeChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidScrollChange: (iScrollEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeHiddenAreas: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onBeginUpdate: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onEndUpdate: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   saveViewState: unit => Nullable.t<iCodeEditorViewState>,
   restoreViewState: Nullable.t<iCodeEditorViewState> => unit,
   hasWidgetFocus: unit => bool,
-  getContribution: string => string,
+  getContribution: string => string, // 🛑 BROKEN — contains `unknown`
   getModel: unit => Nullable.t<iTextModel<'a>>,
   setModel: Nullable.t<iTextModel<'a>> => unit,
   getOptions: unit => iComputedEditorOptions,
-  getOption: string => JSON.t,
+  getOption: string => JSON.t, // 🛑 BROKEN — contains `unknown`
   getRawOptions: unit => iEditorOptions,
   getValue: option<editorICodeEditorGetValueConfig> => string,
   setValue: string => unit,
@@ -3131,7 +3142,7 @@ type iCodeEditor<'a> = {
   revealRangeInCenterIfOutsideViewport: (iRange, option<scrollType>) => unit,
   revealRangeNearTop: (iRange, option<scrollType>) => unit,
   revealRangeNearTopIfOutsideViewport: (iRange, option<scrollType>) => unit,
-  trigger: (Nullable.t<string>, string, string) => unit,
+  trigger: (Nullable.t<string>, string, string) => unit, // 🛑 BROKEN — contains `any`
   createDecorationsCollection: option<array<iModelDeltaDecoration>> => iEditorDecorationsCollection,
 }
 type editorGetMonacoViewModeOptionsConfig = {
@@ -3143,7 +3154,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>,
+  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
@@ -3227,7 +3238,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string,
+  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3304,9 +3315,9 @@ type editorGetMonacoViewModeOptionsConfig = {
   inlineCompletionsAccessibilityVerbose?: bool,
 }
 type iContextKey = {
-  set: string => unit,
+  set: string => unit, // 🛑 BROKEN — contains `unknown`
   reset: unit => unit,
-  get: unit => string,
+  get: unit => string, // 🛑 BROKEN — contains `unknown`
 }
 type iActionDescriptor<'a, 'b> = {
   id: string,
@@ -3327,11 +3338,11 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>,
+  rulers?: array<string>, // ⚪ loose — was `number | IRulerOption`
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: string,
+  lineNumbers?: CommonTypes.editorIStandaloneCodeEditorUpdateOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -3411,7 +3422,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string,
+  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3500,57 +3511,60 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   theme?: string,
   autoDetectHighContrast?: bool,
 }
+@unboxed
+type codeEditorV2IStandaloneCodeEditorExecuteEdits =
+  Arr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
 type iStandaloneCodeEditor<'a, 'b> = {
   updateOptions: codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig => unit,
-  addCommand: (float, array<string> => unit, option<string>) => Nullable.t<string>,
-  createContextKey: (string, string) => iContextKey,
+  addCommand: (float, array<string> => unit, option<string>) => Nullable.t<string>, // ⚪ loose — was `any`
+  createContextKey: (string, string) => iContextKey, // 🛑 BROKEN — contains `unknown`
   addAction: iActionDescriptor<'a, 'b> => iDisposable,
-  onDidChangeModelContent: (iModelContentChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModelLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModelLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable,
-  onDidChangeModelOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeConfiguration: (configurationChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeCursorPosition: (iCursorPositionChangedEvent => string, option<string>) => iDisposable,
+  onDidChangeModelContent: (iModelContentChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelLanguage: (iModelLanguageChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelLanguageConfiguration: (JSON.t => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModelOptions: (iModelOptionsChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeConfiguration: (configurationChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeCursorPosition: (iCursorPositionChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
   onDidChangeCursorSelection: (
     iCursorSelectionChangedEvent => string,
     option<string>,
-  ) => iDisposable,
-  onWillChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable,
-  onDidChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable,
+  ) => iDisposable, // 🛑 BROKEN — contains `any`
+  onWillChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeModel: (iModelChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
   onDidChangeModelDecorations: (
     iModelDecorationsChangedEvent => string,
     option<string>,
-  ) => iDisposable,
-  onDidFocusEditorText: (string => string, option<string>) => iDisposable,
-  onDidBlurEditorText: (string => string, option<string>) => iDisposable,
-  onDidFocusEditorWidget: (string => string, option<string>) => iDisposable,
-  onDidBlurEditorWidget: (string => string, option<string>) => iDisposable,
+  ) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidFocusEditorText: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidBlurEditorText: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidFocusEditorWidget: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidBlurEditorWidget: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   inComposition: bool,
-  onDidCompositionStart: (string => string, option<string>) => iDisposable,
-  onDidCompositionEnd: (string => string, option<string>) => iDisposable,
-  onDidAttemptReadOnlyEdit: (string => string, option<string>) => iDisposable,
-  onDidPaste: (iPasteEvent => string, option<string>) => iDisposable,
-  onMouseUp: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseDown: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onContextMenu: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseMove: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onMouseLeave: (iEditorMouseEvent => string, option<string>) => iDisposable,
-  onKeyUp: (iKeyboardEvent => string, option<string>) => iDisposable,
-  onKeyDown: (iKeyboardEvent => string, option<string>) => iDisposable,
-  onDidLayoutChange: (editorLayoutInfo => string, option<string>) => iDisposable,
-  onDidContentSizeChange: (iContentSizeChangedEvent => string, option<string>) => iDisposable,
-  onDidScrollChange: (iScrollEvent => string, option<string>) => iDisposable,
-  onDidChangeHiddenAreas: (string => string, option<string>) => iDisposable,
-  onBeginUpdate: (string => string, option<string>) => iDisposable,
-  onEndUpdate: (string => string, option<string>) => iDisposable,
+  onDidCompositionStart: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidCompositionEnd: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidAttemptReadOnlyEdit: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidPaste: (iPasteEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseUp: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseDown: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onContextMenu: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseMove: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onMouseLeave: (iEditorMouseEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onKeyUp: (iKeyboardEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onKeyDown: (iKeyboardEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidLayoutChange: (editorLayoutInfo => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidContentSizeChange: (iContentSizeChangedEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidScrollChange: (iScrollEvent => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any`
+  onDidChangeHiddenAreas: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onBeginUpdate: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onEndUpdate: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   saveViewState: unit => Nullable.t<iCodeEditorViewState>,
   restoreViewState: Nullable.t<iCodeEditorViewState> => unit,
   hasWidgetFocus: unit => bool,
-  getContribution: string => string,
+  getContribution: string => string, // 🛑 BROKEN — contains `unknown`
   getModel: unit => Nullable.t<iTextModel<'a>>,
   setModel: Nullable.t<iTextModel<'a>> => unit,
   getOptions: unit => iComputedEditorOptions,
-  getOption: string => JSON.t,
+  getOption: string => JSON.t, // 🛑 BROKEN — contains `unknown`
   getRawOptions: unit => iEditorOptions,
   getValue: option<editorICodeEditorGetValueConfig> => string,
   setValue: string => unit,
@@ -3568,7 +3582,11 @@ type iStandaloneCodeEditor<'a, 'b> = {
   executeCommand: (Nullable.t<string>, iCommand<'a>) => unit,
   pushUndoStop: unit => bool,
   popUndoStop: unit => bool,
-  executeEdits: (Nullable.t<string>, array<iIdentifiedSingleEditOperation>, option<string>) => bool,
+  executeEdits: (
+    Nullable.t<string>,
+    array<iIdentifiedSingleEditOperation>,
+    option<codeEditorV2IStandaloneCodeEditorExecuteEdits>,
+  ) => bool,
   executeCommands: (Nullable.t<string>, array<iCommand<'a>>) => unit,
   getLineDecorations: float => Nullable.t<array<iModelDecoration>>,
   getDecorationsInRange: range => Nullable.t<array<iModelDecoration>>,
@@ -3636,7 +3654,7 @@ type iStandaloneCodeEditor<'a, 'b> = {
   revealRangeInCenterIfOutsideViewport: (iRange, option<scrollType>) => unit,
   revealRangeNearTop: (iRange, option<scrollType>) => unit,
   revealRangeNearTopIfOutsideViewport: (iRange, option<scrollType>) => unit,
-  trigger: (Nullable.t<string>, string, string) => unit,
+  trigger: (Nullable.t<string>, string, string) => unit, // 🛑 BROKEN — contains `any`
   createDecorationsCollection: option<array<iModelDeltaDecoration>> => iEditorDecorationsCollection,
 }
 type iDiffEditorViewState = {
@@ -3695,7 +3713,7 @@ type iDiffEditorOptions = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>,
+  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
@@ -3779,7 +3797,7 @@ type iDiffEditorOptions = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string,
+  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3879,13 +3897,13 @@ type iDiffEditorOptions = {
 }
 type iStandaloneDiffEditor<'a, 'b> = {
   addCommand: (float, array<'a> => unit, option<string>) => Nullable.t<string>,
-  createContextKey: (string, string) => iContextKey,
+  createContextKey: (string, string) => iContextKey, // 🛑 BROKEN — contains `unknown`
   addAction: iActionDescriptor<'a, 'b> => iDisposable,
   getOriginalEditor: unit => iStandaloneCodeEditor<'a, 'b>,
   getModifiedEditor: unit => iStandaloneCodeEditor<'a, 'b>,
   getContainerDomNode: unit => Dom.element,
-  onDidUpdateDiff: (string => string, option<string>) => iDisposable,
-  onDidChangeModel: (string => string, option<string>) => iDisposable,
+  onDidUpdateDiff: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
+  onDidChangeModel: (string => string, option<string>) => iDisposable, // 🛑 BROKEN — contains `any` — was `void`
   saveViewState: unit => Nullable.t<iDiffEditorViewState>,
   restoreViewState: Nullable.t<iDiffEditorViewState> => unit,
   getModel: unit => Nullable.t<iDiffEditorModel<'a>>,
@@ -3931,7 +3949,7 @@ type iStandaloneDiffEditor<'a, 'b> = {
   revealRangeInCenterIfOutsideViewport: (iRange, option<scrollType>) => unit,
   revealRangeNearTop: (iRange, option<scrollType>) => unit,
   revealRangeNearTopIfOutsideViewport: (iRange, option<scrollType>) => unit,
-  trigger: (Nullable.t<string>, string, string) => unit,
+  trigger: (Nullable.t<string>, string, string) => unit, // 🛑 BROKEN — contains `any`
   createDecorationsCollection: option<array<iModelDeltaDecoration>> => iEditorDecorationsCollection,
 }
 type iStandaloneEditorConstructionOptions<'a> = {
@@ -3952,7 +3970,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>,
+  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
@@ -4036,7 +4054,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string,
+  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -4135,7 +4153,7 @@ type iDiffEditorConstructionOptions = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>,
+  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
   wordSegmenterLocales?: CommonTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
@@ -4219,7 +4237,7 @@ type iDiffEditorConstructionOptions = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string,
+  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -4454,10 +4472,10 @@ type accessibilitySetupResult = {
   ariaAttributes: ariaAttributes,
 }
 type singleSelectV2VIRTUALROWESTIMATESConfig = {
-  label: string,
-  separator: string,
-  item: string,
-  itemWithSubLabel: string,
+  label: string, // ⚪ loose — was `32`
+  separator: string, // ⚪ loose — was `8`
+  item: string, // ⚪ loose — was `38`
+  itemWithSubLabel: string, // ⚪ loose — was `58`
 }
 type chatInputV2TopQuery = {
   id: string,

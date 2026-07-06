@@ -57,4 +57,5 @@ external make: (
   ~value: string,
   ~forceMount: bool=?,
   ~asChild: bool=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "TabsV2Content"

@@ -10,4 +10,5 @@ external make: (
   ~selected: string=?,
   ~showCheckmark: bool=?,
   ~selectedValues: array<string>=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "SelectItemV2"

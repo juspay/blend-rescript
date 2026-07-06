@@ -15,4 +15,5 @@ external make: (
   ~diffContextLines: float=?,
   ~diffExpandChunk: float=?,
   ~maxHeight: string=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "CodeBlock"

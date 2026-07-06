@@ -62,4 +62,5 @@ external make: (
   ~position: BadgeTypes.badgePosition=?,
   ~offset: (float, float)=?,
   ~isCircular: bool=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "Badge"

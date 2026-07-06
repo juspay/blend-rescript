@@ -54,43 +54,14 @@ type tabsTabsTokensTypePaddingConfig = {
   md: tabsTabsTokensTypePaddingSmConfig,
   lg: tabsTabsTokensTypePaddingSmConfig,
 }
-type tabsTabsTokensTypeContainerPaddingSmBoxedConfig = {
-  top: string,
-  right: string,
-  bottom: string,
-  left: string,
-}
-type tabsTabsTokensTypeContainerPaddingSmConfig = {
-  boxed: tabsTabsTokensTypeContainerPaddingSmBoxedConfig,
-  floating: tabsTabsTokensTypeContainerPaddingSmBoxedConfig,
-  underline: tabsTabsTokensTypeContainerPaddingSmBoxedConfig,
-  pills: tabsTabsTokensTypeContainerPaddingSmBoxedConfig,
-}
-type tabsTabsTokensTypeContainerPaddingConfig = {
-  sm: tabsTabsTokensTypeContainerPaddingSmConfig,
-  md: tabsTabsTokensTypeContainerPaddingSmConfig,
-  lg: tabsTabsTokensTypeContainerPaddingSmConfig,
-}
 type tabsTabsTokensTypeContainerConfig = {
   backgroundColor: tabsTabsTokensTypeBorderRadiusSmConfig,
   borderRadius: tabsTabsTokensTypeBorderRadiusConfig,
-  padding: tabsTabsTokensTypeContainerPaddingConfig,
+  padding: tabsTabsTokensTypePaddingConfig,
 }
 type tabsTabsTokensTypeTriggerActiveIndicatorConfig = {
   height: string,
   color: string,
-}
-type tabsTabsTokensTypeTriggerTextColorBoxedConfig = {
-  active: string,
-  default: string,
-  hover: string,
-  disabled: string,
-}
-type tabsTabsTokensTypeTriggerTextColorConfig = {
-  boxed: tabsTabsTokensTypeTriggerTextColorBoxedConfig,
-  floating: tabsTabsTokensTypeTriggerTextColorBoxedConfig,
-  underline: tabsTabsTokensTypeTriggerTextColorBoxedConfig,
-  pills: tabsTabsTokensTypeTriggerTextColorBoxedConfig,
 }
 type tabsTabsTokensTypeTriggerTextFontSizeConfig = {
   sm: string,
@@ -98,7 +69,7 @@ type tabsTabsTokensTypeTriggerTextFontSizeConfig = {
   lg: string,
 }
 type tabsTabsTokensTypeTriggerTextConfig = {
-  color: tabsTabsTokensTypeTriggerTextColorConfig,
+  color: tabsTabsTokensTypeBackgroundColorConfig,
   fontSize: tabsTabsTokensTypeTriggerTextFontSizeConfig,
   fontWeight: tabsTabsTokensTypeTriggerTextFontSizeConfig,
 }

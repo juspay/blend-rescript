@@ -21,4 +21,5 @@ external make: (
   ~onPointerDownOutside: JSON.t => unit=?,
   ~onFocusCapture: ReactEvent.Focus.t => unit=?,
   ~onKeyDown: ReactEvent.Keyboard.t => unit=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "MenuV2Content"

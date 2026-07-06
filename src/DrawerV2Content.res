@@ -62,4 +62,5 @@ external make: (
   ~onInteractOutside: DrawerV2Types.customEvent => unit=?,
   ~onOpenAutoFocus: Dom.event => unit=?,
   ~onCloseAutoFocus: Dom.event => unit=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DrawerV2Content"

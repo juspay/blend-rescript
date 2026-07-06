@@ -65,4 +65,5 @@ external make: (
   @as("type") ~type_: TabsTypes.tabsType=?,
   ~value: CommonTypes.stringOrNumberOrStringArray=?,
   ~asChild: bool=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DrawerV2Trigger"

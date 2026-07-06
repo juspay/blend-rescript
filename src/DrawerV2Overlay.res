@@ -56,4 +56,5 @@ external make: (
   ~onWheel: ReactEvent.Wheel.t => unit=?,
   ~forceMount: bool=?,
   ~asChild: bool=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DrawerV2Overlay"

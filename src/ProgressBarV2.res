@@ -7,6 +7,7 @@ type props = {
   showLabel?: bool,
   min?: float,
   max?: float,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

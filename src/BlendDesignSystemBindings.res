@@ -30,6 +30,8 @@ external getCardTokens: TokensTypes.foundationTokenType => CardTypes.responsiveC
 external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
+external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
+@module("@juspay/blend-design-system")
 external getChatInputTokens: TokensTypes.foundationTokenType => ChatInputTypes.responsiveChatInputTokensType =
   "getChatInputTokens"
 @module("@juspay/blend-design-system")
@@ -572,20 +574,20 @@ external applyTabItemDisplayDefaults: (
 ) => array<TabsV2Types.tabsV2TabItem> = "applyTabItemDisplayDefaults"
 @module("@juspay/blend-design-system")
 external useChartLegend: (
-  React.ref<Nullable.t<Dom.element>>,
-  array<React.ref<Nullable.t<Dom.element>>>,
-) => ChartsV2Types.chartsV2UseChartLegendConfig = "useChartLegend"
+  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>,
+  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>>,
+) => ChartsV2Types.chartsV2UseChartLegendConfig<'b> = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
-  HighchartsSharedTypes.chart,
-  array<HighchartsSharedTypes.chart>,
+  HighchartsSharedTypes.chart<'b>,
+  array<HighchartsSharedTypes.chart<'b>>,
 ) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
-external useChartRefs: array<React.ref<Nullable.t<Dom.element>>> => array<
-  HighchartsSharedTypes.chart,
-> = "useChartRefs"
+external useChartRefs: array<
+  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'b>>>,
+> => array<HighchartsSharedTypes.chart<'b>> = "useChartRefs"
 @module("@juspay/blend-design-system")
-external getLegendItems: HighchartsSharedTypes.chart => array<
+external getLegendItems: HighchartsSharedTypes.chart<'b> => array<
   HighchartsSharedTypes.ChartV2LegendItem.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")
@@ -604,6 +606,8 @@ external getChartV2Tokens: (
   ~theme: string=?,
   unit,
 ) => ChartsV2Types.responsiveChartV2Tokens = "getChartV2Tokens"
+@module("@juspay/blend-design-system")
+external chartV2BaseInstance: InstanceTypes.highchartsModule = "ChartV2BaseInstance"
 @module("@juspay/blend-design-system")
 external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPosition =
   "getButtonGroupPosition"
@@ -730,9 +734,9 @@ external getPlaceholderPosition: (
   EditorSharedTypes.editorMetrics,
   bool,
 ) => EditorSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
-// ⚪ loose: `configureLanguageDefaults` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external configureLanguageDefaults: string => unit = "configureLanguageDefaults"
+external configureLanguageDefaults: InstanceTypes.editorApiModule => unit =
+  "configureLanguageDefaults"
 @module("@juspay/blend-design-system")
 external blurMonacoEditorDom: EditorSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
 @module("@juspay/blend-design-system")

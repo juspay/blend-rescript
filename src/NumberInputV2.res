@@ -17,6 +17,7 @@ type props = {
   preventNegative?: bool,
   onBlur?: ReactEvent.Focus.t => unit,
   onFocus?: ReactEvent.Focus.t => unit,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

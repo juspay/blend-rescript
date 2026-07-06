@@ -19,22 +19,15 @@ type accordionAccordionTokenTypeTriggerBackgroundColorConfig = {
   border: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
   noBorder: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
 }
-type accordionAccordionTokenTypeTriggerTextTitleColorConfig = {
-  active: string,
-  default: string,
-  hover: string,
-  disabled: string,
-  @as("open") open_: string,
-}
 type accordionAccordionTokenTypeTriggerTextTitleConfig = {
   fontSize: string,
   fontWeight: string,
-  color: accordionAccordionTokenTypeTriggerTextTitleColorConfig,
+  color: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
 }
 type accordionAccordionTokenTypeTriggerTextSubtextConfig = {
   fontSize: string,
   gap: string,
-  color: accordionAccordionTokenTypeTriggerTextTitleColorConfig,
+  color: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
 }
 type accordionAccordionTokenTypeTriggerTextConfig = {
   title: accordionAccordionTokenTypeTriggerTextTitleConfig,

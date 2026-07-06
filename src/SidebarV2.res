@@ -23,4 +23,5 @@ external make: (
   ~activeItem: Nullable.t<string>=?,
   ~onActiveItemChange: Nullable.t<string> => unit=?,
   ~defaultActiveItem: Nullable.t<string>=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "SidebarV2"

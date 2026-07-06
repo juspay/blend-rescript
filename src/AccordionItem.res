@@ -20,4 +20,5 @@ external make: (
   ~isLast: bool=?,
   ~isIntermediate: bool=?,
   ~currentValue: CommonTypes.stringOrStringArray=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "AccordionItem"

@@ -11,6 +11,7 @@ type props = {
   disabled?: bool,
   onFocus?: ReactEvent.Focus.t => unit,
   onBlur?: ReactEvent.Focus.t => unit,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")
