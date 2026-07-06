@@ -13,6 +13,7 @@ type props = {
   minWidth?: CommonTypes.stringOrNumber,
   maxWidth?: CommonTypes.stringOrNumber,
   state?: ButtonV2Types.buttonV2State,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

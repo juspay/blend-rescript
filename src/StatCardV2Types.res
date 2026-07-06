@@ -17,28 +17,22 @@ type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleC
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerHelpIconConfig = {
   width: string,
   height: string,
-  color: string,
+  color: string, // ⚪ loose — was `{ default: Color; hover: Color; }`
 }
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerConfig = {
   gap: string,
   title: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
   helpIcon: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerHelpIconConfig,
 }
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerSubtitleConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: string,
-  lineHeight: string,
-}
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerValueConfig = {
-  chart: statCardV2StatCardV2TokensTypeTopContainerDataContainerSubtitleConfig,
-  progress: statCardV2StatCardV2TokensTypeTopContainerDataContainerSubtitleConfig,
-  number: statCardV2StatCardV2TokensTypeTopContainerDataContainerSubtitleConfig,
+  chart: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
+  progress: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
+  number: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
 }
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerChangeContainerConfig = {
   gap: string,
-  change: string,
-  arrow: string,
+  change: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { increase: Color; decrease: Colo`
+  arrow: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; color: { increase: Color; decr`
 }
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerConfig = {
   gap: string,
@@ -49,7 +43,7 @@ type statCardV2StatCardV2TokensTypeTopContainerDataContainerConfig = {
   gap: string,
   titleContainer: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerConfig,
   statsContainer: statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerConfig,
-  subtitle: statCardV2StatCardV2TokensTypeTopContainerDataContainerSubtitleConfig,
+  subtitle: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
 }
 type statCardV2StatCardV2TokensTypeTopContainerConfig = {
   gap: string,

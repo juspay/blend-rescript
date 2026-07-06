@@ -12,5 +12,5 @@ external make: (
   ~measureElement: Nullable.t<Dom.element> => unit,
   ~loadingComponent: React.element=?,
   ~hasMore: bool=?,
-  ~virtualScrollRef: React.ref<Nullable.t<Dom.htmlDivElement>>,
+  ~virtualScrollRef: React.ref<Nullable.t<Dom.element>>,
 ) => React.element = "SingleSelectV2VirtualList"

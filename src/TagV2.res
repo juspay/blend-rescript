@@ -9,6 +9,7 @@ type props = {
   rightSlot?: TagV2Types.tagV2LeftSlotConfig,
   skeleton?: TagV2Types.tagV2SkeletonConfig,
   tagGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

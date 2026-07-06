@@ -11,6 +11,7 @@ type props = {
   autoFocus?: bool,
   onChange?: string => unit,
   form?: string,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

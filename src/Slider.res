@@ -73,4 +73,5 @@ external make: (
   ~orientation: SliderTypes.sliderOrientation=?,
   ~minStepsBetweenThumbs: float=?,
   ~onValueCommit: array<float> => unit=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "Slider"

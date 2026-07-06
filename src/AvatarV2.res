@@ -15,6 +15,7 @@ type props = {
   onImageLoad?: unit => unit,
   width?: string,
   height?: string,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

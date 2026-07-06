@@ -14,6 +14,7 @@ type props = {
   id?: string,
   webTokens: EditorSharedTypes.chatInputV2TokensType,
   onEnter?: unit => unit,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

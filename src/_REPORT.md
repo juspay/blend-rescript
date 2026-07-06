@@ -2,9 +2,9 @@
 
 **211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**231** function binding(s) → `BlendDesignSystemBindings.res`.
+**233** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2926** shared types deduplicated into **72** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2901** shared types deduplicated into **73** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -28,6 +28,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getButtonTokens`
 - `getCardTokens`
 - `getChartTokens`
+- `BlendChartBaseInstance`
 - `getChatInputTokens`
 - `validateColumnData`
 - `getColumnTypeConfig`
@@ -163,6 +164,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `applyHoverState`
 - `mergeChartOptions`
 - `getChartV2Tokens`
+- `ChartV2BaseInstance`
 - `getButtonGroupPosition`
 - `getButtonGroupGap`
 - `getPopoverV2Tokens`
@@ -266,7 +268,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - AvatarGroup
 - AvatarV2
 - Badge
-- BlendChart  _(2 loose)_
+- BlendChart
 - BlendChartContainer
 - BlendChartHeader
 - Breadcrumb
@@ -288,7 +290,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeaderV2
 - ChartLegends
 - Charts
-- ChartV2  _(1 loose)_
+- ChartV2
 - ChartV2Fullscreen
 - ChartV2Legend
 - ChartV2NoData
@@ -421,13 +423,13 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - StatusDrawer
 - Stepper
 - StepperV2
-- StyledCheckboxIndicator  _(4 loose)_
-- StyledCheckboxRoot  _(4 loose)_
-- StyledRadioV2Root  _(4 loose)_
-- StyledTabsContent  _(4 loose)_
-- StyledTabsList  _(4 loose)_
-- StyledTabsRoot  _(4 loose)_
-- StyledTabsTrigger  _(4 loose)_
+- StyledCheckboxIndicator  _(2 loose)_
+- StyledCheckboxRoot  _(2 loose)_
+- StyledRadioV2Root  _(2 loose)_
+- StyledTabsContent  _(2 loose)_
+- StyledTabsList  _(2 loose)_
+- StyledTabsRoot  _(2 loose)_
+- StyledTabsTrigger  _(2 loose)_
 - StyledToast
 - SubMenu
 - Switch
@@ -439,7 +441,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TabsTrigger
 - TabsV2
 - TabsV2Content
-- TabsV2IconContainer  _(4 loose)_
+- TabsV2IconContainer  _(2 loose)_
 - TabsV2List
 - TabsV2Provider
 - TabsV2Trigger
@@ -472,40 +474,7 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 | Resolved TypeScript type | → emitted | count | example props |
 |--------------------------|-----------|-------|---------------|
-| `typeof import("/Users/roshan.chourasiya/work/FE/opensource/blend-rescript/node_modules/highcharts/highcharts")` | `string` | 2 | highcharts |
-| `[boolean] \| [boolean, boolean] \| [boolean, boolean, boolean]` | `string` | 1 | updateArgs |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyo` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>, keyof E` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
-| `{} \| Substitute<FastOmit<CheckboxProps & RefAttributes<HTMLButtonElement>, "size" \| "$isDisabled" \| "$checked" \| "$error"> & { ...; }, Substitute<...>>[string] \| CSSPropertiesWithVars` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...>` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> &` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<CheckboxIndicatorProps & RefAttributes<HTMLSpanElement>, "size"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substit` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Su` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size" \| ... 3 more ... \| "$tokens"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & { ...; }` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> &` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...>` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<...> & {` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps> & FastOmit<` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsContentProps & RefAttributes<HTMLDivElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| "$variant" \| "$size" \| "$expanded" \| "$fitContent" \| "$hideIndicator">` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| "$variant" \| "$size" \| "$expanded" \| "$fitContent" \| "$hideIndicator"> &` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| ... 4 more ... \| "$hideIndicator"> & { ...; }, Substitute<...>>,` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsListProps & RefAttributes<HTMLDivElement>, "$tabsToken" \| ... 4 more ... \| "$hideIndicator"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| "$variant" \| "$size" \| "$isOverlay"> & { ...; }, Substitute<...>` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| "$variant" \| "$size" \| "$isOverlay"> & { ...; }, Substitute<...>>,` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| ... 2 more ... \| "$isOverlay"> & { ...; }, Substitute<...>>` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<TabsTriggerProps & RefAttributes<HTMLButtonElement>, "$tabsToken" \| ... 2 more ... \| "$isOverlay"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
-| `DefaultTheme \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProp` | `string` | 1 | theme |
-| `AsTarget \| (({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof ExecutionProps>` | `string` | 1 | as |
-| `ForwardedAsTarget \| ({ style?: unknown; } & FastOmit<Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>, keyof Executio` | `string` | 1 | forwardedAs |
-| `{} \| CSSPropertiesWithVars \| Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, "$tabsToken"> & { ...; }, Substitute<...>>[string]` | `string` | 1 | style |
+| `void` | `string` | 16 | as, forwardedAs … |
 
 ## 🔍 Needs review
 

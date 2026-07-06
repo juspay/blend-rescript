@@ -16,6 +16,7 @@ type props = {
   required?: bool,
   error?: EditorSharedTypes.inputsV2ErrorConfig,
   resize?: InputsTypes.inputsResize,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

@@ -9,6 +9,7 @@ type props = {
   size?: SelectorV2Types.selectorV2Size,
   slot?: SelectorV2Types.selectorV2SlotConfig,
   maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")
