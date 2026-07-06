@@ -7,16 +7,16 @@ type htmlInputTypeAttribute =
   | @as("button") Button
   | @as("checkbox") Checkbox
   | @as("radio") Radio
+  | @as("reset") Reset
+  | @as("range") Range
   | @as("date") Date
   | @as("time") Time
   | @as("month") Month
-  | @as("range") Range
   | @as("week") Week
   | @as("image") Image
   | @as("tel") Tel
   | @as("url") Url
   | @as("email") Email
-  | @as("reset") Reset
   | @as("submit") Submit
   | @as("datetime-local") DatetimeLocal
   | @as("file") File
@@ -42,28 +42,32 @@ module ElementType = {
     | #sup
     | #map
     | #filter
-    | #progress
+    | #button
+    | #meter
     | #textarea
+    | #style
+    | #progress
+    | #circle
+    | #embed
+    | #pre
+    | #caption
+    | #menu
+    | #menuitem
     | #body
     | #base
     | #code
-    | #style
     | #title
     | #article
-    | #button
     | #dialog
     | #figure
     | #form
     | #img
     | #main
-    | #menu
-    | #menuitem
     | #option
     | #"switch"
     | #time
     | #animate
     | #stop
-    | #circle
     | #rect
     | #linearGradient
     | #radialGradient
@@ -72,11 +76,11 @@ module ElementType = {
     | #polygon
     | #label
     | #marker
-    | #select
-    | #textPath
     | #a
     | #q
     | #s
+    | #select
+    | #textPath
     | #meta
     | #data
     | #image
@@ -102,7 +106,6 @@ module ElementType = {
     | #blockquote
     | #br
     | #canvas
-    | #caption
     | #cite
     | #col
     | #colgroup
@@ -114,7 +117,6 @@ module ElementType = {
     | #dl
     | #dt
     | #em
-    | #embed
     | #fieldset
     | #figcaption
     | #footer
@@ -133,14 +135,12 @@ module ElementType = {
     | #keygen
     | #legend
     | #mark
-    | #meter
     | #noindex
     | #noscript
     | #optgroup
     | #output
     | #param
     | #picture
-    | #pre
     | #rp
     | #rt
     | #samp

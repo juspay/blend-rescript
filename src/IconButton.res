@@ -6,6 +6,7 @@ external make: (
   ~hidden: bool=?,
   ~disabled: bool=?,
   ~size: ButtonV2Types.buttonV2Size=?,
+  ~icon: React.element,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
@@ -71,6 +72,5 @@ external make: (
   ~buttonType: ButtonV2Types.buttonV2Type=?,
   ~loading: bool=?,
   ~state: ButtonV2Types.buttonV2State=?,
-  ~icon: React.element,
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "IconButton"
