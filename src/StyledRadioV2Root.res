@@ -5,8 +5,9 @@ external make: (
   ~height: CommonTypes.stringOrNumber=?,
   ~required: bool=?,
   ~disabled: bool=?,
-  ~checked: bool=?,
   ~size: SelectorV2Types.selectorV2Size,
+  ~multiple: bool=?,
+  ~checked: bool=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
@@ -80,7 +81,6 @@ external make: (
   ~readOnly: bool=?,
   ~pattern: string=?,
   ~accept: string=?,
-  ~multiple: bool=?,
   @as("as") ~as_: string=?, // ⚪ loose — was `void`
   @as("$isDisabled") ~_isDisabled: bool,
   @as("$error") ~_error: bool=?,

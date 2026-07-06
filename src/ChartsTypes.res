@@ -26,6 +26,11 @@ type chartsConstructorType =
   | @as("end") End
   | @as("start") Start
   | @as("find") Find
+  | @as("wrap") Wrap
+  | @as("x") X
+  | @as("y") Y
+  | @as("circle") Circle
+  | @as("triangle") Triangle
   | @as("backgroundSize") BackgroundSize
   | @as("addEvent") AddEvent
   | @as("animate") Animate
@@ -75,11 +80,9 @@ type chartsConstructorType =
   | @as("syncTimeout") SyncTimeout
   | @as("uniqueKey") UniqueKey
   | @as("useSerialIds") UseSerialIds
-  | @as("wrap") Wrap
   | @as("arc") Arc
   | @as("callout") Callout
   | @as("centerImage") CenterImage
-  | @as("circle") Circle
   | @as("dateTimeFormat") DateTimeFormat
   | @as("deleteRows") DeleteRows
   | @as("diamond") Diamond
@@ -98,7 +101,6 @@ type chartsConstructorType =
   | @as("setColumns") SetColumns
   | @as("setRow") SetRow
   | @as("str2dtf") Str2dtf
-  | @as("triangle") Triangle
   | @as("triangleDown") TriangleDown
   | @as("unescapeEntities") UnescapeEntities
   | @as("Annotation") Annotation
@@ -132,8 +134,6 @@ type chartsConstructorType =
   | @as("innerR") InnerR
   | @as("longArc") LongArc
   | @as("r") R
-  | @as("x") X
-  | @as("y") Y
 type chartsPointSetState =
   | @as("") Value
   | @as("normal") Normal

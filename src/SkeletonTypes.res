@@ -3,8 +3,8 @@ type skeletonVariant =
   | @as("wave") Wave
   | @as("shimmer") Shimmer
 type skeletonAs =
-  | @as("article") Article
   | @as("button") Button
+  | @as("article") Article
   | @as("main") Main
   | @as("label") Label
   | @as("div") Div
@@ -19,8 +19,8 @@ type skeletonShape =
   | @as("rectangle") Rectangle
   | @as("rounded") Rounded
 type skeletonShape2 =
-  | @as("circle") Circle
   | @as("square") Square
+  | @as("circle") Circle
 type skeletonSkeletonTokensTypeAnimationConfig = {
   duration: string,
   timingFunction: string,
