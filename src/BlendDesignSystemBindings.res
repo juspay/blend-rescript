@@ -574,20 +574,20 @@ external applyTabItemDisplayDefaults: (
 ) => array<TabsV2Types.tabsV2TabItem> = "applyTabItemDisplayDefaults"
 @module("@juspay/blend-design-system")
 external useChartLegend: (
-  React.ref<Nullable.t<DistTypes.highchartsReactRefObject>>,
-  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject>>>,
-) => ChartsV2Types.chartsV2UseChartLegendConfig = "useChartLegend"
+  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>,
+  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>>,
+) => ChartsV2Types.chartsV2UseChartLegendConfig<'b> = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
-  HighchartsSharedTypes.chart,
-  array<HighchartsSharedTypes.chart>,
+  HighchartsSharedTypes.chart<'b>,
+  array<HighchartsSharedTypes.chart<'b>>,
 ) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
 external useChartRefs: array<
-  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig>>,
-> => array<HighchartsSharedTypes.chart> = "useChartRefs"
+  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'b>>>,
+> => array<HighchartsSharedTypes.chart<'b>> = "useChartRefs"
 @module("@juspay/blend-design-system")
-external getLegendItems: HighchartsSharedTypes.chart => array<
+external getLegendItems: HighchartsSharedTypes.chart<'b> => array<
   HighchartsSharedTypes.ChartV2LegendItem.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")

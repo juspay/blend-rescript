@@ -2960,7 +2960,7 @@ type iGlyphMarginWidget = {
 type iViewZone = {
   afterLineNumber: float,
   afterColumn?: float,
-  afterColumnAffinity?: positionAffinity,
+  afterColumnAffinity?: string, // ⚪ loose — was `PositionAffinity`
   showInHiddenAreas?: bool,
   ordinal?: float,
   suppressMouseDown?: bool,

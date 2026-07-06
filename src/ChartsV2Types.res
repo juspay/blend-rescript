@@ -104,13 +104,13 @@ type chartV2FullscreenControls = {
   enterFullscreen: unit => unit,
   exitFullscreen: unit => unit,
 }
-type chartsV2UseChartLegendConfig = {
+type chartsV2UseChartLegendConfig<'b> = {
   hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
   setHoveredItem: HighchartsSharedTypes.SetStateAction.t => unit,
   allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
   handleClick: (HighchartsSharedTypes.ChartV2LegendItem.t, float) => unit,
-  chart: HighchartsSharedTypes.chart,
-  charts: array<HighchartsSharedTypes.chart>,
+  chart: HighchartsSharedTypes.chart<'b>,
+  charts: array<HighchartsSharedTypes.chart<'b>>,
 }
 type chartsV2UseChartLegendHoverConfig = {
   hoveredItem: HighchartsSharedTypes.ChartV2LegendItem.t,
@@ -118,6 +118,6 @@ type chartsV2UseChartLegendHoverConfig = {
   allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
   handleClick: (HighchartsSharedTypes.ChartV2LegendItem.t, float) => unit,
 }
-type chartsV2UseChartRefsRefsConfig = {
-  chart?: HighchartsSharedTypes.chart,
+type chartsV2UseChartRefsRefsConfig<'b> = {
+  chart?: HighchartsSharedTypes.chart<'b>,
 }
