@@ -16,6 +16,7 @@ type props = {
   onFileRemove?: string => unit,
   onFileClick?: EditorSharedTypes.chatInputV2AttachedFile => unit,
   onEnter?: unit => unit,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

@@ -76,4 +76,5 @@ external make: (
   ~tabsGroupId: string=?,
   ~showSkeleton: bool=?,
   ~skeletonVariant: SkeletonTypes.skeletonVariant=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "TabsV2Trigger"

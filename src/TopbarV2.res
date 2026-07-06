@@ -17,4 +17,5 @@ external make: (
   ~secondarySidebar: SidebarV2Types.secondarySidebarInfo=?,
   ~merchantInfo: TopbarV2Types.merchantInfoV2=?,
   ~ariaControls: string=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "TopbarV2"

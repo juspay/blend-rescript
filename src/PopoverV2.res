@@ -25,6 +25,7 @@ type props = {
   height?: float,
   minHeight?: float,
   maxHeight?: float,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

@@ -12,4 +12,5 @@ external make: (
   ~disabled: bool=?,
   @as("data-element") ~dataElement: string=?,
   @as("data-id") ~dataId: string=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "TruncatedTextWithTooltipV2"

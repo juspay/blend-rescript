@@ -118,3 +118,6 @@ type chartsV2UseChartLegendHoverConfig = {
   allItems: array<HighchartsSharedTypes.ChartV2LegendItem.t>,
   handleClick: (HighchartsSharedTypes.ChartV2LegendItem.t, float) => unit,
 }
+type chartsV2UseChartRefsRefsConfig = {
+  chart?: HighchartsSharedTypes.chart,
+}

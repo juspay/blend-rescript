@@ -17,6 +17,7 @@ type props = {
   target?: string,
   rel?: string,
   disabled?: bool,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

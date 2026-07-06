@@ -59,6 +59,6 @@ external make: (
   ~asChild: bool=?,
   @as("as") ~as_: string=?, // ⚪ loose — was `void`
   ~forwardedAs: string=?, // ⚪ loose — was `void`
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledCheckboxIndicator"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledCheckboxIndicator"

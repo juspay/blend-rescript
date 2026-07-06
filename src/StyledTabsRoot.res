@@ -63,6 +63,6 @@ external make: (
   ~activationMode: TabsTypes.tabsActivationMode=?,
   ~forwardedAs: string=?, // ⚪ loose — was `void`
   @as("$tabsToken") ~_tabsToken: TabsV2Types.tabsV2TokensType,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledTabsRoot"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledTabsRoot"

@@ -71,6 +71,6 @@ external make: (
   @as("$variant") ~_variant: TabsV2Types.tabsV2Variant,
   @as("$size") ~_size: TabsV2Types.tabsV2Size,
   @as("$isOverlay") ~_isOverlay: bool=?,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledTabsTrigger"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledTabsTrigger"

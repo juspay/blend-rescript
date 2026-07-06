@@ -64,6 +64,6 @@ external make: (
   @as("$expanded") ~_expanded: bool,
   @as("$fitContent") ~_fitContent: bool,
   @as("$hideIndicator") ~_hideIndicator: bool=?,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledTabsList"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledTabsList"

@@ -87,6 +87,6 @@ external make: (
   ~forwardedAs: string=?, // ⚪ loose — was `void`
   @as("$isChecked") ~_isChecked: bool,
   @as("$tokens") ~_tokens: SelectorV2Types.radioV2TokensType,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledRadioV2Root"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledRadioV2Root"

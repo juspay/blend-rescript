@@ -54,4 +54,5 @@ external make: (
   ~onMouseUp: ReactEvent.Mouse.t => unit=?,
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "DrawerV2Body"

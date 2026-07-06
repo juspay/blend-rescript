@@ -15,4 +15,5 @@ external make: (
   ~maxWidth: string=?,
   ~fullWidth: bool=?,
   ~disableInteractive: bool=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "TooltipV2"

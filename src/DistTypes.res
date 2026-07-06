@@ -4,6 +4,10 @@ type direction =
 type direction2 =
   | @as("ltr") Ltr
   | @as("rtl") Rtl
+type highchartsReactRefObject = {
+  chart: HighchartsSharedTypes.chart,
+  container: React.ref<Nullable.t<Dom.htmlDivElement>>,
+}
 type cssPropertiesWithVars = {
   accentColor?: string,
   alignContent?: string,

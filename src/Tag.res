@@ -154,4 +154,5 @@ external make: (
   ~splitTagPosition: ChartsTypes.chartsPlotOrganizationOptionsHangingSide=?,
   ~showSkeleton: bool=?,
   ~skeletonVariant: SkeletonTypes.skeletonVariant=?,
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "Tag"

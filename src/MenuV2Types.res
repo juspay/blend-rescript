@@ -55,7 +55,7 @@ type menuV2MenuV2TokensTypeGroupItemTextSubTextConfig = {
   fontSize: string,
   fontWeight: string,
   lineHeight: string,
-  color: string, // ⚪ loose — was `MenuV2VariantToken<StateToken<Color>>`
+  color: menuV2VariantToken2,
 }
 type menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig = {
   maxWidth: string,

@@ -1995,8 +1995,8 @@ type rec selection = {
   equalsSelection: string => bool, // ⚪ loose — was `ISelection`
   getDirection: unit => string, // ⚪ loose — was `SelectionDirection`
   setEndPosition: (float, float) => selection,
-  getPosition: unit => string, // ⚪ loose — was `Position`
-  getSelectionStart: unit => string, // ⚪ loose — was `Position`
+  getPosition: unit => position,
+  getSelectionStart: unit => position,
   setStartPosition: (float, float) => selection,
   startLineNumber: float,
   startColumn: float,
@@ -2009,8 +2009,8 @@ type rec selection = {
   plusRange: string => string, // ⚪ loose — was `Range`
   intersectRanges: string => string, // ⚪ loose — was `Range`
   equalsRange: string => bool, // ⚪ loose — was `IRange`
-  getEndPosition: unit => string, // ⚪ loose — was `Position`
-  getStartPosition: unit => string, // ⚪ loose — was `Position`
+  getEndPosition: unit => position,
+  getStartPosition: unit => position,
   collapseToStart: unit => string, // ⚪ loose — was `Range`
   collapseToEnd: unit => string, // ⚪ loose — was `Range`
   delta: float => string, // ⚪ loose — was `Range`
@@ -2059,8 +2059,8 @@ type rec range = {
   plusRange: string => range, // ⚪ loose — was `IRange`
   intersectRanges: string => Nullable.t<range>, // ⚪ loose — was `IRange`
   equalsRange: string => bool, // ⚪ loose — was `IRange`
-  getEndPosition: unit => string, // ⚪ loose — was `Position`
-  getStartPosition: unit => string, // ⚪ loose — was `Position`
+  getEndPosition: unit => position,
+  getStartPosition: unit => position,
   toString: unit => string,
   setEndPosition: (float, float) => range,
   setStartPosition: (float, float) => range,
@@ -2097,9 +2097,9 @@ type iMouseEvent = {
 type iMouseTargetUnknown = {
   @as("type") type_: float,
   element: string, // ⚪ loose — was `HTMLElement`
-  position: string, // ⚪ loose — was `Position`
+  position: Nullable.t<position>,
   mouseColumn: float,
-  range: string, // ⚪ loose — was `Range`
+  range: Nullable.t<range>,
 }
 type iMouseTargetTextarea = {
   @as("type") type_: float,
@@ -2110,16 +2110,16 @@ type iMouseTargetTextarea = {
 }
 type iMouseTargetMargin = {
   @as("type") type_: string, // ⚪ loose — was `MouseTargetType.GUTTER_GLYPH_MARGIN | MouseTargetType.GUTTER_LINE_NUMBERS | MouseTargetType.GUTTER_LINE_DECORA`
-  position: string, // ⚪ loose — was `Position`
-  range: string, // ⚪ loose — was `Range`
+  position: position,
+  range: range,
   detail: string, // ⚪ loose — was `IMouseTargetMarginData`
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
 }
 type iMouseTargetContentText = {
   @as("type") type_: float,
-  position: string, // ⚪ loose — was `Position`
-  range: string, // ⚪ loose — was `Range`
+  position: position,
+  range: range,
   detail: string, // ⚪ loose — was `IMouseTargetContentTextData`
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
@@ -2132,14 +2132,21 @@ type iMouseTargetContentWidget = {
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
 }
+type iMouseTargetScrollbar = {
+  @as("type") type_: float,
+  position: position,
+  range: range,
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
 type iMouseTargetOutsideEditor = {
   @as("type") type_: float,
   outsidePosition: string, // ⚪ loose — was `"left" | "right" | "above" | "below"`
   outsideDistance: float,
   element: string, // ⚪ loose — was `HTMLElement`
-  position: string, // ⚪ loose — was `Position`
+  position: Nullable.t<position>,
   mouseColumn: float,
-  range: string, // ⚪ loose — was `Range`
+  range: Nullable.t<range>,
 }
 module IMouseTarget = {
   type t
@@ -2151,7 +2158,7 @@ module IMouseTarget = {
   external fromIMouseTargetContentEmpty: iMouseTargetContentText => t = "%identity"
   external fromIMouseTargetContentWidget: iMouseTargetContentWidget => t = "%identity"
   external fromIMouseTargetOverlayWidget: iMouseTargetContentWidget => t = "%identity"
-  external fromIMouseTargetScrollbar: iMouseTargetTextarea => t = "%identity"
+  external fromIMouseTargetScrollbar: iMouseTargetScrollbar => t = "%identity"
   external fromIMouseTargetOverviewRuler: iMouseTargetUnknown => t = "%identity"
   external fromIMouseTargetOutsideEditor: iMouseTargetOutsideEditor => t = "%identity"
 }
@@ -2284,6 +2291,10 @@ type iWordAtPosition = {
   startColumn: float,
   endColumn: float,
 }
+type iModelDeltaDecoration = {
+  range: iRange,
+  options: string, // ⚪ loose — was `IModelDecorationOptions`
+}
 type iModelDecorationOverviewRulerOptions = {
   position: string, // ⚪ loose — was `OverviewRulerLane`
   color?: string, // ⚪ loose — was `string | ThemeColor`
@@ -2343,15 +2354,11 @@ type iModelDecorationOptions = {
   before?: Nullable.t<injectedTextOptions>,
   textDirection?: Nullable.t<textDirection>,
 }
-type iModelDeltaDecoration = {
-  range: iRange,
-  options: iModelDecorationOptions,
-}
 type iModelDecoration = {
   id: string,
   ownerId: float,
-  range: string, // ⚪ loose — was `Range`
-  options: string, // ⚪ loose — was `IModelDecorationOptions`
+  range: range,
+  options: iModelDecorationOptions,
 }
 type iTextModelUpdateOptions = {
   tabSize?: float,
@@ -2361,7 +2368,7 @@ type iTextModelUpdateOptions = {
   bracketColorizationOptions?: bracketPairColorizationOptions,
 }
 type iIdentifiedSingleEditOperation = {
-  range: string, // ⚪ loose — was `IRange`
+  range: iRange,
   text: Nullable.t<string>,
   forceMoveMarkers?: bool,
 }
@@ -2445,8 +2452,8 @@ type iTextModel<'a> = {
   pushEditOperations: (
     Nullable.t<array<selection>>,
     array<iIdentifiedSingleEditOperation>,
-    array<string> => Nullable.t<array<string>>,
-  ) => Nullable.t<array<selection>>, // ⚪ loose — was `Selection`
+    array<string> => Nullable.t<array<selection>>,
+  ) => Nullable.t<array<selection>>, // ⚪ loose — was `IValidEditOperation`
   pushEOL: endOfLineSequence => unit,
   applyEdits: string, // ⚠️ REVIEW — match the real type by hand
   setEOL: endOfLineSequence => unit,
@@ -2887,17 +2894,17 @@ type iEditOperationBuilder = {
   addTrackedEditOperation: (iRange, Nullable.t<string>, option<bool>) => unit,
   trackSelection: (selection, option<bool>) => string,
 }
-type iValidEditOperation = {
-  range: range,
-  text: string,
-}
 type iCursorStateComputerData = {
-  getInverseEditOperations: unit => array<iValidEditOperation>,
+  getInverseEditOperations: unit => string, // ⚪ loose — was `IValidEditOperation[]`
   getTrackedSelection: string => selection,
 }
 type iCommand<'a> = {
   getEditOperations: (iTextModel<'a>, iEditOperationBuilder) => unit,
   computeCursorState: (iTextModel<'a>, iCursorStateComputerData) => selection,
+}
+type iValidEditOperation = {
+  range: range,
+  text: string,
 }
 @unboxed
 type codeEditorV2ICodeEditorExecuteEdits =
@@ -2953,7 +2960,7 @@ type iGlyphMarginWidget = {
 type iViewZone = {
   afterLineNumber: float,
   afterColumn?: float,
-  afterColumnAffinity?: string, // ⚪ loose — was `PositionAffinity`
+  afterColumnAffinity?: positionAffinity,
   showInHiddenAreas?: bool,
   ordinal?: float,
   suppressMouseDown?: bool,
@@ -2962,8 +2969,8 @@ type iViewZone = {
   minWidthInPx?: float,
   domNode: string, // ⚪ loose — was `HTMLElement`
   marginDomNode?: string, // ⚪ loose — was `HTMLElement`
-  onDomNodeTop?: string, // ⚪ loose — was `(top: number) => void`
-  onComputedHeight?: string, // ⚪ loose — was `(height: number) => void`
+  onDomNodeTop?: float => unit,
+  onComputedHeight?: float => unit,
 }
 type iViewZoneChangeAccessor = {
   addZone: iViewZone => string,
@@ -3504,6 +3511,9 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   theme?: string,
   autoDetectHighContrast?: bool,
 }
+@unboxed
+type codeEditorV2IStandaloneCodeEditorExecuteEdits =
+  Arr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
 type iStandaloneCodeEditor<'a, 'b> = {
   updateOptions: codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig => unit,
   addCommand: (float, array<string> => unit, option<string>) => Nullable.t<string>, // ⚪ loose — was `any`
@@ -3572,7 +3582,11 @@ type iStandaloneCodeEditor<'a, 'b> = {
   executeCommand: (Nullable.t<string>, iCommand<'a>) => unit,
   pushUndoStop: unit => bool,
   popUndoStop: unit => bool,
-  executeEdits: (Nullable.t<string>, array<iIdentifiedSingleEditOperation>, option<string>) => bool, // ⚠️ REVIEW — was `Selection[] | ICursorStateComputer` — match the real type by hand
+  executeEdits: (
+    Nullable.t<string>,
+    array<iIdentifiedSingleEditOperation>,
+    option<codeEditorV2IStandaloneCodeEditorExecuteEdits>,
+  ) => bool,
   executeCommands: (Nullable.t<string>, array<iCommand<'a>>) => unit,
   getLineDecorations: float => Nullable.t<array<iModelDecoration>>,
   getDecorationsInRange: range => Nullable.t<array<iModelDecoration>>,

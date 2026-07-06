@@ -74,6 +74,6 @@ external make: (
   @as("$error") ~_error: bool=?,
   ~forwardedAs: string=?, // ⚪ loose — was `void`
   ~onCheckedChange: CommonTypes.boolOrIndeterminate => unit=?,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "StyledCheckboxRoot"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "StyledCheckboxRoot"

@@ -9,6 +9,7 @@ type props = {
   textOverflow?: KeyValuePairV2Types.keyValuePairV2TextOverflowMode,
   maxLines?: float,
   showTooltipOnTruncate?: bool,
+  ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
 @module("@juspay/blend-design-system")

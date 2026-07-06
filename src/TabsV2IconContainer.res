@@ -57,6 +57,6 @@ external make: (
   @as("as") ~as_: string=?, // ⚪ loose — was `void`
   ~forwardedAs: string=?, // ⚪ loose — was `void`
   @as("$tabsToken") ~_tabsToken: TabsV2Types.tabsV2TokensType,
-  ~style: DistTypes.SelectorV2Style.t=?,
-) => // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
-React.element = "TabsV2IconContainer"
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~ref: React.ref<Nullable.t<Dom.element>>=?,
+) => React.element = "TabsV2IconContainer"
