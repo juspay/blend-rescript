@@ -38,13 +38,8 @@ type selectorV2SwitchV2TokensTypeSwitchConfig = {
   backgroundColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorConfig,
   thumb: selectorV2SwitchV2TokensTypeSwitchThumbConfig,
 }
-type selectorV2SwitchV2TokensTypeContentLabelSlotMaxHeightConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
 type selectorV2SwitchV2TokensTypeContentLabelSlotConfig = {
-  maxHeight: selectorV2SwitchV2TokensTypeContentLabelSlotMaxHeightConfig,
+  maxHeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
 }
 type selectorV2SwitchV2TokensTypeContentLabelConfig = {
   gap: string,
@@ -129,16 +124,9 @@ type responsiveCheckboxV2Tokens = {
 type selectorV2RadioV2TokensTypeGroupConfig = {
   gap: string,
 }
-type selectorV2RadioV2TokensTypeRadioIndicatorActiveBackgroundColorConfig = {
-  default: string,
-  hover: string,
-  focus: string,
-  error: string,
-  disabled: string,
-}
 type selectorV2RadioV2TokensTypeRadioIndicatorActiveConfig = {
-  backgroundColor: selectorV2RadioV2TokensTypeRadioIndicatorActiveBackgroundColorConfig,
-  borderColor: selectorV2RadioV2TokensTypeRadioIndicatorActiveBackgroundColorConfig,
+  backgroundColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+  borderColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
 }
 type selectorV2RadioV2TokensTypeRadioIndicatorConfig = {
   active: selectorV2RadioV2TokensTypeRadioIndicatorActiveConfig,
@@ -201,8 +189,8 @@ type selectorV2GetCheckboxSubtextPropsConfig = {
 }
 type selectorV2GetCheckboxLabelStylesConfig = {
   cursor: selectorV2GetCheckboxLabelStylesCursor,
-  display: string,
-  alignItems: string,
+  display: string, // ⚪ loose — was `"flex"`
+  alignItems: string, // ⚪ loose — was `"center"`
   margin: float,
   padding: float,
 }

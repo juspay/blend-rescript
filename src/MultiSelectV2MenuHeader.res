@@ -5,7 +5,7 @@ external make: (
   ~itemsCount: float,
   ~searchValue: string,
   ~searchPlaceholder: string=?,
-  ~searchInputRef: React.ref<Nullable.t<Dom.htmlInputElement>>,
+  ~searchInputRef: React.ref<Nullable.t<Dom.element>>,
   ~onSearchChange: ReactEvent.Form.t => unit,
   ~onSearchArrowKeyToFirst: unit => unit,
   ~showSelectAll: bool,

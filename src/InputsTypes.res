@@ -154,21 +154,9 @@ type responsiveTextInputTokens = {
   sm: textInputTokensType,
   lg: textInputTokensType,
 }
-type inputsNumberInputTokensTypeInputContainerStepperButtonIconColorConfig = {
-  default: string,
-  hover: string,
-  focus: string,
-  error: string,
-  disabled: string,
-}
-type inputsNumberInputTokensTypeInputContainerStepperButtonIconWidthConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
 type inputsNumberInputTokensTypeInputContainerStepperButtonIconConfig = {
-  color: inputsNumberInputTokensTypeInputContainerStepperButtonIconColorConfig,
-  width: inputsNumberInputTokensTypeInputContainerStepperButtonIconWidthConfig,
+  color: inputsSearchInputTokensTypeLabelColorConfig,
+  width: inputsTextInputTokensTypeInputContainerFontSizeConfig,
 }
 type inputsNumberInputTokensTypeInputContainerStepperButtonConfig = {
   width: inputsTextInputTokensTypeInputContainerFontSizeConfig,

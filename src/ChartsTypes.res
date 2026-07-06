@@ -25,8 +25,8 @@ type chartsConstructorType =
   | @as("open") Open
   | @as("end") End
   | @as("start") Start
-  | @as("backgroundSize") BackgroundSize
   | @as("find") Find
+  | @as("backgroundSize") BackgroundSize
   | @as("addEvent") AddEvent
   | @as("animate") Animate
   | @as("animObject") AnimObject

@@ -1,3 +1,26 @@
+type htmlInputTypeAttribute =
+  | @as("number") Number
+  | @as("text") Text
+  | @as("hidden") Hidden
+  | @as("color") Color
+  | @as("search") Search
+  | @as("button") Button
+  | @as("checkbox") Checkbox
+  | @as("radio") Radio
+  | @as("date") Date
+  | @as("time") Time
+  | @as("month") Month
+  | @as("range") Range
+  | @as("week") Week
+  | @as("image") Image
+  | @as("tel") Tel
+  | @as("url") Url
+  | @as("email") Email
+  | @as("reset") Reset
+  | @as("submit") Submit
+  | @as("datetime-local") DatetimeLocal
+  | @as("file") File
+  | @as("password") Password
 type reactPrimaryActionButtonPropsConfig = {
   ...JsxDOM.domProps,
 }
@@ -17,10 +40,10 @@ module ElementType = {
     | #link
     | #sub
     | #sup
-    | #progress
-    | #textarea
     | #map
     | #filter
+    | #progress
+    | #textarea
     | #body
     | #base
     | #code

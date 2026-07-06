@@ -106,9 +106,9 @@ type avatarV2SkeletonConfig = {
   variant?: avatarV2AvatarV2SkeletonConfigVariant,
 }
 type avatarV2DEFAULTPOSITIONConfig = {
-  top: string,
-  right: string,
-  bottom: string,
+  top: string, // ⚪ loose — was `"0"`
+  right: string, // ⚪ loose — was `"0"`
+  bottom: string, // ⚪ loose — was `"0"`
 }
 type avatarV2AvatarPropsConfig = {
   width?: string,

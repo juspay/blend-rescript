@@ -6,6 +6,6 @@ external make: (
   ~searchPlaceholder: string,
   ~searchText: string,
   ~onSearchTextChange: string => unit,
-  ~searchInputRef: React.ref<Nullable.t<Dom.htmlInputElement>>,
-  ~containerRef: React.ref<Nullable.t<Dom.htmlDivElement>>=?,
+  ~searchInputRef: React.ref<Nullable.t<Dom.element>>,
+  ~containerRef: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "SingleSelectV2Search"

@@ -9,10 +9,10 @@ type stepperV2Type =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
 type stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig = {
-  default: string,
-  hover: string,
-  disabled: string,
-  focus: string,
+  default: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  disabled: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  focus: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
 }
 type stepperV2StepperV2TokensTypeContainerStepCircleConfig = {
   default: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
@@ -72,13 +72,8 @@ type stepperV2StepperV2TokensTypeContainerSubConnectorConfig = {
 type stepperV2StepperV2TokensTypeContainerTitleConfig = {
   text: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
 }
-type stepperV2StepperV2TokensTypeContainerDescriptionTextConfig = {
-  color: string,
-  fontSize: string,
-  fontWeight: string,
-}
 type stepperV2StepperV2TokensTypeContainerDescriptionConfig = {
-  text: stepperV2StepperV2TokensTypeContainerDescriptionTextConfig,
+  text: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
 }
 type stepperV2StepperV2TokensTypeContainerConfig = {
   gap: string,
