@@ -1,6 +1,6 @@
 type contextCodeEditorV2TokensTheme =
-  | @as("light") Light
   | @as("dark") Dark
+  | @as("light") Light
 type inputSizeV2 =
   | @as("sm") Sm
   | @as("md") Md
@@ -431,8 +431,8 @@ type codeEditorV2IEditorOptionsCursorSmoothCaretAnimation =
   | @as("explicit") Explicit
 type codeEditorV2IEditorOptionsCursorStyle =
   | @as("block") Block
-  | @as("line") Line
   | @as("underline") Underline
+  | @as("line") Line
   | @as("line-thin") LineThin
   | @as("block-outline") BlockOutline
   | @as("underline-thin") UnderlineThin
@@ -2895,7 +2895,7 @@ type iEditOperationBuilder = {
   trackSelection: (selection, option<bool>) => string,
 }
 type iCursorStateComputerData = {
-  getInverseEditOperations: unit => string, // ⚪ loose — was `IValidEditOperation[]`
+  getInverseEditOperations: unit => array<JSON.t>,
   getTrackedSelection: string => selection,
 }
 type iCommand<'a> = {
