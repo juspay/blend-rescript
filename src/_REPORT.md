@@ -423,13 +423,13 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - StatusDrawer
 - Stepper
 - StepperV2
-- StyledCheckboxIndicator
-- StyledCheckboxRoot
-- StyledRadioV2Root
-- StyledTabsContent
-- StyledTabsList
-- StyledTabsRoot
-- StyledTabsTrigger
+- StyledCheckboxIndicator  _(2 loose)_
+- StyledCheckboxRoot  _(2 loose)_
+- StyledRadioV2Root  _(2 loose)_
+- StyledTabsContent  _(2 loose)_
+- StyledTabsList  _(2 loose)_
+- StyledTabsRoot  _(2 loose)_
+- StyledTabsTrigger  _(2 loose)_
 - StyledToast
 - SubMenu
 - Switch
@@ -441,7 +441,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TabsTrigger
 - TabsV2
 - TabsV2Content
-- TabsV2IconContainer
+- TabsV2IconContainer  _(2 loose)_
 - TabsV2List
 - TabsV2Provider
 - TabsV2Trigger
@@ -472,7 +472,9 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 
 These resolved to a real but complex type and were widened to `string` (they compile and work). Grouped by type so you can review each pattern once — confirm `string` is acceptable, or it may deserve a tighter mapping.
 
-_(none)_
+| Resolved TypeScript type | → emitted | count | example props |
+|--------------------------|-----------|-------|---------------|
+| `void` | `string` | 16 | as, forwardedAs … |
 
 ## 🔍 Needs review
 

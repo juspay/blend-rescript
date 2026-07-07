@@ -1,17 +1,12 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~value: string=?,
-  ~defaultValue: string=?,
-  ~onValueChange: string => unit=?,
-  ~orientation: SliderTypes.sliderOrientation=?,
-  ~dir: DistTypes.direction=?,
-  ~activationMode: TabsTypes.tabsActivationMode=?,
   ~hidden: bool=?,
-  ~style: JsxDOM.style=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
+  ~defaultValue: string=?,
   ~autoFocus: bool=?,
   ~className: string=?,
+  ~dir: DistTypes.direction=?,
   ~id: string=?,
   ~tabIndex: int=?,
   ~title: string=?,
@@ -59,9 +54,15 @@ external make: (
   ~onMouseUp: ReactEvent.Mouse.t => unit=?,
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
+  ~value: string=?,
+  ~theme: JSON.t=?,
   ~asChild: bool=?,
+  ~onValueChange: string => unit=?,
+  @as("as") ~as_: string=?, // ⚪ loose — was `void`
+  ~orientation: SliderTypes.sliderOrientation=?,
+  ~activationMode: TabsTypes.tabsActivationMode=?,
+  ~forwardedAs: string=?, // ⚪ loose — was `void`
   @as("$tabsToken") ~_tabsToken: TabsV2Types.tabsV2TokensType,
-  @as("as") ~as_: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
-  ~forwardedAs: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
+  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "StyledTabsRoot"

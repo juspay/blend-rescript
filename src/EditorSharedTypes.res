@@ -831,7 +831,7 @@ type variantTokenV1snf1 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenV7wrml = {
+type sizeTokenV16zvq = {
   sm: variantTokenV1snf1,
   md: variantTokenV1snf1,
   lg: variantTokenV1snf1,
@@ -842,14 +842,14 @@ type singleSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenV11o5e = {
+type variantTokenV1ij4w = {
   container: singleSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: singleSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenV1kole = {
-  sm: variantTokenV11o5e,
-  md: variantTokenV11o5e,
-  lg: variantTokenV11o5e,
+type sizeTokenF9bni = {
+  sm: variantTokenV1ij4w,
+  md: variantTokenV1ij4w,
+  lg: variantTokenV1ij4w,
 }
 type triggerStateTokenSingleSelectV2 = {
   hover: string,
@@ -858,7 +858,7 @@ type triggerStateTokenSingleSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenX9v7k = {
+type variantTokenV35lhj = {
   container: triggerStateTokenSingleSelectV2,
   @as("no-container") noContainer: triggerStateTokenSingleSelectV2,
 }
@@ -872,12 +872,12 @@ type singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type singleSelectV2SingleSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenV7wrml,
-  padding: sizeTokenV1kole,
-  borderRadius: sizeTokenV7wrml,
+  height: sizeTokenV16zvq,
+  padding: sizeTokenF9bni,
+  borderRadius: sizeTokenV16zvq,
   boxShadow: variantTokenV1snf1,
-  backgroundColor: variantTokenX9v7k,
-  outline: variantTokenX9v7k,
+  backgroundColor: variantTokenV35lhj,
+  outline: variantTokenV35lhj,
   slot: singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig,
   placeholder: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
   selectedValue: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
@@ -949,7 +949,7 @@ type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig = {
 }
 type singleSelectV2SingleSelectV2TokensTypeMenuConfig = {
   content: singleSelectV2SingleSelectV2TokensTypeMenuContentConfig,
-  padding: sizeTokenV1kole,
+  padding: sizeTokenF9bni,
   groupLabel: singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig,
   item: singleSelectV2SingleSelectV2TokensTypeMenuItemConfig,
   submenu: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig,
@@ -1005,7 +1005,7 @@ type variantTokenV1snf12 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenGdnwa = {
+type sizeTokenV6hmbm = {
   sm: variantTokenV1snf12,
   md: variantTokenV1snf12,
   lg: variantTokenV1snf12,
@@ -1016,14 +1016,14 @@ type multiSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenNutef = {
+type variantTokenV1ndj1 = {
   container: multiSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: multiSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenV1ui9a = {
-  sm: variantTokenNutef,
-  md: variantTokenNutef,
-  lg: variantTokenNutef,
+type sizeTokenXwq7n = {
+  sm: variantTokenV1ndj1,
+  md: variantTokenV1ndj1,
+  lg: variantTokenV1ndj1,
 }
 type triggerStateTokenMultiSelectV2 = {
   hover: string,
@@ -1032,7 +1032,7 @@ type triggerStateTokenMultiSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenAsc47 = {
+type variantTokenV1fie5 = {
   container: triggerStateTokenMultiSelectV2,
   @as("no-container") noContainer: triggerStateTokenMultiSelectV2,
 }
@@ -1083,12 +1083,12 @@ type multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenGdnwa,
-  padding: sizeTokenV1ui9a,
-  borderRadius: sizeTokenGdnwa,
+  height: sizeTokenV6hmbm,
+  padding: sizeTokenXwq7n,
+  borderRadius: sizeTokenV6hmbm,
   boxShadow: variantTokenV1snf12,
-  backgroundColor: variantTokenAsc47,
-  outline: variantTokenAsc47,
+  backgroundColor: variantTokenV1fie5,
+  outline: variantTokenV1fie5,
   slot: multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig,
   selectionTag: contextMultiSelectV2TokensTypeTriggerSelectionTagConfig,
   chevron: multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig,
@@ -1155,7 +1155,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: sizeTokenV1ui9a,
+  padding: sizeTokenXwq7n,
   minWidth: string,
   scroll: multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig,
   header: multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig,

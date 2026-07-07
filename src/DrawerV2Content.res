@@ -56,7 +56,6 @@ external make: (
   ~onWheel: ReactEvent.Wheel.t => unit=?,
   ~forceMount: bool=?,
   ~asChild: bool=?,
-  ~deferPointerDownOutside: bool=?,
   ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit=?,
   ~onPointerDownOutside: DistTypes.pointerDownOutsideEvent => unit=?,
   ~onFocusOutside: DistTypes.pointerDownOutsideEvent => unit=?,
