@@ -174,8 +174,8 @@ type bubbleSizeByValue =
   | @as("width") Width
   | @as("area") Area
 type optionsLayoutValue =
-  | @as("vertical") Vertical
   | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
   | @as("proximate") Proximate
 type mapViewInsetOptionsRelativeToValue =
   | @as("plotBox") PlotBox
@@ -185,8 +185,8 @@ type optionsUnitsValue =
   | @as("pixels") Pixels
 type paneBackgroundShapeValue =
   | @as("solid") Solid
-  | @as("arc") Arc
   | @as("circle") Circle
+  | @as("arc") Arc
 type optionsBoostBlendingValue =
   | @as("add") Add
   | @as("darken") Darken
@@ -210,8 +210,8 @@ type optionsValueMapFunctionValue =
 type optionsAlgorithmValue =
   | @as("middle") Middle
   | @as("first") First
-  | @as("firstlast") Firstlast
   | @as("last") Last
+  | @as("firstlast") Firstlast
   | @as("minmax") Minmax
 type optionsStepValue =
   | @as("left") Left
@@ -281,9 +281,9 @@ type optionsUnitValue =
   | @as("percentage") Percentage
   | @as("pixels") Pixels
 type tilemapShapeValue =
+  | @as("square") Square
   | @as("circle") Circle
   | @as("diamond") Diamond
-  | @as("square") Square
   | @as("hexagon") Hexagon
 type optionsLayoutAlgorithmValue =
   | @as("squarified") Squarified
@@ -291,8 +291,8 @@ type optionsLayoutAlgorithmValue =
   | @as("stripes") Stripes
   | @as("sliceAndDice") SliceAndDice
 type optionsLayoutStartingDirectionValue =
-  | @as("vertical") Vertical
   | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
 type optionsNodeSizeByValue =
   | @as("group") Group
   | @as("leaf") Leaf
@@ -337,7 +337,7 @@ type legendItemObject = {
 type gradientColorObject = {
   linearGradient?: string, // ⚪ loose — was `LinearGradientColorObject`
   radialGradient?: string, // ⚪ loose — was `RadialGradientColorObject`
-  stops: string, // ⚪ loose — was `GradientColorStopObject[]`
+  stops: array<JSON.t>,
 }
 type patternObject = {
   animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
@@ -441,7 +441,7 @@ type pointerEventObject = {
   chartX: float,
   chartY: float,
 }
-type cssObject = {
+type cssObjectHighcharts = {
   background?: string,
   backgroundColor?: string,
   border?: string,
@@ -471,7 +471,7 @@ type keyboardNavigationFocusBorderOptionsObject = {
   enabled?: bool,
   hideBrowserFocusOutline?: bool,
   margin?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
 }
 type keyboardNavigationSeriesNavigationOptionsObject = {
   mode?: optionsModeValue,
@@ -1450,7 +1450,7 @@ type captionStyleOptions = {
 }
 module ChartsCaptionOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromCaptionStyleOptions: captionStyleOptions => t = "%identity"
 }
 type captionOptions = {
@@ -1489,7 +1489,7 @@ type seriesAbandsOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAbandsDataLabelsOptions | PlotAbandsDataLabelsOptions[]`
@@ -1539,7 +1539,7 @@ type seriesAbandsOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1575,7 +1575,7 @@ type seriesAdOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAdDataLabelsOptions | PlotAdDataLabelsOptions[]`
@@ -1623,7 +1623,7 @@ type seriesAdOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1660,7 +1660,7 @@ type seriesAoOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAoDataLabelsOptions | PlotAoDataLabelsOptions[]`
@@ -1712,7 +1712,7 @@ type seriesAoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1749,7 +1749,7 @@ type seriesApoOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotApoDataLabelsOptions | PlotApoDataLabelsOptions[]`
@@ -1797,7 +1797,7 @@ type seriesApoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1808,14 +1808,14 @@ type seriesApoOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesArcdiagramOptions = {
+type seriesArcdiagramOptions<'b> = {
   centerInCategory?: string, // ⚪ loose — was `undefined`
   curveFactor?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `SeriesSankeyPointOptionsObject[]`
+  data?: array<'b>,
   linkRadius?: float,
   linkWeight?: float,
   nodePadding?: string, // ⚪ loose — was `undefined`
-  nodes?: string, // ⚪ loose — was `SeriesSankeyNodesOptionsObject[]`
+  nodes?: array<JSON.t>,
   offset?: string,
   stack?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -1832,9 +1832,9 @@ type seriesArcdiagramOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesArcDiagramDataLabelsOptionsObject | SeriesArcDiagramDataLabelsOptionsObject[]`
   description?: string,
@@ -1843,10 +1843,10 @@ type seriesArcdiagramOptions = {
   events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
-  levels?: string, // ⚪ loose — was `PlotArcdiagramLevelsOptions[]`
+  levels?: array<JSON.t>,
   linkColorMode?: string, // ⚪ loose — was `"from" | "gradient" | "to"`
   linkedTo?: string,
   linkOpacity?: float,
@@ -1879,8 +1879,8 @@ type seriesArcdiagramOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesAreaOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesAreaOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -1907,7 +1907,7 @@ type seriesAreaOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAreaDataLabelsOptions | PlotAreaDataLabelsOptions[]`
@@ -1924,7 +1924,7 @@ type seriesAreaOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -1968,7 +1968,7 @@ type seriesAreaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -1980,8 +1980,8 @@ type seriesAreaOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesArearangeOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesArearangeOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -2008,7 +2008,7 @@ type seriesArearangeOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `SeriesAreaRangeDataLabelsOptionsObject | SeriesAreaRangeDataLabelsOptionsObject[]`
@@ -2025,7 +2025,7 @@ type seriesArearangeOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -2069,7 +2069,7 @@ type seriesArearangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2080,8 +2080,8 @@ type seriesArearangeOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesAreasplineOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesAreasplineOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -2105,7 +2105,7 @@ type seriesAreasplineOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAreasplineDataLabelsOptions | PlotAreasplineDataLabelsOptions[]`
@@ -2122,7 +2122,7 @@ type seriesAreasplineOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -2165,7 +2165,7 @@ type seriesAreasplineOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2177,8 +2177,8 @@ type seriesAreasplineOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesAreasplinerangeOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesAreasplinerangeOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -2203,7 +2203,7 @@ type seriesAreasplinerangeOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `SeriesAreaRangeDataLabelsOptionsObject | SeriesAreaRangeDataLabelsOptionsObject[]`
@@ -2220,7 +2220,7 @@ type seriesAreasplinerangeOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -2263,7 +2263,7 @@ type seriesAreasplinerangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2299,7 +2299,7 @@ type seriesAroonOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAroonDataLabelsOptions | PlotAroonDataLabelsOptions[]`
@@ -2347,7 +2347,7 @@ type seriesAroonOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2383,7 +2383,7 @@ type seriesAroonoscillatorOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotAroonoscillatorDataLabelsOptions | PlotAroonoscillatorDataLabelsOptions[]`
@@ -2431,7 +2431,7 @@ type seriesAroonoscillatorOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2442,8 +2442,8 @@ type seriesAroonoscillatorOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesBarOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesBarOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -2464,11 +2464,11 @@ type seriesBarOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotBarDataLabelsOptions | PlotBarDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotBarDataSortingOptions`
@@ -2486,7 +2486,7 @@ type seriesBarOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -2523,7 +2523,7 @@ type seriesBarOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2561,7 +2561,7 @@ type seriesBbOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotBbDataLabelsOptions | PlotBbDataLabelsOptions[]`
@@ -2611,7 +2611,7 @@ type seriesBbOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2642,7 +2642,7 @@ type seriesBellcurveOptions = {
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotBellcurveDataLabelsOptions | PlotBellcurveDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotBellcurveDataSortingOptions`
@@ -2658,7 +2658,7 @@ type seriesBellcurveOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   intervals?: float,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -2694,7 +2694,7 @@ type seriesBellcurveOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2706,8 +2706,8 @@ type seriesBellcurveOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesBoxplotOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number, number, number] | [string | number, number, number, nu`
+type seriesBoxplotOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -2725,11 +2725,11 @@ type seriesBoxplotOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotBoxplotDataLabelsOptions | PlotBoxplotDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotBoxplotDataSortingOptions`
@@ -2747,7 +2747,7 @@ type seriesBoxplotOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -2794,7 +2794,7 @@ type seriesBoxplotOptions = {
   whiskerLength?: string, // ⚪ loose — was `string | number`
   whiskerWidth?: float,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2805,8 +2805,8 @@ type seriesBoxplotOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesBubbleOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesBubbleOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -2832,7 +2832,7 @@ type seriesBubbleOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotBubbleDataLabelsOptions | PlotBubbleDataLabelsOptions[]`
@@ -2849,7 +2849,7 @@ type seriesBubbleOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   jitter?: string, // ⚪ loose — was `PlotBubbleJitterOptions`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -2893,7 +2893,7 @@ type seriesBubbleOptions = {
   zMax?: float,
   zMin?: float,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   zThreshold?: float,
   id?: string,
@@ -2905,8 +2905,8 @@ type seriesBubbleOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesBulletOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesBulletOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -2924,11 +2924,11 @@ type seriesBulletOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotBulletDataLabelsOptions | PlotBulletDataLabelsOptions[]`
   depth?: float,
@@ -2945,7 +2945,7 @@ type seriesBulletOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -2983,7 +2983,7 @@ type seriesBulletOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -2995,8 +2995,8 @@ type seriesBulletOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesCandlestickOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number, number, number] | [string | number, number, number, nu`
+type seriesCandlestickOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -3014,7 +3014,7 @@ type seriesCandlestickOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -3022,7 +3022,7 @@ type seriesCandlestickOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotCandlestickDataLabelsOptions | PlotCandlestickDataLabelsOptions[]`
@@ -3037,7 +3037,7 @@ type seriesCandlestickOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -3082,7 +3082,7 @@ type seriesCandlestickOptions = {
   upLineColor?: string, // ⚪ loose — was `ColorType`
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3119,7 +3119,7 @@ type seriesCciOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotCciDataLabelsOptions | PlotCciDataLabelsOptions[]`
@@ -3167,7 +3167,7 @@ type seriesCciOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3202,7 +3202,7 @@ type seriesCmfOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotCmfDataLabelsOptions | PlotCmfDataLabelsOptions[]`
@@ -3250,7 +3250,7 @@ type seriesCmfOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3261,8 +3261,8 @@ type seriesCmfOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesColumnOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesColumnOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -3283,7 +3283,7 @@ type seriesColumnOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -3292,7 +3292,7 @@ type seriesColumnOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotColumnDataLabelsOptions | PlotColumnDataLabelsOptions[]`
@@ -3311,7 +3311,7 @@ type seriesColumnOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -3352,7 +3352,7 @@ type seriesColumnOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3364,8 +3364,8 @@ type seriesColumnOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesColumnpyramidOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesColumnpyramidOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -3383,7 +3383,7 @@ type seriesColumnpyramidOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -3391,7 +3391,7 @@ type seriesColumnpyramidOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotColumnpyramidDataLabelsOptions | PlotColumnpyramidDataLabelsOptions[]`
@@ -3406,7 +3406,7 @@ type seriesColumnpyramidOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -3454,8 +3454,8 @@ type seriesColumnpyramidOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesColumnrangeOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesColumnrangeOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -3477,7 +3477,7 @@ type seriesColumnrangeOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -3486,7 +3486,7 @@ type seriesColumnrangeOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `SeriesAreaRangeDataLabelsOptionsObject | SeriesAreaRangeDataLabelsOptionsObject[]`
@@ -3505,7 +3505,7 @@ type seriesColumnrangeOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -3542,7 +3542,7 @@ type seriesColumnrangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3553,8 +3553,8 @@ type seriesColumnrangeOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesContourOptions = {
-  data?: string, // ⚪ loose — was `(number[] | PointOptionsObject)[]`
+type seriesContourOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   grouping?: string, // ⚪ loose — was `undefined`
@@ -3580,7 +3580,7 @@ type seriesContourOptions = {
   contourOffset?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotContourDataLabelsOptions | PlotContourDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotContourDataSortingOptions`
   description?: string,
@@ -3592,7 +3592,7 @@ type seriesContourOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   lineWidth?: float,
@@ -3619,7 +3619,7 @@ type seriesContourOptions = {
   visible?: bool,
   zIndex?: int,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3629,9 +3629,9 @@ type seriesContourOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesCylinderOptions = {
+type seriesCylinderOptions<'b> = {
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -3647,11 +3647,11 @@ type seriesCylinderOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotCylinderDataLabelsOptions | PlotCylinderDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotCylinderDataSortingOptions`
@@ -3668,7 +3668,7 @@ type seriesCylinderOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -3705,7 +3705,7 @@ type seriesCylinderOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3741,7 +3741,7 @@ type seriesDemaOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotDemaDataLabelsOptions | PlotDemaDataLabelsOptions[]`
@@ -3789,7 +3789,7 @@ type seriesDemaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3800,9 +3800,9 @@ type seriesDemaOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesDependencywheelOptions = {
-  data?: string, // ⚪ loose — was `(SeriesSankeyPointOptionsObject | [string, string, number])[]`
-  nodes?: string, // ⚪ loose — was `SeriesSankeyNodesOptionsObject[]`
+type seriesDependencywheelOptions<'b> = {
+  data?: array<'b>,
+  nodes?: array<JSON.t>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -3810,17 +3810,17 @@ type seriesDependencywheelOptions = {
   borderColor?: string, // ⚪ loose — was `ColorType`
   borderRadius?: string, // ⚪ loose — was `string | number | BorderRadiusOptionsObject`
   borderWidth?: float,
-  center?: string, // ⚪ loose — was `(string | number)[]`
+  center?: array<JSON.t>,
   centerInCategory?: bool,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
   curveFactor?: float,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesSankeyDataLabelsOptionsObject | SeriesSankeyDataLabelsOptionsObject[]`
   description?: string,
@@ -3829,10 +3829,10 @@ type seriesDependencywheelOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
-  levels?: string, // ⚪ loose — was `PlotDependencywheelLevelsOptions[]`
+  levels?: array<JSON.t>,
   linkColorMode?: string, // ⚪ loose — was `"from" | "gradient" | "to"`
   linkedTo?: string,
   linkOpacity?: float,
@@ -3895,7 +3895,7 @@ type seriesDisparityindexOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotDisparityindexDataLabelsOptions | PlotDisparityindexDataLabelsOptions[]`
@@ -3943,7 +3943,7 @@ type seriesDisparityindexOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -3980,7 +3980,7 @@ type seriesDmiOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotDmiDataLabelsOptions | PlotDmiDataLabelsOptions[]`
@@ -4030,7 +4030,7 @@ type seriesDmiOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4065,7 +4065,7 @@ type seriesDpoOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotDpoDataLabelsOptions | PlotDpoDataLabelsOptions[]`
@@ -4113,7 +4113,7 @@ type seriesDpoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4124,8 +4124,8 @@ type seriesDpoOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesDumbbellOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesDumbbellOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -4150,7 +4150,7 @@ type seriesDumbbellOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `SeriesAreaRangeDataLabelsOptionsObject | SeriesAreaRangeDataLabelsOptionsObject[]`
@@ -4167,7 +4167,7 @@ type seriesDumbbellOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -4209,7 +4209,7 @@ type seriesDumbbellOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4221,9 +4221,9 @@ type seriesDumbbellOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesFlagsOptions = {
+type seriesFlagsOptions<'b> = {
   colorByPoint?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `PointOptionsObject[]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   pointPadding?: string, // ⚪ loose — was `undefined`
@@ -4244,7 +4244,7 @@ type seriesFlagsOptions = {
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -4252,7 +4252,7 @@ type seriesFlagsOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotFlagsDataLabelsOptions | PlotFlagsDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotFlagsDataSortingOptions`
@@ -4268,7 +4268,7 @@ type seriesFlagsOptions = {
   height?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -4308,7 +4308,7 @@ type seriesFlagsOptions = {
   stacking?: string, // ⚪ loose — was `OptionsStackingValue`
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textAlign?: string, // ⚪ loose — was `OptionsTextAlignValue`
   title?: string,
   tooltip?: string, // ⚪ loose — was `SeriesTooltipOptionsObject`
@@ -4317,7 +4317,7 @@ type seriesFlagsOptions = {
   width?: float,
   y?: float,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4329,10 +4329,10 @@ type seriesFlagsOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesFlowmapOptions = {
+type seriesFlowmapOptions<'b> = {
   affectsMapView?: string, // ⚪ loose — was `undefined`
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(number | SeriesFlowmapDataOptions)[]`
+  data?: array<'b>,
   mapData?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
@@ -4345,10 +4345,10 @@ type seriesFlowmapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
   curveFactor?: float,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   description?: string,
   enableMouseTracking?: bool,
   events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
@@ -4357,7 +4357,7 @@ type seriesFlowmapOptions = {
   findNearestPointBy?: string, // ⚪ loose — was `OptionsFindNearestPointByValue`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   lineWidth?: float,
@@ -4389,9 +4389,9 @@ type seriesFlowmapOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesFunnel3dOptions = {
+type seriesFunnel3dOptions<'b> = {
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(number | number[] | PointOptionsObject)[]`
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -4407,11 +4407,11 @@ type seriesFunnel3dOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotFunnel3dDataLabelsOptions | PlotFunnel3dDataLabelsOptions[]`
   depth?: float,
@@ -4430,7 +4430,7 @@ type seriesFunnel3dOptions = {
   height?: string, // ⚪ loose — was `string | number`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -4471,7 +4471,7 @@ type seriesFunnel3dOptions = {
   visible?: bool,
   width?: string, // ⚪ loose — was `string | number`
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4483,8 +4483,8 @@ type seriesFunnel3dOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesFunnelOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesFunnelOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -4497,17 +4497,17 @@ type seriesFunnelOptions = {
   borderColor?: string, // ⚪ loose — was `ColorType`
   borderRadius?: float,
   borderWidth?: float,
-  center?: string, // ⚪ loose — was `(string | number)[]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesPieDataLabelsOptionsObject | SeriesPieDataLabelsOptionsObject[]`
   depth?: float,
   description?: string,
@@ -4521,7 +4521,7 @@ type seriesFunnelOptions = {
   ignoreHiddenPoint?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
   linecap?: string,
@@ -4558,8 +4558,8 @@ type seriesFunnelOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesGanttOptions = {
-  data?: string, // ⚪ loose — was `GanttPointOptionsObject[]`
+type seriesGanttOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -4574,10 +4574,10 @@ type seriesGanttOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   connectors?: string, // ⚪ loose — was `SeriesConnectorsOptionsObject`
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotGanttDataLabelsOptions | PlotGanttDataLabelsOptions[]`
   description?: string,
@@ -4588,7 +4588,7 @@ type seriesGanttOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linkedTo?: string,
@@ -4625,8 +4625,8 @@ type seriesGanttOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesGaugeOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesGaugeOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -4640,7 +4640,7 @@ type seriesGaugeOptions = {
   colorIndex?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotGaugeDataLabelsOptions | PlotGaugeDataLabelsOptions[]`
   description?: string,
   dial?: string, // ⚪ loose — was `PlotGaugeDialOptions`
@@ -4650,7 +4650,7 @@ type seriesGaugeOptions = {
   gapUnit?: string, // ⚪ loose — was `OptionsGapUnitValue`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -4688,9 +4688,9 @@ type seriesGaugeOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesGeoheatmapOptions = {
+type seriesGeoheatmapOptions<'b> = {
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(number[] | SeriesGeoheatmapDataOptions)[]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   mapData?: string, // ⚪ loose — was `undefined`
@@ -4709,10 +4709,10 @@ type seriesGeoheatmapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   colsize?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotGeoheatmapDataLabelsOptions | PlotGeoheatmapDataLabelsOptions[]`
   description?: string,
@@ -4721,7 +4721,7 @@ type seriesGeoheatmapOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   interpolation?: string, // ⚪ loose — was `boolean | InterpolationOptionsObject | PlotGeoheatmapInterpolationOptions`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   nullColor?: string,
@@ -4749,8 +4749,8 @@ type seriesGeoheatmapOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesHeatmapOptions = {
-  data?: string, // ⚪ loose — was `(number[] | PointOptionsObject)[]`
+type seriesHeatmapOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -4772,7 +4772,7 @@ type seriesHeatmapOptions = {
   colsize?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotHeatmapDataLabelsOptions | PlotHeatmapDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotHeatmapDataSortingOptions`
   description?: string,
@@ -4784,7 +4784,7 @@ type seriesHeatmapOptions = {
   includeInDataExport?: bool,
   interpolation?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linkedTo?: string,
@@ -4812,7 +4812,7 @@ type seriesHeatmapOptions = {
   visible?: bool,
   zIndex?: int,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4845,11 +4845,11 @@ type seriesHistogramOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotHistogramDataLabelsOptions | PlotHistogramDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotHistogramDataSortingOptions`
@@ -4866,7 +4866,7 @@ type seriesHistogramOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -4900,7 +4900,7 @@ type seriesHistogramOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -4912,8 +4912,8 @@ type seriesHistogramOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesHlcOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number] | [string | number, number, number, number])[]`
+type seriesHlcOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -4931,7 +4931,7 @@ type seriesHlcOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -4939,7 +4939,7 @@ type seriesHlcOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotHlcDataLabelsOptions | PlotHlcDataLabelsOptions[]`
@@ -4954,7 +4954,7 @@ type seriesHlcOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -4995,7 +4995,7 @@ type seriesHlcOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5007,8 +5007,8 @@ type seriesHlcOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesHollowcandlestickOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number, number, number] | [string | number, number, number, nu`
+type seriesHollowcandlestickOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5026,7 +5026,7 @@ type seriesHollowcandlestickOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -5034,7 +5034,7 @@ type seriesHollowcandlestickOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotHollowcandlestickDataLabelsOptions | PlotHollowcandlestickDataLabelsOptions[]`
@@ -5049,7 +5049,7 @@ type seriesHollowcandlestickOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -5094,7 +5094,7 @@ type seriesHollowcandlestickOptions = {
   upLineColor?: string, // ⚪ loose — was `ColorType`
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5130,7 +5130,7 @@ type seriesIkhOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotIkhDataLabelsOptions | PlotIkhDataLabelsOptions[]`
@@ -5183,7 +5183,7 @@ type seriesIkhOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5194,8 +5194,8 @@ type seriesIkhOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesItemOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string, number])[]`
+type seriesItemOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -5206,17 +5206,17 @@ type seriesItemOptions = {
   allowPointSelect?: bool,
   animation?: string, // ⚪ loose — was `boolean | AnimationOptionsObject`
   borderRadius?: string, // ⚪ loose — was `string | number | BorderRadiusOptionsObject`
-  center?: string, // ⚪ loose — was `[string | number, string | number]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesPieDataLabelsOptionsObject | SeriesPieDataLabelsOptionsObject[]`
   description?: string,
   enableMouseTracking?: bool,
@@ -5230,7 +5230,7 @@ type seriesItemOptions = {
   includeInDataExport?: bool,
   innerSize?: string, // ⚪ loose — was `string | number`
   itemPadding?: float,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   layout?: string,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -5289,7 +5289,7 @@ type seriesKeltnerchannelsOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotKeltnerchannelsDataLabelsOptions | PlotKeltnerchannelsDataLabelsOptions[]`
@@ -5339,7 +5339,7 @@ type seriesKeltnerchannelsOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5375,7 +5375,7 @@ type seriesKlingerOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotKlingerDataLabelsOptions | PlotKlingerDataLabelsOptions[]`
@@ -5424,7 +5424,7 @@ type seriesKlingerOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5435,8 +5435,8 @@ type seriesKlingerOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesLineOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesLineOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5462,7 +5462,7 @@ type seriesLineOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotLineDataLabelsOptions | PlotLineDataLabelsOptions[]`
@@ -5477,7 +5477,7 @@ type seriesLineOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -5519,7 +5519,7 @@ type seriesLineOptions = {
   useOhlcData?: bool,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5531,8 +5531,8 @@ type seriesLineOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesLollipopOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesLollipopOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -5557,7 +5557,7 @@ type seriesLollipopOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `SeriesAreaRangeDataLabelsOptionsObject | SeriesAreaRangeDataLabelsOptionsObject[]`
@@ -5574,7 +5574,7 @@ type seriesLollipopOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -5615,7 +5615,7 @@ type seriesLollipopOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5652,7 +5652,7 @@ type seriesMacdOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotMacdDataLabelsOptions | PlotMacdDataLabelsOptions[]`
@@ -5705,7 +5705,7 @@ type seriesMacdOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -5716,8 +5716,8 @@ type seriesMacdOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesMapbubbleOptions = {
-  data?: string, // ⚪ loose — was `(number | SeriesMapbubbleDataOptions)[]`
+type seriesMapbubbleOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5736,7 +5736,7 @@ type seriesMapbubbleOptions = {
   colorIndex?: float,
   colorKey?: string,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotMapbubbleDataLabelsOptions | PlotMapbubbleDataLabelsOptions[]`
   description?: string,
@@ -5748,7 +5748,7 @@ type seriesMapbubbleOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   lineColor?: string, // ⚪ loose — was `ColorType`
@@ -5782,8 +5782,8 @@ type seriesMapbubbleOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesMaplineOptions = {
-  data?: string, // ⚪ loose — was `(number | [string, number] | SeriesMaplineDataOptions)[]`
+type seriesMaplineOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5802,9 +5802,9 @@ type seriesMaplineOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotMaplineDataLabelsOptions | PlotMaplineDataLabelsOptions[]`
   description?: string,
@@ -5815,7 +5815,7 @@ type seriesMaplineOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   lineWidth?: float,
@@ -5846,8 +5846,8 @@ type seriesMaplineOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesMapOptions = {
-  data?: string, // ⚪ loose — was `(number | SeriesMapDataOptions | [string, number])[]`
+type seriesMapOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5866,9 +5866,9 @@ type seriesMapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotMapDataLabelsOptions | PlotMapDataLabelsOptions[]`
   description?: string,
@@ -5878,7 +5878,7 @@ type seriesMapOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   negativeColor?: string, // ⚪ loose — was `ColorType`
@@ -5908,8 +5908,8 @@ type seriesMapOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesMappointOptions = {
-  data?: string, // ⚪ loose — was `(number | [number, number] | SeriesMappointDataOptions)[]`
+type seriesMappointOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -5927,7 +5927,7 @@ type seriesMappointOptions = {
   colorIndex?: float,
   colorKey?: string,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotMappointDataLabelsOptions | PlotMappointDataLabelsOptions[]`
   description?: string,
@@ -5938,7 +5938,7 @@ type seriesMappointOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
   marker?: pointMarkerOptionsObject,
@@ -5968,9 +5968,9 @@ type seriesMappointOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesNetworkgraphOptions = {
-  data?: string, // ⚪ loose — was `PointOptionsObject | (number | object | any[])[]`
-  nodes?: string, // ⚪ loose — was `SeriesNetworkgraphNodesOptions[]`
+type seriesNetworkgraphOptions<'b> = {
+  data?: array<'b>,
+  nodes?: array<JSON.t>,
   stack?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
   xAxis?: string, // ⚪ loose — was `undefined`
@@ -5983,7 +5983,7 @@ type seriesNetworkgraphOptions = {
   colorIndex?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesNetworkgraphDataLabelsOptionsObject | SeriesNetworkgraphDataLabelsOptionsObject[]`
   description?: string,
@@ -5995,7 +5995,7 @@ type seriesNetworkgraphOptions = {
   gapUnit?: string, // ⚪ loose — was `OptionsGapUnitValue`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   layoutAlgorithm?: string, // ⚪ loose — was `PlotNetworkgraphLayoutAlgorithmOptions`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -6021,7 +6021,7 @@ type seriesNetworkgraphOptions = {
   tooltip?: string, // ⚪ loose — was `SeriesTooltipOptionsObject`
   turboThreshold?: float,
   visible?: bool,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6030,8 +6030,8 @@ type seriesNetworkgraphOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesOhlcOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number, number, number] | [string | number, number, number, nu`
+type seriesOhlcOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -6049,7 +6049,7 @@ type seriesOhlcOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -6057,7 +6057,7 @@ type seriesOhlcOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotOhlcDataLabelsOptions | PlotOhlcDataLabelsOptions[]`
@@ -6072,7 +6072,7 @@ type seriesOhlcOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -6114,7 +6114,7 @@ type seriesOhlcOptions = {
   upColor?: string, // ⚪ loose — was `ColorType`
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6126,9 +6126,9 @@ type seriesOhlcOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesOrganizationOptions = {
-  data?: string, // ⚪ loose — was `SeriesSankeyPointOptionsObject[]`
-  nodes?: string, // ⚪ loose — was `SeriesSankeyNodesOptionsObject[]`
+type seriesOrganizationOptions<'b> = {
+  data?: array<'b>,
+  nodes?: array<JSON.t>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   animation?: string, // ⚪ loose — was `boolean | AnimationOptionsObject`
@@ -6141,9 +6141,9 @@ type seriesOrganizationOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesOrganizationDataLabelsOptionsObject | SeriesOrganizationDataLabelsOptionsObject[]`
   description?: string,
@@ -6155,10 +6155,10 @@ type seriesOrganizationOptions = {
   hangingSide?: string, // ⚪ loose — was `"left" | "right"`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
-  levels?: string, // ⚪ loose — was `PlotOrganizationLevelsOptions[]`
+  levels?: array<JSON.t>,
   link?: string, // ⚪ loose — was `PlotOrganizationLinkOptions`
   linkColorMode?: string, // ⚪ loose — was `"from" | "gradient" | "to"`
   linkedTo?: string,
@@ -6197,8 +6197,8 @@ type seriesOrganizationOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPackedbubbleOptions = {
-  data?: string, // ⚪ loose — was `PointOptionsObject | (object | any[])[]`
+type seriesPackedbubbleOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -6215,7 +6215,7 @@ type seriesPackedbubbleOptions = {
   colorKey?: string,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesPackedBubbleDataLabelsOptionsObject | SeriesPackedBubbleDataLabelsOptionsObject[]`
   description?: string,
@@ -6268,7 +6268,7 @@ type seriesPackedbubbleOptions = {
   zMax?: float,
   zMin?: float,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   zThreshold?: float,
   id?: string,
@@ -6280,9 +6280,9 @@ type seriesPackedbubbleOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesParetoOptions = {
+type seriesParetoOptions<'b> = {
   baseSeries?: string, // ⚪ loose — was `string | number`
-  data?: string, // ⚪ loose — was `((string | number)[] | PointOptionsObject)[]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -6299,7 +6299,7 @@ type seriesParetoOptions = {
   connectNulls?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotParetoDataLabelsOptions | PlotParetoDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotParetoDataSortingOptions`
@@ -6344,14 +6344,14 @@ type seriesParetoOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPictorialOptions = {
+type seriesPictorialOptions<'b> = {
   borderRadius?: string, // ⚪ loose — was `undefined`
   centerInCategory?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+  data?: array<'b>,
   dataAsColumns?: string, // ⚪ loose — was `undefined`
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
-  paths?: string, // ⚪ loose — was `SeriesPictorialPathsOptionsObject[]`
+  paths?: array<JSON.t>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -6366,10 +6366,10 @@ type seriesPictorialOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotPictorialDataLabelsOptions | PlotPictorialDataLabelsOptions[]`
   depth?: float,
   description?: string,
@@ -6385,7 +6385,7 @@ type seriesPictorialOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -6420,7 +6420,7 @@ type seriesPictorialOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6432,8 +6432,8 @@ type seriesPictorialOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPieOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string, number])[]`
+type seriesPieOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -6446,17 +6446,17 @@ type seriesPieOptions = {
   borderColor?: string, // ⚪ loose — was `ColorType`
   borderRadius?: string, // ⚪ loose — was `string | number | BorderRadiusOptionsObject`
   borderWidth?: float,
-  center?: string, // ⚪ loose — was `[string | number, string | number]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesPieDataLabelsOptionsObject | SeriesPieDataLabelsOptionsObject[]`
   depth?: float,
   description?: string,
@@ -6471,7 +6471,7 @@ type seriesPieOptions = {
   includeInDataExport?: bool,
   innerSize?: string, // ⚪ loose — was `string | number`
   joinBy?: string, // ⚪ loose — was `string | string[]`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
   linecap?: string,
@@ -6505,8 +6505,8 @@ type seriesPieOptions = {
   mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
   name?: string,
 }
-type seriesPointandfigureOptions = {
-  data?: string, // ⚪ loose — was `([number, number] | PointOptionsObject)[]`
+type seriesPointandfigureOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -6522,7 +6522,7 @@ type seriesPointandfigureOptions = {
   connectNulls?: bool,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `PlotPointandfigureDataGroupingOptions`
   dataLabels?: string, // ⚪ loose — was `PlotPointandfigureDataLabelsOptions | PlotPointandfigureDataLabelsOptions[]`
@@ -6538,7 +6538,7 @@ type seriesPointandfigureOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   jitter?: string, // ⚪ loose — was `PlotPointandfigureJitterOptions`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -6579,7 +6579,7 @@ type seriesPointandfigureOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6591,8 +6591,8 @@ type seriesPointandfigureOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPolygonOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesPolygonOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -6616,7 +6616,7 @@ type seriesPolygonOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotPolygonDataLabelsOptions | PlotPolygonDataLabelsOptions[]`
@@ -6631,7 +6631,7 @@ type seriesPolygonOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -6668,7 +6668,7 @@ type seriesPolygonOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6705,7 +6705,7 @@ type seriesPriceenvelopesOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotPriceenvelopesDataLabelsOptions | PlotPriceenvelopesDataLabelsOptions[]`
@@ -6754,7 +6754,7 @@ type seriesPriceenvelopesOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6765,9 +6765,9 @@ type seriesPriceenvelopesOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPyramid3dOptions = {
+type seriesPyramid3dOptions<'b> = {
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(number | number[] | PointOptionsObject)[]`
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -6783,11 +6783,11 @@ type seriesPyramid3dOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotPyramid3dDataLabelsOptions | PlotPyramid3dDataLabelsOptions[]`
   depth?: float,
@@ -6806,7 +6806,7 @@ type seriesPyramid3dOptions = {
   height?: string, // ⚪ loose — was `string | number`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linkedTo?: string,
@@ -6846,7 +6846,7 @@ type seriesPyramid3dOptions = {
   visible?: bool,
   width?: string, // ⚪ loose — was `string | number`
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -6858,8 +6858,8 @@ type seriesPyramid3dOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesPyramidOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesPyramidOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -6872,17 +6872,17 @@ type seriesPyramidOptions = {
   borderColor?: string, // ⚪ loose — was `ColorType`
   borderRadius?: float,
   borderWidth?: float,
-  center?: string, // ⚪ loose — was `(string | number)[]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesPieDataLabelsOptionsObject | SeriesPieDataLabelsOptionsObject[]`
   depth?: float,
   description?: string,
@@ -6896,7 +6896,7 @@ type seriesPyramidOptions = {
   ignoreHiddenPoint?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
   linecap?: string,
@@ -6933,9 +6933,9 @@ type seriesPyramidOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesRenkoOptions = {
+type seriesRenkoOptions<'b> = {
   boost?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `([number, number] | PointOptionsObject)[]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -6952,11 +6952,11 @@ type seriesRenkoOptions = {
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotRenkoDataLabelsOptions | PlotRenkoDataLabelsOptions[]`
   description?: string,
   downColor?: string,
@@ -6968,7 +6968,7 @@ type seriesRenkoOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -7003,7 +7003,7 @@ type seriesRenkoOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7015,9 +7015,9 @@ type seriesRenkoOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesSankeyOptions = {
+type seriesSankeyOptions<'b> = {
   borderRadius?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `SeriesSankeyPointOptionsObject[] | (string | number)[][]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   depth?: string, // ⚪ loose — was `undefined`
@@ -7027,7 +7027,7 @@ type seriesSankeyOptions = {
   groupPadding?: string, // ⚪ loose — was `undefined`
   groupZPadding?: string, // ⚪ loose — was `undefined`
   maxPointWidth?: string, // ⚪ loose — was `undefined`
-  nodes?: string, // ⚪ loose — was `SeriesSankeyNodesOptionsObject[]`
+  nodes?: array<JSON.t>,
   pointPadding?: string, // ⚪ loose — was `undefined`
   pointWidth?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -7042,10 +7042,10 @@ type seriesSankeyOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
   curveFactor?: float,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `SeriesSankeyDataLabelsOptionsObject | SeriesSankeyDataLabelsOptionsObject[]`
   description?: string,
@@ -7054,10 +7054,10 @@ type seriesSankeyOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
-  levels?: string, // ⚪ loose — was `PlotSankeyLevelsOptions[]`
+  levels?: array<JSON.t>,
   linkColorMode?: string, // ⚪ loose — was `"from" | "gradient" | "to"`
   linkedTo?: string,
   linkOpacity?: float,
@@ -7094,8 +7094,8 @@ type seriesSankeyOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesScatter3dOptions = {
-  data?: string, // ⚪ loose — was `(number[] | PointOptionsObject)[]`
+type seriesScatter3dOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -7111,7 +7111,7 @@ type seriesScatter3dOptions = {
   connectNulls?: bool,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotScatter3dDataLabelsOptions | PlotScatter3dDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotScatter3dDataSortingOptions`
@@ -7125,7 +7125,7 @@ type seriesScatter3dOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   jitter?: string, // ⚪ loose — was `PlotScatter3dJitterOptions`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linecap?: string,
@@ -7158,7 +7158,7 @@ type seriesScatter3dOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7170,8 +7170,8 @@ type seriesScatter3dOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesScatterOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesScatterOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -7198,7 +7198,7 @@ type seriesScatterOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotScatterDataLabelsOptions | PlotScatterDataLabelsOptions[]`
@@ -7214,7 +7214,7 @@ type seriesScatterOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   jitter?: string, // ⚪ loose — was `PlotScatterJitterOptions`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -7252,7 +7252,7 @@ type seriesScatterOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7288,7 +7288,7 @@ type seriesSlowstochasticOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotSlowstochasticDataLabelsOptions | PlotSlowstochasticDataLabelsOptions[]`
@@ -7337,7 +7337,7 @@ type seriesSlowstochasticOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7374,7 +7374,7 @@ type seriesSmaOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotSmaDataLabelsOptions | PlotSmaDataLabelsOptions[]`
@@ -7422,7 +7422,7 @@ type seriesSmaOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7433,8 +7433,8 @@ type seriesSmaOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesSolidgaugeOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesSolidgaugeOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   dial?: string, // ⚪ loose — was `undefined`
@@ -7453,7 +7453,7 @@ type seriesSolidgaugeOptions = {
   colorIndex?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotSolidgaugeDataLabelsOptions | PlotSolidgaugeDataLabelsOptions[]`
   description?: string,
   enableMouseTracking?: bool,
@@ -7463,7 +7463,7 @@ type seriesSolidgaugeOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   innerRadius?: string,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -7502,8 +7502,8 @@ type seriesSolidgaugeOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesSplineOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesSplineOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -7527,7 +7527,7 @@ type seriesSplineOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotSplineDataLabelsOptions | PlotSplineDataLabelsOptions[]`
@@ -7542,7 +7542,7 @@ type seriesSplineOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -7582,7 +7582,7 @@ type seriesSplineOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7620,7 +7620,7 @@ type seriesStochasticOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotStochasticDataLabelsOptions | PlotStochasticDataLabelsOptions[]`
@@ -7669,7 +7669,7 @@ type seriesStochasticOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7680,8 +7680,8 @@ type seriesStochasticOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesStreamgraphOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesStreamgraphOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -7705,7 +7705,7 @@ type seriesStreamgraphOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotStreamgraphDataLabelsOptions | PlotStreamgraphDataLabelsOptions[]`
@@ -7722,7 +7722,7 @@ type seriesStreamgraphOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -7765,7 +7765,7 @@ type seriesStreamgraphOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7777,8 +7777,8 @@ type seriesStreamgraphOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesSunburstOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesSunburstOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -7791,16 +7791,16 @@ type seriesSunburstOptions = {
   borderRadius?: string, // ⚪ loose — was `string | number | BorderRadiusOptionsObject`
   borderWidth?: float,
   breadcrumbs?: string, // ⚪ loose — was `PlotSunburstBreadcrumbsOptions`
-  center?: string, // ⚪ loose — was `(string | number)[]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesSunburstDataLabelsOptionsObject | SeriesSunburstDataLabelsOptionsObject[]`
   description?: string,
   enableMouseTracking?: bool,
@@ -7808,11 +7808,11 @@ type seriesSunburstOptions = {
   fillColor?: string, // ⚪ loose — was `ColorType`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
   levelIsConstant?: bool,
-  levels?: string, // ⚪ loose — was `PlotSunburstLevelsOptions[]`
+  levels?: array<JSON.t>,
   levelSize?: string, // ⚪ loose — was `PlotSunburstLevelSizeOptions`
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotSunburstOnPointOptions`
@@ -7873,7 +7873,7 @@ type seriesSupertrendOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotSupertrendDataLabelsOptions | PlotSupertrendDataLabelsOptions[]`
@@ -7921,7 +7921,7 @@ type seriesSupertrendOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -7943,7 +7943,7 @@ type seriesTiledwebmapOptions = {
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   className?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   description?: string,
   events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
   inactiveOtherPoints?: bool,
@@ -7968,9 +7968,9 @@ type seriesTiledwebmapOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesTilemapOptions = {
+type seriesTilemapOptions<'b> = {
   allAreas?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   mapData?: string, // ⚪ loose — was `undefined`
@@ -7991,7 +7991,7 @@ type seriesTilemapOptions = {
   colsize?: float,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotTilemapDataLabelsOptions | PlotTilemapDataLabelsOptions[]`
   description?: string,
   enableMouseTracking?: bool,
@@ -8001,7 +8001,7 @@ type seriesTilemapOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   interpolation?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   linkedTo?: string,
@@ -8030,7 +8030,7 @@ type seriesTilemapOptions = {
   visible?: bool,
   zIndex?: int,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8039,8 +8039,8 @@ type seriesTilemapOptions = {
   xAxis?: string, // ⚪ loose — was `string | number`
   yAxis?: string, // ⚪ loose — was `string | number`
 }
-type seriesTimelineOptions = {
-  data?: string, // ⚪ loose — was `PointOptionsObject[]`
+type seriesTimelineOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -8057,7 +8057,7 @@ type seriesTimelineOptions = {
   colorKey?: string,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `TimelineDataLabelsOptionsObject | TimelineDataLabelsOptionsObject[]`
   description?: string,
   dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
@@ -8068,7 +8068,7 @@ type seriesTimelineOptions = {
   ignoreHiddenPoint?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -8103,11 +8103,11 @@ type seriesTimelineOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesTreegraphOptions = {
+type seriesTreegraphOptions<'b> = {
   allowDrillToNode?: string, // ⚪ loose — was `undefined`
   centerInCategory?: string, // ⚪ loose — was `undefined`
   curveFactor?: string, // ⚪ loose — was `undefined`
-  data?: string, // ⚪ loose — was `PointOptionsObject[]`
+  data?: array<'b>,
   headers?: string, // ⚪ loose — was `undefined`
   layout?: string, // ⚪ loose — was `undefined`
   nodePadding?: string, // ⚪ loose — was `undefined`
@@ -8128,11 +8128,11 @@ type seriesTreegraphOptions = {
   color?: string, // ⚪ loose — was `ColorType`
   colorByPoint?: bool,
   colorIndex?: float,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesTreegraphDataLabelsOptionsObject | SeriesTreegraphDataLabelsOptionsObject[]`
   description?: string,
   enableMouseTracking?: bool,
@@ -8143,10 +8143,10 @@ type seriesTreegraphOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
-  levels?: string, // ⚪ loose — was `PlotTreegraphLevelsOptions[]`
+  levels?: array<JSON.t>,
   link?: string, // ⚪ loose — was `PlotTreegraphLinkOptions`
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
@@ -8186,8 +8186,8 @@ type seriesTreegraphOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesTreemapOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject)[]`
+type seriesTreemapOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -8210,11 +8210,11 @@ type seriesTreemapOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotTreemapDataLabelsOptions | PlotTreemapDataLabelsOptions[]`
   description?: string,
@@ -8229,13 +8229,13 @@ type seriesTreemapOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   interactByLeaf?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   layoutAlgorithm?: string, // ⚪ loose — was `OptionsLayoutAlgorithmValue`
   layoutStartingDirection?: string, // ⚪ loose — was `OptionsLayoutStartingDirectionValue`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   levelIsConstant?: bool,
-  levels?: string, // ⚪ loose — was `PlotTreemapLevelsOptions[]`
+  levels?: array<JSON.t>,
   linecap?: string,
   lineWidth?: float,
   linkedTo?: string,
@@ -8268,7 +8268,7 @@ type seriesTreemapOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8279,8 +8279,8 @@ type seriesTreemapOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesVariablepieOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number])[]`
+type seriesVariablepieOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -8293,17 +8293,17 @@ type seriesVariablepieOptions = {
   borderColor?: string, // ⚪ loose — was `ColorType`
   borderRadius?: string, // ⚪ loose — was `string | number | BorderRadiusOptionsObject`
   borderWidth?: float,
-  center?: string, // ⚪ loose — was `[string | number, string | number]`
+  center?: array<JSON.t>,
   className?: string,
   clip?: bool,
   color?: string, // ⚪ loose — was `ColorType`
   colorAxis?: string, // ⚪ loose — was `string | number | boolean`
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `SeriesPieDataLabelsOptionsObject | SeriesPieDataLabelsOptionsObject[]`
   depth?: float,
   description?: string,
@@ -8317,7 +8317,7 @@ type seriesVariablepieOptions = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   innerSize?: string, // ⚪ loose — was `string | number`
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
   linecap?: string,
@@ -8356,8 +8356,8 @@ type seriesVariablepieOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesVariwideOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number] | [string | number, number, number])[]`
+type seriesVariwideOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -8374,10 +8374,10 @@ type seriesVariwideOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotVariwideDataLabelsOptions | PlotVariwideDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotVariwideDataSortingOptions`
@@ -8391,7 +8391,7 @@ type seriesVariwideOptions = {
   groupPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -8428,7 +8428,7 @@ type seriesVariwideOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8465,7 +8465,7 @@ type seriesVbpOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotVbpDataLabelsOptions | PlotVbpDataLabelsOptions[]`
@@ -8516,7 +8516,7 @@ type seriesVbpOptions = {
   volumeDivision?: string, // ⚪ loose — was `PlotVbpVolumeDivisionOptions`
   zoneAxis?: string,
   zoneLines?: string, // ⚪ loose — was `PlotVbpZoneLinesOptions`
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8527,8 +8527,8 @@ type seriesVbpOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesVectorOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number, number])[]`
+type seriesVectorOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -8550,7 +8550,7 @@ type seriesVectorOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataLabels?: string, // ⚪ loose — was `PlotVectorDataLabelsOptions | PlotVectorDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotVectorDataSortingOptions`
   description?: string,
@@ -8560,7 +8560,7 @@ type seriesVectorOptions = {
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -8597,7 +8597,7 @@ type seriesVectorOptions = {
   vectorLength?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8609,8 +8609,8 @@ type seriesVectorOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesVennOptions = {
-  data?: string, // ⚪ loose — was `PointOptionsObject[]`
+type seriesVennOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   stack?: string, // ⚪ loose — was `undefined`
@@ -8634,7 +8634,7 @@ type seriesVennOptions = {
   colorKey?: string,
   crisp?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotVennDataLabelsOptions | PlotVennDataLabelsOptions[]`
   description?: string,
@@ -8644,7 +8644,7 @@ type seriesVennOptions = {
   gapUnit?: string, // ⚪ loose — was `OptionsGapUnitValue`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotVennOnPointOptions`
@@ -8672,8 +8672,8 @@ type seriesVennOptions = {
   name?: string,
   zIndex?: int,
 }
-type seriesWaterfallOptions = {
-  data?: string, // ⚪ loose — was `(number | PointOptionsObject | [string | number, number])[]`
+type seriesWaterfallOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -8692,11 +8692,11 @@ type seriesWaterfallOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   crisp?: bool,
   cropThreshold?: float,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataLabels?: string, // ⚪ loose — was `PlotWaterfallDataLabelsOptions | PlotWaterfallDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotWaterfallDataSortingOptions`
@@ -8714,7 +8714,7 @@ type seriesWaterfallOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -8754,7 +8754,7 @@ type seriesWaterfallOptions = {
   upColor?: string, // ⚪ loose — was `ColorType`
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8766,8 +8766,8 @@ type seriesWaterfallOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesWindbarbOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string | number, number, number])[]`
+type seriesWindbarbOptions<'b> = {
+  data?: array<'b>,
   dataParser?: string, // ⚪ loose — was `undefined`
   dataURL?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
@@ -8786,7 +8786,7 @@ type seriesWindbarbOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -8794,7 +8794,7 @@ type seriesWindbarbOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotWindbarbDataLabelsOptions | PlotWindbarbDataLabelsOptions[]`
   dataSorting?: string, // ⚪ loose — was `DataSortingOptionsObject | PlotWindbarbDataSortingOptions`
@@ -8811,7 +8811,7 @@ type seriesWindbarbOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -8855,7 +8855,7 @@ type seriesWindbarbOptions = {
   xOffset?: float,
   yOffset?: float,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -8867,8 +8867,8 @@ type seriesWindbarbOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesWordcloudOptions = {
-  data?: string, // ⚪ loose — was `(PointOptionsObject | [string, number])[]`
+type seriesWordcloudOptions<'b> = {
+  data?: array<'b>,
   @as("type") type_: string,
   accessibility?: string, // ⚪ loose — was `SeriesAccessibilityOptionsObject`
   allowPointSelect?: bool,
@@ -8883,9 +8883,9 @@ type seriesWordcloudOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   description?: string,
   edgeWidth?: float,
@@ -8893,7 +8893,7 @@ type seriesWordcloudOptions = {
   events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   legendSymbol?: string, // ⚪ loose — was `OptionsLegendSymbolValue`
   legendSymbolColor?: string, // ⚪ loose — was `ColorType`
@@ -8916,7 +8916,7 @@ type seriesWordcloudOptions = {
   spiral?: string, // ⚪ loose — was `OptionsSpiralValue`
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   tooltip?: string, // ⚪ loose — was `SeriesTooltipOptionsObject`
   turboThreshold?: float,
   visible?: bool,
@@ -8931,8 +8931,8 @@ type seriesWordcloudOptions = {
   yAxis?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
 }
-type seriesXrangeOptions = {
-  data?: string, // ⚪ loose — was `XrangePointOptionsObject[]`
+type seriesXrangeOptions<'b> = {
+  data?: array<'b>,
   depth?: string, // ⚪ loose — was `undefined`
   edgeColor?: string, // ⚪ loose — was `undefined`
   edgeWidth?: string, // ⚪ loose — was `undefined`
@@ -8952,7 +8952,7 @@ type seriesXrangeOptions = {
   colorByPoint?: bool,
   colorIndex?: float,
   colorKey?: string,
-  colors?: string, // ⚪ loose — was `ColorType[]`
+  colors?: array<JSON.t>,
   compare?: string, // ⚪ loose — was `OptionsCompareValue`
   compareBase?: string, // ⚪ loose — was `0 | 100`
   compareStart?: bool,
@@ -8960,7 +8960,7 @@ type seriesXrangeOptions = {
   cumulative?: bool,
   cumulativeStart?: bool,
   cursor?: string,
-  custom?: string, // ⚪ loose — was `Dictionary<any>`
+  custom?: Dict.t<JSON.t>,
   dashStyle?: string, // ⚪ loose — was `DashStyleValue`
   dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
   dataLabels?: string, // ⚪ loose — was `PlotXrangeDataLabelsOptions | PlotXrangeDataLabelsOptions[]`
@@ -8973,7 +8973,7 @@ type seriesXrangeOptions = {
   groupZPadding?: float,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
-  keys?: string, // ⚪ loose — was `string[]`
+  keys?: array<string>,
   label?: string, // ⚪ loose — was `SeriesLabelOptionsObject`
   lastPrice?: string, // ⚪ loose — was `SeriesLastPriceOptionsObject`
   lastVisiblePrice?: string, // ⚪ loose — was `SeriesLastVisiblePriceOptionsObject`
@@ -9007,7 +9007,7 @@ type seriesXrangeOptions = {
   turboThreshold?: float,
   visible?: bool,
   zoneAxis?: string,
-  zones?: string, // ⚪ loose — was `SeriesZonesOptionsObject[]`
+  zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
   id?: string,
   index?: int,
@@ -9020,125 +9020,126 @@ type seriesXrangeOptions = {
   zIndex?: int,
 }
 module SeriesOptionsType = {
-  type t
-  external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesAoOptions: seriesAoOptions => t = "%identity"
-  external fromSeriesApoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions => t = "%identity"
-  external fromSeriesAreaOptions: seriesAreaOptions => t = "%identity"
-  external fromSeriesArearangeOptions: seriesArearangeOptions => t = "%identity"
-  external fromSeriesAreasplineOptions: seriesAreasplineOptions => t = "%identity"
-  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
-  external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
-  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
-  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
-  external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
-  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
-  external fromSeriesBoxplotOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesBubbleOptions: seriesBubbleOptions => t = "%identity"
-  external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
-  external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
-  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
-  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
-  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
-  external fromSeriesContourOptions: seriesContourOptions => t = "%identity"
-  external fromSeriesCylinderOptions: seriesCylinderOptions => t = "%identity"
-  external fromSeriesDemaOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions => t = "%identity"
-  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t = "%identity"
-  external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
-  external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
-  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
-  external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
-  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions => t = "%identity"
-  external fromSeriesFunnelOptions: seriesFunnelOptions => t = "%identity"
-  external fromSeriesGanttOptions: seriesGanttOptions => t = "%identity"
-  external fromSeriesGaugeOptions: seriesGaugeOptions => t = "%identity"
-  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions => t = "%identity"
-  external fromSeriesHeatmapOptions: seriesHeatmapOptions => t = "%identity"
-  external fromSeriesHeikinashiOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesHistogramOptions: seriesHistogramOptions => t = "%identity"
-  external fromSeriesHlcOptions: seriesHlcOptions => t = "%identity"
-  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions => t = "%identity"
-  external fromSeriesIkhOptions: seriesIkhOptions => t = "%identity"
-  external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
-  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
-  external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
-  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
-  external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
-  external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
-  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions => t = "%identity"
-  external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
-  external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
-  external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
-  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
-  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
-  external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
-  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
-  external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
-  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
-  external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
-  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
-  external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
-  external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
-  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
-  external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
-  external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
-  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
-  external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
-  external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
-  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t = "%identity"
-  external fromSeriesSmaOptions: seriesSmaOptions => t = "%identity"
-  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
-  external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
-  external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
-  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions => t = "%identity"
-  external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
-  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
-  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
-  external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
-  external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
-  external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
-  external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
-  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
-  external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
-  external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
-  external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
-  external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
-  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
-  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
-  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
-  external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
-  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
+  type t<'b>
+  external fromSeriesAbandsOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesAdOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesAoOptions: seriesAoOptions => t<'b> = "%identity"
+  external fromSeriesApoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreaOptions: seriesAreaOptions<'b> => t<'b> = "%identity"
+  external fromSeriesArearangeOptions: seriesArearangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplineOptions: seriesAreasplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAroonOptions: seriesAroonOptions => t<'b> = "%identity"
+  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t<'b> = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesBarOptions: seriesBarOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBbOptions: seriesBbOptions => t<'b> = "%identity"
+  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t<'b> = "%identity"
+  external fromSeriesBoxplotOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBubbleOptions: seriesBubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBulletOptions: seriesBulletOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCandlestickOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCciOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesCmfOptions: seriesCmfOptions => t<'b> = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesColumnOptions: seriesColumnOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesContourOptions: seriesContourOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCylinderOptions: seriesCylinderOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDemaOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t<'b> = "%identity"
+  external fromSeriesDmiOptions: seriesDmiOptions => t<'b> = "%identity"
+  external fromSeriesDpoOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesDumbbellOptions: seriesDumbbellOptions<'b> => t<'b> = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesErrorbarOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlagsOptions: seriesFlagsOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlowmapOptions: seriesFlowmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnelOptions: seriesFunnelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGanttOptions: seriesGanttOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGaugeOptions: seriesGaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeatmapOptions: seriesHeatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeikinashiOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHistogramOptions: seriesHistogramOptions => t<'b> = "%identity"
+  external fromSeriesHlcOptions: seriesHlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions<'b> => t<'b> =
+    "%identity"
+  external fromSeriesIkhOptions: seriesIkhOptions => t<'b> = "%identity"
+  external fromSeriesItemOptions: seriesItemOptions<'b> => t<'b> = "%identity"
+  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t<'b> = "%identity"
+  external fromSeriesKlingerOptions: seriesKlingerOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLineOptions: seriesLineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesLollipopOptions: seriesLollipopOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMacdOptions: seriesMacdOptions => t<'b> = "%identity"
+  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMaplineOptions: seriesMaplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMapOptions: seriesMapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMappointOptions: seriesMappointOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesNatrOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesOhlcOptions: seriesOhlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesOrganizationOptions: seriesOrganizationOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesParetoOptions: seriesParetoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesPictorialOptions: seriesPictorialOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPieOptions: seriesPieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPolygonOptions: seriesPolygonOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPpoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t<'b> = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPyramidOptions: seriesPyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRenkoOptions: seriesRenkoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesSankeyOptions: seriesSankeyOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatter3dOptions: seriesScatter3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatterOptions: seriesScatterOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t<'b> = "%identity"
+  external fromSeriesSmaOptions: seriesSmaOptions => t<'b> = "%identity"
+  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSplineOptions: seriesSplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesStochasticOptions: seriesStochasticOptions => t<'b> = "%identity"
+  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t<'b> = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreemapOptions: seriesTreemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesTrixOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesVariablepieOptions: seriesVariablepieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVariwideOptions: seriesVariwideOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVbpOptions: seriesVbpOptions => t<'b> = "%identity"
+  external fromSeriesVectorOptions: seriesVectorOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVennOptions: seriesVennOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesWaterfallOptions: seriesWaterfallOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesWindbarbOptions: seriesWindbarbOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesWordcloudOptions: seriesWordcloudOptions<'b> => t<'b> = "%identity"
+  external fromSeriesXrangeOptions: seriesXrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t<'b> = "%identity"
 }
 type exportDataEventObject = {
   dataRows: array<array<string>>,
@@ -9204,7 +9205,7 @@ type chartParallelAxesLabelsStyleOptions = {
 }
 module ChartsChartParallelAxesLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromChartParallelAxesLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -9258,8 +9259,8 @@ type yAxisPlotLinesOptions = {
   zIndex?: int,
 }
 type yAxisResizeControlledAxisOptions = {
-  next?: array<CommonTypes.stringOrNumber>,
-  prev?: array<CommonTypes.stringOrNumber>,
+  next?: array<JSON.t>,
+  prev?: array<JSON.t>,
 }
 type yAxisResizeOptions = {
   controlledAxis?: yAxisResizeControlledAxisOptions,
@@ -9338,7 +9339,7 @@ type yAxisTitleOptions = {
 }
 module ChartsChartParallelAxesTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromChartParallelAxesTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -9429,12 +9430,12 @@ type colorAxisLabelsStyleOptions = {
 }
 module ChartsColorAxisLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromColorAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
 }
 module ChartsXAxisTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
 }
 type xAxisTitleOptions = {
@@ -9454,7 +9455,7 @@ type xAxisTitleOptions = {
 }
 module ChartsZAxisTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromZAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
 }
 type zAxisTitleOptions = {
@@ -9474,7 +9475,7 @@ type zAxisTitleOptions = {
 }
 module ChartsColorAxisTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromColorAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
 }
 type colorAxisTitleOptions = {
@@ -9538,7 +9539,7 @@ type connectorsOptions = {
 }
 module ChartsCreditsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromCreditsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
 }
 type creditsOptions = {
@@ -9558,7 +9559,7 @@ type drilldownActiveDataLabelStyleOptions = {
 }
 module ChartsDrilldownOptionsActiveDataLabelStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromDrilldownActiveDataLabelStyleOptions: drilldownActiveDataLabelStyleOptions => t =
     "%identity"
 }
@@ -9605,7 +9606,7 @@ type drilldownBreadcrumbsSeparatorStyleOptions = {
 }
 module ChartsDrilldownBreadcrumbsSeparatorOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromDrilldownBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
@@ -9640,15 +9641,15 @@ type drilldownDrillUpButtonOptions = {
   relativeTo?: buttonRelativeToValue,
   theme?: string, // ⚪ loose — was `object`
 }
-type drilldownOptions = {
-  activeAxisLabelStyle?: cssObject,
+type drilldownOptions<'b> = {
+  activeAxisLabelStyle?: cssObjectHighcharts,
   activeDataLabelStyle?: ChartsDrilldownOptionsActiveDataLabelStyle.t,
   allowPointDrilldown?: bool,
   animation?: string, // ⚠️ REVIEW — was `boolean | AnimationOptionsObject` — match the real type by hand
   breadcrumbs?: drilldownBreadcrumbsOptions,
   drillUpButton?: drilldownDrillUpButtonOptions,
   mapZooming?: bool,
-  series?: array<SeriesOptionsType.t>,
+  series?: array<SeriesOptionsType.t<'b>>,
 }
 type exportingAccessibilityOptions = {
   enabled?: bool,
@@ -10163,7 +10164,7 @@ type legendBubbleLegendLabelsOptions = {
     bubbleLegendFormatterContextObject,
     option<bubbleLegendFormatterContextObject>,
   ) => string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   x?: float,
   y?: float,
 }
@@ -10199,24 +10200,24 @@ type legendNavigationOptions = {
   arrowSize?: float,
   enabled?: bool,
   inactiveColor?: ColorType.t,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
 }
 type legendTitleOptions = {
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
 }
 type loadingOptions = {
   hideDuration?: float,
-  labelStyle?: cssObject,
+  labelStyle?: cssObjectHighcharts,
   showDuration?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
 }
 type mapNavigationButtonOptions = {
   align?: alignValue,
   alignTo?: buttonRelativeToValue,
   height?: float,
   padding?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   theme?: highchartsPointShapeArgsConfig,
   verticalAlign?: verticalAlignValue,
   width?: float,
@@ -10228,7 +10229,7 @@ type mapNavigationButtonsZoomInOptions = {
   height?: float,
   onclick?: string, // ⚪ loose — was `Function`
   padding?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   theme?: highchartsPointShapeArgsConfig,
   verticalAlign?: verticalAlignValue,
@@ -10276,18 +10277,18 @@ module ChartsNavigationAnnotationsOptionsAnimation = {
 }
 type navigationAnnotationsTypesCrookedLineTypeOptions = {
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesCrookedLineTypeLineOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesCrookedLineTypePointsOptions[]`
+  points?: array<JSON.t>,
   xAxis?: float,
   yAxis?: float,
 }
 type navigationAnnotationsTypesFibonacciTypeOptions = {
   backgroundColors?: string, // ⚪ loose — was `object`
   height?: float,
-  labels?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTypeLabelsOptions[]`
+  labels?: array<JSON.t>,
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTypeLineOptions`
   lineColor?: string,
   lineColors?: string, // ⚪ loose — was `object`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTypePointsOptions[]`
+  points?: array<JSON.t>,
   reversed?: bool,
   xAxis?: float,
   yAxis?: float,
@@ -10295,7 +10296,7 @@ type navigationAnnotationsTypesFibonacciTypeOptions = {
 type navigationAnnotationsTypesFibonacciTimeZonesTypeOptions = {
   controlPointOptions?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTimeZonesTypeControlPointOptions`
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTimeZonesTypeLineOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesFibonacciTimeZonesTypePointsOptions[]`
+  points?: array<JSON.t>,
   xAxis?: float,
   yAxis?: float,
 }
@@ -10305,7 +10306,7 @@ type navigationAnnotationsTypesMeasureTypeOptions = {
   crosshairY?: string, // ⚪ loose — was `NavigationAnnotationsTypesMeasureTypeCrosshairYOptions`
   label?: string, // ⚪ loose — was `NavigationAnnotationsTypesMeasureTypeLabelOptions`
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesMeasureTypeLineOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesMeasureTypePointsOptions[]`
+  points?: array<JSON.t>,
   selectType?: string,
   xAxis?: float,
   yAxis?: float,
@@ -10313,7 +10314,7 @@ type navigationAnnotationsTypesMeasureTypeOptions = {
 type navigationAnnotationsTypesPitchforkTypeOptions = {
   innerBackground?: string, // ⚪ loose — was `NavigationAnnotationsTypesPitchforkTypeInnerBackgroundOptions`
   outerBackground?: string, // ⚪ loose — was `NavigationAnnotationsTypesPitchforkTypeOuterBackgroundOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesPitchforkTypePointsOptions[]`
+  points?: array<JSON.t>,
   xAxis?: float,
   yAxis?: float,
 }
@@ -10322,7 +10323,7 @@ type navigationAnnotationsTypesTunnelTypeOptions = {
   height?: float,
   heightControlPoint?: string, // ⚪ loose — was `AnnotationControlPointOptionsObject`
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesTunnelTypeLineOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesTunnelTypePointsOptions[]`
+  points?: array<JSON.t>,
   xAxis?: float,
   yAxis?: float,
 }
@@ -10330,7 +10331,7 @@ type navigationAnnotationsTypesVerticalLineTypeOptions = {
   connector?: string, // ⚪ loose — was `NavigationAnnotationsTypesVerticalLineTypeConnectorOptions`
   label?: string, // ⚪ loose — was `NavigationAnnotationsTypesVerticalLineTypeLabelOptions`
   line?: string, // ⚪ loose — was `NavigationAnnotationsTypesVerticalLineTypeLineOptions`
-  points?: string, // ⚪ loose — was `NavigationAnnotationsTypesVerticalLineTypePointsOptions[]`
+  points?: array<JSON.t>,
   xAxis?: float,
   yAxis?: float,
 }
@@ -10348,7 +10349,7 @@ module ChartsNavigationBreadcrumbsOptionsPosition = {
 }
 module ChartsNavigationBreadcrumbsSeparatorOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromNavigationBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
@@ -10422,7 +10423,7 @@ type dataGroupingOptionsObject = {
   groupAll?: bool,
   groupPixelWidth?: float,
   lastAnchor?: string,
-  units?: array<(string, string)>, // ⚪ loose — was `number[]`
+  units?: array<(string, array<float>)>,
 }
 type dataLabelsFilterOptionsObject = {
   operator?: string, // ⚪ loose — was `OptionsOperatorValue`
@@ -10441,7 +10442,7 @@ type navigatorXAxisBreaksOptions = {
 }
 module ChartsNavigatorXAxisLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromNavigatorXAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -10456,7 +10457,7 @@ type navigatorXAxisPlotBandsLabelOptions = {
   allowOverlap?: bool,
   inside?: bool,
   rotation?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   textAlign?: string, // ⚪ loose — was `AlignValue`
   useHTML?: bool,
@@ -10482,7 +10483,7 @@ type navigatorXAxisPlotLinesLabelOptions = {
   align?: string, // ⚪ loose — was `AlignValue`
   formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
   rotation?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   textAlign?: string, // ⚪ loose — was `AlignValue`
   useHTML?: bool,
@@ -10508,7 +10509,7 @@ type navigatorXAxisPlotLinesOptions = {
 }
 module ChartsNavigatorXAxisTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromNavigatorXAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -10527,11 +10528,11 @@ type navigatorXAxisTitleOptions = {
 }
 type navigatorYAxisLabelsLevelsOptions = {
   level?: int,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
 }
 module ChartsNavigatorYAxisLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromNavigatorYAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -10554,7 +10555,7 @@ type navigatorYAxisPlotBandsOptions = {
 }
 module ChartsNavigatorYAxisTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromNavigatorYAxisTitleStyleOptions: chartParallelAxesLabelsStyleOptions => t =
     "%identity"
 }
@@ -10579,7 +10580,7 @@ module ChartsNoDataOptionsPosition = {
 type noDataOptions = {
   attr?: highchartsPointShapeArgsConfig,
   position?: ChartsNoDataOptionsPosition.t,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   useHTML?: string, // ⚪ loose — was `object`
 }
 type paneBackgroundOptions = {
@@ -10654,7 +10655,7 @@ type plotAbandsLabelStyleOptions = {
 }
 module ChartsSeriesLabelOptionsObjectStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotAbandsLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
   external fromPlotAdLabelStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
   external fromPlotAoLabelStyleOptions: plotAbandsLabelStyleOptions => t = "%identity"
@@ -10849,7 +10850,7 @@ type svgRenderer = {
   boxWrapper: string, // ⚪ loose — was `SVGElement`
   defs: string, // ⚪ loose — was `SVGElement`
   @as("Element") element: string, // ⚪ loose — was `SVGElement`
-  escapes: string, // ⚪ loose — was `Dictionary<string>`
+  escapes: Dict.t<string>,
   forExport?: bool,
   symbols: string, // ⚪ loose — was `SymbolDictionary`
   arc: string, // ⚪ loose — was `{ (attribs: SVGAttributes): SVGElement; (x?: number, y?: number, r?: number, innerR?: number, start?: number, `
@@ -10868,7 +10869,7 @@ type svgRenderer = {
   circle: string, // ⚪ loose — was `{ (attribs?: SVGAttributes): SVGElement; (x?: number, y?: number, r?: number): SVGElement; }`
   clipRect: (option<float>, option<float>, option<float>, option<float>) => string, // ⚪ loose — was `SVGElement`
   createElement: string => string, // ⚪ loose — was `SVGElement`
-  crispLine: (string, float) => string, // ⚪ loose — was `SVGPathArray`
+  crispLine: (array<JSON.t>, float) => array<JSON.t>,
   definition: string => string, // ⚪ loose — was `SVGElement`
   destroy: unit => string, // ⚪ loose — was `null`
   draw: unit => unit,
@@ -10883,7 +10884,15 @@ type svgRenderer = {
     option<float>,
     option<string>,
   ) => string, // ⚪ loose — was `SVGElement`
-  init: (string, float, float, option<cssObject>, option<bool>, option<bool>, option<bool>) => unit, // ⚪ loose — was `HTMLElement`
+  init: (
+    string,
+    float,
+    float,
+    option<cssObjectHighcharts>,
+    option<bool>,
+    option<bool>,
+    option<bool>,
+  ) => unit, // ⚪ loose — was `HTMLElement`
   isHidden: unit => bool,
   label: (
     string,
@@ -10900,7 +10909,7 @@ type svgRenderer = {
   rect: string, // ⚪ loose — was `{ (attributes?: SVGAttributes): SVGElement; (x?: number, y?: number, width?: number, height?: number, r?: numb`
   roundedRect: highchartsPointShapeArgsConfig => string, // ⚪ loose — was `SVGElement`
   setSize: (float, float, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  setStyle: cssObject => unit,
+  setStyle: cssObjectHighcharts => unit,
   symbol: (
     string,
     option<float>,
@@ -11659,7 +11668,7 @@ type plotGanttDataLabelsStyleOptions = {
 }
 module ChartsPlotGanttDataLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotGanttDataLabelsStyleOptions: plotGanttDataLabelsStyleOptions => t = "%identity"
 }
 type plotGanttPartialFillOptions = {
@@ -11993,7 +12002,7 @@ type plotNetworkgraphDataLabelsStyleOptions = {
 }
 module ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotNetworkgraphDataLabelsStyleOptions: plotNetworkgraphDataLabelsStyleOptions => t =
     "%identity"
 }
@@ -12079,7 +12088,7 @@ type plotPackedbubbleDataLabelsStyleOptions = {
 }
 module ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotPackedbubbleDataLabelsStyleOptions: plotPackedbubbleDataLabelsStyleOptions => t =
     "%identity"
 }
@@ -12439,7 +12448,7 @@ module ChartsPlotSunburstBreadcrumbsOptionsPosition = {
 }
 module ChartsPlotSunburstBreadcrumbsSeparatorOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotSunburstBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
@@ -12570,7 +12579,7 @@ type plotTreegraphLevelsDataLabelsStyleOptions = {
 }
 module ChartsSeriesTreegraphDataLabelsOptionsObjectStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotTreegraphDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
     "%identity"
   external fromPlotTreegraphLevelsDataLabelsStyleOptions: plotTreegraphLevelsDataLabelsStyleOptions => t =
@@ -12603,7 +12612,7 @@ module ChartsPlotTreemapBreadcrumbsOptionsPosition = {
 }
 module ChartsPlotTreemapBreadcrumbsSeparatorOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotTreemapBreadcrumbsSeparatorStyleOptions: drilldownBreadcrumbsSeparatorStyleOptions => t =
     "%identity"
 }
@@ -12656,7 +12665,7 @@ module ChartsPlotTreemapDataLabelsOptionsAnimation = {
 }
 module ChartsPlotTreemapDataLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotTreemapDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
     "%identity"
 }
@@ -12728,7 +12737,7 @@ type plotVbpVolumeDivisionOptions = {
 }
 type plotVbpZoneLinesOptions = {
   enabled?: bool,
-  styles?: cssObject,
+  styles?: cssObjectHighcharts,
 }
 module ChartsPlotVectorDataLabelsOptionsAnimation = {
   type t
@@ -12824,7 +12833,7 @@ type plotXrangeDataLabelsStyleOptions = {
 }
 module ChartsPlotXrangeDataLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromPlotXrangeDataLabelsStyleOptions: plotXrangeDataLabelsStyleOptions => t = "%identity"
 }
 type plotXrangePartialFillOptions = {
@@ -12886,8 +12895,8 @@ type rangeSelectorOptions = {
   inputEnabled?: bool,
   inputPosition?: rangeSelectorButtonPositionOptions,
   inputSpacing?: float,
-  inputStyle?: cssObject,
-  labelStyle?: cssObject,
+  inputStyle?: cssObjectHighcharts,
+  labelStyle?: cssObjectHighcharts,
   selected?: float,
   verticalAlign?: verticalAlignValue,
   x?: float,
@@ -13048,7 +13057,7 @@ type stockToolsOptions = {
 }
 module ChartsSubtitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromSubtitleStyleOptions: captionStyleOptions => t = "%identity"
 }
 type subtitleOptions = {
@@ -13068,7 +13077,7 @@ type timeOptions = {
 }
 module ChartsTitleOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromTitleStyleOptions: globalButtonThemeStatesSelectStyleOptions => t = "%identity"
 }
 type titleOptions = {
@@ -13085,7 +13094,7 @@ type titleOptions = {
 }
 module ChartsZAxisLabelsOptionsStyle = {
   type t
-  external fromCSSObject: cssObject => t = "%identity"
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
   external fromZAxisLabelsStyleOptions: colorAxisLabelsStyleOptions => t = "%identity"
 }
 type zAxisPlotBandsLabelOptions = {
@@ -13093,7 +13102,7 @@ type zAxisPlotBandsLabelOptions = {
   allowOverlap?: bool,
   inside?: bool,
   rotation?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
@@ -13119,7 +13128,7 @@ type zAxisPlotLinesLabelOptions = {
   align?: alignValue,
   formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
   rotation?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   textAlign?: alignValue,
   useHTML?: bool,
@@ -13143,7 +13152,7 @@ type zAxisPlotLinesOptions = {
 type chartsOptionsZAxis_t
 type chartsOptionsYAxis_t
 type chartsOptionsXAxis_t
-type chartsOptionsSeries_t
+type chartsOptionsSeries_t<'b>
 type chartsPlotZigzagOptionsDataLabels_t
 type chartsPlotXrangeOptionsDataLabels_t
 type chartsPlotWmaOptionsDataLabels_t
@@ -13259,12 +13268,13 @@ type chartsSeriesAccessibilityOptionsObjectPoint_t
 type chartsNavigatorOptionsYAxis_t
 type chartsNavigatorOptionsXAxis_t
 type chartsNavigatorSeriesOptionsDataLabels_t
-type chartsNavigatorOptionsSeries_t
+type chartsNavigatorOptionsSeries_t<'b>
 type chartsNavigationOptionsAnnotationsOptions_t
 type chartsLegendItemClickEventObjectLegendItem_t
 type chartsLegendAllItems_t
 type chartsOptionsColorAxis_t
 type chartsChartOptionsParallelAxes_t
+type pointOptionsType_t
 type rec zAxisLabelsOptions<'b> = {
   align?: alignValue,
   allowOverlap?: bool,
@@ -13430,7 +13440,7 @@ and plotZigzagDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -13665,7 +13675,7 @@ and plotWordcloudOptions<'b> = {
   spiral?: optionsSpiralValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   tooltip?: seriesTooltipOptionsObject<'b>,
   turboThreshold?: float,
   visible?: bool,
@@ -13698,7 +13708,7 @@ and plotWmaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -13805,7 +13815,7 @@ and plotWindbarbDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -13927,7 +13937,7 @@ and plotWilliamsrDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -14034,7 +14044,7 @@ and plotWaterfallDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -14149,7 +14159,7 @@ and plotVwapDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -14256,7 +14266,7 @@ and plotVennDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -14352,7 +14362,7 @@ and plotVectorDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -14468,7 +14478,7 @@ and plotVbpDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -14578,7 +14588,7 @@ and plotVariwideDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -14749,7 +14759,7 @@ and plotTrixDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -14854,7 +14864,7 @@ and plotTrendlineDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15239,7 +15249,7 @@ and timelineDataLabelsOptionsObject<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | CSSObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15325,7 +15335,7 @@ and plotTilemapDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -15437,7 +15447,7 @@ and plotTemaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15542,7 +15552,7 @@ and plotSupertrendDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15666,7 +15676,7 @@ and seriesSunburstDataLabelsOptionsObject<'b> = {
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
   softConnector?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15756,7 +15766,7 @@ and plotStreamgraphDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15874,7 +15884,7 @@ and plotStochasticDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -15982,7 +15992,7 @@ and plotSplineDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16095,7 +16105,7 @@ and plotSolidgaugeDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -16183,7 +16193,7 @@ and plotSmaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16290,7 +16300,7 @@ and plotSlowstochasticDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16398,7 +16408,7 @@ and plotScatter3dDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16497,7 +16507,7 @@ and plotScatterDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16688,7 +16698,7 @@ and plotRsiDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16795,7 +16805,7 @@ and plotRocDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -16902,7 +16912,7 @@ and plotRenkoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -17004,7 +17014,7 @@ and plotPyramid3dDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -17119,7 +17129,7 @@ and plotPsarDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17226,7 +17236,7 @@ and plotPriceenvelopesDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17335,7 +17345,7 @@ and plotPpoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17442,7 +17452,7 @@ and plotPolygonDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17551,7 +17561,7 @@ and plotPointandfigureDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17660,7 +17670,7 @@ and plotPivotpointsDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -17828,7 +17838,7 @@ and plotPictorialDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -17933,7 +17943,7 @@ and plotPcDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18041,7 +18051,7 @@ and plotParetoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18236,7 +18246,7 @@ and seriesOrganizationDataLabelsOptionsObject<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -18329,7 +18339,7 @@ and plotOhlcDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -18446,7 +18456,7 @@ and plotObvDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18640,7 +18650,7 @@ and plotNatrDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18747,7 +18757,7 @@ and plotMomentumDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18854,7 +18864,7 @@ and plotMfiDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -18961,7 +18971,7 @@ and plotMaplineDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -19047,7 +19057,7 @@ and plotMapbubbleDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -19135,7 +19145,7 @@ and plotMapDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -19219,7 +19229,7 @@ and plotMacdDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19416,7 +19426,7 @@ and plotLinearregressionslopeDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19523,7 +19533,7 @@ and plotLinearregressioninterceptDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19630,7 +19640,7 @@ and plotLinearregressionangleDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19737,7 +19747,7 @@ and plotLinearregressionDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19844,7 +19854,7 @@ and plotLineDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -19961,7 +19971,7 @@ and plotKlingerDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -20069,7 +20079,7 @@ and plotKeltnerchannelsDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -20234,7 +20244,7 @@ and plotIkhDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -20345,7 +20355,7 @@ and plotHollowcandlestickDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20465,7 +20475,7 @@ and plotHlcDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20581,7 +20591,7 @@ and plotHistogramDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20691,7 +20701,7 @@ and plotHeikinashiDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20811,7 +20821,7 @@ and plotHeatmapDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20906,7 +20916,7 @@ and plotGeoheatmapDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -20988,7 +20998,7 @@ and plotGaugeDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -21163,7 +21173,7 @@ and plotFunnel3dDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -21283,7 +21293,7 @@ and seriesPieDataLabelsOptionsObject<'b> = {
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
   softConnector?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -21427,7 +21437,7 @@ and plotFlagsDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -21513,7 +21523,7 @@ and plotFlagsOptions<'b> = {
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textAlign?: optionsTextAlignValue,
   title?: string,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -21552,7 +21562,7 @@ and plotErrorbarDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -21672,7 +21682,7 @@ and plotEmaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -21865,7 +21875,7 @@ and plotDpoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -21970,7 +21980,7 @@ and plotDmiDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -22079,7 +22089,7 @@ and plotDisparityindexDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -22253,7 +22263,7 @@ and plotDemaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -22358,7 +22368,7 @@ and plotCylinderDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -22468,7 +22478,7 @@ and plotContourDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -22648,7 +22658,7 @@ and plotColumnpyramidDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -22759,7 +22769,7 @@ and plotColumnDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -22883,7 +22893,7 @@ and plotCmoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -22990,7 +23000,7 @@ and plotCmfDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -23096,7 +23106,7 @@ and plotChaikinDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -23203,7 +23213,7 @@ and plotCciDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -23310,7 +23320,7 @@ and plotCandlestickDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -23430,7 +23440,7 @@ and plotBulletDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -23541,7 +23551,7 @@ and plotBubbleDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -23662,7 +23672,7 @@ and plotBoxplotDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -23782,7 +23792,7 @@ and plotBellcurveDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -23886,7 +23896,7 @@ and plotBbDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -23996,7 +24006,7 @@ and plotBarDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -24110,7 +24120,7 @@ and plotAtrDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -24217,7 +24227,7 @@ and plotAroonoscillatorDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -24322,7 +24332,7 @@ and plotAroonDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -24512,7 +24522,7 @@ and plotAreasplineDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -24630,7 +24640,7 @@ and seriesAreaRangeDataLabelsOptionsObject<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -24755,7 +24765,7 @@ and plotSeriesDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -24876,7 +24886,7 @@ and plotAreaDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -25000,7 +25010,7 @@ and seriesSankeyDataLabelsOptionsObject<'b> = {
   rotation?: float,
   shadow?: string, // ⚪ loose — was `boolean | ShadowOptionsObject`
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -25047,7 +25057,7 @@ and seriesArcDiagramDataLabelsOptionsObject<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string,
@@ -25134,7 +25144,7 @@ and plotApoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -25241,7 +25251,7 @@ and plotAoDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -25352,7 +25362,7 @@ and plotAdDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -25441,7 +25451,7 @@ and tooltipOptions<'b> = {
   changeDecimals?: float,
   className?: string,
   clusterFormat?: string,
-  dateTimeLabelFormats?: string, // ⚪ loose — was `Dictionary<string | DateTimeFormatOptions>`
+  dateTimeLabelFormats?: Dict.t<JSON.t>,
   distance?: float,
   enabled?: bool,
   fixed?: bool,
@@ -25522,11 +25532,11 @@ and sankeyNodeObject<'b> = {
   y?: float,
   getClassName: unit => string,
   getZone: unit => seriesZonesOptionsObject,
-  haloPath: float => string, // ⚪ loose — was `SVGPathArray`
+  haloPath: float => array<JSON.t>,
   onMouseOut: unit => unit,
   onMouseOver: option<pointerEventObject> => unit,
-  optionsToObject: string => string, // ⚪ loose — was `Dictionary<any>`
-  pos: (bool, float) => string, // ⚪ loose — was `number[]`
+  optionsToObject: string => Dict.t<JSON.t>, // ⚪ loose — was `PointOptionsType`
+  pos: (bool, float) => array<float>,
   remove: (option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   select: (option<bool>, option<bool>) => unit,
   setNestedProperty: (string, string, string) => string, // ⚪ loose — was `T`
@@ -25577,7 +25587,7 @@ and seriesLastPriceLabelOptionsObject<'b> = {
   formatter?: @this (axis<'b>, float, option<axis<'b>>) => string,
   padding?: float,
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
 }
 and seriesLastPriceOptionsObject<'b> = {
   color?: string,
@@ -25658,7 +25668,7 @@ and dataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚪ loose — was `boolean | ShadowOptionsObject`
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: string, // ⚪ loose — was `VerticalAlignValue`
@@ -25696,7 +25706,7 @@ and plotAbandsDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -26047,8 +26057,8 @@ and xAxisOptions<'b> = {
   allowDecimals?: bool,
   alternateGridColor?: string, // ⚪ loose — was `ColorType`
   angle?: float,
-  breaks?: string, // ⚪ loose — was `XAxisBreaksOptions[]`
-  categories?: string, // ⚪ loose — was `string[]`
+  breaks?: array<JSON.t>,
+  categories?: array<string>,
   ceiling?: float,
   className?: string,
   crosshair?: string, // ⚪ loose — was `boolean | AxisCrosshairOptions`
@@ -26095,8 +26105,8 @@ and xAxisOptions<'b> = {
   overscroll?: string, // ⚪ loose — was `string | number`
   pane?: float,
   panningEnabled?: bool,
-  plotBands?: string, // ⚪ loose — was `XAxisPlotBandsOptions[]`
-  plotLines?: string, // ⚪ loose — was `XAxisPlotLinesOptions[]`
+  plotBands?: array<JSON.t>,
+  plotLines?: array<JSON.t>,
   range?: float,
   reversed?: bool,
   reversedStacks?: bool,
@@ -26117,13 +26127,13 @@ and xAxisOptions<'b> = {
   tickPixelInterval?: float,
   tickPosition?: string, // ⚪ loose — was `OptionsTickPositionValue`
   tickPositioner?: @this (axis<'b>, float, float, option<axis<'b>>) => axisTickPositionsArray,
-  tickPositions?: string, // ⚪ loose — was `number[]`
+  tickPositions?: array<float>,
   tickWidth?: float,
   title?: xAxisTitleOptions,
   top?: string, // ⚪ loose — was `string | number`
   @as("type") type_?: string, // ⚪ loose — was `AxisTypeValue`
   uniqueNames?: bool,
-  units?: string, // ⚪ loose — was `[string, number[]][]`
+  units?: array<array<JSON.t>>,
   visible?: bool,
   width?: string, // ⚪ loose — was `string | number`
   zIndex?: int,
@@ -26241,7 +26251,7 @@ and navigatorSeriesDataLabelsOptions<'b> = {
   rotation?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   textPath?: dataLabelsTextPathOptionsObject,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -26264,7 +26274,7 @@ and navigatorSeriesOptions = {
   threshold?: float,
   @as("type") type_?: string,
 }
-and navigatorOptions = {
+and navigatorOptions<'b> = {
   accessibility?: exportingAccessibilityOptions,
   adaptToUpdatedData?: bool,
   enabled?: bool,
@@ -26276,7 +26286,7 @@ and navigatorOptions = {
   opposite?: bool,
   outlineColor?: ColorType.t,
   outlineWidth?: float,
-  series?: chartsNavigatorOptionsSeries_t,
+  series?: chartsNavigatorOptionsSeries_t<'b>,
   stickToMax?: bool,
   xAxis?: chartsNavigatorOptionsXAxis_t,
   yAxis?: chartsNavigatorOptionsYAxis_t,
@@ -26412,7 +26422,7 @@ and navigationAnnotationsTypesCrookedLineLabelOptions<'b> = {
   padding?: float,
   shadow?: string, // ⚪ loose — was `boolean | ShadowOptionsObject`
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   useHTML?: bool,
   verticalAlign?: string, // ⚪ loose — was `VerticalAlignValue`
@@ -26462,9 +26472,9 @@ and navigationOptions = {
   buttonOptions?: navigationButtonOptions,
   events?: navigationEventsOptions,
   iconsURL?: string,
-  menuItemHoverStyle?: cssObject,
-  menuItemStyle?: cssObject,
-  menuStyle?: cssObject,
+  menuItemHoverStyle?: cssObjectHighcharts,
+  menuItemStyle?: cssObjectHighcharts,
+  menuStyle?: cssObjectHighcharts,
 }
 and legendItemClickEventObject<'b> = {
   browserEvent: Dom.event,
@@ -26499,13 +26509,13 @@ and legendOptions<'b> = {
   enabled?: bool,
   events?: legendEventsOptions<'b>,
   floating?: bool,
-  itemCheckboxStyle?: cssObject,
+  itemCheckboxStyle?: cssObjectHighcharts,
   itemDistance?: float,
-  itemHiddenStyle?: cssObject,
-  itemHoverStyle?: cssObject,
+  itemHiddenStyle?: cssObjectHighcharts,
+  itemHoverStyle?: cssObjectHighcharts,
   itemMarginBottom?: float,
   itemMarginTop?: float,
-  itemStyle?: cssObject,
+  itemStyle?: cssObjectHighcharts,
   itemWidth?: float,
   labelFormat?: string,
   labelFormatter?: @this (chartsLegendAllItems_t, option<chartsLegendAllItems_t>) => string,
@@ -26817,7 +26827,7 @@ and yAxisOptions<'b> = {
   top?: CommonTypes.stringOrNumber,
   @as("type") type_?: axisTypeValue,
   uniqueNames?: bool,
-  units?: array<(string, string)>, // ⚪ loose — was `number[]`
+  units?: array<(string, array<float>)>,
   visible?: bool,
   width?: CommonTypes.stringOrNumber,
   zIndex?: int,
@@ -26861,7 +26871,7 @@ and chartParallelAxesLabelsOptions<'b> = {
   zIndex?: int,
 }
 and axisPointBreakEventObject<'b> = {
-  brk: string, // ⚪ loose — was `Dictionary<number>`
+  brk: Dict.t<float>,
   point: point<'b>,
   preventDefault: string, // ⚪ loose — was `Function`
   target: string, // ⚪ loose — was `SVGElement`
@@ -26963,7 +26973,7 @@ and drillupAllEventObject<'b> = {
 }
 and drillupEventObject<'b> = {
   preventDefault: string, // ⚪ loose — was `Function`
-  seriesOptions?: SeriesOptionsType.t,
+  seriesOptions?: SeriesOptionsType.t<'b>,
   target: chart<'b>,
   @as("type") type_: string, // ⚪ loose — was `"drillup"`
 }
@@ -26973,12 +26983,12 @@ and drilldownEventObject<'b> = {
   point: point<'b>,
   points?: boolOrPointArray<'b>,
   preventDefault: string, // ⚪ loose — was `Function`
-  seriesOptions?: SeriesOptionsType.t,
+  seriesOptions?: SeriesOptionsType.t<'b>,
   target: chart<'b>,
   @as("type") type_: string, // ⚪ loose — was `"drilldown"`
 }
 and chartAddSeriesEventObject<'b> = {
-  options: SeriesOptionsType.t,
+  options: SeriesOptionsType.t<'b>,
   preventDefault: string, // ⚪ loose — was `Function`
   target: chart<'b>,
   @as("type") type_: string, // ⚪ loose — was `"addSeries"`
@@ -27049,7 +27059,7 @@ and chartOptions<'b> = {
   spacingLeft?: float,
   spacingRight?: float,
   spacingTop?: float,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   styledMode?: bool,
   @as("type") type_?: string,
   width?: CommonTypes.stringOrNumber,
@@ -27074,7 +27084,7 @@ and annotationsTypesVerticalLineTypeLabelOptions<'b> = {
   padding?: float,
   shadow?: string, // ⚪ loose — was `boolean | ShadowOptionsObject`
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   useHTML?: bool,
   verticalAlign?: string, // ⚪ loose — was `VerticalAlignValue`
@@ -27248,7 +27258,7 @@ and annotationsLabelsOptions<'b> = {
   point?: string, // ⚠️ REVIEW — was `AnnotationMockPointOptions` — match the real type by hand
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -27273,7 +27283,7 @@ and annotationsLabelOptions<'b> = {
   padding?: float,
   shadow?: string, // ⚠️ REVIEW — was `boolean | ShadowOptionsObject` — match the real type by hand
   shape?: string,
-  style?: cssObject,
+  style?: cssObjectHighcharts,
   text?: string,
   useHTML?: bool,
   verticalAlign?: verticalAlignValue,
@@ -27292,7 +27302,7 @@ and annotation<'b> = {
   group: string, // ⚪ loose — was `SVGElement`
   labelsGroup: string, // ⚪ loose — was `SVGElement`
   options: string, // ⚪ loose — was `AnnotationsOptions`
-  points: string, // ⚪ loose — was `Point[]`
+  points: array<point<'b>>,
   shapesGroup: string, // ⚪ loose — was `SVGElement`
   userOptions: string, // ⚪ loose — was `AnnotationsOptions`
   update: (annotationsOptions<'b>, option<bool>) => unit,
@@ -27461,7 +27471,7 @@ and point<'b> = {
   haloPath: float => array<ChartsPointShapeArgsD.t>,
   onMouseOut: unit => unit,
   onMouseOver: option<pointerEventObject> => unit,
-  optionsToObject: string => Dict.t<string>, // ⚠️ REVIEW — was `any` — match the real type by hand
+  optionsToObject: pointOptionsType_t => Dict.t<string>, // ⚪ loose — was `any`
   pos: (bool, float) => array<float>,
   remove: (option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   select: (option<bool>, option<bool>) => unit,
@@ -27469,10 +27479,10 @@ and point<'b> = {
   setState: (option<ChartsTypes.chartsPointSetState>, option<bool>) => unit,
   setVisible: (option<bool>, option<bool>) => unit,
   tooltipFormatter: string => string,
-  update: (string, option<bool>, option<string>) => unit, // ⚠️ REVIEW — was `PointOptionsType` — match the real type by hand
+  update: (pointOptionsType_t, option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
 }
 and axis<'b> = {
-  categories: string, // ⚪ loose — was `string[]`
+  categories: array<string>,
   chart: chart<'b>,
   coll: string,
   crosshair: string, // ⚪ loose — was `boolean | AxisCrosshairOptions`
@@ -27481,14 +27491,14 @@ and axis<'b> = {
   len: float,
   max?: float,
   min?: float,
-  minorTicks: string, // ⚪ loose — was `Dictionary<Tick>`
+  minorTicks: Dict.t<JSON.t>,
   options: string, // ⚪ loose — was `AxisOptions`
   pos: float,
   reversed: bool,
-  series: string, // ⚪ loose — was `Series[]`
+  series: array<JSON.t>,
   side: float,
   tickPositions?: string, // ⚪ loose — was `AxisTickPositionsArray`
-  ticks: string, // ⚪ loose — was `Dictionary<Tick>`
+  ticks: Dict.t<JSON.t>,
   userOptions: string, // ⚪ loose — was `AxisOptions`
   addPlotBand: string => string, // ⚪ loose — was `PlotLineOrBand`
   addPlotLine: string => string, // ⚪ loose — was `PlotLineOrBand`
@@ -27496,12 +27506,12 @@ and axis<'b> = {
   defaultLabelFormatter: @this (string => string), // ⚪ loose — was `AxisLabelsFormatterContextObject`
   drawCrosshair: (option<string>, option<string>) => unit, // ⚪ loose — was `PointerEventObject`
   getExtremes: unit => string, // ⚪ loose — was `ExtremesObject`
-  getLinearTickPositions: (float, float, float) => string, // ⚪ loose — was `number[]`
-  getLinePath: float => string, // ⚪ loose — was `SVGPathArray`
+  getLinearTickPositions: (float, float, float) => array<float>,
+  getLinePath: float => array<JSON.t>,
   getMinorTickInterval: unit => string, // ⚪ loose — was `number | "auto"`
-  getMinorTickPositions: unit => string, // ⚪ loose — was `number[]`
-  getPlotBandPath: (float, float, string) => string, // ⚪ loose — was `SVGPathArray`
-  getPlotLinePath: string => string, // ⚪ loose — was `SVGPathArray`
+  getMinorTickPositions: unit => array<float>,
+  getPlotBandPath: (float, float, string) => array<JSON.t>, // ⚪ loose — was `AxisPlotBandsOptions | AxisPlotLinesOptions`
+  getPlotLinePath: string => array<JSON.t>, // ⚪ loose — was `AxisPlotLinePathOptionsObject`
   getThreshold: float => float,
   hasData: unit => bool,
   hideCrosshair: unit => unit,
@@ -27512,7 +27522,7 @@ and axis<'b> = {
   renderLine: unit => unit,
   renderMinorTick: (float, bool) => unit,
   renderTick: (float, float, bool) => unit,
-  setCategories: (string, option<bool>) => unit, // ⚪ loose — was `string[]`
+  setCategories: (array<string>, option<bool>) => unit,
   setExtremes: (
     option<string>,
     option<string>,
@@ -27526,13 +27536,13 @@ and axis<'b> = {
   update: (string, option<bool>) => unit, // ⚪ loose — was `AxisOptions`
 }
 and chart<'b> = {
-  axes: string, // ⚪ loose — was `Axis[]`
+  axes: array<JSON.t>,
   chartHeight: float,
   chartWidth: float,
   container: string, // ⚪ loose — was `HTMLElement`
   credits: string, // ⚪ loose — was `SVGElement`
   hoverPoint: string, // ⚪ loose — was `Point`
-  hoverPoints: string, // ⚪ loose — was `Point[]`
+  hoverPoints: array<JSON.t>,
   hoverSeries: string, // ⚪ loose — was `Series`
   index: int,
   inverted?: bool,
@@ -27545,15 +27555,15 @@ and chart<'b> = {
   plotWidth: float,
   pointer: string, // ⚪ loose — was `Pointer`
   renderer: string, // ⚪ loose — was `SVGRenderer`
-  series: string, // ⚪ loose — was `Series[]`
+  series: array<JSON.t>,
   styledMode: bool,
   subtitle: string, // ⚪ loose — was `SubtitleObject`
   time: string, // ⚪ loose — was `Time`
   title: string, // ⚪ loose — was `TitleObject`
   tooltip: string, // ⚪ loose — was `Tooltip`
   userOptions: string, // ⚪ loose — was `Options`
-  xAxis: string, // ⚪ loose — was `Axis[]`
-  yAxis: string, // ⚪ loose — was `Axis[]`
+  xAxis: array<JSON.t>,
+  yAxis: array<JSON.t>,
   addAxis: (string, option<bool>, option<bool>, option<string>) => string, // ⚪ loose — was `Axis`
   addColorAxis: (string, option<bool>, option<string>) => string, // ⚪ loose — was `Axis`
   addCredits: option<string> => unit, // ⚪ loose — was `CreditsOptions`
@@ -27561,8 +27571,8 @@ and chart<'b> = {
   destroy: unit => unit,
   get: string => string, // ⚪ loose — was `Series | Axis | Point`
   getOptions: unit => unit,
-  getSelectedPoints: unit => string, // ⚪ loose — was `Point[]`
-  getSelectedSeries: unit => string, // ⚪ loose — was `Series[]`
+  getSelectedPoints: unit => array<JSON.t>,
+  getSelectedSeries: unit => array<series<'b>>,
   hideLoading: unit => unit,
   init: (options<'b>, option<string>) => unit, // ⚪ loose — was `Function`
   isInsidePlot: (float, float, option<string>) => bool, // ⚪ loose — was `ChartIsInsideOptionsObject`
@@ -27604,7 +27614,7 @@ and series<'b> = {
   drawPoints: unit => unit,
   getName: unit => string,
   getPlotBox: unit => unit,
-  getValidPoints: (option<string>, option<bool>, option<bool>) => string, // ⚪ loose — was `Point[]`
+  getValidPoints: (option<array<JSON.t>>, option<bool>, option<bool>) => array<JSON.t>,
   hide: unit => unit,
   is: string => bool,
   markerAttribs: (string, option<string>) => string, // ⚪ loose — was `SVGAttributes`
@@ -27615,7 +27625,7 @@ and series<'b> = {
   render: unit => unit,
   searchPoint: (string, option<bool>) => string, // ⚪ loose — was `Point`
   select: option<bool> => unit,
-  setData: (string, option<bool>, option<string>, option<bool>) => unit, // ⚪ loose — was `PointOptionsType[]`
+  setData: (array<JSON.t>, option<bool>, option<string>, option<bool>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   setState: (option<string>, option<bool>) => unit, // ⚪ loose — was `"" | SeriesStateValue`
   setVisible: (option<bool>, option<bool>) => unit,
   show: unit => unit,
@@ -27659,7 +27669,7 @@ and options<'b> = {
   credits?: creditsOptions,
   data?: dataOptions<'b>,
   defs?: string, // ⚠️ REVIEW — was `DefsOptions | Dictionary<ASTNode>` — match the real type by hand
-  drilldown?: drilldownOptions,
+  drilldown?: drilldownOptions<'b>,
   exporting?: exportingOptions<'b>,
   global?: globalOptions,
   lang?: langOptions,
@@ -27668,14 +27678,14 @@ and options<'b> = {
   mapNavigation?: mapNavigationOptions,
   mapView?: mapViewOptions,
   navigation?: navigationOptions,
-  navigator?: navigatorOptions,
+  navigator?: navigatorOptions<'b>,
   noData?: noDataOptions,
   pane?: ChartsOptionsPane.t,
   plotOptions?: plotOptions<'b>,
   rangeSelector?: rangeSelectorOptions,
   responsive?: responsiveOptions<'b>,
   scrollbar?: scrollbarOptions,
-  series?: array<chartsOptionsSeries_t>,
+  series?: array<chartsOptionsSeries_t<'b>>,
   sonification?: sonificationOptions,
   stockTools?: stockToolsOptions,
   subtitle?: subtitleOptions,
@@ -27703,126 +27713,127 @@ module ChartsOptionsXAxis = {
   external fromXAxisOptionss: array<xAxisOptions<'b>> => t = "%identity"
 }
 module ChartsOptionsSeries = {
-  type t = chartsOptionsSeries_t
-  external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesAoOptions: seriesAoOptions => t = "%identity"
-  external fromSeriesApoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions => t = "%identity"
-  external fromSeriesAreaOptions: seriesAreaOptions => t = "%identity"
-  external fromSeriesArearangeOptions: seriesArearangeOptions => t = "%identity"
-  external fromSeriesAreasplineOptions: seriesAreasplineOptions => t = "%identity"
-  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
-  external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
-  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
-  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
-  external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
-  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
-  external fromSeriesBoxplotOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesBubbleOptions: seriesBubbleOptions => t = "%identity"
-  external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
-  external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
-  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
-  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
-  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
-  external fromSeriesContourOptions: seriesContourOptions => t = "%identity"
-  external fromSeriesCylinderOptions: seriesCylinderOptions => t = "%identity"
-  external fromSeriesDemaOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions => t = "%identity"
-  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t = "%identity"
-  external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
-  external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
-  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
-  external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
-  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions => t = "%identity"
-  external fromSeriesFunnelOptions: seriesFunnelOptions => t = "%identity"
-  external fromSeriesGanttOptions: seriesGanttOptions => t = "%identity"
-  external fromSeriesGaugeOptions: seriesGaugeOptions => t = "%identity"
-  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions => t = "%identity"
-  external fromSeriesHeatmapOptions: seriesHeatmapOptions => t = "%identity"
-  external fromSeriesHeikinashiOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesHistogramOptions: seriesHistogramOptions => t = "%identity"
-  external fromSeriesHlcOptions: seriesHlcOptions => t = "%identity"
-  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions => t = "%identity"
-  external fromSeriesIkhOptions: seriesIkhOptions => t = "%identity"
-  external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
-  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
-  external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
-  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
-  external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
-  external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
-  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions => t = "%identity"
-  external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
-  external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
-  external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
-  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
-  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
-  external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
-  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
-  external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
-  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
-  external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
-  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
-  external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
-  external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
-  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
-  external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
-  external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
-  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
-  external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
-  external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
-  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t = "%identity"
-  external fromSeriesSmaOptions: seriesSmaOptions => t = "%identity"
-  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
-  external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
-  external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
-  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions => t = "%identity"
-  external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
-  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
-  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
-  external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
-  external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
-  external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
-  external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
-  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
-  external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
-  external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
-  external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
-  external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
-  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
-  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
-  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
-  external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
-  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
-  external fromUnknownSeriesOptions: unknownSeriesOptions<'b> => t = "%identity"
+  type t<'b> = chartsOptionsSeries_t<'b>
+  external fromSeriesAbandsOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesAdOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesAoOptions: seriesAoOptions => t<'b> = "%identity"
+  external fromSeriesApoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreaOptions: seriesAreaOptions<'b> => t<'b> = "%identity"
+  external fromSeriesArearangeOptions: seriesArearangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplineOptions: seriesAreasplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAroonOptions: seriesAroonOptions => t<'b> = "%identity"
+  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t<'b> = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesBarOptions: seriesBarOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBbOptions: seriesBbOptions => t<'b> = "%identity"
+  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t<'b> = "%identity"
+  external fromSeriesBoxplotOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBubbleOptions: seriesBubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBulletOptions: seriesBulletOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCandlestickOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCciOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesCmfOptions: seriesCmfOptions => t<'b> = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesColumnOptions: seriesColumnOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesContourOptions: seriesContourOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCylinderOptions: seriesCylinderOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDemaOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t<'b> = "%identity"
+  external fromSeriesDmiOptions: seriesDmiOptions => t<'b> = "%identity"
+  external fromSeriesDpoOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesDumbbellOptions: seriesDumbbellOptions<'b> => t<'b> = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesErrorbarOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlagsOptions: seriesFlagsOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlowmapOptions: seriesFlowmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnelOptions: seriesFunnelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGanttOptions: seriesGanttOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGaugeOptions: seriesGaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeatmapOptions: seriesHeatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeikinashiOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHistogramOptions: seriesHistogramOptions => t<'b> = "%identity"
+  external fromSeriesHlcOptions: seriesHlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions<'b> => t<'b> =
+    "%identity"
+  external fromSeriesIkhOptions: seriesIkhOptions => t<'b> = "%identity"
+  external fromSeriesItemOptions: seriesItemOptions<'b> => t<'b> = "%identity"
+  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t<'b> = "%identity"
+  external fromSeriesKlingerOptions: seriesKlingerOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLineOptions: seriesLineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesLollipopOptions: seriesLollipopOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMacdOptions: seriesMacdOptions => t<'b> = "%identity"
+  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMaplineOptions: seriesMaplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMapOptions: seriesMapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMappointOptions: seriesMappointOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesNatrOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesOhlcOptions: seriesOhlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesOrganizationOptions: seriesOrganizationOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesParetoOptions: seriesParetoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesPictorialOptions: seriesPictorialOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPieOptions: seriesPieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPolygonOptions: seriesPolygonOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPpoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t<'b> = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPyramidOptions: seriesPyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRenkoOptions: seriesRenkoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesSankeyOptions: seriesSankeyOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatter3dOptions: seriesScatter3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatterOptions: seriesScatterOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t<'b> = "%identity"
+  external fromSeriesSmaOptions: seriesSmaOptions => t<'b> = "%identity"
+  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSplineOptions: seriesSplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesStochasticOptions: seriesStochasticOptions => t<'b> = "%identity"
+  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t<'b> = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreemapOptions: seriesTreemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesTrixOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesVariablepieOptions: seriesVariablepieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVariwideOptions: seriesVariwideOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVbpOptions: seriesVbpOptions => t<'b> = "%identity"
+  external fromSeriesVectorOptions: seriesVectorOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVennOptions: seriesVennOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesWaterfallOptions: seriesWaterfallOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesWindbarbOptions: seriesWindbarbOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesWordcloudOptions: seriesWordcloudOptions<'b> => t<'b> = "%identity"
+  external fromSeriesXrangeOptions: seriesXrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromUnknownSeriesOptions: unknownSeriesOptions<'b> => t<'b> = "%identity"
 }
 module ChartsPlotZigzagOptionsDataLabels = {
   type t = chartsPlotZigzagOptionsDataLabels_t
@@ -28763,128 +28774,129 @@ module ChartsNavigatorSeriesOptionsDataLabels = {
     "%identity"
 }
 module ChartsNavigatorOptionsSeries = {
-  type t = chartsNavigatorOptionsSeries_t
-  external fromSeriesAbandsOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesAdOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesAoOptions: seriesAoOptions => t = "%identity"
-  external fromSeriesApoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions => t = "%identity"
-  external fromSeriesAreaOptions: seriesAreaOptions => t = "%identity"
-  external fromSeriesArearangeOptions: seriesArearangeOptions => t = "%identity"
-  external fromSeriesAreasplineOptions: seriesAreasplineOptions => t = "%identity"
-  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions => t = "%identity"
-  external fromSeriesAroonOptions: seriesAroonOptions => t = "%identity"
-  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t = "%identity"
-  external fromSeriesAtrOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesBarOptions: seriesBarOptions => t = "%identity"
-  external fromSeriesBbOptions: seriesBbOptions => t = "%identity"
-  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t = "%identity"
-  external fromSeriesBoxplotOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesBubbleOptions: seriesBubbleOptions => t = "%identity"
-  external fromSeriesBulletOptions: seriesBulletOptions => t = "%identity"
-  external fromSeriesCandlestickOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesCciOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesChaikinOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesCmfOptions: seriesCmfOptions => t = "%identity"
-  external fromSeriesCmoOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesColumnOptions: seriesColumnOptions => t = "%identity"
-  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions => t = "%identity"
-  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions => t = "%identity"
-  external fromSeriesContourOptions: seriesContourOptions => t = "%identity"
-  external fromSeriesCylinderOptions: seriesCylinderOptions => t = "%identity"
-  external fromSeriesDemaOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions => t = "%identity"
-  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t = "%identity"
-  external fromSeriesDmiOptions: seriesDmiOptions => t = "%identity"
-  external fromSeriesDpoOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesDumbbellOptions: seriesDumbbellOptions => t = "%identity"
-  external fromSeriesEmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesErrorbarOptions: seriesBoxplotOptions => t = "%identity"
-  external fromSeriesFlagsOptions: seriesFlagsOptions => t = "%identity"
-  external fromSeriesFlowmapOptions: seriesFlowmapOptions => t = "%identity"
-  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions => t = "%identity"
-  external fromSeriesFunnelOptions: seriesFunnelOptions => t = "%identity"
-  external fromSeriesGanttOptions: seriesGanttOptions => t = "%identity"
-  external fromSeriesGaugeOptions: seriesGaugeOptions => t = "%identity"
-  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions => t = "%identity"
-  external fromSeriesHeatmapOptions: seriesHeatmapOptions => t = "%identity"
-  external fromSeriesHeikinashiOptions: seriesCandlestickOptions => t = "%identity"
-  external fromSeriesHistogramOptions: seriesHistogramOptions => t = "%identity"
-  external fromSeriesHlcOptions: seriesHlcOptions => t = "%identity"
-  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions => t = "%identity"
-  external fromSeriesIkhOptions: seriesIkhOptions => t = "%identity"
-  external fromSeriesItemOptions: seriesItemOptions => t = "%identity"
-  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t = "%identity"
-  external fromSeriesKlingerOptions: seriesKlingerOptions => t = "%identity"
-  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLinearregressionOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesLineOptions: seriesLineOptions => t = "%identity"
-  external fromSeriesLollipopOptions: seriesLollipopOptions => t = "%identity"
-  external fromSeriesMacdOptions: seriesMacdOptions => t = "%identity"
-  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions => t = "%identity"
-  external fromSeriesMaplineOptions: seriesMaplineOptions => t = "%identity"
-  external fromSeriesMapOptions: seriesMapOptions => t = "%identity"
-  external fromSeriesMappointOptions: seriesMappointOptions => t = "%identity"
-  external fromSeriesMfiOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesMomentumOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesNatrOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions => t = "%identity"
-  external fromSeriesObvOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesOhlcOptions: seriesOhlcOptions => t = "%identity"
-  external fromSeriesOrganizationOptions: seriesOrganizationOptions => t = "%identity"
-  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions => t = "%identity"
-  external fromSeriesParetoOptions: seriesParetoOptions => t = "%identity"
-  external fromSeriesPcOptions: seriesAbandsOptions => t = "%identity"
-  external fromSeriesPictorialOptions: seriesPictorialOptions => t = "%identity"
-  external fromSeriesPieOptions: seriesPieOptions => t = "%identity"
-  external fromSeriesPivotpointsOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions => t = "%identity"
-  external fromSeriesPolygonOptions: seriesPolygonOptions => t = "%identity"
-  external fromSeriesPpoOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t = "%identity"
-  external fromSeriesPsarOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions => t = "%identity"
-  external fromSeriesPyramidOptions: seriesPyramidOptions => t = "%identity"
-  external fromSeriesRenkoOptions: seriesRenkoOptions => t = "%identity"
-  external fromSeriesRocOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesRsiOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesSankeyOptions: seriesSankeyOptions => t = "%identity"
-  external fromSeriesScatter3dOptions: seriesScatter3dOptions => t = "%identity"
-  external fromSeriesScatterOptions: seriesScatterOptions => t = "%identity"
-  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t = "%identity"
-  external fromSeriesSmaOptions: seriesSmaOptions => t = "%identity"
-  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions => t = "%identity"
-  external fromSeriesSplineOptions: seriesSplineOptions => t = "%identity"
-  external fromSeriesStochasticOptions: seriesStochasticOptions => t = "%identity"
-  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions => t = "%identity"
-  external fromSeriesSunburstOptions: seriesSunburstOptions => t = "%identity"
-  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t = "%identity"
-  external fromSeriesTemaOptions: seriesDpoOptions => t = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t = "%identity"
-  external fromSeriesTilemapOptions: seriesTilemapOptions => t = "%identity"
-  external fromSeriesTimelineOptions: seriesTimelineOptions => t = "%identity"
-  external fromSeriesTreegraphOptions: seriesTreegraphOptions => t = "%identity"
-  external fromSeriesTreemapOptions: seriesTreemapOptions => t = "%identity"
-  external fromSeriesTrendlineOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesTrixOptions: seriesDemaOptions => t = "%identity"
-  external fromSeriesVariablepieOptions: seriesVariablepieOptions => t = "%identity"
-  external fromSeriesVariwideOptions: seriesVariwideOptions => t = "%identity"
-  external fromSeriesVbpOptions: seriesVbpOptions => t = "%identity"
-  external fromSeriesVectorOptions: seriesVectorOptions => t = "%identity"
-  external fromSeriesVennOptions: seriesVennOptions => t = "%identity"
-  external fromSeriesVwapOptions: seriesCciOptions => t = "%identity"
-  external fromSeriesWaterfallOptions: seriesWaterfallOptions => t = "%identity"
-  external fromSeriesWilliamsrOptions: seriesApoOptions => t = "%identity"
-  external fromSeriesWindbarbOptions: seriesWindbarbOptions => t = "%identity"
-  external fromSeriesWmaOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesWordcloudOptions: seriesWordcloudOptions => t = "%identity"
-  external fromSeriesXrangeOptions: seriesXrangeOptions => t = "%identity"
-  external fromSeriesZigzagOptions: seriesAdOptions => t = "%identity"
-  external fromSeriesOptionsTypes: array<SeriesOptionsType.t> => t = "%identity"
-  external fromNavigatorSeriesOptions: navigatorSeriesOptions => t = "%identity"
-  external fromNavigatorSeriesOptionss: array<navigatorSeriesOptions> => t = "%identity"
+  type t<'b> = chartsNavigatorOptionsSeries_t<'b>
+  external fromSeriesAbandsOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesAdOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesAoOptions: seriesAoOptions => t<'b> = "%identity"
+  external fromSeriesApoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesArcdiagramOptions: seriesArcdiagramOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreaOptions: seriesAreaOptions<'b> => t<'b> = "%identity"
+  external fromSeriesArearangeOptions: seriesArearangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplineOptions: seriesAreasplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAreasplinerangeOptions: seriesAreasplinerangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesAroonOptions: seriesAroonOptions => t<'b> = "%identity"
+  external fromSeriesAroonoscillatorOptions: seriesAroonoscillatorOptions => t<'b> = "%identity"
+  external fromSeriesAtrOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesBarOptions: seriesBarOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBbOptions: seriesBbOptions => t<'b> = "%identity"
+  external fromSeriesBellcurveOptions: seriesBellcurveOptions => t<'b> = "%identity"
+  external fromSeriesBoxplotOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBubbleOptions: seriesBubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesBulletOptions: seriesBulletOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCandlestickOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCciOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesChaikinOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesCmfOptions: seriesCmfOptions => t<'b> = "%identity"
+  external fromSeriesCmoOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesColumnOptions: seriesColumnOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnpyramidOptions: seriesColumnpyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesColumnrangeOptions: seriesColumnrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesContourOptions: seriesContourOptions<'b> => t<'b> = "%identity"
+  external fromSeriesCylinderOptions: seriesCylinderOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDemaOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesDependencywheelOptions: seriesDependencywheelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesDisparityindexOptions: seriesDisparityindexOptions => t<'b> = "%identity"
+  external fromSeriesDmiOptions: seriesDmiOptions => t<'b> = "%identity"
+  external fromSeriesDpoOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesDumbbellOptions: seriesDumbbellOptions<'b> => t<'b> = "%identity"
+  external fromSeriesEmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesErrorbarOptions: seriesBoxplotOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlagsOptions: seriesFlagsOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFlowmapOptions: seriesFlowmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnel3dOptions: seriesFunnel3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesFunnelOptions: seriesFunnelOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGanttOptions: seriesGanttOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGaugeOptions: seriesGaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesGeoheatmapOptions: seriesGeoheatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeatmapOptions: seriesHeatmapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHeikinashiOptions: seriesCandlestickOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHistogramOptions: seriesHistogramOptions => t<'b> = "%identity"
+  external fromSeriesHlcOptions: seriesHlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesHollowcandlestickOptions: seriesHollowcandlestickOptions<'b> => t<'b> =
+    "%identity"
+  external fromSeriesIkhOptions: seriesIkhOptions => t<'b> = "%identity"
+  external fromSeriesItemOptions: seriesItemOptions<'b> => t<'b> = "%identity"
+  external fromSeriesKeltnerchannelsOptions: seriesKeltnerchannelsOptions => t<'b> = "%identity"
+  external fromSeriesKlingerOptions: seriesKlingerOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionangleOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressioninterceptOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesLinearregressionslopeOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesLineOptions: seriesLineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesLollipopOptions: seriesLollipopOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMacdOptions: seriesMacdOptions => t<'b> = "%identity"
+  external fromSeriesMapbubbleOptions: seriesMapbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMaplineOptions: seriesMaplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMapOptions: seriesMapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMappointOptions: seriesMappointOptions<'b> => t<'b> = "%identity"
+  external fromSeriesMfiOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesMomentumOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesNatrOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesNetworkgraphOptions: seriesNetworkgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesObvOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesOhlcOptions: seriesOhlcOptions<'b> => t<'b> = "%identity"
+  external fromSeriesOrganizationOptions: seriesOrganizationOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPackedbubbleOptions: seriesPackedbubbleOptions<'b> => t<'b> = "%identity"
+  external fromSeriesParetoOptions: seriesParetoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPcOptions: seriesAbandsOptions => t<'b> = "%identity"
+  external fromSeriesPictorialOptions: seriesPictorialOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPieOptions: seriesPieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPivotpointsOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesPointandfigureOptions: seriesPointandfigureOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPolygonOptions: seriesPolygonOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPpoOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesPriceenvelopesOptions: seriesPriceenvelopesOptions => t<'b> = "%identity"
+  external fromSeriesPsarOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesPyramid3dOptions: seriesPyramid3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesPyramidOptions: seriesPyramidOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRenkoOptions: seriesRenkoOptions<'b> => t<'b> = "%identity"
+  external fromSeriesRocOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesRsiOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesSankeyOptions: seriesSankeyOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatter3dOptions: seriesScatter3dOptions<'b> => t<'b> = "%identity"
+  external fromSeriesScatterOptions: seriesScatterOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSlowstochasticOptions: seriesSlowstochasticOptions => t<'b> = "%identity"
+  external fromSeriesSmaOptions: seriesSmaOptions => t<'b> = "%identity"
+  external fromSeriesSolidgaugeOptions: seriesSolidgaugeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSplineOptions: seriesSplineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesStochasticOptions: seriesStochasticOptions => t<'b> = "%identity"
+  external fromSeriesStreamgraphOptions: seriesStreamgraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
+  external fromSeriesSupertrendOptions: seriesSupertrendOptions => t<'b> = "%identity"
+  external fromSeriesTemaOptions: seriesDpoOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTreemapOptions: seriesTreemapOptions<'b> => t<'b> = "%identity"
+  external fromSeriesTrendlineOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesTrixOptions: seriesDemaOptions => t<'b> = "%identity"
+  external fromSeriesVariablepieOptions: seriesVariablepieOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVariwideOptions: seriesVariwideOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVbpOptions: seriesVbpOptions => t<'b> = "%identity"
+  external fromSeriesVectorOptions: seriesVectorOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVennOptions: seriesVennOptions<'b> => t<'b> = "%identity"
+  external fromSeriesVwapOptions: seriesCciOptions => t<'b> = "%identity"
+  external fromSeriesWaterfallOptions: seriesWaterfallOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWilliamsrOptions: seriesApoOptions => t<'b> = "%identity"
+  external fromSeriesWindbarbOptions: seriesWindbarbOptions<'b> => t<'b> = "%identity"
+  external fromSeriesWmaOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesWordcloudOptions: seriesWordcloudOptions<'b> => t<'b> = "%identity"
+  external fromSeriesXrangeOptions: seriesXrangeOptions<'b> => t<'b> = "%identity"
+  external fromSeriesZigzagOptions: seriesAdOptions => t<'b> = "%identity"
+  external fromSeriesOptionsTypes: array<SeriesOptionsType.t<'b>> => t<'b> = "%identity"
+  external fromNavigatorSeriesOptions: navigatorSeriesOptions => t<'b> = "%identity"
+  external fromNavigatorSeriesOptionss: array<navigatorSeriesOptions> => t<'b> = "%identity"
 }
 module ChartsNavigationOptionsAnnotationsOptions = {
   type t = chartsNavigationOptionsAnnotationsOptions_t
@@ -28911,6 +28923,13 @@ module ChartsChartOptionsParallelAxes = {
   type t = chartsChartOptionsParallelAxes_t
   external fromChartParallelAxesOptions: chartParallelAxesOptions<'b> => t = "%identity"
   external fromChartParallelAxesOptionss: array<chartParallelAxesOptions<'b>> => t = "%identity"
+}
+module PointOptionsType = {
+  type t = pointOptionsType_t
+  external fromString: string => t = "%identity"
+  external fromNumber: float => t = "%identity"
+  external fromArray: array<JSON.t> => t = "%identity"
+  external fromPointOptionsObject: pointOptionsObject<'b> => t = "%identity"
 }
 type mapViewInsetsOptions = {
   borderColor?: ColorType.t,

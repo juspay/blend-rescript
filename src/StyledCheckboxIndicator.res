@@ -1,7 +1,8 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
+  ~forceMount: bool=?,
   ~hidden: bool=?,
-  ~size: SelectorV2Types.selectorV2Size,
+  ~style: JsxDOM.style=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
@@ -54,11 +55,9 @@ external make: (
   ~onMouseUp: ReactEvent.Mouse.t => unit=?,
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
-  ~theme: JSON.t=?,
-  ~forceMount: bool=?,
   ~asChild: bool=?,
-  @as("as") ~as_: string=?, // ⚪ loose — was `void`
-  ~forwardedAs: string=?, // ⚪ loose — was `void`
-  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  ~size: SelectorV2Types.selectorV2Size,
+  @as("as") ~as_: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
+  ~forwardedAs: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "StyledCheckboxIndicator"

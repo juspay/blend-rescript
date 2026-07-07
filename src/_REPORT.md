@@ -4,7 +4,7 @@
 
 **233** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**2901** shared types deduplicated into **73** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**2897** shared types deduplicated into **73** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -423,13 +423,13 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - StatusDrawer
 - Stepper
 - StepperV2
-- StyledCheckboxIndicator  _(2 loose)_
-- StyledCheckboxRoot  _(2 loose)_
-- StyledRadioV2Root  _(2 loose)_
-- StyledTabsContent  _(2 loose)_
-- StyledTabsList  _(2 loose)_
-- StyledTabsRoot  _(2 loose)_
-- StyledTabsTrigger  _(2 loose)_
+- StyledCheckboxIndicator
+- StyledCheckboxRoot
+- StyledRadioV2Root
+- StyledTabsContent
+- StyledTabsList
+- StyledTabsRoot
+- StyledTabsTrigger
 - StyledToast
 - SubMenu
 - Switch
@@ -441,7 +441,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TabsTrigger
 - TabsV2
 - TabsV2Content
-- TabsV2IconContainer  _(2 loose)_
+- TabsV2IconContainer
 - TabsV2List
 - TabsV2Provider
 - TabsV2Trigger
@@ -472,9 +472,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 
 These resolved to a real but complex type and were widened to `string` (they compile and work). Grouped by type so you can review each pattern once — confirm `string` is acceptable, or it may deserve a tighter mapping.
 
-| Resolved TypeScript type | → emitted | count | example props |
-|--------------------------|-----------|-------|---------------|
-| `void` | `string` | 16 | as, forwardedAs … |
+_(none)_
 
 ## 🔍 Needs review
 

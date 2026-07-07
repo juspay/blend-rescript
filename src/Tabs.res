@@ -1,14 +1,14 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
   ~hidden: bool=?,
+  ~style: JsxDOM.style=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: string=?,
   ~autoFocus: bool=?,
   ~className: string=?,
-  ~dir: DistTypes.direction2=?,
+  ~dir: DistTypes.direction=?,
   ~id: string=?,
-  ~style: JsxDOM.style=?,
   ~tabIndex: int=?,
   ~title: string=?,
   ~role: string=?,

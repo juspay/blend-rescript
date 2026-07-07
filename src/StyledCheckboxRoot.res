@@ -1,12 +1,13 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~hidden: bool=?,
-  ~required: bool=?,
-  ~disabled: bool=?,
   ~checked: CommonTypes.boolOrIndeterminate=?,
-  ~size: SelectorV2Types.selectorV2Size,
-  ~children: React.element=?,
   ~defaultChecked: CommonTypes.boolOrIndeterminate=?,
+  ~required: bool=?,
+  ~onCheckedChange: CommonTypes.boolOrIndeterminate => unit=?,
+  ~hidden: bool=?,
+  ~disabled: bool=?,
+  ~style: JsxDOM.style=?,
+  ~children: React.element=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
   ~className: string=?,
@@ -66,14 +67,12 @@ external make: (
   ~name: string=?,
   @as("type") ~type_: TabsTypes.tabsType=?,
   ~value: CommonTypes.stringOrNumberOrStringArray=?,
-  ~theme: JSON.t=?,
   ~asChild: bool=?,
-  @as("as") ~as_: string=?, // ⚪ loose — was `void`
+  ~size: SelectorV2Types.selectorV2Size,
   @as("$isDisabled") ~_isDisabled: bool,
   @as("$checked") ~_checked: CommonTypes.boolOrIndeterminate,
   @as("$error") ~_error: bool=?,
-  ~forwardedAs: string=?, // ⚪ loose — was `void`
-  ~onCheckedChange: CommonTypes.boolOrIndeterminate => unit=?,
-  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  @as("as") ~as_: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
+  ~forwardedAs: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "StyledCheckboxRoot"
