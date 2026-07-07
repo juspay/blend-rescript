@@ -21,13 +21,13 @@ external normalizeBreadcrumbItems: array<BreadcrumbTypes.breadcrumbItemType> => 
   BreadcrumbTypes.breadcrumbItemType,
 > = "normalizeBreadcrumbItems"
 @module("@juspay/blend-design-system")
-external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.responsiveButtonTokens =
+external getButtonTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveButtonTokens =
   "getButtonTokens"
 @module("@juspay/blend-design-system")
 external getCardTokens: TokensTypes.foundationTokenType => CardTypes.responsiveCardTokens =
   "getCardTokens"
 @module("@juspay/blend-design-system")
-external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsiveChartTokens =
+external getChartTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
 external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
@@ -144,7 +144,8 @@ external getSliderLabelStyles: (
   unit,
 ) => SliderTypes.sliderCSSProperties = "getSliderLabelStyles"
 @module("@juspay/blend-design-system")
-external addSnackbar: SnackbarTypes.addToastOptions => CommonTypes.stringOrNumber = "addSnackbar"
+external addSnackbar: SnackbarTypes.addToastOptions => HighchartsSharedTypes.stringOrNumber =
+  "addSnackbar"
 @module("@juspay/blend-design-system")
 external getSnackbarTokens: TokensTypes.foundationTokenType => SnackbarTypes.responsiveSnackbarTokens =
   "getSnackbarTokens"
@@ -179,7 +180,7 @@ external getButtonV2BorderRadius: (
   ButtonV2Types.buttonV2Size,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getButtonV2BorderRadius"
 @module("@juspay/blend-design-system")
@@ -195,8 +196,8 @@ external getButtonHeight: ButtonV2Types.buttonV2SubType => string = "getButtonHe
 @module("@juspay/blend-design-system")
 external getIconMaxHeight: (
   ButtonV2Types.buttonV2SubType,
-  CommonTypes.stringOrNumber,
-  CommonTypes.stringOrNumber,
+  HighchartsSharedTypes.stringOrNumber,
+  HighchartsSharedTypes.stringOrNumber,
   ButtonV2Types.buttonV2Size,
 ) => string = "getIconMaxHeight"
 @module("@juspay/blend-design-system")
@@ -208,15 +209,15 @@ external getSkeletonBorderRadius: (
   ButtonV2Types.buttonV2Size,
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getSkeletonBorderRadius"
 @module("@juspay/blend-design-system")
-external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => string =
+external getSkeletonWidth: (~width: HighchartsSharedTypes.stringOrNumber=?, unit) => string =
   "getSkeletonWidth"
 @module("@juspay/blend-design-system")
 external getButtonBorderStyles: (
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   string,
 ) => ButtonV2Types.buttonV2GetButtonBorderStylesConfig = "getButtonBorderStyles"
 @module("@juspay/blend-design-system")
@@ -226,7 +227,7 @@ external getButtonStyles: (
   ButtonV2Types.buttonV2Type,
   ButtonV2Types.buttonV2SubType,
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
-  ~buttonGroupPosition: ButtonTypes.buttonButtonGroupPosition=?,
+  ~buttonGroupPosition: HighchartsSharedTypes.buttonButtonGroupPosition=?,
   unit,
 ) => ButtonV2Types.buttonStylesReturn = "getButtonStyles"
 @module("@juspay/blend-design-system")
@@ -274,11 +275,12 @@ external getTagV2Tokens: (
 external getTagBorderRadius: (
   TagV2Types.tagV2Size,
   TagV2Types.tagV2SubType,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   TagV2Types.tagV2ResponsiveTagV2TokensSmConfig,
 ) => string = "getTagBorderRadius"
 @module("@juspay/blend-design-system")
-external getAccessibleName: (string, bool, CommonTypes.boolOrMixed) => string = "getAccessibleName"
+external getAccessibleName: (string, bool, HighchartsSharedTypes.boolOrMixed) => string =
+  "getAccessibleName"
 @module("@juspay/blend-design-system")
 external createKeyboardHandler: (
   bool,
@@ -292,11 +294,12 @@ external getCheckboxV2Tokens: (
   unit,
 ) => SelectorV2Types.responsiveCheckboxV2Tokens = "getCheckboxV2Tokens"
 @module("@juspay/blend-design-system")
-external getCheckboxDataState: CommonTypes.boolOrIndeterminate => string = "getCheckboxDataState"
+external getCheckboxDataState: HighchartsSharedTypes.boolOrIndeterminate => string =
+  "getCheckboxDataState"
 @module("@juspay/blend-design-system")
 external getCheckboxIconColor: (
   SelectorV2Types.checkboxV2TokensType,
-  CommonTypes.boolOrIndeterminate,
+  HighchartsSharedTypes.boolOrIndeterminate,
   bool,
 ) => string = "getCheckboxIconColor"
 @module("@juspay/blend-design-system")
@@ -338,13 +341,13 @@ external mergeCheckboxV2AriaDescribedBy: (
 @module("@juspay/blend-design-system")
 external handleCheckboxKeyDown: (
   ReactEvent.Keyboard.t,
-  CommonTypes.boolOrIndeterminate,
+  HighchartsSharedTypes.boolOrIndeterminate,
   bool,
-  ~onCheckedChange: CommonTypes.boolOrIndeterminate => unit=?,
+  ~onCheckedChange: HighchartsSharedTypes.boolOrIndeterminate => unit=?,
   unit,
 ) => unit = "handleCheckboxKeyDown"
 @module("@juspay/blend-design-system")
-external getCheckboxState: CommonTypes.boolOrIndeterminate => SelectorV2Types.checkboxV2CheckedState =
+external getCheckboxState: HighchartsSharedTypes.boolOrIndeterminate => SelectorV2Types.checkboxV2CheckedState =
   "getCheckboxState"
 @module("@juspay/blend-design-system")
 external getRadioV2Tokens: (
@@ -449,7 +452,7 @@ external getProgressBarValueState: (
 @module("@juspay/blend-design-system")
 external calculatePercentage: (float, float, float) => float = "calculatePercentage"
 @module("@juspay/blend-design-system")
-external parseTokenValue: (CommonTypes.stringOrNumber, float) => float = "parseTokenValue"
+external parseTokenValue: (HighchartsSharedTypes.stringOrNumber, float) => float = "parseTokenValue"
 @module("@juspay/blend-design-system")
 external extractProgressBarV2AriaProps: Dict.t<
   JSON.t,
@@ -614,9 +617,9 @@ external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPositi
 @module("@juspay/blend-design-system")
 external getButtonGroupGap: (
   bool,
-  ~providedGap: CommonTypes.stringOrNumber=?,
+  ~providedGap: HighchartsSharedTypes.stringOrNumber=?,
   unit,
-) => CommonTypes.stringOrNumber = "getButtonGroupGap"
+) => HighchartsSharedTypes.stringOrNumber = "getButtonGroupGap"
 @module("@juspay/blend-design-system")
 external getPopoverV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -640,7 +643,7 @@ external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateCha
 external getTopbarV2Styles: (
   bool,
   bool,
-  ~topbarHeight: CommonTypes.stringOrNumber=?,
+  ~topbarHeight: HighchartsSharedTypes.stringOrNumber=?,
   unit,
 ) => JSON.t = "getTopbarV2Styles"
 @module("@juspay/blend-design-system")
@@ -703,7 +706,7 @@ external getSearchInputV2Tokens: (
   unit,
 ) => EditorSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
 @module("@juspay/blend-design-system")
-external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber =
+external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => HighchartsSharedTypes.stringOrNumber =
   "addSnackbarV2"
 @module("@juspay/blend-design-system")
 external getSnackbarV2Tokens: (
@@ -788,7 +791,7 @@ external getInitialEditorOptions: (
 @module("@juspay/blend-design-system")
 external copyToClipboardWithTemporaryFeedback: (
   string,
-  CommonTypes.reactCopyToClipboardWithTemporaryFeedbackSetIsCopied => unit,
+  HighchartsSharedTypes.reactCopyToClipboardWithTemporaryFeedbackSetIsCopied => unit,
   EditorSharedTypes.copyFeedbackTimeoutRef,
   ~resetMs: float=?,
   unit,
@@ -801,14 +804,14 @@ external isDiffEditorMode: (bool, EditorSharedTypes.codeEditorV2Variant) => bool
   "isDiffEditorMode"
 @module("@juspay/blend-design-system")
 external getCodeEditorV2ContainerStyles: (
-  ~minHeight: CommonTypes.stringOrNumber=?,
-  ~maxHeight: CommonTypes.stringOrNumber=?,
+  ~minHeight: HighchartsSharedTypes.stringOrNumber=?,
+  ~maxHeight: HighchartsSharedTypes.stringOrNumber=?,
   unit,
 ) => JsxDOM.style = "getCodeEditorV2ContainerStyles"
 @module("@juspay/blend-design-system")
-external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "toCssValue"
+external toCssValue: (~value: HighchartsSharedTypes.stringOrNumber=?, unit) => string = "toCssValue"
 @module("@juspay/blend-design-system")
-external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
+external toNumericValue: (HighchartsSharedTypes.stringOrNumber, ~fallback: float=?, unit) => float =
   "toNumericValue"
 @module("@juspay/blend-design-system")
 external backupColor: EditorSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
@@ -822,14 +825,14 @@ external getKeyValuePairV2Tokens: (
 external getKeyValuePairV2ContainerStyles: (
   KeyValuePairV2Types.keyValuePairV2TextOverflowMode,
   string,
-) => DistTypes.cssObject3 = "getKeyValuePairV2ContainerStyles"
+) => DistTypes.cssObjectDist = "getKeyValuePairV2ContainerStyles"
 @module("@juspay/blend-design-system")
 external getLayoutStyles: (
   KeyValuePairV2Types.keyValuePairV2StateType,
   KeyValuePairV2Types.keyValuePairV2TokensType,
-) => DistTypes.cssObject3 = "getLayoutStyles"
+) => DistTypes.cssObjectDist = "getLayoutStyles"
 @module("@juspay/blend-design-system")
-external getSlotStyles: KeyValuePairV2Types.keyValuePairV2TokensType => DistTypes.cssObject3 =
+external getSlotStyles: KeyValuePairV2Types.keyValuePairV2TokensType => DistTypes.cssObjectDist =
   "getSlotStyles"
 @module("@juspay/blend-design-system")
 external getMenuV2Tokens: (
@@ -879,7 +882,7 @@ external getMultiSelectV2Tokens: (
 external getMultiSelectBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   EditorSharedTypes.multiSelectV2TokensType,
   bool,
 ) => string = "getMultiSelectBorderRadius"
@@ -887,7 +890,7 @@ external getMultiSelectBorderRadius: (
 external getMultiSelectCrossBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   EditorSharedTypes.multiSelectV2TokensType,
 ) => EditorSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
   "getMultiSelectCrossBorderRadius"
@@ -958,7 +961,7 @@ external getSingleSelectV2Tokens: (
 external getSingleSelectV2BorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
-  ButtonTypes.buttonButtonGroupPosition,
+  HighchartsSharedTypes.buttonButtonGroupPosition,
   EditorSharedTypes.singleSelectV2TokensType,
 ) => EditorSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
   "getSingleSelectV2BorderRadius"

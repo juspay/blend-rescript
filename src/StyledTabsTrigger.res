@@ -1,10 +1,12 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
+  ~value: string,
   ~hidden: bool=?,
   ~disabled: bool=?,
+  ~style: JsxDOM.style=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
-  ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
+  ~defaultValue: HighchartsSharedTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
   ~className: string=?,
   ~id: string=?,
@@ -55,22 +57,19 @@ external make: (
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
   ~form: string=?,
-  ~formAction: CommonTypes.tabsV2FormAction<'a>=?,
+  ~formAction: HighchartsSharedTypes.tabsV2FormAction<'a>=?,
   ~formEncType: string=?,
   ~formMethod: string=?,
   ~formNoValidate: bool=?,
   ~formTarget: string=?,
   ~name: string=?,
   @as("type") ~type_: TabsTypes.tabsType=?,
-  ~value: string,
-  ~theme: JSON.t=?,
   ~asChild: bool=?,
-  @as("as") ~as_: string=?, // ⚪ loose — was `void`
-  ~forwardedAs: string=?, // ⚪ loose — was `void`
-  @as("$tabsToken") ~_tabsToken: TabsV2Types.tabsV2TokensType,
   @as("$variant") ~_variant: TabsV2Types.tabsV2Variant,
   @as("$size") ~_size: TabsV2Types.tabsV2Size,
+  @as("$tabsToken") ~_tabsToken: TabsV2Types.tabsV2TokensType,
   @as("$isOverlay") ~_isOverlay: bool=?,
-  ~style: DistTypes.SelectorV2Style.t=?, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
+  @as("as") ~as_: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
+  ~forwardedAs: SelectorV2Types.WebTarget.t=?, // ⓘ was `WebTarget` — opaque; build with WebTarget.fromTag / WebTarget.fromSelectorV2AsConfig / WebTarget.fromExoticComponentWithDisplayName / WebTarget.fromComponentClass / WebTarget.fromFunctionComponent
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
 ) => React.element = "StyledTabsTrigger"

@@ -47,23 +47,23 @@ type responsiveModalTokens = {
   lg: modalTokensType,
 }
 type modalButtonAction = {
-  width?: CommonTypes.stringOrNumber,
+  width?: HighchartsSharedTypes.stringOrNumber,
   text?: string,
   disabled?: bool,
   justifyContent?: string,
-  size?: ButtonTypes.buttonSize,
+  size?: HighchartsSharedTypes.buttonSize,
   onClick?: option<ReactEvent.Mouse.t> => unit,
-  buttonType?: ButtonTypes.buttonType,
-  subType?: ButtonTypes.buttonSubType,
+  buttonType?: HighchartsSharedTypes.buttonType,
+  subType?: HighchartsSharedTypes.buttonSubType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,
   loading?: bool,
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   fullWidth?: bool,
-  state?: ButtonTypes.buttonState,
+  state?: HighchartsSharedTypes.buttonState,
 }
-type bodySkeletonProps = {
+type bodySkeletonPropsModal = {
   show?: bool,
   width?: string,
   height?: string,
@@ -71,5 +71,5 @@ type bodySkeletonProps = {
 type modalSkeletonProps = {
   show?: bool,
   variant?: SkeletonTypes.skeletonVariant,
-  bodySkeletonProps?: bodySkeletonProps,
+  bodySkeletonProps?: bodySkeletonPropsModal,
 }

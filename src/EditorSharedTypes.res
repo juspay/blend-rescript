@@ -216,6 +216,11 @@ type cursorChangeReason =
   | @as(4) Paste
   | @as(5) Undo
   | @as(6) Redo
+type codeEditorV2IMouseTargetOutsideEditorOutsidePosition =
+  | @as("left") Left
+  | @as("right") Right
+  | @as("above") Above
+  | @as("below") Below
 type keyCode =
   | @as(-1) DependsOnKbLayout
   | @as(0) Unknown
@@ -365,14 +370,6 @@ type endOfLinePreference =
 type endOfLineSequence =
   | @as(0) LF
   | @as(1) CRLF
-type trackedRangeStickiness =
-  | @as(0) AlwaysGrowsWhenTypingAtEdges
-  | @as(1) NeverGrowsWhenTypingAtEdges
-  | @as(2) GrowsOnlyWhenTypingBefore
-  | @as(3) GrowsOnlyWhenTypingAfter
-type textDirection =
-  | @as(0) LTR
-  | @as(1) RTL
 type codeEditorV2IEditorOptionsCursorSurroundingLinesStyle =
   | @as("all") All
   | @as("default") Default
@@ -436,10 +433,6 @@ type codeEditorV2IEditorOptionsCursorStyle =
   | @as("line-thin") LineThin
   | @as("block-outline") BlockOutline
   | @as("underline-thin") UnderlineThin
-type codeEditorV2IEditorOptionsDefaultColorDecorators =
-  | @as("auto") Auto
-  | @as("always") Always
-  | @as("never") Never
 type codeEditorV2IEditorOptionsWordWrap =
   | @as("off") Off
   | @as("on") On
@@ -812,7 +805,7 @@ type responsiveChatInputV2TokensType = {
   sm: chatInputV2TokensType,
   lg: chatInputV2TokensType,
 }
-type stateToken2 = {
+type stateTokenSingleSelectV2 = {
   active: string,
   default: string,
   hover: string,
@@ -824,7 +817,7 @@ type stateToken2 = {
 type singleSelectV2SingleSelectV2TokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken2,
+  color: stateTokenSingleSelectV2,
 }
 type singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig = {
   fontSize: string,
@@ -834,14 +827,14 @@ type singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig = {
 type singleSelectV2SingleSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
-type variantToken = {
+type variantTokenV1snf1 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeToken = {
-  sm: variantToken,
-  md: variantToken,
-  lg: variantToken,
+type sizeTokenV7wrml = {
+  sm: variantTokenV1snf1,
+  md: variantTokenV1snf1,
+  lg: variantTokenV1snf1,
 }
 type singleSelectV2VariantTokenContainerConfig = {
   top: string,
@@ -849,25 +842,25 @@ type singleSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantToken2 = {
+type variantTokenV11o5e = {
   container: singleSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: singleSelectV2VariantTokenContainerConfig,
 }
-type sizeToken2 = {
-  sm: variantToken2,
-  md: variantToken2,
-  lg: variantToken2,
+type sizeTokenV1kole = {
+  sm: variantTokenV11o5e,
+  md: variantTokenV11o5e,
+  lg: variantTokenV11o5e,
 }
-type triggerStateToken = {
+type triggerStateTokenSingleSelectV2 = {
   hover: string,
   error: string,
   focus: string,
   @as("open") open_: string,
   closed: string,
 }
-type variantToken3 = {
-  container: triggerStateToken,
-  @as("no-container") noContainer: triggerStateToken,
+type variantTokenX9v7k = {
+  container: triggerStateTokenSingleSelectV2,
+  @as("no-container") noContainer: triggerStateTokenSingleSelectV2,
 }
 type singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig = {
   gap: string,
@@ -879,12 +872,12 @@ type singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type singleSelectV2SingleSelectV2TokensTypeTriggerConfig = {
-  height: sizeToken,
-  padding: sizeToken2,
-  borderRadius: sizeToken,
-  boxShadow: variantToken,
-  backgroundColor: variantToken3,
-  outline: variantToken3,
+  height: sizeTokenV7wrml,
+  padding: sizeTokenV1kole,
+  borderRadius: sizeTokenV7wrml,
+  boxShadow: variantTokenV1snf1,
+  backgroundColor: variantTokenX9v7k,
+  outline: variantTokenX9v7k,
   slot: singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig,
   placeholder: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
   selectedValue: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
@@ -903,7 +896,7 @@ type singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig = {
   paddingLeft: string,
   fontSize: string,
   fontWeight: string,
-  color: stateToken2,
+  color: stateTokenSingleSelectV2,
 }
 type singleSelectV2SingleSelectV2TokensTypeMenuItemSeparatorConfig = {
   color: string,
@@ -918,7 +911,7 @@ type singleSelectV2SingleSelectV2TokensTypeMenuItemConfig = {
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: stateToken2,
+  backgroundColor: stateTokenSingleSelectV2,
   groupLabelText: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
   option: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
   description: singleSelectV2SingleSelectV2TokensTypeLabelConfig,
@@ -956,7 +949,7 @@ type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig = {
 }
 type singleSelectV2SingleSelectV2TokensTypeMenuConfig = {
   content: singleSelectV2SingleSelectV2TokensTypeMenuContentConfig,
-  padding: sizeToken2,
+  padding: sizeTokenV1kole,
   groupLabel: singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig,
   item: singleSelectV2SingleSelectV2TokensTypeMenuItemConfig,
   submenu: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig,
@@ -986,7 +979,7 @@ type responsiveSingleSelectV2Tokens = {
   sm: singleSelectV2TokensType,
   lg: singleSelectV2TokensType,
 }
-type stateToken3 = {
+type stateTokenMultiSelectV2 = {
   active: string,
   default: string,
   hover: string,
@@ -998,7 +991,7 @@ type stateToken3 = {
 type multiSelectV2MultiSelectV2TokensTypeLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken3,
+  color: stateTokenMultiSelectV2,
 }
 type multiSelectV2MultiSelectV2TokensTypeErrorMessageConfig = {
   fontSize: string,
@@ -1008,14 +1001,14 @@ type multiSelectV2MultiSelectV2TokensTypeErrorMessageConfig = {
 type multiSelectV2MultiSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
-type variantToken4 = {
+type variantTokenV1snf12 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeToken3 = {
-  sm: variantToken4,
-  md: variantToken4,
-  lg: variantToken4,
+type sizeTokenGdnwa = {
+  sm: variantTokenV1snf12,
+  md: variantTokenV1snf12,
+  lg: variantTokenV1snf12,
 }
 type multiSelectV2VariantTokenContainerConfig = {
   top: string,
@@ -1023,25 +1016,25 @@ type multiSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantToken5 = {
+type variantTokenNutef = {
   container: multiSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: multiSelectV2VariantTokenContainerConfig,
 }
-type sizeToken4 = {
-  sm: variantToken5,
-  md: variantToken5,
-  lg: variantToken5,
+type sizeTokenV1ui9a = {
+  sm: variantTokenNutef,
+  md: variantTokenNutef,
+  lg: variantTokenNutef,
 }
-type triggerStateToken2 = {
+type triggerStateTokenMultiSelectV2 = {
   hover: string,
   error: string,
   focus: string,
   @as("open") open_: string,
   closed: string,
 }
-type variantToken6 = {
-  container: triggerStateToken2,
-  @as("no-container") noContainer: triggerStateToken2,
+type variantTokenAsc47 = {
+  container: triggerStateTokenMultiSelectV2,
+  @as("no-container") noContainer: triggerStateTokenMultiSelectV2,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig = {
   gap: string,
@@ -1073,8 +1066,8 @@ type multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig = {
   iconSize?: float,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerClearButtonConfig = {
-  backgroundColor: triggerStateToken2,
-  outline: triggerStateToken2,
+  backgroundColor: triggerStateTokenMultiSelectV2,
+  outline: triggerStateTokenMultiSelectV2,
   color: string,
   width?: string,
 }
@@ -1090,12 +1083,12 @@ type multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerConfig = {
-  height: sizeToken3,
-  padding: sizeToken4,
-  borderRadius: sizeToken3,
-  boxShadow: variantToken4,
-  backgroundColor: variantToken6,
-  outline: variantToken6,
+  height: sizeTokenGdnwa,
+  padding: sizeTokenV1ui9a,
+  borderRadius: sizeTokenGdnwa,
+  boxShadow: variantTokenV1snf12,
+  backgroundColor: variantTokenAsc47,
+  outline: variantTokenAsc47,
   slot: multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig,
   selectionTag: contextMultiSelectV2TokensTypeTriggerSelectionTagConfig,
   chevron: multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig,
@@ -1133,7 +1126,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuActionsConfig = {
 type multiSelectV2MultiSelectV2TokensTypeMenuItemOptionsLabelConfig = {
   fontSize: string,
   fontWeight: string,
-  color: stateToken3,
+  color: stateTokenMultiSelectV2,
   paddingTop: string,
   paddingRight: string,
   paddingBottom: string,
@@ -1152,7 +1145,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuItemConfig = {
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: stateToken3,
+  backgroundColor: stateTokenMultiSelectV2,
   optionsLabel: multiSelectV2MultiSelectV2TokensTypeMenuItemOptionsLabelConfig,
   option: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
   description: multiSelectV2MultiSelectV2TokensTypeLabelConfig,
@@ -1162,7 +1155,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: sizeToken4,
+  padding: sizeTokenV1ui9a,
   minWidth: string,
   scroll: multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig,
   header: multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig,
@@ -1591,7 +1584,7 @@ type componentTokenType = {
   @as("DROPDOWN_INPUT") dropdownInput?: InputsTypes.responsiveDropdownInputTokens,
   @as("CHECKBOX") checkbox?: CheckboxTypes.responsiveCheckboxTokens,
   @as("TABS") tabs?: TabsTypes.responsiveTabsTokens,
-  @as("BUTTON") button?: ButtonTypes.responsiveButtonTokens,
+  @as("BUTTON") button?: HighchartsSharedTypes.responsiveButtonTokens,
   @as("MODAL") modal?: ModalTypes.responsiveModalTokens,
   @as("BREADCRUMB") breadcrumb?: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") popover?: PopoverTypes.responsivePopoverTokens,
@@ -1605,7 +1598,7 @@ type componentTokenType = {
   @as("STAT_CARD") statCard?: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar?: ProgressBarTypes.responsiveProgressBarTokens,
   @as("DRAWER") drawer?: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") charts?: ChartsTypes.responsiveChartTokens,
+  @as("CHARTS") charts?: HighchartsSharedTypes.responsiveChartTokens,
   @as("SNACKBAR") snackbar?: SnackbarTypes.responsiveSnackbarTokens,
   @as("STEPPER") stepper?: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair?: KeyValuePairTypes.responsiveKeyValuePairTokens,
@@ -1672,7 +1665,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("DROPDOWN_INPUT") dropdownInput: InputsTypes.responsiveDropdownInputTokens,
   @as("CHECKBOX") checkbox: CheckboxTypes.responsiveCheckboxTokens,
   @as("TABS") tabs: TabsTypes.responsiveTabsTokens,
-  @as("BUTTON") button: ButtonTypes.responsiveButtonTokens,
+  @as("BUTTON") button: HighchartsSharedTypes.responsiveButtonTokens,
   @as("MODAL") modal: ModalTypes.responsiveModalTokens,
   @as("BREADCRUMB") breadcrumb: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") popover: PopoverTypes.responsivePopoverTokens,
@@ -1686,7 +1679,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STAT_CARD") statCard: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar: ProgressBarTypes.responsiveProgressBarTokens,
   @as("DRAWER") drawer: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") charts: ChartsTypes.responsiveChartTokens,
+  @as("CHARTS") charts: HighchartsSharedTypes.responsiveChartTokens,
   @as("SNACKBAR") snackbar: SnackbarTypes.responsiveSnackbarTokens,
   @as("STEPPER") stepper: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair: KeyValuePairTypes.responsiveKeyValuePairTokens,
@@ -1827,7 +1820,7 @@ type textInputV2Dropdown = {
   skeleton?: SelectV2Types.selectV2SkeletonProps,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  singleSelectGroupPosition?: HighchartsSharedTypes.buttonButtonGroupPosition,
   position: textInputV2DropdownPosition,
 }
 type inputsV2LeftSlotConfig = {
@@ -1867,7 +1860,7 @@ type singleSelectV2Props = {
   skeleton?: SelectV2Types.selectV2SkeletonProps,
   allowCustomValue?: bool,
   customValueLabel?: string,
-  singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  singleSelectGroupPosition?: HighchartsSharedTypes.buttonButtonGroupPosition,
 }
 type embeddedSingleSelectOptions = {
   fieldLabel?: string,
@@ -1876,7 +1869,7 @@ type embeddedSingleSelectOptions = {
   menuAlignment: SelectV2Types.selectV2Alignment,
   menuSideOffset: float,
   menuAlignOffset: float,
-  defaultSingleSelectGroupPosition: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
+  defaultSingleSelectGroupPosition: HighchartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
 }
 type inputsV2FOCUSRINGSTYLESConfig = {
   boxShadow: string, // ⚪ loose — was `"0 0 0 3px #EFF6FF"`
@@ -1938,8 +1931,14 @@ type codeEditorV2GetPlaceholderPositionConfig = {
 type iDisposable = {
   dispose: unit => unit,
 }
+type iRange = {
+  startLineNumber: float,
+  startColumn: float,
+  endLineNumber: float,
+  endColumn: float,
+}
 type iModelContentChange = {
-  range: string, // ⚪ loose — was `IRange`
+  range: iRange,
   rangeOffset: float,
   rangeLength: float,
   text: string,
@@ -1968,17 +1967,21 @@ type iModelOptionsChangedEvent = {
 type configurationChangedEvent = {
   hasChanged: editorOption => bool,
 }
+type iPosition = {
+  lineNumber: float,
+  column: float,
+}
 type rec position = {
   lineNumber: float,
   column: float,
   @as("with") with_: (option<float>, option<float>) => position,
   delta: (option<float>, option<float>) => position,
-  equals: string => bool, // ⚪ loose — was `IPosition`
-  isBefore: string => bool, // ⚪ loose — was `IPosition`
-  isBeforeOrEqual: string => bool, // ⚪ loose — was `IPosition`
+  equals: iPosition => bool,
+  isBefore: iPosition => bool,
+  isBeforeOrEqual: iPosition => bool,
   clone: unit => position,
   toString: unit => string,
-  toJSON: unit => string, // ⚪ loose — was `IPosition`
+  toJSON: unit => iPosition,
 }
 type iCursorPositionChangedEvent = {
   position: position,
@@ -1986,14 +1989,43 @@ type iCursorPositionChangedEvent = {
   reason: cursorChangeReason,
   source: string,
 }
+type iSelection = {
+  selectionStartLineNumber: float,
+  selectionStartColumn: float,
+  positionLineNumber: float,
+  positionColumn: float,
+}
+type rec range = {
+  startLineNumber: float,
+  startColumn: float,
+  endLineNumber: float,
+  endColumn: float,
+  isEmpty: unit => bool,
+  containsPosition: iPosition => bool,
+  containsRange: iRange => bool,
+  strictContainsRange: iRange => bool,
+  plusRange: iRange => range,
+  intersectRanges: iRange => Nullable.t<range>,
+  equalsRange: Nullable.t<iRange> => bool,
+  getEndPosition: unit => position,
+  getStartPosition: unit => position,
+  toString: unit => string,
+  setEndPosition: (float, float) => range,
+  setStartPosition: (float, float) => range,
+  collapseToStart: unit => range,
+  collapseToEnd: unit => range,
+  delta: float => range,
+  isSingleLine: unit => bool,
+  toJSON: unit => iRange,
+}
 type rec selection = {
   selectionStartLineNumber: float,
   selectionStartColumn: float,
   positionLineNumber: float,
   positionColumn: float,
   toString: unit => string,
-  equalsSelection: string => bool, // ⚪ loose — was `ISelection`
-  getDirection: unit => string, // ⚪ loose — was `SelectionDirection`
+  equalsSelection: iSelection => bool,
+  getDirection: unit => HighchartsSharedTypes.v0OrV1,
   setEndPosition: (float, float) => selection,
   getPosition: unit => position,
   getSelectionStart: unit => position,
@@ -2003,19 +2035,19 @@ type rec selection = {
   endLineNumber: float,
   endColumn: float,
   isEmpty: unit => bool,
-  containsPosition: string => bool, // ⚪ loose — was `IPosition`
-  containsRange: string => bool, // ⚪ loose — was `IRange`
-  strictContainsRange: string => bool, // ⚪ loose — was `IRange`
-  plusRange: string => string, // ⚪ loose — was `Range`
-  intersectRanges: string => string, // ⚪ loose — was `Range`
-  equalsRange: string => bool, // ⚪ loose — was `IRange`
+  containsPosition: iPosition => bool,
+  containsRange: iRange => bool,
+  strictContainsRange: iRange => bool,
+  plusRange: iRange => range,
+  intersectRanges: iRange => Nullable.t<range>,
+  equalsRange: Nullable.t<iRange> => bool,
   getEndPosition: unit => position,
   getStartPosition: unit => position,
-  collapseToStart: unit => string, // ⚪ loose — was `Range`
-  collapseToEnd: unit => string, // ⚪ loose — was `Range`
-  delta: float => string, // ⚪ loose — was `Range`
+  collapseToStart: unit => range,
+  collapseToEnd: unit => range,
+  delta: float => range,
   isSingleLine: unit => bool,
-  toJSON: unit => string, // ⚪ loose — was `IRange`
+  toJSON: unit => iRange,
 }
 type iCursorSelectionChangedEvent = {
   selection: selection,
@@ -2026,6 +2058,13 @@ type iCursorSelectionChangedEvent = {
   source: string,
   reason: cursorChangeReason,
 }
+type uriComponents = {
+  scheme: string,
+  authority?: string,
+  path?: string,
+  query?: string,
+  fragment?: string,
+}
 type rec uri = {
   scheme: string,
   authority: string,
@@ -2035,7 +2074,7 @@ type rec uri = {
   fsPath: string,
   @as("with") with_: string => uri, // ⚪ loose — was `{ scheme?: string; authority?: string; path?: string; query?: string; fragment?: string; }`
   toString: option<bool> => string,
-  toJSON: unit => string, // ⚪ loose — was `UriComponents`
+  toJSON: unit => uriComponents,
 }
 type iModelChangedEvent = {
   oldModelUrl: Nullable.t<uri>,
@@ -2046,29 +2085,6 @@ type iModelDecorationsChangedEvent = {
   affectsOverviewRuler: bool,
   affectsGlyphMargin: bool,
   affectsLineNumber: bool,
-}
-type rec range = {
-  startLineNumber: float,
-  startColumn: float,
-  endLineNumber: float,
-  endColumn: float,
-  isEmpty: unit => bool,
-  containsPosition: string => bool, // ⚪ loose — was `IPosition`
-  containsRange: string => bool, // ⚪ loose — was `IRange`
-  strictContainsRange: string => bool, // ⚪ loose — was `IRange`
-  plusRange: string => range, // ⚪ loose — was `IRange`
-  intersectRanges: string => Nullable.t<range>, // ⚪ loose — was `IRange`
-  equalsRange: string => bool, // ⚪ loose — was `IRange`
-  getEndPosition: unit => position,
-  getStartPosition: unit => position,
-  toString: unit => string,
-  setEndPosition: (float, float) => range,
-  setStartPosition: (float, float) => range,
-  collapseToStart: unit => range,
-  collapseToEnd: unit => range,
-  delta: float => range,
-  isSingleLine: unit => bool,
-  toJSON: unit => string, // ⚪ loose — was `IRange`
 }
 type iPasteEvent = {
   range: range,
@@ -2108,19 +2124,57 @@ type iMouseTargetTextarea = {
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
 }
+type iMouseTargetMarginData = {
+  isAfterLines: bool,
+  glyphMarginLeft: float,
+  glyphMarginWidth: float,
+  glyphMarginLane?: HighchartsSharedTypes.v1OrV2OrV3,
+  lineNumbersWidth: float,
+  offsetX: float,
+}
 type iMouseTargetMargin = {
-  @as("type") type_: string, // ⚪ loose — was `MouseTargetType.GUTTER_GLYPH_MARGIN | MouseTargetType.GUTTER_LINE_NUMBERS | MouseTargetType.GUTTER_LINE_DECORA`
+  @as("type") type_: HighchartsSharedTypes.v2OrV3OrV4,
   position: position,
   range: range,
-  detail: string, // ⚪ loose — was `IMouseTargetMarginData`
+  detail: iMouseTargetMarginData,
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
+}
+type iMouseTargetViewZoneData = {
+  viewZoneId: string,
+  positionBefore: Nullable.t<position>,
+  positionAfter: Nullable.t<position>,
+  position: position,
+  afterLineNumber: float,
+}
+type iMouseTargetViewZone = {
+  @as("type") type_: HighchartsSharedTypes.v5OrV8,
+  position: position,
+  range: range,
+  detail: iMouseTargetViewZoneData,
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
+type iMouseTargetContentTextData = {
+  mightBeForeignElement: bool,
 }
 type iMouseTargetContentText = {
   @as("type") type_: float,
   position: position,
   range: range,
-  detail: string, // ⚪ loose — was `IMouseTargetContentTextData`
+  detail: iMouseTargetContentTextData,
+  element: string, // ⚪ loose — was `HTMLElement`
+  mouseColumn: float,
+}
+type iMouseTargetContentEmptyData = {
+  isAfterLines: bool,
+  horizontalDistanceToText?: float,
+}
+type iMouseTargetContentEmpty = {
+  @as("type") type_: float,
+  position: position,
+  range: range,
+  detail: iMouseTargetContentEmptyData,
   element: string, // ⚪ loose — was `HTMLElement`
   mouseColumn: float,
 }
@@ -2141,7 +2195,7 @@ type iMouseTargetScrollbar = {
 }
 type iMouseTargetOutsideEditor = {
   @as("type") type_: float,
-  outsidePosition: string, // ⚪ loose — was `"left" | "right" | "above" | "below"`
+  outsidePosition: codeEditorV2IMouseTargetOutsideEditorOutsidePosition,
   outsideDistance: float,
   element: string, // ⚪ loose — was `HTMLElement`
   position: Nullable.t<position>,
@@ -2153,9 +2207,9 @@ module IMouseTarget = {
   external fromIMouseTargetUnknown: iMouseTargetUnknown => t = "%identity"
   external fromIMouseTargetTextarea: iMouseTargetTextarea => t = "%identity"
   external fromIMouseTargetMargin: iMouseTargetMargin => t = "%identity"
-  external fromIMouseTargetViewZone: iMouseTargetMargin => t = "%identity"
+  external fromIMouseTargetViewZone: iMouseTargetViewZone => t = "%identity"
   external fromIMouseTargetContentText: iMouseTargetContentText => t = "%identity"
-  external fromIMouseTargetContentEmpty: iMouseTargetContentText => t = "%identity"
+  external fromIMouseTargetContentEmpty: iMouseTargetContentEmpty => t = "%identity"
   external fromIMouseTargetContentWidget: iMouseTargetContentWidget => t = "%identity"
   external fromIMouseTargetOverlayWidget: iMouseTargetContentWidget => t = "%identity"
   external fromIMouseTargetScrollbar: iMouseTargetScrollbar => t = "%identity"
@@ -2237,10 +2291,6 @@ type iScrollEvent = {
   scrollWidthChanged: bool,
   scrollHeightChanged: bool,
 }
-type iPosition = {
-  lineNumber: float,
-  column: float,
-}
 type iCursorState = {
   inSelectionMode: bool,
   selectionStart: iPosition,
@@ -2270,45 +2320,79 @@ type textModelResolvedOptions = {
   defaultEOL: defaultEndOfLine,
   trimAutoWhitespace: bool,
   bracketPairColorizationOptions: bracketPairColorizationOptions,
-  originalIndentSize: CommonTypes.tabSizeOrNumber,
+  originalIndentSize: HighchartsSharedTypes.tabSizeOrNumber,
 }
 type iTextSnapshot = {
   read: unit => Nullable.t<string>,
 }
-type iRange = {
-  startLineNumber: float,
-  startColumn: float,
-  endLineNumber: float,
-  endColumn: float,
-}
+@unboxed type stringOrITextSnapshot = Str(string) | ITextSnapshot(iTextSnapshot)
 type findMatch = {
   _findMatchBrand: string, // ⚪ loose — was `void`
   range: range,
   matches: array<string>,
+}
+@unboxed type iRangeOrIRangeArray = IRange(iRange) | IRangeArr(array<iRange>)
+module FindMatches = {
+  type t
+  external asSearchString: t => (
+    string,
+    bool,
+    bool,
+    bool,
+    Nullable.t<string>,
+    bool,
+    option<float>,
+  ) => array<findMatch> = "%identity"
+  external asSearchString2: t => (
+    string,
+    iRangeOrIRangeArray,
+    bool,
+    bool,
+    Nullable.t<string>,
+    bool,
+    option<float>,
+  ) => array<findMatch> = "%identity"
 }
 type iWordAtPosition = {
   word: string,
   startColumn: float,
   endColumn: float,
 }
-type iModelDeltaDecoration = {
-  range: iRange,
-  options: string, // ⚪ loose — was `IModelDecorationOptions`
+type markdownStringTrustedOptions = {
+  enabledCommands: array<string>,
 }
+@unboxed
+type boolOrMarkdownStringTrustedOptions =
+  Bool(bool) | MarkdownStringTrustedOptions(markdownStringTrustedOptions)
+type iMarkdownString = {
+  value: string,
+  isTrusted?: boolOrMarkdownStringTrustedOptions,
+  supportThemeIcons?: bool,
+  supportHtml?: bool,
+  baseUri?: uriComponents,
+  uris?: Dict.t<uriComponents>,
+}
+@unboxed
+type iMarkdownStringOrIMarkdownStringArray =
+  IMarkdownString(iMarkdownString) | IMarkdownStringArr(array<iMarkdownString>)
+type themeColor = {
+  id: string,
+}
+@unboxed type stringOrThemeColor = Str(string) | ThemeColor(themeColor)
 type iModelDecorationOverviewRulerOptions = {
-  position: string, // ⚪ loose — was `OverviewRulerLane`
-  color?: string, // ⚪ loose — was `string | ThemeColor`
-  darkColor?: string, // ⚪ loose — was `string | ThemeColor`
+  position: HighchartsSharedTypes.v1OrV2OrV4OrV7,
+  color?: stringOrThemeColor,
+  darkColor?: stringOrThemeColor,
 }
 type iModelDecorationMinimapOptions = {
-  position: string, // ⚪ loose — was `MinimapPosition`
-  sectionHeaderStyle?: string, // ⚪ loose — was `MinimapSectionHeaderStyle`
+  position: HighchartsSharedTypes.v1OrV2,
+  sectionHeaderStyle?: Nullable.t<HighchartsSharedTypes.v1OrV2>,
   sectionHeaderText?: Nullable.t<string>,
-  color?: string, // ⚪ loose — was `string | ThemeColor`
-  darkColor?: string, // ⚪ loose — was `string | ThemeColor`
+  color?: stringOrThemeColor,
+  darkColor?: stringOrThemeColor,
 }
 type iModelDecorationGlyphMarginOptions = {
-  position: string, // ⚪ loose — was `GlyphMarginLane`
+  position: HighchartsSharedTypes.v1OrV2OrV3,
   persistLane?: bool,
 }
 type injectedTextOptions = {
@@ -2316,19 +2400,19 @@ type injectedTextOptions = {
   inlineClassName?: Nullable.t<string>,
   inlineClassNameAffectsLetterSpacing?: bool,
   attachedData?: JSON.t,
-  cursorStops?: string, // ⚪ loose — was `InjectedTextCursorStops`
+  cursorStops?: Nullable.t<HighchartsSharedTypes.v0OrV1OrV2OrV3>,
 }
 type iModelDecorationOptions = {
-  stickiness?: trackedRangeStickiness,
+  stickiness?: HighchartsSharedTypes.v0OrV1OrV2OrV3,
   className?: Nullable.t<string>,
   shouldFillLineOnLineBreak?: Nullable.t<bool>,
   blockClassName?: Nullable.t<string>,
   blockIsAfterEnd?: Nullable.t<bool>,
   blockDoesNotCollapse?: Nullable.t<bool>,
-  blockPadding?: Nullable.t<(float, float, float, float)>,
-  glyphMarginHoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
-  hoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
-  lineNumberHoverMessage?: string, // ⚠️ REVIEW — was `IMarkdownString | IMarkdownString[]` — match the real type by hand
+  blockPadding?: Nullable.t<array<float>>,
+  glyphMarginHoverMessage?: Nullable.t<iMarkdownStringOrIMarkdownStringArray>,
+  hoverMessage?: Nullable.t<iMarkdownStringOrIMarkdownStringArray>,
+  lineNumberHoverMessage?: Nullable.t<iMarkdownStringOrIMarkdownStringArray>,
   isWholeLine?: bool,
   showIfCollapsed?: bool,
   zIndex?: int,
@@ -2352,7 +2436,11 @@ type iModelDecorationOptions = {
   afterContentClassName?: Nullable.t<string>,
   after?: Nullable.t<injectedTextOptions>,
   before?: Nullable.t<injectedTextOptions>,
-  textDirection?: Nullable.t<textDirection>,
+  textDirection?: Nullable.t<HighchartsSharedTypes.v0OrV1>,
+}
+type iModelDeltaDecoration = {
+  range: iRange,
+  options: iModelDecorationOptions,
 }
 type iModelDecoration = {
   id: string,
@@ -2362,7 +2450,7 @@ type iModelDecoration = {
 }
 type iTextModelUpdateOptions = {
   tabSize?: float,
-  indentSize?: CommonTypes.tabSizeOrNumber,
+  indentSize?: HighchartsSharedTypes.tabSizeOrNumber,
   insertSpaces?: bool,
   trimAutoWhitespace?: bool,
   bracketColorizationOptions?: bracketPairColorizationOptions,
@@ -2372,13 +2460,26 @@ type iIdentifiedSingleEditOperation = {
   text: Nullable.t<string>,
   forceMoveMarkers?: bool,
 }
+type iValidEditOperation = {
+  range: range,
+  text: string,
+}
+module ApplyEdits = {
+  type t
+  external asOperations: t => array<iIdentifiedSingleEditOperation> => unit = "%identity"
+  external asOperations2: t => (array<iIdentifiedSingleEditOperation>, bool) => unit = "%identity"
+  external asOperations3: t => (
+    array<iIdentifiedSingleEditOperation>,
+    bool,
+  ) => array<iValidEditOperation> = "%identity"
+}
 type iTextModel<'a> = {
   uri: uri,
   id: string,
   getOptions: unit => textModelResolvedOptions,
   getVersionId: unit => float,
   getAlternativeVersionId: unit => float,
-  setValue: string => unit, // ⚠️ REVIEW — was `string | ITextSnapshot` — match the real type by hand
+  setValue: stringOrITextSnapshot => unit,
   getValue: (option<endOfLinePreference>, option<bool>) => string,
   createSnapshot: option<bool> => iTextSnapshot,
   getValueLength: (option<endOfLinePreference>, option<bool>) => float,
@@ -2403,7 +2504,7 @@ type iTextModel<'a> = {
   getPositionAt: float => position,
   getFullModelRange: unit => range,
   isDisposed: unit => bool,
-  findMatches: string, // ⚠️ REVIEW — match the real type by hand
+  findMatches: FindMatches.t,
   findNextMatch: (string, iPosition, bool, bool, Nullable.t<string>, bool) => Nullable.t<findMatch>,
   findPreviousMatch: (
     string,
@@ -2452,10 +2553,10 @@ type iTextModel<'a> = {
   pushEditOperations: (
     Nullable.t<array<selection>>,
     array<iIdentifiedSingleEditOperation>,
-    array<string> => Nullable.t<array<selection>>,
-  ) => Nullable.t<array<selection>>, // ⚪ loose — was `IValidEditOperation`
+    array<iValidEditOperation> => Nullable.t<array<selection>>,
+  ) => Nullable.t<array<selection>>,
   pushEOL: endOfLineSequence => unit,
-  applyEdits: string, // ⚠️ REVIEW — match the real type by hand
+  applyEdits: ApplyEdits.t,
   setEOL: endOfLineSequence => unit,
   undo: unit => 'a,
   canUndo: unit => bool,
@@ -2478,34 +2579,7 @@ type iRulerOption = {
   column: float,
   color: Nullable.t<string>,
 }
-module RulersTarget = {
-  type t
-  external fromNumber: float => t = "%identity"
-  external fromIRulerOption: iRulerOption => t = "%identity"
-}
-type markdownStringTrustedOptions = {
-  enabledCommands: array<string>,
-}
-module IsTrustedTarget = {
-  type t
-  external fromBool: bool => t = "%identity"
-  external fromMarkdownStringTrustedOptions: markdownStringTrustedOptions => t = "%identity"
-}
-type uriComponents = {
-  scheme: string,
-  authority?: string,
-  path?: string,
-  query?: string,
-  fragment?: string,
-}
-type iMarkdownString = {
-  value: string,
-  isTrusted?: IsTrustedTarget.t,
-  supportThemeIcons?: bool,
-  supportHtml?: bool,
-  baseUri?: uriComponents,
-  uris?: Dict.t<uriComponents>,
-}
+@unboxed type numberOrIRulerOption = Num(float) | IRulerOption(iRulerOption)
 type iEditorScrollbarOptions = {
   arrowSize?: float,
   vertical?: codeEditorV2IEditorScrollbarOptionsVertical,
@@ -2531,7 +2605,7 @@ type iEditorStickyScrollOptions = {
 type iEditorMinimapOptions = {
   enabled?: bool,
   autohide?: codeEditorV2IEditorMinimapOptionsAutohide,
-  side?: ChartsTypes.chartsPlotOrganizationOptionsHangingSide,
+  side?: HighchartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
   size?: codeEditorV2IEditorMinimapOptionsSize,
   showSlider?: codeEditorV2IEditorMinimapOptionsShowSlider,
   renderCharacters?: bool,
@@ -2635,15 +2709,13 @@ type iGotoLocationOptions = {
   alternativeTestsCommand?: string,
 }
 type iQuickSuggestionsOptions = {
-  other?: CommonTypes.boolOrInlineOrOffOrOn,
-  comments?: CommonTypes.boolOrInlineOrOffOrOn,
-  strings?: CommonTypes.boolOrInlineOrOffOrOn,
+  other?: HighchartsSharedTypes.boolOrInlineOrOffOrOn,
+  comments?: HighchartsSharedTypes.boolOrInlineOrOffOrOn,
+  strings?: HighchartsSharedTypes.boolOrInlineOrOffOrOn,
 }
-module QuickSuggestionsTarget = {
-  type t
-  external fromBool: bool => t = "%identity"
-  external fromIQuickSuggestionsOptions: iQuickSuggestionsOptions => t = "%identity"
-}
+@unboxed
+type boolOrIQuickSuggestionsOptions =
+  Bool(bool) | IQuickSuggestionsOptions(iQuickSuggestionsOptions)
 type iEditorPaddingOptions = {
   top?: float,
   bottom?: float,
@@ -2663,18 +2735,18 @@ type iEditorInlayHintsOptions = {
   maximumLength?: float,
 }
 type iGuidesOptions = {
-  bracketPairs?: CommonTypes.boolOrActive,
-  bracketPairsHorizontal?: CommonTypes.boolOrActive,
+  bracketPairs?: HighchartsSharedTypes.boolOrActive,
+  bracketPairsHorizontal?: HighchartsSharedTypes.boolOrActive,
   highlightActiveBracketPair?: bool,
   indentation?: bool,
-  highlightActiveIndentation?: CommonTypes.boolOrAlways,
+  highlightActiveIndentation?: HighchartsSharedTypes.boolOrAlways,
 }
 type iUnicodeHighlightOptions = {
-  nonBasicASCII?: CommonTypes.boolOrInUntrustedWorkspace,
+  nonBasicASCII?: HighchartsSharedTypes.boolOrInUntrustedWorkspace,
   invisibleCharacters?: bool,
   ambiguousCharacters?: bool,
-  includeComments?: CommonTypes.boolOrInUntrustedWorkspace,
-  includeStrings?: CommonTypes.boolOrInUntrustedWorkspace,
+  includeComments?: HighchartsSharedTypes.boolOrInUntrustedWorkspace,
+  includeStrings?: HighchartsSharedTypes.boolOrInUntrustedWorkspace,
   allowedCharacters?: Dict.t<bool>,
   allowedLocales?: Dict.t<bool>,
 }
@@ -2699,11 +2771,11 @@ type iEditorOptions = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<RulersTarget.t>,
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorIEditorOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorIEditorOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -2711,7 +2783,7 @@ type iEditorOptions = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -2738,9 +2810,9 @@ type iEditorOptions = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -2783,7 +2855,7 @@ type iEditorOptions = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: QuickSuggestionsTarget.t,
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -2871,15 +2943,9 @@ type iLocalizedString = {
   original: string,
   value: string,
 }
-module DescriptionTarget = {
-  type t
-  external fromString: string => t = "%identity"
-  external fromILocalizedString: iLocalizedString => t = "%identity"
-  external fromUnit: unit => t = "%identity"
-  let none: t = fromUnit()
-}
+@unboxed type stringOrILocalizedString = Str(string) | ILocalizedString(iLocalizedString)
 type iCommandMetadata = {
-  description: DescriptionTarget.t,
+  description: stringOrILocalizedString,
 }
 type iEditorAction = {
   id: string,
@@ -2895,24 +2961,20 @@ type iEditOperationBuilder = {
   trackSelection: (selection, option<bool>) => string,
 }
 type iCursorStateComputerData = {
-  getInverseEditOperations: unit => array<JSON.t>,
+  getInverseEditOperations: unit => array<iValidEditOperation>,
   getTrackedSelection: string => selection,
 }
 type iCommand<'a> = {
   getEditOperations: (iTextModel<'a>, iEditOperationBuilder) => unit,
   computeCursorState: (iTextModel<'a>, iCursorStateComputerData) => selection,
 }
-type iValidEditOperation = {
-  range: range,
-  text: string,
-}
 @unboxed
 type codeEditorV2ICodeEditorExecuteEdits =
-  Arr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
+  SelectionArr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
 type iContentWidgetPosition = {
   position: Nullable.t<iPosition>,
   secondaryPosition?: Nullable.t<iPosition>,
-  preference: array<string>, // ⚪ loose — was `ContentWidgetPositionPreference`
+  preference: array<HighchartsSharedTypes.v0OrV1OrV2>,
   positionAffinity?: positionAffinity,
 }
 type iDimension = {
@@ -2935,8 +2997,14 @@ type iContentWidget = {
     Nullable.t<iContentWidgetRenderedCoordinate>,
   ) => unit,
 }
+@unboxed
+type v0OrV1OrV2OrIContentWidgetRenderedCoordinate =
+  | @as(0) N0
+  | @as(1) N1
+  | @as(2) N2
+  | IContentWidgetRenderedCoordinate(iContentWidgetRenderedCoordinate)
 type iOverlayWidgetPosition = {
-  preference: string, // ⚠️ REVIEW — was `OverlayWidgetPositionPreference | IOverlayWidgetPositionCoordinates` — match the real type by hand
+  preference: Nullable.t<v0OrV1OrV2OrIContentWidgetRenderedCoordinate>,
   stackOridinal?: float,
 }
 type iOverlayWidget = {
@@ -2960,7 +3028,7 @@ type iGlyphMarginWidget = {
 type iViewZone = {
   afterLineNumber: float,
   afterColumn?: float,
-  afterColumnAffinity?: string, // ⚪ loose — was `PositionAffinity`
+  afterColumnAffinity?: HighchartsSharedTypes.v0OrV1OrV2OrV3OrV4,
   showInHiddenAreas?: bool,
   ordinal?: float,
   suppressMouseDown?: bool,
@@ -2981,12 +3049,6 @@ type editorICodeEditorGetScrolledVisiblePositionConfig = {
   top: float,
   left: float,
   height: float,
-}
-type iSelection = {
-  selectionStartLineNumber: float,
-  selectionStartColumn: float,
-  positionLineNumber: float,
-  positionColumn: float,
 }
 module SetSelection = {
   type t
@@ -3154,11 +3216,11 @@ type editorGetMonacoViewModeOptionsConfig = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorGetMonacoViewModeOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorGetMonacoViewModeOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -3166,7 +3228,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -3193,9 +3255,9 @@ type editorGetMonacoViewModeOptionsConfig = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3238,7 +3300,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3338,11 +3400,11 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>, // ⚪ loose — was `number | IRulerOption`
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorIStandaloneCodeEditorUpdateOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorIStandaloneCodeEditorUpdateOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -3350,7 +3412,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -3377,9 +3439,9 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3422,7 +3484,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3505,7 +3567,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   wordBasedSuggestions?: codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions,
   wordBasedSuggestionsOnlySameLanguage?: bool,
   @as("semanticHighlighting.enabled")
-  semanticHighlighting_enabled?: CommonTypes.boolOrConfiguredByTheme,
+  semanticHighlighting_enabled?: HighchartsSharedTypes.boolOrConfiguredByTheme,
   stablePeek?: bool,
   maxTokenizationLineLength?: float,
   theme?: string,
@@ -3513,7 +3575,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
 }
 @unboxed
 type codeEditorV2IStandaloneCodeEditorExecuteEdits =
-  Arr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
+  SelectionArr(array<selection>) | Fn(array<iValidEditOperation> => Nullable.t<array<selection>>)
 type iStandaloneCodeEditor<'a, 'b> = {
   updateOptions: codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig => unit,
   addCommand: (float, array<string> => unit, option<string>) => Nullable.t<string>, // ⚪ loose — was `any`
@@ -3713,11 +3775,11 @@ type iDiffEditorOptions = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorIDiffEditorOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorIDiffEditorOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -3725,7 +3787,7 @@ type iDiffEditorOptions = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -3752,9 +3814,9 @@ type iDiffEditorOptions = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3797,7 +3859,7 @@ type iDiffEditorOptions = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -3970,11 +4032,11 @@ type iStandaloneEditorConstructionOptions<'a> = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorIStandaloneEditorConstructionOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorIStandaloneEditorConstructionOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -3982,7 +4044,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -4009,9 +4071,9 @@ type iStandaloneEditorConstructionOptions<'a> = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4054,7 +4116,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -4137,7 +4199,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   wordBasedSuggestions?: codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions,
   wordBasedSuggestionsOnlySameLanguage?: bool,
   @as("semanticHighlighting.enabled")
-  semanticHighlighting_enabled?: CommonTypes.boolOrConfiguredByTheme,
+  semanticHighlighting_enabled?: HighchartsSharedTypes.boolOrConfiguredByTheme,
   stablePeek?: bool,
   maxTokenizationLineLength?: float,
 }
@@ -4153,11 +4215,11 @@ type iDiffEditorConstructionOptions = {
   ariaRequired?: bool,
   screenReaderAnnounceInlineSuggestion?: bool,
   tabIndex?: int,
-  rulers?: array<string>, // ⚠️ REVIEW — was `number | IRulerOption` — match the real type by hand
-  wordSegmenterLocales?: CommonTypes.stringOrStringArray,
+  rulers?: array<numberOrIRulerOption>,
+  wordSegmenterLocales?: HighchartsSharedTypes.stringOrStringArray,
   wordSeparators?: string,
   selectionClipboard?: bool,
-  lineNumbers?: CommonTypes.editorIDiffEditorConstructionOptionsLineNumbers,
+  lineNumbers?: HighchartsSharedTypes.editorIDiffEditorConstructionOptionsLineNumbers,
   cursorSurroundingLines?: float,
   cursorSurroundingLinesStyle?: codeEditorV2IEditorOptionsCursorSurroundingLinesStyle,
   renderFinalNewline?: codeEditorV2IEditorOptionsRenderFinalNewline,
@@ -4165,7 +4227,7 @@ type iDiffEditorConstructionOptions = {
   selectOnLineNumbers?: bool,
   lineNumbersMinChars?: float,
   glyphMargin?: bool,
-  lineDecorationsWidth?: CommonTypes.stringOrNumber,
+  lineDecorationsWidth?: HighchartsSharedTypes.stringOrNumber,
   revealHorizontalRightPadding?: float,
   roundedSelection?: bool,
   extraEditorClassName?: string,
@@ -4192,9 +4254,9 @@ type iDiffEditorConstructionOptions = {
   overtypeOnPaste?: bool,
   cursorWidth?: float,
   cursorHeight?: float,
-  fontLigatures?: CommonTypes.boolOrString,
-  fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
+  fontLigatures?: HighchartsSharedTypes.boolOrString,
+  fontVariations?: HighchartsSharedTypes.boolOrString,
+  defaultColorDecorators?: HighchartsSharedTypes.chartsDateTimeFormatOptionsHour12,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4237,7 +4299,7 @@ type iDiffEditorConstructionOptions = {
   inlineSuggest?: iInlineSuggestOptions,
   smartSelect?: iSmartSelectOptions,
   gotoLocation?: iGotoLocationOptions,
-  quickSuggestions?: string, // ⚠️ REVIEW — was `boolean | IQuickSuggestionsOptions` — match the real type by hand
+  quickSuggestions?: boolOrIQuickSuggestionsOptions,
   quickSuggestionsDelay?: float,
   padding?: iEditorPaddingOptions,
   parameterHints?: iEditorParameterHintOptions,
@@ -4413,7 +4475,7 @@ type flattenedItem = {
   groupId?: float,
 }
 type virtualItemShape = {
-  key: CommonTypes.stringOrNumberOrBigInt,
+  key: HighchartsSharedTypes.stringOrNumberOrBigInt,
   index: int,
   start: float,
 }
