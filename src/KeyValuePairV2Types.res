@@ -14,8 +14,8 @@ type keyValuePairV2TextOverflowMode2 =
   | @as("truncate") Truncate
   | @as("wrap-clamp") WrapClamp
 type keyValuePairV2KeyValuePairV2TokensTypeGapConfig = {
-  vertical: string,
   horizontal: string,
+  vertical: string,
 }
 type keyValuePairV2KeyValuePairV2TokensTypeKeyConfig = {
   color: string,

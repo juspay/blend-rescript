@@ -1,10 +1,10 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
   @as("open") ~open_: bool=?,
+  ~style: JsxDOM.style=?,
   ~rightSlot: React.element=?,
   ~heading: string,
   ~className: string=?,
-  ~style: JsxDOM.style=?,
   ~description: string=?,
   ~items: array<DrawerTypes.selectDrawerGroup>,
   ~enableSearch: bool=?,

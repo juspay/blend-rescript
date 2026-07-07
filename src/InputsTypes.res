@@ -28,9 +28,9 @@ type inputsResize =
   | @as("none") None
   | @as("block") Block
   | @as("inline") Inline
-  | @as("vertical") Vertical
-  | @as("horizontal") Horizontal
   | @as("both") Both
+  | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
 type inputsSearchInputTokensTypeLabelColorConfig = {
   default: string,
   hover: string,
