@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@juspay/blend-design-system": "0.0.37-beta.7",
-    "@juspay/rescript-bindgen": "^1.2.6-beta.7",
+    "@juspay/rescript-bindgen": "^1.2.6-beta.8",
     "@rescript/react": "^0.15.0",
     "rescript": "^12.2.0",
     "rescript-webapi": "^0.10.0"
