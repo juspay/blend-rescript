@@ -40,8 +40,6 @@ module ElementType = {
     | #link
     | #sub
     | #sup
-    | #map
-    | #filter
     | #button
     | #meter
     | #textarea
@@ -53,6 +51,8 @@ module ElementType = {
     | #caption
     | #menu
     | #menuitem
+    | #map
+    | #filter
     | #body
     | #base
     | #code
@@ -69,20 +69,20 @@ module ElementType = {
     | #animate
     | #stop
     | #rect
-    | #linearGradient
-    | #radialGradient
+    | #polygon
     | #area
     | #line
-    | #polygon
     | #label
     | #marker
+    | #data
+    | #select
+    | #linearGradient
+    | #radialGradient
     | #a
     | #q
     | #s
-    | #select
     | #textPath
     | #meta
-    | #data
     | #image
     | #html
     | #div
