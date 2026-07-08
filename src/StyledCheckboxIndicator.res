@@ -4,7 +4,7 @@ external make: (
   ~size: SelectorV2Types.selectorV2Size,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
-  ~defaultValue: HighchartsSharedTypes.stringOrNumberOrStringArray=?,
+  ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
   ~className: string=?,
   ~id: string=?,

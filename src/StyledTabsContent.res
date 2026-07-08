@@ -3,7 +3,7 @@ external make: (
   ~hidden: bool=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
-  ~defaultValue: HighchartsSharedTypes.stringOrNumberOrStringArray=?,
+  ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
   ~className: string=?,
   ~id: string=?,

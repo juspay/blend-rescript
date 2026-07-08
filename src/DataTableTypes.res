@@ -689,13 +689,13 @@ type bulkActionsConfig = {
 type rowActionConfig<'a> = {
   id: string,
   text?: string,
-  buttonType?: HighchartsSharedTypes.buttonType,
-  size?: HighchartsSharedTypes.buttonSize,
-  subType?: HighchartsSharedTypes.buttonSubType,
+  buttonType?: ButtonTypes.buttonType,
+  size?: ButtonTypes.buttonSize,
+  subType?: ButtonTypes.buttonSubType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,
-  disabled?: HighchartsSharedTypes.dataTableRowActionConfigDisabled<'a>,
-  hidden?: HighchartsSharedTypes.dataTableRowActionConfigHidden<'a>,
+  disabled?: CommonTypes.dataTableRowActionConfigDisabled<'a>,
+  hidden?: CommonTypes.dataTableRowActionConfigHidden<'a>,
   onClick: ('a, float) => unit,
 }
 type rowActionsConfig<'a> = {
@@ -726,7 +726,7 @@ type dataTablePivotTableConfigOnConfigChangeConfig = {
 }
 type dataTablePivotTableConfigConfig = {
   triggerButton?: React.element,
-  triggerSlot?: HighchartsSharedTypes.v1OrV2OrV3,
+  triggerSlot?: CommonTypes.v1OrV2OrV3,
   title?: string,
   description?: string,
   showExport?: bool,
