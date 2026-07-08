@@ -140,7 +140,7 @@ type singleSelectSelectMenuItemTypeTooltipPropsConfig = {
   delayDuration?: float,
   offset?: float,
 }
-type rec selectMenuItemType2 = {
+type rec selectMenuItemTypeSingleSelect = {
   label: string,
   value: string,
   checked?: bool,
@@ -151,14 +151,14 @@ type rec selectMenuItemType2 = {
   slot4?: React.element,
   disabled?: bool,
   onClick?: unit => unit,
-  subMenu?: array<selectMenuItemType2>,
+  subMenu?: array<selectMenuItemTypeSingleSelect>,
   tooltip?: React.element,
   tooltipProps?: singleSelectSelectMenuItemTypeTooltipPropsConfig,
   disableTruncation?: bool,
 }
-type selectMenuGroupType2 = {
+type selectMenuGroupTypeSingleSelect = {
   groupLabel?: string,
-  items: array<selectMenuItemType2>,
+  items: array<selectMenuItemTypeSingleSelect>,
   showSeparator?: bool,
 }
 type singleSelectSkeletonProps = {
@@ -174,7 +174,7 @@ type singleSelectProps = {
   helpIconText?: string,
   placeholder: string,
   size?: selectMenuSize,
-  items: array<selectMenuGroupType2>,
+  items: array<selectMenuGroupTypeSingleSelect>,
   variant?: selectMenuVariant,
   selected: string,
   onSelect: string => unit,

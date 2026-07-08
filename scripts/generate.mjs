@@ -10,6 +10,7 @@
 //   node scripts/generate.mjs --blend 0.0.36  # bind a specific version
 //   node scripts/generate.mjs --set-version   # also set package.json version = blend version (1:1)
 //   node scripts/generate.mjs --only Button   # only emit one component (debugging)
+//   node scripts/generate.mjs --augment highcharts/modules/xrange  # load extra .d.ts roots
 //
 // The CLI writes src/_REPORT.md (per-component readiness) and src/_bindgen-summary.json
 // (machine-readable buckets) alongside the generated *.res files.
@@ -53,6 +54,23 @@ function resolveBlendVersion() {
 const version = resolveBlendVersion();
 const onlyComp = flag("--only");
 
+function collectFlags(name) {
+  const values = [];
+  for (let i = 0; i < process.argv.length; i++) {
+    if (process.argv[i] === name && process.argv[i + 1]) {
+      values.push(...process.argv[i + 1].split(",").map((s) => s.trim()).filter(Boolean));
+      i++;
+    }
+  }
+  return values;
+}
+
+// Blend exposes Highcharts xrange data. Its extra Point.x2/custom fields live in
+// a module augmentation file, so load it explicitly to match the app-side import.
+const augmentMods = Array.from(
+  new Set(["highcharts/modules/xrange", ...collectFlags("--augment")]),
+);
+
 // The version installed in node_modules, if any.
 let installedVersion;
 try {
@@ -79,6 +97,7 @@ const cliArgs = [
   "--project",
   ROOT,
   "--webapi",
+  ...augmentMods.flatMap((mod) => ["--augment", mod]),
   "--report",
   "--json-summary",
   join(SRC, "_bindgen-summary.json"),

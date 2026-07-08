@@ -822,14 +822,14 @@ external getKeyValuePairV2Tokens: (
 external getKeyValuePairV2ContainerStyles: (
   KeyValuePairV2Types.keyValuePairV2TextOverflowMode,
   string,
-) => DistTypes.cssObject3 = "getKeyValuePairV2ContainerStyles"
+) => DistTypes.cssObjectDist = "getKeyValuePairV2ContainerStyles"
 @module("@juspay/blend-design-system")
 external getLayoutStyles: (
   KeyValuePairV2Types.keyValuePairV2StateType,
   KeyValuePairV2Types.keyValuePairV2TokensType,
-) => DistTypes.cssObject3 = "getLayoutStyles"
+) => DistTypes.cssObjectDist = "getLayoutStyles"
 @module("@juspay/blend-design-system")
-external getSlotStyles: KeyValuePairV2Types.keyValuePairV2TokensType => DistTypes.cssObject3 =
+external getSlotStyles: KeyValuePairV2Types.keyValuePairV2TokensType => DistTypes.cssObjectDist =
   "getSlotStyles"
 @module("@juspay/blend-design-system")
 external getMenuV2Tokens: (
