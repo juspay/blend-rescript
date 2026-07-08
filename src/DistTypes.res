@@ -1881,6 +1881,7 @@ type rec cssObjectDist = {
   @as(":volume-locked") _volumeLocked?: cssObjectDist,
   @as(":xr-overlay") _xrOverlay?: cssObjectDist,
 }
+@set_index external cssObjectDistSet: (cssObjectDist, string, JSON.t) => unit = ""
 module SelectorV2Style = {
   type t
   external fromCSSProperties: JsxDOM.style => t = "%identity"

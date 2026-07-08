@@ -4514,6 +4514,7 @@ type ariaAttributes = {
   @as("aria-labelledby") ariaLabelledby?: string,
   @as("aria-invalid") ariaInvalid?: bool,
 }
+@set_index external ariaAttributesSet: (ariaAttributes, string, JSON.t) => unit = ""
 type accessibilitySetupOptions = {
   name?: string,
   generatedId: string,

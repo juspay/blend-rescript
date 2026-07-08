@@ -379,170 +379,10 @@ type offsetObject = {
   left: float,
   top: float,
 }
-type dateTimeFormatOptions = {
-  day?: ChartsTypes.chartsDateTimeFormatOptionsDay,
-  era?: ChartsTypes.chartsDateTimeFormatOptionsEra,
-  formatMatcher?: string,
-  fractionalSecondDigits?: CommonTypes.v1OrV2OrV3,
-  hour?: ChartsTypes.chartsDateTimeFormatOptionsDay,
-  hour12?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
-  localeMatcher?: string,
-  minute?: ChartsTypes.chartsDateTimeFormatOptionsDay,
-  month?: ChartsTypes.chartsDateTimeFormatOptionsMonth,
-  prefix?: string,
-  second?: ChartsTypes.chartsDateTimeFormatOptionsDay,
-  suffix?: string,
-  timeZone?: string,
-  timeZoneName?: ChartsTypes.chartsDateTimeFormatOptionsTimeZoneName,
-  weekday?: ChartsTypes.chartsDateTimeFormatOptionsEra,
-  year?: ChartsTypes.chartsDateTimeFormatOptionsDay,
-}
-@unboxed
-type stringOrDateTimeFormatOptions = Str(string) | DateTimeFormatOptions(dateTimeFormatOptions)
-type timeNormalizedObject = {
-  count?: int,
-  unitRange: float,
-}
-type time = {
-  dateFormat: (stringOrDateTimeFormatOptions, option<float>, option<bool>) => string,
-  getTimeTicks: (timeNormalizedObject, option<float>, option<float>, option<float>) => string, // ⚪ loose — was `AxisTickPositionsArray`
-  getTimezoneOffset: float => float,
-  makeTime: (float, float, option<float>, option<float>, option<float>, option<float>) => float,
-  parse: CommonTypes.stringOrNumber => float,
-  toParts: option<string> => array<float>, // ⚪ loose — was `number | Date`
-}
-type alignObject = {
-  align?: alignValue,
-  alignByTranslate?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type creditsOptions = {
-  enabled?: bool,
-  href?: string,
-  mapText?: string,
-  mapTextFull?: string,
-  position?: alignObject,
-  style?: string, // ⚠️ REVIEW — was `CreditsStyleOptions | CSSObject` — match the real type by hand
-  text?: string,
-}
-type captionOptions = {
-  align?: alignValue,
-  floating?: bool,
-  margin?: float,
-  style?: string, // ⚠️ REVIEW — was `CSSObject | CaptionStyleOptions` — match the real type by hand
-  text?: string,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type subtitleOptions = {
-  align?: alignValue,
-  floating?: bool,
-  style?: string, // ⚠️ REVIEW — was `CSSObject | SubtitleStyleOptions` — match the real type by hand
-  text?: string,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type titleOptions = {
-  align?: alignValue,
-  floating?: bool,
-  margin?: float,
-  minScale?: float,
-  style?: string, // ⚠️ REVIEW — was `CSSObject | TitleStyleOptions` — match the real type by hand
-  text?: string,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type legendItemObject = {
-  item?: Dom.element,
-  label?: Dom.element,
-  line?: Dom.element,
-  symbol?: Dom.element,
-}
-type xAxisPlotLinesEventsOptions = {
-  click?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
-  mousemove?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
-  mouseout?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
-  mouseover?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
-}
-type xAxisPlotLinesLabelOptions = {
-  align?: alignValue,
-  formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
-  rotation?: float,
-  style?: string, // ⚪ loose — was `CSSObject`
-  text?: string,
-  textAlign?: alignValue,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type xAxisPlotLinesLabelsOptions = {
-  clip?: bool,
-}
-type xAxisPlotLinesOptions = {
-  acrossPanes?: bool,
-  className?: string,
-  color?: string,
-  dashStyle?: dashStyleValue,
-  events?: xAxisPlotLinesEventsOptions,
-  id?: string,
-  label?: xAxisPlotLinesLabelOptions,
-  labels?: xAxisPlotLinesLabelsOptions,
-  value?: CommonTypes.stringOrNumber,
-  width?: float,
-  zIndex?: int,
-}
-module AxisPlotLinesOptions = {
-  type t
-  external fromXAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
-  external fromYAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
-  external fromZAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
-}
-type extremesObject = {
-  dataMax: float,
-  dataMin: float,
-  max: float,
-  min: float,
-  userMax?: float,
-  userMin?: float,
-}
-type axisPlotLinePathOptionsObject = {
-  acrossPanes?: bool,
-  force?: CommonTypes.boolOrString,
-  lineWidth?: float,
-  old?: bool,
-  reverse?: bool,
-  translatedValue?: float,
-  value?: float,
-}
-type xAxisTitleOptions = {
-  align?: axisTitleAlignValue,
-  margin?: float,
-  offset?: float,
-  position3d?: ChartsTypes.chartsXAxisTitleOptionsPosition3d,
-  reserveSpace?: bool,
-  rotation?: float,
-  skew3d?: bool,
-  style?: string, // ⚠️ REVIEW — was `CSSObject | XAxisTitleStyleOptions` — match the real type by hand
-  text?: string,
-  textAlign?: alignValue,
-  useHTML?: bool,
-  x?: float,
-  y?: float,
-}
-module AxisTitleOptions = {
-  type t
-  external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
-  external fromYAxisTitleOptions: xAxisTitleOptions => t = "%identity"
-  external fromZAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+type pointerEventObject = {
+  ...JsxDOM.domProps,
+  chartX: float,
+  chartY: float,
 }
 type linearGradientColorObject = {
   x1: float,
@@ -590,10 +430,19 @@ type pointAccessibilityOptionsObject = {
   description?: string,
   enabled?: bool,
 }
+type dragDropHandleOptionsObject = {
+  className?: string,
+  color?: ColorType.t,
+  cursor?: string,
+  lineColor?: string,
+  lineWidth?: float,
+  pathFormatter?: string, // ⚪ loose — was `Function`
+  zIndex?: int,
+}
 type seriesLineDataDragDropOptions = {
   draggableX?: bool,
   draggableY?: bool,
-  dragHandle?: string, // ⚪ loose — was `DragDropHandleOptionsObject`
+  dragHandle?: dragDropHandleOptionsObject,
   dragMaxX?: CommonTypes.stringOrNumber,
   dragMaxY?: float,
   dragMinX?: CommonTypes.stringOrNumber,
@@ -668,6 +517,12 @@ type highchartsPointShapeArgsConfig = {
   translateY?: float,
   zIndex?: int,
 }
+@set_index
+external highchartsPointShapeArgsConfigSet: (
+  highchartsPointShapeArgsConfig,
+  string,
+  JSON.t,
+) => unit = ""
 type seriesZonesOptionsObject = {
   className?: string,
   color?: ColorType.t,
@@ -675,10 +530,113 @@ type seriesZonesOptionsObject = {
   fillColor?: ColorType.t,
   value?: float,
 }
-type pointerEventObject = {
+type dateTimeFormatOptions = {
+  day?: ChartsTypes.chartsDateTimeFormatOptionsDay,
+  era?: ChartsTypes.chartsDateTimeFormatOptionsEra,
+  formatMatcher?: string,
+  fractionalSecondDigits?: CommonTypes.v1OrV2OrV3,
+  hour?: ChartsTypes.chartsDateTimeFormatOptionsDay,
+  hour12?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  localeMatcher?: string,
+  minute?: ChartsTypes.chartsDateTimeFormatOptionsDay,
+  month?: ChartsTypes.chartsDateTimeFormatOptionsMonth,
+  prefix?: string,
+  second?: ChartsTypes.chartsDateTimeFormatOptionsDay,
+  suffix?: string,
+  timeZone?: string,
+  timeZoneName?: ChartsTypes.chartsDateTimeFormatOptionsTimeZoneName,
+  weekday?: ChartsTypes.chartsDateTimeFormatOptionsEra,
+  year?: ChartsTypes.chartsDateTimeFormatOptionsDay,
+}
+@unboxed
+type stringOrDateTimeFormatOptions = Str(string) | DateTimeFormatOptions(dateTimeFormatOptions)
+type timeNormalizedObject = {
+  count?: int,
+  unitRange: float,
+}
+type timeTicksInfoObject = {
+  higherRanks: array<string>,
+  totalRange: float,
+  count?: int,
+  unitRange: float,
+}
+type axisTickPositionsArray = {
   ...JsxDOM.domProps,
-  chartX: float,
-  chartY: float,
+  info?: timeTicksInfoObject,
+}
+type time = {
+  dateFormat: (stringOrDateTimeFormatOptions, option<float>, option<bool>) => string,
+  getTimeTicks: (
+    timeNormalizedObject,
+    option<float>,
+    option<float>,
+    option<float>,
+  ) => axisTickPositionsArray,
+  getTimezoneOffset: float => float,
+  makeTime: (float, float, option<float>, option<float>, option<float>, option<float>) => float,
+  parse: CommonTypes.stringOrNumber => float,
+  toParts: option<string> => array<float>, // ⚪ loose — was `number | Date`
+}
+type alignObject = {
+  align?: alignValue,
+  alignByTranslate?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type creditsOptions = {
+  enabled?: bool,
+  href?: string,
+  mapText?: string,
+  mapTextFull?: string,
+  position?: alignObject,
+  style?: string, // ⚠️ REVIEW — was `CreditsStyleOptions | CSSObject` — match the real type by hand
+  text?: string,
+}
+type captionOptions = {
+  align?: alignValue,
+  floating?: bool,
+  margin?: float,
+  style?: string, // ⚠️ REVIEW — was `CSSObject | CaptionStyleOptions` — match the real type by hand
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type subtitleOptions = {
+  align?: alignValue,
+  floating?: bool,
+  style?: string, // ⚠️ REVIEW — was `CSSObject | SubtitleStyleOptions` — match the real type by hand
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type titleOptions = {
+  align?: alignValue,
+  floating?: bool,
+  margin?: float,
+  minScale?: float,
+  style?: string, // ⚠️ REVIEW — was `CSSObject | TitleStyleOptions` — match the real type by hand
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type seriesAccessibilityKeyboardNavigationOptionsObject = {
+  enabled?: bool,
+}
+type legendAccessibilityOptions = {
+  enabled?: bool,
+  keyboardNavigation?: seriesAccessibilityKeyboardNavigationOptionsObject,
+}
+type bubbleLegendFormatterContextObject = {
+  center: float,
+  radius: float,
+  value: float,
 }
 type cssObjectHighcharts = {
   background?: string,
@@ -706,6 +664,369 @@ type cssObjectHighcharts = {
   whiteSpace?: string,
   width?: float,
 }
+@set_index
+external cssObjectHighchartsSet: (
+  cssObjectHighcharts,
+  string,
+  CommonTypes.boolOrStringOrNumber,
+) => unit = ""
+type legendBubbleLegendLabelsOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  className?: string,
+  format?: string,
+  formatter?: @this (
+    bubbleLegendFormatterContextObject,
+    option<bubbleLegendFormatterContextObject>,
+  ) => string,
+  style?: cssObjectHighcharts,
+  x?: float,
+  y?: float,
+}
+type legendBubbleLegendRangesOptions = {
+  borderColor?: ColorType.t,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  value?: float,
+}
+type legendBubbleLegendOptions = {
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorClassName?: string,
+  connectorColor?: ColorType.t,
+  connectorDistance?: float,
+  connectorWidth?: float,
+  enabled?: bool,
+  labels?: legendBubbleLegendLabelsOptions,
+  legendIndex?: float,
+  maxSize?: float,
+  minSize?: float,
+  ranges?: array<legendBubbleLegendRangesOptions>,
+  sizeBy?: bubbleSizeByValue,
+  sizeByAbsoluteValue?: bool,
+  zIndex?: int,
+  zThreshold?: float,
+}
+type legendItemObject = {
+  item?: Dom.element,
+  label?: Dom.element,
+  line?: Dom.element,
+  symbol?: Dom.element,
+}
+type legendNavigationOptions = {
+  activeColor?: ColorType.t,
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  arrowSize?: float,
+  enabled?: bool,
+  inactiveColor?: ColorType.t,
+  style?: cssObjectHighcharts,
+}
+@unboxed type boolOrCssObject = Bool(bool) | CssObject(cssObjectHighcharts)
+type legendTitleOptions = {
+  style?: cssObjectHighcharts,
+  text?: string,
+}
+type symbolDictionary = {
+  arc?: string, // ⚪ loose — was `Function`
+  callout?: string, // ⚪ loose — was `Function`
+  circle?: string, // ⚪ loose — was `Function`
+  diamond?: string, // ⚪ loose — was `Function`
+  square?: string, // ⚪ loose — was `Function`
+  triangle?: string, // ⚪ loose — was `Function`
+}
+@set_index external symbolDictionarySet: (symbolDictionary, string, JSON.t) => unit = ""
+@unboxed type stringOrCssObject = Str(string) | CssObject(cssObjectHighcharts)
+type svgAttributes = {
+  d?: stringOrChartsPointShapeArgsDTArray,
+  dx?: float,
+  dy?: float,
+  fill?: ColorType.t,
+  inverted?: bool,
+  matrix?: array<float>,
+  rotation?: float,
+  rotationOriginX?: float,
+  rotationOriginY?: float,
+  scaleX?: float,
+  scaleY?: float,
+  stroke?: ColorType.t,
+  style?: stringOrCssObject,
+  translateX?: float,
+  translateY?: float,
+  zIndex?: int,
+}
+@set_index external svgAttributesSet: (svgAttributes, string, 'c) => unit = ""
+type rec astNode = {
+  attributes?: svgAttributes,
+  children?: array<astNode>,
+  tagName?: string,
+  textContent?: string,
+}
+type fontMetricsObject = {
+  b: float,
+  f: float,
+  h: float,
+}
+type symbolOptionsObject = {
+  anchorX?: float,
+  anchorY?: float,
+  end?: float,
+  @as("open") open_?: bool,
+  r?: float,
+  start?: float,
+}
+type svgRenderer = {
+  box: Dom.element,
+  boxWrapper: Dom.element,
+  defs: Dom.element,
+  @as("Element") element: Dom.element,
+  escapes: Dict.t<string>,
+  forExport?: bool,
+  symbols: symbolDictionary,
+  arc: string, // ⚠️ REVIEW — match the real type by hand
+  button: (
+    string,
+    float,
+    float,
+    @this (string, option<string>, option<string>) => bool,
+    option<svgAttributes>,
+    option<svgAttributes>,
+    option<svgAttributes>,
+    option<svgAttributes>,
+    option<symbolKeyValue>,
+    option<bool>,
+  ) => Dom.element, // ⚠️ REVIEW — was `SVGElement` — match the real type by hand
+  circle: string, // ⚠️ REVIEW — match the real type by hand
+  clipRect: (option<float>, option<float>, option<float>, option<float>) => Dom.element,
+  createElement: string => Dom.element,
+  crispLine: (array<ChartsPointShapeArgsD.t>, float) => array<ChartsPointShapeArgsD.t>,
+  definition: astNode => Dom.element,
+  destroy: unit => string, // ⚪ loose — was `null`
+  draw: unit => unit,
+  fontMetrics: string => fontMetricsObject, // ⚠️ REVIEW — was `number | SVGElement | Highcharts.SVGElement` — match the real type by hand
+  g: option<string> => Dom.element,
+  getContrast: string => string,
+  image: (
+    string,
+    option<float>,
+    option<float>,
+    option<float>,
+    option<float>,
+    option<string>,
+  ) => Dom.element, // ⚪ loose — was `Function`
+  init: (
+    Dom.element,
+    float,
+    float,
+    option<cssObjectHighcharts>,
+    option<bool>,
+    option<bool>,
+    option<bool>,
+  ) => unit,
+  isHidden: unit => bool,
+  label: (
+    string,
+    float,
+    option<float>,
+    option<string>,
+    option<float>,
+    option<float>,
+    option<bool>,
+    option<bool>,
+    option<string>,
+  ) => Dom.element,
+  path: string, // ⚠️ REVIEW — match the real type by hand
+  rect: string, // ⚠️ REVIEW — match the real type by hand
+  roundedRect: svgAttributes => Dom.element,
+  setSize: (float, float, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  setStyle: cssObjectHighcharts => unit,
+  symbol: (
+    string,
+    option<float>,
+    option<float>,
+    option<float>,
+    option<float>,
+    option<symbolOptionsObject>,
+  ) => Dom.element,
+  text: (option<string>, option<float>, option<float>, option<bool>) => Dom.element,
+}
+type highchartsAnnotationsOptionsAnimationConfig = {
+  complete?: string, // ⚪ loose — was `Function`
+  defer?: float,
+  duration?: float,
+  easing?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  step?: string, // ⚪ loose — was `Function`
+}
+type tooltipAnimationOptions = {
+  duration?: float,
+}
+module ChartsTooltipOptionsAnimation = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
+  external fromTooltipAnimationOptions: tooltipAnimationOptions => t = "%identity"
+}
+type plotAdTooltipPositionOptions = {
+  align?: alignValue,
+  relativeTo?: optionsRelativeToValue,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type positionObject = {
+  x: float,
+  y: float,
+}
+type shadowOptionsObject = {
+  color?: string,
+  offsetX?: float,
+  offsetY?: float,
+  opacity?: float,
+  width?: float,
+}
+@unboxed type boolOrShadowOptionsObject = Bool(bool) | ShadowOptionsObject(shadowOptionsObject)
+type creditsStyleOptions = {
+  fontSize?: CommonTypes.stringOrNumber,
+}
+module ChartsTooltipOptionsStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external fromTooltipStyleOptions: creditsStyleOptions => t = "%identity"
+}
+type xAxisPlotLinesEventsOptions = {
+  click?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
+  mousemove?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
+  mouseout?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
+  mouseover?: @this (string, option<string>, option<string>) => bool, // ⚠️ REVIEW — was `PlotLineOrBand` — match the real type by hand
+}
+type xAxisPlotLinesLabelOptions = {
+  align?: alignValue,
+  formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
+  rotation?: float,
+  style?: cssObjectHighcharts,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type xAxisPlotLinesLabelsOptions = {
+  clip?: bool,
+}
+type xAxisPlotLinesOptions = {
+  acrossPanes?: bool,
+  className?: string,
+  color?: string,
+  dashStyle?: dashStyleValue,
+  events?: xAxisPlotLinesEventsOptions,
+  id?: string,
+  label?: xAxisPlotLinesLabelOptions,
+  labels?: xAxisPlotLinesLabelsOptions,
+  value?: CommonTypes.stringOrNumber,
+  width?: float,
+  zIndex?: int,
+}
+module AxisPlotLinesOptions = {
+  type t
+  external fromXAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
+  external fromYAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
+  external fromZAxisPlotLinesOptions: xAxisPlotLinesOptions => t = "%identity"
+}
+type extremesObject = {
+  dataMax: float,
+  dataMin: float,
+  max: float,
+  min: float,
+  userMax?: float,
+  userMin?: float,
+}
+type axisPlotLinePathOptionsObject = {
+  acrossPanes?: bool,
+  force?: CommonTypes.boolOrString,
+  lineWidth?: float,
+  old?: bool,
+  reverse?: bool,
+  translatedValue?: float,
+  value?: float,
+}
+type xAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: ChartsTypes.chartsXAxisTitleOptionsPosition3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: string, // ⚠️ REVIEW — was `CSSObject | XAxisTitleStyleOptions` — match the real type by hand
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+module AxisTitleOptions = {
+  type t
+  external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromYAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromZAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+}
+type axisAccessibilityOptionsObject = {
+  description?: string,
+  enabled?: bool,
+  rangeDescription?: string,
+}
+type colorAxisDataClassesOptions = {
+  color?: ColorType.t,
+  from?: float,
+  name?: string,
+  @as("to") to_?: float,
+}
+type axisSetExtremesEventObject = {
+  preventDefault: string, // ⚪ loose — was `Function`
+  target: string, // ⚪ loose — was `SVGElement`
+  trigger: string,
+  @as("type") type_: string,
+  dataMax: float,
+  dataMin: float,
+  max: float,
+  min: float,
+  userMax?: float,
+  userMin?: float,
+}
+module ChartsColorAxisLabelsOptionsStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external fromColorAxisLabelsStyleOptions: creditsStyleOptions => t = "%identity"
+}
+module ChartsColorAxisTitleOptionsStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external fromColorAxisTitleStyleOptions: creditsStyleOptions => t = "%identity"
+}
+type colorAxisTitleOptions = {
+  align?: axisTitleAlignValue,
+  margin?: float,
+  offset?: float,
+  position3d?: ChartsTypes.chartsXAxisTitleOptionsPosition3d,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  style?: ChartsColorAxisTitleOptionsStyle.t,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+}
+module ChartsColorAxisOptionsTitle = {
+  type t
+  external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromYAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromZAxisTitleOptions: xAxisTitleOptions => t = "%identity"
+  external fromColorAxisTitleOptions: colorAxisTitleOptions => t = "%identity"
+}
 type keyboardNavigationFocusBorderOptionsObject = {
   enabled?: bool,
   hideBrowserFocusOutline?: bool,
@@ -725,13 +1046,6 @@ type keyboardNavigationOptionsObject = {
   seriesNavigation?: keyboardNavigationSeriesNavigationOptionsObject,
   wrapAround?: bool,
 }
-type highchartsAnnotationsOptionsAnimationConfig = {
-  complete?: string, // ⚪ loose — was `Function`
-  defer?: float,
-  duration?: float,
-  easing?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  step?: string, // ⚪ loose — was `Function`
-}
 type annotationsAnimationOptions = {
   defer?: float,
 }
@@ -741,32 +1055,9 @@ module ChartsAnnotationsOptionsAnimation = {
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromAnnotationsAnimationOptions: annotationsAnimationOptions => t = "%identity"
 }
-type positionObject = {
-  x: float,
-  y: float,
-}
 type annotationControlPoint = {
   setVisibility: bool => unit,
   update: string => unit, // ⚪ loose — was `Partial<AnnotationControlPointOptionsObject>`
-}
-@unboxed type stringOrCssObject = Str(string) | CssObject(cssObjectHighcharts)
-type svgAttributes = {
-  d?: stringOrChartsPointShapeArgsDTArray,
-  dx?: float,
-  dy?: float,
-  fill?: ColorType.t,
-  inverted?: bool,
-  matrix?: array<float>,
-  rotation?: float,
-  rotationOriginX?: float,
-  rotationOriginY?: float,
-  scaleX?: float,
-  scaleY?: float,
-  stroke?: ColorType.t,
-  style?: stringOrCssObject,
-  translateX?: float,
-  translateY?: float,
-  zIndex?: int,
 }
 type annotationsControlPointStyleOptions = {
   cursor?: string,
@@ -1535,14 +1826,6 @@ module ChartsAnnotationControlPointOptionsObjectStyle = {
 type annotationLabelAccessibilityOptionsObject = {
   description?: string,
 }
-type shadowOptionsObject = {
-  color?: string,
-  offsetX?: float,
-  offsetY?: float,
-  opacity?: float,
-  width?: float,
-}
-@unboxed type boolOrShadowOptionsObject = Bool(bool) | ShadowOptionsObject(shadowOptionsObject)
 type annotationMockPointOptionsObject = {
   x: float,
   xAxis: CommonTypes.stringOrNumber,
@@ -1727,9 +2010,6 @@ type boostOptions = {
   useGPUTranslations?: bool,
   usePreallocated?: bool,
 }
-type seriesAccessibilityKeyboardNavigationOptionsObject = {
-  enabled?: bool,
-}
 type plotAbandsBottomLineStylesOptions = {
   lineWidth?: float,
 }
@@ -1770,6 +2050,166 @@ type dataLabelsTextPathOptionsObject = {
   attributes?: ChartsDataLabelsTextPathOptionsObjectAttributes.t,
   enabled?: bool,
 }
+type plotAdDataLabelsAnimationOptions = {
+  defer?: float,
+}
+module ChartsDataLabelsOptionsAnimation = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
+  external fromSeriesArcdiagramDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesAreaDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesArearangeDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesAreasplineDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesAreasplinerangeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesBarDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesBoxplotDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesBubbleDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesBulletDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesCandlestickDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesColumnDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesColumnpyramidDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesColumnrangeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesContourDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesCylinderDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesDumbbellDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesFunnel3dDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesFunnelDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesGaugeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesHeatmapDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesHeikinashiDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesHlcDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesHollowcandlestickDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesItemDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesLineDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesLollipopDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesNetworkgraphDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesOhlcDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesOrganizationDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPackedbubbleDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesParetoDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPictorialDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPieDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPointandfigureDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPolygonDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPyramid3dDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesPyramidDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesRenkoDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesSankeyDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesScatter3dDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesScatterDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesSolidgaugeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesSplineDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesStreamgraphDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesSunburstDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesTilemapDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesTimelineDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesTreegraphDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesTreemapDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesVariablepieDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesVariwideDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesVectorDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesVennDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesWaterfallDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+  external fromSeriesWindbarbDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesWordcloudDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+  external fromSeriesXrangeDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
+    "%identity"
+}
+type dataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: ChartsDataLabelsOptionsAnimation.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: cssObjectHighcharts,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  xHigh?: float,
+  xLow?: float,
+  y?: float,
+  yHigh?: float,
+  yLow?: float,
+}
 type dataSortingOptionsObject = {
   enabled?: bool,
   matchByName?: bool,
@@ -1787,9 +2227,6 @@ type labelIntersectBoxObject = {
   top: float,
 }
 type plotAbandsLabelStyleOptions = {
-  fontSize?: CommonTypes.stringOrNumber,
-}
-type creditsStyleOptions = {
   fontSize?: CommonTypes.stringOrNumber,
 }
 module ChartsSeriesLabelOptionsObjectStyle = {
@@ -1906,13 +2343,6 @@ type plotAbandsParamsOptions = {
   period?: float,
 }
 type plotAbandsTooltipPositionOptions = {
-  align?: alignValue,
-  relativeTo?: optionsRelativeToValue,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-type plotAdTooltipPositionOptions = {
   align?: alignValue,
   relativeTo?: optionsRelativeToValue,
   verticalAlign?: verticalAlignValue,
@@ -2085,171 +2515,147 @@ module ChartsSeriesTooltipOptionsObjectPosition = {
   external fromPlotXrangeTooltipPositionOptions: plotAbandsTooltipPositionOptions => t = "%identity"
   external fromPlotZigzagTooltipPositionOptions: plotAdTooltipPositionOptions => t = "%identity"
 }
-type plotAdDataLabelsAnimationOptions = {
-  defer?: float,
+type dataGroupingOptionsObject = {
+  anchor?: string,
+  approximation?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  dateTimeLabelFormats?: string, // ⚪ loose — was `object`
+  enabled?: bool,
+  firstAnchor?: string,
+  forced?: bool,
+  groupAll?: bool,
+  groupPixelWidth?: float,
+  lastAnchor?: string,
+  units?: array<(string, array<float>)>,
+}
+type rGBA = {
+  ...JsxDOM.domProps,
+  length: string, // ⚪ loose — was `4`
+}
+type rec color = {
+  rgba: rGBA,
+  brighten: float => color,
+  get: option<string> => ColorType.t,
+  setOpacity: float => color,
+  tweenTo: (color, float) => ColorType.t,
+}
+type synthPatchEQFilter = {
+  frequency?: float,
+  gain?: float,
+  @as("Q") q?: float,
+}
+type synthPatchPassFilter = {
+  frequency?: float,
+  frequencyPitchTrackingMultiplier?: float,
+  @as("Q") q?: float,
+}
+type synthPatchOscillatorOptionsObject = {
+  attackEnvelope?: array<JSON.t>,
+  detune?: float,
+  fixedFrequency?: float,
+  fmOscillator?: float,
+  freqMultiplier?: float,
+  highpass?: synthPatchPassFilter,
+  lowpass?: synthPatchPassFilter,
+  pulseWidth?: float,
+  releaseEnvelope?: array<JSON.t>,
+  @as("type") type_?: synthPatchOscillatorType,
+  vmOscillator?: float,
+  volume?: float,
+  volumePitchTrackingMultiplier?: float,
+}
+type synthPatchOptionsObject = {
+  eq?: array<synthPatchEQFilter>,
+  masterAttackEnvelope?: array<JSON.t>,
+  masterReleaseEnvelope?: array<JSON.t>,
+  masterVolume?: float,
+  midiInstrument?: float,
+  noteGlideDuration?: float,
+  oscillators?: array<synthPatchOscillatorOptionsObject>,
+}
+@unboxed
+type stringOrSynthPatchOptionsObject =
+  Str(string) | SynthPatchOptionsObject(synthPatchOptionsObject)
+type sonificationInstrumentMappingOptions = {
+  frequency?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentFrequencyOptions`
+  gapBetweenNotes?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
+  highpass?: string, // ⚪ loose — was `SonificationInstrumentHighpassOptions`
+  lowpass?: string, // ⚪ loose — was `SonificationInstrumentLowpassOptions`
+  noteDuration?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
+  pan?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
+  pitch?: string, // ⚪ loose — was `string | number | Function | (string | number)[] | SonificationInstrumentPitchOptions`
+  playDelay?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentPlayDelayOptions`
+  rate?: string, // ⚪ loose — was `string | number | Function | SonificationTracksRateOptions`
+  text?: string, // ⚪ loose — was `string | Function`
+  time?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
+  tremolo?: string, // ⚪ loose — was `SonificationInstrumentTremoloOptions`
+  volume?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentVolumeOptions`
+}
+type sonificationInstrumentPointGroupingOptions = {
+  algorithm?: string,
+  enabled?: bool,
+  groupTimespan?: float,
+  prop?: string,
+}
+type seriesSonificationContextTracksOptions = {
+  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
+  instrument?: stringOrSynthPatchOptionsObject,
+  mapping?: sonificationInstrumentMappingOptions,
+  midiName?: string,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  roundToMusicalNotes?: bool,
+  showPlayMarker?: bool,
+  timeInterval?: float,
+  @as("type") type_?: sonifcationTypeValue,
+  valueInterval?: float,
+  valueMapFunction?: optionsValueMapFunctionValue,
+  valueProp?: string,
+}
+type seriesSonificationInstrumentOptions = {
+  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
+  instrument?: stringOrSynthPatchOptionsObject,
+  mapping?: sonificationInstrumentMappingOptions,
+  midiName?: string,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  roundToMusicalNotes?: bool,
+  showPlayMarker?: bool,
+  @as("type") type_?: sonifcationTypeValue,
+}
+type sonificationSpeechMappingOptions = {
+  pitch?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationSpeechPitchOptions` — match the real type by hand
+  playDelay?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationSpeechPlayDelayOptions` — match the real type by hand
+  rate?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentTimeOptions` — match the real type by hand
+  text?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  time?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentTimeOptions` — match the real type by hand
+  volume?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentVolumeOptions` — match the real type by hand
+}
+type seriesSonificationSpeechOptions = {
+  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
+  language?: string,
+  mapping?: sonificationSpeechMappingOptions,
+  pointGrouping?: sonificationInstrumentPointGroupingOptions,
+  preferredVoice?: string,
+  showPlayMarker?: bool,
+  @as("type") type_?: sonifcationTypeValue,
+}
+type seriesSonificationPointGroupingOptions = {
+  algorithm?: optionsAlgorithmValue,
+  enabled?: bool,
+  groupTimespan?: float,
+  prop?: string,
+}
+type seriesSonificationOptions = {
+  contextTracks?: array<seriesSonificationContextTracksOptions>,
+  defaultInstrumentOptions?: seriesSonificationInstrumentOptions,
+  defaultSpeechOptions?: seriesSonificationSpeechOptions,
+  enabled?: bool,
+  pointGrouping?: seriesSonificationPointGroupingOptions,
+  tracks?: array<seriesSonificationInstrumentOptions>,
 }
 module ChartsPlotAdDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotAdDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t = "%identity"
-}
-module ChartsDataLabelsOptionsAnimation = {
-  type t
-  external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
-  external fromSeriesArcdiagramDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesAreaDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesArearangeDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesAreasplineDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesAreasplinerangeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesBarDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesBoxplotDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesBubbleDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesBulletDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesCandlestickDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesColumnDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesColumnpyramidDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesColumnrangeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesContourDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesCylinderDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesDumbbellDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesFunnel3dDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesFunnelDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesGaugeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesHeatmapDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesHeikinashiDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesHlcDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesHollowcandlestickDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesItemDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesLineDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesLollipopDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesNetworkgraphDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesOhlcDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesOrganizationDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPackedbubbleDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesParetoDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPictorialDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPieDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPointandfigureDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPolygonDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPyramid3dDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesPyramidDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesRenkoDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesSankeyDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesScatter3dDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesScatterDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesSolidgaugeDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesSplineDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesStreamgraphDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesSunburstDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesTilemapDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesTimelineDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesTreegraphDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesTreemapDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesVariablepieDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesVariwideDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesVectorDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesVennDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesWaterfallDataDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-  external fromSeriesWindbarbDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesWordcloudDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-  external fromSeriesXrangeDataDataLabelsAnimationOptions: annotationsAnimationOptions => t =
-    "%identity"
-}
-type dataLabelsOptions = {
-  align?: alignValue,
-  alignTo?: string,
-  allowOverlap?: bool,
-  animation?: ChartsDataLabelsOptionsAnimation.t,
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  crop?: bool,
-  defer?: bool,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
-  inside?: bool,
-  labelrank?: float,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  position?: alignValue,
-  rotation?: float,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  style?: cssObjectHighcharts,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  xHigh?: float,
-  xLow?: float,
-  y?: float,
-  yHigh?: float,
-  yLow?: float,
 }
 type plotAdDataSortingOptions = {
   enabled?: bool,
@@ -2340,6 +2746,83 @@ module ChartsSeriesAreaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotAreaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
+}
+type seriesDragDropOptionsObject = {
+  draggableClose?: bool,
+  draggableEnd?: bool,
+  draggableHigh?: bool,
+  draggableLow?: bool,
+  draggableOpen?: bool,
+  draggableQ1?: bool,
+  draggableQ3?: bool,
+  draggableStart?: bool,
+  draggableTarget?: bool,
+  draggableX?: bool,
+  draggableX1?: bool,
+  draggableX2?: bool,
+  draggableY?: bool,
+  dragHandle?: dragDropHandleOptionsObject,
+  dragMaxX?: CommonTypes.stringOrNumber,
+  dragMaxY?: float,
+  dragMinX?: CommonTypes.stringOrNumber,
+  dragMinY?: float,
+  dragPrecisionX?: float,
+  dragPrecisionY?: float,
+  dragSensitivity?: float,
+  groupBy?: string,
+  guideBox?: string, // ⚠️ REVIEW — was `PlotOptionsSeriesDragDropGuideBoxOptions | Dictionary<DragDropGuideBoxOptionsObject>` — match the real type by hand
+  liveRedraw?: bool,
+}
+type connectorsAnimationOptionsObject = {
+  reversed?: bool,
+}
+type connectorsEndMarkerOptions = {
+  align?: string,
+  color?: ColorType.t,
+  enabled?: bool,
+  height?: float,
+  inside?: bool,
+  lineColor?: string,
+  lineWidth?: float,
+  radius?: float,
+  symbol?: string,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+}
+type connectorsMarkerOptions = {
+  align?: alignValue,
+  color?: ColorType.t,
+  enabled?: bool,
+  height?: float,
+  inside?: bool,
+  lineColor?: string,
+  lineWidth?: float,
+  radius?: float,
+  verticalAlign?: verticalAlignValue,
+  width?: float,
+}
+type seriesConnectorsOptionsObject = {
+  animation?: connectorsAnimationOptionsObject,
+  dashStyle?: dashStyleValue,
+  endMarker?: connectorsEndMarkerOptions,
+  lineColor?: string,
+  lineWidth?: float,
+  marker?: connectorsMarkerOptions,
+  radius?: float,
+  startMarker?: connectorsEndMarkerOptions,
+  @as("type") type_?: string,
+}
+module ChartsPlotSeriesDataLabelsOptionsAnimation = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
+  external fromPlotSeriesDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
+    "%identity"
+}
+module ChartsPlotSeriesOptionsDataSorting = {
+  type t
+  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
+  external fromPlotSeriesDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
 }
 module ChartsSeriesAreaRangeDataLabelsOptionsObjectAnimation = {
   type t
@@ -2760,45 +3243,6 @@ module ChartsPlotFunnel3dDataLabelsOptionsAnimation = {
   external fromPlotFunnel3dDataLabelsAnimationOptions: annotationsAnimationOptions => t =
     "%identity"
 }
-type connectorsAnimationOptionsObject = {
-  reversed?: bool,
-}
-type connectorsEndMarkerOptions = {
-  align?: string,
-  color?: ColorType.t,
-  enabled?: bool,
-  height?: float,
-  inside?: bool,
-  lineColor?: string,
-  lineWidth?: float,
-  radius?: float,
-  symbol?: string,
-  verticalAlign?: verticalAlignValue,
-  width?: float,
-}
-type connectorsMarkerOptions = {
-  align?: alignValue,
-  color?: ColorType.t,
-  enabled?: bool,
-  height?: float,
-  inside?: bool,
-  lineColor?: string,
-  lineWidth?: float,
-  radius?: float,
-  verticalAlign?: verticalAlignValue,
-  width?: float,
-}
-type seriesConnectorsOptionsObject = {
-  animation?: connectorsAnimationOptionsObject,
-  dashStyle?: dashStyleValue,
-  endMarker?: connectorsEndMarkerOptions,
-  lineColor?: string,
-  lineWidth?: float,
-  marker?: connectorsMarkerOptions,
-  radius?: float,
-  startMarker?: connectorsEndMarkerOptions,
-  @as("type") type_?: string,
-}
 module ChartsPlotGanttDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
@@ -3145,6 +3589,22 @@ type plotNetworkgraphLinkOptions = {
   opacity?: float,
   width?: float,
 }
+type plotNetworkgraphLayoutAlgorithmOptions = {
+  approximation?: optionsApproximationValue,
+  attractiveForce?: string, // ⚪ loose — was `Function`
+  enableSimulation?: bool,
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
+  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  maxIterations?: float,
+  maxSpeed?: float,
+  repulsiveForce?: string, // ⚪ loose — was `Function`
+  theta?: float,
+  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
+}
 module ChartsPlotObvDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
@@ -3195,6 +3655,37 @@ type plotOrganizationLinkOptions = {
 }
 type plotPackedbubbleParentNodeOptions = {
   allowPointSelect?: bool,
+}
+type plotPackedbubbleLayoutAlgorithmParentNodeOptions = {
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
+  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  marker?: pointMarkerOptionsObject,
+  maxIterations?: float,
+  maxSpeed?: float,
+  seriesInteraction?: bool,
+  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
+}
+type plotPackedbubbleLayoutAlgorithmOptions = {
+  bubblePadding?: float,
+  dragBetweenSeries?: bool,
+  enableSimulation?: bool,
+  friction?: float,
+  gravitationalConstant?: float,
+  initialPositionRadius?: float,
+  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
+  integration?: optionsIntegrationValue,
+  linkLength?: float,
+  maxIterations?: float,
+  maxSpeed?: float,
+  parentNodeLimit?: bool,
+  parentNodeOptions?: plotPackedbubbleLayoutAlgorithmParentNodeOptions,
+  seriesInteraction?: bool,
+  splitSeries?: bool,
+  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
 }
 module ChartsPlotParetoDataLabelsOptionsAnimation = {
   type t
@@ -3400,6 +3891,34 @@ module ChartsSeriesScatterOptionsDataSorting = {
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotScatterDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
+type plotScatterClusterDataLabelsOptions = {
+  style?: string, // 🛑 BROKEN — contains `any`
+}
+module ChartsPlotScatterClusterOptionsDataLabels = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotScatterClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
+}
+type plotScatterClusterLayoutAlgorithmOptions = {
+  distance?: CommonTypes.stringOrNumber,
+  gridSize?: CommonTypes.stringOrNumber,
+  iterations?: float,
+  kmeansThreshold?: float,
+  @as("type") type_?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+}
+type plotScatterClusterStatesHoverOptions = {
+  fillColor?: ColorType.t,
+}
+type plotScatterClusterStatesOptions = {
+  hover?: plotScatterClusterStatesHoverOptions,
+}
+type plotScatterClusterZonesOptions = {
+  className?: string,
+  from?: float,
+  marker?: pointMarkerOptionsObject,
+  @as("to") to_?: float,
+}
 module ChartsPlotSlowstochasticDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
@@ -3530,7 +4049,7 @@ type plotSunburstBreadcrumbsOptions = {
   events?: plotSunburstBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
-  formatter?: string => string, // ⚪ loose — was `BreadcrumbOptions`
+  formatter?: breadcrumbOptions => string,
   position?: ChartsPlotSunburstBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
@@ -3601,7 +4120,6 @@ module ChartsTimelineDataLabelsOptionsObjectAnimation = {
   external fromPlotTimelineDataLabelsAnimationOptions: annotationsAnimationOptions => t =
     "%identity"
 }
-@unboxed type boolOrCssObject = Bool(bool) | CssObject(cssObjectHighcharts)
 type plotTreegraphCollapseButtonStyleOptions = {
   cursor?: string,
   fontSize?: float,
@@ -3682,7 +4200,7 @@ type plotTreemapBreadcrumbsOptions = {
   events?: plotSunburstBreadcrumbsEventsOptions,
   floating?: bool,
   format?: string,
-  formatter?: string => string, // ⚪ loose — was `BreadcrumbOptions`
+  formatter?: breadcrumbOptions => string,
   position?: ChartsPlotTreemapBreadcrumbsOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
   rtl?: bool,
@@ -3819,11 +4337,23 @@ module ChartsSeriesVectorOptionsDataSorting = {
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external fromPlotVectorDataSortingOptions: dataSortingOptionsObject => t = "%identity"
 }
+module ChartsPlotVectorClusterOptionsDataLabels = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotVectorClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
+}
 module ChartsPlotVennDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromPlotVennDataLabelsAnimationOptions: annotationsAnimationOptions => t = "%identity"
+}
+module ChartsPlotVennClusterOptionsDataLabels = {
+  type t
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external fromPlotVennClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
+    "%identity"
 }
 module ChartsPlotVwapDataLabelsOptionsAnimation = {
   type t
@@ -3959,11 +4489,6 @@ type chartPanningOptions = {
   enabled?: bool,
   @as("type") type_?: optionsChartPanningTypeValue,
 }
-type axisAccessibilityOptionsObject = {
-  description?: string,
-  enabled?: bool,
-  rangeDescription?: string,
-}
 type axisDateTimeLabelFormatsOptionsObject = {
   list?: array<stringOrDateTimeFormatOptions>,
   main?: stringOrDateTimeFormatOptions,
@@ -3982,18 +4507,6 @@ type axisDateTimeLabelFormatsOptions = {
   week?: stringOrAxisDateTimeLabelFormatsOptionsObject,
   year?: stringOrAxisDateTimeLabelFormatsOptionsObject,
 }
-type axisSetExtremesEventObject = {
-  preventDefault: string, // ⚪ loose — was `Function`
-  target: string, // ⚪ loose — was `SVGElement`
-  trigger: string,
-  @as("type") type_: string,
-  dataMax: float,
-  dataMin: float,
-  max: float,
-  min: float,
-  userMax?: float,
-  userMin?: float,
-}
 module ChartsChartParallelAxesLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObjectHighcharts => t = "%identity"
@@ -4005,12 +4518,110 @@ type yAxisBreaksOptions = {
   repeat?: float,
   @as("to") to_?: CommonTypes.stringOrNumber,
 }
-type yAxisGridOptions = {
+module ChartsCurrentDateIndicatorOptionsEvents = {
+  type t
+  external fromNavigatorXAxisCurrentDateIndicatorEventsOptions: xAxisPlotLinesEventsOptions => t =
+    "%identity"
+  external fromXAxisCurrentDateIndicatorEventsOptions: xAxisPlotLinesEventsOptions => t =
+    "%identity"
+}
+type navigatorXAxisCurrentDateIndicatorLabelOptions = {
+  align?: alignValue,
+  format?: LibTypes.stringOrEvent,
+  formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
+  rotation?: float,
+  style?: cssObjectHighcharts,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+module ChartsCurrentDateIndicatorOptionsLabel = {
+  type t
+  external fromNavigatorXAxisCurrentDateIndicatorLabelOptions: navigatorXAxisCurrentDateIndicatorLabelOptions => t =
+    "%identity"
+  external fromXAxisCurrentDateIndicatorLabelOptions: navigatorXAxisCurrentDateIndicatorLabelOptions => t =
+    "%identity"
+}
+module ChartsCurrentDateIndicatorOptionsLabels = {
+  type t
+  external fromNavigatorXAxisCurrentDateIndicatorLabelsOptions: xAxisPlotLinesLabelsOptions => t =
+    "%identity"
+  external fromXAxisCurrentDateIndicatorLabelsOptions: xAxisPlotLinesLabelsOptions => t =
+    "%identity"
+}
+type currentDateIndicatorOptions = {
+  className?: string,
+  color?: string,
+  dashStyle?: dashStyleValue,
+  events?: ChartsCurrentDateIndicatorOptionsEvents.t,
+  id?: string,
+  label?: ChartsCurrentDateIndicatorOptionsLabel.t,
+  labels?: ChartsCurrentDateIndicatorOptionsLabels.t,
+  width?: float,
+  zIndex?: int,
+}
+@unboxed
+type boolOrCurrentDateIndicatorOptions =
+  Bool(bool) | CurrentDateIndicatorOptions(currentDateIndicatorOptions)
+module ChartsXAxisLabelsOptionsStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external fromXAxisLabelsStyleOptions: creditsStyleOptions => t = "%identity"
+}
+type yAxisPlotBandsLabelOptions = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  inside?: bool,
+  rotation?: float,
+  style?: cssObjectHighcharts,
+  text?: string,
+  textAlign?: alignValue,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+type xAxisPlotBandsOptions = {
+  acrossPanes?: bool,
   borderColor?: string,
+  borderRadius?: CommonTypes.stringOrNumber,
   borderWidth?: float,
-  cellHeight?: float,
-  columns?: array<string>, // ⚪ loose — was `XAxisOptions`
+  className?: string,
+  color?: ColorType.t,
+  events?: xAxisPlotLinesEventsOptions,
+  from?: CommonTypes.stringOrNumber,
+  id?: string,
+  label?: yAxisPlotBandsLabelOptions,
+  @as("to") to_?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+}
+type xAxisScrollbarOptions = {
+  barBackgroundColor?: ColorType.t,
+  barBorderColor?: ColorType.t,
+  barBorderRadius?: float,
+  barBorderWidth?: float,
+  buttonArrowColor?: ColorType.t,
+  buttonBackgroundColor?: ColorType.t,
+  buttonBorderColor?: ColorType.t,
+  buttonBorderRadius?: float,
+  buttonBorderWidth?: float,
+  buttonsEnabled?: bool,
   enabled?: bool,
+  height?: float,
+  liveRedraw?: bool,
+  margin?: float,
+  minWidth?: float,
+  opposite?: bool,
+  rifleColor?: ColorType.t,
+  showFull?: bool,
+  trackBackgroundColor?: ColorType.t,
+  trackBorderColor?: ColorType.t,
+  trackBorderRadius?: float,
+  trackBorderWidth?: float,
+  zIndex?: int,
 }
 type yAxisLabelsLevelsOptions = {
   level?: int,
@@ -4024,19 +4635,6 @@ module ChartsYAxisLabelsOptionsStyle = {
 type yAxisLabelsSymbolOptions = {
   height?: float,
   width?: float,
-  x?: float,
-  y?: float,
-}
-type yAxisPlotBandsLabelOptions = {
-  align?: alignValue,
-  allowOverlap?: bool,
-  inside?: bool,
-  rotation?: float,
-  style?: cssObjectHighcharts,
-  text?: string,
-  textAlign?: alignValue,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
   x?: float,
   y?: float,
 }
@@ -4128,16 +4726,6 @@ type yAxisStackLabelsOptions = {
   x?: float,
   y?: float,
 }
-type timeTicksInfoObject = {
-  higherRanks: array<string>,
-  totalRange: float,
-  count?: int,
-  unitRange: float,
-}
-type axisTickPositionsArray = {
-  ...JsxDOM.domProps,
-  info?: timeTicksInfoObject,
-}
 module ChartsChartParallelAxesTitleOptionsStyle = {
   type t
   external fromCSSObject: cssObjectHighcharts => t = "%identity"
@@ -4211,44 +4799,6 @@ type chartZoomingOptions = {
   resetButton?: chartZoomingResetButtonOptions,
   singleTouch?: bool,
   @as("type") type_?: optionsChartZoomingTypeValue,
-}
-type colorAxisDataClassesOptions = {
-  color?: ColorType.t,
-  from?: float,
-  name?: string,
-  @as("to") to_?: float,
-}
-module ChartsColorAxisLabelsOptionsStyle = {
-  type t
-  external fromCSSObject: cssObjectHighcharts => t = "%identity"
-  external fromColorAxisLabelsStyleOptions: creditsStyleOptions => t = "%identity"
-}
-module ChartsColorAxisTitleOptionsStyle = {
-  type t
-  external fromCSSObject: cssObjectHighcharts => t = "%identity"
-  external fromColorAxisTitleStyleOptions: creditsStyleOptions => t = "%identity"
-}
-type colorAxisTitleOptions = {
-  align?: axisTitleAlignValue,
-  margin?: float,
-  offset?: float,
-  position3d?: ChartsTypes.chartsXAxisTitleOptionsPosition3d,
-  reserveSpace?: bool,
-  rotation?: float,
-  skew3d?: bool,
-  style?: ChartsColorAxisTitleOptionsStyle.t,
-  text?: string,
-  textAlign?: alignValue,
-  useHTML?: bool,
-  x?: float,
-  y?: float,
-}
-module ChartsColorAxisOptionsTitle = {
-  type t
-  external fromXAxisTitleOptions: xAxisTitleOptions => t = "%identity"
-  external fromYAxisTitleOptions: xAxisTitleOptions => t = "%identity"
-  external fromZAxisTitleOptions: xAxisTitleOptions => t = "%identity"
-  external fromColorAxisTitleOptions: colorAxisTitleOptions => t = "%identity"
 }
 type connectorsOptions = {
   algorithmMargin?: float,
@@ -4821,66 +5371,6 @@ type langOptions = {
   zoomIn?: string,
   zoomOut?: string,
 }
-type legendAccessibilityOptions = {
-  enabled?: bool,
-  keyboardNavigation?: seriesAccessibilityKeyboardNavigationOptionsObject,
-}
-type bubbleLegendFormatterContextObject = {
-  center: float,
-  radius: float,
-  value: float,
-}
-type legendBubbleLegendLabelsOptions = {
-  align?: alignValue,
-  allowOverlap?: bool,
-  className?: string,
-  format?: string,
-  formatter?: @this (
-    bubbleLegendFormatterContextObject,
-    option<bubbleLegendFormatterContextObject>,
-  ) => string,
-  style?: cssObjectHighcharts,
-  x?: float,
-  y?: float,
-}
-type legendBubbleLegendRangesOptions = {
-  borderColor?: ColorType.t,
-  color?: ColorType.t,
-  connectorColor?: ColorType.t,
-  value?: float,
-}
-type legendBubbleLegendOptions = {
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  connectorClassName?: string,
-  connectorColor?: ColorType.t,
-  connectorDistance?: float,
-  connectorWidth?: float,
-  enabled?: bool,
-  labels?: legendBubbleLegendLabelsOptions,
-  legendIndex?: float,
-  maxSize?: float,
-  minSize?: float,
-  ranges?: array<legendBubbleLegendRangesOptions>,
-  sizeBy?: bubbleSizeByValue,
-  sizeByAbsoluteValue?: bool,
-  zIndex?: int,
-  zThreshold?: float,
-}
-type legendNavigationOptions = {
-  activeColor?: ColorType.t,
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  arrowSize?: float,
-  enabled?: bool,
-  inactiveColor?: ColorType.t,
-  style?: cssObjectHighcharts,
-}
-type legendTitleOptions = {
-  style?: cssObjectHighcharts,
-  text?: string,
-}
 type loadingOptions = {
   hideDuration?: float,
   labelStyle?: cssObjectHighcharts,
@@ -5057,116 +5547,12 @@ type navigatorHandlesOptions = {
   symbols?: array<string>,
   width?: float,
 }
-type dataGroupingOptionsObject = {
-  anchor?: string,
-  approximation?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  dateTimeLabelFormats?: string, // ⚪ loose — was `object`
-  enabled?: bool,
-  firstAnchor?: string,
-  forced?: bool,
-  groupAll?: bool,
-  groupPixelWidth?: float,
-  lastAnchor?: string,
-  units?: array<(string, array<float>)>,
-}
 module ChartsNavigatorSeriesDataLabelsOptionsAnimation = {
   type t
   external fromBool: bool => t = "%identity"
   external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
   external fromNavigatorSeriesDataLabelsAnimationOptions: annotationsAnimationOptions => t =
     "%identity"
-}
-module ChartsCurrentDateIndicatorOptionsEvents = {
-  type t
-  external fromNavigatorXAxisCurrentDateIndicatorEventsOptions: xAxisPlotLinesEventsOptions => t =
-    "%identity"
-  external fromXAxisCurrentDateIndicatorEventsOptions: xAxisPlotLinesEventsOptions => t =
-    "%identity"
-}
-type navigatorXAxisCurrentDateIndicatorLabelOptions = {
-  align?: alignValue,
-  format?: LibTypes.stringOrEvent,
-  formatter?: @this (string, option<string>) => string, // ⚪ loose — was `PlotLineOrBand`
-  rotation?: float,
-  style?: cssObjectHighcharts,
-  text?: string,
-  textAlign?: alignValue,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-module ChartsCurrentDateIndicatorOptionsLabel = {
-  type t
-  external fromNavigatorXAxisCurrentDateIndicatorLabelOptions: navigatorXAxisCurrentDateIndicatorLabelOptions => t =
-    "%identity"
-  external fromXAxisCurrentDateIndicatorLabelOptions: navigatorXAxisCurrentDateIndicatorLabelOptions => t =
-    "%identity"
-}
-module ChartsCurrentDateIndicatorOptionsLabels = {
-  type t
-  external fromNavigatorXAxisCurrentDateIndicatorLabelsOptions: xAxisPlotLinesLabelsOptions => t =
-    "%identity"
-  external fromXAxisCurrentDateIndicatorLabelsOptions: xAxisPlotLinesLabelsOptions => t =
-    "%identity"
-}
-type currentDateIndicatorOptions = {
-  className?: string,
-  color?: string,
-  dashStyle?: dashStyleValue,
-  events?: ChartsCurrentDateIndicatorOptionsEvents.t,
-  id?: string,
-  label?: ChartsCurrentDateIndicatorOptionsLabel.t,
-  labels?: ChartsCurrentDateIndicatorOptionsLabels.t,
-  width?: float,
-  zIndex?: int,
-}
-@unboxed
-type boolOrCurrentDateIndicatorOptions =
-  Bool(bool) | CurrentDateIndicatorOptions(currentDateIndicatorOptions)
-module ChartsXAxisLabelsOptionsStyle = {
-  type t
-  external fromCSSObject: cssObjectHighcharts => t = "%identity"
-  external fromXAxisLabelsStyleOptions: creditsStyleOptions => t = "%identity"
-}
-type xAxisPlotBandsOptions = {
-  acrossPanes?: bool,
-  borderColor?: string,
-  borderRadius?: CommonTypes.stringOrNumber,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  events?: xAxisPlotLinesEventsOptions,
-  from?: CommonTypes.stringOrNumber,
-  id?: string,
-  label?: yAxisPlotBandsLabelOptions,
-  @as("to") to_?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
-type xAxisScrollbarOptions = {
-  barBackgroundColor?: ColorType.t,
-  barBorderColor?: ColorType.t,
-  barBorderRadius?: float,
-  barBorderWidth?: float,
-  buttonArrowColor?: ColorType.t,
-  buttonBackgroundColor?: ColorType.t,
-  buttonBorderColor?: ColorType.t,
-  buttonBorderRadius?: float,
-  buttonBorderWidth?: float,
-  buttonsEnabled?: bool,
-  enabled?: bool,
-  height?: float,
-  liveRedraw?: bool,
-  margin?: float,
-  minWidth?: float,
-  opposite?: bool,
-  rifleColor?: ColorType.t,
-  showFull?: bool,
-  trackBackgroundColor?: ColorType.t,
-  trackBorderColor?: ColorType.t,
-  trackBorderRadius?: float,
-  trackBorderWidth?: float,
-  zIndex?: int,
 }
 module ChartsNavigatorXAxisLabelsOptionsStyle = {
   type t
@@ -5274,177 +5660,6 @@ type paneOptions = {
 }
 @unboxed
 type paneOptionsOrPaneOptionsArray = PaneOptions(paneOptions) | PaneOptionsArr(array<paneOptions>)
-type rGBA = {
-  ...JsxDOM.domProps,
-  length: string, // ⚪ loose — was `4`
-}
-type rec color = {
-  rgba: rGBA,
-  brighten: float => color,
-  get: option<string> => ColorType.t,
-  setOpacity: float => color,
-  tweenTo: (color, float) => ColorType.t,
-}
-type synthPatchEQFilter = {
-  frequency?: float,
-  gain?: float,
-  @as("Q") q?: float,
-}
-type synthPatchPassFilter = {
-  frequency?: float,
-  frequencyPitchTrackingMultiplier?: float,
-  @as("Q") q?: float,
-}
-type synthPatchOscillatorOptionsObject = {
-  attackEnvelope?: array<JSON.t>,
-  detune?: float,
-  fixedFrequency?: float,
-  fmOscillator?: float,
-  freqMultiplier?: float,
-  highpass?: synthPatchPassFilter,
-  lowpass?: synthPatchPassFilter,
-  pulseWidth?: float,
-  releaseEnvelope?: array<JSON.t>,
-  @as("type") type_?: synthPatchOscillatorType,
-  vmOscillator?: float,
-  volume?: float,
-  volumePitchTrackingMultiplier?: float,
-}
-type synthPatchOptionsObject = {
-  eq?: array<synthPatchEQFilter>,
-  masterAttackEnvelope?: array<JSON.t>,
-  masterReleaseEnvelope?: array<JSON.t>,
-  masterVolume?: float,
-  midiInstrument?: float,
-  noteGlideDuration?: float,
-  oscillators?: array<synthPatchOscillatorOptionsObject>,
-}
-@unboxed
-type stringOrSynthPatchOptionsObject =
-  Str(string) | SynthPatchOptionsObject(synthPatchOptionsObject)
-type sonificationInstrumentMappingOptions = {
-  frequency?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentFrequencyOptions`
-  gapBetweenNotes?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
-  highpass?: string, // ⚪ loose — was `SonificationInstrumentHighpassOptions`
-  lowpass?: string, // ⚪ loose — was `SonificationInstrumentLowpassOptions`
-  noteDuration?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
-  pan?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
-  pitch?: string, // ⚪ loose — was `string | number | Function | (string | number)[] | SonificationInstrumentPitchOptions`
-  playDelay?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentPlayDelayOptions`
-  rate?: string, // ⚪ loose — was `string | number | Function | SonificationTracksRateOptions`
-  text?: string, // ⚪ loose — was `string | Function`
-  time?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentTimeOptions`
-  tremolo?: string, // ⚪ loose — was `SonificationInstrumentTremoloOptions`
-  volume?: string, // ⚪ loose — was `string | number | Function | SonificationInstrumentVolumeOptions`
-}
-type sonificationInstrumentPointGroupingOptions = {
-  algorithm?: string,
-  enabled?: bool,
-  groupTimespan?: float,
-  prop?: string,
-}
-type seriesSonificationContextTracksOptions = {
-  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
-  instrument?: stringOrSynthPatchOptionsObject,
-  mapping?: sonificationInstrumentMappingOptions,
-  midiName?: string,
-  pointGrouping?: sonificationInstrumentPointGroupingOptions,
-  roundToMusicalNotes?: bool,
-  showPlayMarker?: bool,
-  timeInterval?: float,
-  @as("type") type_?: sonifcationTypeValue,
-  valueInterval?: float,
-  valueMapFunction?: optionsValueMapFunctionValue,
-  valueProp?: string,
-}
-type seriesSonificationInstrumentOptions = {
-  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
-  instrument?: stringOrSynthPatchOptionsObject,
-  mapping?: sonificationInstrumentMappingOptions,
-  midiName?: string,
-  pointGrouping?: sonificationInstrumentPointGroupingOptions,
-  roundToMusicalNotes?: bool,
-  showPlayMarker?: bool,
-  @as("type") type_?: sonifcationTypeValue,
-}
-type sonificationSpeechMappingOptions = {
-  pitch?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationSpeechPitchOptions` — match the real type by hand
-  playDelay?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationSpeechPlayDelayOptions` — match the real type by hand
-  rate?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentTimeOptions` — match the real type by hand
-  text?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  time?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentTimeOptions` — match the real type by hand
-  volume?: string, // ⚠️ REVIEW — was `string | number | Function | SonificationInstrumentVolumeOptions` — match the real type by hand
-}
-type seriesSonificationSpeechOptions = {
-  activeWhen?: string, // ⚠️ REVIEW — was `Function | SonificationInstrumentActiveWhenOptions` — match the real type by hand
-  language?: string,
-  mapping?: sonificationSpeechMappingOptions,
-  pointGrouping?: sonificationInstrumentPointGroupingOptions,
-  preferredVoice?: string,
-  showPlayMarker?: bool,
-  @as("type") type_?: sonifcationTypeValue,
-}
-type seriesSonificationPointGroupingOptions = {
-  algorithm?: optionsAlgorithmValue,
-  enabled?: bool,
-  groupTimespan?: float,
-  prop?: string,
-}
-type seriesSonificationOptions = {
-  contextTracks?: array<seriesSonificationContextTracksOptions>,
-  defaultInstrumentOptions?: seriesSonificationInstrumentOptions,
-  defaultSpeechOptions?: seriesSonificationSpeechOptions,
-  enabled?: bool,
-  pointGrouping?: seriesSonificationPointGroupingOptions,
-  tracks?: array<seriesSonificationInstrumentOptions>,
-}
-type dragDropHandleOptionsObject = {
-  className?: string,
-  color?: ColorType.t,
-  cursor?: string,
-  lineColor?: string,
-  lineWidth?: float,
-  pathFormatter?: string, // ⚪ loose — was `Function`
-  zIndex?: int,
-}
-type seriesDragDropOptionsObject = {
-  draggableClose?: bool,
-  draggableEnd?: bool,
-  draggableHigh?: bool,
-  draggableLow?: bool,
-  draggableOpen?: bool,
-  draggableQ1?: bool,
-  draggableQ3?: bool,
-  draggableStart?: bool,
-  draggableTarget?: bool,
-  draggableX?: bool,
-  draggableX1?: bool,
-  draggableX2?: bool,
-  draggableY?: bool,
-  dragHandle?: dragDropHandleOptionsObject,
-  dragMaxX?: CommonTypes.stringOrNumber,
-  dragMaxY?: float,
-  dragMinX?: CommonTypes.stringOrNumber,
-  dragMinY?: float,
-  dragPrecisionX?: float,
-  dragPrecisionY?: float,
-  dragSensitivity?: float,
-  groupBy?: string,
-  guideBox?: string, // ⚠️ REVIEW — was `PlotOptionsSeriesDragDropGuideBoxOptions | Dictionary<DragDropGuideBoxOptionsObject>` — match the real type by hand
-  liveRedraw?: bool,
-}
-module ChartsPlotSeriesDataLabelsOptionsAnimation = {
-  type t
-  external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
-  external fromPlotSeriesDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-}
-module ChartsPlotSeriesOptionsDataSorting = {
-  type t
-  external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
-  external fromPlotSeriesDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
-}
 module ChartsSeriesPieDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
@@ -5473,22 +5688,6 @@ module ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle = {
   external fromPlotNetworkgraphDataLabelsStyleOptions: plotNetworkgraphDataLabelsStyleOptions => t =
     "%identity"
 }
-type plotNetworkgraphLayoutAlgorithmOptions = {
-  approximation?: optionsApproximationValue,
-  attractiveForce?: string, // ⚪ loose — was `Function`
-  enableSimulation?: bool,
-  friction?: float,
-  gravitationalConstant?: float,
-  initialPositionRadius?: float,
-  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
-  integration?: optionsIntegrationValue,
-  linkLength?: float,
-  maxIterations?: float,
-  maxSpeed?: float,
-  repulsiveForce?: string, // ⚪ loose — was `Function`
-  theta?: float,
-  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
-}
 module ChartsSeriesPackedBubbleDataLabelsOptionsObjectAnimation = {
   type t
   external fromBool: bool => t = "%identity"
@@ -5505,67 +5704,8 @@ module ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle = {
   external fromPlotPackedbubbleDataLabelsStyleOptions: plotPackedbubbleDataLabelsStyleOptions => t =
     "%identity"
 }
-type plotPackedbubbleLayoutAlgorithmParentNodeOptions = {
-  friction?: float,
-  gravitationalConstant?: float,
-  initialPositionRadius?: float,
-  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
-  integration?: optionsIntegrationValue,
-  linkLength?: float,
-  marker?: pointMarkerOptionsObject,
-  maxIterations?: float,
-  maxSpeed?: float,
-  seriesInteraction?: bool,
-  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
-}
-type plotPackedbubbleLayoutAlgorithmOptions = {
-  bubblePadding?: float,
-  dragBetweenSeries?: bool,
-  enableSimulation?: bool,
-  friction?: float,
-  gravitationalConstant?: float,
-  initialPositionRadius?: float,
-  initialPositions?: string, // ⚠️ REVIEW — was `Function | "circle" | "random"` — match the real type by hand
-  integration?: optionsIntegrationValue,
-  linkLength?: float,
-  maxIterations?: float,
-  maxSpeed?: float,
-  parentNodeLimit?: bool,
-  parentNodeOptions?: plotPackedbubbleLayoutAlgorithmParentNodeOptions,
-  seriesInteraction?: bool,
-  splitSeries?: bool,
-  @as("type") type_?: string, // ⚪ loose — was `"reingold-fruchterman"`
-}
 type plotRenkoNavigatorOptions = {
   @as("type") type_?: string,
-}
-type plotScatterClusterDataLabelsOptions = {
-  style?: string, // 🛑 BROKEN — contains `any`
-}
-module ChartsPlotScatterClusterOptionsDataLabels = {
-  type t
-  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
-  external fromPlotScatterClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
-    "%identity"
-}
-type plotScatterClusterLayoutAlgorithmOptions = {
-  distance?: CommonTypes.stringOrNumber,
-  gridSize?: CommonTypes.stringOrNumber,
-  iterations?: float,
-  kmeansThreshold?: float,
-  @as("type") type_?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-}
-type plotScatterClusterStatesHoverOptions = {
-  fillColor?: ColorType.t,
-}
-type plotScatterClusterStatesOptions = {
-  hover?: plotScatterClusterStatesHoverOptions,
-}
-type plotScatterClusterZonesOptions = {
-  className?: string,
-  from?: float,
-  marker?: pointMarkerOptionsObject,
-  @as("to") to_?: float,
 }
 module ChartsSeriesSunburstDataLabelsOptionsObjectAnimation = {
   type t
@@ -5574,18 +5714,6 @@ module ChartsSeriesSunburstDataLabelsOptionsObjectAnimation = {
   external fromPlotSunburstDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
     "%identity"
   external fromPlotSunburstLevelsDataLabelsAnimationOptions: plotAdDataLabelsAnimationOptions => t =
-    "%identity"
-}
-module ChartsPlotVectorClusterOptionsDataLabels = {
-  type t
-  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
-  external fromPlotVectorClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
-    "%identity"
-}
-module ChartsPlotVennClusterOptionsDataLabels = {
-  type t
-  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
-  external fromPlotVennClusterDataLabelsOptions: plotScatterClusterDataLabelsOptions => t =
     "%identity"
 }
 type rangeSelectorButtonPositionOptions = {
@@ -5790,122 +5918,6 @@ type timeOptions = {
   timezone?: string,
   timezoneOffset?: float,
 }
-type tooltipAnimationOptions = {
-  duration?: float,
-}
-module ChartsTooltipOptionsAnimation = {
-  type t
-  external fromBool: bool => t = "%identity"
-  external fromPartial: highchartsAnnotationsOptionsAnimationConfig => t = "%identity"
-  external fromTooltipAnimationOptions: tooltipAnimationOptions => t = "%identity"
-}
-type symbolDictionary = {
-  arc?: string, // ⚪ loose — was `Function`
-  callout?: string, // ⚪ loose — was `Function`
-  circle?: string, // ⚪ loose — was `Function`
-  diamond?: string, // ⚪ loose — was `Function`
-  square?: string, // ⚪ loose — was `Function`
-  triangle?: string, // ⚪ loose — was `Function`
-}
-type rec astNode = {
-  attributes?: svgAttributes,
-  children?: array<astNode>,
-  tagName?: string,
-  textContent?: string,
-}
-type fontMetricsObject = {
-  b: float,
-  f: float,
-  h: float,
-}
-type symbolOptionsObject = {
-  anchorX?: float,
-  anchorY?: float,
-  end?: float,
-  @as("open") open_?: bool,
-  r?: float,
-  start?: float,
-}
-type svgRenderer = {
-  box: Dom.element,
-  boxWrapper: Dom.element,
-  defs: Dom.element,
-  @as("Element") element: Dom.element,
-  escapes: Dict.t<string>,
-  forExport?: bool,
-  symbols: symbolDictionary,
-  arc: string, // ⚠️ REVIEW — match the real type by hand
-  button: (
-    string,
-    float,
-    float,
-    @this (string, option<string>, option<string>) => bool,
-    option<svgAttributes>,
-    option<svgAttributes>,
-    option<svgAttributes>,
-    option<svgAttributes>,
-    option<symbolKeyValue>,
-    option<bool>,
-  ) => Dom.element, // ⚠️ REVIEW — was `SVGElement` — match the real type by hand
-  circle: string, // ⚠️ REVIEW — match the real type by hand
-  clipRect: (option<float>, option<float>, option<float>, option<float>) => Dom.element,
-  createElement: string => Dom.element,
-  crispLine: (array<ChartsPointShapeArgsD.t>, float) => array<ChartsPointShapeArgsD.t>,
-  definition: astNode => Dom.element,
-  destroy: unit => string, // ⚪ loose — was `null`
-  draw: unit => unit,
-  fontMetrics: string => fontMetricsObject, // ⚠️ REVIEW — was `number | SVGElement | Highcharts.SVGElement` — match the real type by hand
-  g: option<string> => Dom.element,
-  getContrast: string => string,
-  image: (
-    string,
-    option<float>,
-    option<float>,
-    option<float>,
-    option<float>,
-    option<string>,
-  ) => Dom.element, // ⚪ loose — was `Function`
-  init: (
-    Dom.element,
-    float,
-    float,
-    option<cssObjectHighcharts>,
-    option<bool>,
-    option<bool>,
-    option<bool>,
-  ) => unit,
-  isHidden: unit => bool,
-  label: (
-    string,
-    float,
-    option<float>,
-    option<string>,
-    option<float>,
-    option<float>,
-    option<bool>,
-    option<bool>,
-    option<string>,
-  ) => Dom.element,
-  path: string, // ⚠️ REVIEW — match the real type by hand
-  rect: string, // ⚠️ REVIEW — match the real type by hand
-  roundedRect: svgAttributes => Dom.element,
-  setSize: (float, float, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  setStyle: cssObjectHighcharts => unit,
-  symbol: (
-    string,
-    option<float>,
-    option<float>,
-    option<float>,
-    option<float>,
-    option<symbolOptionsObject>,
-  ) => Dom.element,
-  text: (option<string>, option<float>, option<float>, option<bool>) => Dom.element,
-}
-module ChartsTooltipOptionsStyle = {
-  type t
-  external fromCSSObject: cssObjectHighcharts => t = "%identity"
-  external fromTooltipStyleOptions: creditsStyleOptions => t = "%identity"
-}
 module ChartsZAxisLabelsOptionsStyle = {
   type t
   external fromCSSObject: cssObjectHighcharts => t = "%identity"
@@ -5920,14 +5932,14 @@ type chartsPlotFunnelOptionsDataLabels_t
 type chartsNavigatorOptionsXAxis_t
 type chartsNavigatorOptionsSeries_t<'b>
 type chartsNavigationOptionsAnnotationsOptions_t
-type chartsLegendItemClickEventObjectLegendItem_t
-type chartsLegendAllItems_t
 type chartsOptionsColorAxis_t
 type chartsChartOptionsParallelAxes_t
 type chartsSeriesSankeyNodesOptionsObjectDataLabels_t
 type chartsSeriesAccessibilityOptionsObjectPoint_t
 type seriesOptionsType_t<'b>
 type pointTarget_t
+type chartsLegendItemClickEventObjectLegendItem_t
+type chartsLegendAllItems_t
 type rec zAxisLabelsOptions<'b> = {
   align?: alignValue,
   allowOverlap?: bool,
@@ -6025,124 +6037,6 @@ and zAxisOptions<'b> = {
   visible?: bool,
   zIndex?: int,
   zoomEnabled?: bool,
-}
-and tooltipPositionerPointObject<'b> = {
-  isHeader: bool,
-  plotX: float,
-  plotY: float,
-  category: CommonTypes.stringOrNumber,
-  color?: ColorType.t,
-  colorIndex?: float,
-  graphic?: Dom.element,
-  graphics?: array<Dom.element>,
-  index: int,
-  key: CommonTypes.stringOrNumber,
-  name: string,
-  options: pointOptionsObject<'b>,
-  percentage?: float,
-  points?: array<point<'b>>,
-  selected: bool,
-  series: series<'b>,
-  shapeArgs?: highchartsPointShapeArgsConfig,
-  sliced?: bool,
-  tooltipPos?: array<float>,
-  total?: float,
-  visible: bool,
-  x: float,
-  y?: float,
-  getClassName: unit => string,
-  getZone: unit => seriesZonesOptionsObject,
-  haloPath: float => array<ChartsPointShapeArgsD.t>,
-  onMouseOut: unit => unit,
-  onMouseOver: option<pointerEventObject> => unit,
-  optionsToObject: stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b> => Dict.t<string>, // 🛑 BROKEN — contains `any`
-  pos: (bool, float) => array<float>,
-  remove: (option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  select: (option<bool>, option<bool>) => unit,
-  setNestedProperty: (string, string, string) => string, // 🛑 BROKEN — contains `unknown`
-  setState: (option<ChartsTypes.chartsPointSetState>, option<bool>) => unit,
-  setVisible: (option<bool>, option<bool>) => unit,
-  tooltipFormatter: string => string,
-  update: (
-    stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b>,
-    option<bool>,
-    option<string>,
-  ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  x2?: float,
-}
-and tooltip<'b> = {
-  chart: chart<'b>,
-  container?: Dom.element,
-  options: tooltipOptions<'b>,
-  outside: bool,
-  renderer?: svgRenderer,
-  shared?: bool,
-  split?: bool,
-  defaultFormatter: tooltip<'b> => CommonTypes.stringOrStringArray,
-  destroy: unit => unit,
-  getClassName: unit => string,
-  getLabel: unit => Dom.element,
-  getPosition: (float, float, point<'b>) => positionObject,
-  hide: option<float> => unit,
-  refresh: (pointOrPointArray<'b>, option<pointerEventObject>) => unit,
-  update: tooltipOptions<'b> => unit,
-}
-and tooltipOptions<'b> = {
-  animation?: ChartsTooltipOptionsAnimation.t,
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  changeDecimals?: float,
-  className?: string,
-  clusterFormat?: string,
-  dateTimeLabelFormats?: Dict.t<stringOrDateTimeFormatOptions>,
-  distance?: float,
-  enabled?: bool,
-  fixed?: bool,
-  followPointer?: bool,
-  followTouchMove?: bool,
-  footerFormat?: string,
-  format?: string,
-  formatter?: @this (
-    point<'b>,
-    tooltip<'b>,
-    option<point<'b>>,
-  ) => CommonTypes.boolOrStringOrStringArray,
-  headerFormat?: string,
-  headerShape?: optionsHeaderShapeValue,
-  hideDelay?: float,
-  nullFormat?: string,
-  nullFormatter?: @this (
-    point<'b>,
-    tooltip<'b>,
-    option<point<'b>>,
-  ) => CommonTypes.boolOrStringOrStringArray,
-  outside?: bool,
-  padding?: float,
-  pointFormat?: string,
-  pointFormatter?: @this (point<'b>, option<point<'b>>) => string,
-  position?: plotAdTooltipPositionOptions,
-  positioner?: @this (
-    tooltip<'b>,
-    float,
-    float,
-    tooltipPositionerPointObject<'b>,
-    option<tooltip<'b>>,
-  ) => positionObject,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: tooltipShapeValue,
-  shared?: bool,
-  showDelay?: float,
-  snap?: float,
-  split?: bool,
-  stickOnContact?: bool,
-  style?: ChartsTooltipOptionsStyle.t,
-  useHTML?: bool,
-  valueDecimals?: float,
-  valuePrefix?: string,
-  valueSuffix?: string,
-  xDateFormat?: stringOrDateTimeFormatOptions,
 }
 and unknownSeriesOptions<'b> = {
   zIndex?: int,
@@ -6772,19 +6666,6 @@ and plotVwapOptions<'b> = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-and plotVennClusterOptions<'b> = {
-  allowOverlap?: bool,
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  dataLabels?: ChartsPlotVennClusterOptionsDataLabels.t,
-  drillToCluster?: bool,
-  enabled?: bool,
-  events?: plotScatterClusterEventsOptions<'b>,
-  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
-  marker?: pointMarkerOptionsObject,
-  minimumClusterSize?: float,
-  states?: plotScatterClusterStatesOptions,
-  zones?: array<plotScatterClusterZonesOptions>,
-}
 and plotVennOptions<'b> = {
   accessibility?: seriesAccessibilityOptionsObject,
   allowPointSelect?: bool,
@@ -6833,19 +6714,6 @@ and plotVennOptions<'b> = {
   turboThreshold?: float,
   visible?: bool,
   zoomEnabled?: bool,
-}
-and plotVectorClusterOptions<'b> = {
-  allowOverlap?: bool,
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  dataLabels?: ChartsPlotVectorClusterOptionsDataLabels.t,
-  drillToCluster?: bool,
-  enabled?: bool,
-  events?: plotScatterClusterEventsOptions<'b>,
-  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
-  marker?: pointMarkerOptionsObject,
-  minimumClusterSize?: float,
-  states?: plotScatterClusterStatesOptions,
-  zones?: array<plotScatterClusterZonesOptions>,
 }
 and plotVectorOptions<'b> = {
   accessibility?: seriesAccessibilityOptionsObject,
@@ -8303,28 +8171,6 @@ and plotScatter3dOptions<'b> = {
   zoneAxis?: string,
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
-}
-and pointClickEventObject<'b> = {
-  ...JsxDOM.domProps,
-  point: point<'b>,
-  chartX: float,
-  chartY: float,
-}
-and plotScatterClusterEventsOptions<'b> = {
-  drillToCluster?: @this (point<'b>, pointClickEventObject<'b>) => unit,
-}
-and plotScatterClusterOptions<'b> = {
-  allowOverlap?: bool,
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  dataLabels?: ChartsPlotScatterClusterOptionsDataLabels.t,
-  drillToCluster?: bool,
-  enabled?: bool,
-  events?: plotScatterClusterEventsOptions<'b>,
-  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
-  marker?: pointMarkerOptionsObject,
-  minimumClusterSize?: float,
-  states?: plotScatterClusterStatesOptions,
-  zones?: array<plotScatterClusterZonesOptions>,
 }
 and plotScatterOptions<'b> = {
   accessibility?: seriesAccessibilityOptionsObject,
@@ -14316,127 +14162,6 @@ and plotArearangeOptions<'b> = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-and plotSeriesDataLabelsOptions<'b> = {
-  align?: alignValue,
-  alignTo?: string,
-  allowOverlap?: bool,
-  animation?: ChartsPlotSeriesDataLabelsOptionsAnimation.t,
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  crop?: bool,
-  defer?: bool,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  inside?: bool,
-  labelrank?: float,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  position?: alignValue,
-  rotation?: float,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  style?: cssObjectHighcharts,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
-}
-and plotSeriesOptions<'b> = {
-  accessibility?: seriesAccessibilityOptionsObject,
-  allowPointSelect?: bool,
-  animation?: string, // ⚠️ REVIEW — was `boolean | AnimationOptionsObject` — match the real type by hand
-  animationLimit?: float,
-  boostBlending?: optionsBoostBlendingValue,
-  boostThreshold?: float,
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  className?: string,
-  clip?: bool,
-  color?: ColorType.t,
-  colorAxis?: CommonTypes.boolOrStringOrNumber,
-  colorIndex?: float,
-  colorKey?: string,
-  compare?: optionsCompareValue,
-  compareBase?: CommonTypes.v0OrV100,
-  compareStart?: bool,
-  connectEnds?: bool,
-  connectNulls?: bool,
-  connectors?: seriesConnectorsOptionsObject,
-  crisp?: bool,
-  cropThreshold?: float,
-  cumulative?: bool,
-  cumulativeStart?: bool,
-  cursor?: string,
-  custom?: Dict.t<string>, // 🛑 BROKEN — contains `any`
-  dashStyle?: dashStyleValue,
-  dataGrouping?: dataGroupingOptionsObject,
-  dataLabels?: plotSeriesDataLabelsOptionsOrPlotSeriesDataLabelsOptionsArray<'b>,
-  dataSorting?: ChartsPlotSeriesOptionsDataSorting.t,
-  description?: string,
-  dragDrop?: seriesDragDropOptionsObject,
-  enableMouseTracking?: bool,
-  events?: seriesEventsOptionsObject<'b>,
-  findNearestPointBy?: optionsFindNearestPointByValue,
-  gapSize?: float,
-  gapUnit?: optionsGapUnitValue,
-  getExtremesFromAll?: bool,
-  inactiveOtherPoints?: bool,
-  includeInDataExport?: bool,
-  joinBy?: CommonTypes.stringOrStringArray,
-  keys?: array<string>,
-  label?: seriesLabelOptionsObject<'b>,
-  lastPrice?: seriesLastPriceOptionsObject<'b>,
-  lastVisiblePrice?: seriesLastPriceOptionsObject<'b>,
-  legendSymbol?: optionsLegendSymbolValue,
-  legendSymbolColor?: ColorType.t,
-  linecap?: string,
-  lineWidth?: float,
-  linkedTo?: string,
-  marker?: pointMarkerOptionsObject,
-  navigatorOptions?: plotSeriesOptions<'b>,
-  negativeColor?: ColorType.t,
-  nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSeriesOnPointOptions` — match the real type by hand
-  opacity?: float,
-  point?: plotSeriesPointOptions<'b>,
-  pointDescriptionFormat?: string, // ⚪ loose — was `Function`
-  pointDescriptionFormatter?: string, // ⚪ loose — was `Function`
-  pointInterval?: float,
-  pointIntervalUnit?: optionsPointIntervalUnitValue,
-  pointPlacement?: CommonTypes.stringOrNumber,
-  pointRange?: float,
-  pointStart?: CommonTypes.stringOrNumber,
-  relativeXValue?: bool,
-  selected?: bool,
-  shadow?: boolOrShadowOptionsObject,
-  showCheckbox?: bool,
-  showInLegend?: bool,
-  showInNavigator?: bool,
-  skipKeyboardNavigation?: bool,
-  softThreshold?: bool,
-  sonification?: seriesSonificationOptions,
-  stacking?: optionsStackingValue,
-  states?: seriesStatesOptionsObject,
-  step?: optionsStepValue,
-  stickyTracking?: bool,
-  threshold?: float,
-  tooltip?: seriesTooltipOptionsObject<'b>,
-  turboThreshold?: float,
-  visible?: bool,
-  zIndex?: int,
-  zoneAxis?: string,
-  zones?: array<seriesZonesOptionsObject>,
-  zoomEnabled?: bool,
-}
 and plotAreaOptions<'b> = {
   accessibility?: seriesAccessibilityOptionsObject,
   allowPointSelect?: bool,
@@ -14802,38 +14527,6 @@ and plotAdOptions<'b> = {
   zones?: array<seriesZonesOptionsObject>,
   zoomEnabled?: bool,
 }
-and seriesLegendItemClickEventObject<'b> = {
-  browserEvent: Dom.event,
-  defaultPrevented?: bool,
-  preventDefault: string, // ⚪ loose — was `Function`
-  target: series<'b>,
-  @as("type") type_: string, // ⚪ loose — was `"legendItemClick"`
-}
-and seriesClickEventObject<'b> = {
-  ...JsxDOM.domProps,
-  point: point<'b>,
-}
-and seriesCheckboxClickEventObject<'b> = {
-  checked: bool,
-  item: series<'b>,
-  target: series<'b>,
-  @as("type") type_: string, // ⚪ loose — was `"checkboxClick"`
-}
-and seriesAfterAnimateEventObject<'b> = {
-  target: series<'b>,
-  @as("type") type_: string, // ⚪ loose — was `"afterAnimate"`
-}
-and seriesEventsOptionsObject<'b> = {
-  afterAnimate?: @this (series<'b>, seriesAfterAnimateEventObject<'b>) => unit,
-  checkboxClick?: @this (series<'b>, seriesCheckboxClickEventObject<'b>) => string, // 🛑 BROKEN — contains `any`
-  click?: @this (series<'b>, seriesClickEventObject<'b>) => unit,
-  hide?: @this (series<'b>, Dom.event) => unit,
-  legendItemClick?: @this (series<'b>, seriesLegendItemClickEventObject<'b>) => unit,
-  mouseOut?: @this (series<'b>, Dom.event) => unit,
-  mouseOver?: @this (series<'b>, Dom.event) => unit,
-  setRootNode?: string, // ⚪ loose — was `Function`
-  show?: @this (series<'b>, Dom.event) => unit,
-}
 and plotAbandsOptions<'b> = {
   accessibility?: seriesAccessibilityOptionsObject,
   allowPointSelect?: bool,
@@ -15152,128 +14845,6 @@ and navigatorXAxisLabelsOptions<'b> = {
   x?: float,
   y?: float,
   zIndex?: int,
-}
-and xAxisLabelsOptions<'b> = {
-  align?: alignValue,
-  allowOverlap?: bool,
-  autoRotation?: array<float>,
-  autoRotationLimit?: float,
-  distance?: float,
-  enabled?: bool,
-  format?: string,
-  formatter?: @this (
-    axisLabelsFormatterContextObject<'b>,
-    axisLabelsFormatterContextObject<'b>,
-  ) => string,
-  indentation?: float,
-  overflow?: optionsOverflowValue,
-  padding?: float,
-  position3d?: optionsPosition3dValue,
-  reserveSpace?: bool,
-  rotation?: float,
-  skew3d?: bool,
-  staggerLines?: float,
-  step?: float,
-  style?: ChartsXAxisLabelsOptionsStyle.t,
-  useHTML?: bool,
-  x?: float,
-  y?: float,
-  zIndex?: int,
-}
-and xAxisOptions<'b> = {
-  accessibility?: axisAccessibilityOptionsObject,
-  alignTicks?: bool,
-  allowDecimals?: bool,
-  alternateGridColor?: ColorType.t,
-  angle?: float,
-  breaks?: array<yAxisBreaksOptions>,
-  categories?: array<string>,
-  ceiling?: float,
-  className?: string,
-  crosshair?: boolOrAxisCrosshairOptions<'b>,
-  crossing?: float,
-  currentDateIndicator?: boolOrCurrentDateIndicatorOptions,
-  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
-  endOnTick?: bool,
-  events?: chartParallelAxesEventsOptions<'b>,
-  floor?: float,
-  grid?: xAxisGridOptions<'b>,
-  gridLineColor?: ColorType.t,
-  gridLineDashStyle?: dashStyleValue,
-  gridLineInterpolation?: optionsGridLineInterpolationValue,
-  gridLineWidth?: float,
-  gridZIndex?: float,
-  height?: CommonTypes.stringOrNumber,
-  id?: string,
-  labels?: xAxisLabelsOptions<'b>,
-  left?: CommonTypes.stringOrNumber,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  linkedTo?: float,
-  margin?: float,
-  max?: CommonTypes.stringOrNumber,
-  maxPadding?: float,
-  maxRange?: float,
-  min?: CommonTypes.stringOrNumber,
-  minorGridLineColor?: ColorType.t,
-  minorGridLineDashStyle?: dashStyleValue,
-  minorGridLineWidth?: float,
-  minorTickColor?: ColorType.t,
-  minorTickInterval?: CommonTypes.autoOrNumber,
-  minorTickLength?: float,
-  minorTickPosition?: optionsMinorTickPositionValue,
-  minorTicks?: bool,
-  minorTicksPerMajor?: float,
-  minorTickWidth?: float,
-  minPadding?: float,
-  minRange?: float,
-  minTickInterval?: float,
-  offset?: float,
-  opposite?: bool,
-  ordinal?: bool,
-  overscroll?: CommonTypes.stringOrNumber,
-  pane?: float,
-  panningEnabled?: bool,
-  plotBands?: array<xAxisPlotBandsOptions>,
-  plotLines?: array<xAxisPlotLinesOptions>,
-  range?: float,
-  reversed?: bool,
-  reversedStacks?: bool,
-  scrollbar?: xAxisScrollbarOptions,
-  showEmpty?: bool,
-  showFirstLabel?: bool,
-  showLastLabel?: bool,
-  softMax?: float,
-  softMin?: float,
-  startOfWeek?: float,
-  startOnTick?: bool,
-  staticScale?: float,
-  tickAmount?: float,
-  tickColor?: ColorType.t,
-  tickInterval?: float,
-  tickLength?: float,
-  tickmarkPlacement?: optionsTickmarkPlacementValue,
-  tickPixelInterval?: float,
-  tickPosition?: optionsTickPositionValue,
-  tickPositioner?: @this (axis<'b>, float, float, option<axis<'b>>) => axisTickPositionsArray,
-  tickPositions?: array<float>,
-  tickWidth?: float,
-  title?: xAxisTitleOptions,
-  top?: CommonTypes.stringOrNumber,
-  @as("type") type_?: axisTypeValue,
-  uniqueNames?: bool,
-  units?: array<array<JSON.t>>,
-  visible?: bool,
-  width?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-  zoomEnabled?: bool,
-}
-and xAxisGridOptions<'b> = {
-  borderColor?: string,
-  borderWidth?: float,
-  cellHeight?: float,
-  columns?: array<xAxisOptions<'b>>,
-  enabled?: bool,
 }
 and navigatorXAxisOptions<'b> = {
   accessibility?: axisAccessibilityOptionsObject,
@@ -15603,72 +15174,6 @@ and navigationOptions = {
   menuItemStyle?: cssObjectHighcharts,
   menuStyle?: cssObjectHighcharts,
 }
-and legendItemClickEventObject<'b> = {
-  browserEvent: Dom.event,
-  legendItem: chartsLegendItemClickEventObjectLegendItem_t,
-  preventDefault: string, // ⚪ loose — was `Function`
-  target: legend<'b>,
-  @as("type") type_: string, // ⚪ loose — was `"itemClick"`
-}
-and legend<'b> = {
-  allItems: array<chartsLegendAllItems_t>,
-  box: Dom.element,
-  chart: chart<'b>,
-  group: Dom.element,
-  options: legendOptions<'b>,
-  title: Dom.element,
-  setText: chartsLegendAllItems_t => unit,
-  update: (legendOptions<'b>, option<bool>) => unit,
-}
-and legendEventsOptions<'b> = {
-  itemClick?: @this (legend<'b>, legendItemClickEventObject<'b>) => unit,
-}
-and legendOptions<'b> = {
-  accessibility?: legendAccessibilityOptions,
-  align?: alignValue,
-  alignColumns?: bool,
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  bubbleLegend?: legendBubbleLegendOptions,
-  className?: string,
-  enabled?: bool,
-  events?: legendEventsOptions<'b>,
-  floating?: bool,
-  itemCheckboxStyle?: cssObjectHighcharts,
-  itemDistance?: float,
-  itemHiddenStyle?: cssObjectHighcharts,
-  itemHoverStyle?: cssObjectHighcharts,
-  itemMarginBottom?: float,
-  itemMarginTop?: float,
-  itemStyle?: cssObjectHighcharts,
-  itemWidth?: float,
-  labelFormat?: string,
-  labelFormatter?: @this (chartsLegendAllItems_t, option<chartsLegendAllItems_t>) => string,
-  layout?: optionsLayoutValue,
-  margin?: float,
-  maxHeight?: float,
-  maxWidth?: CommonTypes.stringOrNumber,
-  navigation?: legendNavigationOptions,
-  padding?: float,
-  reversed?: bool,
-  rtl?: bool,
-  shadow?: boolOrCssObject,
-  squareSymbol?: bool,
-  symbolHeight?: float,
-  symbolPadding?: float,
-  symbolRadius?: float,
-  symbolWidth?: float,
-  title?: legendTitleOptions,
-  useHTML?: bool,
-  valueDecimals?: float,
-  valueSuffix?: string,
-  verticalAlign?: verticalAlignValue,
-  width?: CommonTypes.stringOrNumber,
-  x?: float,
-  y?: float,
-}
 and exportingOptions<'b> = {
   accessibility?: seriesAccessibilityKeyboardNavigationOptionsObject,
   allowHTML?: bool,
@@ -15739,110 +15244,6 @@ and dataOptions<'b> = {
   switchRowsAndColumns?: bool,
   table?: string, // ⚠️ REVIEW — was `string | HTMLElement` — match the real type by hand
 }
-and colorAxisLabelsOptions<'b> = {
-  align?: alignValue,
-  allowOverlap?: bool,
-  autoRotation?: array<float>,
-  autoRotationLimit?: float,
-  distance?: float,
-  enabled?: bool,
-  format?: string,
-  formatter?: @this (
-    axisLabelsFormatterContextObject<'b>,
-    axisLabelsFormatterContextObject<'b>,
-  ) => string,
-  overflow?: optionsOverflowValue,
-  padding?: float,
-  position3d?: optionsPosition3dValue,
-  reserveSpace?: bool,
-  rotation?: float,
-  skew3d?: bool,
-  staggerLines?: float,
-  step?: float,
-  style?: ChartsColorAxisLabelsOptionsStyle.t,
-  useHTML?: bool,
-  x?: float,
-  y?: float,
-  zIndex?: int,
-}
-and colorAxisEventsOptions<'b> = {
-  afterSetExtremes?: @this (axis<'b>, axisSetExtremesEventObject) => unit,
-  legendItemClick?: string, // ⚪ loose — was `Function`
-  setExtremes?: @this (axis<'b>, axisSetExtremesEventObject) => unit,
-}
-and colorAxisOptions<'b> = {
-  accessibility?: axisAccessibilityOptionsObject,
-  allowDecimals?: bool,
-  angle?: float,
-  ceiling?: float,
-  className?: string,
-  crossing?: float,
-  dataClassColor?: optionsDataClassColorValue,
-  dataClasses?: array<colorAxisDataClassesOptions>,
-  endOnTick?: bool,
-  events?: colorAxisEventsOptions<'b>,
-  floor?: float,
-  gridLineColor?: ColorType.t,
-  gridLineDashStyle?: dashStyleValue,
-  gridLineInterpolation?: optionsGridLineInterpolationValue,
-  gridLineWidth?: float,
-  gridZIndex?: float,
-  height?: CommonTypes.stringOrNumber,
-  id?: string,
-  labels?: colorAxisLabelsOptions<'b>,
-  layout?: string,
-  lineColor?: ColorType.t,
-  margin?: float,
-  marker?: pointMarkerOptionsObject,
-  max?: float,
-  maxColor?: ColorType.t,
-  maxPadding?: float,
-  maxRange?: float,
-  min?: float,
-  minColor?: ColorType.t,
-  minorGridLineColor?: ColorType.t,
-  minorGridLineDashStyle?: dashStyleValue,
-  minorGridLineWidth?: float,
-  minorTickColor?: ColorType.t,
-  minorTickInterval?: CommonTypes.autoOrNumber,
-  minorTickLength?: float,
-  minorTickPosition?: optionsMinorTickPositionValue,
-  minorTicks?: bool,
-  minorTicksPerMajor?: float,
-  minorTickWidth?: float,
-  minPadding?: float,
-  ordinal?: bool,
-  overscroll?: CommonTypes.stringOrNumber,
-  panningEnabled?: bool,
-  range?: float,
-  reversed?: bool,
-  showFirstLabel?: bool,
-  showInLegend?: bool,
-  showLastLabel?: bool,
-  softMax?: float,
-  softMin?: float,
-  startOfWeek?: float,
-  startOnTick?: bool,
-  staticScale?: float,
-  stops?: array<(float, string)>,
-  tickAmount?: float,
-  tickColor?: ColorType.t,
-  tickInterval?: float,
-  tickLength?: float,
-  tickmarkPlacement?: optionsTickmarkPlacementValue,
-  tickPixelInterval?: float,
-  tickPosition?: optionsTickPositionValue,
-  tickPositioner?: @this (axis<'b>, float, float, option<axis<'b>>) => axisTickPositionsArray,
-  tickPositions?: array<float>,
-  tickWidth?: float,
-  title?: ChartsColorAxisOptionsTitle.t,
-  @as("type") type_?: colorAxisTypeValue,
-  uniqueNames?: bool,
-  units?: array<(string, array<float>)>,
-  visible?: bool,
-  width?: CommonTypes.stringOrNumber,
-  zIndex?: int,
-}
 and yAxisLabelsOptions<'b> = {
   align?: alignValue,
   allowOverlap?: bool,
@@ -15872,6 +15273,135 @@ and yAxisLabelsOptions<'b> = {
   y?: float,
   zIndex?: int,
 }
+and xAxisLabelsOptions<'b> = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: @this (
+    axisLabelsFormatterContextObject<'b>,
+    axisLabelsFormatterContextObject<'b>,
+  ) => string,
+  indentation?: float,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: ChartsXAxisLabelsOptionsStyle.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+and xAxisGridOptions<'b> = {
+  borderColor?: string,
+  borderWidth?: float,
+  cellHeight?: float,
+  columns?: array<xAxisOptions<'b>>,
+  enabled?: bool,
+}
+and xAxisOptions<'b> = {
+  accessibility?: axisAccessibilityOptionsObject,
+  alignTicks?: bool,
+  allowDecimals?: bool,
+  alternateGridColor?: ColorType.t,
+  angle?: float,
+  breaks?: array<yAxisBreaksOptions>,
+  categories?: array<string>,
+  ceiling?: float,
+  className?: string,
+  crosshair?: boolOrAxisCrosshairOptions<'b>,
+  crossing?: float,
+  currentDateIndicator?: boolOrCurrentDateIndicatorOptions,
+  dateTimeLabelFormats?: axisDateTimeLabelFormatsOptions,
+  endOnTick?: bool,
+  events?: chartParallelAxesEventsOptions<'b>,
+  floor?: float,
+  grid?: xAxisGridOptions<'b>,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineInterpolation?: optionsGridLineInterpolationValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  id?: string,
+  labels?: xAxisLabelsOptions<'b>,
+  left?: CommonTypes.stringOrNumber,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  linkedTo?: float,
+  margin?: float,
+  max?: CommonTypes.stringOrNumber,
+  maxPadding?: float,
+  maxRange?: float,
+  min?: CommonTypes.stringOrNumber,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  minRange?: float,
+  minTickInterval?: float,
+  offset?: float,
+  opposite?: bool,
+  ordinal?: bool,
+  overscroll?: CommonTypes.stringOrNumber,
+  pane?: float,
+  panningEnabled?: bool,
+  plotBands?: array<xAxisPlotBandsOptions>,
+  plotLines?: array<xAxisPlotLinesOptions>,
+  range?: float,
+  reversed?: bool,
+  reversedStacks?: bool,
+  scrollbar?: xAxisScrollbarOptions,
+  showEmpty?: bool,
+  showFirstLabel?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: @this (axis<'b>, float, float, option<axis<'b>>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: xAxisTitleOptions,
+  top?: CommonTypes.stringOrNumber,
+  @as("type") type_?: axisTypeValue,
+  uniqueNames?: bool,
+  units?: array<array<JSON.t>>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+  zoomEnabled?: bool,
+}
+and yAxisGridOptions<'b> = {
+  borderColor?: string,
+  borderWidth?: float,
+  cellHeight?: float,
+  columns?: array<xAxisOptions<'b>>,
+  enabled?: bool,
+}
 and yAxisOptions<'b> = {
   accessibility?: axisAccessibilityOptionsObject,
   alignTicks?: bool,
@@ -15892,7 +15422,7 @@ and yAxisOptions<'b> = {
   endOnTick?: bool,
   events?: chartParallelAxesEventsOptions<'b>,
   floor?: float,
-  grid?: yAxisGridOptions,
+  grid?: yAxisGridOptions<'b>,
   gridLineColor?: ColorType.t,
   gridLineDashStyle?: dashStyleValue,
   gridLineInterpolation?: optionsGridLineInterpolationValue,
@@ -15969,17 +15499,6 @@ and yAxisOptions<'b> = {
   width?: CommonTypes.stringOrNumber,
   zIndex?: int,
   zoomEnabled?: bool,
-}
-and axisLabelsFormatterContextObject<'b> = {
-  axis: axis<'b>,
-  chart: chart<'b>,
-  dateTimeLabelFormat?: string,
-  isFirst: bool,
-  isLast: bool,
-  pos: float,
-  text?: string,
-  tick: string, // ⚪ loose — was `Tick`
-  value: CommonTypes.stringOrNumber,
 }
 and chartParallelAxesLabelsOptions<'b> = {
   align?: string,
@@ -16195,12 +15714,12 @@ and seriesZigzagOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotZigzagDataLabelsOptionsOrPlotZigzagDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesZigzagOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -16232,7 +15751,7 @@ and seriesZigzagOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -16317,12 +15836,12 @@ and seriesXrangeOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotXrangeDataLabelsOptionsOrPlotXrangeDataLabelsOptionsArray<'b>,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   grouping?: bool,
   groupPadding?: float,
   groupZPadding?: float,
@@ -16337,7 +15856,7 @@ and seriesXrangeOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotXrangeOnPointOptions`
   opacity?: float,
@@ -16355,7 +15874,7 @@ and seriesXrangeOptions<'b> = {
   showInLegend?: bool,
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -16397,7 +15916,7 @@ and seriesWordcloudOptions<'b> = {
   description?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   keys?: array<string>,
@@ -16419,7 +15938,7 @@ and seriesWordcloudOptions<'b> = {
   selected?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   spiral?: optionsSpiralValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -16499,12 +16018,12 @@ and seriesWmaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotWmaDataLabelsOptionsOrPlotWmaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesWmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -16536,7 +16055,7 @@ and seriesWmaOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -16619,7 +16138,7 @@ and seriesWindbarbOptions<'b> = {
   cumulativeStart?: bool,
   cursor?: string,
   custom?: Dict.t<JSON.t>,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotWindbarbDataLabelsOptionsOrPlotWindbarbDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesWindbarbOptionsDataSorting.t,
   depth?: float,
@@ -16627,7 +16146,7 @@ and seriesWindbarbOptions<'b> = {
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -16645,7 +16164,7 @@ and seriesWindbarbOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotWindbarbOnPointOptions`
@@ -16668,7 +16187,7 @@ and seriesWindbarbOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -16753,12 +16272,12 @@ and seriesWilliamsrOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotWilliamsrDataLabelsOptionsOrPlotWilliamsrDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesWilliamsrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -16790,7 +16309,7 @@ and seriesWilliamsrOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -16874,11 +16393,11 @@ and seriesWaterfallOptions<'b> = {
   dataSorting?: ChartsSeriesWaterfallOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -16916,7 +16435,7 @@ and seriesWaterfallOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -16999,12 +16518,12 @@ and seriesVwapOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotVwapDataLabelsOptionsOrPlotVwapDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesVwapOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17036,7 +16555,7 @@ and seriesVwapOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -17055,6 +16574,19 @@ and seriesVwapOptions<'b> = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+and plotVennClusterOptions<'b> = {
+  allowOverlap?: bool,
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  dataLabels?: ChartsPlotVennClusterOptionsDataLabels.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions<'b>,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
 }
 and plotVennDataLabelsOptions<'b> = {
   align?: alignValue,
@@ -17107,7 +16639,7 @@ and seriesVennOptions<'b> = {
   brighten?: float,
   className?: string,
   clip?: bool,
-  cluster?: string, // ⚪ loose — was `PlotVennClusterOptions`
+  cluster?: plotVennClusterOptions<'b>,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorByPoint?: bool,
@@ -17120,7 +16652,7 @@ and seriesVennOptions<'b> = {
   dataLabels?: plotVennDataLabelsOptionsOrPlotVennDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
@@ -17138,7 +16670,7 @@ and seriesVennOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -17152,6 +16684,19 @@ and seriesVennOptions<'b> = {
   mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
   name?: string,
   zIndex?: int,
+}
+and plotVectorClusterOptions<'b> = {
+  allowOverlap?: bool,
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  dataLabels?: ChartsPlotVectorClusterOptionsDataLabels.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions<'b>,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
 }
 and plotVectorDataLabelsOptions<'b> = {
   align?: alignValue,
@@ -17198,7 +16743,7 @@ and seriesVectorOptions<'b> = {
   animationLimit?: float,
   className?: string,
   clip?: bool,
-  cluster?: string, // ⚪ loose — was `PlotVectorClusterOptions`
+  cluster?: plotVectorClusterOptions<'b>,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
@@ -17215,7 +16760,7 @@ and seriesVectorOptions<'b> = {
   dataSorting?: ChartsSeriesVectorOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
@@ -17228,7 +16773,7 @@ and seriesVectorOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: string,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotVectorOnPointOptions`
@@ -17248,7 +16793,7 @@ and seriesVectorOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -17330,12 +16875,12 @@ and seriesVbpOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotVbpDataLabelsOptionsOrPlotVbpDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesVbpOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17368,7 +16913,7 @@ and seriesVbpOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -17450,9 +16995,9 @@ and seriesVariwideOptions<'b> = {
   dataLabels?: plotVariwideDataLabelsOptionsOrPlotVariwideDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesVariwideOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -17487,7 +17032,7 @@ and seriesVariwideOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -17538,7 +17083,7 @@ and seriesVariablepieOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17568,7 +17113,7 @@ and seriesVariablepieOptions<'b> = {
   sizeBy?: variablePieSizeByValue,
   skipKeyboardNavigation?: bool,
   slicedOffset?: float,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -17645,12 +17190,12 @@ and seriesTrixOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotTrixDataLabelsOptionsOrPlotTrixDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesTrixOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17682,7 +17227,7 @@ and seriesTrixOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -17763,12 +17308,12 @@ and seriesTrendlineOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotTrendlineDataLabelsOptionsOrPlotTrendlineDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesTrendlineOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17800,7 +17345,7 @@ and seriesTrendlineOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -17934,7 +17479,7 @@ and seriesTreemapOptions<'b> = {
   dataLabels?: plotTreemapDataLabelsOptionsOrPlotTreemapDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -17971,7 +17516,7 @@ and seriesTreemapOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   sortIndex?: float,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
@@ -18079,7 +17624,7 @@ and seriesTreegraphOptions<'b> = {
   >,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillSpace?: bool,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
@@ -18112,7 +17657,7 @@ and seriesTreegraphOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -18189,9 +17734,9 @@ and seriesTimelineOptions<'b> = {
   custom?: Dict.t<JSON.t>,
   dataLabels?: timelineDataLabelsOptionsObjectOrTimelineDataLabelsOptionsObjectArray<'b>,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   ignoreHiddenPoint?: bool,
@@ -18217,7 +17762,7 @@ and seriesTimelineOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -18293,7 +17838,7 @@ and seriesTilemapOptions<'b> = {
   dataLabels?: plotTilemapDataLabelsOptionsOrPlotTilemapDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
@@ -18319,7 +17864,7 @@ and seriesTilemapOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tileShape?: tilemapShapeValue,
@@ -18337,7 +17882,7 @@ and seriesTilemapOptions<'b> = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
 }
-and seriesTiledwebmapOptions = {
+and seriesTiledwebmapOptions<'b> = {
   affectsMapView?: string, // ⚪ loose — was `undefined`
   allAreas?: string, // ⚪ loose — was `undefined`
   colorByPoint?: string, // ⚪ loose — was `undefined`
@@ -18350,7 +17895,7 @@ and seriesTiledwebmapOptions = {
   className?: string,
   custom?: Dict.t<JSON.t>,
   description?: string,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   legendSymbol?: optionsLegendSymbolValue,
@@ -18433,12 +17978,12 @@ and seriesTemaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotTemaDataLabelsOptionsOrPlotTemaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesTemaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -18470,7 +18015,7 @@ and seriesTemaOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -18553,12 +18098,12 @@ and seriesSupertrendOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotSupertrendDataLabelsOptionsOrPlotSupertrendDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesSupertrendOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fallingTrendColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
@@ -18591,7 +18136,7 @@ and seriesSupertrendOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -18637,7 +18182,7 @@ and seriesSunburstOptions<'b> = {
   dataLabels?: string, // ⚪ loose — was `SeriesSunburstDataLabelsOptionsObject | SeriesSunburstDataLabelsOptionsObject[]`
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -18662,7 +18207,7 @@ and seriesSunburstOptions<'b> = {
   size?: CommonTypes.stringOrNumber,
   skipKeyboardNavigation?: bool,
   slicedOffset?: float,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -18740,13 +18285,13 @@ and seriesStreamgraphOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotStreamgraphDataLabelsOptionsOrPlotStreamgraphDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesStreamgraphOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -18766,7 +18311,7 @@ and seriesStreamgraphOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -18788,7 +18333,7 @@ and seriesStreamgraphOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: string,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -18872,12 +18417,12 @@ and seriesStochasticOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotStochasticDataLabelsOptionsOrPlotStochasticDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesStochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -18910,7 +18455,7 @@ and seriesStochasticOptions<'b> = {
   skipKeyboardNavigation?: bool,
   smoothedLine?: plotAroonAroonDownOptions,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -18991,13 +18536,13 @@ and seriesSplineOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotSplineDataLabelsOptionsOrPlotSplineDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesSplineOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19014,7 +18559,7 @@ and seriesSplineOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotSplineOnPointOptions`
@@ -19035,7 +18580,7 @@ and seriesSplineOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -19115,7 +18660,7 @@ and seriesSolidgaugeOptions<'b> = {
   dataLabels?: plotSolidgaugeDataLabelsOptionsOrPlotSolidgaugeDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
@@ -19145,7 +18690,7 @@ and seriesSolidgaugeOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stickyTracking?: bool,
   threshold?: float,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -19222,12 +18767,12 @@ and seriesSmaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotSmaDataLabelsOptionsOrPlotSmaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesSmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19259,7 +18804,7 @@ and seriesSmaOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -19339,12 +18884,12 @@ and seriesSlowstochasticOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotSlowstochasticDataLabelsOptionsOrPlotSlowstochasticDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesSlowstochasticOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19377,7 +18922,7 @@ and seriesSlowstochasticOptions<'b> = {
   skipKeyboardNavigation?: bool,
   smoothedLine?: plotDmiPlusDILineOptions,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -19396,6 +18941,22 @@ and seriesSlowstochasticOptions<'b> = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+and plotScatterClusterEventsOptions<'b> = {
+  drillToCluster?: @this (point<'b>, pointClickEventObject<'b>) => unit,
+}
+and plotScatterClusterOptions<'b> = {
+  allowOverlap?: bool,
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  dataLabels?: ChartsPlotScatterClusterOptionsDataLabels.t,
+  drillToCluster?: bool,
+  enabled?: bool,
+  events?: plotScatterClusterEventsOptions<'b>,
+  layoutAlgorithm?: plotScatterClusterLayoutAlgorithmOptions,
+  marker?: pointMarkerOptionsObject,
+  minimumClusterSize?: float,
+  states?: plotScatterClusterStatesOptions,
+  zones?: array<plotScatterClusterZonesOptions>,
 }
 and plotScatterDataLabelsOptions<'b> = {
   align?: alignValue,
@@ -19445,7 +19006,7 @@ and seriesScatterOptions<'b> = {
   boostThreshold?: float,
   className?: string,
   clip?: bool,
-  cluster?: string, // ⚪ loose — was `PlotScatterClusterOptions`
+  cluster?: plotScatterClusterOptions<'b>,
   color?: ColorType.t,
   colorAxis?: CommonTypes.boolOrStringOrNumber,
   colorIndex?: float,
@@ -19461,13 +19022,13 @@ and seriesScatterOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotScatterDataLabelsOptionsOrPlotScatterDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesScatterOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19484,7 +19045,7 @@ and seriesScatterOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotScatterOnPointOptions`
@@ -19503,7 +19064,7 @@ and seriesScatterOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -19582,7 +19143,7 @@ and seriesScatter3dOptions<'b> = {
   dataSorting?: ChartsSeriesScatter3dOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19613,7 +19174,7 @@ and seriesScatter3dOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -19686,7 +19247,7 @@ and seriesSankeyOptions<'b> = {
   dataLabels?: seriesSankeyDataLabelsOptionsObjectOrSeriesSankeyDataLabelsOptionsObjectArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -19713,7 +19274,7 @@ and seriesSankeyOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -19791,12 +19352,12 @@ and seriesRsiOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotRsiDataLabelsOptionsOrPlotRsiDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesRsiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19828,7 +19389,7 @@ and seriesRsiOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -19909,12 +19470,12 @@ and seriesRocOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotRocDataLabelsOptionsOrPlotRocDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesRocOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -19946,7 +19507,7 @@ and seriesRocOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -20028,7 +19589,7 @@ and seriesRenkoOptions<'b> = {
   description?: string,
   downColor?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: string,
   findNearestPointBy?: optionsFindNearestPointByValue,
   grouping?: bool,
@@ -20063,7 +19624,7 @@ and seriesRenkoOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -20112,7 +19673,7 @@ and seriesPyramidOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20141,7 +19702,7 @@ and seriesPyramidOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   slicedOffset?: float,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -20218,11 +19779,11 @@ and seriesPyramid3dOptions<'b> = {
   dataLabels?: plotPyramid3dDataLabelsOptionsOrPlotPyramid3dDataLabelsOptionsArray<'b>,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   gradientForSides?: bool,
@@ -20262,7 +19823,7 @@ and seriesPyramid3dOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -20345,12 +19906,12 @@ and seriesPsarOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPsarDataLabelsOptionsOrPlotPsarDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPsarOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20382,7 +19943,7 @@ and seriesPsarOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -20464,12 +20025,12 @@ and seriesPriceenvelopesOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPriceenvelopesDataLabelsOptionsOrPlotPriceenvelopesDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPriceenvelopesOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20501,7 +20062,7 @@ and seriesPriceenvelopesOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -20584,12 +20145,12 @@ and seriesPpoOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPpoDataLabelsOptionsOrPlotPpoDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPpoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20621,7 +20182,7 @@ and seriesPpoOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -20702,13 +20263,13 @@ and seriesPolygonOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPolygonDataLabelsOptionsOrPlotPolygonDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPolygonOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20724,7 +20285,7 @@ and seriesPolygonOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotPolygonOnPointOptions`
@@ -20742,7 +20303,7 @@ and seriesPolygonOptions<'b> = {
   showInLegend?: bool,
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -20821,7 +20382,7 @@ and seriesPointandfigureOptions<'b> = {
   dataSorting?: ChartsSeriesPointandfigureOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20840,7 +20401,7 @@ and seriesPointandfigureOptions<'b> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   markerUp?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotPointandfigureOnPointOptions`
@@ -20861,7 +20422,7 @@ and seriesPointandfigureOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -20944,12 +20505,12 @@ and seriesPivotpointsOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPivotpointsDataLabelsOptionsOrPlotPivotpointsDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPivotpointsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -20981,7 +20542,7 @@ and seriesPivotpointsOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -21031,7 +20592,7 @@ and seriesPieOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -21059,7 +20620,7 @@ and seriesPieOptions<'b> = {
   size?: CommonTypes.stringOrNumber,
   skipKeyboardNavigation?: bool,
   slicedOffset?: float,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -21137,11 +20698,11 @@ and seriesPictorialOptions<'b> = {
   dataLabels?: plotPictorialDataLabelsOptionsOrPlotPictorialDataLabelsOptionsArray<'b>,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -21175,7 +20736,7 @@ and seriesPictorialOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -21257,13 +20818,13 @@ and seriesPcOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotPcDataLabelsOptionsOrPlotPcDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesPcOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
-  fillColor?: string, // ⚪ loose — was `Color`
+  events?: seriesEventsOptionsObject<'b>,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -21295,7 +20856,7 @@ and seriesPcOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -21375,7 +20936,7 @@ and seriesParetoOptions<'b> = {
   dataSorting?: ChartsSeriesParetoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -21397,7 +20958,7 @@ and seriesParetoOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -21439,7 +21000,7 @@ and seriesPackedbubbleOptions<'b> = {
   displayNegative?: bool,
   draggable?: bool,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -21447,7 +21008,7 @@ and seriesPackedbubbleOptions<'b> = {
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   label?: seriesLabelOptionsObject<'b>,
-  layoutAlgorithm?: string, // ⚪ loose — was `PlotPackedbubbleLayoutAlgorithmOptions`
+  layoutAlgorithm?: plotPackedbubbleLayoutAlgorithmOptions,
   legendSymbol?: optionsLegendSymbolValue,
   linecap?: string,
   lineWidth?: float,
@@ -21473,7 +21034,7 @@ and seriesPackedbubbleOptions<'b> = {
   sizeBy?: string,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -21558,7 +21119,7 @@ and seriesOrganizationOptions<'b> = {
   >,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   getExtremesFromAll?: bool,
   hangingIndent?: float,
   hangingIndentTranslation?: organizationHangingIndentTranslationValue,
@@ -21590,7 +21151,7 @@ and seriesOrganizationOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -21670,13 +21231,13 @@ and seriesOhlcOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotOhlcDataLabelsOptionsOrPlotOhlcDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesOhlcOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -21693,7 +21254,7 @@ and seriesOhlcOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotOhlcOnPointOptions`
@@ -21717,7 +21278,7 @@ and seriesOhlcOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -21798,12 +21359,12 @@ and seriesObvOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotObvDataLabelsOptionsOrPlotObvDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesObvOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -21835,7 +21396,7 @@ and seriesObvOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -21876,14 +21437,14 @@ and seriesNetworkgraphOptions<'b> = {
   description?: string,
   draggable?: bool,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   keys?: array<string>,
-  layoutAlgorithm?: string, // ⚪ loose — was `PlotNetworkgraphLayoutAlgorithmOptions`
+  layoutAlgorithm?: plotNetworkgraphLayoutAlgorithmOptions,
   legendSymbol?: optionsLegendSymbolValue,
   legendSymbolColor?: ColorType.t,
   lineWidth?: float,
@@ -21902,7 +21463,7 @@ and seriesNetworkgraphOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -21978,12 +21539,12 @@ and seriesNatrOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotNatrDataLabelsOptionsOrPlotNatrDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesNatrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22015,7 +21576,7 @@ and seriesNatrOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -22096,12 +21657,12 @@ and seriesMomentumOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotMomentumDataLabelsOptionsOrPlotMomentumDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesMomentumOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22133,7 +21694,7 @@ and seriesMomentumOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -22214,12 +21775,12 @@ and seriesMfiOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotMfiDataLabelsOptionsOrPlotMfiDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesMfiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22251,7 +21812,7 @@ and seriesMfiOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -22328,9 +21889,9 @@ and seriesMappointOptions<'b> = {
   dashStyle?: dashStyleValue,
   dataLabels?: plotMappointDataLabelsOptionsOrPlotMappointDataLabelsOptionsArray<'b>,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -22349,7 +21910,7 @@ and seriesMappointOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -22426,7 +21987,7 @@ and seriesMapOptions<'b> = {
   dataLabels?: plotMapDataLabelsOptionsOrPlotMapDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -22445,7 +22006,7 @@ and seriesMapOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -22522,7 +22083,7 @@ and seriesMaplineOptions<'b> = {
   dataLabels?: plotMaplineDataLabelsOptionsOrPlotMaplineDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   inactiveOtherPoints?: bool,
@@ -22543,7 +22104,7 @@ and seriesMaplineOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -22618,9 +22179,9 @@ and seriesMapbubbleOptions<'b> = {
   dataLabels?: plotMapbubbleDataLabelsOptionsOrPlotMapbubbleDataLabelsOptionsArray<'b>,
   description?: string,
   displayNegative?: bool,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -22643,7 +22204,7 @@ and seriesMapbubbleOptions<'b> = {
   showInLegend?: bool,
   sizeBy?: bubbleSizeByValue,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -22720,12 +22281,12 @@ and seriesMacdOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotMacdDataLabelsOptionsOrPlotMacdDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesMacdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22762,7 +22323,7 @@ and seriesMacdOptions<'b> = {
   signalLine?: plotMacdMacdLineOptions,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -22810,15 +22371,15 @@ and seriesLollipopOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObjectArray<
     'b,
   >,
   dataSorting?: ChartsSeriesLollipopOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22837,7 +22398,7 @@ and seriesLollipopOptions<'b> = {
   linkedTo?: string,
   lowMarker?: pointMarkerOptionsObject,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -22860,7 +22421,7 @@ and seriesLollipopOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   threshold?: float,
@@ -22943,13 +22504,13 @@ and seriesLineOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotLineDataLabelsOptionsOrPlotLineDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesLineOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -22966,7 +22527,7 @@ and seriesLineOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotLineOnPointOptions`
@@ -22987,7 +22548,7 @@ and seriesLineOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -23071,14 +22632,14 @@ and seriesLinearregressionslopeOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotLinearregressionslopeDataLabelsOptionsOrPlotLinearregressionslopeDataLabelsOptionsArray<
     'b,
   >,
   dataSorting?: ChartsSeriesLinearregressionslopeOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23110,7 +22671,7 @@ and seriesLinearregressionslopeOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23191,14 +22752,14 @@ and seriesLinearregressionOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotLinearregressionDataLabelsOptionsOrPlotLinearregressionDataLabelsOptionsArray<
     'b,
   >,
   dataSorting?: ChartsSeriesLinearregressionOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23230,7 +22791,7 @@ and seriesLinearregressionOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23311,14 +22872,14 @@ and seriesLinearregressioninterceptOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotLinearregressioninterceptDataLabelsOptionsOrPlotLinearregressioninterceptDataLabelsOptionsArray<
     'b,
   >,
   dataSorting?: ChartsSeriesLinearregressioninterceptOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23350,7 +22911,7 @@ and seriesLinearregressioninterceptOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23431,14 +22992,14 @@ and seriesLinearregressionangleOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotLinearregressionangleDataLabelsOptionsOrPlotLinearregressionangleDataLabelsOptionsArray<
     'b,
   >,
   dataSorting?: ChartsSeriesLinearregressionangleOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23470,7 +23031,7 @@ and seriesLinearregressionangleOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23551,12 +23112,12 @@ and seriesKlingerOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotKlingerDataLabelsOptionsOrPlotKlingerDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesKlingerOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23589,7 +23150,7 @@ and seriesKlingerOptions<'b> = {
   signalLine?: plotDmiPlusDILineOptions,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23670,13 +23231,13 @@ and seriesKeltnerchannelsOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotKeltnerchannelsDataLabelsOptionsOrPlotKeltnerchannelsDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesKeltnerchannelsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
-  fillColor?: string, // ⚪ loose — was `Color`
+  events?: seriesEventsOptionsObject<'b>,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23708,7 +23269,7 @@ and seriesKeltnerchannelsOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23756,7 +23317,7 @@ and seriesItemOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23784,7 +23345,7 @@ and seriesItemOptions<'b> = {
   showInLegend?: bool,
   size?: CommonTypes.stringOrNumber,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -23859,12 +23420,12 @@ and seriesIkhOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotIkhDataLabelsOptionsOrPlotIkhDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesIkhOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -23900,7 +23461,7 @@ and seriesIkhOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -23984,15 +23545,15 @@ and seriesHollowcandlestickOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotHollowcandlestickDataLabelsOptionsOrPlotHollowcandlestickDataLabelsOptionsArray<
     'b,
   >,
   dataSorting?: ChartsSeriesHollowcandlestickOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -24010,7 +23571,7 @@ and seriesHollowcandlestickOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotHollowcandlestickOnPointOptions`
@@ -24034,7 +23595,7 @@ and seriesHollowcandlestickOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -24119,13 +23680,13 @@ and seriesHlcOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotHlcDataLabelsOptionsOrPlotHlcDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesHlcOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -24142,7 +23703,7 @@ and seriesHlcOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotHlcOnPointOptions`
@@ -24166,7 +23727,7 @@ and seriesHlcOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -24255,7 +23816,7 @@ and seriesHistogramOptions<'b> = {
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -24289,7 +23850,7 @@ and seriesHistogramOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -24372,13 +23933,13 @@ and seriesHeikinashiOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotHeikinashiDataLabelsOptionsOrPlotHeikinashiDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesHeikinashiOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -24396,7 +23957,7 @@ and seriesHeikinashiOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotHeikinashiOnPointOptions`
@@ -24420,7 +23981,7 @@ and seriesHeikinashiOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -24504,7 +24065,7 @@ and seriesHeatmapOptions<'b> = {
   dataSorting?: ChartsSeriesHeatmapOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
@@ -24531,7 +24092,7 @@ and seriesHeatmapOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -24612,7 +24173,7 @@ and seriesGeoheatmapOptions<'b> = {
   dataLabels?: plotGeoheatmapDataLabelsOptionsOrPlotGeoheatmapDataLabelsOptionsArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   interpolation?: ChartsSeriesGeoheatmapOptionsInterpolation.t,
@@ -24629,7 +24190,7 @@ and seriesGeoheatmapOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -24699,7 +24260,7 @@ and seriesGaugeOptions<'b> = {
   description?: string,
   dial?: plotGaugeDialOptions,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
   inactiveOtherPoints?: bool,
@@ -24727,7 +24288,7 @@ and seriesGaugeOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
   visible?: bool,
@@ -24799,9 +24360,9 @@ and seriesGanttOptions<'b> = {
   dashStyle?: dashStyleValue,
   dataLabels?: plotGanttDataLabelsOptionsOrPlotGanttDataLabelsOptionsArray<'b>,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   grouping?: bool,
   groupPadding?: float,
   inactiveOtherPoints?: bool,
@@ -24826,7 +24387,7 @@ and seriesGanttOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -24873,7 +24434,7 @@ and seriesFunnelOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   endAngle?: float,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -24902,7 +24463,7 @@ and seriesFunnelOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   slicedOffset?: float,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -24979,11 +24540,11 @@ and seriesFunnel3dOptions<'b> = {
   dataLabels?: plotFunnel3dDataLabelsOptionsOrPlotFunnel3dDataLabelsOptionsArray<'b>,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   gradientForSides?: bool,
@@ -25024,7 +24585,7 @@ and seriesFunnel3dOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -25068,7 +24629,7 @@ and seriesFlowmapOptions<'b> = {
   custom?: Dict.t<JSON.t>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -25089,7 +24650,7 @@ and seriesFlowmapOptions<'b> = {
   selected?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -25176,9 +24737,9 @@ and seriesFlagsOptions<'b> = {
   dataLabels?: plotFlagsDataLabelsOptionsOrPlotFlagsDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesFlagsOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
@@ -25198,7 +24759,7 @@ and seriesFlagsOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onKey?: optionsOnKeyValue,
@@ -25222,7 +24783,7 @@ and seriesFlagsOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stackDistance?: float,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
@@ -25311,11 +24872,11 @@ and seriesErrorbarOptions<'b> = {
   dataSorting?: ChartsSeriesErrorbarOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
@@ -25355,7 +24916,7 @@ and seriesErrorbarOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   stemColor?: ColorType.t,
   stemDashStyle?: dashStyleValue,
@@ -25442,12 +25003,12 @@ and seriesEmaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotEmaDataLabelsOptionsOrPlotEmaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesEmaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -25479,7 +25040,7 @@ and seriesEmaOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -25527,15 +25088,15 @@ and seriesDumbbellOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObjectArray<
     'b,
   >,
   dataSorting?: ChartsSeriesDumbbellOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
@@ -25555,7 +25116,7 @@ and seriesDumbbellOptions<'b> = {
   lowColor?: ColorType.t,
   lowMarker?: pointMarkerOptionsObject,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -25578,7 +25139,7 @@ and seriesDumbbellOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   threshold?: float,
@@ -25658,12 +25219,12 @@ and seriesDpoOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotDpoDataLabelsOptionsOrPlotDpoDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesDpoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -25695,7 +25256,7 @@ and seriesDpoOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -25777,12 +25338,12 @@ and seriesDmiOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotDmiDataLabelsOptionsOrPlotDmiDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesDmiOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -25816,7 +25377,7 @@ and seriesDmiOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -25898,12 +25459,12 @@ and seriesDisparityindexOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotDisparityindexDataLabelsOptionsOrPlotDisparityindexDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesDisparityindexOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -25935,7 +25496,7 @@ and seriesDisparityindexOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -25990,7 +25551,7 @@ and seriesDependencywheelOptions<'b> = {
   dataLabels?: seriesSankeyDataLabelsOptionsObjectOrSeriesSankeyDataLabelsOptionsObjectArray<'b>,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   getExtremesFromAll?: bool,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
@@ -26016,7 +25577,7 @@ and seriesDependencywheelOptions<'b> = {
   showInLegend?: bool,
   size?: CommonTypes.stringOrNumber,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   startAngle?: float,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -26094,12 +25655,12 @@ and seriesDemaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotDemaDataLabelsOptionsOrPlotDemaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesDemaOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -26131,7 +25692,7 @@ and seriesDemaOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -26216,7 +25777,7 @@ and seriesCylinderOptions<'b> = {
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -26252,7 +25813,7 @@ and seriesCylinderOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -26339,7 +25900,7 @@ and seriesContourOptions<'b> = {
   dataSorting?: ChartsSeriesContourOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -26365,7 +25926,7 @@ and seriesContourOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   smoothColoring?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -26417,18 +25978,18 @@ and seriesColumnrangeOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObjectArray<
     'b,
   >,
   dataSorting?: ChartsSeriesColumnrangeOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -26445,7 +26006,7 @@ and seriesColumnrangeOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotColumnrangeOnPointOptions`
   opacity?: float,
@@ -26466,7 +26027,7 @@ and seriesColumnrangeOptions<'b> = {
   showInLegend?: bool,
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -26547,13 +26108,13 @@ and seriesColumnpyramidOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotColumnpyramidDataLabelsOptionsOrPlotColumnpyramidDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesColumnpyramidOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -26569,7 +26130,7 @@ and seriesColumnpyramidOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotColumnpyramidOnPointOptions`
   opacity?: float,
@@ -26590,7 +26151,7 @@ and seriesColumnpyramidOptions<'b> = {
   showInLegend?: bool,
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -26675,16 +26236,16 @@ and seriesColumnOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotColumnDataLabelsOptionsOrPlotColumnDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesColumnOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -26701,7 +26262,7 @@ and seriesColumnOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotColumnOnPointOptions`
@@ -26724,7 +26285,7 @@ and seriesColumnOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -26806,12 +26367,12 @@ and seriesCmoOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotCmoDataLabelsOptionsOrPlotCmoDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesCmoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -26843,7 +26404,7 @@ and seriesCmoOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -26923,12 +26484,12 @@ and seriesCmfOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotCmfDataLabelsOptionsOrPlotCmfDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesCmfOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -26960,7 +26521,7 @@ and seriesCmfOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -27042,12 +26603,12 @@ and seriesChaikinOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotChaikinDataLabelsOptionsOrPlotChaikinDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesChaikinOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -27079,7 +26640,7 @@ and seriesChaikinOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -27160,12 +26721,12 @@ and seriesCciOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotCciDataLabelsOptionsOrPlotCciDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesCciOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -27197,7 +26758,7 @@ and seriesCciOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -27280,13 +26841,13 @@ and seriesCandlestickOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotCandlestickDataLabelsOptionsOrPlotCandlestickDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesCandlestickOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -27304,7 +26865,7 @@ and seriesCandlestickOptions<'b> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotCandlestickOnPointOptions`
@@ -27328,7 +26889,7 @@ and seriesCandlestickOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -27412,11 +26973,11 @@ and seriesBulletOptions<'b> = {
   dataLabels?: plotBulletDataLabelsOptionsOrPlotBulletDataLabelsOptionsArray<'b>,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -27452,7 +27013,7 @@ and seriesBulletOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -27537,14 +27098,14 @@ and seriesBubbleOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotBubbleDataLabelsOptionsOrPlotBubbleDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesBubbleOptionsDataSorting.t,
   description?: string,
   displayNegative?: bool,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -27563,7 +27124,7 @@ and seriesBubbleOptions<'b> = {
   marker?: pointMarkerOptionsObject,
   maxSize?: CommonTypes.stringOrNumber,
   minSize?: CommonTypes.stringOrNumber,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onPoint?: string, // ⚪ loose — was `object | PlotBubbleOnPointOptions`
@@ -27584,7 +27145,7 @@ and seriesBubbleOptions<'b> = {
   sizeByAbsoluteValue?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -27671,11 +27232,11 @@ and seriesBoxplotOptions<'b> = {
   dataSorting?: ChartsSeriesBoxplotOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
@@ -27715,7 +27276,7 @@ and seriesBoxplotOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   stemColor?: ColorType.t,
   stemDashStyle?: dashStyleValue,
@@ -27801,7 +27362,7 @@ and seriesBellcurveOptions<'b> = {
   dataSorting?: ChartsSeriesBellcurveOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -27838,7 +27399,7 @@ and seriesBellcurveOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -27921,12 +27482,12 @@ and seriesBbOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotBbDataLabelsOptionsOrPlotBbDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesBbOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
@@ -27959,7 +27520,7 @@ and seriesBbOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -28046,11 +27607,11 @@ and seriesBarOptions<'b> = {
   dataSorting?: ChartsSeriesBarOptionsDataSorting.t,
   depth?: float,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   edgeColor?: string,
   edgeWidth?: float,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   getExtremesFromAll?: bool,
   grouping?: bool,
@@ -28086,7 +27647,7 @@ and seriesBarOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -28168,12 +27729,12 @@ and seriesAtrOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAtrDataLabelsOptionsOrPlotAtrDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAtrOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -28205,7 +27766,7 @@ and seriesAtrOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -28286,12 +27847,12 @@ and seriesAroonoscillatorOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAroonoscillatorDataLabelsOptionsOrPlotAroonoscillatorDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAroonoscillatorOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -28323,7 +27884,7 @@ and seriesAroonoscillatorOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -28404,12 +27965,12 @@ and seriesAroonOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAroonDataLabelsOptionsOrPlotAroonDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAroonOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -28441,7 +28002,7 @@ and seriesAroonOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -28489,15 +28050,15 @@ and seriesAreasplinerangeOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObjectArray<
     'b,
   >,
   dataSorting?: ChartsSeriesAreasplinerangeOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -28518,7 +28079,7 @@ and seriesAreasplinerangeOptions<'b> = {
   linkedTo?: string,
   lowMarker?: pointMarkerOptionsObject,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -28540,7 +28101,7 @@ and seriesAreasplinerangeOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   threshold?: float,
@@ -28621,13 +28182,13 @@ and seriesAreasplineOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAreasplineDataLabelsOptionsOrPlotAreasplineDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAreasplineOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -28647,7 +28208,7 @@ and seriesAreasplineOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -28669,7 +28230,7 @@ and seriesAreasplineOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
@@ -28759,15 +28320,15 @@ and seriesArearangeOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObjectArray<
     'b,
   >,
   dataSorting?: ChartsSeriesArearangeOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -28788,7 +28349,7 @@ and seriesArearangeOptions<'b> = {
   linkedTo?: string,
   lowMarker?: pointMarkerOptionsObject,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -28810,7 +28371,7 @@ and seriesArearangeOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -28830,6 +28391,127 @@ and seriesArearangeOptions<'b> = {
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
+}
+and plotSeriesDataLabelsOptions<'b> = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: ChartsPlotSeriesDataLabelsOptionsAnimation.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: cssObjectHighcharts,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+and plotSeriesOptions<'b> = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | AnimationOptionsObject` — match the real type by hand
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  compare?: optionsCompareValue,
+  compareBase?: CommonTypes.v0OrV100,
+  compareStart?: bool,
+  connectEnds?: bool,
+  connectNulls?: bool,
+  connectors?: seriesConnectorsOptionsObject,
+  crisp?: bool,
+  cropThreshold?: float,
+  cumulative?: bool,
+  cumulativeStart?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>, // 🛑 BROKEN — contains `any`
+  dashStyle?: dashStyleValue,
+  dataGrouping?: dataGroupingOptionsObject,
+  dataLabels?: plotSeriesDataLabelsOptionsOrPlotSeriesDataLabelsOptionsArray<'b>,
+  dataSorting?: ChartsPlotSeriesOptionsDataSorting.t,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject<'b>,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  getExtremesFromAll?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  label?: seriesLabelOptionsObject<'b>,
+  lastPrice?: seriesLastPriceOptionsObject<'b>,
+  lastVisiblePrice?: seriesLastPriceOptionsObject<'b>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  lineWidth?: float,
+  linkedTo?: string,
+  marker?: pointMarkerOptionsObject,
+  navigatorOptions?: plotSeriesOptions<'b>,
+  negativeColor?: ColorType.t,
+  nullInteraction?: bool,
+  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSeriesOnPointOptions` — match the real type by hand
+  opacity?: float,
+  point?: plotSeriesPointOptions<'b>,
+  pointDescriptionFormat?: string, // ⚪ loose — was `Function`
+  pointDescriptionFormatter?: string, // ⚪ loose — was `Function`
+  pointInterval?: float,
+  pointIntervalUnit?: optionsPointIntervalUnitValue,
+  pointPlacement?: CommonTypes.stringOrNumber,
+  pointRange?: float,
+  pointStart?: CommonTypes.stringOrNumber,
+  relativeXValue?: bool,
+  selected?: bool,
+  shadow?: boolOrShadowOptionsObject,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  showInNavigator?: bool,
+  skipKeyboardNavigation?: bool,
+  softThreshold?: bool,
+  sonification?: seriesSonificationOptions,
+  stacking?: optionsStackingValue,
+  states?: seriesStatesOptionsObject,
+  step?: optionsStepValue,
+  stickyTracking?: bool,
+  threshold?: float,
+  tooltip?: seriesTooltipOptionsObject<'b>,
+  turboThreshold?: float,
+  visible?: bool,
+  zIndex?: int,
+  zoneAxis?: string,
+  zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
 }
 and plotAreaDataLabelsOptions<'b> = {
   align?: alignValue,
@@ -28895,13 +28577,13 @@ and seriesAreaOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAreaDataLabelsOptionsOrPlotAreaDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAreaOptionsDataSorting.t,
   description?: string,
-  dragDrop?: string, // ⚪ loose — was `SeriesDragDropOptionsObject`
+  dragDrop?: seriesDragDropOptionsObject,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   fillColor?: ColorType.t,
   fillOpacity?: float,
   findNearestPointBy?: optionsFindNearestPointByValue,
@@ -28921,7 +28603,7 @@ and seriesAreaOptions<'b> = {
   lineWidth?: float,
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
-  navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions`
+  navigatorOptions?: plotSeriesOptions<'b>,
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
@@ -28943,7 +28625,7 @@ and seriesAreaOptions<'b> = {
   showInNavigator?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   stacking?: optionsStackingValue,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
@@ -29084,7 +28766,7 @@ and seriesArcdiagramOptions<'b> = {
   description?: string,
   enableMouseTracking?: bool,
   equalNodes?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   keys?: array<string>,
@@ -29109,7 +28791,7 @@ and seriesArcdiagramOptions<'b> = {
   showCheckbox?: bool,
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   stickyTracking?: bool,
   tooltip?: seriesTooltipOptionsObject<'b>,
@@ -29185,12 +28867,12 @@ and seriesApoOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotApoDataLabelsOptionsOrPlotApoDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesApoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -29222,7 +28904,7 @@ and seriesApoOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -29304,12 +28986,12 @@ and seriesAoOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAoDataLabelsOptionsOrPlotAoDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAoOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -29345,7 +29027,7 @@ and seriesAoOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -29426,12 +29108,12 @@ and seriesAdOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAdDataLabelsOptionsOrPlotAdDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAdOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
+  events?: seriesEventsOptionsObject<'b>,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -29463,7 +29145,7 @@ and seriesAdOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -29483,6 +29165,38 @@ and seriesAdOptions<'b> = {
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+and seriesLegendItemClickEventObject<'b> = {
+  browserEvent: Dom.event,
+  defaultPrevented?: bool,
+  preventDefault: string, // ⚪ loose — was `Function`
+  target: series<'b>,
+  @as("type") type_: string, // ⚪ loose — was `"legendItemClick"`
+}
+and seriesClickEventObject<'b> = {
+  ...JsxDOM.domProps,
+  point: point<'b>,
+}
+and seriesCheckboxClickEventObject<'b> = {
+  checked: bool,
+  item: series<'b>,
+  target: series<'b>,
+  @as("type") type_: string, // ⚪ loose — was `"checkboxClick"`
+}
+and seriesAfterAnimateEventObject<'b> = {
+  target: series<'b>,
+  @as("type") type_: string, // ⚪ loose — was `"afterAnimate"`
+}
+and seriesEventsOptionsObject<'b> = {
+  afterAnimate?: @this (series<'b>, seriesAfterAnimateEventObject<'b>) => unit,
+  checkboxClick?: @this (series<'b>, seriesCheckboxClickEventObject<'b>) => string, // 🛑 BROKEN — contains `any`
+  click?: @this (series<'b>, seriesClickEventObject<'b>) => unit,
+  hide?: @this (series<'b>, Dom.event) => unit,
+  legendItemClick?: @this (series<'b>, seriesLegendItemClickEventObject<'b>) => unit,
+  mouseOut?: @this (series<'b>, Dom.event) => unit,
+  mouseOver?: @this (series<'b>, Dom.event) => unit,
+  setRootNode?: string, // ⚪ loose — was `Function`
+  show?: @this (series<'b>, Dom.event) => unit,
+}
 and seriesTooltipOptionsObject<'b> = {
   changeDecimals?: float,
   clusterFormat?: string,
@@ -29499,9 +29213,9 @@ and seriesTooltipOptionsObject<'b> = {
   nullFormat?: string,
   nullFormatter?: @this (
     point<'b>,
-    string,
+    tooltip<'b>,
     option<point<'b>>,
-  ) => CommonTypes.boolOrStringOrStringArray, // ⚪ loose — was `Tooltip`
+  ) => CommonTypes.boolOrStringOrStringArray,
   pointFormat?: string,
   pointFormatter?: @this (point<'b>, option<point<'b>>) => string,
   position?: ChartsSeriesTooltipOptionsObjectPosition.t,
@@ -29563,11 +29277,11 @@ and plotAbandsDataLabelsOptions<'b> = {
   enabled?: bool,
   filter?: dataLabelsFilterOptionsObject,
   format?: string,
-  formatter?: @this (point<'b>, string) => CommonTypes.stringOrNumber, // ⚪ loose — was `DataLabelsOptions`
+  formatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
   inside?: bool,
   labelrank?: float,
   nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: @this (point<'b>, string) => CommonTypes.stringOrNumber, // ⚪ loose — was `DataLabelsOptions`
+  nullFormatter?: @this (point<'b>, dataLabelsOptions) => CommonTypes.stringOrNumber,
   overflow?: dataLabelsOverflowValue,
   padding?: float,
   position?: alignValue,
@@ -29627,13 +29341,13 @@ and seriesAbandsOptions<'b> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataGrouping?: string, // ⚪ loose — was `DataGroupingOptionsObject`
+  dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: plotAbandsDataLabelsOptionsOrPlotAbandsDataLabelsOptionsArray<'b>,
   dataSorting?: ChartsSeriesAbandsOptionsDataSorting.t,
   description?: string,
   enableMouseTracking?: bool,
-  events?: string, // ⚪ loose — was `SeriesEventsOptionsObject`
-  fillColor?: string, // ⚪ loose — was `Color`
+  events?: seriesEventsOptionsObject<'b>,
+  fillColor?: color,
   findNearestPointBy?: optionsFindNearestPointByValue,
   gapSize?: float,
   gapUnit?: optionsGapUnitValue,
@@ -29665,7 +29379,7 @@ and seriesAbandsOptions<'b> = {
   showInLegend?: bool,
   skipKeyboardNavigation?: bool,
   softThreshold?: bool,
-  sonification?: string, // ⚪ loose — was `SeriesSonificationOptions`
+  sonification?: seriesSonificationOptions,
   states?: seriesStatesOptionsObject,
   step?: optionsStepValue,
   stickyTracking?: bool,
@@ -30109,12 +29823,371 @@ and accessibilityPointOptions<'b> = {
   valuePrefix?: string,
   valueSuffix?: string,
 }
+and colorAxisLabelsOptions<'b> = {
+  align?: alignValue,
+  allowOverlap?: bool,
+  autoRotation?: array<float>,
+  autoRotationLimit?: float,
+  distance?: float,
+  enabled?: bool,
+  format?: string,
+  formatter?: @this (
+    axisLabelsFormatterContextObject<'b>,
+    axisLabelsFormatterContextObject<'b>,
+  ) => string,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  position3d?: optionsPosition3dValue,
+  reserveSpace?: bool,
+  rotation?: float,
+  skew3d?: bool,
+  staggerLines?: float,
+  step?: float,
+  style?: ChartsColorAxisLabelsOptionsStyle.t,
+  useHTML?: bool,
+  x?: float,
+  y?: float,
+  zIndex?: int,
+}
+and colorAxisEventsOptions<'b> = {
+  afterSetExtremes?: @this (axis<'b>, axisSetExtremesEventObject) => unit,
+  legendItemClick?: string, // ⚪ loose — was `Function`
+  setExtremes?: @this (axis<'b>, axisSetExtremesEventObject) => unit,
+}
+and colorAxisOptions<'b> = {
+  accessibility?: axisAccessibilityOptionsObject,
+  allowDecimals?: bool,
+  angle?: float,
+  ceiling?: float,
+  className?: string,
+  crossing?: float,
+  dataClassColor?: optionsDataClassColorValue,
+  dataClasses?: array<colorAxisDataClassesOptions>,
+  endOnTick?: bool,
+  events?: colorAxisEventsOptions<'b>,
+  floor?: float,
+  gridLineColor?: ColorType.t,
+  gridLineDashStyle?: dashStyleValue,
+  gridLineInterpolation?: optionsGridLineInterpolationValue,
+  gridLineWidth?: float,
+  gridZIndex?: float,
+  height?: CommonTypes.stringOrNumber,
+  id?: string,
+  labels?: colorAxisLabelsOptions<'b>,
+  layout?: string,
+  lineColor?: ColorType.t,
+  margin?: float,
+  marker?: pointMarkerOptionsObject,
+  max?: float,
+  maxColor?: ColorType.t,
+  maxPadding?: float,
+  maxRange?: float,
+  min?: float,
+  minColor?: ColorType.t,
+  minorGridLineColor?: ColorType.t,
+  minorGridLineDashStyle?: dashStyleValue,
+  minorGridLineWidth?: float,
+  minorTickColor?: ColorType.t,
+  minorTickInterval?: CommonTypes.autoOrNumber,
+  minorTickLength?: float,
+  minorTickPosition?: optionsMinorTickPositionValue,
+  minorTicks?: bool,
+  minorTicksPerMajor?: float,
+  minorTickWidth?: float,
+  minPadding?: float,
+  ordinal?: bool,
+  overscroll?: CommonTypes.stringOrNumber,
+  panningEnabled?: bool,
+  range?: float,
+  reversed?: bool,
+  showFirstLabel?: bool,
+  showInLegend?: bool,
+  showLastLabel?: bool,
+  softMax?: float,
+  softMin?: float,
+  startOfWeek?: float,
+  startOnTick?: bool,
+  staticScale?: float,
+  stops?: array<(float, string)>,
+  tickAmount?: float,
+  tickColor?: ColorType.t,
+  tickInterval?: float,
+  tickLength?: float,
+  tickmarkPlacement?: optionsTickmarkPlacementValue,
+  tickPixelInterval?: float,
+  tickPosition?: optionsTickPositionValue,
+  tickPositioner?: @this (axis<'b>, float, float, option<axis<'b>>) => axisTickPositionsArray,
+  tickPositions?: array<float>,
+  tickWidth?: float,
+  title?: ChartsColorAxisOptionsTitle.t,
+  @as("type") type_?: colorAxisTypeValue,
+  uniqueNames?: bool,
+  units?: array<(string, array<float>)>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
+  zIndex?: int,
+}
+and axisLabelsFormatterContextObject<'b> = {
+  axis: axis<'b>,
+  chart: chart<'b>,
+  dateTimeLabelFormat?: string,
+  isFirst: bool,
+  isLast: bool,
+  pos: float,
+  text?: string,
+  tick: string, // ⚪ loose — was `Tick`
+  value: CommonTypes.stringOrNumber,
+}
+and axis<'b> = {
+  categories: array<string>,
+  chart: chart<'b>,
+  coll: string,
+  crosshair: string, // ⚪ loose — was `boolean | AxisCrosshairOptions`
+  horiz?: bool,
+  isXAxis?: bool,
+  len: float,
+  max?: float,
+  min?: float,
+  minorTicks: Dict.t<JSON.t>,
+  options: string, // ⚪ loose — was `AxisOptions`
+  pos: float,
+  reversed: bool,
+  series: array<series<'b>>,
+  side: float,
+  tickPositions?: axisTickPositionsArray,
+  ticks: Dict.t<JSON.t>,
+  userOptions: string, // ⚪ loose — was `AxisOptions`
+  addPlotBand: string => string, // ⚪ loose — was `PlotLineOrBand`
+  addPlotLine: AxisPlotLinesOptions.t => string, // ⚪ loose — was `PlotLineOrBand`
+  addTitle: option<bool> => unit,
+  defaultLabelFormatter: @this (axisLabelsFormatterContextObject<'b> => string),
+  drawCrosshair: (option<pointerEventObject>, option<point<'b>>) => unit,
+  getExtremes: unit => extremesObject,
+  getLinearTickPositions: (float, float, float) => array<float>,
+  getLinePath: float => array<JSON.t>,
+  getMinorTickInterval: unit => CommonTypes.autoOrNumber,
+  getMinorTickPositions: unit => array<float>,
+  getPlotBandPath: (float, float, string) => array<JSON.t>, // ⚪ loose — was `AxisPlotBandsOptions | AxisPlotLinesOptions`
+  getPlotLinePath: axisPlotLinePathOptionsObject => array<JSON.t>,
+  getThreshold: float => float,
+  hasData: unit => bool,
+  hideCrosshair: unit => unit,
+  init: (chart<'b>, string) => unit, // ⚪ loose — was `AxisOptions`
+  remove: option<bool> => unit,
+  removePlotBand: string => unit,
+  removePlotLine: string => unit,
+  renderLine: unit => unit,
+  renderMinorTick: (float, bool) => unit,
+  renderTick: (float, float, bool) => unit,
+  setCategories: (array<string>, option<bool>) => unit,
+  setExtremes: (
+    option<CommonTypes.stringOrNumber>,
+    option<CommonTypes.stringOrNumber>,
+    option<bool>,
+    option<string>,
+    option<string>,
+  ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  setTitle: (AxisTitleOptions.t, option<bool>) => unit,
+  toPixels: (CommonTypes.stringOrNumber, option<bool>) => float,
+  toValue: (float, option<bool>) => float,
+  update: (string, option<bool>) => unit, // ⚪ loose — was `AxisOptions`
+}
+and tooltipPositionerPointObject<'b> = {
+  isHeader: bool,
+  plotX: float,
+  plotY: float,
+  category: CommonTypes.stringOrNumber,
+  color?: ColorType.t,
+  colorIndex?: float,
+  graphic?: Dom.element,
+  graphics?: array<Dom.element>,
+  index: int,
+  key: CommonTypes.stringOrNumber,
+  name: string,
+  options: pointOptionsObject<'b>,
+  percentage?: float,
+  points?: array<point<'b>>,
+  selected: bool,
+  series: series<'b>,
+  shapeArgs?: highchartsPointShapeArgsConfig,
+  sliced?: bool,
+  tooltipPos?: array<float>,
+  total?: float,
+  visible: bool,
+  x: float,
+  y?: float,
+  getClassName: unit => string,
+  getZone: unit => seriesZonesOptionsObject,
+  haloPath: float => array<ChartsPointShapeArgsD.t>,
+  onMouseOut: unit => unit,
+  onMouseOver: option<pointerEventObject> => unit,
+  optionsToObject: stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b> => Dict.t<string>, // 🛑 BROKEN — contains `any`
+  pos: (bool, float) => array<float>,
+  remove: (option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  select: (option<bool>, option<bool>) => unit,
+  setNestedProperty: (string, string, string) => string, // 🛑 BROKEN — contains `unknown`
+  setState: (option<ChartsTypes.chartsPointSetState>, option<bool>) => unit,
+  setVisible: (option<bool>, option<bool>) => unit,
+  tooltipFormatter: string => string,
+  update: (
+    stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b>,
+    option<bool>,
+    option<string>,
+  ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  x2?: float,
+}
+and tooltipOptions<'b> = {
+  animation?: ChartsTooltipOptionsAnimation.t,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  changeDecimals?: float,
+  className?: string,
+  clusterFormat?: string,
+  dateTimeLabelFormats?: Dict.t<stringOrDateTimeFormatOptions>,
+  distance?: float,
+  enabled?: bool,
+  fixed?: bool,
+  followPointer?: bool,
+  followTouchMove?: bool,
+  footerFormat?: string,
+  format?: string,
+  formatter?: @this (
+    point<'b>,
+    tooltip<'b>,
+    option<point<'b>>,
+  ) => CommonTypes.boolOrStringOrStringArray,
+  headerFormat?: string,
+  headerShape?: optionsHeaderShapeValue,
+  hideDelay?: float,
+  nullFormat?: string,
+  nullFormatter?: @this (
+    point<'b>,
+    tooltip<'b>,
+    option<point<'b>>,
+  ) => CommonTypes.boolOrStringOrStringArray,
+  outside?: bool,
+  padding?: float,
+  pointFormat?: string,
+  pointFormatter?: @this (point<'b>, option<point<'b>>) => string,
+  position?: plotAdTooltipPositionOptions,
+  positioner?: @this (
+    tooltip<'b>,
+    float,
+    float,
+    tooltipPositionerPointObject<'b>,
+    option<tooltip<'b>>,
+  ) => positionObject,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: tooltipShapeValue,
+  shared?: bool,
+  showDelay?: float,
+  snap?: float,
+  split?: bool,
+  stickOnContact?: bool,
+  style?: ChartsTooltipOptionsStyle.t,
+  useHTML?: bool,
+  valueDecimals?: float,
+  valuePrefix?: string,
+  valueSuffix?: string,
+  xDateFormat?: stringOrDateTimeFormatOptions,
+}
+and tooltip<'b> = {
+  chart: chart<'b>,
+  container?: Dom.element,
+  options: tooltipOptions<'b>,
+  outside: bool,
+  renderer?: svgRenderer,
+  shared?: bool,
+  split?: bool,
+  defaultFormatter: tooltip<'b> => CommonTypes.stringOrStringArray,
+  destroy: unit => unit,
+  getClassName: unit => string,
+  getLabel: unit => Dom.element,
+  getPosition: (float, float, point<'b>) => positionObject,
+  hide: option<float> => unit,
+  refresh: (pointOrPointArray<'b>, option<pointerEventObject>) => unit,
+  update: tooltipOptions<'b> => unit,
+}
+and legendItemClickEventObject<'b> = {
+  browserEvent: Dom.event,
+  legendItem: chartsLegendItemClickEventObjectLegendItem_t,
+  preventDefault: string, // ⚪ loose — was `Function`
+  target: legend<'b>,
+  @as("type") type_: string, // ⚪ loose — was `"itemClick"`
+}
+and legendEventsOptions<'b> = {
+  itemClick?: @this (legend<'b>, legendItemClickEventObject<'b>) => unit,
+}
+and legendOptions<'b> = {
+  accessibility?: legendAccessibilityOptions,
+  align?: alignValue,
+  alignColumns?: bool,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  bubbleLegend?: legendBubbleLegendOptions,
+  className?: string,
+  enabled?: bool,
+  events?: legendEventsOptions<'b>,
+  floating?: bool,
+  itemCheckboxStyle?: cssObjectHighcharts,
+  itemDistance?: float,
+  itemHiddenStyle?: cssObjectHighcharts,
+  itemHoverStyle?: cssObjectHighcharts,
+  itemMarginBottom?: float,
+  itemMarginTop?: float,
+  itemStyle?: cssObjectHighcharts,
+  itemWidth?: float,
+  labelFormat?: string,
+  labelFormatter?: @this (chartsLegendAllItems_t, option<chartsLegendAllItems_t>) => string,
+  layout?: optionsLayoutValue,
+  margin?: float,
+  maxHeight?: float,
+  maxWidth?: CommonTypes.stringOrNumber,
+  navigation?: legendNavigationOptions,
+  padding?: float,
+  reversed?: bool,
+  rtl?: bool,
+  shadow?: boolOrCssObject,
+  squareSymbol?: bool,
+  symbolHeight?: float,
+  symbolPadding?: float,
+  symbolRadius?: float,
+  symbolWidth?: float,
+  title?: legendTitleOptions,
+  useHTML?: bool,
+  valueDecimals?: float,
+  valueSuffix?: string,
+  verticalAlign?: verticalAlignValue,
+  width?: CommonTypes.stringOrNumber,
+  x?: float,
+  y?: float,
+}
+and legend<'b> = {
+  allItems: array<chartsLegendAllItems_t>,
+  box: Dom.element,
+  chart: chart<'b>,
+  group: Dom.element,
+  options: legendOptions<'b>,
+  title: Dom.element,
+  setText: chartsLegendAllItems_t => unit,
+  update: (legendOptions<'b>, option<bool>) => unit,
+}
+and pointClickEventObject<'b> = {
+  ...JsxDOM.domProps,
+  point: point<'b>,
+  chartX: float,
+  chartY: float,
+}
 and pointUpdateEventObject<'b> = {
   ...JsxDOM.domProps,
   options: stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b>,
 }
 and pointEventsOptionsObject<'b> = {
-  click?: @this (point<'b>, string) => unit, // ⚪ loose — was `PointClickEventObject`
+  click?: @this (point<'b>, pointClickEventObject<'b>) => unit,
   drag?: @this (point<'b>, string) => unit, // ⚪ loose — was `PointDragEventObject`
   dragStart?: @this (point<'b>, string) => unit, // ⚪ loose — was `PointDragStartEventObject`
   drop?: @this (point<'b>, string) => unit, // ⚪ loose — was `PointDropEventObject`
@@ -30234,67 +30307,13 @@ and point<'b> = {
   ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   x2?: float,
 }
-and axis<'b> = {
-  categories: array<string>,
-  chart: chart<'b>,
-  coll: string,
-  crosshair: string, // ⚪ loose — was `boolean | AxisCrosshairOptions`
-  horiz?: bool,
-  isXAxis?: bool,
-  len: float,
-  max?: float,
-  min?: float,
-  minorTicks: Dict.t<JSON.t>,
-  options: string, // ⚪ loose — was `AxisOptions`
-  pos: float,
-  reversed: bool,
-  series: array<series<'b>>,
-  side: float,
-  tickPositions?: string, // ⚪ loose — was `AxisTickPositionsArray`
-  ticks: Dict.t<JSON.t>,
-  userOptions: string, // ⚪ loose — was `AxisOptions`
-  addPlotBand: string => string, // ⚪ loose — was `PlotLineOrBand`
-  addPlotLine: AxisPlotLinesOptions.t => string, // ⚪ loose — was `PlotLineOrBand`
-  addTitle: option<bool> => unit,
-  defaultLabelFormatter: @this (string => string), // ⚪ loose — was `AxisLabelsFormatterContextObject`
-  drawCrosshair: (option<string>, option<string>) => unit, // ⚪ loose — was `PointerEventObject`
-  getExtremes: unit => extremesObject,
-  getLinearTickPositions: (float, float, float) => array<float>,
-  getLinePath: float => array<JSON.t>,
-  getMinorTickInterval: unit => CommonTypes.autoOrNumber,
-  getMinorTickPositions: unit => array<float>,
-  getPlotBandPath: (float, float, string) => array<JSON.t>, // ⚪ loose — was `AxisPlotBandsOptions | AxisPlotLinesOptions`
-  getPlotLinePath: axisPlotLinePathOptionsObject => array<JSON.t>,
-  getThreshold: float => float,
-  hasData: unit => bool,
-  hideCrosshair: unit => unit,
-  init: (chart<'b>, string) => unit, // ⚪ loose — was `AxisOptions`
-  remove: option<bool> => unit,
-  removePlotBand: string => unit,
-  removePlotLine: string => unit,
-  renderLine: unit => unit,
-  renderMinorTick: (float, bool) => unit,
-  renderTick: (float, float, bool) => unit,
-  setCategories: (array<string>, option<bool>) => unit,
-  setExtremes: (
-    option<CommonTypes.stringOrNumber>,
-    option<CommonTypes.stringOrNumber>,
-    option<bool>,
-    option<string>,
-    option<string>,
-  ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  setTitle: (AxisTitleOptions.t, option<bool>) => unit,
-  toPixels: (CommonTypes.stringOrNumber, option<bool>) => float,
-  toValue: (float, option<bool>) => float,
-  update: (string, option<bool>) => unit, // ⚪ loose — was `AxisOptions`
-}
 and pointer<'b> = {
   destroy: unit => unit,
-  findNearestKDPoint: (array<series<'b>>, bool, string) => string, // ⚪ loose — was `Point`
+  findNearestKDPoint: (array<series<'b>>, bool, pointerEventObject) => point<'b>,
   getChartPosition: unit => chartPositionObject,
-  getCoordinates: string => pointerAxisCoordinatesObject, // ⚪ loose — was `PointerEventObject`
+  getCoordinates: pointerEventObject => pointerAxisCoordinatesObject,
   inClass: (string, string) => bool, // ⚪ loose — was `HTMLElement | SVGElement`
-  normalize: (string, option<offsetObject>) => string, // ⚪ loose — was `PointerEventObject`
+  normalize: (string, option<offsetObject>) => pointerEventObject, // ⚪ loose — was `MouseEvent | PointerEvent | TouchEvent`
   reset: (option<bool>, option<float>) => unit,
 }
 and chart<'b> = {
@@ -30303,12 +30322,12 @@ and chart<'b> = {
   chartWidth: float,
   container: string, // ⚪ loose — was `HTMLElement`
   credits: string, // ⚪ loose — was `SVGElement`
-  hoverPoint: string, // ⚪ loose — was `Point`
+  hoverPoint: point<'b>,
   hoverPoints: array<JSON.t>,
   hoverSeries: series<'b>,
   index: int,
   inverted?: bool,
-  legend: string, // ⚪ loose — was `Legend`
+  legend: legend<'b>,
   numberFormatter: (float, float, option<string>, option<string>, option<chart<'b>>) => string,
   options: options<'b>,
   plotHeight: float,
@@ -30316,18 +30335,18 @@ and chart<'b> = {
   plotTop: float,
   plotWidth: float,
   pointer: pointer<'b>,
-  renderer: string, // ⚪ loose — was `SVGRenderer`
+  renderer: svgRenderer,
   series: array<series<'b>>,
   styledMode: bool,
   subtitle: string, // ⚪ loose — was `SubtitleObject`
   time: time,
   title: string, // ⚪ loose — was `TitleObject`
-  tooltip: string, // ⚪ loose — was `Tooltip`
+  tooltip: tooltip<'b>,
   userOptions: options<'b>,
   xAxis: array<JSON.t>,
   yAxis: array<JSON.t>,
-  addAxis: (string, option<bool>, option<bool>, option<string>) => string, // ⚪ loose — was `Axis`
-  addColorAxis: (string, option<bool>, option<string>) => string, // ⚪ loose — was `Axis`
+  addAxis: (string, option<bool>, option<bool>, option<string>) => axis<'b>, // ⚪ loose — was `AxisOptions`
+  addColorAxis: (colorAxisOptions<'b>, option<bool>, option<string>) => axis<'b>, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   addCredits: option<creditsOptions> => unit,
   addSeries: (string, option<bool>, option<string>) => series<'b>, // ⚪ loose — was `SeriesOptionsType`
   destroy: unit => unit,
@@ -30355,7 +30374,7 @@ and series<'b> = {
   center: array<float>,
   chart: chart<'b>,
   color?: string, // ⚠️ REVIEW — was `ColorType` — match the real type by hand
-  data: array<string>, // ⚪ loose — was `Point`
+  data: array<point<'b>>,
   dataMax?: float,
   dataMin?: float,
   index: int,
@@ -30364,7 +30383,7 @@ and series<'b> = {
   linkedSeries: array<series<'b>>,
   name: string,
   options: string, // ⚠️ REVIEW — was `SeriesOptionsType` — match the real type by hand
-  points: array<string>, // ⚪ loose — was `Point`
+  points: array<point<'b>>,
   selected: bool,
   @as("type") type_: string,
   userOptions: string, // ⚠️ REVIEW — was `SeriesOptionsType` — match the real type by hand
@@ -30379,13 +30398,13 @@ and series<'b> = {
   getValidPoints: (option<array<JSON.t>>, option<bool>, option<bool>) => array<JSON.t>,
   hide: unit => unit,
   is: string => bool,
-  markerAttribs: (string, option<string>) => string, // ⚪ loose — was `SVGAttributes`
+  markerAttribs: (point<'b>, option<string>) => svgAttributes,
   onMouseOut: unit => unit,
   onMouseOver: unit => unit,
   remove: (option<bool>, option<string>, option<bool>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   removePoint: (float, option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   render: unit => unit,
-  searchPoint: (string, option<bool>) => string, // ⚪ loose — was `Point`
+  searchPoint: (string, option<bool>) => point<'b>, // ⚪ loose — was `PointerEvent`
   select: option<bool> => unit,
   setData: (array<JSON.t>, option<bool>, option<string>, option<bool>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   setState: (option<ChartsTypes.chartsSeriesSetState>, option<bool>) => unit,
@@ -30467,7 +30486,6 @@ and yAxisOptionsOrYAxisOptionsArray<'b> =
 @unboxed
 and xAxisOptionsOrXAxisOptionsArray<'b> =
   XAxisOptions(xAxisOptions<'b>) | XAxisOptionsArr(array<xAxisOptions<'b>>)
-@unboxed and pointOrPointArray<'b> = Point(point<'b>) | PointArr(array<point<'b>>)
 @unboxed
 and seriesSunburstDataLabelsOptionsObjectOrSeriesSunburstDataLabelsOptionsObjectArray<'b> =
   | SeriesSunburstDataLabelsOptionsObject(seriesSunburstDataLabelsOptionsObject<'b>)
@@ -30476,10 +30494,6 @@ and seriesSunburstDataLabelsOptionsObjectOrSeriesSunburstDataLabelsOptionsObject
 and seriesPieDataLabelsOptionsObjectOrSeriesPieDataLabelsOptionsObjectArray<'b> =
   | SeriesPieDataLabelsOptionsObject(seriesPieDataLabelsOptionsObject<'b>)
   | SeriesPieDataLabelsOptionsObjectArr(array<seriesPieDataLabelsOptionsObject<'b>>)
-@unboxed
-and plotSeriesDataLabelsOptionsOrPlotSeriesDataLabelsOptionsArray<'b> =
-  | PlotSeriesDataLabelsOptions(plotSeriesDataLabelsOptions<'b>)
-  | PlotSeriesDataLabelsOptionsArr(array<plotSeriesDataLabelsOptions<'b>>)
 @unboxed
 and navigatorYAxisOptionsOrNavigatorYAxisOptionsArray<'b> =
   | NavigatorYAxisOptions(navigatorYAxisOptions<'b>)
@@ -30907,6 +30921,10 @@ and seriesAreaRangeDataLabelsOptionsObjectOrSeriesAreaRangeDataLabelsOptionsObje
   | SeriesAreaRangeDataLabelsOptionsObject(seriesAreaRangeDataLabelsOptionsObject<'b>)
   | SeriesAreaRangeDataLabelsOptionsObjectArr(array<seriesAreaRangeDataLabelsOptionsObject<'b>>)
 @unboxed
+and plotSeriesDataLabelsOptionsOrPlotSeriesDataLabelsOptionsArray<'b> =
+  | PlotSeriesDataLabelsOptions(plotSeriesDataLabelsOptions<'b>)
+  | PlotSeriesDataLabelsOptionsArr(array<plotSeriesDataLabelsOptions<'b>>)
+@unboxed
 and plotAreaDataLabelsOptionsOrPlotAreaDataLabelsOptionsArray<'b> =
   | PlotAreaDataLabelsOptions(plotAreaDataLabelsOptions<'b>)
   | PlotAreaDataLabelsOptionsArr(array<plotAreaDataLabelsOptions<'b>>)
@@ -30953,6 +30971,7 @@ and highchartsAnnotationsLabelsOptionsPoint<'b> =
 and annotationControlPointOptionsObjectOrAnnotationControlPointOptionsObjectArray<'b> =
   | AnnotationControlPointOptionsObject(annotationControlPointOptionsObject<'b>)
   | AnnotationControlPointOptionsObjectArr(array<annotationControlPointOptionsObject<'b>>)
+@unboxed and pointOrPointArray<'b> = Point(point<'b>) | PointArr(array<point<'b>>)
 @unboxed
 and stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'b> =
   | Str(string)
@@ -31065,7 +31084,7 @@ module ChartsOptionsSeries = {
   external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
   external fromSeriesSupertrendOptions: seriesSupertrendOptions<'b> => t<'b> = "%identity"
   external fromSeriesTemaOptions: seriesTemaOptions<'b> => t<'b> = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
   external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
@@ -31237,7 +31256,7 @@ module ChartsNavigatorOptionsSeries = {
   external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
   external fromSeriesSupertrendOptions: seriesSupertrendOptions<'b> => t<'b> = "%identity"
   external fromSeriesTemaOptions: seriesTemaOptions<'b> => t<'b> = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
   external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
@@ -31265,17 +31284,6 @@ module ChartsNavigationOptionsAnnotationsOptions = {
   type t = chartsNavigationOptionsAnnotationsOptions_t
   external fromAnnotationsOptions: annotationsOptions<'b> => t = "%identity"
   external fromNavigationAnnotationsOptions: navigationAnnotationsOptions<'b> => t = "%identity"
-}
-module ChartsLegendItemClickEventObjectLegendItem = {
-  type t = chartsLegendItemClickEventObjectLegendItem_t
-  external fromSeries: series<'b> => t = "%identity"
-  external fromPoint: point<'b> => t = "%identity"
-  external fromLegendItemObject: legendItemObject => t = "%identity"
-}
-module ChartsLegendAllItems = {
-  type t = chartsLegendAllItems_t
-  external fromSeries: series<'b> => t = "%identity"
-  external fromPoint: point<'b> => t = "%identity"
 }
 module ChartsOptionsColorAxis = {
   type t = chartsOptionsColorAxis_t
@@ -31644,7 +31652,7 @@ module SeriesOptionsType = {
   external fromSeriesSunburstOptions: seriesSunburstOptions<'b> => t<'b> = "%identity"
   external fromSeriesSupertrendOptions: seriesSupertrendOptions<'b> => t<'b> = "%identity"
   external fromSeriesTemaOptions: seriesTemaOptions<'b> => t<'b> = "%identity"
-  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions => t<'b> = "%identity"
+  external fromSeriesTiledwebmapOptions: seriesTiledwebmapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTilemapOptions: seriesTilemapOptions<'b> => t<'b> = "%identity"
   external fromSeriesTimelineOptions: seriesTimelineOptions<'b> => t<'b> = "%identity"
   external fromSeriesTreegraphOptions: seriesTreegraphOptions<'b> => t<'b> = "%identity"
@@ -31669,6 +31677,17 @@ module PointTarget = {
   type t = pointTarget_t
   external fromPoint: point<'b> => t = "%identity"
   external fromAnnotationMockPointOptionsObject: annotationMockPointOptionsObject => t = "%identity"
+}
+module ChartsLegendItemClickEventObjectLegendItem = {
+  type t = chartsLegendItemClickEventObjectLegendItem_t
+  external fromSeries: series<'b> => t = "%identity"
+  external fromPoint: point<'b> => t = "%identity"
+  external fromLegendItemObject: legendItemObject => t = "%identity"
+}
+module ChartsLegendAllItems = {
+  type t = chartsLegendAllItems_t
+  external fromSeries: series<'b> => t = "%identity"
+  external fromPoint: point<'b> => t = "%identity"
 }
 type dragDropGuideBoxOptionsObject = {
   className?: string,
