@@ -13,6 +13,11 @@ type menuV2Side =
   | @as("left") Left
   | @as("right") Right
   | @as("bottom") Bottom
+type menuV2MatchRank =
+  | @as(0) EXACT
+  | @as(1) PREFIX
+  | @as(2) SUBSTRING
+  | @as(3) NONE
 type menuV2MenuV2TokensTypeSearchIconConfig = {
   width: string,
 }
@@ -139,6 +144,8 @@ type rec menuV2ItemType = {
   subMenu?: array<menuV2ItemType>,
   enableSubMenuSearch?: bool,
   subMenuSearchPlaceholder?: string,
+  subMenuSearchSortFn?: (array<menuV2ItemType>, string) => array<menuV2ItemType>,
+  onSubMenuSearchEnter?: (string, array<menuV2ItemType>) => unit,
   tooltip?: React.element,
   tooltipProps?: menuV2ItemTooltipProps,
 }

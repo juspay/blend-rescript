@@ -21,19 +21,35 @@ type codeEditorV2Variant =
   | @as("default") Default
   | @as("no-gutter") NoGutter
   | @as("diff") Diff
-type codeEditorV2SupportedLanguage =
+type codeEditorV2Language =
+  | @as("ruby") Ruby
+  | @as("plaintext") Plaintext
   | @as("css") Css
+  | @as("c") C
   | @as("javascript") Javascript
   | @as("typescript") Typescript
-  | @as("jsx") Jsx
-  | @as("tsx") Tsx
   | @as("json") Json
   | @as("html") Html
   | @as("markdown") Markdown
   | @as("yaml") Yaml
   | @as("python") Python
   | @as("rust") Rust
-  | @as("haskell") Haskell
+  | @as("scss") Scss
+  | @as("less") Less
+  | @as("xml") Xml
+  | @as("ini") Ini
+  | @as("graphql") Graphql
+  | @as("sql") Sql
+  | @as("go") Go
+  | @as("java") Java
+  | @as("kotlin") Kotlin
+  | @as("swift") Swift
+  | @as("cpp") Cpp
+  | @as("csharp") Csharp
+  | @as("php") Php
+  | @as("shell") Shell
+  | @as("powershell") Powershell
+  | @as("dockerfile") Dockerfile
 type editorOption =
   | @as(0) AcceptSuggestionOnCommitCharacter
   | @as(1) AcceptSuggestionOnEnter
@@ -831,7 +847,7 @@ type variantTokenV1snf1 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenV16y1k = {
+type sizeTokenM6ih6 = {
   sm: variantTokenV1snf1,
   md: variantTokenV1snf1,
   lg: variantTokenV1snf1,
@@ -842,14 +858,14 @@ type singleSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenV10ftk = {
+type variantTokenYv6ia = {
   container: singleSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: singleSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenL5zu5 = {
-  sm: variantTokenV10ftk,
-  md: variantTokenV10ftk,
-  lg: variantTokenV10ftk,
+type sizeTokenDl19e = {
+  sm: variantTokenYv6ia,
+  md: variantTokenYv6ia,
+  lg: variantTokenYv6ia,
 }
 type triggerStateTokenSingleSelectV2 = {
   hover: string,
@@ -858,7 +874,7 @@ type triggerStateTokenSingleSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenGv2l2 = {
+type variantTokenV7ptge = {
   container: triggerStateTokenSingleSelectV2,
   @as("no-container") noContainer: triggerStateTokenSingleSelectV2,
 }
@@ -872,12 +888,12 @@ type singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type singleSelectV2SingleSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenV16y1k,
-  padding: sizeTokenL5zu5,
-  borderRadius: sizeTokenV16y1k,
+  height: sizeTokenM6ih6,
+  padding: sizeTokenDl19e,
+  borderRadius: sizeTokenM6ih6,
   boxShadow: variantTokenV1snf1,
-  backgroundColor: variantTokenGv2l2,
-  outline: variantTokenGv2l2,
+  backgroundColor: variantTokenV7ptge,
+  outline: variantTokenV7ptge,
   slot: singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig,
   placeholder: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
   selectedValue: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
@@ -947,12 +963,21 @@ type singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig = {
   optionText: singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig,
   iconColor: string,
 }
+type singleSelectV2SingleSelectV2TokensTypeMenuFooterConfig = {
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  backgroundColor: string,
+  borderTop: string,
+}
 type singleSelectV2SingleSelectV2TokensTypeMenuConfig = {
   content: singleSelectV2SingleSelectV2TokensTypeMenuContentConfig,
-  padding: sizeTokenL5zu5,
+  padding: sizeTokenDl19e,
   groupLabel: singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig,
   item: singleSelectV2SingleSelectV2TokensTypeMenuItemConfig,
   submenu: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig,
+  footer: singleSelectV2SingleSelectV2TokensTypeMenuFooterConfig,
 }
 type singleSelectV2SingleSelectV2TokensTypeMobilePanelHeaderConfig = {
   paddingTop: string,
@@ -1005,7 +1030,7 @@ type variantTokenV1snf12 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenV3ycwm = {
+type sizeTokenV18rrk = {
   sm: variantTokenV1snf12,
   md: variantTokenV1snf12,
   lg: variantTokenV1snf12,
@@ -1016,14 +1041,14 @@ type multiSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenGvrbx = {
+type variantTokenDqt9q = {
   container: multiSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: multiSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenV109b5 = {
-  sm: variantTokenGvrbx,
-  md: variantTokenGvrbx,
-  lg: variantTokenGvrbx,
+type sizeTokenV2tc77 = {
+  sm: variantTokenDqt9q,
+  md: variantTokenDqt9q,
+  lg: variantTokenDqt9q,
 }
 type triggerStateTokenMultiSelectV2 = {
   hover: string,
@@ -1032,7 +1057,7 @@ type triggerStateTokenMultiSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenB8mit = {
+type variantTokenV12zot = {
   container: triggerStateTokenMultiSelectV2,
   @as("no-container") noContainer: triggerStateTokenMultiSelectV2,
 }
@@ -1083,12 +1108,12 @@ type multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenV3ycwm,
-  padding: sizeTokenV109b5,
-  borderRadius: sizeTokenV3ycwm,
+  height: sizeTokenV18rrk,
+  padding: sizeTokenV2tc77,
+  borderRadius: sizeTokenV18rrk,
   boxShadow: variantTokenV1snf12,
-  backgroundColor: variantTokenB8mit,
-  outline: variantTokenB8mit,
+  backgroundColor: variantTokenV12zot,
+  outline: variantTokenV12zot,
   slot: multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig,
   selectionTag: contextMultiSelectV2TokensTypeTriggerSelectionTagConfig,
   chevron: multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig,
@@ -1155,7 +1180,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: sizeTokenV109b5,
+  padding: sizeTokenV2tc77,
   minWidth: string,
   scroll: multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig,
   header: multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig,
@@ -1729,7 +1754,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STEPPERV2") stepperv2: StepperV2Types.responsiveStepperV2Tokens,
 }
 type themeContextType = {
-  foundationTokens: string, // 🛑 BROKEN — contains `any`
+  foundationTokens: TokensTypes.foundationTokenType,
   componentTokens: contextThemeContextTypeComponentTokensConfig,
   breakpoints: BreakpointsTypes.breakpointType,
   theme: string,
@@ -1821,6 +1846,7 @@ type textInputV2Dropdown = {
   allowCustomValue?: bool,
   customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  menuFooter?: React.element,
   position: textInputV2DropdownPosition,
 }
 type inputsV2LeftSlotConfig = {
@@ -1861,6 +1887,7 @@ type singleSelectV2Props = {
   allowCustomValue?: bool,
   customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  menuFooter?: React.element,
 }
 type embeddedSingleSelectOptions = {
   fieldLabel?: string,

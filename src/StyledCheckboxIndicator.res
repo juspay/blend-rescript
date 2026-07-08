@@ -1,7 +1,7 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~hidden: bool=?,
   ~size: SelectorV2Types.selectorV2Size,
+  ~hidden: bool=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,

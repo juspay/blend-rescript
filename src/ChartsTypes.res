@@ -19,8 +19,8 @@ type legendsChangeType =
   | @as("decrease") Decrease
 type chartsConstructorType =
   | @as("width") Width
-  | @as("color") Color
   | @as("height") Height
+  | @as("color") Color
   | @as("error") Error
   | @as("open") Open
   | @as("end") End

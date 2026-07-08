@@ -5,7 +5,7 @@ type props = {
   variant?: EditorSharedTypes.codeEditorV2Variant,
   showLineNumbers?: bool,
   header?: EditorSharedTypes.codeEditorV2HeaderConfig,
-  language?: EditorSharedTypes.codeEditorV2SupportedLanguage,
+  language?: EditorSharedTypes.codeEditorV2Language,
   placeholder?: string,
   readOnly?: bool,
   disabled?: bool,

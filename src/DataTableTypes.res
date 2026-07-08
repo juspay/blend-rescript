@@ -29,8 +29,8 @@ type dataTableTagColumnPropsColor =
   | @as("neutral") Neutral
 type dataTableTagColumnPropsSize =
   | @as("sm") Sm
-  | @as("lg") Lg
   | @as("md") Md
+  | @as("lg") Lg
 type pROGRESS = | @as("progress") Progress
 type dataTableProgressColumnPropsColor =
   | @as("error") Error

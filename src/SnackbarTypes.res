@@ -24,11 +24,17 @@ type snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig = {
   color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
   fontSize: string,
   fontWeight: string,
+  lineHeight: string,
+}
+type snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig = {
+  color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
+  fontSize: string,
+  fontWeight: string,
 }
 type snackbarResponsiveSnackbarTokensSmContentTextContainerConfig = {
   gap: string,
   header: snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig,
-  description: snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig,
+  description: snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig,
 }
 type snackbarResponsiveSnackbarTokensSmContentConfig = {
   gap: string,
@@ -39,7 +45,7 @@ type snackbarResponsiveSnackbarTokensSmActionsCloseButtonConfig = {
   color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
 }
 type snackbarResponsiveSnackbarTokensSmActionsConfig = {
-  primaryAction: snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig,
+  primaryAction: snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig,
   closeButton: snackbarResponsiveSnackbarTokensSmActionsCloseButtonConfig,
 }
 type snackbarResponsiveSnackbarTokensSmConfig = {
@@ -70,4 +76,5 @@ type addToastOptions = {
   actionButton?: snackbarAddToastOptionsActionButtonConfig,
   duration?: float,
   position?: snackbarPosition,
+  wrap?: bool,
 }

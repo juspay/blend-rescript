@@ -43,6 +43,7 @@ type props = {
   customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   allowDeselect?: bool,
+  menuFooter?: React.element,
 }
 
 @module("@juspay/blend-design-system")

@@ -1,4 +1,4 @@
-type tokensPopoverTokenTypeShadowConfig = {
+type tokensFoundationTokenTypeShadowsConfig = {
   xs: string,
   sm: string,
   md: string,
@@ -230,7 +230,7 @@ type tokensFoundationTokenTypeZIndexConfig = {
   @as("101") _101: string,
 }
 type foundationTokenType = {
-  shadows: tokensPopoverTokenTypeShadowConfig,
+  shadows: tokensFoundationTokenTypeShadowsConfig,
   border: tokensFoundationTokenTypeBorderConfig,
   font: tokensFoundationTokenTypeFontConfig,
   opacity: tokensFoundationTokenTypeOpacityConfig,

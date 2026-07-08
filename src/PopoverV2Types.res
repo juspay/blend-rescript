@@ -51,7 +51,7 @@ type popoverV2PopoverV2TokenTypeBottomContainerConfig = {
 type popoverV2TokenType = {
   background: string,
   border: string,
-  shadow: TokensTypes.tokensPopoverTokenTypeShadowConfig,
+  shadow: TokensTypes.tokensFoundationTokenTypeShadowsConfig,
   gap: popoverV2PopoverV2TokenTypeGapConfig,
   zIndex: string,
   borderRadius: popoverV2PopoverV2TokenTypeGapConfig,
@@ -65,10 +65,10 @@ type responsivePopoverV2Tokens = {
 }
 type popoverV2ActionType = {
   width?: CommonTypes.stringOrNumber,
+  size?: ButtonTypes.buttonSize,
   text?: string,
   disabled?: bool,
   justifyContent?: string,
-  size?: ButtonTypes.buttonSize,
   onClick?: option<ReactEvent.Mouse.t> => unit,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,
