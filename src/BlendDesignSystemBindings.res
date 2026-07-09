@@ -425,6 +425,10 @@ external createAvatarKeyboardHandler: (
 ) => ReactEvent.Keyboard.t => unit = "createAvatarKeyboardHandler"
 @module("@juspay/blend-design-system")
 external isInteractive: (ReactEvent.Mouse.t => unit) => bool = "isInteractive"
+@module("@juspay/blend-design-system") external defaultAvatarAlt: string = "DEFAULT_AVATAR_ALT"
+@module("@juspay/blend-design-system")
+external defaultFallbackColor: string = "DEFAULT_FALLBACK_COLOR"
+@module("@juspay/blend-design-system") external maxInitialsLength: float = "MAX_INITIALS_LENGTH"
 @module("@juspay/blend-design-system")
 external defaultPosition: AvatarV2Types.avatarV2DEFAULTPOSITIONConfig = "DEFAULT_POSITION"
 @module("@juspay/blend-design-system")
@@ -480,6 +484,8 @@ external calculateCircularProgressStroke: (
 ) => ProgressBarV2Types.progressBarV2CalculateCircularProgressStrokeConfig =
   "calculateCircularProgressStroke"
 @module("@juspay/blend-design-system")
+external statcardFallbackDisplay: string = "STATCARD_FALLBACK_DISPLAY"
+@module("@juspay/blend-design-system")
 external renderVariantFallbackValue: (
   StatCardV2Types.statCardV2TokensType,
   StatCardV2Types.statCardV2Variant,
@@ -498,6 +504,7 @@ external getStatCardV2Tokens: (
 @module("@juspay/blend-design-system")
 external buildStatCardV2AriaLabel: StatCardV2Types.statCardV2BuildStatCardV2AriaLabelParamsConfig => string =
   "buildStatCardV2AriaLabel"
+@module("@juspay/blend-design-system") external accordionTransition: string = "ACCORDION_TRANSITION"
 @module("@juspay/blend-design-system")
 external getAccordionV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -517,6 +524,7 @@ external toEmbeddedSingleSelectV2Props: (
 ) => EditorSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
 @module("@juspay/blend-design-system")
 external focusRingStyles: EditorSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
+@module("@juspay/blend-design-system") external transition: string = "TRANSITION"
 @module("@juspay/blend-design-system")
 external getInputState: (
   ~error: EditorSharedTypes.inputsV2GetInputStateErrorConfig=?,
@@ -679,6 +687,7 @@ external getTopbarV2Tokens: (
   ~theme: string=?,
   unit,
 ) => TopbarV2Types.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
+@module("@juspay/blend-design-system") external selectV2MenuZIndex: float = "SELECT_V2_MENU_Z_INDEX"
 @module("@juspay/blend-design-system")
 external useSelectV2MenuBehavior: SelectV2Types.useSelectV2MenuBehaviorParams => SelectV2Types.useSelectV2MenuBehaviorResult =
   "useSelectV2MenuBehavior"
@@ -789,6 +798,10 @@ external getInitialEditorOptions: (
   bool,
   bool,
 ) => EditorSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getInitialEditorOptions"
+@module("@juspay/blend-design-system") external editorFocusDelayMs: float = "EDITOR_FOCUS_DELAY_MS"
+@module("@juspay/blend-design-system")
+external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
+@module("@juspay/blend-design-system") external minScrollbarSize: float = "MIN_SCROLLBAR_SIZE"
 @module("@juspay/blend-design-system")
 external copyToClipboardWithTemporaryFeedback: (
   string,
@@ -1011,6 +1024,11 @@ external getItemOrdinalIndex: (array<EditorSharedTypes.flattenedItem>, float) =>
 @module("@juspay/blend-design-system")
 external defaultSingleSelectV2Skeleton: SelectV2Types.selectV2SkeletonProps =
   "defaultSingleSelectV2Skeleton"
+@module("@juspay/blend-design-system") external dropdownDataAttr: string = "DROPDOWN_DATA_ATTR"
+@module("@juspay/blend-design-system")
+external menuScrollSelectors: array<string> = "MENU_SCROLL_SELECTORS"
+@module("@juspay/blend-design-system")
+external defaultEndReachedThreshold: float = "DEFAULT_END_REACHED_THRESHOLD"
 @module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
