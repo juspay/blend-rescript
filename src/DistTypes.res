@@ -1885,5 +1885,7 @@ type rec cssObjectDist = {
 module SelectorV2Style = {
   type t
   external fromCSSProperties: JsxDOM.style => t = "%identity"
+  external asCSSProperties: t => JsxDOM.style = "%identity"
   external fromCSSPropertiesWithVars: cssPropertiesWithVars => t = "%identity"
+  external asCSSPropertiesWithVars: t => cssPropertiesWithVars = "%identity"
 }

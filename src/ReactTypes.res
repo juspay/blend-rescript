@@ -207,5 +207,7 @@ module ElementType = {
     | #view
   ] => t = "%identity"
   external fromComponentClass: React.component<'a> => t = "%identity"
+  external asComponentClass: t => React.component<'a> = "%identity"
   external fromFunctionComponent: React.component<'a> => t = "%identity"
+  external asFunctionComponent: t => React.component<'a> = "%identity"
 }
