@@ -6,6 +6,7 @@ external make: (
   ~searchPlaceholder: string,
   ~searchText: string,
   ~onSearchTextChange: string => unit,
+  ~onEnter: unit => unit=?,
   ~maxHeight: string=?,
   ~minHeight: string=?,
   ~minWidth: string=?,

@@ -55,8 +55,8 @@ type dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig = {
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingConfig = {
   sm: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
-  lg: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
   md: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  lg: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig = {
   left: string,
@@ -72,8 +72,8 @@ type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderConfig = {
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextFontSizeConfig = {
   sm: string,
-  lg: string,
   md: string,
+  lg: string,
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextConfig = {
   color: string,

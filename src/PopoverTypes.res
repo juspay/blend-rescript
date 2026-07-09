@@ -2,10 +2,10 @@ type popoverSize =
   | @as("small") Small
   | @as("medium") Medium
 type popoverShadow =
-  | @as("sm") Sm
-  | @as("lg") Lg
   | @as("xs") Xs
+  | @as("sm") Sm
   | @as("md") Md
+  | @as("lg") Lg
   | @as("xl") Xl
   | @as("2xl") V2xl
   | @as("full") Full
@@ -35,7 +35,7 @@ type popoverPopoverTokenTypeFooterConfig = {
 type popoverTokenType = {
   background: string,
   border: string,
-  shadow: TokensTypes.tokensPopoverTokenTypeShadowConfig,
+  shadow: TokensTypes.tokensFoundationTokenTypeShadowsConfig,
   gap: popoverPopoverTokenTypeGapConfig,
   zIndex: string,
   borderRadius: popoverPopoverTokenTypeGapConfig,
@@ -49,10 +49,10 @@ type responsivePopoverTokens = {
 }
 type popoverActionType = {
   width?: CommonTypes.stringOrNumber,
+  size?: ButtonTypes.buttonSize,
   text?: string,
   disabled?: bool,
   justifyContent?: string,
-  size?: ButtonTypes.buttonSize,
   onClick?: option<ReactEvent.Mouse.t> => unit,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,

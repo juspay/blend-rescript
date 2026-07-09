@@ -5,6 +5,8 @@ external make: (
   ~dimensions: MenuV2Types.menuV2Dimensions=?,
   ~enableSearch: bool=?,
   ~searchPlaceholder: string=?,
+  ~searchSortFn: (array<MenuV2Types.menuV2ItemType>, string) => array<MenuV2Types.menuV2ItemType>=?,
+  ~onEnter: (string, array<MenuV2Types.menuV2GroupType>) => unit=?,
   ~enableVirtualScrolling: bool=?,
   ~virtualScrolling: MenuV2Types.menuV2VirtualScrollingConfig=?,
   @as("open") ~open_: bool=?,

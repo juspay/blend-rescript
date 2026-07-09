@@ -1,4 +1,4 @@
-type tokensPopoverTokenTypeShadowConfig = {
+type tokensFoundationTokenTypeShadowsConfig = {
   xs: string,
   sm: string,
   md: string,
@@ -10,8 +10,8 @@ type tokensPopoverTokenTypeShadowConfig = {
   focusError: string,
 }
 @set_index
-external tokensPopoverTokenTypeShadowConfigSet: (
-  tokensPopoverTokenTypeShadowConfig,
+external tokensFoundationTokenTypeShadowsConfigSet: (
+  tokensFoundationTokenTypeShadowsConfig,
   string,
   string,
 ) => unit = ""
@@ -267,7 +267,7 @@ external tokensFoundationTokenTypeZIndexConfigSet: (
   string,
 ) => unit = ""
 type foundationTokenType = {
-  shadows: tokensPopoverTokenTypeShadowConfig,
+  shadows: tokensFoundationTokenTypeShadowsConfig,
   border: tokensFoundationTokenTypeBorderConfig,
   font: tokensFoundationTokenTypeFontConfig,
   opacity: tokensFoundationTokenTypeOpacityConfig,

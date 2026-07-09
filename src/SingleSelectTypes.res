@@ -210,4 +210,5 @@ type singleSelectProps = {
   customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   allowDeselect?: bool,
+  menuFooter?: React.element,
 }

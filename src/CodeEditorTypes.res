@@ -1,3 +1,32 @@
 type codeEditorVariant =
   | @as("default") Default
   | @as("no-gutter") NoGutter
+type codeEditorLanguage =
+  | @as("ruby") Ruby
+  | @as("plaintext") Plaintext
+  | @as("css") Css
+  | @as("c") C
+  | @as("javascript") Javascript
+  | @as("typescript") Typescript
+  | @as("json") Json
+  | @as("html") Html
+  | @as("markdown") Markdown
+  | @as("yaml") Yaml
+  | @as("python") Python
+  | @as("rust") Rust
+  | @as("scss") Scss
+  | @as("less") Less
+  | @as("xml") Xml
+  | @as("ini") Ini
+  | @as("graphql") Graphql
+  | @as("sql") Sql
+  | @as("go") Go
+  | @as("java") Java
+  | @as("kotlin") Kotlin
+  | @as("swift") Swift
+  | @as("cpp") Cpp
+  | @as("csharp") Csharp
+  | @as("php") Php
+  | @as("shell") Shell
+  | @as("powershell") Powershell
+  | @as("dockerfile") Dockerfile

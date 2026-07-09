@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.7`
+# Binding report — `@juspay/blend-design-system@0.0.37-beta.8`
 
 **211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**233** function binding(s) → `BlendDesignSystemBindings.res`.
+**236** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**3039** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3043** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -17,6 +17,7 @@
 
 Standalone function exports, emitted as positional `@module external` bindings in `BlendDesignSystemBindings.res`.
 
+- `FOUNDATION_THEME`
 - `useTheme`
 - `useShadowRoot`
 - `getAccordionToken`
@@ -212,6 +213,8 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getSlotStyles`
 - `getMenuV2Tokens`
 - `getItemSlots`
+- `getItemMatchRank`
+- `defaultSearchSortFn`
 - `filterMenuV2Item`
 - `getMenuItemBackgroundColor`
 - `getMenuItemOptionColor`

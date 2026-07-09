@@ -123,10 +123,10 @@ type buttonV2GetButtonPaddingConfig = {
   left: string,
 }
 type buttonV2ButtonPropsConfig = {
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
   width?: CommonTypes.stringOrNumber,
   size?: buttonV2Size,
+  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
   leftSlot?: buttonSlot,
   rightSlot?: buttonSlot,
   skeleton?: buttonSkeleton,

@@ -1,8 +1,8 @@
 type htmlInputTypeAttribute =
   | @as("number") Number
+  | @as("color") Color
   | @as("text") Text
   | @as("hidden") Hidden
-  | @as("color") Color
   | @as("search") Search
   | @as("button") Button
   | @as("checkbox") Checkbox
@@ -29,8 +29,11 @@ module ElementType = {
   external fromTag: [
     | #symbol
     | #object
-    | #text
+    | #body
     | #small
+    | #base
+    | #code
+    | #text
     | #slot
     | #center
     | #ruby
@@ -53,9 +56,6 @@ module ElementType = {
     | #menuitem
     | #map
     | #filter
-    | #body
-    | #base
-    | #code
     | #title
     | #article
     | #dialog

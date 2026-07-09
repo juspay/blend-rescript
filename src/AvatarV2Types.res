@@ -112,10 +112,10 @@ type avatarV2DEFAULTPOSITIONConfig = {
 }
 type avatarV2AvatarPropsConfig = {
   width?: string,
-  backgroundColor?: string,
-  height?: string,
-  disabled?: bool,
   size?: avatarV2Size,
+  height?: string,
+  backgroundColor?: string,
+  disabled?: bool,
   leftSlot?: React.element,
   rightSlot?: React.element,
   alt?: string,
