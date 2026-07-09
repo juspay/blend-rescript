@@ -46,9 +46,9 @@ type axisTitleAlignValue =
   | @as("high") High
   | @as("low") Low
 type cursorValue =
-  | @as("text") Text
-  | @as("auto") Auto
   | @as("none") None
+  | @as("auto") Auto
+  | @as("text") Text
   | @as("default") Default
   | @as("alias") Alias
   | @as("all-scroll") AllScroll
@@ -7927,9 +7927,9 @@ and zAxisOptions<'b> = {
   zoomEnabled?: bool,
 }
 and unknownSeriesOptions<'b> = {
+  opacity?: float,
   zIndex?: int,
   visible?: bool,
-  opacity?: float,
   className?: string,
   id?: string,
   name?: string,

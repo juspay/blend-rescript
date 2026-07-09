@@ -1,9 +1,9 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
-  ~minWidth: string=?,
-  ~maxWidth: string=?,
   ~width: string=?,
   ~height: string=?,
+  ~minWidth: string=?,
+  ~maxWidth: string=?,
   ~title: string,
   ~titleIcon: React.element=?,
   ~helpIconText: string=?,

@@ -24,4 +24,5 @@ external make: (
   ~allowCustomValue: bool=?,
   ~customValueLabel: string=?,
   ~menuId: string=?,
+  ~menuFooter: React.element=?,
 ) => React.element = "SingleSelectV2Menu"

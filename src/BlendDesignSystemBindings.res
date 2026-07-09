@@ -1,4 +1,6 @@
 @module("@juspay/blend-design-system")
+external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
+@module("@juspay/blend-design-system")
 external useTheme: unit => EditorSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
 external useShadowRoot: unit => EditorSharedTypes.shadowRootContextType = "useShadowRoot"
@@ -9,9 +11,10 @@ external getAccordionToken: TokensTypes.foundationTokenType => AccordionTypes.re
 external getAlertTokens: TokensTypes.foundationTokenType => AlertTypes.responsiveAlertTokens =
   "getAlertTokens"
 @module("@juspay/blend-design-system")
-external getAvatarTokens: 'a => AvatarTypes.responsiveAvatarTokens = "getAvatarTokens"
+external getAvatarTokens: TokensTypes.foundationTokenType => AvatarTypes.responsiveAvatarTokens =
+  "getAvatarTokens"
 @module("@juspay/blend-design-system")
-external getAvatarGroupTokens: 'a => AvatarGroupTypes.responsiveAvatarGroupTokens =
+external getAvatarGroupTokens: TokensTypes.foundationTokenType => AvatarGroupTypes.responsiveAvatarGroupTokens =
   "getAvatarGroupTokens"
 @module("@juspay/blend-design-system")
 external getBreadcrumbTokens: TokensTypes.foundationTokenType => BreadcrumbTypes.responsiveBreadcrumbTokens =
@@ -155,7 +158,8 @@ external getStatCardToken: TokensTypes.foundationTokenType => StatCardTypes.resp
 external getStepperTokens: TokensTypes.foundationTokenType => StepperTypes.responsiveStepperTokens =
   "getStepperTokens"
 @module("@juspay/blend-design-system")
-external getTabsTokens: 'a => TabsTypes.responsiveTabsTokens = "getTabsTokens"
+external getTabsTokens: TokensTypes.foundationTokenType => TabsTypes.responsiveTabsTokens =
+  "getTabsTokens"
 @module("@juspay/blend-design-system")
 external getTagTokens: (
   TokensTypes.foundationTokenType,
@@ -840,6 +844,14 @@ external getMenuV2Tokens: (
 @module("@juspay/blend-design-system")
 external getItemSlots: MenuV2Types.menuV2ItemType => array<React.element> = "getItemSlots"
 @module("@juspay/blend-design-system")
+external getItemMatchRank: (MenuV2Types.menuV2ItemType, string) => MenuV2Types.menuV2MatchRank =
+  "getItemMatchRank"
+@module("@juspay/blend-design-system")
+external defaultSearchSortFn: (
+  array<MenuV2Types.menuV2ItemType>,
+  string,
+) => array<MenuV2Types.menuV2ItemType> = "defaultSearchSortFn"
+@module("@juspay/blend-design-system")
 external filterMenuV2Item: (MenuV2Types.menuV2ItemType, string) => MenuV2Types.menuV2ItemType =
   "filterMenuV2Item"
 @module("@juspay/blend-design-system")
@@ -868,6 +880,8 @@ external flattenMenuV2Groups: array<MenuV2Types.menuV2GroupType> => array<
 external filterMenuV2Groups: (
   array<MenuV2Types.menuV2GroupType>,
   string,
+  ~searchSortFn: (array<MenuV2Types.menuV2ItemType>, string) => array<MenuV2Types.menuV2ItemType>=?,
+  unit,
 ) => array<MenuV2Types.menuV2GroupType> = "filterMenuV2Groups"
 @module("@juspay/blend-design-system")
 external getMultiSelectV2Tokens: (

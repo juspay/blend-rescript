@@ -44,6 +44,7 @@ type props = {
   showClearButton?: bool,
   onClearAllClick?: unit => unit,
   multiSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
+  menuFooter?: React.element,
 }
 
 @module("@juspay/blend-design-system")

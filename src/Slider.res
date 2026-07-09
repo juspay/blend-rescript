@@ -1,8 +1,8 @@
 @module("@juspay/blend-design-system") @react.component
 external make: (
+  ~size: SliderTypes.sliderSize=?,
   ~hidden: bool=?,
   ~disabled: bool=?,
-  ~size: SliderTypes.sliderSize=?,
   ~style: JsxDOM.style=?,
   ~children: React.element=?,
   ~defaultChecked: bool=?,
