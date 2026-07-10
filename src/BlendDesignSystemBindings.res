@@ -1037,8 +1037,8 @@ external generateAccessibilityIds: (
 @module("@juspay/blend-design-system")
 external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => EditorSharedTypes.extractedAriaProps =
   "extractSingleSelectV2AriaProps"
-@module("@juspay/blend-design-system")
-external mergeSingleSelectV2AriaDescribedBy: (~ids: array<string>=?, unit) => string =
+@module("@juspay/blend-design-system") @variadic
+external mergeSingleSelectV2AriaDescribedBy: array<string> => string =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
 external buildAriaAttributes: EditorSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => EditorSharedTypes.ariaAttributes =
