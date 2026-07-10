@@ -30,7 +30,7 @@ external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.respons
 external getCardTokens: TokensTypes.foundationTokenType => CardTypes.responsiveCardTokens =
   "getCardTokens"
 @module("@juspay/blend-design-system")
-external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsiveChartTokens =
+external getChartTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
 external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
@@ -492,9 +492,9 @@ external renderVariantFallbackValue: (
 ) => Dom.element = "renderVariantFallbackValue"
 @module("@juspay/blend-design-system")
 external buildStatCardV2ChartOptions: (
-  ~overrides: HighchartsSharedTypes.options<'b>=?,
+  ~overrides: HighchartsSharedTypes.options<'a, 'b, 'c>=?,
   unit,
-) => HighchartsSharedTypes.options<'b> = "buildStatCardV2ChartOptions"
+) => HighchartsSharedTypes.options<'a, 'b, 'c> = "buildStatCardV2ChartOptions"
 @module("@juspay/blend-design-system")
 external getStatCardV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -586,20 +586,20 @@ external applyTabItemDisplayDefaults: (
 ) => array<TabsV2Types.tabsV2TabItem> = "applyTabItemDisplayDefaults"
 @module("@juspay/blend-design-system")
 external useChartLegend: (
-  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>,
-  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>>,
-) => ChartsV2Types.chartsV2UseChartLegendConfig<'b> = "useChartLegend"
+  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>,
+  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>>,
+) => ChartsV2Types.chartsV2UseChartLegendConfig<'a, 'b, 'c> = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
-  HighchartsSharedTypes.chart<'b>,
-  array<HighchartsSharedTypes.chart<'b>>,
+  HighchartsSharedTypes.chart<'a, 'b, 'c>,
+  array<HighchartsSharedTypes.chart<'a, 'b, 'c>>,
 ) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
 external useChartRefs: array<
-  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'b>>>,
-> => array<HighchartsSharedTypes.chart<'b>> = "useChartRefs"
+  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'a, 'b, 'c>>>,
+> => array<HighchartsSharedTypes.chart<'a, 'b, 'c>> = "useChartRefs"
 @module("@juspay/blend-design-system")
-external getLegendItems: HighchartsSharedTypes.chart<'b> => array<
+external getLegendItems: HighchartsSharedTypes.chart<'a, 'b, 'c> => array<
   HighchartsSharedTypes.ChartV2LegendItem.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")
@@ -609,7 +609,7 @@ external applyHoverState: (
 ) => unit = "applyHoverState"
 @module("@juspay/blend-design-system")
 external mergeChartOptions: (
-  HighchartsSharedTypes.options<'b>,
+  HighchartsSharedTypes.options<'a, 'b, 'c>,
   ChartsV2Types.chartV2TokensType,
 ) => Dict.t<JSON.t> = "mergeChartOptions"
 @module("@juspay/blend-design-system")
@@ -644,8 +644,10 @@ external getSidebarV2Tokens: (
 @module("@juspay/blend-design-system")
 external isControlledSidebarV2: bool => bool = "isControlledSidebarV2"
 @module("@juspay/blend-design-system")
-external getSidebarV2Status: (bool, bool) => SidebarV2Types.sidebarV2OnSidebarStateChange =
-  "getSidebarV2Status"
+external getSidebarV2Status: (
+  bool,
+  bool,
+) => SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
 @module("@juspay/blend-design-system")
 external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
 @module("@juspay/blend-design-system")
