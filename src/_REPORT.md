@@ -2,7 +2,7 @@
 
 **211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
 
-**236** function binding(s) → `BlendDesignSystemBindings.res`.
+**249** function binding(s) → `BlendDesignSystemBindings.res`.
 
 **3043** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
@@ -123,6 +123,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getStatusPositionStyles`
 - `createAvatarKeyboardHandler`
 - `isInteractive`
+- `DEFAULT_AVATAR_ALT`
+- `DEFAULT_FALLBACK_COLOR`
+- `MAX_INITIALS_LENGTH`
 - `DEFAULT_POSITION`
 - `getTooltipV2Tokens`
 - `getProgressBarV2Tokens`
@@ -136,14 +139,17 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getCircularDimensions`
 - `parseCircularDashToken`
 - `calculateCircularProgressStroke`
+- `STATCARD_FALLBACK_DISPLAY`
 - `renderVariantFallbackValue`
 - `buildStatCardV2ChartOptions`
 - `getStatCardV2Tokens`
 - `buildStatCardV2AriaLabel`
+- `ACCORDION_TRANSITION`
 - `getAccordionV2Tokens`
 - `getTextInputV2Tokens`
 - `toEmbeddedSingleSelectV2Props`
 - `FOCUS_RING_STYLES`
+- `TRANSITION`
 - `getInputState`
 - `getVerticalInputPadding`
 - `getTextAreaV2Tokens`
@@ -181,6 +187,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getStepState`
 - `getTimelineTokens`
 - `getTopbarV2Tokens`
+- `SELECT_V2_MENU_Z_INDEX`
 - `useSelectV2MenuBehavior`
 - `getMultiValueInputV2Tokens`
 - `getNumberInputV2Tokens`
@@ -200,6 +207,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getUpdateEditorOptions`
 - `getDiffEditorOptions`
 - `getInitialEditorOptions`
+- `EDITOR_FOCUS_DELAY_MS`
+- `COPY_FEEDBACK_RESET_MS`
+- `MIN_SCROLLBAR_SIZE`
 - `copyToClipboardWithTemporaryFeedback`
 - `shouldShowLineNumbers`
 - `isDiffEditorMode`
@@ -246,6 +256,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getVirtualRowEstimate`
 - `getItemOrdinalIndex`
 - `defaultSingleSelectV2Skeleton`
+- `DROPDOWN_DATA_ATTR`
+- `MENU_SCROLL_SELECTORS`
+- `DEFAULT_END_REACHED_THRESHOLD`
 - `generateAccessibilityIds`
 - `extractSingleSelectV2AriaProps`
 - `mergeSingleSelectV2AriaDescribedBy`
