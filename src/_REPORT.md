@@ -1,6 +1,6 @@
 # Binding report — `@juspay/blend-design-system@0.0.37-beta.8`
 
-**211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
+**222** components · ✅ **222** usable · 🔍 **0** need review · 🛑 **0** broken
 
 **249** function binding(s) → `BlendDesignSystemBindings.res`.
 
@@ -422,8 +422,14 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SingleSelectV2VirtualList
 - Skeleton
 - SkeletonAvatar
+- SkeletonAvatar2
 - SkeletonBase
+- SkeletonBase2
 - SkeletonCard
+- SkeletonCard2
+- SkeletonCircle
+- SkeletonRectangle
+- SkeletonRounded
 - Slider
 - Snackbar
 - SnackbarV2
@@ -472,10 +478,15 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ThemeProvider
 - Timeline
 - TimelineHeader
+- TimelineHeader2
 - TimelineLabel
+- TimelineLabel2
 - TimelineNode
+- TimelineNode2
 - TimelineShowMore
+- TimelineShowMore2
 - TimelineSubstep
+- TimelineSubstep2
 - Tooltip
 - TooltipV2
 - TopbarV2

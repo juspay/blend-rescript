@@ -1,26 +1,26 @@
-@module("@juspay/blend-design-system") @react.component
+@module("@juspay/blend-design-system") @scope("Skeleton") @react.component
 external make: (
   ~variant: SkeletonTypes.skeletonVariant=?,
   ~loading: bool=?,
   @as("data-testid") ~dataTestid: string=?,
   ~boxShadow: string=?,
-  ~width: CommonTypes.stringOrNumber=?,
+  ~width: string=?,
   ~borderRadius: string=?,
   ~letterSpacing: string=?,
   ~fontSize: string=?,
   ~lineHeight: string=?,
-  ~size: CommonTypes.stringOrNumber=?,
+  ~size: DataTableTypes.dataTableTagColumnPropsSize=?,
   ~display: string=?,
   ~fontWeight: string=?,
   ~opacity: string=?,
-  ~height: CommonTypes.stringOrNumber=?,
+  ~height: string=?,
   ~gap: string=?,
   ~padding: CommonTypes.stringOrNumber=?,
   ~margin: CommonTypes.stringOrNumber=?,
   ~color: string=?,
   ~zIndex: string=?,
-  ~minWidth: CommonTypes.stringOrNumber=?,
-  ~maxWidth: CommonTypes.stringOrNumber=?,
+  ~minWidth: string=?,
+  ~maxWidth: string=?,
   ~backgroundColor: string=?,
   ~border: string=?,
   ~hidden: bool=?,
@@ -36,7 +36,7 @@ external make: (
   ~paddingRight: CommonTypes.stringOrNumber=?,
   ~paddingBottom: CommonTypes.stringOrNumber=?,
   ~paddingLeft: CommonTypes.stringOrNumber=?,
-  ~maxHeight: CommonTypes.stringOrNumber=?,
+  ~maxHeight: string=?,
   ~bottom: string=?,
   ~right: string=?,
   ~marginTop: CommonTypes.stringOrNumber=?,
@@ -50,7 +50,7 @@ external make: (
   ~overflowY: string=?,
   ~flexShrink: string=?,
   ~style: JsxDOM.style=?,
-  ~minHeight: CommonTypes.stringOrNumber=?,
+  ~minHeight: string=?,
   ~transform: string=?,
   ~textAlign: string=?,
   ~cursor: string=?,
@@ -149,16 +149,6 @@ external make: (
   ~transitionDuration: string=?,
   ~transitionTimingFunction: string=?,
   ~transitionDelay: string=?,
-  ~children: React.element=?,
-  ~animate: bool=?,
-  ~shape: SkeletonTypes.skeletonShapeV61p6w=?,
+  ~shape: SkeletonTypes.skeletonShapeV1su2h=?,
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
-) => React.element = "Skeleton"
-
-// Compound statics — zero-cost aliases; use <Skeleton.Avatar />
-module Avatar = SkeletonAvatar2
-module Base = SkeletonBase2
-module Card = SkeletonCard2
-module Circle = SkeletonCircle
-module Rectangle = SkeletonRectangle
-module Rounded = SkeletonRounded
+) => React.element = "Avatar"

@@ -1,8 +1,5 @@
-@module("@juspay/blend-design-system") @react.component
+@module("@juspay/blend-design-system") @scope("Skeleton") @react.component
 external make: (
-  ~variant: SkeletonTypes.skeletonVariant=?,
-  ~loading: bool=?,
-  @as("data-testid") ~dataTestid: string=?,
   ~boxShadow: string=?,
   ~width: CommonTypes.stringOrNumber=?,
   ~borderRadius: string=?,
@@ -66,6 +63,7 @@ external make: (
   ~backgroundSize: string=?,
   ~backgroundImage: string=?,
   ~overflow: string=?,
+  ~children: React.element=?,
   ~defaultChecked: bool=?,
   ~defaultValue: CommonTypes.stringOrNumberOrStringArray=?,
   ~autoFocus: bool=?,
@@ -117,9 +115,11 @@ external make: (
   ~onMouseUp: ReactEvent.Mouse.t => unit=?,
   ~onScroll: ReactEvent.UI.t => unit=?,
   ~onWheel: ReactEvent.Wheel.t => unit=?,
+  ~animate: bool=?,
   ~pointerEvents: string=?,
   ~textOverflow: string=?,
   ~whiteSpace: string=?,
+  ~loading: bool=?,
   @as("as") ~as_: SkeletonTypes.skeletonAs=?,
   ~_hover: PrimitivesTypes.styledBlockProps=?,
   ~_focus: PrimitivesTypes.styledBlockProps=?,
@@ -149,16 +149,7 @@ external make: (
   ~transitionDuration: string=?,
   ~transitionTimingFunction: string=?,
   ~transitionDelay: string=?,
-  ~children: React.element=?,
-  ~animate: bool=?,
-  ~shape: SkeletonTypes.skeletonShapeV61p6w=?,
+  ~variant: SkeletonTypes.skeletonVariant=?,
+  @as("data-testid") ~dataTestid: string=?,
   ~ref: React.ref<Nullable.t<Dom.element>>=?,
-) => React.element = "Skeleton"
-
-// Compound statics — zero-cost aliases; use <Skeleton.Avatar />
-module Avatar = SkeletonAvatar2
-module Base = SkeletonBase2
-module Card = SkeletonCard2
-module Circle = SkeletonCircle
-module Rectangle = SkeletonRectangle
-module Rounded = SkeletonRounded
+) => React.element = "Rounded"
