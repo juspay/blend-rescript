@@ -16,7 +16,7 @@
 // (machine-readable buckets) alongside the generated *.res files.
 
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -33,7 +33,8 @@ const has = (name) => process.argv.includes(name);
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 
 // Resolve the blend version to bind: explicit --blend wins, else the installed
-// copy in node_modules, else the pin in our package.json (devDeps/peerDeps).
+// copy in node_modules, else the pin in our package.json (dependencies — where Blend
+// now lives as a runtime dep; devDeps/peerDeps are only stale-entry fallbacks).
 function resolveBlendVersion() {
   const explicit = flag("--blend");
   if (explicit) return explicit;
@@ -42,7 +43,7 @@ function resolveBlendVersion() {
   } catch {}
   const pkg = readJson(join(ROOT, "package.json"));
   const range =
-    pkg.devDependencies?.[PKG] ?? pkg.peerDependencies?.[PKG] ?? pkg.dependencies?.[PKG];
+    pkg.dependencies?.[PKG] ?? pkg.peerDependencies?.[PKG] ?? pkg.devDependencies?.[PKG];
   const pinned = range?.replace(/^[^\d]*/, "");
   if (!pinned) {
     console.error(`Could not resolve a ${PKG} version. Pass --blend <version>.`);
@@ -132,8 +133,43 @@ try {
 
 if (has("--set-version")) {
   const pkgPath = join(ROOT, "package.json");
-  const pkg = readJson(pkgPath);
+  const lockPath = join(ROOT, "package-lock.json");
+  // Snapshot both manifests up front so a failed lock refresh can restore them to their
+  // pre-step state — the pin and lock move together or not at all, never a half-applied
+  // (pin-without-lock) manifest. (Regenerated src/ bindings are NOT reverted — producing
+  // them is the point of the command; see the failure note in the catch below.)
+  const pkgBefore = readFileSync(pkgPath, "utf8");
+  const lockBefore = existsSync(lockPath) ? readFileSync(lockPath, "utf8") : null;
+
+  const pkg = JSON.parse(pkgBefore);
   pkg.version = version;
+  // Blend ships as a runtime `dependency` (not a peer) so consumers install only
+  // @juspay/rescript-blend and get Blend transitively. Keep that pin EXACT and 1:1
+  // with the bindings we just generated.
+  pkg.dependencies = { ...pkg.dependencies, [PKG]: version };
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
-  console.log(`Set package.json version = ${version} (1:1 with blend)`);
+  console.log(`Set package.json version = ${version} (1:1 with blend) and dependencies.${PKG} = ${version}`);
+
+  // Sync package-lock.json to the pin we just wrote. A stale lock beside a bumped pin makes
+  // every later `npm ci` abort with EUSAGE, so a failure MUST fail loudly (never swallowed).
+  // `--set-version` is a release-prep step (the daily sync workflow + manual releases), so a
+  // registry round-trip is expected; a hard failure here is the point — it fails the job
+  // BEFORE a drifted lockfile can reach a PR or `main`. (We can't lean on the sync PR's
+  // `pull_request` CI: it's opened with the default GITHUB_TOKEN, which suppresses that run,
+  // and the job's own `npm ci` runs before generation.)
+  try {
+    execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
+  } catch (err) {
+    // Restore the manifests to their pre-step state (best-effort — each write guarded so one
+    // failure doesn't skip the other), then ALWAYS re-throw the original npm error: a rollback
+    // FS error (e.g. disk full — the very thing that may have broken the refresh) must not mask
+    // it. This reverts package.json + lock ONLY; the regenerated src/ bindings stay in the tree,
+    // so discard them (`git checkout -- src`) after a failed run.
+    try { writeFileSync(pkgPath, pkgBefore); } catch {}
+    try {
+      if (lockBefore !== null) writeFileSync(lockPath, lockBefore);
+      else if (existsSync(lockPath)) rmSync(lockPath);
+    } catch {}
+    throw err;
+  }
 }
