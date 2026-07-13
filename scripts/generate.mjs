@@ -16,7 +16,7 @@
 // (machine-readable buckets) alongside the generated *.res files.
 
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -133,7 +133,14 @@ try {
 
 if (has("--set-version")) {
   const pkgPath = join(ROOT, "package.json");
-  const pkg = readJson(pkgPath);
+  const lockPath = join(ROOT, "package-lock.json");
+  // Snapshot BOTH files up front so the whole step is atomic: on any failure we restore
+  // them and re-throw, so `--set-version` never leaves a half-applied (pin-without-lock)
+  // working tree behind.
+  const pkgBefore = readFileSync(pkgPath, "utf8");
+  const lockBefore = existsSync(lockPath) ? readFileSync(lockPath, "utf8") : null;
+
+  const pkg = JSON.parse(pkgBefore);
   pkg.version = version;
   // Blend ships as a runtime `dependency` (not a peer) so consumers install only
   // @juspay/rescript-blend and get Blend transitively. Keep that pin EXACT and 1:1
@@ -141,13 +148,23 @@ if (has("--set-version")) {
   pkg.dependencies = { ...pkg.dependencies, [PKG]: version };
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
   console.log(`Set package.json version = ${version} (1:1 with blend) and dependencies.${PKG} = ${version}`);
-  // Sync package-lock.json to the pin we just wrote, and let a failure THROW (no catch):
-  // a stale lock beside a bumped pin makes every later `npm ci` abort with EUSAGE, so it
-  // must never ship. `--set-version` is a release-prep step (the daily sync workflow +
-  // manual releases), so a registry round-trip is expected and a hard failure here is the
-  // point — it fails the job BEFORE a drifted lockfile can reach a PR or `main`. We can't
-  // fall back on the PR's `pull_request` CI: the sync PR is opened with the default
-  // GITHUB_TOKEN, which suppresses workflow runs on that PR, and the job's own `npm ci`
-  // runs before generation — so nothing downstream re-checks lock ↔ package.json here.
-  execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
+
+  // Sync package-lock.json to the pin we just wrote. A stale lock beside a bumped pin makes
+  // every later `npm ci` abort with EUSAGE, so a failure MUST fail loudly (never swallowed).
+  // `--set-version` is a release-prep step (the daily sync workflow + manual releases), so a
+  // registry round-trip is expected; a hard failure here is the point — it fails the job
+  // BEFORE a drifted lockfile can reach a PR or `main`. (We can't lean on the sync PR's
+  // `pull_request` CI: it's opened with the default GITHUB_TOKEN, which suppresses that run,
+  // and the job's own `npm ci` runs before generation.) On failure, roll BOTH files back to
+  // their pre-step contents first, then re-throw — fail-fast, but leave a clean tree.
+  try {
+    execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
+  } catch (err) {
+    writeFileSync(pkgPath, pkgBefore);
+    // Restore the lockfile to its pre-step state: put back the old contents, or — if none
+    // existed and the failed refresh created a (possibly partial) one — remove it.
+    if (lockBefore !== null) writeFileSync(lockPath, lockBefore);
+    else if (existsSync(lockPath)) rmSync(lockPath);
+    throw err;
+  }
 }
