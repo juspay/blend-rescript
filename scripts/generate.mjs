@@ -134,9 +134,10 @@ try {
 if (has("--set-version")) {
   const pkgPath = join(ROOT, "package.json");
   const lockPath = join(ROOT, "package-lock.json");
-  // Snapshot BOTH files up front so the whole step is atomic: on any failure we restore
-  // them and re-throw, so `--set-version` never leaves a half-applied (pin-without-lock)
-  // working tree behind.
+  // Snapshot both manifests up front so a failed lock refresh can restore them to their
+  // pre-step state — the pin and lock move together or not at all, never a half-applied
+  // (pin-without-lock) manifest. (Regenerated src/ bindings are NOT reverted — producing
+  // them is the point of the command; see the failure note in the catch below.)
   const pkgBefore = readFileSync(pkgPath, "utf8");
   const lockBefore = existsSync(lockPath) ? readFileSync(lockPath, "utf8") : null;
 
@@ -155,16 +156,20 @@ if (has("--set-version")) {
   // registry round-trip is expected; a hard failure here is the point — it fails the job
   // BEFORE a drifted lockfile can reach a PR or `main`. (We can't lean on the sync PR's
   // `pull_request` CI: it's opened with the default GITHUB_TOKEN, which suppresses that run,
-  // and the job's own `npm ci` runs before generation.) On failure, roll BOTH files back to
-  // their pre-step contents first, then re-throw — fail-fast, but leave a clean tree.
+  // and the job's own `npm ci` runs before generation.)
   try {
     execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
   } catch (err) {
-    writeFileSync(pkgPath, pkgBefore);
-    // Restore the lockfile to its pre-step state: put back the old contents, or — if none
-    // existed and the failed refresh created a (possibly partial) one — remove it.
-    if (lockBefore !== null) writeFileSync(lockPath, lockBefore);
-    else if (existsSync(lockPath)) rmSync(lockPath);
+    // Restore the manifests to their pre-step state (best-effort — each write guarded so one
+    // failure doesn't skip the other), then ALWAYS re-throw the original npm error: a rollback
+    // FS error (e.g. disk full — the very thing that may have broken the refresh) must not mask
+    // it. This reverts package.json + lock ONLY; the regenerated src/ bindings stay in the tree,
+    // so discard them (`git checkout -- src`) after a failed run.
+    try { writeFileSync(pkgPath, pkgBefore); } catch {}
+    try {
+      if (lockBefore !== null) writeFileSync(lockPath, lockBefore);
+      else if (existsSync(lockPath)) rmSync(lockPath);
+    } catch {}
     throw err;
   }
 }
