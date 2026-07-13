@@ -20,6 +20,25 @@ All notable changes to this project are documented here. Format based on [Keep a
 - `scripts/generate.mjs` — thin wrapper around the `@juspay/rescript-bindgen` CLI (`--blend`, `--set-version`, `--only`); writes `src/_REPORT.md`.
 - `@juspay/rescript-bindgen` dev dependency.
 
+### Bindgen preview validation (in progress — dev pin, not yet shippable)
+
+The `@juspay/rescript-bindgen` devDependency is temporarily pinned to an **unmerged
+pkg.pr.new preview URL** (currently `@11bd7f8`, PR #135) while a series of upstream fixes
+is validated against the current Blend pin (`0.0.37-beta.8`). This must be repinned to a
+published npm release before any release off `main`. Each preview was regenerated,
+compiled, format-checked, and cross-checked against upstream golden + benchmark suites;
+bindings were also verified for prop-completeness against the TypeScript `.d.ts`.
+
+Validated and adopted (in order):
+- **#125** — variadic rest-parameter bindings. Fixed a real defect: `mergeSingleSelectV2AriaDescribedBy` now `@variadic` (`array<string> => string`); the old form produced comma-joined output where `aria-describedby` needs space-separated.
+- **#126** (CJS `export =`), **#127** (callable-with-properties), **#132**/**#134** (`error-any`/`unresolved` import flagging) — clean upstream hardening; **no-ops for Blend** (byte-identical output; Blend hits none of these shapes).
+- **#129** — compound-component statics: **+11 recovered components** (`Skeleton.Circle/Rectangle/Rounded`, `Timeline.*`) that were previously dropped. Surfaced an upstream typings imprecision → filed `juspay/blend-design-system#1576` (compound statics typed inline instead of `typeof`, causing duplicate `*2` bindings).
+- **#131** — shared-props records (#82/#130): the largest binding change (net −7,433 lines). `styledBlockProps` (92 CSS fields) and `baseSkeletonProps` collapse into shared spreads; the HtmlAttrs walk is now transitive. Verified **0 prop loss** (2,703 props recovered vs the prior version; complete coverage vs the `.d.ts`).
+- **#135** (#133 deep-report engine) — report-accuracy fix; `.res` bindings unchanged. Now honestly flags **7 components as 🔍 needs-review** (BlendChart, ChartV2, ChartV2Legend, DataTable, PivotTableModal, StatCardV2, ThemeProvider) that carry `review`/`any`-level fields inside shared Highcharts/token types, previously hidden behind a "✅ usable" verdict. Its first cut hung generation on Blend + `--webapi` → filed `juspay/rescript-bindgen#139` (deep walk re-traversed the ~2,600-node Highcharts graph combinatorially); fixed upstream via a worklist fixed-point and re-validated (5s, complete).
+
+Evaluated and **not** adopted:
+- **#136** (#128 callable-module home placement) — a valid upstream placement fix, but a **no-op for Blend** (byte-identical `.res` output; Blend has no callable-module with prop-derived deps). It branches off #134 in parallel to #135, so pinning it would **revert #135's deep-report** (drop the 7 needs-review sections) for zero gain. Left on #135; revisit once #128 and #133 both land on `main`.
+
 ## [1.0.0] — 2026-05-01
 
 First stable release under the `@juspay/rescript-blend` package name. Marks the transition from upstream version mirroring to independent SemVer; the package is now versioned on its own cadence and pins the upstream `@juspay/blend-design-system` it was generated against.
