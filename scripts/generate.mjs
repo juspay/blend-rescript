@@ -33,7 +33,8 @@ const has = (name) => process.argv.includes(name);
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 
 // Resolve the blend version to bind: explicit --blend wins, else the installed
-// copy in node_modules, else the pin in our package.json (devDeps/peerDeps).
+// copy in node_modules, else the pin in our package.json (dependencies — where Blend
+// now lives as a runtime dep; devDeps/peerDeps are only stale-entry fallbacks).
 function resolveBlendVersion() {
   const explicit = flag("--blend");
   if (explicit) return explicit;
@@ -42,7 +43,7 @@ function resolveBlendVersion() {
   } catch {}
   const pkg = readJson(join(ROOT, "package.json"));
   const range =
-    pkg.devDependencies?.[PKG] ?? pkg.peerDependencies?.[PKG] ?? pkg.dependencies?.[PKG];
+    pkg.dependencies?.[PKG] ?? pkg.peerDependencies?.[PKG] ?? pkg.devDependencies?.[PKG];
   const pinned = range?.replace(/^[^\d]*/, "");
   if (!pinned) {
     console.error(`Could not resolve a ${PKG} version. Pass --blend <version>.`);
@@ -140,4 +141,15 @@ if (has("--set-version")) {
   pkg.dependencies = { ...pkg.dependencies, [PKG]: version };
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
   console.log(`Set package.json version = ${version} (1:1 with blend) and dependencies.${PKG} = ${version}`);
+  // Keep package-lock.json in step with the pin we just wrote — otherwise a standalone
+  // `--set-version` leaves the lockfile drifted and a later `npm ci` aborts (EUSAGE).
+  // Best-effort: the bindings are already written, so a lock-refresh hiccup shouldn't
+  // undo them; CI's `npm ci` is the hard backstop that catches any real drift.
+  try {
+    execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
+  } catch {
+    console.warn(
+      "⚠ Could not refresh package-lock.json — run `npm install --package-lock-only` before `npm ci`.",
+    );
+  }
 }

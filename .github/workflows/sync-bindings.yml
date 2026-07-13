@@ -136,21 +136,14 @@ jobs:
             fi
           fi
 
-      # Pin Blend as a runtime `dependency` (NOT a peer) to the EXACT version we're
-      # generating from — for BOTH stable and beta — so consumers install only
-      # @juspay/rescript-blend and receive Blend transitively, the committed pin always
-      # matches the shipped bindings, and `npm ci` at any tag re-generates byte-identical
-      # src (determinism). The stable poll's baseline is decoupled (see "Check for a newer
-      # stable blend"), so pinning a beta here no longer makes it churn. `--set-version`
-      # in `npm run generate` keeps this pin in lockstep on regeneration too.
-      - name: Pin blend version in dependencies
-        if: steps.target.outputs.spec != ''
-        run: |
-          V="${{ steps.blend.outputs.version }}"
-          node -e "const p=require('./package.json'); p.dependencies={...p.dependencies,'@juspay/blend-design-system':'$V'}; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n');"
-          npm install --package-lock-only
-
-      - name: Regenerate all bindings (deterministic)
+      # `npm run generate -- --set-version` is the SINGLE source of truth for the pin: it
+      # writes package.json `version` + `dependencies["@juspay/blend-design-system"]` (EXACT,
+      # 1:1 with the bindings) and refreshes package-lock.json. Blend ships as a runtime
+      # `dependency` (NOT a peer) — for BOTH stable and beta — so consumers install only
+      # @juspay/rescript-blend and receive Blend transitively; `npm ci` at any tag
+      # re-generates byte-identical src (determinism). The stable poll's baseline is
+      # decoupled (see "Check for a newer stable blend"), so a beta pin no longer churns.
+      - name: Regenerate all bindings + pin blend (deterministic)
         if: steps.target.outputs.spec != ''
         run: npm run generate -- --blend "${{ steps.blend.outputs.version }}" --set-version
 
