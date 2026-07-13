@@ -134,6 +134,10 @@ if (has("--set-version")) {
   const pkgPath = join(ROOT, "package.json");
   const pkg = readJson(pkgPath);
   pkg.version = version;
+  // Blend ships as a runtime `dependency` (not a peer) so consumers install only
+  // @juspay/rescript-blend and get Blend transitively. Keep that pin EXACT and 1:1
+  // with the bindings we just generated.
+  pkg.dependencies = { ...pkg.dependencies, [PKG]: version };
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
-  console.log(`Set package.json version = ${version} (1:1 with blend)`);
+  console.log(`Set package.json version = ${version} (1:1 with blend) and dependencies.${PKG} = ${version}`);
 }

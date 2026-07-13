@@ -5,8 +5,9 @@ All notable changes to this project are documented here. Format based on [Keep a
 ## [Unreleased]
 
 ### Changed
+- **BREAKING**: `@juspay/blend-design-system` is now a bundled **runtime `dependency`** (pinned exact, 1:1 with the bindings) instead of a **peer dependency**. Consumers install only `@juspay/rescript-blend` and receive the matching Blend version transitively — they no longer install or manage Blend themselves. `react` / `react-dom` and the ReScript toolchain (`rescript`, `@rescript/react`, `rescript-webapi`) remain peer dependencies so the app keeps a single copy. `scripts/generate.mjs --set-version` and `sync-bindings.yml` keep the `dependencies` pin in lockstep on every regeneration. _(Caveat: if a consumer also uses `@juspay/blend-design-system` directly, this can produce two copies at different versions — React context such as `ThemeProvider` does not cross copies. Intended for consumers who use the ReScript bindings exclusively.)_
 - **BREAKING**: Bindings are now generated **deterministically** by [`@juspay/rescript-bindgen`](https://www.npmjs.com/package/@juspay/rescript-bindgen) instead of an LLM. Same Blend version → byte-identical output, no secrets, no network. The binding surface changes: richer record-props (`type props = {...HtmlAttrs.x}` + `React.component<props>`) and shared `*Types`/`CommonTypes`/`HtmlAttrs` modules referenced qualified. Consumers must update call sites.
-- **BREAKING**: Re-adopted **1:1 versioning** — `@juspay/rescript-blend@X` ships bindings for `@juspay/blend-design-system@X`. `@juspay/blend-design-system` moved from `dependencies` to a **peer dependency**. Binding-only re-releases use a `-N` suffix (`0.0.36` → `0.0.36-1`).
+- **BREAKING**: Re-adopted **1:1 versioning** — `@juspay/rescript-blend@X` ships bindings for `@juspay/blend-design-system@X`. Binding-only re-releases use a `-N` suffix (`0.0.36` → `0.0.36-1`).
 - `sync-bindings.yml` now polls npm **daily** for a new stable Blend and regenerates deterministically (plus manual dispatch); no LLM secrets.
 - `release.yml` publishes the `package.json` version directly (skipping if already on npm); **semantic-release removed**.
 

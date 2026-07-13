@@ -7,10 +7,10 @@ This package bridges the Blend Design System (authored in React/TS) and your ReS
 ## 📦 Installation
 
 ```bash
-npm install @juspay/rescript-blend @juspay/blend-design-system
+npm install @juspay/rescript-blend
 ```
 
-`@juspay/blend-design-system` is a **peer dependency** — install the version that matches this package (see versioning below). You also need the ReScript compiler (`rescript >= 12.0.0`) and `@rescript/react` to compile the bindings.
+`@juspay/blend-design-system` ships as a **bundled runtime dependency** — you don't install or manage it directly; the matching version comes in automatically (see 1:1 versioning below). You only need to provide the ReScript toolchain to compile the bindings — the ReScript compiler (`rescript >= 12.0.0`), `@rescript/react`, and `rescript-webapi` — plus `react` / `react-dom` at runtime. These stay **peer dependencies** so your app controls the single copy.
 
 > **1:1 Versioning**
 > `@juspay/rescript-blend@X` ships the bindings for `@juspay/blend-design-system@X` — the version numbers match exactly. To find the right Blend version for a release, just read this package's version. A binding-only re-release for an unchanged Blend version (e.g. a generator upgrade) uses a `-N` suffix: `0.0.36` → `0.0.36-1`.
