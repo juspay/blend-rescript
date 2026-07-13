@@ -141,15 +141,13 @@ if (has("--set-version")) {
   pkg.dependencies = { ...pkg.dependencies, [PKG]: version };
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
   console.log(`Set package.json version = ${version} (1:1 with blend) and dependencies.${PKG} = ${version}`);
-  // Keep package-lock.json in step with the pin we just wrote — otherwise a standalone
-  // `--set-version` leaves the lockfile drifted and a later `npm ci` aborts (EUSAGE).
-  // Best-effort: the bindings are already written, so a lock-refresh hiccup shouldn't
-  // undo them; CI's `npm ci` is the hard backstop that catches any real drift.
-  try {
-    execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
-  } catch {
-    console.warn(
-      "⚠ Could not refresh package-lock.json — run `npm install --package-lock-only` before `npm ci`.",
-    );
-  }
+  // Sync package-lock.json to the pin we just wrote, and let a failure THROW (no catch):
+  // a stale lock beside a bumped pin makes every later `npm ci` abort with EUSAGE, so it
+  // must never ship. `--set-version` is a release-prep step (the daily sync workflow +
+  // manual releases), so a registry round-trip is expected and a hard failure here is the
+  // point — it fails the job BEFORE a drifted lockfile can reach a PR or `main`. We can't
+  // fall back on the PR's `pull_request` CI: the sync PR is opened with the default
+  // GITHUB_TOKEN, which suppresses workflow runs on that PR, and the job's own `npm ci`
+  // runs before generation — so nothing downstream re-checks lock ↔ package.json here.
+  execFileSync("npm", ["install", "--package-lock-only"], { cwd: ROOT, stdio: "inherit" });
 }
