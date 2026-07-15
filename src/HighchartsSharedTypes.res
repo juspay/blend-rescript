@@ -819,7 +819,6 @@ type timeTicksInfoObject = {
   unitRange: float,
 }
 type axisTickPositionsArray = {
-  ...JsxDOM.domProps,
   info?: timeTicksInfoObject,
 }
 type yAxisLabelsLevelsOptions = {
