@@ -28571,6 +28571,7 @@ and tooltipPositionerPointObject<'a, 'b, 'c> = {
     option<bool>,
     option<string>,
   ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  x2?: float,
 }
 and tooltipOptions<'a, 'b, 'c> = {
   animation?: ChartsTooltipOptionsAnimation.t,
@@ -29921,6 +29922,7 @@ and pointOptionsObject<'a, 'b, 'c> = {
   x?: CommonTypes.stringOrNumber,
   y?: float,
   z?: float,
+  x2?: float,
 }
 and point<'a, 'b, 'c> = {
   category: CommonTypes.stringOrNumber,
@@ -29959,6 +29961,7 @@ and point<'a, 'b, 'c> = {
   setVisible: (option<bool>, option<bool>) => unit,
   tooltipFormatter: string => string,
   update: (string, option<bool>, option<string>) => unit, // ⚪ loose — was `PointOptionsType`
+  x2?: float,
 }
 and series<'a, 'b, 'c> = {
   area?: string, // ⚪ loose — was `SVGElement`
