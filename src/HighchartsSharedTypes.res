@@ -180,6 +180,10 @@ type optionsKeyValue =
   | @as("alt") Alt
   | @as("ctrl") Ctrl
   | @as("meta") Meta
+type optionsTypeValue =
+  | @as("x") X
+  | @as("y") Y
+  | @as("xy") Xy
 type optionsPinchTypeValue =
   | @as("x") X
   | @as("y") Y
@@ -391,6 +395,11 @@ type optionsDropdownValue =
   | @as("always") Always
   | @as("never") Never
   | @as("responsive") Responsive
+type mapGeometryTypeValue =
+  | @as("LineString") LineString
+  | @as("MultiLineString") MultiLineString
+  | @as("MultiPolygon") MultiPolygon
+  | @as("Polygon") Polygon
 type synthPatchOscillatorType =
   | @as("square") Square
   | @as("triangle") Triangle
@@ -878,6 +887,10 @@ type pointerEventObject = {
   chartX: float,
   chartY: float,
 }
+type pointAccessibilityOptionsObject = {
+  description?: string,
+  enabled?: bool,
+}
 type linearGradientColorObject = {
   x1: float,
   x2: float,
@@ -922,13 +935,19 @@ module ColorType = {
   external fromPatternObject: patternObject => t = "%identity"
   external asPatternObject: t => patternObject = "%identity"
 }
-type seriesZonesOptionsObject = {
-  className?: string,
-  color?: ColorType.t,
-  dashStyle?: dashStyleValue,
-  fillColor?: ColorType.t,
+type dataLabelsFilterOptionsObject = {
+  operator?: optionsOperatorValue,
+  property?: string,
   value?: float,
 }
+type shadowOptionsObject = {
+  color?: string,
+  offsetX?: float,
+  offsetY?: float,
+  opacity?: float,
+  width?: float,
+}
+@unboxed type boolOrShadowOptionsObject = Bool(bool) | ShadowOptionsObject(shadowOptionsObject)
 module GetLinePathTarget = {
   type t
   external fromSVGPathCommands: array<svgPathCommand> => t = "%identity"
@@ -968,6 +987,274 @@ type svgAttributes = {
   zIndex?: int,
 }
 @set_index external svgAttributesSet: (svgAttributes, string, JSON.t) => unit = ""
+type plotDependencywheelDataLabelsTextPathAttributesOptions = {
+  dy?: svgAttributes,
+}
+type plotTreegraphDataLabelsLinkTextPathAttributesOptions = {
+  startOffset?: float,
+}
+type plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions = {
+  startOffset?: float,
+}
+module ChartsDataLabelsTextPathOptionsObjectAttributes = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDependencywheelDataLabelsTextPathAttributesOptions: plotDependencywheelDataLabelsTextPathAttributesOptions => t =
+    "%identity"
+  external asPlotDependencywheelDataLabelsTextPathAttributesOptions: t => plotDependencywheelDataLabelsTextPathAttributesOptions =
+    "%identity"
+  external fromPlotTreegraphDataLabelsLinkTextPathAttributesOptions: plotTreegraphDataLabelsLinkTextPathAttributesOptions => t =
+    "%identity"
+  external asPlotTreegraphDataLabelsLinkTextPathAttributesOptions: t => plotTreegraphDataLabelsLinkTextPathAttributesOptions =
+    "%identity"
+  external fromPlotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions: plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions => t =
+    "%identity"
+  external asPlotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions: t => plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions =
+    "%identity"
+}
+type dataLabelsTextPathOptionsObject = {
+  attributes?: ChartsDataLabelsTextPathOptionsObjectAttributes.t,
+  enabled?: bool,
+}
+type dataLabelsOptions = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | SeriesArcdiagramDataDataLabelsAnimationOptions | ... 55 more ... |` — match the real type by hand
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: cssObjectHighcharts,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  xHigh?: float,
+  xLow?: float,
+  y?: float,
+  yHigh?: float,
+  yLow?: float,
+}
+type plotNetworkgraphDataLabelsStyleOptions = {
+  transition?: string,
+}
+module ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external asCSSObject: t => cssObjectHighcharts = "%identity"
+  external fromPlotNetworkgraphDataLabelsStyleOptions: plotNetworkgraphDataLabelsStyleOptions => t =
+    "%identity"
+  external asPlotNetworkgraphDataLabelsStyleOptions: t => plotNetworkgraphDataLabelsStyleOptions =
+    "%identity"
+}
+type legendAccessibilityKeyboardNavigationOptions = {
+  enabled?: bool,
+}
+type plotPackedbubbleDataLabelsStyleOptions = {
+  transition?: string,
+}
+module ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external asCSSObject: t => cssObjectHighcharts = "%identity"
+  external fromPlotPackedbubbleDataLabelsStyleOptions: plotPackedbubbleDataLabelsStyleOptions => t =
+    "%identity"
+  external asPlotPackedbubbleDataLabelsStyleOptions: t => plotPackedbubbleDataLabelsStyleOptions =
+    "%identity"
+}
+type plotTreegraphDataLabelsStyleOptions = {
+  textOverflow?: string,
+}
+type plotTreegraphLevelsDataLabelsStyleOptions = {
+  textOverflow?: string,
+}
+module ChartsSeriesTreegraphDataLabelsOptionsObjectStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external asCSSObject: t => cssObjectHighcharts = "%identity"
+  external fromPlotTreegraphDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
+    "%identity"
+  external asPlotTreegraphDataLabelsStyleOptions: t => plotTreegraphDataLabelsStyleOptions =
+    "%identity"
+  external fromPlotTreegraphLevelsDataLabelsStyleOptions: plotTreegraphLevelsDataLabelsStyleOptions => t =
+    "%identity"
+  external asPlotTreegraphLevelsDataLabelsStyleOptions: t => plotTreegraphLevelsDataLabelsStyleOptions =
+    "%identity"
+}
+type dragDropHandleOptionsObject = {
+  className?: string,
+  color?: ColorType.t,
+  cursor?: string,
+  lineColor?: string,
+  lineWidth?: float,
+  pathFormatter?: JsFn.t,
+  zIndex?: int,
+}
+type seriesLineDataDragDropOptions = {
+  draggableX?: bool,
+  draggableY?: bool,
+  dragHandle?: dragDropHandleOptionsObject,
+  dragMaxX?: CommonTypes.stringOrNumber,
+  dragMaxY?: float,
+  dragMinX?: CommonTypes.stringOrNumber,
+  dragMinY?: float,
+  dragPrecisionX?: float,
+  dragPrecisionY?: float,
+  dragSensitivity?: float,
+  groupBy?: string,
+  guideBox?: string, // ⚠️ REVIEW — was `PlotOptionsSeriesDragDropGuideBoxOptions | Dictionary<DragDropGuideBoxOptionsObject>` — match the real type by hand
+  liveRedraw?: bool,
+}
+type pointStatesHoverOptionsObject = {
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsMarkerStatesHoverAnimationOptions | ... 97 more ... | Se` — match the real type by hand
+  enabled?: bool,
+  fillColor?: ColorType.t,
+  height?: float,
+  heightPlus?: float,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  lineWidthPlus?: float,
+  radius?: float,
+  radiusPlus?: float,
+  width?: float,
+  widthPlus?: float,
+}
+type pointStatesInactiveOptionsObject = {
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  opacity?: float,
+}
+type pointStatesNormalOptionsObject = {
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+}
+type pointStatesSelectOptionsObject = {
+  enabled?: bool,
+  fillColor?: ColorType.t,
+  height?: float,
+  heightPlus?: float,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  radius?: float,
+  width?: float,
+  widthPlus?: float,
+}
+type pointStatesOptionsObject = {
+  hover?: pointStatesHoverOptionsObject,
+  inactive?: pointStatesInactiveOptionsObject,
+  normal?: pointStatesNormalOptionsObject,
+  select?: pointStatesSelectOptionsObject,
+}
+type pointMarkerOptionsObject = {
+  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
+  color?: ColorType.t,
+  enabled?: bool,
+  enabledThreshold?: float,
+  fillColor?: ColorType.t,
+  fillOpacity?: float,
+  height?: float,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  radius?: float,
+  states?: pointStatesOptionsObject,
+  symbol?: string,
+  width?: float,
+}
+type plotTilemapStatesHoverHaloAttributesOptions = {
+  zIndex?: int,
+}
+module ChartsSeriesStatesHoverHaloOptionsObjectAttributes = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTilemapStatesHoverHaloAttributesOptions: plotTilemapStatesHoverHaloAttributesOptions => t =
+    "%identity"
+  external asPlotTilemapStatesHoverHaloAttributesOptions: t => plotTilemapStatesHoverHaloAttributesOptions =
+    "%identity"
+}
+type seriesStatesHoverHaloOptionsObject = {
+  attributes?: ChartsSeriesStatesHoverHaloOptionsObjectAttributes.t,
+  enabled?: bool,
+  opacity?: float,
+  size?: float,
+}
+type seriesStatesHoverOptionsObject = {
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesHoverAnimationOptions | PlotAdStatesHoverAnimation` — match the real type by hand
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  brightness?: float,
+  color?: ColorType.t,
+  connectorWidthPlus?: float,
+  enabled?: bool,
+  fillColor?: ColorType.t,
+  halo?: seriesStatesHoverHaloOptionsObject,
+  lineColor?: ColorType.t,
+  lineWidth?: float,
+  lineWidthPlus?: float,
+  linkOpacity?: float,
+  marker?: pointMarkerOptionsObject,
+  opacity?: float,
+  shadow?: bool,
+}
+@unboxed
+type numberOrSeriesStatesHoverOptionsObject =
+  Num(float) | SeriesStatesHoverOptionsObject(seriesStatesHoverOptionsObject)
+type seriesStatesInactiveOptionsObject = {
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesInactiveAnimationOptions | PlotAdStatesInactiveAni` — match the real type by hand
+  enabled?: bool,
+  linkOpacity?: float,
+  opacity?: float,
+}
+type seriesStatesSelectOptionsObject = {
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesSelectAnimationOptions | PlotAdStatesSelectAnimati` — match the real type by hand
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  color?: ColorType.t,
+  enabled?: bool,
+  halo?: seriesStatesHoverHaloOptionsObject,
+  lineWidth?: float,
+  lineWidthPlus?: float,
+  marker?: pointMarkerOptionsObject,
+}
+type seriesStatesOptionsObject = {
+  hover?: numberOrSeriesStatesHoverOptionsObject,
+  inactive?: seriesStatesInactiveOptionsObject,
+  normal?: pointStatesNormalOptionsObject,
+  select?: seriesStatesSelectOptionsObject,
+}
+type seriesBulletDataTargetOptions = {
+  borderColor?: string,
+  borderRadius?: float,
+  borderWidth?: float,
+  color?: ColorType.t,
+  height?: float,
+  width?: CommonTypes.stringOrNumber,
+}
+type seriesZonesOptionsObject = {
+  className?: string,
+  color?: ColorType.t,
+  dashStyle?: dashStyleValue,
+  fillColor?: ColorType.t,
+  value?: float,
+}
 type extremesObject = {
   dataMax: float,
   dataMin: float,
@@ -993,9 +1280,6 @@ module AxisTitleOptions = {
   external asYAxisTitleOptions: t => xAxisTitleOptions = "%identity"
   external fromZAxisTitleOptions: xAxisTitleOptions => t = "%identity"
   external asZAxisTitleOptions: t => xAxisTitleOptions = "%identity"
-}
-type legendAccessibilityKeyboardNavigationOptions = {
-  enabled?: bool,
 }
 type legendAccessibilityOptions = {
   enabled?: bool,
@@ -1104,14 +1388,6 @@ type annotationsEventsOptions = {
 type annotationLabelAccessibilityOptionsObject = {
   description?: string,
 }
-type shadowOptionsObject = {
-  color?: string,
-  offsetX?: float,
-  offsetY?: float,
-  opacity?: float,
-  width?: float,
-}
-@unboxed type boolOrShadowOptionsObject = Bool(bool) | ShadowOptionsObject(shadowOptionsObject)
 @unboxed
 type annotationControlPointOptionsObjectOrAnnotationControlPointOptionsObjectArray =
   | AnnotationControlPointOptionsObject(annotationControlPointOptionsObject)
@@ -1186,6 +1462,15 @@ type annotationsTypesElliottWaveTypeOptions = {
   xAxis?: float,
   yAxis?: float,
 }
+module ChartsAnnotationsTypesFibonacciLabelOptionsStyle = {
+  type t
+  external fromCSSObject: cssObjectHighcharts => t = "%identity"
+  external asCSSObject: t => cssObjectHighcharts = "%identity"
+  external fromAnnotationsTypesFibonacciLabelStyleOptions: annotationsTypesElliottWaveLabelStyleOptions => t =
+    "%identity"
+  external asAnnotationsTypesFibonacciLabelStyleOptions: t => annotationsTypesElliottWaveLabelStyleOptions =
+    "%identity"
+}
 type annotationsTypesFibonacciTimeZonesTypeControlPointOptions = {
   events?: string, // ⚪ loose — was `any`
 }
@@ -1232,6 +1517,24 @@ type annotationsTypesTimeCyclesTypeOptions = {
 type annotationsTypesTimeCyclesOptions = {
   controlPointOptions?: annotationControlPointOptionsObject,
   typeOptions?: annotationsTypesTimeCyclesTypeOptions,
+}
+module ChartsAnnotationsTypesTunnelTypeOptionsBackground = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromAnnotationsTypesTunnelTypeBackgroundOptions: annotationsTypesElliottWaveTypeLineOptions => t =
+    "%identity"
+  external asAnnotationsTypesTunnelTypeBackgroundOptions: t => annotationsTypesElliottWaveTypeLineOptions =
+    "%identity"
+}
+type annotationsTypesTunnelTypeOptions = {
+  background?: ChartsAnnotationsTypesTunnelTypeOptionsBackground.t,
+  height?: float,
+  heightControlPoint?: annotationControlPointOptionsObject,
+  line?: annotationsTypesElliottWaveTypeLineOptions,
+  points?: array<annotationsTypesCrookedLineTypePointsOptions>,
+  xAxis?: float,
+  yAxis?: float,
 }
 type annotationsTypesVerticalLineLabelStyleOptions = {
   color?: string,
@@ -1400,6 +1703,21 @@ type chartScrollablePlotAreaOptions = {
   scrollPositionX?: float,
   scrollPositionY?: float,
 }
+type chartZoomingMouseWheelOptions = {
+  enabled?: bool,
+  sensitivity?: float,
+  showResetButton?: bool,
+  @as("type") type_?: optionsTypeValue,
+}
+module ChartsChartZoomingOptionsMouseWheel = {
+  type t
+  external fromBool: bool => t = "%identity"
+  external asBool: t => bool = "%identity"
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromChartZoomingMouseWheelOptions: chartZoomingMouseWheelOptions => t = "%identity"
+  external asChartZoomingMouseWheelOptions: t => chartZoomingMouseWheelOptions = "%identity"
+}
 type chartZoomingResetButtonPositionOptions = {
   verticalAlign?: verticalAlignValue,
 }
@@ -1419,7 +1737,7 @@ type chartZoomingResetButtonOptions = {
 }
 type chartZoomingOptions = {
   key?: optionsKeyValue,
-  mouseWheel?: string, // ⚠️ REVIEW — was `boolean | object | ChartZoomingMouseWheelOptions` — match the real type by hand
+  mouseWheel?: ChartsChartZoomingOptionsMouseWheel.t,
   pinchType?: optionsPinchTypeValue,
   resetButton?: chartZoomingResetButtonOptions,
   singleTouch?: bool,
@@ -1437,59 +1755,6 @@ module ChartsColorAxisLabelsOptionsStyle = {
   external asCSSObject: t => cssObjectHighcharts = "%identity"
   external fromColorAxisLabelsStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
   external asColorAxisLabelsStyleOptions: t => chartParallelAxesLabelsStyleOptions = "%identity"
-}
-type pointStatesHoverOptionsObject = {
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsMarkerStatesHoverAnimationOptions | ... 97 more ... | Se` — match the real type by hand
-  enabled?: bool,
-  fillColor?: ColorType.t,
-  height?: float,
-  heightPlus?: float,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  lineWidthPlus?: float,
-  radius?: float,
-  radiusPlus?: float,
-  width?: float,
-  widthPlus?: float,
-}
-type pointStatesInactiveOptionsObject = {
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  opacity?: float,
-}
-type pointStatesNormalOptionsObject = {
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-}
-type pointStatesSelectOptionsObject = {
-  enabled?: bool,
-  fillColor?: ColorType.t,
-  height?: float,
-  heightPlus?: float,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  radius?: float,
-  width?: float,
-  widthPlus?: float,
-}
-type pointStatesOptionsObject = {
-  hover?: pointStatesHoverOptionsObject,
-  inactive?: pointStatesInactiveOptionsObject,
-  normal?: pointStatesNormalOptionsObject,
-  select?: pointStatesSelectOptionsObject,
-}
-type pointMarkerOptionsObject = {
-  animation?: string, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
-  color?: ColorType.t,
-  enabled?: bool,
-  enabledThreshold?: float,
-  fillColor?: ColorType.t,
-  fillOpacity?: float,
-  height?: float,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  radius?: float,
-  states?: pointStatesOptionsObject,
-  symbol?: string,
-  width?: float,
 }
 module ChartsColorAxisTitleOptionsStyle = {
   type t
@@ -1666,7 +1931,7 @@ module ChartsDrilldownDrillUpButtonOptionsPosition = {
 type drilldownDrillUpButtonOptions = {
   position?: ChartsDrilldownDrillUpButtonOptionsPosition.t,
   relativeTo?: buttonRelativeToValue,
-  theme?: string, // ⚪ loose — was `object`
+  theme?: JSON.t,
 }
 type plotAbandsBottomLineStylesOptions = {
   lineWidth?: float,
@@ -1674,78 +1939,17 @@ type plotAbandsBottomLineStylesOptions = {
 type plotAbandsBottomLineOptions = {
   styles?: plotAbandsBottomLineStylesOptions,
 }
-type dataLabelsFilterOptionsObject = {
-  operator?: optionsOperatorValue,
-  property?: string,
-  value?: float,
-}
-type plotDependencywheelDataLabelsTextPathAttributesOptions = {
-  dy?: svgAttributes,
-}
-type plotTreegraphDataLabelsLinkTextPathAttributesOptions = {
-  startOffset?: float,
-}
-type plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions = {
-  startOffset?: float,
-}
-module ChartsDataLabelsTextPathOptionsObjectAttributes = {
-  type t
-  external fromSVGAttributes: svgAttributes => t = "%identity"
-  external asSVGAttributes: t => svgAttributes = "%identity"
-  external fromPlotDependencywheelDataLabelsTextPathAttributesOptions: plotDependencywheelDataLabelsTextPathAttributesOptions => t =
-    "%identity"
-  external asPlotDependencywheelDataLabelsTextPathAttributesOptions: t => plotDependencywheelDataLabelsTextPathAttributesOptions =
-    "%identity"
-  external fromPlotTreegraphDataLabelsLinkTextPathAttributesOptions: plotTreegraphDataLabelsLinkTextPathAttributesOptions => t =
-    "%identity"
-  external asPlotTreegraphDataLabelsLinkTextPathAttributesOptions: t => plotTreegraphDataLabelsLinkTextPathAttributesOptions =
-    "%identity"
-  external fromPlotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions: plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions => t =
-    "%identity"
-  external asPlotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions: t => plotTreegraphLevelsDataLabelsLinkTextPathAttributesOptions =
-    "%identity"
-}
-type dataLabelsTextPathOptionsObject = {
-  attributes?: ChartsDataLabelsTextPathOptionsObjectAttributes.t,
+type dataGroupingOptionsObject = {
+  anchor?: string,
+  approximation?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  dateTimeLabelFormats?: JSON.t,
   enabled?: bool,
-}
-type dataLabelsOptions = {
-  align?: alignValue,
-  alignTo?: string,
-  allowOverlap?: bool,
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | SeriesArcdiagramDataDataLabelsAnimationOptions | ... 55 more ... |` — match the real type by hand
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  crop?: bool,
-  defer?: bool,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
-  inside?: bool,
-  labelrank?: float,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: string, // ⚪ loose — was `DataLabelsFormatterCallbackFunction`
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  position?: alignValue,
-  rotation?: float,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  style?: cssObjectHighcharts,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  xHigh?: float,
-  xLow?: float,
-  y?: float,
-  yHigh?: float,
-  yLow?: float,
+  firstAnchor?: string,
+  forced?: bool,
+  groupAll?: bool,
+  groupPixelWidth?: float,
+  lastAnchor?: string,
+  units?: array<array<JSON.t>>,
 }
 type dataSortingOptionsObject = {
   enabled?: bool,
@@ -2010,6 +2214,44 @@ module ChartsSeriesLabelOptionsObjectStyle = {
   external asPlotXrangeLabelStyleOptions: t => chartParallelAxesLabelsStyleOptions = "%identity"
   external fromPlotZigzagLabelStyleOptions: chartParallelAxesLabelsStyleOptions => t = "%identity"
   external asPlotZigzagLabelStyleOptions: t => chartParallelAxesLabelsStyleOptions = "%identity"
+}
+type plotAbandsOnPointConnectorOptions = {
+  dashstyle?: string,
+  stroke?: string,
+  width?: float,
+}
+module ChartsPlotAbandsOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAbandsOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotAbandsOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+type plotAbandsOnPointPositionOptions = {
+  offsetX?: float,
+  offsetY?: float,
+  x?: float,
+  y?: float,
+}
+module ChartsPlotAbandsOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAbandsOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotAbandsOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotAbandsOnPointOptions = {
+  connectorOptions?: ChartsPlotAbandsOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAbandsOnPointOptionsPosition.t,
+}
+module ChartsSeriesAbandsOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAbandsOnPointOptions: plotAbandsOnPointOptions => t = "%identity"
+  external asPlotAbandsOnPointOptions: t => plotAbandsOnPointOptions = "%identity"
 }
 type plotAbandsParamsOptions = {
   index?: int,
@@ -2500,17 +2742,37 @@ type svgRenderer = {
   ) => Dom.element,
   text: (option<string>, option<float>, option<float>, option<bool>) => Dom.element,
 }
-type dataGroupingOptionsObject = {
-  anchor?: string,
-  approximation?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  dateTimeLabelFormats?: string, // ⚪ loose — was `object`
-  enabled?: bool,
-  firstAnchor?: string,
-  forced?: bool,
-  groupAll?: bool,
-  groupPixelWidth?: float,
-  lastAnchor?: string,
-  units?: array<array<JSON.t>>,
+type geoJSONTranslation = {
+  crs: string,
+  hitZone?: Dict.t<JSON.t>,
+  jsonmarginX?: float,
+  jsonmarginY?: float,
+  jsonres?: float,
+  rotation?: float,
+  scale?: float,
+  xoffset?: float,
+  xpan?: float,
+  yoffset?: float,
+  ypan?: float,
+}
+type geoJSON = {
+  copyright?: string,
+  copyrightShort?: string,
+  crs?: Dict.t<JSON.t>,
+  features: array<JSON.t>,
+  @as("hc-transform") hcTransform?: Dict.t<geoJSONTranslation>,
+  title?: string,
+  @as("type") type_?: string,
+  version?: string,
+}
+module ChartsSeriesAbandsOptionsMapData = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromGeoJSON: geoJSON => t = "%identity"
+  external asGeoJSON: t => geoJSON = "%identity"
+  external fromSeriesMapDataOptionss: array<JSON.t> => t = "%identity"
+  external asSeriesMapDataOptionss: t => array<JSON.t> = "%identity"
 }
 type rec color = {
   rgba: string, // ⚪ loose — was `RGBA`
@@ -2630,68 +2892,6 @@ type seriesSonificationOptions = {
   pointGrouping?: seriesSonificationPointGroupingOptions,
   tracks?: array<JSON.t>,
 }
-type plotTilemapStatesHoverHaloAttributesOptions = {
-  zIndex?: int,
-}
-module ChartsSeriesStatesHoverHaloOptionsObjectAttributes = {
-  type t
-  external fromSVGAttributes: svgAttributes => t = "%identity"
-  external asSVGAttributes: t => svgAttributes = "%identity"
-  external fromPlotTilemapStatesHoverHaloAttributesOptions: plotTilemapStatesHoverHaloAttributesOptions => t =
-    "%identity"
-  external asPlotTilemapStatesHoverHaloAttributesOptions: t => plotTilemapStatesHoverHaloAttributesOptions =
-    "%identity"
-}
-type seriesStatesHoverHaloOptionsObject = {
-  attributes?: ChartsSeriesStatesHoverHaloOptionsObjectAttributes.t,
-  enabled?: bool,
-  opacity?: float,
-  size?: float,
-}
-type seriesStatesHoverOptionsObject = {
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesHoverAnimationOptions | PlotAdStatesHoverAnimation` — match the real type by hand
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  brightness?: float,
-  color?: ColorType.t,
-  connectorWidthPlus?: float,
-  enabled?: bool,
-  fillColor?: ColorType.t,
-  halo?: seriesStatesHoverHaloOptionsObject,
-  lineColor?: ColorType.t,
-  lineWidth?: float,
-  lineWidthPlus?: float,
-  linkOpacity?: float,
-  marker?: pointMarkerOptionsObject,
-  opacity?: float,
-  shadow?: bool,
-}
-@unboxed
-type numberOrSeriesStatesHoverOptionsObject =
-  Num(float) | SeriesStatesHoverOptionsObject(seriesStatesHoverOptionsObject)
-type seriesStatesInactiveOptionsObject = {
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesInactiveAnimationOptions | PlotAdStatesInactiveAni` — match the real type by hand
-  enabled?: bool,
-  linkOpacity?: float,
-  opacity?: float,
-}
-type seriesStatesSelectOptionsObject = {
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotAbandsStatesSelectAnimationOptions | PlotAdStatesSelectAnimati` — match the real type by hand
-  borderColor?: ColorType.t,
-  borderWidth?: float,
-  color?: ColorType.t,
-  enabled?: bool,
-  halo?: seriesStatesHoverHaloOptionsObject,
-  lineWidth?: float,
-  lineWidthPlus?: float,
-  marker?: pointMarkerOptionsObject,
-}
-type seriesStatesOptionsObject = {
-  hover?: numberOrSeriesStatesHoverOptionsObject,
-  inactive?: seriesStatesInactiveOptionsObject,
-  normal?: pointStatesNormalOptionsObject,
-  select?: seriesStatesSelectOptionsObject,
-}
 type plotAdDataSortingOptions = {
   enabled?: bool,
   matchByName?: bool,
@@ -2703,6 +2903,43 @@ module ChartsSeriesAdOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotAdDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAdDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+type plotAdOnPointConnectorOptions = {
+  dashstyle?: string,
+  stroke?: string,
+  width?: float,
+}
+module ChartsPlotAdOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAdOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotAdOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+type plotAdOnPointPositionOptions = {
+  offsetX?: float,
+  offsetY?: float,
+  x?: float,
+  y?: float,
+}
+module ChartsPlotAdOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAdOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotAdOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotAdOnPointOptions = {
+  connectorOptions?: ChartsPlotAdOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAdOnPointOptionsPosition.t,
+}
+module ChartsSeriesAdOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAdOnPointOptions: plotAdOnPointOptions => t = "%identity"
+  external asPlotAdOnPointOptions: t => plotAdOnPointOptions = "%identity"
 }
 type plotAdParamsOptions = {
   index?: string,
@@ -2716,6 +2953,32 @@ module ChartsSeriesAoOptionsDataSorting = {
   external fromPlotAoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotAoDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotAoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAoOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotAoOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotAoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAoOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotAoOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotAoOnPointOptions = {
+  connectorOptions?: ChartsPlotAoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAoOnPointOptionsPosition.t,
+}
+module ChartsSeriesAoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAoOnPointOptions: plotAoOnPointOptions => t = "%identity"
+  external asPlotAoOnPointOptions: t => plotAoOnPointOptions = "%identity"
+}
 type plotAoParamsOptions = {
   index?: string,
   period?: string,
@@ -2727,10 +2990,63 @@ module ChartsSeriesApoOptionsDataSorting = {
   external fromPlotApoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotApoDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotApoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotApoOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotApoOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotApoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotApoOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotApoOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotApoOnPointOptions = {
+  connectorOptions?: ChartsPlotApoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotApoOnPointOptionsPosition.t,
+}
+module ChartsSeriesApoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotApoOnPointOptions: plotApoOnPointOptions => t = "%identity"
+  external asPlotApoOnPointOptions: t => plotApoOnPointOptions = "%identity"
+}
 type plotApoParamsOptions = {
   index?: int,
   period?: string,
   periods?: array<float>,
+}
+module ChartsPlotArcdiagramOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotArcdiagramOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotArcdiagramOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotArcdiagramOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotArcdiagramOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotArcdiagramOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotArcdiagramOnPointOptions = {
+  connectorOptions?: ChartsPlotArcdiagramOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotArcdiagramOnPointOptionsPosition.t,
+}
+module ChartsSeriesArcdiagramOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotArcdiagramOnPointOptions: plotArcdiagramOnPointOptions => t = "%identity"
+  external asPlotArcdiagramOnPointOptions: t => plotArcdiagramOnPointOptions = "%identity"
 }
 module ChartsSeriesAreaOptionsDataSorting = {
   type t
@@ -2738,15 +3054,6 @@ module ChartsSeriesAreaOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotAreaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAreaDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
-}
-type dragDropHandleOptionsObject = {
-  className?: string,
-  color?: ColorType.t,
-  cursor?: string,
-  lineColor?: string,
-  lineWidth?: float,
-  pathFormatter?: JsFn.t,
-  zIndex?: int,
 }
 type seriesDragDropOptionsObject = {
   draggableClose?: bool,
@@ -2774,6 +3081,32 @@ type seriesDragDropOptionsObject = {
   guideBox?: string, // ⚠️ REVIEW — was `PlotOptionsSeriesDragDropGuideBoxOptions | Dictionary<DragDropGuideBoxOptionsObject>` — match the real type by hand
   liveRedraw?: bool,
 }
+module ChartsPlotAreaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAreaOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotAreaOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotAreaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreaOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotAreaOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotAreaOnPointOptions = {
+  connectorOptions?: ChartsPlotAreaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAreaOnPointOptionsPosition.t,
+}
+module ChartsSeriesAreaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreaOnPointOptions: plotAreaOnPointOptions => t = "%identity"
+  external asPlotAreaOnPointOptions: t => plotAreaOnPointOptions = "%identity"
+}
 type connectorsAnimationOptionsObject = {
   reversed?: bool,
 }
@@ -2795,12 +3128,65 @@ module ChartsPlotSeriesOptionsDataSorting = {
   external fromPlotSeriesDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotSeriesDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotSeriesOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSeriesOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotSeriesOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSeriesOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSeriesOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotSeriesOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotSeriesOnPointOptions = {
+  connectorOptions?: ChartsPlotSeriesOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSeriesOnPointOptionsPosition.t,
+}
+module ChartsPlotSeriesOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSeriesOnPointOptions: plotSeriesOnPointOptions => t = "%identity"
+  external asPlotSeriesOnPointOptions: t => plotSeriesOnPointOptions = "%identity"
+}
 module ChartsSeriesArearangeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotArearangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotArearangeDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotArearangeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotArearangeOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotArearangeOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotArearangeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotArearangeOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotArearangeOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotArearangeOnPointOptions = {
+  connectorOptions?: ChartsPlotArearangeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotArearangeOnPointOptionsPosition.t,
+}
+module ChartsSeriesArearangeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotArearangeOnPointOptions: plotArearangeOnPointOptions => t = "%identity"
+  external asPlotArearangeOnPointOptions: t => plotArearangeOnPointOptions = "%identity"
 }
 module ChartsSeriesAreasplineOptionsDataSorting = {
   type t
@@ -2809,12 +3195,70 @@ module ChartsSeriesAreasplineOptionsDataSorting = {
   external fromPlotAreasplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAreasplineDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotAreasplineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAreasplineOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotAreasplineOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotAreasplineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreasplineOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotAreasplineOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotAreasplineOnPointOptions = {
+  connectorOptions?: ChartsPlotAreasplineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAreasplineOnPointOptionsPosition.t,
+}
+module ChartsSeriesAreasplineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreasplineOnPointOptions: plotAreasplineOnPointOptions => t = "%identity"
+  external asPlotAreasplineOnPointOptions: t => plotAreasplineOnPointOptions = "%identity"
+}
 module ChartsSeriesAreasplinerangeOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotAreasplinerangeDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotAreasplinerangeDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotAreasplinerangeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAreasplinerangeOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotAreasplinerangeOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotAreasplinerangeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreasplinerangeOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotAreasplinerangeOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotAreasplinerangeOnPointOptions = {
+  connectorOptions?: ChartsPlotAreasplinerangeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAreasplinerangeOnPointOptionsPosition.t,
+}
+module ChartsSeriesAreasplinerangeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAreasplinerangeOnPointOptions: plotAreasplinerangeOnPointOptions => t =
+    "%identity"
+  external asPlotAreasplinerangeOnPointOptions: t => plotAreasplinerangeOnPointOptions = "%identity"
 }
 type plotAroonAroonDownStylesOptions = {
   lineColor?: string,
@@ -2830,6 +3274,32 @@ module ChartsSeriesAroonOptionsDataSorting = {
   external fromPlotAroonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAroonDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotAroonOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAroonOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotAroonOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotAroonOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAroonOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotAroonOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotAroonOnPointOptions = {
+  connectorOptions?: ChartsPlotAroonOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAroonOnPointOptionsPosition.t,
+}
+module ChartsSeriesAroonOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAroonOnPointOptions: plotAroonOnPointOptions => t = "%identity"
+  external asPlotAroonOnPointOptions: t => plotAroonOnPointOptions = "%identity"
+}
 type plotAroonParamsOptions = {
   index?: string,
   period?: float,
@@ -2841,6 +3311,37 @@ module ChartsSeriesAroonoscillatorOptionsDataSorting = {
   external fromPlotAroonoscillatorDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAroonoscillatorDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotAroonoscillatorOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAroonoscillatorOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotAroonoscillatorOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotAroonoscillatorOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAroonoscillatorOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotAroonoscillatorOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotAroonoscillatorOnPointOptions = {
+  connectorOptions?: ChartsPlotAroonoscillatorOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAroonoscillatorOnPointOptionsPosition.t,
+}
+module ChartsSeriesAroonoscillatorOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAroonoscillatorOnPointOptions: plotAroonoscillatorOnPointOptions => t =
+    "%identity"
+  external asPlotAroonoscillatorOnPointOptions: t => plotAroonoscillatorOnPointOptions = "%identity"
+}
 type plotAroonoscillatorParamsOptions = {
   index?: string,
   period?: float,
@@ -2851,6 +3352,32 @@ module ChartsSeriesAtrOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotAtrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotAtrDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotAtrOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotAtrOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotAtrOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotAtrOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAtrOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotAtrOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotAtrOnPointOptions = {
+  connectorOptions?: ChartsPlotAtrOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotAtrOnPointOptionsPosition.t,
+}
+module ChartsSeriesAtrOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotAtrOnPointOptions: plotAtrOnPointOptions => t = "%identity"
+  external asPlotAtrOnPointOptions: t => plotAtrOnPointOptions = "%identity"
 }
 type borderRadiusOptionsObject = {
   radius: CommonTypes.stringOrNumber,
@@ -2867,12 +3394,64 @@ module ChartsSeriesBarOptionsDataSorting = {
   external fromPlotBarDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotBarDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotBarOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBarOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotBarOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotBarOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBarOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotBarOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotBarOnPointOptions = {
+  connectorOptions?: ChartsPlotBarOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBarOnPointOptionsPosition.t,
+}
+module ChartsSeriesBarOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBarOnPointOptions: plotBarOnPointOptions => t = "%identity"
+  external asPlotBarOnPointOptions: t => plotBarOnPointOptions = "%identity"
+}
 module ChartsSeriesBbOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotBbDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotBbDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotBbOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBbOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotBbOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotBbOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBbOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotBbOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotBbOnPointOptions = {
+  connectorOptions?: ChartsPlotBbOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBbOnPointOptionsPosition.t,
+}
+module ChartsSeriesBbOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBbOnPointOptions: plotBbOnPointOptions => t = "%identity"
+  external asPlotBbOnPointOptions: t => plotBbOnPointOptions = "%identity"
 }
 type plotBbParamsOptions = {
   index?: int,
@@ -2886,12 +3465,68 @@ module ChartsSeriesBellcurveOptionsDataSorting = {
   external fromPlotBellcurveDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotBellcurveDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotBellcurveOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBellcurveOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotBellcurveOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotBellcurveOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBellcurveOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotBellcurveOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotBellcurveOnPointOptions = {
+  connectorOptions?: ChartsPlotBellcurveOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBellcurveOnPointOptionsPosition.t,
+}
+module ChartsSeriesBellcurveOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBellcurveOnPointOptions: plotBellcurveOnPointOptions => t = "%identity"
+  external asPlotBellcurveOnPointOptions: t => plotBellcurveOnPointOptions = "%identity"
+}
 module ChartsSeriesBoxplotOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotBoxplotDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotBoxplotDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotBoxplotOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBoxplotOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotBoxplotOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotBoxplotOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBoxplotOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotBoxplotOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotBoxplotOnPointOptions = {
+  connectorOptions?: ChartsPlotBoxplotOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBoxplotOnPointOptionsPosition.t,
+}
+module ChartsSeriesBoxplotOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBoxplotOnPointOptions: plotBoxplotOnPointOptions => t = "%identity"
+  external asPlotBoxplotOnPointOptions: t => plotBoxplotOnPointOptions = "%identity"
 }
 module ChartsSeriesBubbleOptionsDataSorting = {
   type t
@@ -2903,6 +3538,58 @@ module ChartsSeriesBubbleOptionsDataSorting = {
 type plotBubbleJitterOptions = {
   x?: float,
   y?: float,
+}
+module ChartsPlotBubbleOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBubbleOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotBubbleOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotBubbleOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBubbleOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotBubbleOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotBubbleOnPointOptions = {
+  connectorOptions?: ChartsPlotBubbleOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBubbleOnPointOptionsPosition.t,
+}
+module ChartsSeriesBubbleOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBubbleOnPointOptions: plotBubbleOnPointOptions => t = "%identity"
+  external asPlotBubbleOnPointOptions: t => plotBubbleOnPointOptions = "%identity"
+}
+module ChartsPlotBulletOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotBulletOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotBulletOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotBulletOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBulletOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotBulletOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotBulletOnPointOptions = {
+  connectorOptions?: ChartsPlotBulletOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotBulletOnPointOptionsPosition.t,
+}
+module ChartsSeriesBulletOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotBulletOnPointOptions: plotBulletOnPointOptions => t = "%identity"
+  external asPlotBulletOnPointOptions: t => plotBulletOnPointOptions = "%identity"
 }
 type plotBulletTargetOptions = {
   borderColor?: string,
@@ -2919,6 +3606,35 @@ module ChartsSeriesCandlestickOptionsDataSorting = {
   external fromPlotCandlestickDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotCandlestickDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotCandlestickOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotCandlestickOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotCandlestickOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotCandlestickOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCandlestickOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotCandlestickOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotCandlestickOnPointOptions = {
+  connectorOptions?: ChartsPlotCandlestickOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotCandlestickOnPointOptionsPosition.t,
+}
+module ChartsSeriesCandlestickOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCandlestickOnPointOptions: plotCandlestickOnPointOptions => t = "%identity"
+  external asPlotCandlestickOnPointOptions: t => plotCandlestickOnPointOptions = "%identity"
+}
 module ChartsSeriesCciOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -2926,12 +3642,67 @@ module ChartsSeriesCciOptionsDataSorting = {
   external fromPlotCciDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotCciDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotCciOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotCciOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotCciOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotCciOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCciOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotCciOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotCciOnPointOptions = {
+  connectorOptions?: ChartsPlotCciOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotCciOnPointOptionsPosition.t,
+}
+module ChartsSeriesCciOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCciOnPointOptions: plotCciOnPointOptions => t = "%identity"
+  external asPlotCciOnPointOptions: t => plotCciOnPointOptions = "%identity"
+}
 module ChartsSeriesChaikinOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotChaikinDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotChaikinDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotChaikinOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotChaikinOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotChaikinOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotChaikinOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotChaikinOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotChaikinOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotChaikinOnPointOptions = {
+  connectorOptions?: ChartsPlotChaikinOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotChaikinOnPointOptionsPosition.t,
+}
+module ChartsSeriesChaikinOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotChaikinOnPointOptions: plotChaikinOnPointOptions => t = "%identity"
+  external asPlotChaikinOnPointOptions: t => plotChaikinOnPointOptions = "%identity"
 }
 type plotChaikinParamsOptions = {
   index?: string,
@@ -2946,12 +3717,64 @@ module ChartsSeriesCmfOptionsDataSorting = {
   external fromPlotCmfDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotCmfDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotCmfOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotCmfOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotCmfOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotCmfOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCmfOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotCmfOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotCmfOnPointOptions = {
+  connectorOptions?: ChartsPlotCmfOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotCmfOnPointOptionsPosition.t,
+}
+module ChartsSeriesCmfOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCmfOnPointOptions: plotCmfOnPointOptions => t = "%identity"
+  external asPlotCmfOnPointOptions: t => plotCmfOnPointOptions = "%identity"
+}
 module ChartsSeriesCmoOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotCmoDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotCmoDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotCmoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotCmoOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotCmoOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotCmoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCmoOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotCmoOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotCmoOnPointOptions = {
+  connectorOptions?: ChartsPlotCmoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotCmoOnPointOptionsPosition.t,
+}
+module ChartsSeriesCmoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCmoOnPointOptions: plotCmoOnPointOptions => t = "%identity"
+  external asPlotCmoOnPointOptions: t => plotCmoOnPointOptions = "%identity"
 }
 module ChartsSeriesColumnOptionsDataSorting = {
   type t
@@ -2960,12 +3783,69 @@ module ChartsSeriesColumnOptionsDataSorting = {
   external fromPlotColumnDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotColumnDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotColumnOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotColumnOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotColumnOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotColumnOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotColumnOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotColumnOnPointOptions = {
+  connectorOptions?: ChartsPlotColumnOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotColumnOnPointOptionsPosition.t,
+}
+module ChartsSeriesColumnOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnOnPointOptions: plotColumnOnPointOptions => t = "%identity"
+  external asPlotColumnOnPointOptions: t => plotColumnOnPointOptions = "%identity"
+}
 module ChartsSeriesColumnpyramidOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotColumnpyramidDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotColumnpyramidDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotColumnpyramidOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotColumnpyramidOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotColumnpyramidOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotColumnpyramidOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnpyramidOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotColumnpyramidOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotColumnpyramidOnPointOptions = {
+  connectorOptions?: ChartsPlotColumnpyramidOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotColumnpyramidOnPointOptionsPosition.t,
+}
+module ChartsSeriesColumnpyramidOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnpyramidOnPointOptions: plotColumnpyramidOnPointOptions => t = "%identity"
+  external asPlotColumnpyramidOnPointOptions: t => plotColumnpyramidOnPointOptions = "%identity"
 }
 type plotColumnrangeBorderRadiusOptions = {
   where?: string,
@@ -2988,12 +3868,71 @@ module ChartsSeriesColumnrangeOptionsDataSorting = {
   external fromPlotColumnrangeDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotColumnrangeDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotColumnrangeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotColumnrangeOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotColumnrangeOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotColumnrangeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnrangeOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotColumnrangeOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotColumnrangeOnPointOptions = {
+  connectorOptions?: ChartsPlotColumnrangeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotColumnrangeOnPointOptionsPosition.t,
+}
+module ChartsSeriesColumnrangeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotColumnrangeOnPointOptions: plotColumnrangeOnPointOptions => t = "%identity"
+  external asPlotColumnrangeOnPointOptions: t => plotColumnrangeOnPointOptions = "%identity"
+}
 module ChartsSeriesContourOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotContourDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotContourDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotContourOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotContourOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotContourOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotContourOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotContourOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotContourOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotContourOnPointOptions = {
+  connectorOptions?: ChartsPlotContourOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotContourOnPointOptionsPosition.t,
+}
+module ChartsSeriesContourOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotContourOnPointOptions: plotContourOnPointOptions => t = "%identity"
+  external asPlotContourOnPointOptions: t => plotContourOnPointOptions = "%identity"
 }
 module ChartsSeriesCylinderOptionsDataSorting = {
   type t
@@ -3002,6 +3941,32 @@ module ChartsSeriesCylinderOptionsDataSorting = {
   external fromPlotCylinderDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotCylinderDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotCylinderOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotCylinderOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotCylinderOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotCylinderOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCylinderOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotCylinderOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotCylinderOnPointOptions = {
+  connectorOptions?: ChartsPlotCylinderOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotCylinderOnPointOptionsPosition.t,
+}
+module ChartsSeriesCylinderOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotCylinderOnPointOptions: plotCylinderOnPointOptions => t = "%identity"
+  external asPlotCylinderOnPointOptions: t => plotCylinderOnPointOptions = "%identity"
+}
 module ChartsSeriesDemaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3009,9 +3974,66 @@ module ChartsSeriesDemaOptionsDataSorting = {
   external fromPlotDemaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotDemaDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotDemaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDemaOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotDemaOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotDemaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDemaOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotDemaOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotDemaOnPointOptions = {
+  connectorOptions?: ChartsPlotDemaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDemaOnPointOptionsPosition.t,
+}
+module ChartsSeriesDemaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDemaOnPointOptions: plotDemaOnPointOptions => t = "%identity"
+  external asPlotDemaOnPointOptions: t => plotDemaOnPointOptions = "%identity"
+}
 type plotDemaParamsOptions = {
   index?: int,
   period?: float,
+}
+module ChartsPlotDependencywheelOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDependencywheelOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotDependencywheelOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotDependencywheelOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDependencywheelOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotDependencywheelOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotDependencywheelOnPointOptions = {
+  connectorOptions?: ChartsPlotDependencywheelOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDependencywheelOnPointOptionsPosition.t,
+}
+module ChartsSeriesDependencywheelOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDependencywheelOnPointOptions: plotDependencywheelOnPointOptions => t =
+    "%identity"
+  external asPlotDependencywheelOnPointOptions: t => plotDependencywheelOnPointOptions = "%identity"
 }
 module ChartsSeriesDisparityindexOptionsDataSorting = {
   type t
@@ -3019,6 +4041,36 @@ module ChartsSeriesDisparityindexOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotDisparityindexDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotDisparityindexDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotDisparityindexOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDisparityindexOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotDisparityindexOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotDisparityindexOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDisparityindexOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotDisparityindexOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotDisparityindexOnPointOptions = {
+  connectorOptions?: ChartsPlotDisparityindexOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDisparityindexOnPointOptionsPosition.t,
+}
+module ChartsSeriesDisparityindexOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDisparityindexOnPointOptions: plotDisparityindexOnPointOptions => t = "%identity"
+  external asPlotDisparityindexOnPointOptions: t => plotDisparityindexOnPointOptions = "%identity"
 }
 type plotDisparityindexParamsOptions = {
   average?: string,
@@ -3031,6 +4083,32 @@ module ChartsSeriesDmiOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotDmiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotDmiDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotDmiOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDmiOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotDmiOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotDmiOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDmiOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotDmiOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotDmiOnPointOptions = {
+  connectorOptions?: ChartsPlotDmiOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDmiOnPointOptionsPosition.t,
+}
+module ChartsSeriesDmiOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDmiOnPointOptions: plotDmiOnPointOptions => t = "%identity"
+  external asPlotDmiOnPointOptions: t => plotDmiOnPointOptions = "%identity"
 }
 type plotDmiPlusDILineStylesOptions = {
   lineColor?: string,
@@ -3046,12 +4124,67 @@ module ChartsSeriesDpoOptionsDataSorting = {
   external fromPlotDpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotDpoDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotDpoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDpoOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotDpoOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotDpoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDpoOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotDpoOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotDpoOnPointOptions = {
+  connectorOptions?: ChartsPlotDpoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDpoOnPointOptionsPosition.t,
+}
+module ChartsSeriesDpoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDpoOnPointOptions: plotDpoOnPointOptions => t = "%identity"
+  external asPlotDpoOnPointOptions: t => plotDpoOnPointOptions = "%identity"
+}
 module ChartsSeriesDumbbellOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotDumbbellDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotDumbbellDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotDumbbellOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotDumbbellOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotDumbbellOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotDumbbellOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDumbbellOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotDumbbellOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotDumbbellOnPointOptions = {
+  connectorOptions?: ChartsPlotDumbbellOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotDumbbellOnPointOptionsPosition.t,
+}
+module ChartsSeriesDumbbellOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotDumbbellOnPointOptions: plotDumbbellOnPointOptions => t = "%identity"
+  external asPlotDumbbellOnPointOptions: t => plotDumbbellOnPointOptions = "%identity"
 }
 module ChartsSeriesEmaOptionsDataSorting = {
   type t
@@ -3060,12 +4193,67 @@ module ChartsSeriesEmaOptionsDataSorting = {
   external fromPlotEmaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotEmaDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotEmaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotEmaOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotEmaOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotEmaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotEmaOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotEmaOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotEmaOnPointOptions = {
+  connectorOptions?: ChartsPlotEmaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotEmaOnPointOptionsPosition.t,
+}
+module ChartsSeriesEmaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotEmaOnPointOptions: plotEmaOnPointOptions => t = "%identity"
+  external asPlotEmaOnPointOptions: t => plotEmaOnPointOptions = "%identity"
+}
 module ChartsSeriesErrorbarOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotErrorbarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotErrorbarDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotErrorbarOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotErrorbarOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotErrorbarOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotErrorbarOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotErrorbarOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotErrorbarOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotErrorbarOnPointOptions = {
+  connectorOptions?: ChartsPlotErrorbarOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotErrorbarOnPointOptionsPosition.t,
+}
+module ChartsSeriesErrorbarOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotErrorbarOnPointOptions: plotErrorbarOnPointOptions => t = "%identity"
+  external asPlotErrorbarOnPointOptions: t => plotErrorbarOnPointOptions = "%identity"
 }
 module ChartsSeriesFlagsOptionsDataSorting = {
   type t
@@ -3074,11 +4262,94 @@ module ChartsSeriesFlagsOptionsDataSorting = {
   external fromPlotFlagsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotFlagsDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotFlagsOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotFlagsOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotFlagsOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotFlagsOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFlagsOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotFlagsOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotFlagsOnPointOptions = {
+  connectorOptions?: ChartsPlotFlagsOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotFlagsOnPointOptionsPosition.t,
+}
+module ChartsSeriesFlagsOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFlagsOnPointOptions: plotFlagsOnPointOptions => t = "%identity"
+  external asPlotFlagsOnPointOptions: t => plotFlagsOnPointOptions = "%identity"
+}
 type seriesFlowMapSeriesOptionsObject = {
   enabled?: bool,
   height?: CommonTypes.stringOrNumber,
   markerType?: string,
   width?: CommonTypes.stringOrNumber,
+}
+module ChartsPlotFunnel3dOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotFunnel3dOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotFunnel3dOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotFunnel3dOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFunnel3dOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotFunnel3dOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotFunnel3dOnPointOptions = {
+  connectorOptions?: ChartsPlotFunnel3dOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotFunnel3dOnPointOptionsPosition.t,
+}
+module ChartsSeriesFunnel3dOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFunnel3dOnPointOptions: plotFunnel3dOnPointOptions => t = "%identity"
+  external asPlotFunnel3dOnPointOptions: t => plotFunnel3dOnPointOptions = "%identity"
+}
+module ChartsPlotFunnelOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotFunnelOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotFunnelOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotFunnelOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFunnelOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotFunnelOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotFunnelOnPointOptions = {
+  connectorOptions?: ChartsPlotFunnelOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotFunnelOnPointOptionsPosition.t,
+}
+module ChartsSeriesFunnelOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotFunnelOnPointOptions: plotFunnelOnPointOptions => t = "%identity"
+  external asPlotFunnelOnPointOptions: t => plotFunnelOnPointOptions = "%identity"
 }
 type plotGanttDataLabelsStyleOptions = {
   whiteSpace?: string,
@@ -3089,6 +4360,32 @@ module ChartsPlotGanttDataLabelsOptionsStyle = {
   external asCSSObject: t => cssObjectHighcharts = "%identity"
   external fromPlotGanttDataLabelsStyleOptions: plotGanttDataLabelsStyleOptions => t = "%identity"
   external asPlotGanttDataLabelsStyleOptions: t => plotGanttDataLabelsStyleOptions = "%identity"
+}
+module ChartsPlotGanttOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotGanttOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotGanttOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotGanttOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotGanttOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotGanttOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotGanttOnPointOptions = {
+  connectorOptions?: ChartsPlotGanttOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotGanttOnPointOptionsPosition.t,
+}
+module ChartsSeriesGanttOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotGanttOnPointOptions: plotGanttOnPointOptions => t = "%identity"
+  external asPlotGanttOnPointOptions: t => plotGanttOnPointOptions = "%identity"
 }
 type plotGanttPartialFillOptions = {
   fill?: ColorType.t,
@@ -3103,6 +4400,32 @@ type plotGaugeDialOptions = {
   radius?: string,
   rearLength?: string,
   topWidth?: float,
+}
+module ChartsPlotGaugeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotGaugeOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotGaugeOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotGaugeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotGaugeOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotGaugeOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotGaugeOnPointOptions = {
+  connectorOptions?: ChartsPlotGaugeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotGaugeOnPointOptionsPosition.t,
+}
+module ChartsSeriesGaugeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotGaugeOnPointOptions: plotGaugeOnPointOptions => t = "%identity"
+  external asPlotGaugeOnPointOptions: t => plotGaugeOnPointOptions = "%identity"
 }
 type plotGaugePivotOptions = {
   backgroundColor?: ColorType.t,
@@ -3136,12 +4459,68 @@ module ChartsSeriesHeatmapOptionsDataSorting = {
   external fromPlotHeatmapDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotHeatmapDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotHeatmapOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotHeatmapOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotHeatmapOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotHeatmapOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHeatmapOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotHeatmapOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotHeatmapOnPointOptions = {
+  connectorOptions?: ChartsPlotHeatmapOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotHeatmapOnPointOptionsPosition.t,
+}
+module ChartsSeriesHeatmapOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHeatmapOnPointOptions: plotHeatmapOnPointOptions => t = "%identity"
+  external asPlotHeatmapOnPointOptions: t => plotHeatmapOnPointOptions = "%identity"
+}
 module ChartsSeriesHeikinashiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotHeikinashiDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotHeikinashiDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotHeikinashiOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotHeikinashiOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotHeikinashiOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotHeikinashiOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHeikinashiOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotHeikinashiOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotHeikinashiOnPointOptions = {
+  connectorOptions?: ChartsPlotHeikinashiOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotHeikinashiOnPointOptionsPosition.t,
+}
+module ChartsSeriesHeikinashiOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHeikinashiOnPointOptions: plotHeikinashiOnPointOptions => t = "%identity"
+  external asPlotHeikinashiOnPointOptions: t => plotHeikinashiOnPointOptions = "%identity"
 }
 module ChartsSeriesHistogramOptionsDataSorting = {
   type t
@@ -3150,12 +4529,68 @@ module ChartsSeriesHistogramOptionsDataSorting = {
   external fromPlotHistogramDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotHistogramDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotHistogramOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotHistogramOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotHistogramOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotHistogramOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHistogramOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotHistogramOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotHistogramOnPointOptions = {
+  connectorOptions?: ChartsPlotHistogramOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotHistogramOnPointOptionsPosition.t,
+}
+module ChartsSeriesHistogramOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHistogramOnPointOptions: plotHistogramOnPointOptions => t = "%identity"
+  external asPlotHistogramOnPointOptions: t => plotHistogramOnPointOptions = "%identity"
+}
 module ChartsSeriesHlcOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotHlcDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotHlcDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotHlcOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotHlcOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotHlcOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotHlcOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHlcOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotHlcOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotHlcOnPointOptions = {
+  connectorOptions?: ChartsPlotHlcOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotHlcOnPointOptionsPosition.t,
+}
+module ChartsSeriesHlcOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHlcOnPointOptions: plotHlcOnPointOptions => t = "%identity"
+  external asPlotHlcOnPointOptions: t => plotHlcOnPointOptions = "%identity"
 }
 module ChartsSeriesHollowcandlestickOptionsDataSorting = {
   type t
@@ -3164,12 +4599,70 @@ module ChartsSeriesHollowcandlestickOptionsDataSorting = {
   external fromPlotHollowcandlestickDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotHollowcandlestickDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotHollowcandlestickOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotHollowcandlestickOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotHollowcandlestickOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotHollowcandlestickOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHollowcandlestickOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotHollowcandlestickOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotHollowcandlestickOnPointOptions = {
+  connectorOptions?: ChartsPlotHollowcandlestickOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotHollowcandlestickOnPointOptionsPosition.t,
+}
+module ChartsSeriesHollowcandlestickOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotHollowcandlestickOnPointOptions: plotHollowcandlestickOnPointOptions => t =
+    "%identity"
+  external asPlotHollowcandlestickOnPointOptions: t => plotHollowcandlestickOnPointOptions =
+    "%identity"
+}
 module ChartsSeriesIkhOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotIkhDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotIkhDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotIkhOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotIkhOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotIkhOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotIkhOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotIkhOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotIkhOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotIkhOnPointOptions = {
+  connectorOptions?: ChartsPlotIkhOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotIkhOnPointOptionsPosition.t,
+}
+module ChartsSeriesIkhOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotIkhOnPointOptions: plotIkhOnPointOptions => t = "%identity"
+  external asPlotIkhOnPointOptions: t => plotIkhOnPointOptions = "%identity"
 }
 type plotIkhParamsOptions = {
   index?: string,
@@ -3181,6 +4674,32 @@ type plotIkhSenkouSpanOptions = {
   color?: ColorType.t,
   negativeColor?: ColorType.t,
 }
+module ChartsPlotItemOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotItemOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotItemOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotItemOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotItemOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotItemOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotItemOnPointOptions = {
+  connectorOptions?: ChartsPlotItemOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotItemOnPointOptionsPosition.t,
+}
+module ChartsSeriesItemOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotItemOnPointOptions: plotItemOnPointOptions => t = "%identity"
+  external asPlotItemOnPointOptions: t => plotItemOnPointOptions = "%identity"
+}
 module ChartsSeriesKeltnerchannelsOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3188,12 +4707,72 @@ module ChartsSeriesKeltnerchannelsOptionsDataSorting = {
   external fromPlotKeltnerchannelsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotKeltnerchannelsDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotKeltnerchannelsOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotKeltnerchannelsOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotKeltnerchannelsOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotKeltnerchannelsOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotKeltnerchannelsOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotKeltnerchannelsOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotKeltnerchannelsOnPointOptions = {
+  connectorOptions?: ChartsPlotKeltnerchannelsOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotKeltnerchannelsOnPointOptionsPosition.t,
+}
+module ChartsSeriesKeltnerchannelsOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotKeltnerchannelsOnPointOptions: plotKeltnerchannelsOnPointOptions => t =
+    "%identity"
+  external asPlotKeltnerchannelsOnPointOptions: t => plotKeltnerchannelsOnPointOptions = "%identity"
+}
 module ChartsSeriesKlingerOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotKlingerDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotKlingerDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotKlingerOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotKlingerOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotKlingerOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotKlingerOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotKlingerOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotKlingerOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotKlingerOnPointOptions = {
+  connectorOptions?: ChartsPlotKlingerOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotKlingerOnPointOptionsPosition.t,
+}
+module ChartsSeriesKlingerOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotKlingerOnPointOptions: plotKlingerOnPointOptions => t = "%identity"
+  external asPlotKlingerOnPointOptions: t => plotKlingerOnPointOptions = "%identity"
 }
 type plotKlingerParamsOptions = {
   fastAvgPeriod?: float,
@@ -3210,6 +4789,38 @@ module ChartsSeriesLinearregressionangleOptionsDataSorting = {
   external asPlotLinearregressionangleDataSortingOptions: t => plotAdDataSortingOptions =
     "%identity"
 }
+module ChartsPlotLinearregressionangleOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLinearregressionangleOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotLinearregressionangleOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotLinearregressionangleOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionangleOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotLinearregressionangleOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotLinearregressionangleOnPointOptions = {
+  connectorOptions?: ChartsPlotLinearregressionangleOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLinearregressionangleOnPointOptionsPosition.t,
+}
+module ChartsSeriesLinearregressionangleOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionangleOnPointOptions: plotLinearregressionangleOnPointOptions => t =
+    "%identity"
+  external asPlotLinearregressionangleOnPointOptions: t => plotLinearregressionangleOnPointOptions =
+    "%identity"
+}
 type plotLinearregressionangleParamsOptions = {
   index?: int,
   period?: float,
@@ -3224,12 +4835,76 @@ module ChartsSeriesLinearregressioninterceptOptionsDataSorting = {
   external asPlotLinearregressioninterceptDataSortingOptions: t => plotAdDataSortingOptions =
     "%identity"
 }
+module ChartsPlotLinearregressioninterceptOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLinearregressioninterceptOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotLinearregressioninterceptOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotLinearregressioninterceptOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressioninterceptOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotLinearregressioninterceptOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotLinearregressioninterceptOnPointOptions = {
+  connectorOptions?: ChartsPlotLinearregressioninterceptOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLinearregressioninterceptOnPointOptionsPosition.t,
+}
+module ChartsSeriesLinearregressioninterceptOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressioninterceptOnPointOptions: plotLinearregressioninterceptOnPointOptions => t =
+    "%identity"
+  external asPlotLinearregressioninterceptOnPointOptions: t => plotLinearregressioninterceptOnPointOptions =
+    "%identity"
+}
 module ChartsSeriesLinearregressionOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotLinearregressionDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotLinearregressionDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotLinearregressionOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLinearregressionOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotLinearregressionOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotLinearregressionOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotLinearregressionOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotLinearregressionOnPointOptions = {
+  connectorOptions?: ChartsPlotLinearregressionOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLinearregressionOnPointOptionsPosition.t,
+}
+module ChartsSeriesLinearregressionOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionOnPointOptions: plotLinearregressionOnPointOptions => t =
+    "%identity"
+  external asPlotLinearregressionOnPointOptions: t => plotLinearregressionOnPointOptions =
+    "%identity"
 }
 type plotLinearregressionParamsOptions = {
   index?: int,
@@ -3245,6 +4920,38 @@ module ChartsSeriesLinearregressionslopeOptionsDataSorting = {
   external asPlotLinearregressionslopeDataSortingOptions: t => plotAdDataSortingOptions =
     "%identity"
 }
+module ChartsPlotLinearregressionslopeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLinearregressionslopeOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotLinearregressionslopeOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotLinearregressionslopeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionslopeOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotLinearregressionslopeOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotLinearregressionslopeOnPointOptions = {
+  connectorOptions?: ChartsPlotLinearregressionslopeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLinearregressionslopeOnPointOptionsPosition.t,
+}
+module ChartsSeriesLinearregressionslopeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLinearregressionslopeOnPointOptions: plotLinearregressionslopeOnPointOptions => t =
+    "%identity"
+  external asPlotLinearregressionslopeOnPointOptions: t => plotLinearregressionslopeOnPointOptions =
+    "%identity"
+}
 module ChartsSeriesLineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3252,12 +4959,64 @@ module ChartsSeriesLineOptionsDataSorting = {
   external fromPlotLineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotLineDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotLineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLineOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotLineOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotLineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLineOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotLineOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotLineOnPointOptions = {
+  connectorOptions?: ChartsPlotLineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLineOnPointOptionsPosition.t,
+}
+module ChartsSeriesLineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLineOnPointOptions: plotLineOnPointOptions => t = "%identity"
+  external asPlotLineOnPointOptions: t => plotLineOnPointOptions = "%identity"
+}
 module ChartsSeriesLollipopOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotLollipopDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotLollipopDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotLollipopOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotLollipopOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotLollipopOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotLollipopOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLollipopOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotLollipopOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotLollipopOnPointOptions = {
+  connectorOptions?: ChartsPlotLollipopOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotLollipopOnPointOptionsPosition.t,
+}
+module ChartsSeriesLollipopOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotLollipopOnPointOptions: plotLollipopOnPointOptions => t = "%identity"
+  external asPlotLollipopOnPointOptions: t => plotLollipopOnPointOptions = "%identity"
 }
 module ChartsSeriesMacdOptionsDataSorting = {
   type t
@@ -3270,12 +5029,120 @@ type plotMacdMacdLineOptions = {
   styles?: plotAroonAroonDownStylesOptions,
   zones?: array<seriesZonesOptionsObject>,
 }
+module ChartsPlotMacdOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMacdOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotMacdOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotMacdOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMacdOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotMacdOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotMacdOnPointOptions = {
+  connectorOptions?: ChartsPlotMacdOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMacdOnPointOptionsPosition.t,
+}
+module ChartsSeriesMacdOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMacdOnPointOptions: plotMacdOnPointOptions => t = "%identity"
+  external asPlotMacdOnPointOptions: t => plotMacdOnPointOptions = "%identity"
+}
 type plotMacdParamsOptions = {
   index?: int,
   longPeriod?: float,
   period?: float,
   shortPeriod?: float,
   signalPeriod?: float,
+}
+module ChartsPlotMapbubbleOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMapbubbleOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotMapbubbleOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotMapbubbleOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMapbubbleOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotMapbubbleOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotMapbubbleOnPointOptions = {
+  connectorOptions?: ChartsPlotMapbubbleOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMapbubbleOnPointOptionsPosition.t,
+}
+module ChartsSeriesMapbubbleOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMapbubbleOnPointOptions: plotMapbubbleOnPointOptions => t = "%identity"
+  external asPlotMapbubbleOnPointOptions: t => plotMapbubbleOnPointOptions = "%identity"
+}
+module ChartsPlotMaplineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMaplineOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotMaplineOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotMaplineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMaplineOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotMaplineOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotMaplineOnPointOptions = {
+  connectorOptions?: ChartsPlotMaplineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMaplineOnPointOptionsPosition.t,
+}
+module ChartsSeriesMaplineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMaplineOnPointOptions: plotMaplineOnPointOptions => t = "%identity"
+  external asPlotMaplineOnPointOptions: t => plotMaplineOnPointOptions = "%identity"
+}
+module ChartsPlotMapOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMapOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotMapOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotMapOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMapOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotMapOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotMapOnPointOptions = {
+  connectorOptions?: ChartsPlotMapOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMapOnPointOptionsPosition.t,
+}
+module ChartsSeriesMapOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMapOnPointOptions: plotMapOnPointOptions => t = "%identity"
+  external asPlotMapOnPointOptions: t => plotMapOnPointOptions = "%identity"
 }
 type plotMappointClusterDataLabelsOptions = {
   style?: string, // ⚪ loose — was `any`
@@ -3308,12 +5175,64 @@ type plotMappointClusterZonesOptions = {
   marker?: pointMarkerOptionsObject,
   @as("to") to_?: float,
 }
+module ChartsPlotMappointOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMappointOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotMappointOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotMappointOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMappointOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotMappointOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotMappointOnPointOptions = {
+  connectorOptions?: ChartsPlotMappointOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMappointOnPointOptionsPosition.t,
+}
+module ChartsSeriesMappointOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMappointOnPointOptions: plotMappointOnPointOptions => t = "%identity"
+  external asPlotMappointOnPointOptions: t => plotMappointOnPointOptions = "%identity"
+}
 module ChartsSeriesMfiOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotMfiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotMfiDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotMfiOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMfiOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotMfiOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotMfiOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMfiOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotMfiOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotMfiOnPointOptions = {
+  connectorOptions?: ChartsPlotMfiOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMfiOnPointOptionsPosition.t,
+}
+module ChartsSeriesMfiOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMfiOnPointOptions: plotMfiOnPointOptions => t = "%identity"
+  external asPlotMfiOnPointOptions: t => plotMfiOnPointOptions = "%identity"
 }
 type plotMfiParamsOptions = {
   decimals?: float,
@@ -3328,12 +5247,67 @@ module ChartsSeriesMomentumOptionsDataSorting = {
   external fromPlotMomentumDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotMomentumDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotMomentumOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotMomentumOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotMomentumOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotMomentumOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMomentumOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotMomentumOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotMomentumOnPointOptions = {
+  connectorOptions?: ChartsPlotMomentumOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotMomentumOnPointOptionsPosition.t,
+}
+module ChartsSeriesMomentumOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotMomentumOnPointOptions: plotMomentumOnPointOptions => t = "%identity"
+  external asPlotMomentumOnPointOptions: t => plotMomentumOnPointOptions = "%identity"
+}
 module ChartsSeriesNatrOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotNatrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotNatrDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotNatrOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotNatrOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotNatrOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotNatrOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotNatrOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotNatrOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotNatrOnPointOptions = {
+  connectorOptions?: ChartsPlotNatrOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotNatrOnPointOptionsPosition.t,
+}
+module ChartsSeriesNatrOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotNatrOnPointOptions: plotNatrOnPointOptions => t = "%identity"
+  external asPlotNatrOnPointOptions: t => plotNatrOnPointOptions = "%identity"
 }
 type plotNetworkgraphLayoutAlgorithmOptions = {
   approximation?: optionsApproximationValue,
@@ -3357,12 +5331,68 @@ type plotNetworkgraphLinkOptions = {
   opacity?: float,
   width?: float,
 }
+module ChartsPlotNetworkgraphOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotNetworkgraphOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotNetworkgraphOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotNetworkgraphOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotNetworkgraphOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotNetworkgraphOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotNetworkgraphOnPointOptions = {
+  connectorOptions?: ChartsPlotNetworkgraphOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotNetworkgraphOnPointOptionsPosition.t,
+}
+module ChartsSeriesNetworkgraphOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotNetworkgraphOnPointOptions: plotNetworkgraphOnPointOptions => t = "%identity"
+  external asPlotNetworkgraphOnPointOptions: t => plotNetworkgraphOnPointOptions = "%identity"
+}
 module ChartsSeriesObvOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotObvDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotObvDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotObvOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotObvOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotObvOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotObvOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotObvOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotObvOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotObvOnPointOptions = {
+  connectorOptions?: ChartsPlotObvOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotObvOnPointOptionsPosition.t,
+}
+module ChartsSeriesObvOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotObvOnPointOptions: plotObvOnPointOptions => t = "%identity"
+  external asPlotObvOnPointOptions: t => plotObvOnPointOptions = "%identity"
 }
 type plotObvParamsOptions = {
   index?: string,
@@ -3376,6 +5406,32 @@ module ChartsSeriesOhlcOptionsDataSorting = {
   external fromPlotOhlcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotOhlcDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotOhlcOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotOhlcOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotOhlcOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotOhlcOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotOhlcOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotOhlcOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotOhlcOnPointOptions = {
+  connectorOptions?: ChartsPlotOhlcOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotOhlcOnPointOptionsPosition.t,
+}
+module ChartsSeriesOhlcOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotOhlcOnPointOptions: plotOhlcOnPointOptions => t = "%identity"
+  external asPlotOhlcOnPointOptions: t => plotOhlcOnPointOptions = "%identity"
+}
 type plotOrganizationDataLabelsLinkTextPathAttributesOptions = {
   startOffset?: float,
   textAnchor?: string,
@@ -3388,6 +5444,35 @@ type plotOrganizationLinkOptions = {
   lineWidth?: float,
   radius?: float,
   @as("type") type_?: chartsPlotOrganizationLinkOptionsType,
+}
+module ChartsPlotOrganizationOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotOrganizationOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotOrganizationOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotOrganizationOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotOrganizationOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotOrganizationOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotOrganizationOnPointOptions = {
+  connectorOptions?: ChartsPlotOrganizationOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotOrganizationOnPointOptionsPosition.t,
+}
+module ChartsSeriesOrganizationOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotOrganizationOnPointOptions: plotOrganizationOnPointOptions => t = "%identity"
+  external asPlotOrganizationOnPointOptions: t => plotOrganizationOnPointOptions = "%identity"
 }
 type plotPackedbubbleLayoutAlgorithmParentNodeOptions = {
   friction?: float,
@@ -3420,6 +5505,36 @@ type plotPackedbubbleLayoutAlgorithmOptions = {
   splitSeries?: bool,
   @as("type") type_?: string,
 }
+module ChartsPlotPackedbubbleOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPackedbubbleOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPackedbubbleOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPackedbubbleOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPackedbubbleOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPackedbubbleOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotPackedbubbleOnPointOptions = {
+  connectorOptions?: ChartsPlotPackedbubbleOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPackedbubbleOnPointOptionsPosition.t,
+}
+module ChartsSeriesPackedbubbleOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPackedbubbleOnPointOptions: plotPackedbubbleOnPointOptions => t = "%identity"
+  external asPlotPackedbubbleOnPointOptions: t => plotPackedbubbleOnPointOptions = "%identity"
+}
 type plotPackedbubbleParentNodeOptions = {
   allowPointSelect?: bool,
 }
@@ -3430,6 +5545,32 @@ module ChartsSeriesParetoOptionsDataSorting = {
   external fromPlotParetoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotParetoDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotParetoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotParetoOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotParetoOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotParetoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotParetoOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotParetoOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotParetoOnPointOptions = {
+  connectorOptions?: ChartsPlotParetoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotParetoOnPointOptionsPosition.t,
+}
+module ChartsSeriesParetoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotParetoOnPointOptions: plotParetoOnPointOptions => t = "%identity"
+  external asPlotParetoOnPointOptions: t => plotParetoOnPointOptions = "%identity"
+}
 module ChartsSeriesPcOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3437,9 +5578,61 @@ module ChartsSeriesPcOptionsDataSorting = {
   external fromPlotPcDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotPcDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotPcOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPcOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotPcOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotPcOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPcOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotPcOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPcOnPointOptions = {
+  connectorOptions?: ChartsPlotPcOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPcOnPointOptionsPosition.t,
+}
+module ChartsSeriesPcOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPcOnPointOptions: plotPcOnPointOptions => t = "%identity"
+  external asPlotPcOnPointOptions: t => plotPcOnPointOptions = "%identity"
+}
 type seriesPictorialPathsOptionsObject = {
   definition?: string,
   max?: float,
+}
+module ChartsPlotPieOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPieOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotPieOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotPieOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPieOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotPieOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPieOnPointOptions = {
+  connectorOptions?: ChartsPlotPieOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPieOnPointOptionsPosition.t,
+}
+module ChartsSeriesPieOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPieOnPointOptions: plotPieOnPointOptions => t = "%identity"
+  external asPlotPieOnPointOptions: t => plotPieOnPointOptions = "%identity"
 }
 module ChartsSeriesPivotpointsOptionsDataSorting = {
   type t
@@ -3447,6 +5640,35 @@ module ChartsSeriesPivotpointsOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotPivotpointsDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotPivotpointsDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotPivotpointsOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPivotpointsOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPivotpointsOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPivotpointsOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPivotpointsOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPivotpointsOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPivotpointsOnPointOptions = {
+  connectorOptions?: ChartsPlotPivotpointsOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPivotpointsOnPointOptionsPosition.t,
+}
+module ChartsSeriesPivotpointsOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPivotpointsOnPointOptions: plotPivotpointsOnPointOptions => t = "%identity"
+  external asPlotPivotpointsOnPointOptions: t => plotPivotpointsOnPointOptions = "%identity"
 }
 type plotPivotpointsParamsOptions = {
   algorithm?: string,
@@ -3464,12 +5686,68 @@ type plotPointandfigureJitterOptions = {
   x?: float,
   y?: float,
 }
+module ChartsPlotPointandfigureOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPointandfigureOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPointandfigureOnPointConnectorOptions: t => plotAdOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPointandfigureOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPointandfigureOnPointPositionOptions: plotAdOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPointandfigureOnPointPositionOptions: t => plotAdOnPointPositionOptions =
+    "%identity"
+}
+type plotPointandfigureOnPointOptions = {
+  connectorOptions?: ChartsPlotPointandfigureOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPointandfigureOnPointOptionsPosition.t,
+}
+module ChartsSeriesPointandfigureOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPointandfigureOnPointOptions: plotPointandfigureOnPointOptions => t = "%identity"
+  external asPlotPointandfigureOnPointOptions: t => plotPointandfigureOnPointOptions = "%identity"
+}
 module ChartsSeriesPolygonOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotPolygonDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotPolygonDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotPolygonOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPolygonOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotPolygonOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotPolygonOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPolygonOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotPolygonOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPolygonOnPointOptions = {
+  connectorOptions?: ChartsPlotPolygonOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPolygonOnPointOptionsPosition.t,
+}
+module ChartsSeriesPolygonOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPolygonOnPointOptions: plotPolygonOnPointOptions => t = "%identity"
+  external asPlotPolygonOnPointOptions: t => plotPolygonOnPointOptions = "%identity"
 }
 module ChartsSeriesPpoOptionsDataSorting = {
   type t
@@ -3478,12 +5756,68 @@ module ChartsSeriesPpoOptionsDataSorting = {
   external fromPlotPpoDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotPpoDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotPpoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPpoOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotPpoOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotPpoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPpoOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotPpoOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPpoOnPointOptions = {
+  connectorOptions?: ChartsPlotPpoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPpoOnPointOptionsPosition.t,
+}
+module ChartsSeriesPpoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPpoOnPointOptions: plotPpoOnPointOptions => t = "%identity"
+  external asPlotPpoOnPointOptions: t => plotPpoOnPointOptions = "%identity"
+}
 module ChartsSeriesPriceenvelopesOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotPriceenvelopesDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotPriceenvelopesDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotPriceenvelopesOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPriceenvelopesOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPriceenvelopesOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPriceenvelopesOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPriceenvelopesOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPriceenvelopesOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotPriceenvelopesOnPointOptions = {
+  connectorOptions?: ChartsPlotPriceenvelopesOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPriceenvelopesOnPointOptionsPosition.t,
+}
+module ChartsSeriesPriceenvelopesOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPriceenvelopesOnPointOptions: plotPriceenvelopesOnPointOptions => t = "%identity"
+  external asPlotPriceenvelopesOnPointOptions: t => plotPriceenvelopesOnPointOptions = "%identity"
 }
 type plotPriceenvelopesParamsOptions = {
   bottomBand?: float,
@@ -3498,6 +5832,32 @@ module ChartsSeriesPsarOptionsDataSorting = {
   external fromPlotPsarDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotPsarDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotPsarOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPsarOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotPsarOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotPsarOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPsarOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotPsarOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotPsarOnPointOptions = {
+  connectorOptions?: ChartsPlotPsarOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPsarOnPointOptionsPosition.t,
+}
+module ChartsSeriesPsarOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPsarOnPointOptions: plotPsarOnPointOptions => t = "%identity"
+  external asPlotPsarOnPointOptions: t => plotPsarOnPointOptions = "%identity"
+}
 type plotPsarParamsOptions = {
   decimals?: float,
   increment?: float,
@@ -3505,6 +5865,65 @@ type plotPsarParamsOptions = {
   initialAccelerationFactor?: float,
   maxAccelerationFactor?: float,
   period?: string,
+}
+module ChartsPlotPyramid3dOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPyramid3dOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPyramid3dOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPyramid3dOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPyramid3dOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPyramid3dOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotPyramid3dOnPointOptions = {
+  connectorOptions?: ChartsPlotPyramid3dOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPyramid3dOnPointOptionsPosition.t,
+}
+module ChartsSeriesPyramid3dOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPyramid3dOnPointOptions: plotPyramid3dOnPointOptions => t = "%identity"
+  external asPlotPyramid3dOnPointOptions: t => plotPyramid3dOnPointOptions = "%identity"
+}
+module ChartsPlotPyramidOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotPyramidOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotPyramidOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotPyramidOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPyramidOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotPyramidOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotPyramidOnPointOptions = {
+  connectorOptions?: ChartsPlotPyramidOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotPyramidOnPointOptionsPosition.t,
+}
+module ChartsSeriesPyramidOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotPyramidOnPointOptions: plotPyramidOnPointOptions => t = "%identity"
+  external asPlotPyramidOnPointOptions: t => plotPyramidOnPointOptions = "%identity"
 }
 type plotRenkoBorderRadiusOptions = {
   where?: string,
@@ -3518,12 +5937,65 @@ module ChartsSeriesRenkoOptionsBorderRadius = {
   external fromPlotRenkoBorderRadiusOptions: plotRenkoBorderRadiusOptions => t = "%identity"
   external asPlotRenkoBorderRadiusOptions: t => plotRenkoBorderRadiusOptions = "%identity"
 }
+module ChartsPlotRenkoOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotRenkoOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotRenkoOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotRenkoOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRenkoOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotRenkoOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotRenkoOnPointOptions = {
+  connectorOptions?: ChartsPlotRenkoOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotRenkoOnPointOptionsPosition.t,
+}
+module ChartsSeriesRenkoOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRenkoOnPointOptions: plotRenkoOnPointOptions => t = "%identity"
+  external asPlotRenkoOnPointOptions: t => plotRenkoOnPointOptions = "%identity"
+}
 module ChartsSeriesRocOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotRocDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotRocDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotRocOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotRocOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotRocOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotRocOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRocOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotRocOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotRocOnPointOptions = {
+  connectorOptions?: ChartsPlotRocOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotRocOnPointOptionsPosition.t,
+}
+module ChartsSeriesRocOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRocOnPointOptions: plotRocOnPointOptions => t = "%identity"
+  external asPlotRocOnPointOptions: t => plotRocOnPointOptions = "%identity"
 }
 module ChartsSeriesRsiOptionsDataSorting = {
   type t
@@ -3532,10 +6004,63 @@ module ChartsSeriesRsiOptionsDataSorting = {
   external fromPlotRsiDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotRsiDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotRsiOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotRsiOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotRsiOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotRsiOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRsiOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotRsiOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotRsiOnPointOptions = {
+  connectorOptions?: ChartsPlotRsiOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotRsiOnPointOptionsPosition.t,
+}
+module ChartsSeriesRsiOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotRsiOnPointOptions: plotRsiOnPointOptions => t = "%identity"
+  external asPlotRsiOnPointOptions: t => plotRsiOnPointOptions = "%identity"
+}
 type plotRsiParamsOptions = {
   decimals?: float,
   index?: int,
   period?: float,
+}
+module ChartsPlotSankeyOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSankeyOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotSankeyOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSankeyOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSankeyOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotSankeyOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotSankeyOnPointOptions = {
+  connectorOptions?: ChartsPlotSankeyOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSankeyOnPointOptionsPosition.t,
+}
+module ChartsSeriesSankeyOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSankeyOnPointOptions: plotSankeyOnPointOptions => t = "%identity"
+  external asPlotSankeyOnPointOptions: t => plotSankeyOnPointOptions = "%identity"
 }
 module ChartsSeriesScatter3dOptionsDataSorting = {
   type t
@@ -3543,6 +6068,33 @@ module ChartsSeriesScatter3dOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotScatter3dDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotScatter3dDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotScatter3dOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotScatter3dOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotScatter3dOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotScatter3dOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotScatter3dOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotScatter3dOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotScatter3dOnPointOptions = {
+  connectorOptions?: ChartsPlotScatter3dOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotScatter3dOnPointOptionsPosition.t,
+}
+module ChartsSeriesScatter3dOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotScatter3dOnPointOptions: plotScatter3dOnPointOptions => t = "%identity"
+  external asPlotScatter3dOnPointOptions: t => plotScatter3dOnPointOptions = "%identity"
 }
 type plotScatterClusterDataLabelsOptions = {
   style?: string, // ⚪ loose — was `any`
@@ -3582,12 +6134,68 @@ module ChartsSeriesScatterOptionsDataSorting = {
   external fromPlotScatterDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotScatterDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotScatterOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotScatterOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotScatterOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotScatterOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotScatterOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotScatterOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotScatterOnPointOptions = {
+  connectorOptions?: ChartsPlotScatterOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotScatterOnPointOptionsPosition.t,
+}
+module ChartsSeriesScatterOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotScatterOnPointOptions: plotScatterOnPointOptions => t = "%identity"
+  external asPlotScatterOnPointOptions: t => plotScatterOnPointOptions = "%identity"
+}
 module ChartsSeriesSlowstochasticOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotSlowstochasticDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotSlowstochasticDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotSlowstochasticOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSlowstochasticOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotSlowstochasticOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotSlowstochasticOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSlowstochasticOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotSlowstochasticOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotSlowstochasticOnPointOptions = {
+  connectorOptions?: ChartsPlotSlowstochasticOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSlowstochasticOnPointOptionsPosition.t,
+}
+module ChartsSeriesSlowstochasticOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSlowstochasticOnPointOptions: plotSlowstochasticOnPointOptions => t = "%identity"
+  external asPlotSlowstochasticOnPointOptions: t => plotSlowstochasticOnPointOptions = "%identity"
 }
 type plotSlowstochasticParamsOptions = {
   index?: string,
@@ -3601,6 +6209,62 @@ module ChartsSeriesSmaOptionsDataSorting = {
   external fromPlotSmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotSmaDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotSmaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSmaOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotSmaOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSmaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSmaOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotSmaOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotSmaOnPointOptions = {
+  connectorOptions?: ChartsPlotSmaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSmaOnPointOptionsPosition.t,
+}
+module ChartsSeriesSmaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSmaOnPointOptions: plotSmaOnPointOptions => t = "%identity"
+  external asPlotSmaOnPointOptions: t => plotSmaOnPointOptions = "%identity"
+}
+module ChartsPlotSolidgaugeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSolidgaugeOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotSolidgaugeOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotSolidgaugeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSolidgaugeOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotSolidgaugeOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotSolidgaugeOnPointOptions = {
+  connectorOptions?: ChartsPlotSolidgaugeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSolidgaugeOnPointOptionsPosition.t,
+}
+module ChartsSeriesSolidgaugeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSolidgaugeOnPointOptions: plotSolidgaugeOnPointOptions => t = "%identity"
+  external asPlotSolidgaugeOnPointOptions: t => plotSolidgaugeOnPointOptions = "%identity"
+}
 module ChartsSeriesSplineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3608,12 +6272,65 @@ module ChartsSeriesSplineOptionsDataSorting = {
   external fromPlotSplineDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotSplineDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotSplineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSplineOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotSplineOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSplineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSplineOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotSplineOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotSplineOnPointOptions = {
+  connectorOptions?: ChartsPlotSplineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSplineOnPointOptionsPosition.t,
+}
+module ChartsSeriesSplineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSplineOnPointOptions: plotSplineOnPointOptions => t = "%identity"
+  external asPlotSplineOnPointOptions: t => plotSplineOnPointOptions = "%identity"
+}
 module ChartsSeriesStochasticOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotStochasticDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotStochasticDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotStochasticOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotStochasticOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotStochasticOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotStochasticOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotStochasticOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotStochasticOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotStochasticOnPointOptions = {
+  connectorOptions?: ChartsPlotStochasticOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotStochasticOnPointOptionsPosition.t,
+}
+module ChartsSeriesStochasticOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotStochasticOnPointOptions: plotStochasticOnPointOptions => t = "%identity"
+  external asPlotStochasticOnPointOptions: t => plotStochasticOnPointOptions = "%identity"
 }
 type plotStochasticParamsOptions = {
   index?: string,
@@ -3626,6 +6343,36 @@ module ChartsSeriesStreamgraphOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotStreamgraphDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotStreamgraphDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotStreamgraphOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotStreamgraphOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotStreamgraphOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotStreamgraphOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotStreamgraphOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotStreamgraphOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotStreamgraphOnPointOptions = {
+  connectorOptions?: ChartsPlotStreamgraphOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotStreamgraphOnPointOptionsPosition.t,
+}
+module ChartsSeriesStreamgraphOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotStreamgraphOnPointOptions: plotStreamgraphOnPointOptions => t = "%identity"
+  external asPlotStreamgraphOnPointOptions: t => plotStreamgraphOnPointOptions = "%identity"
 }
 type plotSunburstBreadcrumbsButtonThemeStyleOptions = {
   color?: string,
@@ -3680,9 +6427,39 @@ type plotSunburstBreadcrumbsOptions = {
   useHTML?: bool,
   zIndex?: int,
 }
+type plotSunburstLevelsColorVariationOptions = {
+  key?: string,
+  @as("to") to_?: float,
+}
 type plotSunburstLevelSizeOptions = {
   unit?: optionsUnitValue,
   value?: float,
+}
+module ChartsPlotSunburstOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSunburstOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotSunburstOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSunburstOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSunburstOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotSunburstOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotSunburstOnPointOptions = {
+  connectorOptions?: ChartsPlotSunburstOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSunburstOnPointOptionsPosition.t,
+}
+module ChartsSeriesSunburstOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSunburstOnPointOptions: plotSunburstOnPointOptions => t = "%identity"
+  external asPlotSunburstOnPointOptions: t => plotSunburstOnPointOptions = "%identity"
 }
 type plotSupertrendChangeTrendLineStylesOptions = {
   dashStyle?: dashStyleValue,
@@ -3699,6 +6476,33 @@ module ChartsSeriesSupertrendOptionsDataSorting = {
   external fromPlotSupertrendDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotSupertrendDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotSupertrendOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotSupertrendOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotSupertrendOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotSupertrendOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSupertrendOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotSupertrendOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotSupertrendOnPointOptions = {
+  connectorOptions?: ChartsPlotSupertrendOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotSupertrendOnPointOptionsPosition.t,
+}
+module ChartsSeriesSupertrendOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotSupertrendOnPointOptions: plotSupertrendOnPointOptions => t = "%identity"
+  external asPlotSupertrendOnPointOptions: t => plotSupertrendOnPointOptions = "%identity"
+}
 type plotSupertrendParamsOptions = {
   index?: string,
   multiplier?: float,
@@ -3711,12 +6515,93 @@ module ChartsSeriesTemaOptionsDataSorting = {
   external fromPlotTemaDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotTemaDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotTemaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTemaOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t = "%identity"
+  external asPlotTemaOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotTemaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTemaOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotTemaOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotTemaOnPointOptions = {
+  connectorOptions?: ChartsPlotTemaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTemaOnPointOptionsPosition.t,
+}
+module ChartsSeriesTemaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTemaOnPointOptions: plotTemaOnPointOptions => t = "%identity"
+  external asPlotTemaOnPointOptions: t => plotTemaOnPointOptions = "%identity"
+}
 type plotTiledwebmapProviderOptions = {
   apiKey?: string,
   subdomain?: string,
   theme?: string,
   @as("type") type_?: string,
   url?: string,
+}
+module ChartsPlotTilemapOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTilemapOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotTilemapOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotTilemapOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTilemapOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotTilemapOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotTilemapOnPointOptions = {
+  connectorOptions?: ChartsPlotTilemapOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTilemapOnPointOptionsPosition.t,
+}
+module ChartsSeriesTilemapOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTilemapOnPointOptions: plotTilemapOnPointOptions => t = "%identity"
+  external asPlotTilemapOnPointOptions: t => plotTilemapOnPointOptions = "%identity"
+}
+module ChartsPlotTimelineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTimelineOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotTimelineOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotTimelineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTimelineOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotTimelineOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotTimelineOnPointOptions = {
+  connectorOptions?: ChartsPlotTimelineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTimelineOnPointOptionsPosition.t,
+}
+module ChartsSeriesTimelineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTimelineOnPointOptions: plotTimelineOnPointOptions => t = "%identity"
+  external asPlotTimelineOnPointOptions: t => plotTimelineOnPointOptions = "%identity"
 }
 type plotTreegraphCollapseButtonStyleOptions = {
   cursor?: string,
@@ -3734,29 +6619,6 @@ type plotTreegraphCollapseButtonOptions = {
   x?: float,
   y?: float,
 }
-type plotTreegraphDataLabelsStyleOptions = {
-  textOverflow?: string,
-}
-type plotTreegraphLevelsDataLabelsStyleOptions = {
-  textOverflow?: string,
-}
-module ChartsSeriesTreegraphDataLabelsOptionsObjectStyle = {
-  type t
-  external fromCSSObject: cssObjectHighcharts => t = "%identity"
-  external asCSSObject: t => cssObjectHighcharts = "%identity"
-  external fromPlotTreegraphDataLabelsStyleOptions: plotTreegraphDataLabelsStyleOptions => t =
-    "%identity"
-  external asPlotTreegraphDataLabelsStyleOptions: t => plotTreegraphDataLabelsStyleOptions =
-    "%identity"
-  external fromPlotTreegraphLevelsDataLabelsStyleOptions: plotTreegraphLevelsDataLabelsStyleOptions => t =
-    "%identity"
-  external asPlotTreegraphLevelsDataLabelsStyleOptions: t => plotTreegraphLevelsDataLabelsStyleOptions =
-    "%identity"
-}
-type plotTreegraphLevelsColorVariationOptions = {
-  key?: string,
-  @as("to") to_?: float,
-}
 type plotTreegraphLinkOptions = {
   bendAt?: CommonTypes.stringOrNumber,
   color?: string,
@@ -3765,6 +6627,36 @@ type plotTreegraphLinkOptions = {
   lineWidth?: float,
   radius?: float,
   @as("type") type_?: chartsPlotOrganizationLinkOptionsType,
+}
+module ChartsPlotTreegraphOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTreegraphOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotTreegraphOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotTreegraphOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTreegraphOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotTreegraphOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotTreegraphOnPointOptions = {
+  connectorOptions?: ChartsPlotTreegraphOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTreegraphOnPointOptionsPosition.t,
+}
+module ChartsSeriesTreegraphOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTreegraphOnPointOptions: plotTreegraphOnPointOptions => t = "%identity"
+  external asPlotTreegraphOnPointOptions: t => plotTreegraphOnPointOptions = "%identity"
 }
 module ChartsPlotTreemapBreadcrumbsOptionsButtonTheme = {
   type t
@@ -3852,12 +6744,71 @@ module ChartsPlotTreemapLevelsDataLabelsOptionsStyle = {
   external asPlotTreemapLevelsDataLabelsStyleOptions: t => plotTreegraphLevelsDataLabelsStyleOptions =
     "%identity"
 }
+module ChartsPlotTreemapOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTreemapOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotTreemapOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotTreemapOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTreemapOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotTreemapOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotTreemapOnPointOptions = {
+  connectorOptions?: ChartsPlotTreemapOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTreemapOnPointOptionsPosition.t,
+}
+module ChartsSeriesTreemapOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTreemapOnPointOptions: plotTreemapOnPointOptions => t = "%identity"
+  external asPlotTreemapOnPointOptions: t => plotTreemapOnPointOptions = "%identity"
+}
 module ChartsSeriesTrendlineOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotTrendlineDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotTrendlineDataSortingOptions: t => dataSortingOptionsObject = "%identity"
+}
+module ChartsPlotTrendlineOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTrendlineOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotTrendlineOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotTrendlineOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTrendlineOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotTrendlineOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotTrendlineOnPointOptions = {
+  connectorOptions?: ChartsPlotTrendlineOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTrendlineOnPointOptionsPosition.t,
+}
+module ChartsSeriesTrendlineOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTrendlineOnPointOptions: plotTrendlineOnPointOptions => t = "%identity"
+  external asPlotTrendlineOnPointOptions: t => plotTrendlineOnPointOptions = "%identity"
 }
 type plotTrendlineParamsOptions = {
   index?: int,
@@ -3870,6 +6821,62 @@ module ChartsSeriesTrixOptionsDataSorting = {
   external fromPlotTrixDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotTrixDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
 }
+module ChartsPlotTrixOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotTrixOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotTrixOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotTrixOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTrixOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotTrixOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotTrixOnPointOptions = {
+  connectorOptions?: ChartsPlotTrixOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotTrixOnPointOptionsPosition.t,
+}
+module ChartsSeriesTrixOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotTrixOnPointOptions: plotTrixOnPointOptions => t = "%identity"
+  external asPlotTrixOnPointOptions: t => plotTrixOnPointOptions = "%identity"
+}
+module ChartsPlotVariablepieOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVariablepieOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotVariablepieOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotVariablepieOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVariablepieOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotVariablepieOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotVariablepieOnPointOptions = {
+  connectorOptions?: ChartsPlotVariablepieOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVariablepieOnPointOptionsPosition.t,
+}
+module ChartsSeriesVariablepieOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVariablepieOnPointOptions: plotVariablepieOnPointOptions => t = "%identity"
+  external asPlotVariablepieOnPointOptions: t => plotVariablepieOnPointOptions = "%identity"
+}
 module ChartsSeriesVariwideOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
@@ -3877,12 +6884,64 @@ module ChartsSeriesVariwideOptionsDataSorting = {
   external fromPlotVariwideDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotVariwideDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotVariwideOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVariwideOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotVariwideOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotVariwideOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVariwideOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotVariwideOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotVariwideOnPointOptions = {
+  connectorOptions?: ChartsPlotVariwideOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVariwideOnPointOptionsPosition.t,
+}
+module ChartsSeriesVariwideOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVariwideOnPointOptions: plotVariwideOnPointOptions => t = "%identity"
+  external asPlotVariwideOnPointOptions: t => plotVariwideOnPointOptions = "%identity"
+}
 module ChartsSeriesVbpOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotVbpDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotVbpDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotVbpOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVbpOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotVbpOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotVbpOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVbpOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotVbpOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotVbpOnPointOptions = {
+  connectorOptions?: ChartsPlotVbpOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVbpOnPointOptionsPosition.t,
+}
+module ChartsSeriesVbpOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVbpOnPointOptions: plotVbpOnPointOptions => t = "%identity"
+  external asPlotVbpOnPointOptions: t => plotVbpOnPointOptions = "%identity"
 }
 type plotVbpParamsOptions = {
   index?: string,
@@ -3918,6 +6977,32 @@ module ChartsSeriesVectorOptionsDataSorting = {
   external fromPlotVectorDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotVectorDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotVectorOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVectorOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotVectorOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotVectorOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVectorOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotVectorOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotVectorOnPointOptions = {
+  connectorOptions?: ChartsPlotVectorOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVectorOnPointOptionsPosition.t,
+}
+module ChartsSeriesVectorOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVectorOnPointOptions: plotVectorOnPointOptions => t = "%identity"
+  external asPlotVectorOnPointOptions: t => plotVectorOnPointOptions = "%identity"
+}
 module ChartsPlotVennClusterOptionsDataLabels = {
   type t
   external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
@@ -3927,12 +7012,64 @@ module ChartsPlotVennClusterOptionsDataLabels = {
   external asPlotVennClusterDataLabelsOptions: t => plotScatterClusterDataLabelsOptions =
     "%identity"
 }
+module ChartsPlotVennOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVennOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotVennOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotVennOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVennOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotVennOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotVennOnPointOptions = {
+  connectorOptions?: ChartsPlotVennOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVennOnPointOptionsPosition.t,
+}
+module ChartsSeriesVennOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVennOnPointOptions: plotVennOnPointOptions => t = "%identity"
+  external asPlotVennOnPointOptions: t => plotVennOnPointOptions = "%identity"
+}
 module ChartsSeriesVwapOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotVwapDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotVwapDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotVwapOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotVwapOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotVwapOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotVwapOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVwapOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotVwapOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotVwapOnPointOptions = {
+  connectorOptions?: ChartsPlotVwapOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotVwapOnPointOptionsPosition.t,
+}
+module ChartsSeriesVwapOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotVwapOnPointOptions: plotVwapOnPointOptions => t = "%identity"
+  external asPlotVwapOnPointOptions: t => plotVwapOnPointOptions = "%identity"
 }
 module ChartsSeriesWaterfallOptionsDataSorting = {
   type t
@@ -3941,12 +7078,66 @@ module ChartsSeriesWaterfallOptionsDataSorting = {
   external fromPlotWaterfallDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotWaterfallDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotWaterfallOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotWaterfallOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotWaterfallOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotWaterfallOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWaterfallOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotWaterfallOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotWaterfallOnPointOptions = {
+  connectorOptions?: ChartsPlotWaterfallOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotWaterfallOnPointOptionsPosition.t,
+}
+module ChartsSeriesWaterfallOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWaterfallOnPointOptions: plotWaterfallOnPointOptions => t = "%identity"
+  external asPlotWaterfallOnPointOptions: t => plotWaterfallOnPointOptions = "%identity"
+}
 module ChartsSeriesWilliamsrOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotWilliamsrDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotWilliamsrDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotWilliamsrOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotWilliamsrOnPointConnectorOptions: plotAdOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotWilliamsrOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotWilliamsrOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWilliamsrOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotWilliamsrOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotWilliamsrOnPointOptions = {
+  connectorOptions?: ChartsPlotWilliamsrOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotWilliamsrOnPointOptionsPosition.t,
+}
+module ChartsSeriesWilliamsrOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWilliamsrOnPointOptions: plotWilliamsrOnPointOptions => t = "%identity"
+  external asPlotWilliamsrOnPointOptions: t => plotWilliamsrOnPointOptions = "%identity"
 }
 module ChartsSeriesWindbarbOptionsDataSorting = {
   type t
@@ -3955,12 +7146,94 @@ module ChartsSeriesWindbarbOptionsDataSorting = {
   external fromPlotWindbarbDataSortingOptions: dataSortingOptionsObject => t = "%identity"
   external asPlotWindbarbDataSortingOptions: t => dataSortingOptionsObject = "%identity"
 }
+module ChartsPlotWindbarbOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotWindbarbOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotWindbarbOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotWindbarbOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWindbarbOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotWindbarbOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotWindbarbOnPointOptions = {
+  connectorOptions?: ChartsPlotWindbarbOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotWindbarbOnPointOptionsPosition.t,
+}
+module ChartsSeriesWindbarbOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWindbarbOnPointOptions: plotWindbarbOnPointOptions => t = "%identity"
+  external asPlotWindbarbOnPointOptions: t => plotWindbarbOnPointOptions = "%identity"
+}
 module ChartsSeriesWmaOptionsDataSorting = {
   type t
   external fromDataSortingOptionsObject: dataSortingOptionsObject => t = "%identity"
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotWmaDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotWmaDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotWmaOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotWmaOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotWmaOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotWmaOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWmaOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotWmaOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotWmaOnPointOptions = {
+  connectorOptions?: ChartsPlotWmaOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotWmaOnPointOptionsPosition.t,
+}
+module ChartsSeriesWmaOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWmaOnPointOptions: plotWmaOnPointOptions => t = "%identity"
+  external asPlotWmaOnPointOptions: t => plotWmaOnPointOptions = "%identity"
+}
+module ChartsPlotWordcloudOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotWordcloudOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotWordcloudOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions =
+    "%identity"
+}
+module ChartsPlotWordcloudOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWordcloudOnPointPositionOptions: plotAbandsOnPointPositionOptions => t =
+    "%identity"
+  external asPlotWordcloudOnPointPositionOptions: t => plotAbandsOnPointPositionOptions =
+    "%identity"
+}
+type plotWordcloudOnPointOptions = {
+  connectorOptions?: ChartsPlotWordcloudOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotWordcloudOnPointOptionsPosition.t,
+}
+module ChartsSeriesWordcloudOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotWordcloudOnPointOptions: plotWordcloudOnPointOptions => t = "%identity"
+  external asPlotWordcloudOnPointOptions: t => plotWordcloudOnPointOptions = "%identity"
 }
 type plotWordcloudRotationOptions = {
   from?: float,
@@ -3977,6 +7250,33 @@ module ChartsPlotXrangeDataLabelsOptionsStyle = {
   external fromPlotXrangeDataLabelsStyleOptions: plotXrangeDataLabelsStyleOptions => t = "%identity"
   external asPlotXrangeDataLabelsStyleOptions: t => plotXrangeDataLabelsStyleOptions = "%identity"
 }
+module ChartsPlotXrangeOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotXrangeOnPointConnectorOptions: plotAbandsOnPointConnectorOptions => t =
+    "%identity"
+  external asPlotXrangeOnPointConnectorOptions: t => plotAbandsOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotXrangeOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotXrangeOnPointPositionOptions: plotAbandsOnPointPositionOptions => t = "%identity"
+  external asPlotXrangeOnPointPositionOptions: t => plotAbandsOnPointPositionOptions = "%identity"
+}
+type plotXrangeOnPointOptions = {
+  connectorOptions?: ChartsPlotXrangeOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotXrangeOnPointOptionsPosition.t,
+}
+module ChartsSeriesXrangeOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotXrangeOnPointOptions: plotXrangeOnPointOptions => t = "%identity"
+  external asPlotXrangeOnPointOptions: t => plotXrangeOnPointOptions = "%identity"
+}
 type plotXrangePartialFillOptions = {
   fill?: ColorType.t,
 }
@@ -3986,6 +7286,32 @@ module ChartsSeriesZigzagOptionsDataSorting = {
   external asDataSortingOptionsObject: t => dataSortingOptionsObject = "%identity"
   external fromPlotZigzagDataSortingOptions: plotAdDataSortingOptions => t = "%identity"
   external asPlotZigzagDataSortingOptions: t => plotAdDataSortingOptions = "%identity"
+}
+module ChartsPlotZigzagOnPointOptionsConnectorOptions = {
+  type t
+  external fromSVGAttributes: svgAttributes => t = "%identity"
+  external asSVGAttributes: t => svgAttributes = "%identity"
+  external fromPlotZigzagOnPointConnectorOptions: plotAdOnPointConnectorOptions => t = "%identity"
+  external asPlotZigzagOnPointConnectorOptions: t => plotAdOnPointConnectorOptions = "%identity"
+}
+module ChartsPlotZigzagOnPointOptionsPosition = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotZigzagOnPointPositionOptions: plotAdOnPointPositionOptions => t = "%identity"
+  external asPlotZigzagOnPointPositionOptions: t => plotAdOnPointPositionOptions = "%identity"
+}
+type plotZigzagOnPointOptions = {
+  connectorOptions?: ChartsPlotZigzagOnPointOptionsConnectorOptions.t,
+  id?: string,
+  position?: ChartsPlotZigzagOnPointOptionsPosition.t,
+}
+module ChartsSeriesZigzagOptionsOnPoint = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromPlotZigzagOnPointOptions: plotZigzagOnPointOptions => t = "%identity"
+  external asPlotZigzagOnPointOptions: t => plotZigzagOnPointOptions = "%identity"
 }
 type plotZigzagParamsOptions = {
   deviation?: float,
@@ -4448,12 +7774,12 @@ type langOptions = {
   decimalPoint?: string,
   downloadCSV?: string,
   downloadJPEG?: string,
-  downloadMIDI?: string, // ⚪ loose — was `object`
+  downloadMIDI?: JSON.t,
   downloadPDF?: string,
   downloadPNG?: string,
   downloadSVG?: string,
   downloadXLS?: string,
-  drillUpText?: string, // ⚪ loose — was `object`
+  drillUpText?: JSON.t,
   exitFullscreen?: string,
   exportData?: langExportDataOptions,
   exportInProgress?: string,
@@ -4468,7 +7794,7 @@ type langOptions = {
   numericSymbolMagnitude?: float,
   numericSymbols?: array<string>,
   pieSliceName?: string,
-  playAsSound?: string, // ⚪ loose — was `object`
+  playAsSound?: JSON.t,
   printChart?: string,
   rangeSelector?: langRangeSelectorOptions,
   rangeSelectorFrom?: string,
@@ -4542,14 +7868,48 @@ type mapViewInsetOptions = {
   relativeTo?: mapViewInsetOptionsRelativeToValue,
   units?: optionsUnitsValue,
 }
+type mapViewInsetsProjectionOptions = {
+  name?: string,
+  parallels?: array<float>,
+  rotation?: array<float>,
+}
+module ChartsMapViewInsetsOptionsProjection = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromMapViewInsetsProjectionOptions: mapViewInsetsProjectionOptions => t = "%identity"
+  external asMapViewInsetsProjectionOptions: t => mapViewInsetsProjectionOptions = "%identity"
+}
+type mapViewInsetsOptions = {
+  borderColor?: ColorType.t,
+  borderPath?: JSON.t,
+  borderWidth?: float,
+  field?: JSON.t,
+  geoBounds?: JSON.t,
+  id?: string,
+  padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  projection?: ChartsMapViewInsetsOptionsProjection.t,
+  relativeTo?: mapViewInsetOptionsRelativeToValue,
+  units?: optionsUnitsValue,
+}
+@unboxed
+type mapViewInsetsOptionsOrValueArray =
+  MapViewInsetsOptions(mapViewInsetsOptions) | ObjArr(array<Dict.t<JSON.t>>)
+module ChartsMapViewOptionsProjection = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromMapViewProjectionOptions: mapViewInsetsProjectionOptions => t = "%identity"
+  external asMapViewProjectionOptions: t => mapViewInsetsProjectionOptions = "%identity"
+}
 type mapViewOptions = {
   center?: array<float>,
-  fitToGeometry?: string, // ⚪ loose — was `object`
+  fitToGeometry?: JSON.t,
   insetOptions?: mapViewInsetOptions,
-  insets?: string, // ⚠️ REVIEW — was `MapViewInsetsOptions | object[]` — match the real type by hand
+  insets?: mapViewInsetsOptionsOrValueArray,
   maxZoom?: float,
   padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
-  projection?: string, // ⚠️ REVIEW — was `object | MapViewProjectionOptions` — match the real type by hand
+  projection?: ChartsMapViewOptionsProjection.t,
   zoom?: float,
 }
 module ChartsNavigationBreadcrumbsOptionsButtonTheme = {
@@ -4727,7 +8087,7 @@ type noDataOptions = {
   attr?: svgAttributes,
   position?: ChartsNoDataOptionsPosition.t,
   style?: cssObjectHighcharts,
-  useHTML?: string, // ⚪ loose — was `object`
+  useHTML?: JSON.t,
 }
 type paneBackgroundOptions = {
   backgroundColor?: ColorType.t,
@@ -5311,6 +8671,7 @@ type chartsOptionsColorAxis_t
 type pointTarget_t
 type chartsLegendAllItems_t
 type axisPlotLinesOptions_t
+type chartsPointOptionsObjectDataLabels_t
 type chartsCurrentDateIndicatorOptionsLabel_t
 type chartsCurrentDateIndicatorOptionsEvents_t
 type axisOptions_t
@@ -5363,7 +8724,7 @@ and unknownSeriesOptions<'a, 'b, 'c> = {
   pointDescriptionFormat?: JsFn.t,
   skipKeyboardNavigation?: bool,
   legendIndex?: float,
-  mapData?: string, // ⚠️ REVIEW — was `object | GeoJSON | SeriesMapDataOptions[]` — match the real type by hand
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   data?: array<JSON.t>,
 }
 and responsiveRulesConditionOptions<'a, 'b, 'c> = {
@@ -5428,7 +8789,7 @@ and plotZigzagOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotZigzagOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesZigzagOptionsOnPoint.t,
   opacity?: float,
   params?: plotZigzagParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5501,7 +8862,7 @@ and plotXrangeOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotXrangeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesXrangeOptionsOnPoint.t,
   opacity?: float,
   partialFill?: plotXrangePartialFillOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5559,7 +8920,7 @@ and plotWordcloudOptions<'a, 'b, 'c> = {
   maxFontSize?: float,
   minFontSize?: float,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotWordcloudOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesWordcloudOptionsOnPoint.t,
   opacity?: float,
   placementStrategy?: optionsPlacementStrategyValue,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5628,7 +8989,7 @@ and plotWmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotWmaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesWmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5707,7 +9068,7 @@ and plotWindbarbOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotWindbarbOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesWindbarbOptionsOnPoint.t,
   onSeries?: string,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5789,7 +9150,7 @@ and plotWilliamsrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotWilliamsrOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesWilliamsrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5863,7 +9224,7 @@ and plotWaterfallOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotWaterfallOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesWaterfallOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -5943,7 +9304,7 @@ and plotVwapOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVwapOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVwapOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -5998,7 +9359,7 @@ and plotVennOptions<'a, 'b, 'c> = {
   keys?: array<string>,
   legendSymbol?: optionsLegendSymbolValue,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVennOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVennOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6057,7 +9418,7 @@ and plotVectorOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVectorOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVectorOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6134,7 +9495,7 @@ and plotVbpOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVbpOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVbpOptionsOnPoint.t,
   opacity?: float,
   params?: plotVbpParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -6204,7 +9565,7 @@ and plotVariwideOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVariwideOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVariwideOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6274,7 +9635,7 @@ and plotVariablepieOptions<'a, 'b, 'c> = {
   minPointSize?: CommonTypes.stringOrNumber,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotVariablepieOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesVariablepieOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6345,7 +9706,7 @@ and plotTrixOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTrixOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTrixOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -6418,7 +9779,7 @@ and plotTrendlineOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTrendlineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTrendlineOptionsOnPoint.t,
   opacity?: float,
   params?: plotTrendlineParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -6494,7 +9855,7 @@ and plotTreemapOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   nodeSizeBy?: optionsNodeSizeByValue,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTreemapOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTreemapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6566,7 +9927,7 @@ and plotTreegraphOptions<'a, 'b, 'c> = {
   nodeSizeBy?: optionsNodeSizeByValue,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTreegraphOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTreegraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6625,7 +9986,7 @@ and plotTimelineOptions<'a, 'b, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTimelineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTimelineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6677,7 +10038,7 @@ and plotTilemapOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTilemapOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTilemapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6767,7 +10128,7 @@ and plotTemaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotTemaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesTemaOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -6840,7 +10201,7 @@ and plotSupertrendOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   name?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSupertrendOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSupertrendOptionsOnPoint.t,
   opacity?: float,
   params?: plotSupertrendParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -6899,10 +10260,10 @@ and plotSunburstOptions<'a, 'b, 'c> = {
   legendSymbol?: optionsLegendSymbolValue,
   legendSymbolColor?: ColorType.t,
   levelIsConstant?: bool,
-  levels?: array<string>, // ⚪ loose — was `PlotSunburstLevelsOptions`
+  levels?: array<plotSunburstLevelsOptions<'a, 'b, 'c>>,
   levelSize?: plotSunburstLevelSizeOptions,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSunburstOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSunburstOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -6978,7 +10339,7 @@ and plotStreamgraphOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotStreamgraphOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesStreamgraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7057,7 +10418,7 @@ and plotStochasticOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotStochasticOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesStochasticOptionsOnPoint.t,
   opacity?: float,
   params?: plotStochasticParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7132,7 +10493,7 @@ and plotSplineOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSplineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7192,7 +10553,7 @@ and plotSolidgaugeOptions<'a, 'b, 'c> = {
   lineWidth?: float,
   linkedTo?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSolidgaugeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSolidgaugeOptionsOnPoint.t,
   opacity?: float,
   overshoot?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7263,7 +10624,7 @@ and plotSmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSmaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7336,7 +10697,7 @@ and plotSlowstochasticOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSlowstochasticOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSlowstochasticOptionsOnPoint.t,
   opacity?: float,
   params?: plotSlowstochasticParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7400,7 +10761,7 @@ and plotScatter3dOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotScatter3dOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesScatter3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7478,7 +10839,7 @@ and plotScatterOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotScatterOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesScatterOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7548,7 +10909,7 @@ and plotSankeyOptions<'a, 'b, 'c> = {
   nodePadding?: float,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotSankeyOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesSankeyOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7614,7 +10975,7 @@ and plotRsiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotRsiOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesRsiOptionsOnPoint.t,
   opacity?: float,
   params?: plotRsiParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7687,7 +11048,7 @@ and plotRocOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotRocOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesRocOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7754,7 +11115,7 @@ and plotRenkoOptions<'a, 'b, 'c> = {
   navigatorOptions?: chartsPlotRenkoOptionsNavigatorOptions_t,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotRenkoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesRenkoOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7828,7 +11189,7 @@ and plotPyramid3dOptions<'a, 'b, 'c> = {
   neckWidth?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPyramid3dOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPyramid3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -7859,6 +11220,68 @@ and plotPyramid3dOptions<'a, 'b, 'c> = {
   width?: CommonTypes.stringOrNumber,
   zoneAxis?: string,
   zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+and plotPyramidOptions<'a, 'b, 'c> = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: bool,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  center?: array<CommonTypes.stringOrNumber>,
+  className?: string,
+  clip?: bool,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  colors?: array<ColorType.t>,
+  crisp?: bool,
+  cursor?: string,
+  custom?: Dict.t<string>, // ⚪ loose — was `any`
+  dataLabels?: seriesPieDataLabelsOptionsObjectOrSeriesPieDataLabelsOptionsObjectArray<'a, 'b, 'c>,
+  depth?: float,
+  description?: string,
+  enableMouseTracking?: bool,
+  endAngle?: float,
+  events?: seriesEventsOptionsObject<'a, 'b, 'c>,
+  fillColor?: ColorType.t,
+  gapSize?: float,
+  gapUnit?: optionsGapUnitValue,
+  height?: CommonTypes.stringOrNumber,
+  ignoreHiddenPoint?: bool,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  legendSymbolColor?: ColorType.t,
+  linecap?: string,
+  minSize?: CommonTypes.stringOrNumber,
+  neckHeight?: CommonTypes.stringOrNumber,
+  neckWidth?: CommonTypes.stringOrNumber,
+  nullInteraction?: bool,
+  onPoint?: ChartsSeriesPyramidOptionsOnPoint.t,
+  opacity?: float,
+  point?: plotSeriesPointOptions<'a, 'b, 'c>,
+  pointDescriptionFormat?: JsFn.t,
+  pointDescriptionFormatter?: JsFn.t,
+  relativeXValue?: bool,
+  reversed?: bool,
+  selected?: bool,
+  shadow?: boolOrShadowOptionsObject,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  slicedOffset?: float,
+  sonification?: seriesSonificationOptions,
+  startAngle?: float,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  thickness?: float,
+  tooltip?: seriesTooltipOptionsObject<'a, 'b, 'c>,
+  visible?: bool,
+  width?: CommonTypes.stringOrNumber,
   zoomEnabled?: bool,
 }
 and plotPsarOptions<'a, 'b, 'c> = {
@@ -7909,7 +11332,7 @@ and plotPsarOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPsarOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPsarOptionsOnPoint.t,
   opacity?: float,
   params?: plotPsarParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -7983,7 +11406,7 @@ and plotPriceenvelopesOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPriceenvelopesOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPriceenvelopesOptionsOnPoint.t,
   opacity?: float,
   params?: plotPriceenvelopesParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8057,7 +11480,7 @@ and plotPpoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPpoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPpoOptionsOnPoint.t,
   opacity?: float,
   params?: plotApoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8129,7 +11552,7 @@ and plotPolygonOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPolygonOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPolygonOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8201,7 +11624,7 @@ and plotPointandfigureOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPointandfigureOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPointandfigureOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8280,7 +11703,7 @@ and plotPivotpointsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPivotpointsOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPivotpointsOptionsOnPoint.t,
   opacity?: float,
   params?: plotPivotpointsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8343,7 +11766,7 @@ and plotPieOptions<'a, 'b, 'c> = {
   linecap?: string,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPieOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPieOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8485,7 +11908,7 @@ and plotPcOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPcOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPcOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8543,7 +11966,7 @@ and plotParetoOptions<'a, 'b, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotParetoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesParetoOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8576,7 +11999,11 @@ and plotPackedbubbleOptions<'a, 'b, 'c> = {
   cursor?: string,
   custom?: Dict.t<string>, // ⚪ loose — was `any`
   dashStyle?: dashStyleValue,
-  dataLabels?: string, // ⚠️ REVIEW — was `SeriesPackedBubbleDataLabelsOptionsObject | SeriesPackedBubbleDataLabelsOptionsObject[]` — match the real type by hand
+  dataLabels?: seriesPackedBubbleDataLabelsOptionsObjectOrSeriesPackedBubbleDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
   description?: string,
   displayNegative?: bool,
   draggable?: bool,
@@ -8599,7 +12026,7 @@ and plotPackedbubbleOptions<'a, 'b, 'c> = {
   minSize?: CommonTypes.stringOrNumber,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotPackedbubbleOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesPackedbubbleOptionsOnPoint.t,
   opacity?: float,
   parentNode?: plotPackedbubbleParentNodeOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8676,7 +12103,7 @@ and plotOrganizationOptions<'a, 'b, 'c> = {
   nodePadding?: float,
   nodeWidth?: float,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotOrganizationOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesOrganizationOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8745,7 +12172,7 @@ and plotOhlcOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotOhlcOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesOhlcOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8825,7 +12252,7 @@ and plotObvOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotObvOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesObvOptionsOnPoint.t,
   opacity?: float,
   params?: plotObvParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -8861,7 +12288,11 @@ and plotNetworkgraphOptions<'a, 'b, 'c> = {
   cursor?: string,
   custom?: Dict.t<string>, // ⚪ loose — was `any`
   dashStyle?: dashStyleValue,
-  dataLabels?: string, // ⚠️ REVIEW — was `SeriesNetworkgraphDataLabelsOptionsObject | SeriesNetworkgraphDataLabelsOptionsObject[]` — match the real type by hand
+  dataLabels?: seriesNetworkgraphDataLabelsOptionsObjectOrSeriesNetworkgraphDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
   description?: string,
   draggable?: bool,
   enableMouseTracking?: bool,
@@ -8880,7 +12311,7 @@ and plotNetworkgraphOptions<'a, 'b, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotNetworkgraphOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesNetworkgraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -8948,7 +12379,7 @@ and plotNatrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotNatrOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesNatrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9021,7 +12452,7 @@ and plotMomentumOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMomentumOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMomentumOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9094,7 +12525,7 @@ and plotMfiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMfiOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMfiOptionsOnPoint.t,
   opacity?: float,
   params?: plotMfiParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9117,6 +12548,54 @@ and plotMfiOptions<'a, 'b, 'c> = {
   visible?: bool,
   zoneAxis?: string,
   zones?: array<seriesZonesOptionsObject>,
+  zoomEnabled?: bool,
+}
+and plotMappointOptions<'a, 'b, 'c> = {
+  accessibility?: seriesAccessibilityOptionsObject,
+  allowPointSelect?: bool,
+  animation?: boolOrAnimationOptionsObject,
+  animationLimit?: float,
+  boostBlending?: optionsBoostBlendingValue,
+  boostThreshold?: float,
+  className?: string,
+  clip?: bool,
+  cluster?: plotMappointClusterOptions<'a, 'b, 'c>,
+  color?: ColorType.t,
+  colorAxis?: CommonTypes.boolOrStringOrNumber,
+  colorIndex?: float,
+  colorKey?: string,
+  cursor?: string,
+  custom?: Dict.t<JSON.t>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: plotMappointDataLabelsOptionsOrPlotMappointDataLabelsOptionsArray<'a, 'b, 'c>,
+  description?: string,
+  dragDrop?: seriesDragDropOptionsObject,
+  enableMouseTracking?: bool,
+  events?: seriesEventsOptionsObject<'a, 'b, 'c>,
+  findNearestPointBy?: optionsFindNearestPointByValue,
+  inactiveOtherPoints?: bool,
+  includeInDataExport?: bool,
+  joinBy?: CommonTypes.stringOrStringArray,
+  keys?: array<string>,
+  legendSymbol?: optionsLegendSymbolValue,
+  linecap?: string,
+  marker?: pointMarkerOptionsObject,
+  negativeColor?: ColorType.t,
+  onPoint?: ChartsSeriesMappointOptionsOnPoint.t,
+  opacity?: float,
+  point?: plotSeriesPointOptions<'a, 'b, 'c>,
+  pointDescriptionFormat?: JsFn.t,
+  pointDescriptionFormatter?: JsFn.t,
+  selected?: bool,
+  showCheckbox?: bool,
+  showInLegend?: bool,
+  skipKeyboardNavigation?: bool,
+  sonification?: seriesSonificationOptions,
+  states?: seriesStatesOptionsObject,
+  stickyTracking?: bool,
+  tooltip?: seriesTooltipOptionsObject<'a, 'b, 'c>,
+  visible?: bool,
+  zIndex?: int,
   zoomEnabled?: bool,
 }
 and plotMaplineOptions<'a, 'b, 'c> = {
@@ -9154,7 +12633,7 @@ and plotMaplineOptions<'a, 'b, 'c> = {
   lineWidth?: float,
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMaplineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMaplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -9207,7 +12686,7 @@ and plotMapbubbleOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   maxSize?: CommonTypes.stringOrNumber,
   minSize?: CommonTypes.stringOrNumber,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMapbubbleOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMapbubbleOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -9258,7 +12737,7 @@ and plotMapOptions<'a, 'b, 'c> = {
   linecap?: string,
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMapOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -9326,7 +12805,7 @@ and plotMacdOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotMacdOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesMacdOptionsOnPoint.t,
   opacity?: float,
   params?: plotMacdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9412,7 +12891,7 @@ and plotLollipopOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLollipopOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLollipopOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -9490,7 +12969,7 @@ and plotLinearregressionslopeOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLinearregressionslopeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLinearregressionslopeOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9563,7 +13042,7 @@ and plotLinearregressioninterceptOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLinearregressioninterceptOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLinearregressioninterceptOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9636,7 +13115,7 @@ and plotLinearregressionangleOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLinearregressionangleOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLinearregressionangleOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9709,7 +13188,7 @@ and plotLinearregressionOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLinearregressionOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLinearregressionOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9785,7 +13264,7 @@ and plotLineOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotLineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesLineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -9865,7 +13344,7 @@ and plotKlingerOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotKlingerOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesKlingerOptionsOnPoint.t,
   opacity?: float,
   params?: plotKlingerParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -9939,7 +13418,7 @@ and plotKeltnerchannelsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotKeltnerchannelsOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesKeltnerchannelsOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -10001,7 +13480,7 @@ and plotItemOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotItemOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesItemOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10070,7 +13549,7 @@ and plotIkhOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotIkhOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesIkhOptionsOnPoint.t,
   opacity?: float,
   params?: plotIkhParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -10151,7 +13630,7 @@ and plotHollowcandlestickOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotHollowcandlestickOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesHollowcandlestickOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10236,7 +13715,7 @@ and plotHlcOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotHlcOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesHlcOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10315,7 +13794,7 @@ and plotHistogramOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotHistogramOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesHistogramOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10395,7 +13874,7 @@ and plotHeikinashiOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotHeikinashiOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesHeikinashiOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10467,7 +13946,7 @@ and plotHeatmapOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotHeatmapOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesHeatmapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10566,7 +14045,7 @@ and plotGaugeOptions<'a, 'b, 'c> = {
   lineWidth?: float,
   linkedTo?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotGaugeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesGaugeOptionsOnPoint.t,
   opacity?: float,
   overshoot?: float,
   pivot?: plotGaugePivotOptions,
@@ -10622,7 +14101,7 @@ and plotGanttOptions<'a, 'b, 'c> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotGanttOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesGanttOptionsOnPoint.t,
   opacity?: float,
   partialFill?: plotGanttPartialFillOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -10693,7 +14172,7 @@ and plotFunnel3dOptions<'a, 'b, 'c> = {
   neckWidth?: CommonTypes.stringOrNumber,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotFunnel3dOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesFunnel3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10765,7 +14244,7 @@ and plotFunnelOptions<'a, 'b, 'c> = {
   neckHeight?: CommonTypes.stringOrNumber,
   neckWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotFunnelOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesFunnelOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -10890,7 +14369,7 @@ and plotFlagsOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onKey?: optionsOnKeyValue,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotFlagsOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesFlagsOptionsOnPoint.t,
   onSeries?: string,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -10976,7 +14455,7 @@ and plotErrorbarOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotErrorbarOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesErrorbarOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11061,7 +14540,7 @@ and plotEmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotEmaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesEmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -11146,7 +14625,7 @@ and plotDumbbellOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDumbbellOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDumbbellOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11222,7 +14701,7 @@ and plotDpoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDpoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDpoOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -11296,7 +14775,7 @@ and plotDmiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDmiOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDmiOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonParamsOptions,
   plusDILine?: plotDmiPlusDILineOptions,
@@ -11370,7 +14849,7 @@ and plotDisparityindexOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDisparityindexOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDisparityindexOptionsOnPoint.t,
   opacity?: float,
   params?: plotDisparityindexParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -11450,7 +14929,7 @@ and plotDependencywheelOptions<'a, 'b, 'c> = {
   nodePadding?: float,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDependencywheelOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDependencywheelOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11516,7 +14995,7 @@ and plotDemaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotDemaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesDemaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -11586,7 +15065,7 @@ and plotCylinderOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotCylinderOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesCylinderOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11655,7 +15134,7 @@ and plotContourOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotContourOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesContourOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11738,7 +15217,7 @@ and plotColumnrangeOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotColumnrangeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesColumnrangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11816,7 +15295,7 @@ and plotColumnpyramidOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotColumnpyramidOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesColumnpyramidOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11902,7 +15381,7 @@ and plotColumnOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotColumnOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesColumnOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -11982,7 +15461,7 @@ and plotCmoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotCmoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesCmoOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12054,7 +15533,7 @@ and plotCmfOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotCmfOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesCmfOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12127,7 +15606,7 @@ and plotChaikinOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotChaikinOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesChaikinOptionsOnPoint.t,
   opacity?: float,
   params?: plotChaikinParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12200,7 +15679,7 @@ and plotCciOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotCciOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesCciOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12277,7 +15756,7 @@ and plotCandlestickOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotCandlestickOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesCandlestickOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12356,7 +15835,7 @@ and plotBulletOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBulletOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBulletOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12441,7 +15920,7 @@ and plotBubbleOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBubbleOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBubbleOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12524,7 +16003,7 @@ and plotBoxplotOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBoxplotOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBoxplotOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12604,7 +16083,7 @@ and plotBellcurveOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBellcurveOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBellcurveOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12681,7 +16160,7 @@ and plotBbOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBbOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBbOptionsOnPoint.t,
   opacity?: float,
   params?: plotBbParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12756,7 +16235,7 @@ and plotBarOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotBarOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesBarOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -12835,7 +16314,7 @@ and plotAtrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAtrOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAtrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12906,7 +16385,7 @@ and plotAroonoscillatorOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAroonoscillatorOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAroonoscillatorOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -12978,7 +16457,7 @@ and plotAroonOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAroonOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAroonOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -13061,7 +16540,7 @@ and plotAreasplinerangeOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAreasplinerangeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAreasplinerangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -13144,7 +16623,7 @@ and plotAreasplineOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAreasplineOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAreasplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -13235,7 +16714,7 @@ and plotArearangeOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotArearangeOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesArearangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -13321,7 +16800,7 @@ and plotAreaOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAreaOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAreaOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -13406,7 +16885,7 @@ and plotArcdiagramOptions<'a, 'b, 'c> = {
   nodeDistance?: CommonTypes.stringOrNumber,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotArcdiagramOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesArcdiagramOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -13472,7 +16951,7 @@ and plotApoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotApoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesApoOptionsOnPoint.t,
   opacity?: float,
   params?: plotApoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -13548,7 +17027,7 @@ and plotAoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAoOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAoOptionsOnPoint.t,
   opacity?: float,
   params?: plotAoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -13622,7 +17101,7 @@ and plotAdOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAdOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAdOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -13695,7 +17174,7 @@ and plotAbandsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚠️ REVIEW — was `object | PlotAbandsOnPointOptions` — match the real type by hand
+  onPoint?: ChartsSeriesAbandsOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -13784,7 +17263,7 @@ and plotOptions<'a, 'b, 'c> = {
   map?: plotMapOptions<'a, 'b, 'c>,
   mapbubble?: plotMapbubbleOptions<'a, 'b, 'c>,
   mapline?: plotMaplineOptions<'a, 'b, 'c>,
-  mappoint?: string, // ⚠️ REVIEW — was `number | PlotMappointOptions` — match the real type by hand
+  mappoint?: numberOrPlotMappointOptions<'a, 'b, 'c>,
   mfi?: plotMfiOptions<'a, 'b, 'c>,
   momentum?: plotMomentumOptions<'a, 'b, 'c>,
   natr?: plotNatrOptions<'a, 'b, 'c>,
@@ -13803,7 +17282,7 @@ and plotOptions<'a, 'b, 'c> = {
   ppo?: plotPpoOptions<'a, 'b, 'c>,
   priceenvelopes?: plotPriceenvelopesOptions<'a, 'b, 'c>,
   psar?: plotPsarOptions<'a, 'b, 'c>,
-  pyramid?: plotFunnelOptions<'a, 'b, 'c>,
+  pyramid?: plotPyramidOptions<'a, 'b, 'c>,
   pyramid3d?: plotPyramid3dOptions<'a, 'b, 'c>,
   renko?: plotRenkoOptions<'a, 'b, 'c>,
   roc?: plotRocOptions<'a, 'b, 'c>,
@@ -14170,7 +17649,7 @@ and navigatorSeriesDataLabelsOptions<'a, 'b, 'c> = {
 and navigatorSeriesOptions<'a, 'b, 'c> = {
   className?: string,
   color?: ColorType.t,
-  data?: array<JSON.t>,
+  data?: array<CommonTypes.numberOrValueOrStringOrNumberArray>,
   dataGrouping?: dataGroupingOptionsObject,
   dataLabels?: navigatorSeriesDataLabelsOptionsOrNavigatorSeriesDataLabelsOptionsArray<'a, 'b, 'c>,
   fillOpacity?: float,
@@ -14199,15 +17678,15 @@ and navigatorOptions<'a, 'b, 'c> = {
   xAxis?: navigatorXAxisOptionsOrNavigatorXAxisOptionsArray<'a, 'b, 'c>,
   yAxis?: navigatorYAxisOptionsOrNavigatorYAxisOptionsArray<'a, 'b, 'c>,
 }
-and navigationAnnotationsShapesOptions<'e, 'f> = {
+and navigationAnnotationsShapesOptions<'f, 't6> = {
   controlPoints?: annotationControlPointOptionsObjectOrAnnotationControlPointOptionsObjectArray,
   dashStyle?: dashStyleValue,
   fill?: ColorType.t,
   height?: float,
   markerEnd?: string,
   markerStart?: string,
-  point?: highchartsNavigationAnnotationsShapesOptionsPoint<'e>,
-  points?: array<highchartsNavigationAnnotationsShapesOptionsPoints<'f>>,
+  point?: highchartsNavigationAnnotationsShapesOptionsPoint<'f>,
+  points?: array<highchartsNavigationAnnotationsShapesOptionsPoints<'t6>>,
   r?: float,
   ry?: float,
   snap?: float,
@@ -14219,7 +17698,7 @@ and navigationAnnotationsShapesOptions<'e, 'f> = {
   xAxis?: float,
   yAxis?: float,
 }
-and navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'd> = {
+and navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'e> = {
   accessibility?: annotationLabelAccessibilityOptionsObject,
   align?: alignValue,
   allowOverlap?: bool,
@@ -14236,7 +17715,7 @@ and navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'd> = {
   includeInDataExport?: bool,
   overflow?: optionsOverflowValue,
   padding?: float,
-  point?: highchartsNavigationAnnotationsLabelsOptionsPoint<'d>,
+  point?: highchartsNavigationAnnotationsLabelsOptionsPoint<'e>,
   shadow?: boolOrShadowOptionsObject,
   shape?: string,
   style?: cssObjectHighcharts,
@@ -14246,7 +17725,7 @@ and navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'd> = {
   x?: float,
   y?: float,
 }
-and navigationAnnotationsOptions<'a, 'b, 'c, 'd, 'e, 'f> = {
+and navigationAnnotationsOptions<'a, 'b, 'c, 'e, 'f, 't6> = {
   animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | NavigationAnnotationsAnimationOptions` — match the real type by hand
   className?: string,
   controlPointOptions?: annotationControlPointOptionsObject,
@@ -14255,9 +17734,9 @@ and navigationAnnotationsOptions<'a, 'b, 'c, 'd, 'e, 'f> = {
   events?: annotationsEventsOptions,
   id?: CommonTypes.stringOrNumber,
   labelOptions?: annotationsLabelOptions<'a, 'b, 'c>,
-  labels?: array<navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'd>>,
+  labels?: array<navigationAnnotationsLabelsOptions<'a, 'b, 'c, 'e>>,
   shapeOptions?: annotationsShapeOptions,
-  shapes?: array<navigationAnnotationsShapesOptions<'e, 'f>>,
+  shapes?: array<navigationAnnotationsShapesOptions<'f, 't6>>,
   @as("type") type_?: string,
   typeOptions?: annotationsTypeOptions,
   types?: string, // ⚪ loose — was `NavigationAnnotationsTypesOptions`
@@ -14287,7 +17766,7 @@ and exportingOptions<'a, 'b, 'c> = {
   enabled?: bool,
   error?: (exportingOptions<'a, 'b, 'c>, JsError.t) => unit,
   fallbackToExportServer?: bool,
-  fetchOptions?: string, // ⚪ loose — was `object`
+  fetchOptions?: JSON.t,
   filename?: string,
   libURL?: string,
   local?: bool,
@@ -14301,7 +17780,7 @@ and exportingOptions<'a, 'b, 'c> = {
   sourceWidth?: float,
   tableCaption?: CommonTypes.boolOrString,
   @as("type") type_?: exportingMimeTypeValue,
-  url?: string, // ⚪ loose — was `object`
+  url?: JSON.t,
   useMultiLevelHeaders?: bool,
   useRowspanHeaders?: bool,
   width?: float,
@@ -14357,7 +17836,7 @@ and seriesZigzagOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotZigzagOnPointOptions`
+  onPoint?: ChartsSeriesZigzagOptionsOnPoint.t,
   opacity?: float,
   params?: plotZigzagParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14384,7 +17863,7 @@ and seriesZigzagOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -14477,7 +17956,7 @@ and seriesXrangeOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotXrangeOnPointOptions`
+  onPoint?: ChartsSeriesXrangeOptionsOnPoint.t,
   opacity?: float,
   partialFill?: plotXrangePartialFillOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14505,7 +17984,7 @@ and seriesXrangeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -14546,7 +18025,7 @@ and seriesWordcloudOptions<'b, 'a, 'c> = {
   maxFontSize?: float,
   minFontSize?: float,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotWordcloudOnPointOptions`
+  onPoint?: ChartsSeriesWordcloudOptionsOnPoint.t,
   opacity?: float,
   placementStrategy?: optionsPlacementStrategyValue,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14569,7 +18048,7 @@ and seriesWordcloudOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -14627,7 +18106,7 @@ and seriesWmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotWmaOnPointOptions`
+  onPoint?: ChartsSeriesWmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14654,7 +18133,7 @@ and seriesWmaOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -14718,7 +18197,7 @@ and seriesWindbarbOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotWindbarbOnPointOptions`
+  onPoint?: ChartsSeriesWindbarbOptionsOnPoint.t,
   onSeries?: string,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14754,7 +18233,7 @@ and seriesWindbarbOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -14813,7 +18292,7 @@ and seriesWilliamsrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotWilliamsrOnPointOptions`
+  onPoint?: ChartsSeriesWilliamsrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -14840,7 +18319,7 @@ and seriesWilliamsrOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -14899,7 +18378,7 @@ and seriesWaterfallOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotWaterfallOnPointOptions`
+  onPoint?: ChartsSeriesWaterfallOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -14933,7 +18412,7 @@ and seriesWaterfallOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -14991,7 +18470,7 @@ and seriesVwapOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVwapOnPointOptions`
+  onPoint?: ChartsSeriesVwapOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -15018,7 +18497,7 @@ and seriesVwapOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -15075,7 +18554,7 @@ and seriesVennOptions<'b, 'a, 'c> = {
   keys?: array<string>,
   legendSymbol?: optionsLegendSymbolValue,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVennOnPointOptions`
+  onPoint?: ChartsSeriesVennOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15096,7 +18575,7 @@ and seriesVennOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -15157,7 +18636,7 @@ and seriesVectorOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVectorOnPointOptions`
+  onPoint?: ChartsSeriesVectorOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15188,7 +18667,7 @@ and seriesVectorOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -15246,7 +18725,7 @@ and seriesVbpOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVbpOnPointOptions`
+  onPoint?: ChartsSeriesVbpOptionsOnPoint.t,
   opacity?: float,
   params?: plotVbpParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -15276,7 +18755,7 @@ and seriesVbpOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -15326,7 +18805,7 @@ and seriesVariwideOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVariwideOnPointOptions`
+  onPoint?: ChartsSeriesVariwideOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15359,7 +18838,7 @@ and seriesVariwideOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -15412,7 +18891,7 @@ and seriesVariablepieOptions<'b, 'a, 'c> = {
   minPointSize?: CommonTypes.stringOrNumber,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotVariablepieOnPointOptions`
+  onPoint?: ChartsSeriesVariablepieOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15439,7 +18918,7 @@ and seriesVariablepieOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -15493,7 +18972,7 @@ and seriesTrixOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTrixOnPointOptions`
+  onPoint?: ChartsSeriesTrixOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -15520,7 +18999,7 @@ and seriesTrixOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -15577,7 +19056,7 @@ and seriesTrendlineOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTrendlineOnPointOptions`
+  onPoint?: ChartsSeriesTrendlineOptionsOnPoint.t,
   opacity?: float,
   params?: plotTrendlineParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -15604,7 +19083,7 @@ and seriesTrendlineOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -15650,7 +19129,7 @@ and plotTreemapLevelsOptions<'a, 'b, 'c> = {
   borderDashStyle?: dashStyleValue,
   borderWidth?: float,
   color?: ColorType.t,
-  colorVariation?: plotTreegraphLevelsColorVariationOptions,
+  colorVariation?: plotSunburstLevelsColorVariationOptions,
   dataLabels?: plotTreemapLevelsDataLabelsOptionsOrPlotTreemapLevelsDataLabelsOptionsArray<
     'a,
     'b,
@@ -15751,7 +19230,7 @@ and seriesTreemapOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   nodeSizeBy?: optionsNodeSizeByValue,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTreemapOnPointOptions`
+  onPoint?: ChartsSeriesTreemapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15782,7 +19261,7 @@ and seriesTreemapOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -15793,7 +19272,7 @@ and plotTreegraphLevelsOptions<'a, 'b, 'c> = {
   borderDashStyle?: dashStyleValue,
   borderWidth?: float,
   color?: ColorType.t,
-  colorVariation?: plotTreegraphLevelsColorVariationOptions,
+  colorVariation?: plotSunburstLevelsColorVariationOptions,
   dataLabels?: seriesTreegraphDataLabelsOptionsObjectOrSeriesTreegraphDataLabelsOptionsObjectArray<
     'a,
     'b,
@@ -15802,43 +19281,6 @@ and plotTreegraphLevelsOptions<'a, 'b, 'c> = {
   layoutAlgorithm?: optionsLayoutAlgorithmValue,
   layoutStartingDirection?: optionsLayoutStartingDirectionValue,
   level?: int,
-}
-and seriesTreegraphDataLabelsOptionsObject<'a, 'b, 'c> = {
-  align?: alignValue,
-  alignTo?: string,
-  allowOverlap?: bool,
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotTreegraphDataLabelsAnimationOptions | PlotTreegraphLevelsDataL` — match the real type by hand
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  crop?: bool,
-  defer?: bool,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  headers?: bool,
-  inside?: bool,
-  labelrank?: float,
-  linkTextPath?: dataLabelsTextPathOptionsObject,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  pointFormat?: string,
-  position?: alignValue,
-  rotation?: float,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  style?: ChartsSeriesTreegraphDataLabelsOptionsObjectStyle.t,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: string,
-  x?: float,
-  y?: float,
 }
 and seriesTreegraphOptions<'b, 'a, 'c> = {
   allowDrillToNode?: string, // ⚪ loose — was `undefined`
@@ -15895,7 +19337,7 @@ and seriesTreegraphOptions<'b, 'a, 'c> = {
   nodeSizeBy?: optionsNodeSizeByValue,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTreegraphOnPointOptions`
+  onPoint?: ChartsSeriesTreegraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -15923,7 +19365,7 @@ and seriesTreegraphOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -16004,7 +19446,7 @@ and seriesTimelineOptions<'b, 'a, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTimelineOnPointOptions`
+  onPoint?: ChartsSeriesTimelineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -16024,7 +19466,7 @@ and seriesTimelineOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16071,7 +19513,7 @@ and seriesTilemapOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTilemapOnPointOptions`
+  onPoint?: ChartsSeriesTilemapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -16131,7 +19573,7 @@ and seriesTiledwebmapOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -16187,7 +19629,7 @@ and seriesTemaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotTemaOnPointOptions`
+  onPoint?: ChartsSeriesTemaOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16214,7 +19656,7 @@ and seriesTemaOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16273,7 +19715,7 @@ and seriesSupertrendOptions<'a, 'b, 'c> = {
   marker?: pointMarkerOptionsObject,
   name?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSupertrendOnPointOptions`
+  onPoint?: ChartsSeriesSupertrendOptionsOnPoint.t,
   opacity?: float,
   params?: plotSupertrendParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16300,51 +19742,26 @@ and seriesSupertrendOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
-and seriesSunburstDataLabelsOptionsObject<'a, 'b, 'c> = {
-  alignTo?: string,
-  allowOverlap?: bool,
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotSunburstDataLabelsAnimationOptions | PlotSunburstLevelsDataLab` — match the real type by hand
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
+and plotSunburstLevelsOptions<'a, 'b, 'c> = {
+  borderColor?: string,
+  borderDashStyle?: dashStyleValue,
   borderWidth?: float,
-  className?: string,
   color?: ColorType.t,
-  connectorColor?: ColorType.t,
-  connectorPadding?: float,
-  connectorShape?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  connectorWidth?: float,
-  crookDistance?: string,
-  crop?: bool,
-  defer?: bool,
-  distance?: CommonTypes.stringOrNumber,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  labelrank?: float,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  position?: alignValue,
-  rotation?: float,
-  rotationMode?: optionsRotationModeValue,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  softConnector?: bool,
-  style?: cssObjectHighcharts,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: verticalAlignValue,
-  x?: float,
-  y?: float,
+  colorByPoint?: bool,
+  colorVariation?: plotSunburstLevelsColorVariationOptions,
+  dataLabels?: seriesSunburstDataLabelsOptionsObjectOrSeriesSunburstDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
+  level?: int,
+  levelSize?: JSON.t,
 }
 and seriesSunburstOptions<'b, 'a, 'c> = {
   data?: array<'b>,
@@ -16385,10 +19802,10 @@ and seriesSunburstOptions<'b, 'a, 'c> = {
   legendSymbol?: optionsLegendSymbolValue,
   legendSymbolColor?: ColorType.t,
   levelIsConstant?: bool,
-  levels?: array<JSON.t>,
+  levels?: array<plotSunburstLevelsOptions<'a, 'b, 'c>>,
   levelSize?: plotSunburstLevelSizeOptions,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSunburstOnPointOptions`
+  onPoint?: ChartsSeriesSunburstOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -16413,7 +19830,7 @@ and seriesSunburstOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16476,7 +19893,7 @@ and seriesStreamgraphOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotStreamgraphOnPointOptions`
+  onPoint?: ChartsSeriesStreamgraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -16509,7 +19926,7 @@ and seriesStreamgraphOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -16568,7 +19985,7 @@ and seriesStochasticOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotStochasticOnPointOptions`
+  onPoint?: ChartsSeriesStochasticOptionsOnPoint.t,
   opacity?: float,
   params?: plotStochasticParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16596,7 +20013,7 @@ and seriesStochasticOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16655,7 +20072,7 @@ and seriesSplineOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSplineOnPointOptions`
+  onPoint?: ChartsSeriesSplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -16687,7 +20104,7 @@ and seriesSplineOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -16732,7 +20149,7 @@ and seriesSolidgaugeOptions<'b, 'a, 'c> = {
   lineWidth?: float,
   linkedTo?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSolidgaugeOnPointOptions`
+  onPoint?: ChartsSeriesSolidgaugeOptionsOnPoint.t,
   opacity?: float,
   overshoot?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16757,7 +20174,7 @@ and seriesSolidgaugeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16815,7 +20232,7 @@ and seriesSmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSmaOnPointOptions`
+  onPoint?: ChartsSeriesSmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16842,7 +20259,7 @@ and seriesSmaOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -16898,7 +20315,7 @@ and seriesSlowstochasticOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSlowstochasticOnPointOptions`
+  onPoint?: ChartsSeriesSlowstochasticOptionsOnPoint.t,
   opacity?: float,
   params?: plotSlowstochasticParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -16926,7 +20343,7 @@ and seriesSlowstochasticOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17004,7 +20421,7 @@ and seriesScatterOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotScatterOnPointOptions`
+  onPoint?: ChartsSeriesScatterOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17035,7 +20452,7 @@ and seriesScatterOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -17082,7 +20499,7 @@ and seriesScatter3dOptions<'b, 'a, 'c> = {
   marker?: pointMarkerOptionsObject,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotScatter3dOnPointOptions`
+  onPoint?: ChartsSeriesScatter3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17111,7 +20528,7 @@ and seriesScatter3dOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -17190,7 +20607,7 @@ and seriesSankeyOptions<'b, 'a, 'c> = {
   nodePadding?: float,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSankeyOnPointOptions`
+  onPoint?: ChartsSeriesSankeyOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17210,7 +20627,7 @@ and seriesSankeyOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -17268,7 +20685,7 @@ and seriesRsiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotRsiOnPointOptions`
+  onPoint?: ChartsSeriesRsiOptionsOnPoint.t,
   opacity?: float,
   params?: plotRsiParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -17295,7 +20712,7 @@ and seriesRsiOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17352,7 +20769,7 @@ and seriesRocOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotRocOnPointOptions`
+  onPoint?: ChartsSeriesRocOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -17379,7 +20796,7 @@ and seriesRocOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17432,7 +20849,7 @@ and seriesRenkoOptions<'b, 'a, 'c> = {
   navigatorOptions?: string, // ⚪ loose — was `PlotSeriesOptions | PlotRenkoNavigatorOptions`
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotRenkoOnPointOptions`
+  onPoint?: ChartsSeriesRenkoOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17460,7 +20877,7 @@ and seriesRenkoOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -17513,7 +20930,7 @@ and seriesPyramidOptions<'b, 'a, 'c> = {
   neckHeight?: CommonTypes.stringOrNumber,
   neckWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPyramidOnPointOptions`
+  onPoint?: ChartsSeriesPyramidOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17538,7 +20955,7 @@ and seriesPyramidOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -17593,7 +21010,7 @@ and seriesPyramid3dOptions<'b, 'a, 'c> = {
   neckWidth?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPyramid3dOnPointOptions`
+  onPoint?: ChartsSeriesPyramid3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17628,7 +21045,7 @@ and seriesPyramid3dOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -17686,7 +21103,7 @@ and seriesPsarOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPsarOnPointOptions`
+  onPoint?: ChartsSeriesPsarOptionsOnPoint.t,
   opacity?: float,
   params?: plotPsarParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -17713,7 +21130,7 @@ and seriesPsarOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17771,7 +21188,7 @@ and seriesPriceenvelopesOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPriceenvelopesOnPointOptions`
+  onPoint?: ChartsSeriesPriceenvelopesOptionsOnPoint.t,
   opacity?: float,
   params?: plotPriceenvelopesParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -17799,7 +21216,7 @@ and seriesPriceenvelopesOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17857,7 +21274,7 @@ and seriesPpoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPpoOnPointOptions`
+  onPoint?: ChartsSeriesPpoOptionsOnPoint.t,
   opacity?: float,
   params?: plotApoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -17884,7 +21301,7 @@ and seriesPpoOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -17942,7 +21359,7 @@ and seriesPolygonOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPolygonOnPointOptions`
+  onPoint?: ChartsSeriesPolygonOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -17972,7 +21389,7 @@ and seriesPolygonOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -18024,7 +21441,7 @@ and seriesPointandfigureOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPointandfigureOnPointOptions`
+  onPoint?: ChartsSeriesPointandfigureOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18057,7 +21474,7 @@ and seriesPointandfigureOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -18115,7 +21532,7 @@ and seriesPivotpointsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPivotpointsOnPointOptions`
+  onPoint?: ChartsSeriesPivotpointsOptionsOnPoint.t,
   opacity?: float,
   params?: plotPivotpointsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -18142,7 +21559,7 @@ and seriesPivotpointsOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -18193,7 +21610,7 @@ and seriesPieOptions<'b, 'a, 'c> = {
   linecap?: string,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPieOnPointOptions`
+  onPoint?: ChartsSeriesPieOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18218,7 +21635,7 @@ and seriesPieOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
 }
 and seriesPictorialOptions<'b, 'a, 'c> = {
@@ -18302,7 +21719,7 @@ and seriesPictorialOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -18361,7 +21778,7 @@ and seriesPcOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPcOnPointOptions`
+  onPoint?: ChartsSeriesPcOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -18389,7 +21806,7 @@ and seriesPcOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -18432,7 +21849,7 @@ and seriesParetoOptions<'b, 'a, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotParetoOnPointOptions`
+  onPoint?: ChartsSeriesParetoOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18452,7 +21869,7 @@ and seriesParetoOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -18479,7 +21896,11 @@ and seriesPackedbubbleOptions<'b, 'a, 'c> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string, // ⚪ loose — was `SeriesPackedBubbleDataLabelsOptionsObject | SeriesPackedBubbleDataLabelsOptionsObject[]`
+  dataLabels?: seriesPackedBubbleDataLabelsOptionsObjectOrSeriesPackedBubbleDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
   description?: string,
   displayNegative?: bool,
   draggable?: bool,
@@ -18502,7 +21923,7 @@ and seriesPackedbubbleOptions<'b, 'a, 'c> = {
   minSize?: CommonTypes.stringOrNumber,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotPackedbubbleOnPointOptions`
+  onPoint?: ChartsSeriesPackedbubbleOptionsOnPoint.t,
   opacity?: float,
   parentNode?: plotPackedbubbleParentNodeOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -18536,7 +21957,7 @@ and seriesPackedbubbleOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -18627,7 +22048,7 @@ and seriesOrganizationOptions<'b, 'a, 'c> = {
   nodePadding?: float,
   nodeWidth?: float,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotOrganizationOnPointOptions`
+  onPoint?: ChartsSeriesOrganizationOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18647,7 +22068,7 @@ and seriesOrganizationOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -18709,7 +22130,7 @@ and seriesOhlcOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotOhlcOnPointOptions`
+  onPoint?: ChartsSeriesOhlcOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18743,7 +22164,7 @@ and seriesOhlcOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -18801,7 +22222,7 @@ and seriesObvOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotObvOnPointOptions`
+  onPoint?: ChartsSeriesObvOptionsOnPoint.t,
   opacity?: float,
   params?: plotObvParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -18828,15 +22249,28 @@ and seriesObvOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
 }
+and seriesNetworkgraphNodesOptions<'a, 'b, 'c> = {
+  color?: string,
+  colorIndex?: float,
+  dataLabels?: seriesNetworkgraphDataLabelsOptionsObjectOrSeriesNetworkgraphDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
+  id?: string,
+  marker?: pointMarkerOptionsObject,
+  mass?: float,
+  name?: string,
+}
 and seriesNetworkgraphOptions<'b, 'a, 'c> = {
   data?: array<'b>,
-  nodes?: array<JSON.t>,
+  nodes?: array<seriesNetworkgraphNodesOptions<'a, 'b, 'c>>,
   stack?: string, // ⚪ loose — was `undefined`
   @as("type") type_: string,
   xAxis?: string, // ⚪ loose — was `undefined`
@@ -18851,7 +22285,11 @@ and seriesNetworkgraphOptions<'b, 'a, 'c> = {
   cursor?: string,
   custom?: Dict.t<JSON.t>,
   dashStyle?: dashStyleValue,
-  dataLabels?: string, // ⚪ loose — was `SeriesNetworkgraphDataLabelsOptionsObject | SeriesNetworkgraphDataLabelsOptionsObject[]`
+  dataLabels?: seriesNetworkgraphDataLabelsOptionsObjectOrSeriesNetworkgraphDataLabelsOptionsObjectArray<
+    'a,
+    'b,
+    'c,
+  >,
   description?: string,
   draggable?: bool,
   enableMouseTracking?: bool,
@@ -18870,7 +22308,7 @@ and seriesNetworkgraphOptions<'b, 'a, 'c> = {
   linkedTo?: string,
   marker?: pointMarkerOptionsObject,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotNetworkgraphOnPointOptions`
+  onPoint?: ChartsSeriesNetworkgraphOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -18892,7 +22330,7 @@ and seriesNetworkgraphOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -18947,7 +22385,7 @@ and seriesNatrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotNatrOnPointOptions`
+  onPoint?: ChartsSeriesNatrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -18974,7 +22412,7 @@ and seriesNatrOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -19031,7 +22469,7 @@ and seriesMomentumOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotMomentumOnPointOptions`
+  onPoint?: ChartsSeriesMomentumOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -19058,7 +22496,7 @@ and seriesMomentumOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -19115,7 +22553,7 @@ and seriesMfiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotMfiOnPointOptions`
+  onPoint?: ChartsSeriesMfiOptionsOnPoint.t,
   opacity?: float,
   params?: plotMfiParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -19142,7 +22580,7 @@ and seriesMfiOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -19233,7 +22671,7 @@ and seriesMappointOptions<'b, 'a, 'c> = {
   linecap?: string,
   marker?: pointMarkerOptionsObject,
   negativeColor?: ColorType.t,
-  onPoint?: string, // ⚪ loose — was `object | PlotMappointOnPointOptions`
+  onPoint?: ChartsSeriesMappointOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19252,7 +22690,7 @@ and seriesMappointOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19329,7 +22767,7 @@ and seriesMapOptions<'b, 'a, 'c> = {
   linecap?: string,
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
-  onPoint?: string, // ⚪ loose — was `object | PlotMapOnPointOptions`
+  onPoint?: ChartsSeriesMapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19348,7 +22786,7 @@ and seriesMapOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19393,7 +22831,7 @@ and seriesMaplineOptions<'b, 'a, 'c> = {
   lineWidth?: float,
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
-  onPoint?: string, // ⚪ loose — was `object | PlotMaplineOnPointOptions`
+  onPoint?: ChartsSeriesMaplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19412,7 +22850,7 @@ and seriesMaplineOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19492,7 +22930,7 @@ and seriesMapbubbleOptions<'b, 'a, 'c> = {
   marker?: pointMarkerOptionsObject,
   maxSize?: CommonTypes.stringOrNumber,
   minSize?: CommonTypes.stringOrNumber,
-  onPoint?: string, // ⚪ loose — was `object | PlotMapbubbleOnPointOptions`
+  onPoint?: ChartsSeriesMapbubbleOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19512,7 +22950,7 @@ and seriesMapbubbleOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19572,7 +23010,7 @@ and seriesMacdOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotMacdOnPointOptions`
+  onPoint?: ChartsSeriesMacdOptionsOnPoint.t,
   opacity?: float,
   params?: plotMacdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -19601,7 +23039,7 @@ and seriesMacdOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -19668,7 +23106,7 @@ and seriesLollipopOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLollipopOnPointOptions`
+  onPoint?: ChartsSeriesLollipopOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19700,7 +23138,7 @@ and seriesLollipopOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19762,7 +23200,7 @@ and seriesLineOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLineOnPointOptions`
+  onPoint?: ChartsSeriesLineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -19796,7 +23234,7 @@ and seriesLineOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -19854,7 +23292,7 @@ and seriesLinearregressionslopeOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLinearregressionslopeOnPointOptions`
+  onPoint?: ChartsSeriesLinearregressionslopeOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -19881,7 +23319,7 @@ and seriesLinearregressionslopeOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -19938,7 +23376,7 @@ and seriesLinearregressionOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLinearregressionOnPointOptions`
+  onPoint?: ChartsSeriesLinearregressionOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -19965,7 +23403,7 @@ and seriesLinearregressionOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20022,7 +23460,7 @@ and seriesLinearregressioninterceptOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLinearregressioninterceptOnPointOptions`
+  onPoint?: ChartsSeriesLinearregressioninterceptOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -20049,7 +23487,7 @@ and seriesLinearregressioninterceptOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20106,7 +23544,7 @@ and seriesLinearregressionangleOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotLinearregressionangleOnPointOptions`
+  onPoint?: ChartsSeriesLinearregressionangleOptionsOnPoint.t,
   opacity?: float,
   params?: plotLinearregressionangleParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -20133,7 +23571,7 @@ and seriesLinearregressionangleOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20190,7 +23628,7 @@ and seriesKlingerOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotKlingerOnPointOptions`
+  onPoint?: ChartsSeriesKlingerOptionsOnPoint.t,
   opacity?: float,
   params?: plotKlingerParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -20218,7 +23656,7 @@ and seriesKlingerOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20276,7 +23714,7 @@ and seriesKeltnerchannelsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotKeltnerchannelsOnPointOptions`
+  onPoint?: ChartsSeriesKeltnerchannelsOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -20304,7 +23742,7 @@ and seriesKeltnerchannelsOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20353,7 +23791,7 @@ and seriesItemOptions<'b, 'a, 'c> = {
   marker?: pointMarkerOptionsObject,
   minSize?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotItemOnPointOptions`
+  onPoint?: ChartsSeriesItemOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20376,7 +23814,7 @@ and seriesItemOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -20431,7 +23869,7 @@ and seriesIkhOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotIkhOnPointOptions`
+  onPoint?: ChartsSeriesIkhOptionsOnPoint.t,
   opacity?: float,
   params?: plotIkhParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -20462,7 +23900,7 @@ and seriesIkhOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -20524,7 +23962,7 @@ and seriesHollowcandlestickOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotHollowcandlestickOnPointOptions`
+  onPoint?: ChartsSeriesHollowcandlestickOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20560,7 +23998,7 @@ and seriesHollowcandlestickOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -20622,7 +24060,7 @@ and seriesHlcOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotHlcOnPointOptions`
+  onPoint?: ChartsSeriesHlcOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20655,7 +24093,7 @@ and seriesHlcOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -20715,7 +24153,7 @@ and seriesHistogramOptions<'a, 'b, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotHistogramOnPointOptions`
+  onPoint?: ChartsSeriesHistogramOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20745,7 +24183,7 @@ and seriesHistogramOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -20808,7 +24246,7 @@ and seriesHeikinashiOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotHeikinashiOnPointOptions`
+  onPoint?: ChartsSeriesHeikinashiOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20844,7 +24282,7 @@ and seriesHeikinashiOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -20894,7 +24332,7 @@ and seriesHeatmapOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   nullColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotHeatmapOnPointOptions`
+  onPoint?: ChartsSeriesHeatmapOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -20919,7 +24357,7 @@ and seriesHeatmapOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -21087,7 +24525,7 @@ and seriesGaugeOptions<'b, 'a, 'c> = {
   lineWidth?: float,
   linkedTo?: string,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotGaugeOnPointOptions`
+  onPoint?: ChartsSeriesGaugeOptionsOnPoint.t,
   opacity?: float,
   overshoot?: float,
   pivot?: plotGaugePivotOptions,
@@ -21111,7 +24549,7 @@ and seriesGaugeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -21187,7 +24625,7 @@ and seriesGanttOptions<'b, 'a, 'c> = {
   linkedTo?: string,
   maxPointWidth?: float,
   minPointLength?: float,
-  onPoint?: string, // ⚪ loose — was `object | PlotGanttOnPointOptions`
+  onPoint?: ChartsSeriesGanttOptionsOnPoint.t,
   opacity?: float,
   partialFill?: plotGanttPartialFillOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -21211,50 +24649,12 @@ and seriesGanttOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
   zIndex?: int,
-}
-and seriesPieDataLabelsOptionsObject<'a, 'b, 'c> = {
-  alignTo?: string,
-  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotFunnelDataLabelsAnimationOptions | PlotItemDataLabelsAnimation` — match the real type by hand
-  backgroundColor?: ColorType.t,
-  borderColor?: ColorType.t,
-  borderRadius?: float,
-  borderWidth?: float,
-  className?: string,
-  color?: ColorType.t,
-  connectorColor?: ColorType.t,
-  connectorPadding?: float,
-  connectorShape?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
-  connectorWidth?: float,
-  crookDistance?: string,
-  crop?: bool,
-  defer?: bool,
-  distance?: CommonTypes.stringOrNumber,
-  enabled?: bool,
-  filter?: dataLabelsFilterOptionsObject,
-  format?: string,
-  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  labelrank?: float,
-  nullFormat?: CommonTypes.boolOrString,
-  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
-  overflow?: dataLabelsOverflowValue,
-  padding?: float,
-  position?: alignValue,
-  rotation?: float,
-  shadow?: boolOrShadowOptionsObject,
-  shape?: string,
-  softConnector?: bool,
-  style?: cssObjectHighcharts,
-  textPath?: dataLabelsTextPathOptionsObject,
-  useHTML?: bool,
-  verticalAlign?: string,
-  x?: float,
-  y?: float,
 }
 and seriesFunnelOptions<'b, 'a, 'c> = {
   data?: array<'b>,
@@ -21302,7 +24702,7 @@ and seriesFunnelOptions<'b, 'a, 'c> = {
   neckHeight?: CommonTypes.stringOrNumber,
   neckWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotFunnelOnPointOptions`
+  onPoint?: ChartsSeriesFunnelOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -21327,7 +24727,7 @@ and seriesFunnelOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -21417,7 +24817,7 @@ and seriesFunnel3dOptions<'b, 'a, 'c> = {
   neckWidth?: CommonTypes.stringOrNumber,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotFunnel3dOnPointOptions`
+  onPoint?: ChartsSeriesFunnel3dOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -21452,7 +24852,7 @@ and seriesFunnel3dOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -21581,7 +24981,7 @@ and seriesFlagsOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
   onKey?: optionsOnKeyValue,
-  onPoint?: string, // ⚪ loose — was `object | PlotFlagsOnPointOptions`
+  onPoint?: ChartsSeriesFlagsOptionsOnPoint.t,
   onSeries?: string,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -21620,7 +25020,7 @@ and seriesFlagsOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -21681,7 +25081,7 @@ and seriesErrorbarOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotErrorbarOnPointOptions`
+  onPoint?: ChartsSeriesErrorbarOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -21720,7 +25120,7 @@ and seriesErrorbarOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -21777,7 +25177,7 @@ and seriesEmaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotEmaOnPointOptions`
+  onPoint?: ChartsSeriesEmaOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -21804,7 +25204,7 @@ and seriesEmaOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -21872,7 +25272,7 @@ and seriesDumbbellOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDumbbellOnPointOptions`
+  onPoint?: ChartsSeriesDumbbellOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -21904,7 +25304,7 @@ and seriesDumbbellOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -21961,7 +25361,7 @@ and seriesDpoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDpoOnPointOptions`
+  onPoint?: ChartsSeriesDpoOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -21988,7 +25388,7 @@ and seriesDpoOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22047,7 +25447,7 @@ and seriesDmiOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDmiOnPointOptions`
+  onPoint?: ChartsSeriesDmiOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonParamsOptions,
   plusDILine?: plotDmiPlusDILineOptions,
@@ -22075,7 +25475,7 @@ and seriesDmiOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22133,7 +25533,7 @@ and seriesDisparityindexOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDisparityindexOnPointOptions`
+  onPoint?: ChartsSeriesDisparityindexOptionsOnPoint.t,
   opacity?: float,
   params?: plotDisparityindexParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -22160,7 +25560,7 @@ and seriesDisparityindexOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22247,7 +25647,7 @@ and seriesDependencywheelOptions<'b, 'a, 'c> = {
   nodePadding?: float,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDependencywheelOnPointOptions`
+  onPoint?: ChartsSeriesDependencywheelOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22269,7 +25669,7 @@ and seriesDependencywheelOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -22326,7 +25726,7 @@ and seriesDemaOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotDemaOnPointOptions`
+  onPoint?: ChartsSeriesDemaOptionsOnPoint.t,
   opacity?: float,
   params?: plotDemaParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -22353,7 +25753,7 @@ and seriesDemaOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22407,7 +25807,7 @@ and seriesCylinderOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotCylinderOnPointOptions`
+  onPoint?: ChartsSeriesCylinderOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22440,7 +25840,7 @@ and seriesCylinderOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -22494,7 +25894,7 @@ and seriesContourOptions<'b, 'a, 'c> = {
   marker?: pointMarkerOptionsObject,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotContourOnPointOptions`
+  onPoint?: ChartsSeriesContourOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22518,7 +25918,7 @@ and seriesContourOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22589,7 +25989,7 @@ and seriesColumnrangeOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotColumnrangeOnPointOptions`
+  onPoint?: ChartsSeriesColumnrangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22620,7 +26020,7 @@ and seriesColumnrangeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22679,7 +26079,7 @@ and seriesColumnpyramidOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotColumnpyramidOnPointOptions`
+  onPoint?: ChartsSeriesColumnpyramidOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22709,7 +26109,7 @@ and seriesColumnpyramidOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -22778,7 +26178,7 @@ and seriesColumnOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotColumnOnPointOptions`
+  onPoint?: ChartsSeriesColumnOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -22812,7 +26212,7 @@ and seriesColumnOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -22870,7 +26270,7 @@ and seriesCmoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotCmoOnPointOptions`
+  onPoint?: ChartsSeriesCmoOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -22897,7 +26297,7 @@ and seriesCmoOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -22953,7 +26353,7 @@ and seriesCmfOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotCmfOnPointOptions`
+  onPoint?: ChartsSeriesCmfOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -22980,7 +26380,7 @@ and seriesCmfOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23038,7 +26438,7 @@ and seriesChaikinOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotChaikinOnPointOptions`
+  onPoint?: ChartsSeriesChaikinOptionsOnPoint.t,
   opacity?: float,
   params?: plotChaikinParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -23065,7 +26465,7 @@ and seriesChaikinOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23122,7 +26522,7 @@ and seriesCciOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotCciOnPointOptions`
+  onPoint?: ChartsSeriesCciOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -23149,7 +26549,7 @@ and seriesCciOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23211,7 +26611,7 @@ and seriesCandlestickOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotCandlestickOnPointOptions`
+  onPoint?: ChartsSeriesCandlestickOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23247,7 +26647,7 @@ and seriesCandlestickOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -23337,7 +26737,7 @@ and seriesBulletOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBulletOnPointOptions`
+  onPoint?: ChartsSeriesBulletOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23371,7 +26771,7 @@ and seriesBulletOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -23470,7 +26870,7 @@ and seriesBubbleOptions<'b, 'a, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBubbleOnPointOptions`
+  onPoint?: ChartsSeriesBubbleOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23506,7 +26906,7 @@ and seriesBubbleOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23566,7 +26966,7 @@ and seriesBoxplotOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBoxplotOnPointOptions`
+  onPoint?: ChartsSeriesBoxplotOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23605,7 +27005,7 @@ and seriesBoxplotOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23659,7 +27059,7 @@ and seriesBellcurveOptions<'a, 'b, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBellcurveOnPointOptions`
+  onPoint?: ChartsSeriesBellcurveOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23688,7 +27088,7 @@ and seriesBellcurveOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -23748,7 +27148,7 @@ and seriesBbOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBbOnPointOptions`
+  onPoint?: ChartsSeriesBbOptionsOnPoint.t,
   opacity?: float,
   params?: plotBbParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -23776,7 +27176,7 @@ and seriesBbOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -23869,7 +27269,7 @@ and seriesBarOptions<'b, 'a, 'c> = {
   minPointLength?: float,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotBarOnPointOptions`
+  onPoint?: ChartsSeriesBarOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -23902,7 +27302,7 @@ and seriesBarOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -23960,7 +27360,7 @@ and seriesAtrOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAtrOnPointOptions`
+  onPoint?: ChartsSeriesAtrOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -23987,7 +27387,7 @@ and seriesAtrOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24044,7 +27444,7 @@ and seriesAroonoscillatorOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAroonoscillatorOnPointOptions`
+  onPoint?: ChartsSeriesAroonoscillatorOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonoscillatorParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -24071,7 +27471,7 @@ and seriesAroonoscillatorOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24128,7 +27528,7 @@ and seriesAroonOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAroonOnPointOptions`
+  onPoint?: ChartsSeriesAroonOptionsOnPoint.t,
   opacity?: float,
   params?: plotAroonParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -24155,7 +27555,7 @@ and seriesAroonOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24224,7 +27624,7 @@ and seriesAreasplinerangeOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAreasplinerangeOnPointOptions`
+  onPoint?: ChartsSeriesAreasplinerangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24256,7 +27656,7 @@ and seriesAreasplinerangeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24319,7 +27719,7 @@ and seriesAreasplineOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAreasplineOnPointOptions`
+  onPoint?: ChartsSeriesAreasplineOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24352,7 +27752,7 @@ and seriesAreasplineOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -24462,7 +27862,7 @@ and seriesArearangeOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotArearangeOnPointOptions`
+  onPoint?: ChartsSeriesArearangeOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24495,7 +27895,7 @@ and seriesArearangeOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24556,7 +27956,7 @@ and plotSeriesOptions<'a, 'b, 'c> = {
   navigatorOptions?: plotSeriesOptions<'a, 'b, 'c>,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotSeriesOnPointOptions`
+  onPoint?: ChartsPlotSeriesOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24648,7 +28048,7 @@ and seriesAreaOptions<'b, 'a, 'c> = {
   negativeColor?: ColorType.t,
   negativeFillColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAreaOnPointOptions`
+  onPoint?: ChartsSeriesAreaOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24682,7 +28082,7 @@ and seriesAreaOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
@@ -24777,7 +28177,7 @@ and seriesArcdiagramOptions<'b, 'a, 'c> = {
   nodeDistance?: CommonTypes.stringOrNumber,
   nodeWidth?: CommonTypes.stringOrNumber,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotArcdiagramOnPointOptions`
+  onPoint?: ChartsSeriesArcdiagramOptionsOnPoint.t,
   opacity?: float,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
   pointDescriptionFormat?: JsFn.t,
@@ -24797,7 +28197,7 @@ and seriesArcdiagramOptions<'b, 'a, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   name?: string,
   zIndex?: int,
 }
@@ -24853,7 +28253,7 @@ and seriesApoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotApoOnPointOptions`
+  onPoint?: ChartsSeriesApoOptionsOnPoint.t,
   opacity?: float,
   params?: plotApoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -24880,7 +28280,7 @@ and seriesApoOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -24975,7 +28375,7 @@ and seriesAoOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAoOnPointOptions`
+  onPoint?: ChartsSeriesAoOptionsOnPoint.t,
   opacity?: float,
   params?: plotAoParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -25003,7 +28403,7 @@ and seriesAoOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -25094,7 +28494,7 @@ and seriesAdOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAdOnPointOptions`
+  onPoint?: ChartsSeriesAdOptionsOnPoint.t,
   opacity?: float,
   params?: plotAdParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -25121,7 +28521,7 @@ and seriesAdOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -25139,7 +28539,7 @@ and tooltipPositionerPointObject<'a, 'b, 'c> = {
   index: int,
   key: CommonTypes.stringOrNumber,
   name: string,
-  options: string, // ⚪ loose — was `PointOptionsObject`
+  options: pointOptionsObject<'a, 'b, 'c>,
   percentage?: float,
   points?: array<point<'a, 'b, 'c>>,
   selected: bool,
@@ -25156,7 +28556,9 @@ and tooltipPositionerPointObject<'a, 'b, 'c> = {
   haloPath: float => array<GetLinePathTarget.t>,
   onMouseOut: unit => unit,
   onMouseOver: option<pointerEventObject> => unit,
-  optionsToObject: string => Dict.t<JSON.t>, // ⚪ loose — was `PointOptionsType`
+  optionsToObject: stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'a, 'b, 'c> => Dict.t<
+    JSON.t,
+  >,
   pos: (bool, float) => array<float>,
   remove: (option<bool>, option<string>) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
   select: (option<bool>, option<bool>) => unit,
@@ -25164,8 +28566,11 @@ and tooltipPositionerPointObject<'a, 'b, 'c> = {
   setState: (option<chartsPointSetState>, option<bool>) => unit,
   setVisible: (option<bool>, option<bool>) => unit,
   tooltipFormatter: string => string,
-  update: (string, option<bool>, option<string>) => unit, // ⚪ loose — was `PointOptionsType`
-  x2?: float,
+  update: (
+    stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'a, 'b, 'c>,
+    option<bool>,
+    option<string>,
+  ) => unit, // ⚪ loose — was `boolean | Partial<AnimationOptionsObject>`
 }
 and tooltipOptions<'a, 'b, 'c> = {
   animation?: ChartsTooltipOptionsAnimation.t,
@@ -25268,19 +28673,6 @@ and seriesTooltipOptionsObject<'a, 'b, 'c> = {
   valuePrefix?: string,
   valueSuffix?: string,
   xDateFormat?: stringOrDateTimeFormatOptions2,
-}
-and pointEventsOptionsObject<'a, 'b, 'c> = {
-  click?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointClickEventObject`
-  drag?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDragEventObject`
-  dragStart?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDragStartEventObject`
-  drop?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDropEventObject`
-  legendItemClick?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointLegendItemClickEventObject`
-  mouseOut?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointerEvent`
-  mouseOver?: @this (point<'a, 'b, 'c>, LibTypes.dateTimeFormatOptionsLib) => unit,
-  remove?: @this (point<'a, 'b, 'c>, LibTypes.dateTimeFormatOptionsLib) => unit,
-  select?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointInteractionEventObject`
-  unselect?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointInteractionEventObject`
-  update?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointUpdateEventObject`
 }
 and plotSeriesPointOptions<'a, 'b, 'c> = {
   events?: pointEventsOptionsObject<'a, 'b, 'c>,
@@ -25429,7 +28821,7 @@ and seriesAbandsOptions<'a, 'b, 'c> = {
   name?: string,
   negativeColor?: ColorType.t,
   nullInteraction?: bool,
-  onPoint?: string, // ⚪ loose — was `object | PlotAbandsOnPointOptions`
+  onPoint?: ChartsSeriesAbandsOptionsOnPoint.t,
   opacity?: float,
   params?: plotAbandsParamsOptions,
   point?: plotSeriesPointOptions<'a, 'b, 'c>,
@@ -25457,7 +28849,7 @@ and seriesAbandsOptions<'a, 'b, 'c> = {
   id?: string,
   index?: int,
   legendIndex?: float,
-  mapData?: string, // ⚪ loose — was `object | GeoJSON | SeriesMapDataOptions[]`
+  mapData?: ChartsSeriesAbandsOptionsMapData.t,
   stack?: CommonTypes.stringOrNumber,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
@@ -25894,6 +29286,11 @@ and annotationsTypesVerticalLineOptions<'a, 'b, 'c> = {
   labelOptions?: annotationsTypesVerticalLineLabelOptions<'a, 'b, 'c>,
   typeOptions?: annotationsTypesVerticalLineTypeOptions<'a, 'b, 'c>,
 }
+and annotationsTypesTunnelOptions<'a, 'b, 'c> = {
+  controlPointOptions?: annotationControlPointOptionsObject,
+  labelOptions?: annotationsLabelOptions<'a, 'b, 'c>,
+  typeOptions?: annotationsTypesTunnelTypeOptions,
+}
 and annotationsTypesPitchforkOptions<'a, 'b, 'c> = {
   controlPointOptions?: annotationControlPointOptionsObject,
   labelOptions?: annotationsLabelOptions<'a, 'b, 'c>,
@@ -25903,6 +29300,73 @@ and annotationsTypesFibonacciTimeZonesOptions<'a, 'b, 'c> = {
   controlPointOptions?: annotationControlPointOptionsObject,
   labelOptions?: annotationsLabelOptions<'a, 'b, 'c>,
   typeOptions?: annotationsTypesFibonacciTimeZonesTypeOptions,
+}
+and annotationsTypesFibonacciTypeLabelsOptions<'a, 'b, 'c> = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: string, // ⚪ loose — was `AlignValue`
+  allowOverlap?: bool,
+  backgroundColor?: string, // ⚪ loose — was `ColorType`
+  borderColor?: string, // ⚪ loose — was `ColorType`
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, option<point<'a, 'b, 'c>>) => string,
+  includeInDataExport?: bool,
+  overflow?: string, // ⚪ loose — was `OptionsOverflowValue`
+  padding?: float,
+  shadow?: string, // ⚪ loose — was `boolean | ShadowOptionsObject`
+  shape?: string,
+  style?: cssObjectHighcharts,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: string, // ⚪ loose — was `VerticalAlignValue`
+  x?: float,
+  y?: float,
+}
+and annotationsTypesFibonacciTypeOptions<'a, 'b, 'c> = {
+  backgroundColors?: JSON.t,
+  height?: float,
+  labels?: array<annotationsTypesFibonacciTypeLabelsOptions<'a, 'b, 'c>>,
+  line?: annotationsTypesCrookedLineTypeLineOptions,
+  lineColor?: string,
+  lineColors?: JSON.t,
+  points?: array<annotationsTypesCrookedLineTypePointsOptions>,
+  reversed?: bool,
+  xAxis?: float,
+  yAxis?: float,
+}
+and annotationsTypesFibonacciLabelOptions<'a, 'b, 'c> = {
+  accessibility?: annotationLabelAccessibilityOptionsObject,
+  align?: string,
+  allowOverlap?: bool,
+  backgroundColor?: string,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  crop?: bool,
+  distance?: float,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, option<point<'a, 'b, 'c>>) => string,
+  includeInDataExport?: bool,
+  overflow?: optionsOverflowValue,
+  padding?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: ChartsAnnotationsTypesFibonacciLabelOptionsStyle.t,
+  text?: string,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+and annotationsTypesFibonacciOptions<'a, 'b, 'c> = {
+  controlPointOptions?: annotationControlPointOptionsObject,
+  labelOptions?: annotationsTypesFibonacciLabelOptions<'a, 'b, 'c>,
+  typeOptions?: annotationsTypesFibonacciTypeOptions<'a, 'b, 'c>,
 }
 and annotationsTypesElliottWaveLabelOptions<'a, 'b, 'c> = {
   accessibility?: annotationLabelAccessibilityOptionsObject,
@@ -25943,13 +29407,13 @@ and annotationsTypesCrookedLineOptions<'a, 'b, 'c> = {
 and annotationsTypesOptions<'a, 'b, 'c> = {
   crookedLine?: annotationsTypesCrookedLineOptions<'a, 'b, 'c>,
   elliottWave?: annotationsTypesElliottWaveOptions<'a, 'b, 'c>,
-  fibonacci?: string, // ⚪ loose — was `AnnotationsTypesFibonacciOptions`
+  fibonacci?: annotationsTypesFibonacciOptions<'a, 'b, 'c>,
   fibonacciTimeZones?: annotationsTypesFibonacciTimeZonesOptions<'a, 'b, 'c>,
   infinityLine?: annotationsTypesCrookedLineOptions<'a, 'b, 'c>,
   measure?: string, // ⚪ loose — was `AnnotationsTypesMeasureOptions`
   pitchfork?: annotationsTypesPitchforkOptions<'a, 'b, 'c>,
   timeCycles?: annotationsTypesTimeCyclesOptions,
-  tunnel?: string, // ⚪ loose — was `AnnotationsTypesTunnelOptions`
+  tunnel?: annotationsTypesTunnelOptions<'a, 'b, 'c>,
   verticalLine?: annotationsTypesVerticalLineOptions<'a, 'b, 'c>,
 }
 and annotationsShapesOptions<'b, 'c> = {
@@ -26191,6 +29655,273 @@ and legend<'a, 'b, 'c> = {
   setText: chartsLegendAllItems_t => unit,
   update: (legendOptions<'a, 'b, 'c>, option<bool>) => unit,
 }
+and pointEventsOptionsObject<'a, 'b, 'c> = {
+  click?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointClickEventObject`
+  drag?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDragEventObject`
+  dragStart?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDragStartEventObject`
+  drop?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointDropEventObject`
+  legendItemClick?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointLegendItemClickEventObject`
+  mouseOut?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointerEvent`
+  mouseOver?: @this (point<'a, 'b, 'c>, LibTypes.dateTimeFormatOptionsLib) => unit,
+  remove?: @this (point<'a, 'b, 'c>, LibTypes.dateTimeFormatOptionsLib) => unit,
+  select?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointInteractionEventObject`
+  unselect?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointInteractionEventObject`
+  update?: @this (point<'a, 'b, 'c>, string) => unit, // ⚪ loose — was `PointUpdateEventObject`
+}
+and seriesTreegraphDataLabelsOptionsObject<'a, 'b, 'c> = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotTreegraphDataLabelsAnimationOptions | PlotTreegraphLevelsDataL` — match the real type by hand
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  headers?: bool,
+  inside?: bool,
+  labelrank?: float,
+  linkTextPath?: dataLabelsTextPathOptionsObject,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  pointFormat?: string,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: ChartsSeriesTreegraphDataLabelsOptionsObjectStyle.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+and seriesSunburstDataLabelsOptionsObject<'a, 'b, 'c> = {
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotSunburstDataLabelsAnimationOptions | PlotSunburstLevelsDataLab` — match the real type by hand
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  connectorPadding?: float,
+  connectorShape?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  connectorWidth?: float,
+  crookDistance?: string,
+  crop?: bool,
+  defer?: bool,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  rotationMode?: optionsRotationModeValue,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  softConnector?: bool,
+  style?: cssObjectHighcharts,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+and seriesPackedBubbleDataLabelsOptionsObject<'a, 'b, 'c> = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotPackedbubbleDataLabelsAnimationOptions` — match the real type by hand
+  attributes?: svgAttributes,
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  parentNodeFormat?: string,
+  parentNodeFormatter?: JSON.t,
+  parentNodeTextPath?: legendAccessibilityKeyboardNavigationOptions,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: ChartsSeriesPackedBubbleDataLabelsOptionsObjectStyle.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+and seriesNetworkgraphDataLabelsOptionsObject<'a, 'b, 'c> = {
+  align?: alignValue,
+  alignTo?: string,
+  allowOverlap?: bool,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotNetworkgraphDataLabelsAnimationOptions` — match the real type by hand
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  crop?: bool,
+  defer?: bool,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  inside?: bool,
+  labelrank?: float,
+  linkFormat?: string,
+  linkFormatter?: JSON.t,
+  linkTextPath?: dataLabelsTextPathOptionsObject,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  style?: ChartsSeriesNetworkgraphDataLabelsOptionsObjectStyle.t,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: verticalAlignValue,
+  x?: float,
+  y?: float,
+}
+and seriesPieDataLabelsOptionsObject<'a, 'b, 'c> = {
+  alignTo?: string,
+  animation?: string, // ⚠️ REVIEW — was `boolean | Partial<AnimationOptionsObject> | PlotFunnelDataLabelsAnimationOptions | PlotItemDataLabelsAnimation` — match the real type by hand
+  backgroundColor?: ColorType.t,
+  borderColor?: ColorType.t,
+  borderRadius?: float,
+  borderWidth?: float,
+  className?: string,
+  color?: ColorType.t,
+  connectorColor?: ColorType.t,
+  connectorPadding?: float,
+  connectorShape?: string, // ⚠️ REVIEW — was `string | Function` — match the real type by hand
+  connectorWidth?: float,
+  crookDistance?: string,
+  crop?: bool,
+  defer?: bool,
+  distance?: CommonTypes.stringOrNumber,
+  enabled?: bool,
+  filter?: dataLabelsFilterOptionsObject,
+  format?: string,
+  formatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  labelrank?: float,
+  nullFormat?: CommonTypes.boolOrString,
+  nullFormatter?: @this (point<'a, 'b, 'c>, dataLabelsOptions) => CommonTypes.stringOrNumber,
+  overflow?: dataLabelsOverflowValue,
+  padding?: float,
+  position?: alignValue,
+  rotation?: float,
+  shadow?: boolOrShadowOptionsObject,
+  shape?: string,
+  softConnector?: bool,
+  style?: cssObjectHighcharts,
+  textPath?: dataLabelsTextPathOptionsObject,
+  useHTML?: bool,
+  verticalAlign?: string,
+  x?: float,
+  y?: float,
+}
+and pointOptionsObject<'a, 'b, 'c> = {
+  accessibility?: pointAccessibilityOptionsObject,
+  borderColor?: ColorType.t,
+  borderWidth?: float,
+  boxDashStyle?: dashStyleValue,
+  className?: string,
+  close?: float,
+  collapseButton?: JSON.t,
+  collapsed?: bool,
+  color?: ColorType.t,
+  colorIndex?: float,
+  colorValue?: float,
+  connectorColor?: string,
+  connectorWidth?: float,
+  custom?: Dict.t<JSON.t>,
+  dashStyle?: dashStyleValue,
+  dataLabels?: chartsPointOptionsObjectDataLabels_t,
+  description?: string,
+  direction?: float,
+  dragDrop?: seriesLineDataDragDropOptions,
+  drilldown?: string,
+  events?: pointEventsOptionsObject<'a, 'b, 'c>,
+  fillColor?: ColorType.t,
+  from?: string,
+  gradientForSides?: bool,
+  high?: float,
+  id?: string,
+  innerRadius?: string,
+  isIntermediateSum?: bool,
+  isSum?: bool,
+  label?: string,
+  labelrank?: float,
+  legendIndex?: float,
+  length?: float,
+  low?: float,
+  lowColor?: ColorType.t,
+  marker?: pointMarkerOptionsObject,
+  median?: float,
+  medianDashStyle?: dashStyleValue,
+  name?: string,
+  @as("open") open_?: float,
+  parent?: string,
+  pointPadding?: float,
+  pointWidth?: float,
+  q1?: float,
+  q3?: float,
+  radius?: string,
+  selected?: bool,
+  sets?: array<string>,
+  sliced?: bool,
+  states?: seriesStatesOptionsObject,
+  stemDashStyle?: dashStyleValue,
+  target?: float,
+  targetOptions?: seriesBulletDataTargetOptions,
+  text?: string,
+  title?: string,
+  @as("to") to_?: string,
+  value?: float,
+  weight?: float,
+  whiskerDashStyle?: dashStyleValue,
+  x?: CommonTypes.stringOrNumber,
+  y?: float,
+  z?: float,
+}
 and point<'a, 'b, 'c> = {
   category: CommonTypes.stringOrNumber,
   color?: string, // ⚪ loose — was `ColorType`
@@ -26200,7 +29931,7 @@ and point<'a, 'b, 'c> = {
   index: int,
   key: CommonTypes.stringOrNumber,
   name: string,
-  options: string, // ⚪ loose — was `PointOptionsObject`
+  options: pointOptionsObject<'a, 'b, 'c>,
   percentage?: float,
   plotX?: float,
   plotY?: float,
@@ -26228,7 +29959,6 @@ and point<'a, 'b, 'c> = {
   setVisible: (option<bool>, option<bool>) => unit,
   tooltipFormatter: string => string,
   update: (string, option<bool>, option<string>) => unit, // ⚪ loose — was `PointOptionsType`
-  x2?: float,
 }
 and series<'a, 'b, 'c> = {
   area?: string, // ⚪ loose — was `SVGElement`
@@ -26866,6 +30596,9 @@ and yAxisOptionsOrYAxisOptionsArray<'a, 'b, 'c> =
 and xAxisOptionsOrXAxisOptionsArray<'a, 'b, 'c> =
   XAxisOptions(xAxisOptions<'a, 'b, 'c>) | XAxisOptionsArr(array<xAxisOptions<'a, 'b, 'c>>)
 @unboxed
+and numberOrPlotMappointOptions<'a, 'b, 'c> =
+  Num(float) | PlotMappointOptions(plotMappointOptions<'a, 'b, 'c>)
+@unboxed
 and navigatorYAxisOptionsOrNavigatorYAxisOptionsArray<'a, 'b, 'c> =
   | NavigatorYAxisOptions(navigatorYAxisOptions<'a, 'b, 'c>)
   | NavigatorYAxisOptionsArr(array<navigatorYAxisOptions<'a, 'b, 'c>>)
@@ -26878,19 +30611,19 @@ and navigatorSeriesDataLabelsOptionsOrNavigatorSeriesDataLabelsOptionsArray<'a, 
   | NavigatorSeriesDataLabelsOptions(navigatorSeriesDataLabelsOptions<'a, 'b, 'c>)
   | NavigatorSeriesDataLabelsOptionsArr(array<navigatorSeriesDataLabelsOptions<'a, 'b, 'c>>)
 @unboxed
-and highchartsNavigationAnnotationsShapesOptionsPoints<'f> =
+and highchartsNavigationAnnotationsShapesOptionsPoints<'t6> =
+  | Str(string)
+  | Fn('t6 => pointTarget_t)
+  | AnnotationMockPointOptionsObject(annotationMockPointOptionsObject)
+@unboxed
+and highchartsNavigationAnnotationsShapesOptionsPoint<'f> =
   | Str(string)
   | Fn('f => pointTarget_t)
   | AnnotationMockPointOptionsObject(annotationMockPointOptionsObject)
 @unboxed
-and highchartsNavigationAnnotationsShapesOptionsPoint<'e> =
+and highchartsNavigationAnnotationsLabelsOptionsPoint<'e> =
   | Str(string)
   | Fn('e => pointTarget_t)
-  | AnnotationMockPointOptionsObject(annotationMockPointOptionsObject)
-@unboxed
-and highchartsNavigationAnnotationsLabelsOptionsPoint<'d> =
-  | Str(string)
-  | Fn('d => pointTarget_t)
   | AnnotationMockPointOptionsObject(annotationMockPointOptionsObject)
 @unboxed
 and plotXrangeDataLabelsOptionsOrPlotXrangeDataLabelsOptionsArray<'a, 'b, 'c> =
@@ -26925,6 +30658,16 @@ and seriesSunburstDataLabelsOptionsObjectOrSeriesSunburstDataLabelsOptionsObject
       array<seriesSunburstDataLabelsOptionsObject<'a, 'b, 'c>>,
     )
 @unboxed
+and seriesPackedBubbleDataLabelsOptionsObjectOrSeriesPackedBubbleDataLabelsOptionsObjectArray<
+  'a,
+  'b,
+  'c,
+> =
+  | SeriesPackedBubbleDataLabelsOptionsObject(seriesPackedBubbleDataLabelsOptionsObject<'a, 'b, 'c>)
+  | SeriesPackedBubbleDataLabelsOptionsObjectArr(
+      array<seriesPackedBubbleDataLabelsOptionsObject<'a, 'b, 'c>>,
+    )
+@unboxed
 and seriesOrganizationDataLabelsOptionsObjectOrSeriesOrganizationDataLabelsOptionsObjectArray<
   'a,
   'b,
@@ -26933,6 +30676,16 @@ and seriesOrganizationDataLabelsOptionsObjectOrSeriesOrganizationDataLabelsOptio
   | SeriesOrganizationDataLabelsOptionsObject(seriesOrganizationDataLabelsOptionsObject<'a, 'b, 'c>)
   | SeriesOrganizationDataLabelsOptionsObjectArr(
       array<seriesOrganizationDataLabelsOptionsObject<'a, 'b, 'c>>,
+    )
+@unboxed
+and seriesNetworkgraphDataLabelsOptionsObjectOrSeriesNetworkgraphDataLabelsOptionsObjectArray<
+  'a,
+  'b,
+  'c,
+> =
+  | SeriesNetworkgraphDataLabelsOptionsObject(seriesNetworkgraphDataLabelsOptionsObject<'a, 'b, 'c>)
+  | SeriesNetworkgraphDataLabelsOptionsObjectArr(
+      array<seriesNetworkgraphDataLabelsOptionsObject<'a, 'b, 'c>>,
     )
 @unboxed
 and plotMappointDataLabelsOptionsOrPlotMappointDataLabelsOptionsArray<'a, 'b, 'c> =
@@ -27012,6 +30765,12 @@ and plotAdDataLabelsOptionsOrPlotAdDataLabelsOptionsArray<'a, 'b, 'c> =
   | PlotAdDataLabelsOptionsArr(array<plotAdDataLabelsOptions<'a, 'b, 'c>>)
 @unboxed
 and pointOrPointArray<'a, 'b, 'c> = Point(point<'a, 'b, 'c>) | PointArr(array<point<'a, 'b, 'c>>)
+@unboxed
+and stringOrNumberOrStringOrNumberArrayOrPointOptionsObject<'a, 'b, 'c> =
+  | Str(string)
+  | Num(float)
+  | Arr(array<CommonTypes.stringOrNumber>)
+  | PointOptionsObject(pointOptionsObject<'a, 'b, 'c>)
 @unboxed
 and plotAbandsDataLabelsOptionsOrPlotAbandsDataLabelsOptionsArray<'a, 'b, 'c> =
   | PlotAbandsDataLabelsOptions(plotAbandsDataLabelsOptions<'a, 'b, 'c>)
@@ -27879,17 +31638,17 @@ module ChartsNavigationOptionsAnnotationsOptions = {
     'a,
     'b,
     'c,
-    'd,
     'e,
     'f,
+    't6,
   > => t = "%identity"
   external asNavigationAnnotationsOptions: t => navigationAnnotationsOptions<
     'a,
     'b,
     'c,
-    'd,
     'e,
     'f,
+    't6,
   > = "%identity"
 }
 module ChartsSeriesSankeyNodesOptionsObjectDataLabels = {
@@ -29257,6 +33016,81 @@ module AxisPlotLinesOptions = {
   external fromZAxisPlotLinesOptions: xAxisPlotLinesOptions<'a, 'b, 'c> => t = "%identity"
   external asZAxisPlotLinesOptions: t => xAxisPlotLinesOptions<'a, 'b, 'c> = "%identity"
 }
+module ChartsPointOptionsObjectDataLabels = {
+  type t = chartsPointOptionsObjectDataLabels_t
+  external fromSeriesPieDataLabelsOptionsObject: seriesPieDataLabelsOptionsObject<'a, 'b, 'c> => t =
+    "%identity"
+  external asSeriesPieDataLabelsOptionsObject: t => seriesPieDataLabelsOptionsObject<'a, 'b, 'c> =
+    "%identity"
+  external fromSeriesNetworkgraphDataLabelsOptionsObject: seriesNetworkgraphDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > => t = "%identity"
+  external asSeriesNetworkgraphDataLabelsOptionsObject: t => seriesNetworkgraphDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > = "%identity"
+  external fromSeriesNetworkgraphDataLabelsOptionsObjects: array<
+    seriesNetworkgraphDataLabelsOptionsObject<'a, 'b, 'c>,
+  > => t = "%identity"
+  external asSeriesNetworkgraphDataLabelsOptionsObjects: t => array<
+    seriesNetworkgraphDataLabelsOptionsObject<'a, 'b, 'c>,
+  > = "%identity"
+  external fromSeriesPackedBubbleDataLabelsOptionsObject: seriesPackedBubbleDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > => t = "%identity"
+  external asSeriesPackedBubbleDataLabelsOptionsObject: t => seriesPackedBubbleDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > = "%identity"
+  external fromSeriesPackedBubbleDataLabelsOptionsObjects: array<
+    seriesPackedBubbleDataLabelsOptionsObject<'a, 'b, 'c>,
+  > => t = "%identity"
+  external asSeriesPackedBubbleDataLabelsOptionsObjects: t => array<
+    seriesPackedBubbleDataLabelsOptionsObject<'a, 'b, 'c>,
+  > = "%identity"
+  external fromSeriesSunburstDataLabelsOptionsObject: seriesSunburstDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > => t = "%identity"
+  external asSeriesSunburstDataLabelsOptionsObject: t => seriesSunburstDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > = "%identity"
+  external fromSeriesSunburstDataLabelsOptionsObjects: array<
+    seriesSunburstDataLabelsOptionsObject<'a, 'b, 'c>,
+  > => t = "%identity"
+  external asSeriesSunburstDataLabelsOptionsObjects: t => array<
+    seriesSunburstDataLabelsOptionsObject<'a, 'b, 'c>,
+  > = "%identity"
+  external fromSeriesTreegraphDataLabelsOptionsObject: seriesTreegraphDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > => t = "%identity"
+  external asSeriesTreegraphDataLabelsOptionsObject: t => seriesTreegraphDataLabelsOptionsObject<
+    'a,
+    'b,
+    'c,
+  > = "%identity"
+  external fromSeriesTreegraphDataLabelsOptionsObjects: array<
+    seriesTreegraphDataLabelsOptionsObject<'a, 'b, 'c>,
+  > => t = "%identity"
+  external asSeriesTreegraphDataLabelsOptionsObjects: t => array<
+    seriesTreegraphDataLabelsOptionsObject<'a, 'b, 'c>,
+  > = "%identity"
+  external fromDataLabelsOptions: dataLabelsOptions => t = "%identity"
+  external asDataLabelsOptions: t => dataLabelsOptions = "%identity"
+  external fromDataLabelsOptionss: array<dataLabelsOptions> => t = "%identity"
+  external asDataLabelsOptionss: t => array<dataLabelsOptions> = "%identity"
+}
 module ChartsCurrentDateIndicatorOptionsLabel = {
   type t = chartsCurrentDateIndicatorOptionsLabel_t
   external fromNavigatorXAxisCurrentDateIndicatorLabelOptions: navigatorXAxisCurrentDateIndicatorLabelOptions<
@@ -29410,17 +33244,37 @@ type exportingMenuObject<'a, 'b, 'c> = {
   text?: string,
   textKey?: string,
 }
-type mapViewInsetsOptions = {
-  borderColor?: ColorType.t,
-  borderPath?: string, // ⚪ loose — was `object`
-  borderWidth?: float,
-  field?: string, // ⚪ loose — was `object`
-  geoBounds?: string, // ⚪ loose — was `object`
+module ChartsSeriesMapDataGeometryOptionsCoordinates = {
+  type t
+  external fromArray: array<float> => t = "%identity"
+  external fromLonLatArrays: array<array<float>> => t = "%identity"
+  external asLonLatArrays: t => array<array<float>> = "%identity"
+}
+type seriesMapDataGeometryOptions = {
+  coordinates?: array<ChartsSeriesMapDataGeometryOptionsCoordinates.t>,
+  @as("type") type_?: mapGeometryTypeValue,
+}
+module ChartsSeriesMapDataOptionsGeometry = {
+  type t
+  external fromJSON: JSON.t => t = "%identity"
+  external asJSON: t => JSON.t = "%identity"
+  external fromSeriesMapDataGeometryOptions: seriesMapDataGeometryOptions => t = "%identity"
+  external asSeriesMapDataGeometryOptions: t => seriesMapDataGeometryOptions = "%identity"
+}
+type seriesMapDataOptions<'a, 'b, 'c> = {
+  color?: ColorType.t,
+  dataLabels?: dataLabelsOptions,
+  drilldown?: string,
+  events?: pointEventsOptionsObject<'a, 'b, 'c>,
+  geometry?: ChartsSeriesMapDataOptionsGeometry.t,
   id?: string,
-  padding?: CommonTypes.stringOrNumberOrStringOrNumberArray,
-  projection?: string, // ⚪ loose — was `object | MapViewInsetsProjectionOptions`
-  relativeTo?: mapViewInsetOptionsRelativeToValue,
-  units?: optionsUnitsValue,
+  labelrank?: float,
+  middleX?: float,
+  middleY?: float,
+  name?: string,
+  path?: string,
+  states?: seriesStatesOptionsObject,
+  value?: float,
 }
 type blendChartProps<'a, 'b, 'c> = {
   allowChartUpdate?: bool,

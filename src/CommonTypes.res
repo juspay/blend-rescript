@@ -101,3 +101,6 @@ type truncatedTextWithTooltipV2Props = {
 }
 @unboxed
 type stringOrNumberOrStringOrNumberArray = Str(string) | Num(float) | Arr(array<stringOrNumber>)
+@unboxed
+type numberOrValueOrStringOrNumberArray =
+  Num(float) | Obj(Dict.t<JSON.t>) | Arr(array<stringOrNumber>)
