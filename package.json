@@ -9,7 +9,10 @@
     "format": "rescript format",
     "format:check": "rescript format -c",
     "generate": "node scripts/generate.mjs",
-    "generate:raw": "rescript-bindgen --pkg @juspay/blend-design-system --node-modules ./node_modules --no-install --out src --project . --webapi --report --json-summary src/_bindgen-summary.json --clean --yes"
+    "generate:raw": "rescript-bindgen --pkg @juspay/blend-design-system --node-modules ./node_modules --no-install --out src --project . --webapi --report --json-summary src/_bindgen-summary.json --clean --yes",
+    "figma:generate": "node scripts/generate-figma-code-connect.mjs",
+    "figma:scaffold": "node scripts/scaffold-figma-component-maps.mjs",
+    "figma:check-drift": "node scripts/check-figma-map-drift.mjs"
   },
   "files": [
     "src/**/*.res",
