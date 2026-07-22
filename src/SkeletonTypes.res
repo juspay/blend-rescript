@@ -14,11 +14,11 @@ type skeletonAs =
   | @as("header") Header
   | @as("hr") Hr
   | @as("section") Section
-type skeletonShapeV61p6w =
+type skeletonShapeV27sir =
   | @as("circle") Circle
   | @as("rectangle") Rectangle
   | @as("rounded") Rounded
-type skeletonShapeV1su2h =
+type skeletonShapeUiawf =
   | @as("square") Square
   | @as("circle") Circle
 type skeletonSkeletonTokensTypeAnimationConfig = {
@@ -70,6 +70,11 @@ type skeletonTokensType = {
 type responsiveSkeletonTokens = {
   sm: skeletonTokensType,
   lg: skeletonTokensType,
+}
+type baseSkeletonProps = {
+  variant?: skeletonVariant,
+  loading?: bool,
+  @as("data-testid") dataTestid?: string,
 }
 type useSkeletonBaseResult = {
   shouldRender: bool,

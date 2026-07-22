@@ -1,10 +1,10 @@
 # Binding report — `@juspay/blend-design-system@0.0.37-beta.8`
 
-**211** components · ✅ **211** usable · 🔍 **0** need review · 🛑 **0** broken
+**222** components · ✅ **215** usable · 🔍 **7** need review · 🛑 **0** broken
 
-**236** function binding(s) → `BlendDesignSystemBindings.res`.
+**249** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**3043** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3303** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -123,6 +123,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getStatusPositionStyles`
 - `createAvatarKeyboardHandler`
 - `isInteractive`
+- `DEFAULT_AVATAR_ALT`
+- `DEFAULT_FALLBACK_COLOR`
+- `MAX_INITIALS_LENGTH`
 - `DEFAULT_POSITION`
 - `getTooltipV2Tokens`
 - `getProgressBarV2Tokens`
@@ -136,14 +139,17 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getCircularDimensions`
 - `parseCircularDashToken`
 - `calculateCircularProgressStroke`
+- `STATCARD_FALLBACK_DISPLAY`
 - `renderVariantFallbackValue`
 - `buildStatCardV2ChartOptions`
 - `getStatCardV2Tokens`
 - `buildStatCardV2AriaLabel`
+- `ACCORDION_TRANSITION`
 - `getAccordionV2Tokens`
 - `getTextInputV2Tokens`
 - `toEmbeddedSingleSelectV2Props`
 - `FOCUS_RING_STYLES`
+- `TRANSITION`
 - `getInputState`
 - `getVerticalInputPadding`
 - `getTextAreaV2Tokens`
@@ -181,6 +187,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getStepState`
 - `getTimelineTokens`
 - `getTopbarV2Tokens`
+- `SELECT_V2_MENU_Z_INDEX`
 - `useSelectV2MenuBehavior`
 - `getMultiValueInputV2Tokens`
 - `getNumberInputV2Tokens`
@@ -200,6 +207,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getUpdateEditorOptions`
 - `getDiffEditorOptions`
 - `getInitialEditorOptions`
+- `EDITOR_FOCUS_DELAY_MS`
+- `COPY_FEEDBACK_RESET_MS`
+- `MIN_SCROLLBAR_SIZE`
 - `copyToClipboardWithTemporaryFeedback`
 - `shouldShowLineNumbers`
 - `isDiffEditorMode`
@@ -246,6 +256,9 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getVirtualRowEstimate`
 - `getItemOrdinalIndex`
 - `defaultSingleSelectV2Skeleton`
+- `DROPDOWN_DATA_ATTR`
+- `MENU_SCROLL_SELECTORS`
+- `DEFAULT_END_REACHED_THRESHOLD`
 - `generateAccessibilityIds`
 - `extractSingleSelectV2AriaProps`
 - `mergeSingleSelectV2AriaDescribedBy`
@@ -271,7 +284,6 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - AvatarGroup
 - AvatarV2
 - Badge
-- BlendChart
 - BlendChartContainer
 - BlendChartHeader
 - Breadcrumb
@@ -293,9 +305,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeaderV2
 - ChartLegends
 - Charts
-- ChartV2
 - ChartV2Fullscreen
-- ChartV2Legend
 - ChartV2NoData
 - ChartV2Skeleton
 - ChatInput
@@ -308,7 +318,6 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - CodeEditorV2
 - CodeEditorV2Header
 - CoreChart
-- DataTable
 - DateRangePicker
 - Directory
 - Drawer
@@ -375,7 +384,6 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - NumberInputV2
 - OTPInput
 - OTPInputV2
-- PivotTableModal
 - Popover
 - PopoverV2
 - ProgressBar
@@ -409,14 +417,19 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SingleSelectV2VirtualList
 - Skeleton
 - SkeletonAvatar
+- SkeletonAvatar2
 - SkeletonBase
+- SkeletonBase2
 - SkeletonCard
+- SkeletonCard2
+- SkeletonCircle
+- SkeletonRectangle
+- SkeletonRounded
 - Slider
 - Snackbar
 - SnackbarV2
 - SplitTag
 - StatCard
-- StatCardV2
 - StatCardV2Change
 - StatCardV2NoData
 - StatCardV2Skeleton
@@ -456,13 +469,17 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TextAreaV2
 - TextInput
 - TextInputV2
-- ThemeProvider
 - Timeline
 - TimelineHeader
+- TimelineHeader2
 - TimelineLabel
+- TimelineLabel2
 - TimelineNode
+- TimelineNode2
 - TimelineShowMore
+- TimelineShowMore2
 - TimelineSubstep
+- TimelineSubstep2
 - Tooltip
 - TooltipV2
 - TopbarV2
@@ -483,7 +500,54 @@ These resolved to a real but complex type and were widened to `string` (they com
 
 A multi-type prop couldn't be auto-discriminated at runtime (e.g. two object shapes), so an `@unboxed` variant won't work and we **refuse to use `%identity`/unsafe casts**. The prop is emitted as a `string` placeholder with an inline `// ⚠️ REVIEW` comment — bind it by hand or fix the type upstream.
 
-_(none)_
+### BlendChart
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `ref` | `Ref<HighchartsReactRefObject>` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+| `options` | `Options` — binds, but references shared field(s) `options.defs` (`review`), `accessibilityOptions.customComponents` (`any`), `accessibilityOptions.highContrastTheme` (`any`), `accessibilityOptions.linkedDescription` (`review`) emitted as `string` |
+| `callback` | `ChartCallbackFunction` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+
+### ChartV2
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `options` | `options?: Highcharts.Options;` — binds, but references shared field(s) `options.defs` (`review`), `accessibilityOptions.customComponents` (`any`), `accessibilityOptions.highContrastTheme` (`any`), `accessibilityOptions.linkedDescription` (`review`) emitted as `string` |
+| `callback` | `callback?: Highcharts.ChartCallbackFunction;` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+| `ref` | `Ref<HighchartsReactRefObject>` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+
+### ChartV2Legend
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `chartRef` | `chartRef?: RefObject<ChartV2ReactRefObject \| null>;` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+| `chartRefs` | `chartRefs?: ReadonlyArray<RefObject<ChartV2ReactRefObject \| null>>;` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
+| `renderItem` | `renderItem?: (params: { item: ChartV2LegendItem; name: string; visible: boolean; color: string; value?: string \| number; onClick: () => void; }) => ReactNode;` — binds, but references shared field(s) `seriesPieDataLabelsOptionsObject.animation` (`review`), `seriesPieDataLabelsOptionsObject.connectorShape` (`review`), `seriesNetworkgraphDataLabelsOptionsObject.animation` (`review`), `seriesPackedBubbleDataLabelsOptionsObject.animation` (`review`) emitted as `string` |
+
+### DataTable
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `columns` | `columns: ColumnDefinition<T>[];` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
+| `onColumnReorder` | `onColumnReorder?: (columns: ColumnDefinition<T>[]) => void;` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
+
+### PivotTableModal
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `columns` | `columns: ColumnDefinition<T>[];` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
+
+### StatCardV2
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `options` | `options?: import('../ChartsV2').ChartV2Options;` — binds, but references shared field(s) `options.defs` (`review`), `accessibilityOptions.customComponents` (`any`), `accessibilityOptions.highContrastTheme` (`any`), `accessibilityOptions.linkedDescription` (`review`) emitted as `string` |
+
+### ThemeProvider
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `componentTokens` | `componentTokens?: ComponentTokenType;` — binds, but references shared field(s) `dataTableHeaderTypeActionIconsColumnManagerTriggerConfig.opacity` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.sm` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.md` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.lg` (`review`) emitted as `string` |
 
 ## 🛑 Broken — needs serious component change
 
