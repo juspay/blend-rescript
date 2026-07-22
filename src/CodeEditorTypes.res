@@ -4,8 +4,8 @@ type codeEditorVariant =
 type codeEditorLanguage =
   | @as("ruby") Ruby
   | @as("plaintext") Plaintext
-  | @as("css") Css
   | @as("c") C
+  | @as("css") Css
   | @as("javascript") Javascript
   | @as("typescript") Typescript
   | @as("json") Json
@@ -30,3 +30,26 @@ type codeEditorLanguage =
   | @as("shell") Shell
   | @as("powershell") Powershell
   | @as("dockerfile") Dockerfile
+type codeEditorProps = {
+  value: string,
+  onChange?: string => unit,
+  variant?: codeEditorVariant,
+  showLineNumbers?: bool,
+  showHeader?: bool,
+  header?: string,
+  headerLeftSlot?: React.element,
+  headerRightSlot?: React.element,
+  showLeftIcon?: bool,
+  showCopyButton?: bool,
+  language?: codeEditorLanguage,
+  placeholder?: string,
+  readOnly?: bool,
+  disabled?: bool,
+  minHeight?: CommonTypes.stringOrNumber,
+  maxHeight?: CommonTypes.stringOrNumber,
+  height?: CommonTypes.stringOrNumber,
+  className?: string,
+  onBlur?: unit => unit,
+  onFocus?: unit => unit,
+  autoFocus?: bool,
+}

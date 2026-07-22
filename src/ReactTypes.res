@@ -21,7 +21,7 @@ type htmlInputTypeAttribute =
   | @as("datetime-local") DatetimeLocal
   | @as("file") File
   | @as("password") Password
-type reactPrimaryActionButtonPropsConfig = {
+type reactSidebarPropsPrimaryActionButtonPropsConfig = {
   ...JsxDOM.domProps,
 }
 module ElementType = {
@@ -66,23 +66,24 @@ module ElementType = {
     | #option
     | #"switch"
     | #time
-    | #animate
-    | #stop
-    | #rect
     | #polygon
+    | #linearGradient
+    | #radialGradient
     | #area
     | #line
     | #label
     | #marker
-    | #data
     | #select
-    | #linearGradient
-    | #radialGradient
     | #a
     | #q
     | #s
-    | #textPath
+    | #animate
     | #meta
+    | #textPath
+    | #data
+    | #rect
+    | #source
+    | #stop
     | #image
     | #html
     | #div
@@ -146,7 +147,6 @@ module ElementType = {
     | #samp
     | #script
     | #section
-    | #source
     | #strong
     | #summary
     | #template

@@ -30,7 +30,7 @@ external getButtonTokens: TokensTypes.foundationTokenType => ButtonTypes.respons
 external getCardTokens: TokensTypes.foundationTokenType => CardTypes.responsiveCardTokens =
   "getCardTokens"
 @module("@juspay/blend-design-system")
-external getChartTokens: TokensTypes.foundationTokenType => ChartsTypes.responsiveChartTokens =
+external getChartTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
 external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
@@ -425,6 +425,10 @@ external createAvatarKeyboardHandler: (
 ) => ReactEvent.Keyboard.t => unit = "createAvatarKeyboardHandler"
 @module("@juspay/blend-design-system")
 external isInteractive: (ReactEvent.Mouse.t => unit) => bool = "isInteractive"
+@module("@juspay/blend-design-system") external defaultAvatarAlt: string = "DEFAULT_AVATAR_ALT"
+@module("@juspay/blend-design-system")
+external defaultFallbackColor: string = "DEFAULT_FALLBACK_COLOR"
+@module("@juspay/blend-design-system") external maxInitialsLength: float = "MAX_INITIALS_LENGTH"
 @module("@juspay/blend-design-system")
 external defaultPosition: AvatarV2Types.avatarV2DEFAULTPOSITIONConfig = "DEFAULT_POSITION"
 @module("@juspay/blend-design-system")
@@ -480,15 +484,17 @@ external calculateCircularProgressStroke: (
 ) => ProgressBarV2Types.progressBarV2CalculateCircularProgressStrokeConfig =
   "calculateCircularProgressStroke"
 @module("@juspay/blend-design-system")
+external statcardFallbackDisplay: string = "STATCARD_FALLBACK_DISPLAY"
+@module("@juspay/blend-design-system")
 external renderVariantFallbackValue: (
   StatCardV2Types.statCardV2TokensType,
   StatCardV2Types.statCardV2Variant,
 ) => Dom.element = "renderVariantFallbackValue"
 @module("@juspay/blend-design-system")
 external buildStatCardV2ChartOptions: (
-  ~overrides: HighchartsSharedTypes.options<'b>=?,
+  ~overrides: HighchartsSharedTypes.options<'a, 'b, 'c>=?,
   unit,
-) => HighchartsSharedTypes.options<'b> = "buildStatCardV2ChartOptions"
+) => HighchartsSharedTypes.options<'a, 'b, 'c> = "buildStatCardV2ChartOptions"
 @module("@juspay/blend-design-system")
 external getStatCardV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -498,6 +504,7 @@ external getStatCardV2Tokens: (
 @module("@juspay/blend-design-system")
 external buildStatCardV2AriaLabel: StatCardV2Types.statCardV2BuildStatCardV2AriaLabelParamsConfig => string =
   "buildStatCardV2AriaLabel"
+@module("@juspay/blend-design-system") external accordionTransition: string = "ACCORDION_TRANSITION"
 @module("@juspay/blend-design-system")
 external getAccordionV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -517,6 +524,7 @@ external toEmbeddedSingleSelectV2Props: (
 ) => EditorSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
 @module("@juspay/blend-design-system")
 external focusRingStyles: EditorSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
+@module("@juspay/blend-design-system") external transition: string = "TRANSITION"
 @module("@juspay/blend-design-system")
 external getInputState: (
   ~error: EditorSharedTypes.inputsV2GetInputStateErrorConfig=?,
@@ -578,20 +586,20 @@ external applyTabItemDisplayDefaults: (
 ) => array<TabsV2Types.tabsV2TabItem> = "applyTabItemDisplayDefaults"
 @module("@juspay/blend-design-system")
 external useChartLegend: (
-  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>,
-  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'b>>>>,
-) => ChartsV2Types.chartsV2UseChartLegendConfig<'b> = "useChartLegend"
+  React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>,
+  array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>>,
+) => ChartsV2Types.chartsV2UseChartLegendConfig<'a, 'b, 'c> = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
-  HighchartsSharedTypes.chart<'b>,
-  array<HighchartsSharedTypes.chart<'b>>,
+  HighchartsSharedTypes.chart<'a, 'b, 'c>,
+  array<HighchartsSharedTypes.chart<'a, 'b, 'c>>,
 ) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
 external useChartRefs: array<
-  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'b>>>,
-> => array<HighchartsSharedTypes.chart<'b>> = "useChartRefs"
+  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'a, 'b, 'c>>>,
+> => array<HighchartsSharedTypes.chart<'a, 'b, 'c>> = "useChartRefs"
 @module("@juspay/blend-design-system")
-external getLegendItems: HighchartsSharedTypes.chart<'b> => array<
+external getLegendItems: HighchartsSharedTypes.chart<'a, 'b, 'c> => array<
   HighchartsSharedTypes.ChartV2LegendItem.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")
@@ -601,7 +609,7 @@ external applyHoverState: (
 ) => unit = "applyHoverState"
 @module("@juspay/blend-design-system")
 external mergeChartOptions: (
-  HighchartsSharedTypes.options<'b>,
+  HighchartsSharedTypes.options<'a, 'b, 'c>,
   ChartsV2Types.chartV2TokensType,
 ) => Dict.t<JSON.t> = "mergeChartOptions"
 @module("@juspay/blend-design-system")
@@ -636,8 +644,10 @@ external getSidebarV2Tokens: (
 @module("@juspay/blend-design-system")
 external isControlledSidebarV2: bool => bool = "isControlledSidebarV2"
 @module("@juspay/blend-design-system")
-external getSidebarV2Status: (bool, bool) => SidebarV2Types.sidebarV2OnSidebarStateChange =
-  "getSidebarV2Status"
+external getSidebarV2Status: (
+  bool,
+  bool,
+) => SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
 @module("@juspay/blend-design-system")
 external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
 @module("@juspay/blend-design-system")
@@ -679,6 +689,7 @@ external getTopbarV2Tokens: (
   ~theme: string=?,
   unit,
 ) => TopbarV2Types.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
+@module("@juspay/blend-design-system") external selectV2MenuZIndex: float = "SELECT_V2_MENU_Z_INDEX"
 @module("@juspay/blend-design-system")
 external useSelectV2MenuBehavior: SelectV2Types.useSelectV2MenuBehaviorParams => SelectV2Types.useSelectV2MenuBehaviorResult =
   "useSelectV2MenuBehavior"
@@ -789,6 +800,10 @@ external getInitialEditorOptions: (
   bool,
   bool,
 ) => EditorSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getInitialEditorOptions"
+@module("@juspay/blend-design-system") external editorFocusDelayMs: float = "EDITOR_FOCUS_DELAY_MS"
+@module("@juspay/blend-design-system")
+external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
+@module("@juspay/blend-design-system") external minScrollbarSize: float = "MIN_SCROLLBAR_SIZE"
 @module("@juspay/blend-design-system")
 external copyToClipboardWithTemporaryFeedback: (
   string,
@@ -1011,6 +1026,11 @@ external getItemOrdinalIndex: (array<EditorSharedTypes.flattenedItem>, float) =>
 @module("@juspay/blend-design-system")
 external defaultSingleSelectV2Skeleton: SelectV2Types.selectV2SkeletonProps =
   "defaultSingleSelectV2Skeleton"
+@module("@juspay/blend-design-system") external dropdownDataAttr: string = "DROPDOWN_DATA_ATTR"
+@module("@juspay/blend-design-system")
+external menuScrollSelectors: array<string> = "MENU_SCROLL_SELECTORS"
+@module("@juspay/blend-design-system")
+external defaultEndReachedThreshold: float = "DEFAULT_END_REACHED_THRESHOLD"
 @module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
@@ -1019,8 +1039,8 @@ external generateAccessibilityIds: (
 @module("@juspay/blend-design-system")
 external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => EditorSharedTypes.extractedAriaProps =
   "extractSingleSelectV2AriaProps"
-@module("@juspay/blend-design-system")
-external mergeSingleSelectV2AriaDescribedBy: (~ids: array<string>=?, unit) => string =
+@module("@juspay/blend-design-system") @variadic
+external mergeSingleSelectV2AriaDescribedBy: array<string> => string =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
 external buildAriaAttributes: EditorSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => EditorSharedTypes.ariaAttributes =

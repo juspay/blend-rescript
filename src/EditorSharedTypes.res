@@ -24,8 +24,8 @@ type codeEditorV2Variant =
 type codeEditorV2Language =
   | @as("ruby") Ruby
   | @as("plaintext") Plaintext
-  | @as("css") Css
   | @as("c") C
+  | @as("css") Css
   | @as("javascript") Javascript
   | @as("typescript") Typescript
   | @as("json") Json
@@ -449,6 +449,10 @@ type codeEditorV2IEditorOptionsCursorStyle =
   | @as("line-thin") LineThin
   | @as("block-outline") BlockOutline
   | @as("underline-thin") UnderlineThin
+type codeEditorV2IEditorOptionsDefaultColorDecorators =
+  | @as("auto") Auto
+  | @as("always") Always
+  | @as("never") Never
 type codeEditorV2IEditorOptionsWordWrap =
   | @as("off") Off
   | @as("on") On
@@ -843,14 +847,14 @@ type singleSelectV2SingleSelectV2TokensTypeErrorMessageConfig = {
 type singleSelectV2SingleSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
-type variantTokenV1snf1 = {
+type variantTokenV1p7v1 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenM6ih6 = {
-  sm: variantTokenV1snf1,
-  md: variantTokenV1snf1,
-  lg: variantTokenV1snf1,
+type sizeTokenI7cok = {
+  sm: variantTokenV1p7v1,
+  md: variantTokenV1p7v1,
+  lg: variantTokenV1p7v1,
 }
 type singleSelectV2VariantTokenContainerConfig = {
   top: string,
@@ -858,14 +862,14 @@ type singleSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenYv6ia = {
+type variantTokenWwo0h = {
   container: singleSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: singleSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenDl19e = {
-  sm: variantTokenYv6ia,
-  md: variantTokenYv6ia,
-  lg: variantTokenYv6ia,
+type sizeTokenFjyre = {
+  sm: variantTokenWwo0h,
+  md: variantTokenWwo0h,
+  lg: variantTokenWwo0h,
 }
 type triggerStateTokenSingleSelectV2 = {
   hover: string,
@@ -874,7 +878,7 @@ type triggerStateTokenSingleSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenV7ptge = {
+type variantTokenV1chsf = {
   container: triggerStateTokenSingleSelectV2,
   @as("no-container") noContainer: triggerStateTokenSingleSelectV2,
 }
@@ -888,12 +892,12 @@ type singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type singleSelectV2SingleSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenM6ih6,
-  padding: sizeTokenDl19e,
-  borderRadius: sizeTokenM6ih6,
-  boxShadow: variantTokenV1snf1,
-  backgroundColor: variantTokenV7ptge,
-  outline: variantTokenV7ptge,
+  height: sizeTokenI7cok,
+  padding: sizeTokenFjyre,
+  borderRadius: sizeTokenI7cok,
+  boxShadow: variantTokenV1p7v1,
+  backgroundColor: variantTokenV1chsf,
+  outline: variantTokenV1chsf,
   slot: singleSelectV2SingleSelectV2TokensTypeTriggerSlotConfig,
   placeholder: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
   selectedValue: singleSelectV2SingleSelectV2TokensTypeTriggerPlaceholderConfig,
@@ -973,7 +977,7 @@ type singleSelectV2SingleSelectV2TokensTypeMenuFooterConfig = {
 }
 type singleSelectV2SingleSelectV2TokensTypeMenuConfig = {
   content: singleSelectV2SingleSelectV2TokensTypeMenuContentConfig,
-  padding: sizeTokenDl19e,
+  padding: sizeTokenFjyre,
   groupLabel: singleSelectV2SingleSelectV2TokensTypeMenuGroupLabelConfig,
   item: singleSelectV2SingleSelectV2TokensTypeMenuItemConfig,
   submenu: singleSelectV2SingleSelectV2TokensTypeMenuSubmenuConfig,
@@ -1026,14 +1030,14 @@ type multiSelectV2MultiSelectV2TokensTypeErrorMessageConfig = {
 type multiSelectV2MultiSelectV2TokensTypeRequiredConfig = {
   color: string,
 }
-type variantTokenV1snf12 = {
+type variantTokenV1p7v12 = {
   container: string,
   @as("no-container") noContainer: string,
 }
-type sizeTokenV18rrk = {
-  sm: variantTokenV1snf12,
-  md: variantTokenV1snf12,
-  lg: variantTokenV1snf12,
+type sizeTokenI7cok2 = {
+  sm: variantTokenV1p7v12,
+  md: variantTokenV1p7v12,
+  lg: variantTokenV1p7v12,
 }
 type multiSelectV2VariantTokenContainerConfig = {
   top: string,
@@ -1041,14 +1045,14 @@ type multiSelectV2VariantTokenContainerConfig = {
   bottom: string,
   left: string,
 }
-type variantTokenDqt9q = {
+type variantTokenV1k1l6 = {
   container: multiSelectV2VariantTokenContainerConfig,
   @as("no-container") noContainer: multiSelectV2VariantTokenContainerConfig,
 }
-type sizeTokenV2tc77 = {
-  sm: variantTokenDqt9q,
-  md: variantTokenDqt9q,
-  lg: variantTokenDqt9q,
+type sizeTokenV3ngv6 = {
+  sm: variantTokenV1k1l6,
+  md: variantTokenV1k1l6,
+  lg: variantTokenV1k1l6,
 }
 type triggerStateTokenMultiSelectV2 = {
   hover: string,
@@ -1057,7 +1061,7 @@ type triggerStateTokenMultiSelectV2 = {
   @as("open") open_: string,
   closed: string,
 }
-type variantTokenV12zot = {
+type variantTokenV1chsf2 = {
   container: triggerStateTokenMultiSelectV2,
   @as("no-container") noContainer: triggerStateTokenMultiSelectV2,
 }
@@ -1108,12 +1112,12 @@ type multiSelectV2MultiSelectV2TokensTypeTriggerPlaceholderConfig = {
   fontWeight: string,
 }
 type multiSelectV2MultiSelectV2TokensTypeTriggerConfig = {
-  height: sizeTokenV18rrk,
-  padding: sizeTokenV2tc77,
-  borderRadius: sizeTokenV18rrk,
-  boxShadow: variantTokenV1snf12,
-  backgroundColor: variantTokenV12zot,
-  outline: variantTokenV12zot,
+  height: sizeTokenI7cok2,
+  padding: sizeTokenV3ngv6,
+  borderRadius: sizeTokenI7cok2,
+  boxShadow: variantTokenV1p7v12,
+  backgroundColor: variantTokenV1chsf2,
+  outline: variantTokenV1chsf2,
   slot: multiSelectV2MultiSelectV2TokensTypeTriggerSlotConfig,
   selectionTag: contextMultiSelectV2TokensTypeTriggerSelectionTagConfig,
   chevron: multiSelectV2MultiSelectV2TokensTypeTriggerChevronConfig,
@@ -1180,7 +1184,7 @@ type multiSelectV2MultiSelectV2TokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: sizeTokenV2tc77,
+  padding: sizeTokenV3ngv6,
   minWidth: string,
   scroll: multiSelectV2MultiSelectV2TokensTypeMenuScrollConfig,
   header: multiSelectV2MultiSelectV2TokensTypeMenuHeaderConfig,
@@ -1623,7 +1627,7 @@ type componentTokenType = {
   @as("STAT_CARD") statCard?: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar?: ProgressBarTypes.responsiveProgressBarTokens,
   @as("DRAWER") drawer?: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") charts?: ChartsTypes.responsiveChartTokens,
+  @as("CHARTS") charts?: HighchartsSharedTypes.responsiveChartTokens,
   @as("SNACKBAR") snackbar?: SnackbarTypes.responsiveSnackbarTokens,
   @as("STEPPER") stepper?: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair?: KeyValuePairTypes.responsiveKeyValuePairTokens,
@@ -1704,7 +1708,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STAT_CARD") statCard: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar: ProgressBarTypes.responsiveProgressBarTokens,
   @as("DRAWER") drawer: DrawerTypes.responsiveDrawerTokens,
-  @as("CHARTS") charts: ChartsTypes.responsiveChartTokens,
+  @as("CHARTS") charts: HighchartsSharedTypes.responsiveChartTokens,
   @as("SNACKBAR") snackbar: SnackbarTypes.responsiveSnackbarTokens,
   @as("STEPPER") stepper: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair: KeyValuePairTypes.responsiveKeyValuePairTokens,
@@ -1896,11 +1900,11 @@ type embeddedSingleSelectOptions = {
   menuAlignment: SelectV2Types.selectV2Alignment,
   menuSideOffset: float,
   menuAlignOffset: float,
-  defaultSingleSelectGroupPosition: ChartsTypes.chartsSeriesOrganizationOptionsHangingSide,
+  defaultSingleSelectGroupPosition: HighchartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
 }
 type inputsV2FOCUSRINGSTYLESConfig = {
-  boxShadow: string, // ⚪ loose — was `"0 0 0 3px #EFF6FF"`
-  backgroundColor: string, // ⚪ loose — was `"rgba(239, 246, 255, 0.15)"`
+  boxShadow: string,
+  backgroundColor: string,
 }
 type inputsV2GetInputStateErrorConfig = {
   show: bool,
@@ -1935,6 +1939,14 @@ type codeEditorV2HeaderConfig = {
   leftSlot?: React.element,
   rightSlot?: React.element,
   showCopyButton?: bool,
+}
+type codeEditorV2Dimensions = {
+  width?: string,
+  maxWidth?: string,
+  minWidth?: string,
+  height?: string,
+  maxHeight?: string,
+  minHeight?: string,
 }
 type editorMetrics = {
   fontSize: float,
@@ -2643,7 +2655,7 @@ type iEditorStickyScrollOptions = {
 type iEditorMinimapOptions = {
   enabled?: bool,
   autohide?: codeEditorV2IEditorMinimapOptionsAutohide,
-  side?: ChartsTypes.chartsSeriesOrganizationOptionsHangingSide,
+  side?: HighchartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
   size?: codeEditorV2IEditorMinimapOptionsSize,
   showSlider?: codeEditorV2IEditorMinimapOptionsShowSlider,
   renderCharacters?: bool,
@@ -2850,7 +2862,7 @@ type iEditorOptions = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3295,7 +3307,7 @@ type editorGetMonacoViewModeOptionsConfig = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3479,7 +3491,7 @@ type codeEditorV2IStandaloneCodeEditorUpdateOptionsConfig = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -3856,7 +3868,7 @@ type iDiffEditorOptions = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4113,7 +4125,7 @@ type iStandaloneEditorConstructionOptions<'a> = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4296,7 +4308,7 @@ type iDiffEditorConstructionOptions = {
   cursorHeight?: float,
   fontLigatures?: CommonTypes.boolOrString,
   fontVariations?: CommonTypes.boolOrString,
-  defaultColorDecorators?: ChartsTypes.chartsDateTimeFormatOptionsHour12,
+  defaultColorDecorators?: codeEditorV2IEditorOptionsDefaultColorDecorators,
   disableLayerHinting?: bool,
   disableMonospaceOptimizations?: bool,
   hideCursorInOverviewRuler?: bool,
@@ -4492,6 +4504,10 @@ type multiSelectV2SecondaryActionConfig = {
   disabled?: bool,
   loading?: bool,
 }
+type multiSelectV2SkeletonComponentProps = {
+  multiSelectTokens: multiSelectV2TokensType,
+  skeleton: SelectV2Types.selectV2SkeletonProps,
+}
 type flattenedMultiSelectV2Item = {
   id: string,
   @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
@@ -4507,6 +4523,13 @@ type multiSelectV2GetSelectAllStateConfig = {
   allSelected: bool,
   someSelected: bool,
 }
+type menuListSharedProps = {
+  selected: string,
+  onSelect: string => unit,
+  singleSelectTokens: singleSelectV2TokensType,
+  size: SelectV2Types.selectV2Size,
+  variant: SelectV2Types.selectV2Variant,
+}
 type flattenedItem = {
   id: string,
   @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
@@ -4518,6 +4541,10 @@ type virtualItemShape = {
   key: CommonTypes.stringOrNumberOrBigInt,
   index: int,
   start: float,
+}
+type singleSelectV2SkeletonComponentProps = {
+  singleSelectTokens: singleSelectV2TokensType,
+  skeleton: SelectV2Types.selectV2SkeletonProps,
 }
 type singleSelectV2GetSingleSelectV2BorderRadiusConfig = {
   borderRadius: string,
@@ -4575,10 +4602,10 @@ type accessibilitySetupResult = {
   ariaAttributes: ariaAttributes,
 }
 type singleSelectV2VIRTUALROWESTIMATESConfig = {
-  label: string, // ⚪ loose — was `32`
-  separator: string, // ⚪ loose — was `8`
-  item: string, // ⚪ loose — was `38`
-  itemWithSubLabel: string, // ⚪ loose — was `58`
+  label: float,
+  separator: float,
+  item: float,
+  itemWithSubLabel: float,
 }
 type chatInputV2TopQuery = {
   id: string,
