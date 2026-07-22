@@ -18,9 +18,18 @@
 // looks identical to "never scaffolded" to this script and WILL get
 // re-flagged -- see the scaffold script's header comment.
 //
+// Severity: a map is "verified" once a human has set figmaComponentName
+// (real Figma data exists, e.g. Button.mjs) -- drift there is a real
+// regression (a working Code Connect mapping just broke) and FAILS the
+// check. A map still at figmaComponentName: null is just an unfinished
+// scaffold -- of course it drifts every time Blend regenerates bindings
+// (confirmed empirically: a routine bindgen bump changed ~50 components'
+// shape at once), and nothing was ever relying on it, so that's reported
+// but doesn't fail CI. Re-run the scaffolder before finishing one of those.
+//
 // Usage:
 //   node scripts/check-figma-map-drift.mjs
-// Exit code 0 = no drift, 1 = drift found (or something no longer parses).
+// Exit code 0 = no drift in any verified map, 1 = a verified map drifted.
 
 import { mkdtemp, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
@@ -31,14 +40,15 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const MAPS_DIR = join(ROOT, "figma", "componentMaps");
 
-async function loadPropKeys(dir, file) {
+async function loadMap(dir, file) {
   const mod = await import(join(dir, file));
-  return new Set(Object.keys(mod.default.props ?? {}));
+  return mod.default;
 }
 
 async function main() {
   const tmp = await mkdtemp(join(tmpdir(), "figma-map-drift-"));
-  let drifted = false;
+  let verifiedDrifted = false;
+  let scaffoldDrifted = false;
   try {
     execFileSync(
       "node",
@@ -50,42 +60,57 @@ async function main() {
     const committedFiles = (await readdir(MAPS_DIR)).filter((f) => f.endsWith(".mjs"));
 
     for (const file of committedFiles) {
+      const committedMap = await loadMap(MAPS_DIR, file);
+      const isVerified = Boolean(committedMap.figmaComponentName);
+      const marker = isVerified ? "✗" : "·";
+
       if (!freshFiles.has(file)) {
         // No longer derivable from src/ at all -- component removed from
         // Blend, or its .res shape no longer matches either parser pattern.
         // Can't diff props in that case, just flag it for a human to look at.
-        console.log(`⚠ ${file}: no longer derivable from src/ -- component removed, or its .res shape changed enough that the scaffolder can't parse it. Review manually.`);
-        drifted = true;
+        console.log(`${marker} ${file}: no longer derivable from src/ -- component removed, or its .res shape changed enough that the scaffolder can't parse it. Review manually.`);
+        if (isVerified) verifiedDrifted = true;
+        else scaffoldDrifted = true;
         continue;
       }
 
-      const [freshKeys, committedKeys] = await Promise.all([
-        loadPropKeys(tmp, file),
-        loadPropKeys(MAPS_DIR, file),
-      ]);
+      const freshKeys = new Set(Object.keys((await loadMap(tmp, file)).props ?? {}));
+      const committedKeys = new Set(Object.keys(committedMap.props ?? {}));
 
       const gained = [...freshKeys].filter((k) => !committedKeys.has(k));
       const removed = [...committedKeys].filter((k) => !freshKeys.has(k));
 
       if (gained.length > 0) {
-        console.log(`✗ ${file}: gained prop(s) not in the committed map: ${gained.join(", ")}`);
-        drifted = true;
+        console.log(`${marker} ${file}: gained prop(s) not in the committed map: ${gained.join(", ")}`);
+        if (isVerified) verifiedDrifted = true;
+        else scaffoldDrifted = true;
       }
       if (removed.length > 0) {
-        console.log(`✗ ${file}: map references prop(s) no longer in src/: ${removed.join(", ")}`);
-        drifted = true;
+        console.log(`${marker} ${file}: map references prop(s) no longer in src/: ${removed.join(", ")}`);
+        if (isVerified) verifiedDrifted = true;
+        else scaffoldDrifted = true;
       }
     }
 
-    if (drifted) {
+    if (scaffoldDrifted) {
       console.log(
-        "\nRun `node scripts/scaffold-figma-component-maps.mjs --only <Component> --force --out-dir /tmp/scratch` " +
+        "\n(Above `·` lines are unfinished scaffolds, not failures -- re-run scripts/scaffold-figma-component-maps.mjs " +
+          "for the affected component(s) whenever you get to finishing them.)",
+      );
+    }
+
+    if (verifiedDrifted) {
+      console.log(
+        "\nA VERIFIED map drifted -- this is a real regression, not just a stale scaffold. " +
+          "Run `node scripts/scaffold-figma-component-maps.mjs --only <Component> --force --out-dir /tmp/scratch` " +
           "to see the fresh shape, then hand-merge new/removed props into the committed map. " +
           "To deliberately exclude a prop, set it to `{ mapped: false, reason: '...' }` -- don't just delete the key.",
       );
       process.exitCode = 1;
+    } else if (!scaffoldDrifted) {
+      console.log("No drift anywhere (verified maps or scaffolds).");
     } else {
-      console.log("No drift between src/ bindings and figma/componentMaps/.");
+      console.log("\nNo drift in any verified map (only unfinished scaffolds drifted, see above -- not a failure).");
     }
   } finally {
     await rm(tmp, { recursive: true, force: true });
