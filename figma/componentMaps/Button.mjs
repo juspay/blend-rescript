@@ -1,104 +1,68 @@
-// Canonical Figma <-> RescriptBlend.Button mapping data. Pure data, zero
-// imports -- consumed by figma/engine.mjs (Code Connect template runtime,
-// via Button.figma.ts) AND scripts/generate-figma-code-connect.mjs (Node
-// codegen, produces src/Figma/ButtonCodeConnect.res). Edit this file only;
-// both consumers regenerate/re-derive from it, nothing downstream should be
-// hand-edited.
+// SYNCED by scripts/sync-figma-code-connect.mjs from blend-design-system's
+// apps/storybook/stories/components/Button/Button.figma.tsx (branch: main). Do NOT hand-edit -- edit nothing here;
+// blend-design-system's own .figma.tsx is the single source of truth. If a
+// mapping is wrong, it needs fixing upstream in blend-design-system, then
+// re-run `npm run figma:sync` here.
 //
-// Confidence: `text`/`buttonType`/`size`/`subType`/`disabled`/`rightIcon`
-// are evidenced by an existing React Code Connect mapping's resolved
-// snippet on a real Button instance (checked interactively via Figma MCP
-// tools -- deliberately not recording which file/node here, since this
-// repo is public: see figma/README.md's "No Figma URLs/keys/node-ids in
-// this repo" note). `leftIcon`/`buttonGroupPosition`/`state`/`loading`/
-// `showSkeleton` are inferred purely from src/ButtonTypes.res with no
-// Figma-side evidence. NONE of these have been confirmed against the
-// actual "Buttons" component-set property panel -- verify in Figma
-// Desktop (Dev Mode + MCP server) before relying on this.
-//
-// Not mapped at all (payload-carrying or code-only, no scaffold entry
-// possible): `width`/`onClick`/`ref`/`children`.
+// Figma property names/values (and, for enums, the ReScript constructors)
+// are derived from blend's own published Code Connect mapping, cross-
+// referenced against our own generated src/Button.res --
+// not guessed, not scaffolded.
 
 export default {
-  figmaComponentName: 'Buttons',
+  figmaComponentName: 'Button',
   codeComponent: 'Button',
   id: 'button',
   imports: ['open RescriptBlend'],
   props: {
-    text: { figmaProp: 'Text', kind: 'string' },
+    text: { figmaProp: 'text', kind: 'string' },
     buttonType: {
-      figmaProp: 'Button Type',
+      figmaProp: 'buttonType',
       kind: 'enum',
       values: {
-        PRIMARY: 'ButtonTypes.Primary',
-        SECONDARY: 'ButtonTypes.Secondary',
-        DANGER: 'ButtonTypes.Danger',
-        SUCCESS: 'ButtonTypes.Success',
+        primary: 'ButtonTypes.Primary',
+        secondary: 'ButtonTypes.Secondary',
+        danger: 'ButtonTypes.Danger',
+        success: 'ButtonTypes.Success',
       },
     },
     size: {
-      figmaProp: 'Size',
+      figmaProp: 'size',
       kind: 'enum',
       values: {
-        SMALL: 'ButtonTypes.Sm',
-        MEDIUM: 'ButtonTypes.Md',
-        LARGE: 'ButtonTypes.Lg',
+        sm: 'ButtonTypes.Sm',
+        md: 'ButtonTypes.Md',
+        lg: 'ButtonTypes.Lg',
       },
     },
     subType: {
-      figmaProp: 'Sub Type',
+      figmaProp: 'subType',
       kind: 'enum',
       values: {
-        DEFAULT: 'ButtonTypes.Default',
-        ICON_ONLY: 'ButtonTypes.IconOnly',
-        INLINE: 'ButtonTypes.Inline',
+        default: 'ButtonTypes.Default',
+        iconOnly: 'ButtonTypes.IconOnly',
+        inline: 'ButtonTypes.Inline',
       },
     },
-    disabled: { figmaProp: 'Disabled', kind: 'bool' },
-    // Low confidence -- see file header.
-    buttonGroupPosition: {
-      figmaProp: 'Group Position',
+    disabled: {
+      figmaProp: 'state',
       kind: 'enum',
       values: {
-        LEFT: 'ButtonTypes.Left',
-        CENTER: 'ButtonTypes.Center',
-        RIGHT: 'ButtonTypes.Right',
+        disabled: 'true',
+        default: 'false',
+        hover: 'false',
+        active: 'false',
+        focussed: 'false',
       },
     },
-    state: {
-      figmaProp: 'State',
-      kind: 'enum',
-      values: {
-        DEFAULT: 'ButtonTypes.Default',
-        HOVER: 'ButtonTypes.Hover',
-        ACTIVE: 'ButtonTypes.Active',
-        DISABLED: 'ButtonTypes.Disabled',
-      },
-    },
-    loading: { figmaProp: 'Loading', kind: 'bool' },
-    showSkeleton: { figmaProp: 'Show Skeleton', kind: 'bool' },
-    // Low confidence, pending -- flagged by scripts/check-figma-map-drift.mjs
-    // as present in src/Button.res but not yet in this map. figmaProp/values
-    // still unverified, same as the rest of the "Low confidence" tier above.
-    skeletonVariant: {
-      figmaProp: null, // TODO: Figma property name
-      kind: 'enum',
-      values: {
-        // TODO_FIGMA_KEY: 'SkeletonTypes.Pulse', // ReScript: Pulse (bound value "pulse")
-        // TODO_FIGMA_KEY: 'SkeletonTypes.Wave', // ReScript: Wave (bound value "wave")
-        // TODO_FIGMA_KEY: 'SkeletonTypes.Shimmer', // ReScript: Shimmer (bound value "shimmer")
-      },
-    },
-    fullWidth: { figmaProp: null /* TODO */, kind: 'bool' },
-    justifyContent: { figmaProp: null /* TODO */, kind: 'string' },
-    //
-    // instanceSwap-kind props are resolved dynamically (never hardcoded) by
-    // figma/engine.mjs, and are NOT part of the codegen script's output
-    // (the generated ReScript module only takes primitive Figma properties
-    // as input -- a nested instance's own code has to be resolved by
-    // whatever calls it, since ReScript codegen has no live Figma instance
-    // to call executeTemplate() against).
-    leadingIcon: { figmaProp: 'Left Icon', kind: 'instanceSwap' },
-    trailingIcon: { figmaProp: 'Right Icon', kind: 'instanceSwap' },
+    leadingIcon: { figmaProp: 'leftIcon', kind: 'instanceSwap' },
+    trailingIcon: { figmaProp: 'rightIcon', kind: 'instanceSwap' },
+    loading: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    showSkeleton: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    skeletonVariant: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    buttonGroupPosition: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    fullWidth: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    justifyContent: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    state: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
   },
 }

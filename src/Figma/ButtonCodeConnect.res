@@ -3,80 +3,63 @@
 //
 // Renders RescriptBlend.Button JSX text from a Figma
 // component-properties array.
-// Not covered (unfilled figmaProp/values, instanceSwap, or otherwise not statically derivable): skeletonVariant, fullWidth, justifyContent, leadingIcon, trailingIcon. Splice these in at the call site if needed.
+// Deliberately not mapped (see figma/componentMaps/Button.mjs): loading, showSkeleton, skeletonVariant, buttonGroupPosition, fullWidth, justifyContent, state.
+// Not covered (unfilled figmaProp/values, instanceSwap, or otherwise not statically derivable): leadingIcon, trailingIcon. Splice these in at the call site if needed.
 
 let fromFigmaProps = (props: CodeConnectUtils.figmaProps): string => {
-  let text = props->CodeConnectUtils.getStringProp("Text")
+  let text = props->CodeConnectUtils.getStringProp("text")
   let buttonType =
     props
-    ->CodeConnectUtils.getStringProp("Button Type")
+    ->CodeConnectUtils.getStringProp("buttonType")
     ->Option.flatMap(v =>
       switch v {
-      | "PRIMARY" => Some("ButtonTypes.Primary")
-      | "SECONDARY" => Some("ButtonTypes.Secondary")
-      | "DANGER" => Some("ButtonTypes.Danger")
-      | "SUCCESS" => Some("ButtonTypes.Success")
+      | "primary" => Some("ButtonTypes.Primary")
+      | "secondary" => Some("ButtonTypes.Secondary")
+      | "danger" => Some("ButtonTypes.Danger")
+      | "success" => Some("ButtonTypes.Success")
       | _ => None
       }
     )
   let size =
     props
-    ->CodeConnectUtils.getStringProp("Size")
+    ->CodeConnectUtils.getStringProp("size")
     ->Option.flatMap(v =>
       switch v {
-      | "SMALL" => Some("ButtonTypes.Sm")
-      | "MEDIUM" => Some("ButtonTypes.Md")
-      | "LARGE" => Some("ButtonTypes.Lg")
+      | "sm" => Some("ButtonTypes.Sm")
+      | "md" => Some("ButtonTypes.Md")
+      | "lg" => Some("ButtonTypes.Lg")
       | _ => None
       }
     )
   let subType =
     props
-    ->CodeConnectUtils.getStringProp("Sub Type")
+    ->CodeConnectUtils.getStringProp("subType")
     ->Option.flatMap(v =>
       switch v {
-      | "DEFAULT" => Some("ButtonTypes.Default")
-      | "ICON_ONLY" => Some("ButtonTypes.IconOnly")
-      | "INLINE" => Some("ButtonTypes.Inline")
+      | "default" => Some("ButtonTypes.Default")
+      | "iconOnly" => Some("ButtonTypes.IconOnly")
+      | "inline" => Some("ButtonTypes.Inline")
       | _ => None
       }
     )
-  let disabled = props->CodeConnectUtils.getBoolProp("Disabled")
-  let buttonGroupPosition =
+  let disabled =
     props
-    ->CodeConnectUtils.getStringProp("Group Position")
+    ->CodeConnectUtils.getStringProp("state")
     ->Option.flatMap(v =>
       switch v {
-      | "LEFT" => Some("ButtonTypes.Left")
-      | "CENTER" => Some("ButtonTypes.Center")
-      | "RIGHT" => Some("ButtonTypes.Right")
+      | "disabled" => Some("true")
+      | "default" => Some("false")
+      | "hover" => Some("false")
+      | "active" => Some("false")
+      | "focussed" => Some("false")
       | _ => None
       }
     )
-  let state =
-    props
-    ->CodeConnectUtils.getStringProp("State")
-    ->Option.flatMap(v =>
-      switch v {
-      | "DEFAULT" => Some("ButtonTypes.Default")
-      | "HOVER" => Some("ButtonTypes.Hover")
-      | "ACTIVE" => Some("ButtonTypes.Active")
-      | "DISABLED" => Some("ButtonTypes.Disabled")
-      | _ => None
-      }
-    )
-  let loading = props->CodeConnectUtils.getBoolProp("Loading")
-  let showSkeleton = props->CodeConnectUtils.getBoolProp("Show Skeleton")
 
   "<Button" ++
   CodeConnectUtils.strAttr("text", text) ++
   CodeConnectUtils.attr("buttonType", buttonType) ++
   CodeConnectUtils.attr("size", size) ++
   CodeConnectUtils.attr("subType", subType) ++
-  CodeConnectUtils.boolAttr("disabled", disabled) ++
-  CodeConnectUtils.attr("buttonGroupPosition", buttonGroupPosition) ++
-  CodeConnectUtils.attr("state", state) ++
-  CodeConnectUtils.boolAttr("loading", loading) ++
-  CodeConnectUtils.boolAttr("showSkeleton", showSkeleton) ++
-  " />"
+  CodeConnectUtils.attr("disabled", disabled) ++ " />"
 }

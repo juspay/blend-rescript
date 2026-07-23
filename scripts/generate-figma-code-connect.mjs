@@ -19,7 +19,7 @@
 // Usage:
 //   node scripts/generate-figma-code-connect.mjs
 
-import { readdir, mkdir, writeFile } from "node:fs/promises";
+import { readdir, mkdir, writeFile, rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join, basename } from "node:path";
 
@@ -153,9 +153,28 @@ async function main() {
   const generated = results.filter((r) => r.status === "generated");
   const notReady = results.filter((r) => r.status === "not-ready");
 
+  // Remove orphaned output: a *CodeConnect.res left over from a component
+  // that's no longer ready (map deleted, or regressed to figmaComponentName:
+  // null) since the last time this generated it. Without this, a stale
+  // generated file keeps compiling and passing `npm run build` forever,
+  // silently out of sync with its (now-gone) source map.
+  const expectedFiles = new Set(generated.map((r) => `${r.componentName}CodeConnect.res`));
+  const existingResFiles = (await readdir(OUT_DIR)).filter(
+    (f) => f.endsWith("CodeConnect.res") && f !== "CodeConnectUtils.res",
+  );
+  const removed = [];
+  for (const f of existingResFiles) {
+    if (!expectedFiles.has(f)) {
+      await rm(join(OUT_DIR, f));
+      removed.push(f);
+    }
+  }
+
   for (const r of generated) console.log(`wrote src/Figma/${r.componentName}CodeConnect.res`);
+  for (const f of removed) console.log(`removed stale src/Figma/${f} (no longer a ready map)`);
   console.log(`\nGenerated ${generated.length}/${results.length} (${notReady.length} skipped -- not yet verified, figmaComponentName is still null).`);
-  if (generated.length > 0) console.log("Run `npm run build` to verify the generated ReScript compiles.");
+  if (removed.length > 0) console.log(`Removed ${removed.length} stale generated file(s).`);
+  if (generated.length > 0 || removed.length > 0) console.log("Run `npm run build` to verify the generated ReScript compiles.");
 }
 
 main();
