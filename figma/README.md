@@ -182,6 +182,10 @@ check.
   the `toProps`-entry builders (`strPropEntry`/`propEntry`/`boolPropEntry`)
   and `joinTag` (used to build `fromFigmaProps` from `toProps`), shared by
   every generated `*CodeConnect.res` module.
+- `src/Figma/CodeConnectRegistry.res` -- generated alongside the rest:
+  `resolve(figmaComponentName, props)` dispatches across every synced
+  component, so a consumer doesn't hand-maintain its own Figma-component-name
+  switch. See "CodeConnectRegistry" below for the naming caveat.
 - `scripts/check-figma-map-drift.mjs` -- CI check, see "Drift" above.
 
 ## Consuming from another repo (e.g. juspay-portal's Figma plugin)
@@ -205,11 +209,12 @@ where it already lives in the plugin, not baked into the package.
 
 If a finished string is genuinely all you need instead of composing
 `toProps` yourself, `fromFigmaProps` is a thin wrapper over it -- defaults
-to the bare code component name (`<Button .../>`), or pass `~tagName` to
-render any tag/prefix without building the array yourself:
+the tag to the fully-qualified `JuspayRescriptBlend.Button`, or pass
+`~tagName` to render any other tag/prefix without building the array
+yourself:
 
 ```rescript
-JuspayRescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps) // <Button .../>
+JuspayRescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps) // <JuspayRescriptBlend.Button .../>
 JuspayRescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps, ~tagName="Blend.Button") // <Blend.Button .../>
 ```
 
@@ -217,6 +222,48 @@ Neither includes
 `leadingIcon`/`trailingIcon` (see the generated file's header comment) --
 splice them in at the call site if the plugin has its own way to resolve
 nested icon instances.
+
+### CodeConnectRegistry: no per-component code at all
+
+The `| "Buttons" => ...` switch above still has to be hand-written per
+component, one arm per synced map -- the same duplication `toProps`
+already removed for property mappings, one level up for components.
+`src/Figma/CodeConnectRegistry.res` (generated alongside every other
+`*CodeConnect.res` module) removes that too:
+
+```rescript
+switch JuspayRescriptBlend.CodeConnectRegistry.resolve(figmaComponentName, componentProps) {
+| Some((props, codeComponent)) =>
+  (props, "Blend." ++ codeComponent, "")->convertPropsNodeStateVariable("")
+| None => // fall through to the plugin's own handling for anything Blend doesn't cover
+}
+```
+
+New synced components "light up" on a version bump with zero downstream
+edits -- no new switch arm to add. `resolve` returns
+`Some((toPropsResult, codeComponent))` for anything synced/verified,
+`None` otherwise (same not-ready gate as everything else); the caller
+still supplies its own tag prefix (`"Blend." ++ codeComponent` above) and
+composition, exactly like `~tagName` on `fromFigmaProps`.
+
+**Important naming caveat**, spelled out in the generated file's header
+too: `figmaComponentName` is whatever identifier blend-design-system's own
+`.figma.tsx` uses in its `figma.connect(<ComponentName>, ...)` call -- **not
+necessarily the literal name shown in Figma's layers/Inspect panel.** These
+can differ: Button's real Figma component set is named **"Buttons"**
+(plural, confirmed via Figma Desktop's Inspect panel), while blend's
+`figma.connect()` call uses the React identifier **"Button"** (singular) --
+so `resolve("Buttons", ...)` returns `None` even though a real mapping
+exists under the key `"Button"`. Reconciling a live Figma node's actual
+component name against this registry's keys (e.g. juspay-portal's existing
+`^ComponentName \d+$` instance-suffix normalization would need extending to
+handle plural/singular or other divergent names) is the caller's problem --
+this package only supplies the mapping, not Figma-node-name resolution.
+
+Scope: prop-mapped components only, same as `toProps`/`fromFigmaProps` --
+anything that needs to walk children (Modal/Table/Snackbar-style
+converters taking the node plus a recursive callback) can't be expressed
+as `figmaProps => props` and isn't in the registry at all.
 
 ## Scaffolding a component with no upstream .figma.tsx
 
