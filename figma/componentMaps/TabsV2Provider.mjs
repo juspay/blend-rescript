@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TabsV2Provider',
   id: 'tabsV2Provider',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): value -- TabsV2Types.tabsV2ContextValue, ~children: React.element -- not confidently classifiable
   },

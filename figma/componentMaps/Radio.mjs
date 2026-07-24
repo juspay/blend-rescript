@@ -16,14 +16,14 @@ export default {
   figmaComponentName: 'Radio',
   codeComponent: 'Radio',
   id: 'radio',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        sm: 'RadioTypes.Sm',
-        md: 'RadioTypes.Md',
+        sm: 'JuspayRescriptBlend.RadioTypes.Sm',
+        md: 'JuspayRescriptBlend.RadioTypes.Md',
       },
     },
     checked: { figmaProp: 'enable', kind: 'bool' },

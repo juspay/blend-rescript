@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StyledToast',
   id: 'styledToast',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     header: { figmaProp: null /* TODO */, kind: 'string' },
     description: { figmaProp: null /* TODO */, kind: 'string' },

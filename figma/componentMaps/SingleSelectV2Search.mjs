@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SingleSelectV2Search',
   id: 'singleSelectV2Search',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     enabled: { figmaProp: null /* TODO */, kind: 'bool' },
     hasItems: { figmaProp: null /* TODO */, kind: 'bool' },

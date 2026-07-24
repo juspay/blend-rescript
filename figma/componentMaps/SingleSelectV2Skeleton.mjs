@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SingleSelectV2Skeleton',
   id: 'singleSelectV2Skeleton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): singleSelectTokens -- EditorSharedTypes.singleSelectV2TokensType -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): skeleton -- SelectV2Types.selectV2SkeletonProps -- variant has payload(s) or is a record, not a simple enum

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'Card',
   id: 'card',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     maxWidth: { figmaProp: null /* TODO */, kind: 'string' },
     maxHeight: { figmaProp: null /* TODO */, kind: 'string' },

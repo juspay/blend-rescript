@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StatCardV2NoData',
   id: 'statCardV2NoData',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     width: { figmaProp: null /* TODO */, kind: 'string' },
     height: { figmaProp: null /* TODO */, kind: 'string' },

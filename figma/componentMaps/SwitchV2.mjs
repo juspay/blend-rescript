@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SwitchV2',
   id: 'switchV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     checked: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): onCheckedChange -- bool => unit -- event handler, code-only

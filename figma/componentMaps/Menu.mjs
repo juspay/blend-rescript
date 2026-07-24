@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'Menu',
   id: 'menu',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): trigger -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): items -- array<MenuTypes.menuGroupType> -- not confidently classifiable

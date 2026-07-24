@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChartHeader',
   id: 'chartHeader',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     id: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): slot1 -- React.element (slot/children) -- needs manual handling

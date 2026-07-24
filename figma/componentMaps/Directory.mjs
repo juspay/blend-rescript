@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'Directory',
   id: 'directory',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): directoryData -- Nullable.t<array<DirectoryTypes.directoryData>> -- not confidently classifiable
     idPrefix: { figmaProp: null /* TODO */, kind: 'string' },

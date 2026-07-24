@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2MenuSearch',
   id: 'multiSelectV2MenuSearch',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     value: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): onChange -- ReactEvent.Form.t => unit -- event handler, code-only

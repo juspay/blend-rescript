@@ -20,21 +20,21 @@ export default {
   figmaComponentName: 'Tooltip',
   codeComponent: 'Tooltip',
   id: 'tooltip',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        sm: 'TooltipTypes.Sm',
+        sm: 'JuspayRescriptBlend.TooltipTypes.Sm',
       },
     },
     slotDirection: {
       figmaProp: 'slotDirection',
       kind: 'enum',
       values: {
-        left: 'TooltipTypes.Left',
-        right: 'TooltipTypes.Right',
+        left: 'JuspayRescriptBlend.TooltipTypes.Left',
+        right: 'JuspayRescriptBlend.TooltipTypes.Right',
       },
     },
     side: { mapped: false, reason: 'JSX attribute value is not a simple identifier reference (from blend\'s file, not resolvable)' },

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SidebarV2Footer',
   id: 'sidebarV2Footer',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): footer -- React.element (slot/children) -- needs manual handling
     sidebarState: {

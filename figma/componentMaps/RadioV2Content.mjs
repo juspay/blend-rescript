@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'RadioV2Content',
   id: 'radioV2Content',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     uniqueId: { figmaProp: null /* TODO */, kind: 'string' },
     disabled: { figmaProp: null /* TODO */, kind: 'bool' },

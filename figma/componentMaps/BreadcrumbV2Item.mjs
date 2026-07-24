@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'BreadcrumbV2Item',
   id: 'breadcrumbV2Item',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     href: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): onClick -- ReactEvent.Mouse.t => unit -- event handler, code-only

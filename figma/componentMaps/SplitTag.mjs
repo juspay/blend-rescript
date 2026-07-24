@@ -17,24 +17,24 @@ export default {
   figmaComponentName: 'SplitTag',
   codeComponent: 'SplitTag',
   id: 'splitTag',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     shape: {
       figmaProp: 'shape',
       kind: 'enum',
       values: {
-        rounded: 'TagsTypes.Rounded',
-        squarical: 'TagsTypes.Squarical',
+        rounded: 'JuspayRescriptBlend.TagsTypes.Rounded',
+        squarical: 'JuspayRescriptBlend.TagsTypes.Squarical',
       },
     },
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        xs: 'TagsTypes.Xs',
-        sm: 'TagsTypes.Sm',
-        md: 'TagsTypes.Md',
-        lg: 'TagsTypes.Lg',
+        xs: 'JuspayRescriptBlend.TagsTypes.Xs',
+        sm: 'JuspayRescriptBlend.TagsTypes.Sm',
+        md: 'JuspayRescriptBlend.TagsTypes.Md',
+        lg: 'JuspayRescriptBlend.TagsTypes.Lg',
       },
     },
   },

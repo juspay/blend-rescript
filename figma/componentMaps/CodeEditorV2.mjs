@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'CodeEditorV2',
   id: 'codeEditorV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     value: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): onChange -- string => unit -- event handler, code-only

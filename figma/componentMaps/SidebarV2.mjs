@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SidebarV2',
   id: 'sidebarV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     height: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling

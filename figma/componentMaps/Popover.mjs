@@ -19,7 +19,7 @@ export default {
   figmaComponentName: 'Popover',
   codeComponent: 'Popover',
   id: 'popover',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     showCloseButton: { figmaProp: 'close', kind: 'bool' },
     heading: { mapped: false, reason: 'JSX attribute has no expression (or a plain string literal) (from blend\'s file, not resolvable)' },

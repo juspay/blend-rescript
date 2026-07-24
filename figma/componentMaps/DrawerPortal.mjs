@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerPortal',
   id: 'drawerPortal',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): container -- Dom.element=?, // ⓘ was `Element | DocumentFragment` — bound to Dom.element; a DocumentFragment/ShadowRoot target is not supported -- not confidently classifiable

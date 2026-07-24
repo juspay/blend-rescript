@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SubMenu',
   id: 'subMenu',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): item -- EditorSharedTypes.singleSelectV2ItemType -- variant has payload(s) or is a record, not a simple enum
     selected: { figmaProp: null /* TODO */, kind: 'string' },

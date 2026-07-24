@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SearchInputV2',
   id: 'searchInputV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): leftSlot -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): rightSlot -- React.element (slot/children) -- needs manual handling

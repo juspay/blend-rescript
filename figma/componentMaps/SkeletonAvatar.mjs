@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SkeletonAvatar',
   id: 'skeletonAvatar',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     variant: {
       figmaProp: null, // TODO: Figma property name

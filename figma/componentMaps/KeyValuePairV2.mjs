@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'KeyValuePairV2',
   id: 'keyValuePairV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     keyString: { figmaProp: null /* TODO */, kind: 'string' },
     size: {

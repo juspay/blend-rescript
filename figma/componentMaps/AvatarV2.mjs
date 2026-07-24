@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'AvatarV2',
   id: 'avatarV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     src: { figmaProp: null /* TODO */, kind: 'string' },
     alt: { figmaProp: null /* TODO */, kind: 'string' },

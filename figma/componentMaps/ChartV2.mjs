@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChartV2',
   id: 'chartV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     allowChartUpdate: { figmaProp: null /* TODO */, kind: 'bool' },
     constructorType: {

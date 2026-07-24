@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StatCardV2Value',
   id: 'statCardV2Value',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     value: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): valueTooltip -- React.element (slot/children) -- needs manual handling

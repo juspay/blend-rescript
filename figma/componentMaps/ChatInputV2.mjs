@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChatInputV2',
   id: 'chatInputV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     value: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): topQueries -- array<EditorSharedTypes.chatInputV2TopQuery> -- not confidently classifiable

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChartV2Fullscreen',
   id: 'chartV2Fullscreen',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- ChartsV2Types.chartV2FullscreenControls => React.element -- event handler, code-only
   },

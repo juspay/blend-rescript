@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TooltipV2',
   id: 'tooltipV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): content -- React.element (slot/children) -- needs manual handling

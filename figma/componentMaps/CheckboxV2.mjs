@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'CheckboxV2',
   id: 'checkboxV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): checked -- CommonTypes.boolOrIndeterminate -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): onCheckedChange -- CommonTypes.boolOrIndeterminate => unit -- event handler, code-only

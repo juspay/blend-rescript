@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TimelineLabel',
   id: 'timelineLabel',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): text -- string, ~ref: React.ref<Nullable.t<Dom.element>> -- not confidently classifiable
   },

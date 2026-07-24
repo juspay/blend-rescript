@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2MenuItems',
   id: 'multiSelectV2MenuItems',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): filteredItems -- array<EditorSharedTypes.multiSelectV2GroupType> -- not confidently classifiable
     // TODO (unsupported): allItemsFlat -- array<EditorSharedTypes.multiSelectV2ItemType> -- not confidently classifiable

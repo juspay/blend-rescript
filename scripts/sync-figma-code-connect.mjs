@@ -72,7 +72,17 @@ async function fetchRaw(path) {
 
 // Guess which of our src/*.res components this file targets: prefer a V2
 // variant if the path says so, else the base name, else give up.
+//
+// `reactComponentName` comes from parsing blend-design-system's fetched
+// *.figma.tsx content -- external, network-sourced text, even though
+// same-org. It ends up in a filesystem path (both the existsSync check
+// here and the later componentMaps write), so validate it's a plain
+// ReScript-identifier-shaped name before it touches any path at all,
+// rather than relying only on existsSync ruling out anything unexpected --
+// existsSync alone still means a value with e.g. path-traversal characters
+// gets passed to `join()`, even if that particular join happens to miss.
 function resolveOurComponentName(reactComponentName, path) {
+  if (!reactComponentName || !/^[A-Za-z][A-Za-z0-9]*$/.test(reactComponentName)) return null;
   const candidates = /\/v2\//i.test(path)
     ? [`${reactComponentName}V2`, reactComponentName]
     : [reactComponentName, `${reactComponentName}V2`];
@@ -134,9 +144,12 @@ function resolveProp(blendSpec, ourSpec, propName, warnings) {
       }
       // __CODE_REF__: resolve by matching the Figma key against our own
       // bound values (e.g. Figma "primary" <-> @as("primary") Primary),
-      // never by parsing blend's React enum member text.
+      // never by parsing blend's React enum member text. Fully qualified
+      // (JuspayRescriptBlend.<module>.<constructor>) so the emitted value
+      // compiles regardless of what's `open` in the caller's file -- no
+      // import/open assumption needed for this consumption path.
       const match = ourSpec.constructors.find((c) => c.asValue === figKey);
-      if (match) values[figKey] = `${ourSpec.codeModule}.${match.constructor}`;
+      if (match) values[figKey] = `JuspayRescriptBlend.${ourSpec.codeModule}.${match.constructor}`;
       // else: Figma-only value with no ReScript equivalent (e.g.
       // "plainIcon") -- omit, never invent.
     }
@@ -150,26 +163,35 @@ function resolveProp(blendSpec, ourSpec, propName, warnings) {
   return null;
 }
 
+// Escapes a value for embedding as a single-quoted JS string literal in
+// generated output. `spec.figmaProp` and Figma enum keys ultimately come
+// from blend-design-system's fetched *.figma.tsx content -- untrusted in
+// the sense that it's external, even though same-org -- so anything
+// derived from it needs real escaping, not just quote-escaping (backslash
+// MUST be escaped first, or a literal trailing backslash in the source
+// text would escape the closing quote instead of itself).
+const jsStringLiteral = (s) => s.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+
 function renderPropsBlock(resolvedProps, rejectedProps) {
   const lines = [];
   for (const [propName, spec] of Object.entries(resolvedProps)) {
     if (spec.kind === "enum") {
       lines.push(`    ${propName}: {`);
-      lines.push(`      figmaProp: '${spec.figmaProp}',`);
+      lines.push(`      figmaProp: '${jsStringLiteral(spec.figmaProp)}',`);
       lines.push(`      kind: 'enum',`);
       lines.push(`      values: {`);
       for (const [figKey, codeVal] of Object.entries(spec.values)) {
-        const quotedKey = /^[A-Za-z_$][\w$]*$/.test(figKey) ? figKey : `'${figKey}'`;
+        const quotedKey = /^[A-Za-z_$][\w$]*$/.test(figKey) ? figKey : `'${jsStringLiteral(figKey)}'`;
         lines.push(`        ${quotedKey}: '${codeVal}',`);
       }
       lines.push(`      },`);
       lines.push(`    },`);
     } else {
-      lines.push(`    ${propName}: { figmaProp: '${spec.figmaProp}', kind: '${spec.kind}' },`);
+      lines.push(`    ${propName}: { figmaProp: '${jsStringLiteral(spec.figmaProp)}', kind: '${spec.kind}' },`);
     }
   }
   for (const [propName, reason] of Object.entries(rejectedProps)) {
-    lines.push(`    ${propName}: { mapped: false, reason: '${reason.replace(/'/g, "\\'")}' },`);
+    lines.push(`    ${propName}: { mapped: false, reason: '${jsStringLiteral(reason)}' },`);
   }
   return lines.join("\n");
 }
@@ -245,7 +267,7 @@ export default {
   figmaComponentName: '${parsed.reactComponentName}',
   codeComponent: '${codeComponent}',
   id: '${ourComponentName.charAt(0).toLowerCase() + ourComponentName.slice(1)}',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
 ${renderPropsBlock(resolved, rejected)}
   },

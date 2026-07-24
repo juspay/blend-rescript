@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2Skeleton',
   id: 'multiSelectV2Skeleton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): multiSelectTokens -- EditorSharedTypes.multiSelectV2TokensType -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): skeleton -- SelectV2Types.selectV2SkeletonProps -- variant has payload(s) or is a record, not a simple enum

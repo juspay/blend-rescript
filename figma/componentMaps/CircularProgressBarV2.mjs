@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'CircularProgressBarV2',
   id: 'circularProgressBarV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): value -- float -- not confidently classifiable
     // TODO (unsupported): min -- float -- not confidently classifiable

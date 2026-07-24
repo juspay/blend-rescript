@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TabsV2IconContainer',
   id: 'tabsV2IconContainer',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     hidden: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling

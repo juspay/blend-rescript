@@ -1,6 +1,6 @@
 // Generic Code Connect template runtime: given a live Figma `instance` and
 // a component map (see figma/componentMaps/*.mjs), extracts every mapped
-// property and renders it as RescriptBlend JSX. Each `<Component>.figma.ts`
+// property and renders it as JuspayRescriptBlend JSX. Each `<Component>.figma.ts`
 // file should just call `renderFromMap(figma.selectedInstance, SomeMap)` --
 // no per-component getEnum/getString/getBoolean boilerplate needed.
 //

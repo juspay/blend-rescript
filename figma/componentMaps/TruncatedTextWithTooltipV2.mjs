@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TruncatedTextWithTooltipV2',
   id: 'truncatedTextWithTooltipV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     text: { figmaProp: null /* TODO */, kind: 'string' },
     className: { figmaProp: null /* TODO */, kind: 'string' },

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChartV2Skeleton',
   id: 'chartV2Skeleton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     skeletonVariant: {
       figmaProp: null, // TODO: Figma property name

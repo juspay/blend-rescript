@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChartLegends',
   id: 'chartLegends',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): keys -- array<string> -- not confidently classifiable
     // TODO (unsupported): colors -- array<ChartsTypes.chartsColorsConfig> -- not confidently classifiable

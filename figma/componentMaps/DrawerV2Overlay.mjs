@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerV2Overlay',
   id: 'drawerV2Overlay',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     hidden: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): style -- JsxDOM.style -- not confidently classifiable

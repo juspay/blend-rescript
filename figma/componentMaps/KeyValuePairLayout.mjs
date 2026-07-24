@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'KeyValuePairLayout',
   id: 'keyValuePairLayout',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): containerStyle -- JsxDOM.style -- not confidently classifiable
     // TODO (unsupported): keyContainerStyle -- JsxDOM.style -- not confidently classifiable

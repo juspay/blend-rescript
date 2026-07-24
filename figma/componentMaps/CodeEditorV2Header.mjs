@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'CodeEditorV2Header',
   id: 'codeEditorV2Header',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     title: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): leftSlot -- React.element (slot/children) -- needs manual handling

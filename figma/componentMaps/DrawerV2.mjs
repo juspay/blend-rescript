@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerV2',
   id: 'drawerV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): activeSnapPoint -- Nullable.t<CommonTypes.stringOrNumber> -- not confidently classifiable
     // TODO (unsupported): setActiveSnapPoint -- Nullable.t<CommonTypes.stringOrNumber> => unit -- event handler, code-only

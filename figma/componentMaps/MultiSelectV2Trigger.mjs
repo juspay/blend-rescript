@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2Trigger',
   id: 'multiSelectV2Trigger',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): selectedValues -- array<string> -- not confidently classifiable
     // TODO (unsupported): slot -- React.element (slot/children) -- needs manual handling

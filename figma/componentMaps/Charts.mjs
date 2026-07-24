@@ -24,15 +24,15 @@ export default {
   figmaComponentName: 'Charts',
   codeComponent: 'Charts',
   id: 'charts',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     chartType: {
       figmaProp: 'type',
       kind: 'enum',
       values: {
-        line: 'HighchartsSharedTypes.Line',
-        bar: 'HighchartsSharedTypes.Bar',
-        pie: 'HighchartsSharedTypes.Pie',
+        line: 'JuspayRescriptBlend.HighchartsSharedTypes.Line',
+        bar: 'JuspayRescriptBlend.HighchartsSharedTypes.Bar',
+        pie: 'JuspayRescriptBlend.HighchartsSharedTypes.Pie',
       },
     },
     legendPosition: { mapped: false, reason: 'JSX attribute value is not a simple identifier reference (from blend\'s file, not resolvable)' },

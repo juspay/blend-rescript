@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SingleSelectV2Menu',
   id: 'singleSelectV2Menu',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): items -- array<EditorSharedTypes.singleSelectV2GroupType> -- not confidently classifiable
     selected: { figmaProp: null /* TODO */, kind: 'string' },

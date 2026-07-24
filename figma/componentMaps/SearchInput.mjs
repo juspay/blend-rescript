@@ -18,7 +18,7 @@ export default {
   figmaComponentName: 'SearchInput',
   codeComponent: 'SearchInput',
   id: 'searchInput',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     value: { figmaProp: 'placeholder', kind: 'string' },
     error: {

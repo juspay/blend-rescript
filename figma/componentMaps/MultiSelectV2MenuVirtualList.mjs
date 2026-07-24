@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2MenuVirtualList',
   id: 'multiSelectV2MenuVirtualList',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): flattenedItems -- array<EditorSharedTypes.flattenedMultiSelectV2Item> -- not confidently classifiable
     // TODO (unsupported): itemIndexMap -- Map.t<string, float> -- not confidently classifiable

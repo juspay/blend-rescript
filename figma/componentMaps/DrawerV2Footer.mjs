@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerV2Footer',
   id: 'drawerV2Footer',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     defaultChecked: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): defaultValue -- CommonTypes.stringOrNumberOrStringArray -- variant has payload(s) or is a record, not a simple enum

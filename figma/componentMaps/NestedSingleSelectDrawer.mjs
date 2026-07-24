@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'NestedSingleSelectDrawer',
   id: 'nestedSingleSelectDrawer',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): onOpenChange -- bool => unit -- event handler, code-only
     heading: { figmaProp: null /* TODO */, kind: 'string' },

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MobileChatInputV2',
   id: 'mobileChatInputV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     disabled: { figmaProp: null /* TODO */, kind: 'bool' },
     value: { figmaProp: null /* TODO */, kind: 'string' },

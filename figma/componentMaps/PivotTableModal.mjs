@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'PivotTableModal',
   id: 'pivotTableModal',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     isOpen: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): onClose -- unit => unit -- event handler, code-only

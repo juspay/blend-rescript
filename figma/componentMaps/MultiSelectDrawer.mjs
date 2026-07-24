@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectDrawer',
   id: 'multiSelectDrawer',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     heading: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): style -- JsxDOM.style -- not confidently classifiable

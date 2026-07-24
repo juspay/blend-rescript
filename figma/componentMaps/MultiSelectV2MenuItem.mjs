@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2MenuItem',
   id: 'multiSelectV2MenuItem',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): item -- EditorSharedTypes.multiSelectV2ItemType -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): onSelect -- string => unit -- event handler, code-only

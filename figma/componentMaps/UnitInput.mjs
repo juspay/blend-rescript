@@ -19,14 +19,14 @@ export default {
   figmaComponentName: 'UnitInput',
   codeComponent: 'UnitInput',
   id: 'unitInput',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        md: 'InputsTypes.Md',
-        lg: 'InputsTypes.Lg',
+        md: 'JuspayRescriptBlend.InputsTypes.Md',
+        lg: 'JuspayRescriptBlend.InputsTypes.Lg',
       },
     },
     label: { figmaProp: 'label', kind: 'string' },
@@ -37,8 +37,8 @@ export default {
       figmaProp: 'unitPosition',
       kind: 'enum',
       values: {
-        left: 'InputsTypes.Left',
-        right: 'InputsTypes.Right',
+        left: 'JuspayRescriptBlend.InputsTypes.Left',
+        right: 'JuspayRescriptBlend.InputsTypes.Right',
       },
     },
     error: {

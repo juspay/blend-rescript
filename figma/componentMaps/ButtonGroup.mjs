@@ -13,7 +13,7 @@ export default {
   figmaComponentName: 'ButtonGroup',
   codeComponent: 'ButtonGroup',
   id: 'buttonGroup',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     stacked: { figmaProp: 'stack', kind: 'bool' },
   },

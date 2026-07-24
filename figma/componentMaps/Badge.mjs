@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'Badge',
   id: 'badge',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): count -- int -- not confidently classifiable
     // TODO (unsupported): maxCount -- float -- not confidently classifiable

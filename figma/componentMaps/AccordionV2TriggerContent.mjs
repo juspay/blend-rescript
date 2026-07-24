@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'AccordionV2TriggerContent',
   id: 'accordionV2TriggerContent',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     title: { figmaProp: null /* TODO */, kind: 'string' },
     subtext: { figmaProp: null /* TODO */, kind: 'string' },

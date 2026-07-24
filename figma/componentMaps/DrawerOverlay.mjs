@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerOverlay',
   id: 'drawerOverlay',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): className -- string=?, ~ref: React.ref<Nullable.t<Dom.element>> -- not confidently classifiable
   },

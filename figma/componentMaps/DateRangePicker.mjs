@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DateRangePicker',
   id: 'dateRangePicker',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): value -- DateRangePickerTypes.dateRange -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): onChange -- DateRangePickerTypes.dateRange => unit -- event handler, code-only

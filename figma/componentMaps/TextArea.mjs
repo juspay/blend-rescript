@@ -17,7 +17,7 @@ export default {
   figmaComponentName: 'TextArea',
   codeComponent: 'TextArea',
   id: 'textArea',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     label: { figmaProp: 'label', kind: 'string' },
     sublabel: { figmaProp: 'sublabel', kind: 'string' },

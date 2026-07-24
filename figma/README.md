@@ -1,7 +1,9 @@
 # Figma Code Connect (ReScript)
 
-Maps Blend Design System Figma components to this repo's `RescriptBlend`
-bindings. **blend-design-system is the sole source of truth** -- this repo
+Maps Blend Design System Figma components to this repo's `JuspayRescriptBlend`
+bindings (the namespace `@juspay/rescript-blend` compiles to -- not
+`RescriptBlend`, an earlier draft of this doc got that wrong).
+**blend-design-system is the sole source of truth** -- this repo
 does not hand-maintain Figma property knowledge. Every component that
 blend-design-system has already published a `*.figma.tsx` Code Connect file
 for (github.com/juspay/blend-design-system) gets its mapping **synced
@@ -19,8 +21,15 @@ Two consumers are built from **one shared data source** per component
    published as part of `@juspay/rescript-blend`) -- for consumers that
    aren't running inside that resolver, e.g. a standalone Figma *plugin*
    (like juspay-portal's `apps/code-connect`) that already extracts
-   `componentProperties` itself and just wants the RescriptBlend rendering
-   logic, without hand-copying property-mapping tables into another repo.
+   `componentProperties` itself and just wants the rendering logic, without
+   hand-copying property-mapping tables into another repo. Each module
+   exports `toProps: figmaProps => array<option<(string, string)>>` --
+   the same shape a Figma plugin's own converter already returns (e.g.
+   juspay-portal's `ButtonUtils.convertToButtonProps`), so the caller keeps
+   owning its own tag name, wrapper, and constants/hookState composition
+   (`FigmaUtils.convertPropsNodeStateVariable`-style) -- plus
+   `fromFigmaProps: figmaProps => string`, a thin wrapper over `toProps`
+   for callers that just want a finished snippet.
 
 **No Figma URLs/file keys/node-ids in this repo.** This repo is public
 (`@juspay/rescript-blend` on npm/GitHub). Real Figma file URLs, file keys,
@@ -152,7 +161,7 @@ check.
   `boolAttr`, `exprAttr`) shared by `engine.mjs`.
 - `figma/engine.mjs` -- generic Code Connect template runtime:
   `renderFromMap(instance, map)` reads a live Figma instance per the map's
-  property definitions and renders RescriptBlend JSX. Limitation: at most 3
+  property definitions and renders JuspayRescriptBlend JSX. Limitation: at most 3
   `instanceSwap`-kind props per component (nested instances need real
   `figma.code` interpolation, which needs a fixed number of template slots
   -- raise the limit in `engine.mjs` if a component needs more).
@@ -160,38 +169,54 @@ check.
   `renderFromMap(figma.selectedInstance, <Component>Map)`.
 - `scripts/generate-figma-code-connect.mjs` -- reads every
   `figma/componentMaps/*.mjs` and emits `src/Figma/<Component>CodeConnect.res`
-  exporting `fromFigmaProps: CodeConnectUtils.figmaProps => string`. Skips
-  any map whose `figmaComponentName` is still `null` -- never emits
-  ReScript from an unverified scaffold, so it's always safe to run across
-  all of `componentMaps/` even while most are still TODOs. `instanceSwap`
-  props are listed in a comment in the generated file (they need a live
-  Figma instance to resolve nested code, which static codegen can't do).
+  exporting `toProps: CodeConnectUtils.figmaProps => array<option<(string, string)>>`
+  and `fromFigmaProps: CodeConnectUtils.figmaProps => string` (a thin wrapper
+  over `toProps`). Skips any map whose `figmaComponentName` is still `null`
+  -- never emits ReScript from an unverified scaffold, so it's always safe
+  to run across all of `componentMaps/` even while most are still TODOs.
+  `instanceSwap` props are listed in a comment in the generated file (they
+  need a live Figma instance to resolve nested code, which static codegen
+  can't do).
 - `src/Figma/CodeConnectUtils.res` -- **hand-written**, not regenerated:
-  generic `figmaProps` array plumbing shared by every generated
-  `*CodeConnect.res` module.
+  generic `figmaProps` array plumbing (`getStringProp`/`getBoolProp`) and
+  the `toProps`-entry builders (`strPropEntry`/`propEntry`/`boolPropEntry`)
+  and `joinTag` (used to build `fromFigmaProps` from `toProps`), shared by
+  every generated `*CodeConnect.res` module.
 - `scripts/check-figma-map-drift.mjs` -- CI check, see "Drift" above.
 
 ## Consuming from another repo (e.g. juspay-portal's Figma plugin)
 
-Add `@juspay/rescript-blend` as a dependency, then call the generated
-module directly -- e.g. in juspay-portal's `entry.res`, in place of a
-hand-written `ButtonUtils.res`-style converter:
+Add `@juspay/rescript-blend` as a dependency, then call `toProps` directly
+-- e.g. in juspay-portal's `entry.res`, in place of a hand-written
+`ButtonUtils.res`-style converter, keeping the plugin's own tag-name/
+wrapper/state composition exactly as it already is:
 
 ```rescript
 | "Buttons" =>
-  (
-    [(RescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps), "", "")],
-    "",
-  )
+  (JuspayRescriptBlend.ButtonCodeConnect.toProps(componentProps), "Blend.Button", "")
+  ->convertPropsNodeStateVariable("")
 ```
 
-(exact wiring depends on how the calling code assembles its output --
-`fromFigmaProps` returns a ready-to-embed `<Button ... />` string given the
-same `(propName, propValue)` array shape the plugin already extracts via its
-own `componentProperties` handling.) `leadingIcon`/`trailingIcon` aren't in
-that string (see the generated file's header comment) -- splice them in at
-the call site if the plugin has its own way to resolve nested icon
-instances.
+`toProps` returns `array<option<(string, string)>>` -- the same
+`(propName, propValueText)` shape a hand-written converter like
+`ButtonUtils.convertToButtonProps` already returns, so
+`convertPropsNodeStateVariable`/tag-name/wrapper handling stays exactly
+where it already lives in the plugin, not baked into the package.
+
+If a finished string is genuinely all you need instead of composing
+`toProps` yourself, `fromFigmaProps` is a thin wrapper over it -- defaults
+to the bare code component name (`<Button .../>`), or pass `~tagName` to
+render any tag/prefix without building the array yourself:
+
+```rescript
+JuspayRescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps) // <Button .../>
+JuspayRescriptBlend.ButtonCodeConnect.fromFigmaProps(componentProps, ~tagName="Blend.Button") // <Blend.Button .../>
+```
+
+Neither includes
+`leadingIcon`/`trailingIcon` (see the generated file's header comment) --
+splice them in at the call site if the plugin has its own way to resolve
+nested icon instances.
 
 ## Scaffolding a component with no upstream .figma.tsx
 

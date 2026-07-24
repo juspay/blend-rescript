@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StepperV2',
   id: 'stepperV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): steps -- array<StepperV2Types.stepperV2Step> -- not confidently classifiable
     // TODO (unsupported): onStepClick -- float => unit -- event handler, code-only

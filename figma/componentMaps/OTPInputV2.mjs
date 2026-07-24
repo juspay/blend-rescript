@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'OTPInputV2',
   id: 'oTPInputV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     label: { figmaProp: null /* TODO */, kind: 'string' },
     sublabel: { figmaProp: null /* TODO */, kind: 'string' },

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DrawerDescription',
   id: 'drawerDescription',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling
     className: { figmaProp: null /* TODO */, kind: 'string' },

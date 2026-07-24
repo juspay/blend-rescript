@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SankeyNode',
   id: 'sankeyNode',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): x -- float -- not confidently classifiable
     // TODO (unsupported): y -- float -- not confidently classifiable

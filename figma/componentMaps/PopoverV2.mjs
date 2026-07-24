@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'PopoverV2',
   id: 'popoverV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     heading: { figmaProp: null /* TODO */, kind: 'string' },
     description: { figmaProp: null /* TODO */, kind: 'string' },

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SingleSelect',
   id: 'singleSelect',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     label: { figmaProp: null /* TODO */, kind: 'string' },
     subLabel: { figmaProp: null /* TODO */, kind: 'string' },

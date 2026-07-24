@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'AccordionV2Chevron',
   id: 'accordionV2Chevron',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     isExpanded: { figmaProp: null /* TODO */, kind: 'bool' },
     isDisabled: { figmaProp: null /* TODO */, kind: 'bool' },

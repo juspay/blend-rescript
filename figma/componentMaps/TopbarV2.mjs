@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TopbarV2',
   id: 'topbarV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling
     isExpanded: { figmaProp: null /* TODO */, kind: 'bool' },

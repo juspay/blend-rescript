@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'BreadcrumbV2',
   id: 'breadcrumbV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): children -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): items -- array<BreadcrumbV2Types.breadcrumbV2ItemType> -- not confidently classifiable

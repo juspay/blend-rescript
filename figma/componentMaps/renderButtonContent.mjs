@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'renderButtonContent',
   id: 'renderButtonContent',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     isLoading: { figmaProp: null /* TODO */, kind: 'bool' },
     isSkeleton: { figmaProp: null /* TODO */, kind: 'bool' },

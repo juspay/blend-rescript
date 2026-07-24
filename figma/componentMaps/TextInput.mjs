@@ -18,14 +18,14 @@ export default {
   figmaComponentName: 'TextInput',
   codeComponent: 'TextInput',
   id: 'textInput',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        md: 'InputsTypes.Md',
-        lg: 'InputsTypes.Lg',
+        md: 'JuspayRescriptBlend.InputsTypes.Md',
+        lg: 'JuspayRescriptBlend.InputsTypes.Lg',
       },
     },
     label: { figmaProp: 'label', kind: 'string' },

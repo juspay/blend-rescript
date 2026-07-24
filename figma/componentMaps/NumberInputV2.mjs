@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'NumberInputV2',
   id: 'numberInputV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): slot -- EditorSharedTypes.inputsV2SlotConfig -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): value -- Nullable.t<float> -- not confidently classifiable

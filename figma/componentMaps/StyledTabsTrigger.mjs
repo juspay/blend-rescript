@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StyledTabsTrigger',
   id: 'styledTabsTrigger',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     hidden: { figmaProp: null /* TODO */, kind: 'bool' },
     disabled: { figmaProp: null /* TODO */, kind: 'bool' },

@@ -63,7 +63,7 @@ function renderPropsBlock(entries) {
       lines.push(`      values: {`);
       for (const { asValue, constructor } of spec.constructors) {
         lines.push(
-          `        // TODO_FIGMA_KEY: '${spec.codeModule}.${constructor}', // ReScript: ${constructor} (bound value "${asValue}")`,
+          `        // TODO_FIGMA_KEY: 'JuspayRescriptBlend.${spec.codeModule}.${constructor}', // ReScript: ${constructor} (bound value "${asValue}")`,
         );
       }
       lines.push(`      },`);
@@ -79,7 +79,6 @@ async function scaffoldOne(componentName) {
   if (!existsSync(resPath)) return { componentName, status: "no-file" };
 
   const outPath = join(MAPS_DIR, `${componentName}.mjs`);
-  if (existsSync(outPath) && !force) return { componentName, status: "skipped-exists" };
 
   const parsed = await parseComponentFile(SRC, componentName);
   if (!parsed) return { componentName, status: "unparsed" };
@@ -113,13 +112,24 @@ export default {
   figmaComponentName: null, // TODO: Figma component/component-set name
   codeComponent: '${parsed.codeComponent}',
   id: '${componentName.charAt(0).toLowerCase() + componentName.slice(1)}',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
 ${renderPropsBlock(entries)}
   },
 }
 `;
-  await writeFile(outPath, source);
+  // Atomic "don't clobber an existing file" instead of a separate
+  // existsSync check followed by a later write -- the earlier check-then-write
+  // left a window (parsing + rendering, above) where another process could
+  // create the file in between, and this write would silently overwrite it
+  // even without --force. `wx` fails with EEXIST if the file already exists,
+  // so the two steps can't race.
+  try {
+    await writeFile(outPath, source, { flag: force ? "w" : "wx" });
+  } catch (err) {
+    if (err.code === "EEXIST") return { componentName, status: "skipped-exists" };
+    throw err;
+  }
   return { componentName, status: "scaffolded", propCount: entries.length, supportedCount };
 }
 

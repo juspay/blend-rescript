@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SelectItemV2',
   id: 'selectItemV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): item -- SelectV2Types.selectV2ItemType -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): onSelect -- string => unit -- event handler, code-only

@@ -13,35 +13,35 @@ export default {
   figmaComponentName: 'Button',
   codeComponent: 'Button',
   id: 'button',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     text: { figmaProp: 'text', kind: 'string' },
     buttonType: {
       figmaProp: 'buttonType',
       kind: 'enum',
       values: {
-        primary: 'ButtonTypes.Primary',
-        secondary: 'ButtonTypes.Secondary',
-        danger: 'ButtonTypes.Danger',
-        success: 'ButtonTypes.Success',
+        primary: 'JuspayRescriptBlend.ButtonTypes.Primary',
+        secondary: 'JuspayRescriptBlend.ButtonTypes.Secondary',
+        danger: 'JuspayRescriptBlend.ButtonTypes.Danger',
+        success: 'JuspayRescriptBlend.ButtonTypes.Success',
       },
     },
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        sm: 'ButtonTypes.Sm',
-        md: 'ButtonTypes.Md',
-        lg: 'ButtonTypes.Lg',
+        sm: 'JuspayRescriptBlend.ButtonTypes.Sm',
+        md: 'JuspayRescriptBlend.ButtonTypes.Md',
+        lg: 'JuspayRescriptBlend.ButtonTypes.Lg',
       },
     },
     subType: {
       figmaProp: 'subType',
       kind: 'enum',
       values: {
-        default: 'ButtonTypes.Default',
-        iconOnly: 'ButtonTypes.IconOnly',
-        inline: 'ButtonTypes.Inline',
+        default: 'JuspayRescriptBlend.ButtonTypes.Default',
+        iconOnly: 'JuspayRescriptBlend.ButtonTypes.IconOnly',
+        inline: 'JuspayRescriptBlend.ButtonTypes.Inline',
       },
     },
     disabled: {

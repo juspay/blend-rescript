@@ -19,16 +19,16 @@ export default {
   figmaComponentName: 'StatCard',
   codeComponent: 'StatCard',
   id: 'statCard',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     variant: {
       figmaProp: 'type',
       kind: 'enum',
       values: {
-        line: 'StatCardTypes.Line',
-        progress: 'StatCardTypes.Progress',
-        bar: 'StatCardTypes.Bar',
-        number: 'StatCardTypes.Number',
+        line: 'JuspayRescriptBlend.StatCardTypes.Line',
+        progress: 'JuspayRescriptBlend.StatCardTypes.Progress',
+        bar: 'JuspayRescriptBlend.StatCardTypes.Bar',
+        number: 'JuspayRescriptBlend.StatCardTypes.Number',
       },
     },
     title: { figmaProp: 'title', kind: 'string' },

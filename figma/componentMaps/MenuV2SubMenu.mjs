@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MenuV2SubMenu',
   id: 'menuV2SubMenu',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): item -- MenuV2Types.menuV2ItemType -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): index -- int -- not confidently classifiable

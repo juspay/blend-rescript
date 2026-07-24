@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TimelineSubstep',
   id: 'timelineSubstep',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     title: { figmaProp: null /* TODO */, kind: 'string' },
     isNestedUnderHeader: { figmaProp: null /* TODO */, kind: 'bool' },

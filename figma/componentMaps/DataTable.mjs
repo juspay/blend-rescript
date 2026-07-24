@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'DataTable',
   id: 'dataTable',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): data -- array<'a> -- not confidently classifiable
     // TODO (unsupported): columns -- array<DataTableTypes.ColumnDefinition.t>, // ⓘ was `ColumnDefinition<T>` — opaque; build with ColumnDefinition.fromDataTableColumnsTextConfig / ColumnDefinition.fromDataTableColumnsNumberConfig / ColumnDefinition.fromDataTableColumnsAvatarConfig / ColumnDefinition.fromDataTableColumnsTagConfig / ColumnDefinition.fromDataTableColumnsProgressConfig / ColumnDefinition.fromDataTableColumnsDropdownConfig / ColumnDefinition.fromDataTableColumnsDateConfig / ColumnDefinition.fromDataTableColumnsSliderConfig / ColumnDefinition.fromDataTableColumnsReactElementConfig / ColumnDefinition.fromDataTableColumnsFilterTypeConfig -- not confidently classifiable

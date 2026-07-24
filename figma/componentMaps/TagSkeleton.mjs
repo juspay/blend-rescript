@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'TagSkeleton',
   id: 'tagSkeleton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     showSkeleton: { figmaProp: null /* TODO */, kind: 'bool' },
     skeletonVariant: {

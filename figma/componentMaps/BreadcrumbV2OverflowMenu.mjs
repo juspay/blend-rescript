@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'BreadcrumbV2OverflowMenu',
   id: 'breadcrumbV2OverflowMenu',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): menuItems -- array<BreadcrumbV2Types.indexedBreadcrumbChild> -- not confidently classifiable
     // TODO (unsupported): breadcrumbTokens -- BreadcrumbV2Types.breadcrumbV2TokensType -- variant has payload(s) or is a record, not a simple enum

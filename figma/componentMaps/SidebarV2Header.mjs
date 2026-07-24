@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SidebarV2Header',
   id: 'sidebarV2Header',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): sidebarTopSlot -- React.element (slot/children) -- needs manual handling
     // TODO (unsupported): merchantInfo -- SidebarV2Types.sidebarV2MerchantInfoConfig -- variant has payload(s) or is a record, not a simple enum

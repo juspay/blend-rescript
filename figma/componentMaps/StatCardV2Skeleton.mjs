@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StatCardV2Skeleton',
   id: 'statCardV2Skeleton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): skeleton -- StatCardV2Types.statCardV2SkeletonProps -- variant has payload(s) or is a record, not a simple enum
     // TODO (unsupported): maxWidth -- CommonTypes.stringOrNumber -- variant has payload(s) or is a record, not a simple enum

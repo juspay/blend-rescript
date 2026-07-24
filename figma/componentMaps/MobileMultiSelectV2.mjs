@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MobileMultiSelectV2',
   id: 'mobileMultiSelectV2',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): selectedValues -- array<string> -- not confidently classifiable
     // TODO (unsupported): onChange -- CommonTypes.stringOrStringArray => unit -- event handler, code-only

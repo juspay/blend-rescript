@@ -17,7 +17,7 @@ export default {
   figmaComponentName: 'OTPInput',
   codeComponent: 'OTPInput',
   id: 'oTPInput',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     label: { figmaProp: 'label', kind: 'string' },
     sublabel: { figmaProp: 'sublabel', kind: 'string' },

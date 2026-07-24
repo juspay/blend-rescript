@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StatCardV2Subtitle',
   id: 'statCardV2Subtitle',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     subtitle: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): tokens -- StatCardV2Types.statCardV2TokensType -- variant has payload(s) or is a record, not a simple enum

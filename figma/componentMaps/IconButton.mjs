@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'IconButton',
   id: 'iconButton',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): width -- CommonTypes.stringOrNumber -- variant has payload(s) or is a record, not a simple enum
     size: {

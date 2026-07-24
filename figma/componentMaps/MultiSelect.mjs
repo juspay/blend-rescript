@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelect',
   id: 'multiSelect',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): height -- float -- not confidently classifiable
     // TODO (unsupported): selectedValues -- array<string> -- not confidently classifiable

@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SankeyLink',
   id: 'sankeyLink',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): sourceX -- float -- not confidently classifiable
     // TODO (unsupported): targetX -- float -- not confidently classifiable

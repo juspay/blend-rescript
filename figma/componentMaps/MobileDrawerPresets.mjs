@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MobileDrawerPresets',
   id: 'mobileDrawerPresets',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     drawerOpen: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): setDrawerOpen -- bool => unit -- event handler, code-only

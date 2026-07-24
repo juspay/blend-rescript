@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'SecondarySidebar',
   id: 'secondarySidebar',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     id: { figmaProp: null /* TODO */, kind: 'string' },
     // TODO (unsupported): secondarySidebar -- SidebarV2Types.secondarySidebarInfo -- variant has payload(s) or is a record, not a simple enum

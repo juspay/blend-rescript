@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ChatInput',
   id: 'chatInput',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     disabled: { figmaProp: null /* TODO */, kind: 'bool' },
     // TODO (unsupported): maxLength -- int -- not confidently classifiable

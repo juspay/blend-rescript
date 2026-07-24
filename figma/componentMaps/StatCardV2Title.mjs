@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'StatCardV2Title',
   id: 'statCardV2Title',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     title: { figmaProp: null /* TODO */, kind: 'string' },
     helpIconText: { figmaProp: null /* TODO */, kind: 'string' },

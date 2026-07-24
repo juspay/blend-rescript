@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MultiSelectV2MenuHeader',
   id: 'multiSelectV2MenuHeader',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): tokens -- EditorSharedTypes.multiSelectV2TokensType -- variant has payload(s) or is a record, not a simple enum
     showSearch: { figmaProp: null /* TODO */, kind: 'bool' },

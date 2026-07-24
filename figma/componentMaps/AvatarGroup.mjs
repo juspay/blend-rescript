@@ -17,16 +17,16 @@ export default {
   figmaComponentName: 'AvatarGroup',
   codeComponent: 'AvatarGroup',
   id: 'avatarGroup',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     size: {
       figmaProp: 'size',
       kind: 'enum',
       values: {
-        sm: 'AvatarTypes.Sm',
-        md: 'AvatarTypes.Md',
-        lg: 'AvatarTypes.Lg',
-        xl: 'AvatarTypes.Xl',
+        sm: 'JuspayRescriptBlend.AvatarTypes.Sm',
+        md: 'JuspayRescriptBlend.AvatarTypes.Md',
+        lg: 'JuspayRescriptBlend.AvatarTypes.Lg',
+        xl: 'JuspayRescriptBlend.AvatarTypes.Xl',
       },
     },
     shape: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },

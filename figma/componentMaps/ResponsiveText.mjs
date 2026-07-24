@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'ResponsiveText',
   id: 'responsiveText',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     children: { figmaProp: null /* TODO */, kind: 'string' },
     fontSize: { figmaProp: null /* TODO */, kind: 'string' },

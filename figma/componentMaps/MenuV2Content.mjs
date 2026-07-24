@@ -10,7 +10,7 @@ export default {
   figmaComponentName: null, // TODO: confirm the Figma component/component-set name
   codeComponent: 'MenuV2Content',
   id: 'menuV2Content',
-  imports: ['open RescriptBlend'],
+  imports: ['open JuspayRescriptBlend'],
   props: {
     // TODO (unsupported): filteredItems -- array<MenuV2Types.menuV2GroupType> -- not confidently classifiable
     // TODO (unsupported): menuTokens -- MenuV2Types.menuV2TokensType -- variant has payload(s) or is a record, not a simple enum
