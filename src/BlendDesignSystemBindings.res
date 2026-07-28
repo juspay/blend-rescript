@@ -1,6 +1,8 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
+external uploadErrorReason: EditorSharedTypes.inputsV2UploadErrorReasonConfig = "UploadErrorReason"
+@module("@juspay/blend-design-system")
 external useTheme: unit => EditorSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
 external useShadowRoot: unit => EditorSharedTypes.shadowRootContextType = "useShadowRoot"
@@ -169,6 +171,9 @@ external getTagTokens: (
 @module("@juspay/blend-design-system")
 external getTooltipTokens: TokensTypes.foundationTokenType => TooltipTypes.responsiveTooltipTokens =
   "getTooltipTokens"
+@module("@juspay/blend-design-system")
+external getTopbarTokens: TokensTypes.foundationTokenType => TopbarTypes.responsiveTopbarTokens =
+  "getTopbarTokens"
 @module("@juspay/blend-design-system")
 external getUploadTokens: TokensTypes.foundationTokenType => UploadTypes.responsiveUploadTokens =
   "getUploadTokens"
@@ -504,6 +509,12 @@ external getStatCardV2Tokens: (
 @module("@juspay/blend-design-system")
 external buildStatCardV2AriaLabel: StatCardV2Types.statCardV2BuildStatCardV2AriaLabelParamsConfig => string =
   "buildStatCardV2AriaLabel"
+@module("@juspay/blend-design-system")
+external getCardV2Tokens: (
+  TokensTypes.foundationTokenType,
+  ~theme: string=?,
+  unit,
+) => CardV2Types.responsiveCardV2Tokens = "getCardV2Tokens"
 @module("@juspay/blend-design-system") external accordionTransition: string = "ACCORDION_TRANSITION"
 @module("@juspay/blend-design-system")
 external getAccordionV2Tokens: (
@@ -635,6 +646,12 @@ external getPopoverV2Tokens: (
   ~theme: string=?,
   unit,
 ) => PopoverV2Types.responsivePopoverV2Tokens = "getPopoverV2Tokens"
+@module("@juspay/blend-design-system")
+external getModalV2Tokens: (
+  TokensTypes.foundationTokenType,
+  ~theme: string=?,
+  unit,
+) => ModalV2Types.responsiveModalV2Tokens = "getModalV2Tokens"
 @module("@juspay/blend-design-system")
 external getSidebarV2Tokens: (
   TokensTypes.foundationTokenType,

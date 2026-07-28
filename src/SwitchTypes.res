@@ -6,9 +6,9 @@ type switch_SwitchTokensTypeSwitchContainerHeightConfig = {
   md: string,
 }
 type switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig = {
+  disabled: string,
   default: string,
   hover: string,
-  disabled: string,
   error: string,
 }
 type switch_SwitchTokensTypeSwitchContainerBackgroundColorConfig = {

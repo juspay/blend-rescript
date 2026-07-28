@@ -104,9 +104,9 @@ type props = {
 external make: React.component<props> = "Skeleton"
 
 // Compound statics — zero-cost aliases; use <Skeleton.Avatar />
-module Avatar = SkeletonAvatar2
-module Base = SkeletonBase2
-module Card = SkeletonCard2
+module Avatar = SkeletonAvatar
+module Base = SkeletonBase
+module Card = SkeletonCard
 module Circle = SkeletonCircle
 module Rectangle = SkeletonRectangle
 module Rounded = SkeletonRounded

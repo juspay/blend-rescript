@@ -8,6 +8,8 @@ type props = {
   minWidth?: float,
   enableSearch?: bool,
   searchPlaceholder?: string,
+  searchSortFn?: (array<MenuTypes.menuItemType>, string) => array<MenuTypes.menuItemType>,
+  onEnter?: (string, array<MenuTypes.menuGroupType>) => unit,
   enableVirtualScrolling?: bool,
   virtualItemHeight?: MenuTypes.menuItemTypeVirtualItemHeight,
   virtualOverscan?: float,

@@ -46,9 +46,9 @@ type optionsOverflowValue =
   | @as("justify") Justify
   | @as("allow") Allow
 type optionsPosition3dValue =
+  | @as("offset") Offset
   | @as("chart") Chart
   | @as("flap") Flap
-  | @as("offset") Offset
   | @as("ortho") Ortho
 type optionsMinorTickPositionValue =
   | @as("inside") Inside
@@ -64,9 +64,9 @@ type axisTitleAlignValue =
   | @as("high") High
   | @as("low") Low
 type chartsXAxisTitleOptionsPosition3d =
+  | @as("offset") Offset
   | @as("chart") Chart
   | @as("flap") Flap
-  | @as("offset") Offset
   | @as("ortho") Ortho
 type axisTypeValue =
   | @as("linear") Linear
@@ -155,8 +155,8 @@ type optionsModeValue =
   | @as("normal") Normal
   | @as("serialize") Serialize
 type optionsLandmarkVerbosityValue =
-  | @as("all") All
   | @as("disabled") Disabled
+  | @as("all") All
   | @as("one") One
 type annotationDraggableValue =
   | @as("") Value
@@ -164,8 +164,8 @@ type annotationDraggableValue =
   | @as("y") Y
   | @as("xy") Xy
 type optionsPanKeyValue =
-  | @as("shift") Shift
   | @as("alt") Alt
+  | @as("shift") Shift
   | @as("ctrl") Ctrl
   | @as("meta") Meta
 type optionsChartPanningTypeValue =
@@ -176,8 +176,8 @@ type buttonRelativeToValue =
   | @as("plotBox") PlotBox
   | @as("spacingBox") SpacingBox
 type optionsKeyValue =
-  | @as("shift") Shift
   | @as("alt") Alt
+  | @as("shift") Shift
   | @as("ctrl") Ctrl
   | @as("meta") Meta
 type optionsTypeValue =
@@ -229,8 +229,8 @@ type optionsFindNearestPointByValue =
   | @as("x") X
   | @as("xy") Xy
 type optionsGapUnitValue =
-  | @as("relative") Relative
   | @as("value") Value
+  | @as("relative") Relative
 type optionsLegendSymbolValue =
   | @as("rectangle") Rectangle
   | @as("areaMarker") AreaMarker
@@ -451,8 +451,8 @@ type chartsBlendChartPropsConstructorType =
   | @as("triangle") Triangle
   | @as("find") Find
   | @as("backgroundSize") BackgroundSize
-  | @as("chart") Chart
   | @as("offset") Offset
+  | @as("chart") Chart
   | @as("animate") Animate
   | @as("arc") Arc
   | @as("callout") Callout
@@ -8704,10 +8704,10 @@ and pointer<'a, 'b, 'c> = {
 and unknownSeriesOptions<'a, 'b, 'c> = {
   opacity?: float,
   zIndex?: int,
-  visible?: bool,
   className?: string,
-  id?: string,
   name?: string,
+  id?: string,
+  visible?: bool,
   events?: seriesEventsOptionsObject<'a, 'b, 'c>,
   index?: int,
   xAxis?: CommonTypes.stringOrNumber,

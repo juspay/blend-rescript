@@ -1,4 +1,4 @@
-type uploadState =
+type uploadState2 =
   | @as("idle") Idle
   | @as("uploading") Uploading
   | @as("success") Success
@@ -85,7 +85,7 @@ type responsiveUploadTokens = {
 type uploadFile = {
   file: Webapi.File.t,
   progress: float,
-  status: uploadState,
+  status: uploadState2,
   id: string,
   error?: string,
 }
@@ -104,7 +104,7 @@ type fileRejection = {
   errors: array<uploadFileRejectionErrorsConfig>,
 }
 type uploadOnStateChangeConfig = {
-  state: uploadState,
+  state: uploadState2,
   hasError: bool,
   hasSuccess: bool,
   hasUploading: bool,

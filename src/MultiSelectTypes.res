@@ -18,10 +18,10 @@ type multiSelectMenuSide =
   | @as("right") Right
   | @as("bottom") Bottom
 type multiSelectMultiSelectTokensTypeLabelColorConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
   selected: string,

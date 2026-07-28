@@ -36,10 +36,10 @@ type menuV2MenuV2TokensTypeGroupLabelConfig = {
   marginLeft: string,
 }
 type stateTokenMenuV2 = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
   selected: string,

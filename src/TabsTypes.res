@@ -15,10 +15,10 @@ type tabsType =
   | @as("reset") Reset
   | @as("submit") Submit
 type tabsTabsTokensTypeBackgroundColorBoxedConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
 }
 type tabsTabsTokensTypeBackgroundColorConfig = {
   boxed: tabsTabsTokensTypeBackgroundColorBoxedConfig,

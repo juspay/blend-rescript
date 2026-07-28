@@ -24,10 +24,10 @@ type selectV2Mode =
   | @as("single") Single
   | @as("multi") Multi
 type selectV2ItemStates =
+  | @as("disabled") Disabled
   | @as("active") Active
   | @as("default") Default
   | @as("hover") Hover
-  | @as("disabled") Disabled
   | @as("focus") Focus
   | @as("focusVisible") FocusVisible
   | @as("selected") Selected

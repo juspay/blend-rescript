@@ -1,9 +1,9 @@
 type props = {
   heading: string,
-  @as("open") open_?: bool,
   style?: JsxDOM.style,
-  rightSlot?: React.element,
   className?: string,
+  @as("open") open_?: bool,
+  rightSlot?: React.element,
   description?: string,
   items: array<DrawerTypes.selectDrawerGroup>,
   enableSearch?: bool,

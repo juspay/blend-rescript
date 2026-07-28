@@ -58,17 +58,17 @@ type dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingConfig = {
   md: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
   lg: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
 }
-type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig = {
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig = {
   left: string,
   top: string,
   bottom: string,
   right: string,
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderConfig = {
-  active: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig,
-  default: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig,
-  hover: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig,
-  disabled: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderActiveConfig,
+  disabled: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  active: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  default: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  hover: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
 }
 type dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextFontSizeConfig = {
   sm: string,
@@ -99,10 +99,10 @@ type dateRangePickerCalendarTokenTypeTriggerDateInputTextConfig = {
   fontWeight: string,
 }
 type dateRangePickerCalendarTokenTypeTriggerDateInputBorderConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
 }
 type dateRangePickerCalendarTokenTypeTriggerDateInputConfig = {
   borderRadius: dateRangePickerCalendarTokenTypeTriggerDateInputBorderRadiusConfig,
@@ -157,7 +157,7 @@ type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayCellConfig = {
   fontWeight: string,
   fontSize: string,
   lineHeight: string,
-  border: string, // ⚪ loose — was `{ active: Border<number | (string & {})>; default: Border<number | (string & {})>; hover: Border<number | (str`
+  border: string, // ⚪ loose — was `{ disabled: Border<number | (string & {})>; active: Border<number | (string & {})>; default: Border<number | (`
   borderRadius: string,
 }
 type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayStatesConfig = {
@@ -304,6 +304,7 @@ type dateRangePickerProps = {
   icon?: React.element,
   minDate?: Date.t,
   maxDate?: Date.t,
+  maxRangeDays?: float,
   dateFormat?: string,
   allowSingleDateSelection?: bool,
   isSingleDatePicker?: bool,
@@ -311,7 +312,7 @@ type dateRangePickerProps = {
   disablePastDates?: bool,
   hideFutureDates?: bool,
   hidePastDates?: bool,
-  customDisableDates?: Date.t => bool,
+  customDisableDates?: (Date.t, option<dateRange>) => bool,
   customRangeConfig?: customRangeConfig,
   triggerElement?: React.element,
   useDrawerOnMobile?: bool,

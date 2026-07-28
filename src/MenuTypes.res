@@ -18,10 +18,10 @@ type menuMenuTokensTypePaddingConfig = {
   y: string,
 }
 type menuMenuTokensTypeItemBackgroundColorDefaultEnabledConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
 }
@@ -111,6 +111,8 @@ type rec menuItemType = {
   subMenu?: array<menuItemType>,
   enableSubMenuSearch?: bool,
   subMenuSearchPlaceholder?: string,
+  subMenuSearchSortFn?: (array<menuItemType>, string) => array<menuItemType>,
+  onSubMenuSearchEnter?: (string, array<menuItemType>) => unit,
   tooltip?: React.element,
   tooltipProps?: menuMenuItemTypeTooltipPropsConfig,
   enableSubMenuVirtualScrolling?: bool,
@@ -138,6 +140,8 @@ type menuOverflowMenuPropsConfig = {
   minWidth?: float,
   enableSearch?: bool,
   searchPlaceholder?: string,
+  searchSortFn?: (array<menuItemType>, string) => array<menuItemType>,
+  onEnter?: (string, array<menuGroupType>) => unit,
   enableVirtualScrolling?: bool,
   virtualItemHeight?: menuItemTypeVirtualItemHeight,
   virtualOverscan?: float,

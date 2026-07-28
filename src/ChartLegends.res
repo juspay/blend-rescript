@@ -13,6 +13,7 @@ type props = {
   isSmallScreen?: bool,
   stackedLegendsData?: array<HighchartsSharedTypes.stackedLegendsDataPoint>,
   legends?: array<HighchartsSharedTypes.chartsLegendsConfig>,
+  showAllLegends?: bool,
 }
 
 @module("@juspay/blend-design-system")

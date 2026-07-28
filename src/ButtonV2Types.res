@@ -156,3 +156,10 @@ type buttonV2TimelineShowMorePropsButtonPropsConfig = {
   loading?: bool,
   state?: buttonV2State,
 }
+module CardV2Actions = {
+  type t
+  external fromButtonV2Props: buttonBaseProps => t = "%identity"
+  external asButtonV2Props: t => buttonBaseProps = "%identity"
+  external fromButtonV2Propss: array<buttonBaseProps> => t = "%identity"
+  external asButtonV2Propss: t => array<buttonBaseProps> = "%identity"
+}
