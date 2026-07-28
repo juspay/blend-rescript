@@ -1,0 +1,39 @@
+// SYNCED by scripts/sync-figma-code-connect.mjs from blend-design-system's
+// apps/storybook/stories/components/Radio/Radio.figma.tsx (branch: main). Do NOT hand-edit -- edit nothing here;
+// blend-design-system's own .figma.tsx is the single source of truth. If a
+// mapping is wrong, it needs fixing upstream in blend-design-system, then
+// re-run `npm run figma:sync` here.
+//
+// Figma property names/values (and, for enums, the ReScript constructors)
+// are derived from blend's own published Code Connect mapping, cross-
+// referenced against our own generated src/Radio.res --
+// not guessed, not scaffolded.
+//
+// Skipped during sync:
+// - slot: our own binding classifies this prop as 'unsupported', not 'instanceSwap' like blend does -- skipped
+
+export default {
+  figmaComponentName: 'Radio',
+  codeComponent: 'Radio',
+  id: 'radio',
+  imports: ['open JuspayRescriptBlend'],
+  props: {
+    size: {
+      figmaProp: 'size',
+      kind: 'enum',
+      values: {
+        sm: 'JuspayRescriptBlend.RadioTypes.Sm',
+        md: 'JuspayRescriptBlend.RadioTypes.Md',
+      },
+    },
+    checked: { figmaProp: 'enable', kind: 'bool' },
+    disabled: { figmaProp: 'disabled', kind: 'bool' },
+    subtext: { figmaProp: 'subtext', kind: 'string' },
+    id: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    value: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    defaultChecked: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    required: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    error: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    name: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+  },
+}

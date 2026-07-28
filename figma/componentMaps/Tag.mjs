@@ -1,0 +1,136 @@
+// SYNCED by scripts/sync-figma-code-connect.mjs from blend-design-system's
+// apps/storybook/stories/components/Tags/Tags.figma.tsx (branch: main). Do NOT hand-edit -- edit nothing here;
+// blend-design-system's own .figma.tsx is the single source of truth. If a
+// mapping is wrong, it needs fixing upstream in blend-design-system, then
+// re-run `npm run figma:sync` here.
+//
+// Figma property names/values (and, for enums, the ReScript constructors)
+// are derived from blend's own published Code Connect mapping, cross-
+// referenced against our own generated src/Tag.res --
+// not guessed, not scaffolded.
+//
+// Skipped during sync:
+// - leftSlot: our own binding classifies this prop as 'unsupported', not 'instanceSwap' like blend does -- skipped
+// - rightSlot: our own binding classifies this prop as 'unsupported', not 'instanceSwap' like blend does -- skipped
+
+export default {
+  figmaComponentName: 'Tag',
+  codeComponent: 'Tag',
+  id: 'tag',
+  imports: ['open JuspayRescriptBlend'],
+  props: {
+    text: { figmaProp: 'text', kind: 'string' },
+    variant: {
+      figmaProp: 'variant',
+      kind: 'enum',
+      values: {
+        noFill: 'JuspayRescriptBlend.TagsTypes.NoFill',
+        attentive: 'JuspayRescriptBlend.TagsTypes.Attentive',
+        subtle: 'JuspayRescriptBlend.TagsTypes.Subtle',
+      },
+    },
+    size: {
+      figmaProp: 'size',
+      kind: 'enum',
+      values: {
+        xs: 'JuspayRescriptBlend.TagsTypes.Xs',
+        sm: 'JuspayRescriptBlend.TagsTypes.Sm',
+        md: 'JuspayRescriptBlend.TagsTypes.Md',
+        lg: 'JuspayRescriptBlend.TagsTypes.Lg',
+      },
+    },
+    color: {
+      figmaProp: 'color',
+      kind: 'enum',
+      values: {
+        neutral: 'JuspayRescriptBlend.SplitTagTypes.Neutral',
+        primary: 'JuspayRescriptBlend.SplitTagTypes.Primary',
+        success: 'JuspayRescriptBlend.SplitTagTypes.Success',
+        error: 'JuspayRescriptBlend.SplitTagTypes.Error',
+        warning: 'JuspayRescriptBlend.SplitTagTypes.Warning',
+        purple: 'JuspayRescriptBlend.SplitTagTypes.Purple',
+      },
+    },
+    shape: {
+      figmaProp: 'shape',
+      kind: 'enum',
+      values: {
+        rounded: 'JuspayRescriptBlend.TagsTypes.Rounded',
+        squarical: 'JuspayRescriptBlend.TagsTypes.Squarical',
+      },
+    },
+    boxShadow: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    width: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderRadius: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    letterSpacing: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    fontSize: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    lineHeight: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    display: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    fontWeight: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    opacity: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    height: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    gap: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    zIndex: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    minWidth: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    maxWidth: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    backgroundColor: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    border: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    inset: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderBottom: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    outline: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transition: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    top: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    left: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    outlineOffset: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    maxHeight: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    bottom: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    right: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    flexDirection: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    position: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    justifyContent: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    alignItems: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    overflowX: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    overflowY: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    flexShrink: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    minHeight: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transform: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    textAlign: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    cursor: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    userSelect: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    textTransform: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderTop: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderTopLeftRadius: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderTopRightRadius: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderBottomLeftRadius: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderBottomRightRadius: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderLeft: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    borderRight: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    backgroundSize: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    backgroundImage: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    overflow: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    pointerEvents: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    textOverflow: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    whiteSpace: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    flexWrap: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    flexGrow: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    flexBasis: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    rowGap: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    columnGap: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    alignContent: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    alignSelf: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    justifySelf: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    outlineColor: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    outlineWidth: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    outlineStyle: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    contentCentered: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    willChange: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transformOrigin: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    backfaceVisibility: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transitionDuration: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transitionTimingFunction: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    transitionDelay: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    splitTagPosition: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    showSkeleton: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+    skeletonVariant: { mapped: false, reason: 'not present in blend-design-system\'s published .figma.tsx' },
+  },
+}

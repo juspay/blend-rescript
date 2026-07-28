@@ -1,0 +1,99 @@
+name: Sync Figma Code Connect with blend-design-system
+
+# Regenerates figma/componentMaps/*.mjs directly from blend-design-system's
+# own published *.figma.tsx files (github.com/juspay/blend-design-system) --
+# this repo does not hand-maintain Figma property knowledge; blend-design-system
+# is the sole source of truth, the same way npm run generate already treats it
+# as the source of truth for the ReScript bindings themselves.
+#
+# Two ways to run:
+#   1. schedule — weekly poll. Diffs the freshly-synced componentMaps/ against
+#      the committed ones; if anything changed (blend added/renamed/removed a
+#      .figma.tsx, or changed its prop mapping), opens a PR. Never auto-merges
+#      -- a human confirms the semantic call, same posture as sync-bindings.yml.
+#   2. workflow_dispatch — run on demand.
+#
+# No secrets required (uses the ambient GITHUB_TOKEN already granted to this
+# workflow only for its own higher GitHub API rate limit and for opening the
+# PR -- same token, same trust level as sync-bindings.yml already uses; not a
+# new category of credential). The sync script itself only reads public
+# GitHub content over HTTPS.
+on:
+  schedule:
+    # Weekly, Monday 06:00 UTC.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-figma-code-connect
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync componentMaps from blend-design-system
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync componentMaps from blend-design-system's .figma.tsx files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-figma-code-connect.mjs
+
+      - name: Regenerate src/Figma/*CodeConnect.res
+        run: npm run figma:generate
+
+      - name: Build to confirm green
+        run: npm run build
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- figma/componentMaps src/Figma; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR with synced Code Connect maps
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync/figma-code-connect
+          title: 'chore(figma): sync componentMaps from blend-design-system'
+          commit-message: 'chore(figma): sync componentMaps from blend-design-system'
+          body: |
+            Regenerates `figma/componentMaps/*.mjs` and `src/Figma/*CodeConnect.res`
+            from blend-design-system's own published `*.figma.tsx` files
+            (deterministic parse of `figma.connect(...)`, cross-referenced against
+            our own generated `src/*.res` -- no guessing, no secrets beyond this
+            workflow's own `GITHUB_TOKEN`).
+
+            **Reviewer checklist**
+            - [ ] `npm run build` is green (CI will block if not)
+            - [ ] Diff looks sensible -- especially any component whose mapping
+                  changed shape (new props, renamed Figma properties, a prop
+                  that's now `mapped: false`)
+            - [ ] If a component's *.figma.tsx changed upstream in a way that
+                  looks wrong, the fix belongs in blend-design-system, not here
+
+            _Opened automatically by the weekly sync._
+          labels: |
+            automated
+            figma
+          add-paths: |
+            figma/componentMaps/**
+            src/Figma/**

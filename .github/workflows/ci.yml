@@ -31,3 +31,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Check figma/componentMaps drift against src/ bindings
+        run: node scripts/check-figma-map-drift.mjs
