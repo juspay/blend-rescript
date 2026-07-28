@@ -50,10 +50,10 @@ type responsivePopoverTokens = {
 type popoverActionType = {
   width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
-  text?: string,
   disabled?: bool,
-  justifyContent?: string,
   onClick?: option<ReactEvent.Mouse.t> => unit,
+  text?: string,
+  justifyContent?: string,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,

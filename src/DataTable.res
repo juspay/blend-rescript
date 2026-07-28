@@ -66,6 +66,8 @@ type props<'a> = {
   onInsertRight?: string => unit,
   onDeleteColumn?: string => unit,
   getRowStyle?: ('a, float) => JsxDOM.style,
+  enableRowAnimation?: bool,
+  rowAnimationConfig?: DataTableTypes.rowAnimationConfig,
   tableBodyHeight?: CommonTypes.stringOrNumber,
   mobileColumnsToShow?: float,
   dateLabel?: string,

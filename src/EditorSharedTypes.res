@@ -1,10 +1,20 @@
-type contextCodeEditorV2TokensTheme =
-  | @as("dark") Dark
-  | @as("light") Light
 type inputSizeV2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
+type uploadErrorReasonValue =
+  | @as("oversized") Oversized
+  | @as("maxFiles") MaxFiles
+  | @as("invalidType") InvalidType
+type uploadStateInputsV2 =
+  | @as("idle") Idle
+  | @as("uploading") Uploading
+  | @as("success") Success
+  | @as("error") Error
+  | @as("disabled") Disabled
+type contextCodeEditorV2TokensTheme =
+  | @as("dark") Dark
+  | @as("light") Light
 type textInputV2DropdownPosition =
   | @as("left") Left
   | @as("right") Right
@@ -634,6 +644,21 @@ type multiSelectV2FlattenedMultiSelectV2ItemType =
   | @as("separator") Separator
   | @as("item") Item
   | @as("label") Label
+type uploadFileV2 = {
+  id?: string,
+  file: Webapi.File.t,
+  isValid: bool,
+  errorReason?: uploadErrorReasonValue,
+}
+type inputsV2ErrorConfig = {
+  show: bool,
+  message?: string,
+}
+type inputsV2UploadErrorReasonConfig = {
+  @as("OVERSIZED") oversized: string,
+  @as("MAX_FILES") maxFiles: string,
+  @as("INVALID_TYPE") invalidType: string,
+}
 type inputsV2InputLabelsV2TokensLabelFontSizeConfig = {
   sm: string,
   md: string,
@@ -826,10 +851,10 @@ type responsiveChatInputV2TokensType = {
   lg: chatInputV2TokensType,
 }
 type stateTokenSingleSelectV2 = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
   selected: string,
@@ -1009,10 +1034,10 @@ type responsiveSingleSelectV2Tokens = {
   lg: singleSelectV2TokensType,
 }
 type stateTokenMultiSelectV2 = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
   selected: string,
@@ -1596,6 +1621,49 @@ type chatInputV2MobileTokensType = {
   inputContainer: contextChatInputV2MobileTokensTypeInputContainerConfig,
   secondaryAction: inputsV2ChatInputV2MobileTokensTypeSecondaryActionConfig,
 }
+type inputsV2UploadV2TokensTypeUploadContainerBorderConfig = {
+  idle: string,
+  uploading: string,
+  success: string,
+  error: string,
+  disabled: string,
+  drag_enter: string,
+  drag_leave: string,
+  drag_over: string,
+  drop: string,
+}
+type inputsV2UploadV2TokensTypeUploadContainerHeaderConfig = {
+  gap: string,
+  title: inputsV2SearchInputV2TokensTypeErrorMessageConfig,
+  description: inputsV2SearchInputV2TokensTypeErrorMessageConfig,
+  errorText: inputsV2SearchInputV2TokensTypeErrorMessageConfig,
+}
+type inputsV2UploadV2TokensTypeUploadContainerFileTagConfig = {
+  maxWidth: string,
+  gap: string,
+}
+type inputsV2UploadV2TokensTypeUploadContainerConfig = {
+  gap: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  borderRadius: string,
+  border: inputsV2UploadV2TokensTypeUploadContainerBorderConfig,
+  backgroundColor: inputsV2UploadV2TokensTypeUploadContainerBorderConfig,
+  header: inputsV2UploadV2TokensTypeUploadContainerHeaderConfig,
+  fileTag: inputsV2UploadV2TokensTypeUploadContainerFileTagConfig,
+}
+type uploadV2TokensType = {
+  gap: string,
+  topContainer: inputLabelsV2Tokens,
+  uploadContainer: inputsV2UploadV2TokensTypeUploadContainerConfig,
+  bottomContainer: inputFooterV2Tokens,
+}
+type responsiveUploadV2Tokens = {
+  sm: uploadV2TokensType,
+  lg: uploadV2TokensType,
+}
 type componentTokenType = {
   @as("TAGS") tags?: TagsTypes.responsiveTagTokens,
   @as("SEARCH_INPUT") searchInput?: InputsTypes.responsiveSearchInputTokens,
@@ -1632,6 +1700,7 @@ type componentTokenType = {
   @as("STEPPER") stepper?: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair?: KeyValuePairTypes.responsiveKeyValuePairTokens,
   @as("CARD") card?: CardTypes.responsiveCardTokens,
+  @as("CARDV2") cardv2?: CardV2Types.responsiveCardV2Tokens,
   @as("SKELETON") skeleton?: SkeletonTypes.responsiveSkeletonTokens,
   @as("TOPBAR") topbar?: TopbarTypes.responsiveTopbarTokens,
   @as("TOPBARV2") topbarv2?: TopbarV2Types.responsiveTopbarV2Tokens,
@@ -1676,6 +1745,8 @@ type componentTokenType = {
   @as("SEARCH_INPUT_V2") searchInputV2?: responsiveSearchInputV2Tokens,
   @as("CHAT_INPUTV2_MOBILE") chatInputv2Mobile?: chatInputV2MobileTokensType,
   @as("STEPPERV2") stepperv2?: StepperV2Types.responsiveStepperV2Tokens,
+  @as("UPLOADV2") uploadv2?: responsiveUploadV2Tokens,
+  @as("MODALV2") modalv2?: ModalV2Types.responsiveModalV2Tokens,
 }
 type contextThemeContextTypeComponentTokensConfig = {
   @as("TAGS") tags: TagsTypes.responsiveTagTokens,
@@ -1713,6 +1784,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STEPPER") stepper: StepperTypes.responsiveStepperTokens,
   @as("KEYVALUEPAIR") keyvaluepair: KeyValuePairTypes.responsiveKeyValuePairTokens,
   @as("CARD") card: CardTypes.responsiveCardTokens,
+  @as("CARDV2") cardv2: CardV2Types.responsiveCardV2Tokens,
   @as("SKELETON") skeleton: SkeletonTypes.responsiveSkeletonTokens,
   @as("TOPBAR") topbar: TopbarTypes.responsiveTopbarTokens,
   @as("TOPBARV2") topbarv2: TopbarV2Types.responsiveTopbarV2Tokens,
@@ -1756,6 +1828,8 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("SEARCH_INPUT_V2") searchInputV2: responsiveSearchInputV2Tokens,
   @as("CHAT_INPUTV2_MOBILE") chatInputv2Mobile: chatInputV2MobileTokensType,
   @as("STEPPERV2") stepperv2: StepperV2Types.responsiveStepperV2Tokens,
+  @as("UPLOADV2") uploadv2: responsiveUploadV2Tokens,
+  @as("MODALV2") modalv2: ModalV2Types.responsiveModalV2Tokens,
 }
 type themeContextType = {
   foundationTokens: TokensTypes.foundationTokenType,
@@ -1766,10 +1840,6 @@ type themeContextType = {
 type shadowRootContextType = {
   shadowRoot: Nullable.t<Dom.shadowRoot>,
   target: Nullable.t<Dom.element>,
-}
-type inputsV2ErrorConfig = {
-  show: bool,
-  message?: string,
 }
 type rec singleSelectV2ItemType = {
   label: string,
@@ -1912,6 +1982,7 @@ type inputsV2GetInputStateErrorConfig = {
 type inputsV2GetVerticalInputPaddingV0Config = {
   isSmallScreenWithLargeSize: bool,
   inputFocusedOrWithValue: bool,
+  hasLabel: bool,
   paddingTop: float,
   paddingBottom: float,
 }

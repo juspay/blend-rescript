@@ -75,6 +75,9 @@ type dataTableColumnFilterOperator =
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
+type dataTableRowAnimationConfigTransitionType =
+  | @as("bezier") Bezier
+  | @as("spring") Spring
 type pivotAggregationType =
   | @as("sum") Sum
   | @as("count") Count
@@ -715,6 +718,11 @@ type rowActionsConfig<'a> = {
   showEditAction?: bool,
   slot1?: rowActionConfig<'a>,
   slot2?: rowActionConfig<'a>,
+}
+type rowAnimationConfig = {
+  enterDuration: float,
+  enterOffset: float,
+  transitionType: dataTableRowAnimationConfigTransitionType,
 }
 type dataTablePivotTableConfigInitialConfigValuesConfig = {
   field: string,

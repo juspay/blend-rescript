@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37-beta.8`
+# Binding report — `@juspay/blend-design-system@0.0.37`
 
-**222** components · ✅ **215** usable · 🔍 **7** need review · 🛑 **0** broken
+**226** components · ✅ **219** usable · 🔍 **7** need review · 🛑 **0** broken
 
-**249** function binding(s) → `BlendDesignSystemBindings.res`.
+**253** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**3303** shared types deduplicated into **74** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3360** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 📦 Dependencies
 
@@ -18,6 +18,7 @@
 Standalone function exports, emitted as positional `@module external` bindings in `BlendDesignSystemBindings.res`.
 
 - `FOUNDATION_THEME`
+- `UploadErrorReason`
 - `useTheme`
 - `useShadowRoot`
 - `getAccordionToken`
@@ -69,6 +70,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getTabsTokens`
 - `getTagTokens`
 - `getTooltipTokens`
+- `getTopbarTokens`
 - `getUploadTokens`
 - `getButtonV2Tokens`
 - `getButtonV2BorderRadius`
@@ -144,6 +146,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `buildStatCardV2ChartOptions`
 - `getStatCardV2Tokens`
 - `buildStatCardV2AriaLabel`
+- `getCardV2Tokens`
 - `ACCORDION_TRANSITION`
 - `getAccordionV2Tokens`
 - `getTextInputV2Tokens`
@@ -175,6 +178,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getButtonGroupPosition`
 - `getButtonGroupGap`
 - `getPopoverV2Tokens`
+- `getModalV2Tokens`
 - `getSidebarV2Tokens`
 - `isControlledSidebarV2`
 - `getSidebarV2Status`
@@ -299,6 +303,15 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ButtonGroupV2
 - ButtonV2
 - Card
+- CardV2
+- CardV2Actions
+- CardV2Body
+- CardV2Content
+- CardV2Footer
+- CardV2Header
+- CardV2Media
+- CardV2Meta
+- CardV2Skeleton
 - ChartContainer
 - ChartContainerV2
 - ChartHeader
@@ -361,6 +374,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - MobileMultiSelectV2
 - MobileSingleSelectV2
 - Modal
+- ModalV2
 - MultiSelect
 - MultiSelectDrawer
 - MultiSelectTrigger
@@ -417,11 +431,8 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SingleSelectV2VirtualList
 - Skeleton
 - SkeletonAvatar
-- SkeletonAvatar2
 - SkeletonBase
-- SkeletonBase2
 - SkeletonCard
-- SkeletonCard2
 - SkeletonCircle
 - SkeletonRectangle
 - SkeletonRounded
@@ -471,21 +482,18 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TextInputV2
 - Timeline
 - TimelineHeader
-- TimelineHeader2
 - TimelineLabel
-- TimelineLabel2
 - TimelineNode
-- TimelineNode2
 - TimelineShowMore
-- TimelineShowMore2
 - TimelineSubstep
-- TimelineSubstep2
 - Tooltip
 - TooltipV2
+- Topbar
 - TopbarV2
 - TruncatedTextWithTooltipV2
 - UnitInput
 - Upload
+- UploadV2
 - VirtualList
 
 ## ⚪ Loosely typed (widened to `string`)

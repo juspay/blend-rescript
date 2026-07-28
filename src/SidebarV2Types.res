@@ -201,7 +201,7 @@ type secondarySidebarInfo = {
   buttonProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
   footerSlot?: React.element,
 }
-type sidebarV2Props = {
+type sidebarV2Props<'a> = {
   height?: string,
   children?: React.element,
   data?: Nullable.t<array<DirectoryTypes.directoryData>>,
@@ -225,6 +225,14 @@ type sidebarV2Props = {
   activeItem?: Nullable.t<string>,
   onActiveItemChange?: Nullable.t<string> => unit,
   defaultActiveItem?: Nullable.t<string>,
+  showHierarchyLines?: bool,
+  hierarchyLineBorderRadius?: string,
+  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  onExpandedItemsChange?: array<string> => unit,
+  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
+  enableVirtualization?: bool,
+  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
 }
 type sidebarV2MerchantInfoItemsConfig = {
   label: string,

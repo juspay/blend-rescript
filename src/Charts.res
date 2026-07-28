@@ -9,6 +9,7 @@ type props = {
   chartHeaderSlot: React.element,
   stackedLegends?: bool,
   stackedLegendsData?: array<HighchartsSharedTypes.stackedLegendsDataPoint>,
+  showAllLegends?: bool,
   barsize?: float,
   xAxis?: HighchartsSharedTypes.axisConfig,
   yAxis?: HighchartsSharedTypes.axisConfig,

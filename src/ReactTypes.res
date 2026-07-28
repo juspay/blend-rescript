@@ -1,8 +1,8 @@
 type htmlInputTypeAttribute =
   | @as("number") Number
   | @as("color") Color
-  | @as("text") Text
   | @as("hidden") Hidden
+  | @as("text") Text
   | @as("search") Search
   | @as("button") Button
   | @as("checkbox") Checkbox
@@ -33,8 +33,12 @@ module ElementType = {
     | #small
     | #base
     | #code
-    | #text
+    | #style
     | #slot
+    | #form
+    | #pattern
+    | #title
+    | #text
     | #center
     | #ruby
     | #table
@@ -46,7 +50,6 @@ module ElementType = {
     | #button
     | #meter
     | #textarea
-    | #style
     | #progress
     | #circle
     | #embed
@@ -56,11 +59,9 @@ module ElementType = {
     | #menuitem
     | #map
     | #filter
-    | #title
     | #article
     | #dialog
     | #figure
-    | #form
     | #img
     | #main
     | #option
@@ -199,7 +200,6 @@ module ElementType = {
     | #metadata
     | #mpath
     | #path
-    | #pattern
     | #polyline
     | #set
     | #tspan

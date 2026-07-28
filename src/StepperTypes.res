@@ -13,7 +13,7 @@ type stepperStepperTokensTypeContainerDefaultConfig = {
 type stepperStepperTokensTypeContainerConfig = {
   default: stepperStepperTokensTypeContainerDefaultConfig,
 }
-type stepperStepperTokensTypeStepCircleCompletedDefaultConfig = {
+type stepperStepperTokensTypeStepCircleCompletedDisabledConfig = {
   backgroundColor: string,
   borderColor: string,
   borderWidth: string,
@@ -24,10 +24,10 @@ type stepperStepperTokensTypeStepCircleCompletedDefaultConfig = {
   outlineOffset: string,
 }
 type stepperStepperTokensTypeStepCircleCompletedConfig = {
-  default: stepperStepperTokensTypeStepCircleCompletedDefaultConfig,
-  hover: stepperStepperTokensTypeStepCircleCompletedDefaultConfig,
-  disabled: stepperStepperTokensTypeStepCircleCompletedDefaultConfig,
-  focus: stepperStepperTokensTypeStepCircleCompletedDefaultConfig,
+  disabled: stepperStepperTokensTypeStepCircleCompletedDisabledConfig,
+  default: stepperStepperTokensTypeStepCircleCompletedDisabledConfig,
+  hover: stepperStepperTokensTypeStepCircleCompletedDisabledConfig,
+  focus: stepperStepperTokensTypeStepCircleCompletedDisabledConfig,
 }
 type stepperStepperTokensTypeStepCircleConfig = {
   completed: stepperStepperTokensTypeStepCircleCompletedConfig,
@@ -36,14 +36,14 @@ type stepperStepperTokensTypeStepCircleConfig = {
   disabled: stepperStepperTokensTypeStepCircleCompletedConfig,
   skipped: stepperStepperTokensTypeStepCircleCompletedConfig,
 }
-type stepperStepperTokensTypeStepIconCompletedDefaultConfig = {
+type stepperStepperTokensTypeStepIconCompletedDisabledConfig = {
   color: string,
 }
 type stepperStepperTokensTypeStepIconCompletedConfig = {
-  default: stepperStepperTokensTypeStepIconCompletedDefaultConfig,
-  hover: stepperStepperTokensTypeStepIconCompletedDefaultConfig,
-  disabled: stepperStepperTokensTypeStepIconCompletedDefaultConfig,
-  focus: stepperStepperTokensTypeStepIconCompletedDefaultConfig,
+  disabled: stepperStepperTokensTypeStepIconCompletedDisabledConfig,
+  default: stepperStepperTokensTypeStepIconCompletedDisabledConfig,
+  hover: stepperStepperTokensTypeStepIconCompletedDisabledConfig,
+  focus: stepperStepperTokensTypeStepIconCompletedDisabledConfig,
 }
 type stepperStepperTokensTypeStepIconConfig = {
   completed: stepperStepperTokensTypeStepIconCompletedConfig,
@@ -70,17 +70,17 @@ type stepperStepperTokensTypeConnectorLineConfig = {
 type stepperStepperTokensTypeConnectorConfig = {
   line: stepperStepperTokensTypeConnectorLineConfig,
 }
-type stepperStepperTokensTypeTitleTextCompletedDefaultConfig = {
+type stepperStepperTokensTypeTitleTextCompletedDisabledConfig = {
   color: string,
   fontSize: string,
   fontWeight: string,
   gap: string,
 }
 type stepperStepperTokensTypeTitleTextCompletedConfig = {
-  default: stepperStepperTokensTypeTitleTextCompletedDefaultConfig,
-  hover: stepperStepperTokensTypeTitleTextCompletedDefaultConfig,
-  disabled: stepperStepperTokensTypeTitleTextCompletedDefaultConfig,
-  focus: stepperStepperTokensTypeTitleTextCompletedDefaultConfig,
+  disabled: stepperStepperTokensTypeTitleTextCompletedDisabledConfig,
+  default: stepperStepperTokensTypeTitleTextCompletedDisabledConfig,
+  hover: stepperStepperTokensTypeTitleTextCompletedDisabledConfig,
+  focus: stepperStepperTokensTypeTitleTextCompletedDisabledConfig,
 }
 type stepperStepperTokensTypeTitleTextConfig = {
   completed: stepperStepperTokensTypeTitleTextCompletedConfig,

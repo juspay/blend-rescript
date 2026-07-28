@@ -48,10 +48,18 @@ type directoryDirectoryTokenTypeSectionItemListNestedBorderConfig = {
   color: string,
   leftOffset: string,
 }
+type directoryDirectoryTokenTypeSectionItemListNestedConnectorConfig = {
+  itemInset: string,
+  itemPaddingLeft: string,
+  elbowTop: string,
+  elbowHeight: string,
+  elbowWidthOffset: string,
+}
 type directoryDirectoryTokenTypeSectionItemListNestedConfig = {
   paddingLeft: string,
   marginTop: string,
   border: directoryDirectoryTokenTypeSectionItemListNestedBorderConfig,
+  connector: directoryDirectoryTokenTypeSectionItemListNestedConnectorConfig,
 }
 type directoryDirectoryTokenTypeSectionItemListConfig = {
   gap: string,
@@ -88,4 +96,18 @@ type directoryData = {
   items?: array<navbarItem>,
   isCollapsible?: bool,
   defaultOpen?: bool,
+}
+type directoryVirtualizationConfig = {
+  viewportRef?: React.ref<Nullable.t<Dom.element>>,
+  rowHeight?: float,
+  sectionHeight?: float,
+  viewportHeight?: float,
+  overscan?: float,
+  threshold?: float,
+}
+module DirectoryExpandedItems = {
+  type t
+  external fromArray: array<string> => t = "%identity"
+  external fromSet: Set.t<string> => t = "%identity"
+  external asSet: t => Set.t<string> = "%identity"
 }

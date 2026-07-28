@@ -124,7 +124,7 @@ type responsiveMobileNavigationTokens = {
   sm: mobileNavigationTokenType,
   lg: mobileNavigationTokenType,
 }
-type sidebarProps = {
+type sidebarProps<'a> = {
   showLeftPanel?: bool,
   children: React.element,
   data: Nullable.t<array<DirectoryTypes.directoryData>>,
@@ -153,4 +153,12 @@ type sidebarProps = {
   onActiveItemChange?: Nullable.t<string> => unit,
   defaultActiveItem?: Nullable.t<string>,
   onHoveringChange?: bool => unit,
+  showHierarchyLines?: bool,
+  hierarchyLineBorderRadius?: string,
+  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  onExpandedItemsChange?: array<string> => unit,
+  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
+  enableVirtualization?: bool,
+  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
 }

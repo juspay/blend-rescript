@@ -12,10 +12,10 @@ type accordionV2AccordionV2TokensTypeTriggerContentConfig = {
   gap: string,
 }
 type accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   @as("open") open_: string,
 }
 type accordionV2AccordionV2TokensTypeTriggerBackgroundColorConfig = {

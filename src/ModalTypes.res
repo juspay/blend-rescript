@@ -49,10 +49,10 @@ type responsiveModalTokens = {
 type modalButtonAction = {
   width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
-  text?: string,
   disabled?: bool,
-  justifyContent?: string,
   onClick?: option<ReactEvent.Mouse.t> => unit,
+  text?: string,
+  justifyContent?: string,
   buttonType?: ButtonTypes.buttonType,
   subType?: ButtonTypes.buttonSubType,
   leadingIcon?: React.element,

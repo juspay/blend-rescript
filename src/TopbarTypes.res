@@ -66,3 +66,22 @@ type responsiveTopbarTokens = {
   sm: topbarTokenType,
   lg: topbarTokenType,
 }
+type topbarProps = {
+  children?: React.element,
+  isExpanded?: bool,
+  onToggleExpansion?: unit => unit,
+  showToggleButton?: bool,
+  panelOnlyMode?: bool,
+  isVisible?: bool,
+  onVisibilityChange?: bool => unit,
+  defaultIsVisible?: bool,
+  sidebarTopSlot?: React.element,
+  topbar?: React.element,
+  leftAction?: React.element,
+  rightActions?: React.element,
+  showBackButton?: bool,
+  onBackClick?: unit => unit,
+  leftPanel?: SharedTypes.leftPanelInfo,
+  merchantInfo?: SharedTypes.merchantInfo,
+  ariaControls?: string,
+}

@@ -53,10 +53,10 @@ type tabsV2TabsV2TokensTypeTabListTriggerIconConfig = {
   maxWidth: string,
 }
 type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
 }
 type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig = {
   boxed: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,

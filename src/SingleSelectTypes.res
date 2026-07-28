@@ -15,10 +15,10 @@ type selectMenuSide =
   | @as("right") Right
   | @as("bottom") Bottom
 type singleSelectSingleSelectTokensTypeLabelColorConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   focus: string,
   focusVisible: string,
   selected: string,

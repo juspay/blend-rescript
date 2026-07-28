@@ -9,10 +9,10 @@ type accordionAccordionTokenTypeGapConfig = {
   noBorder: string,
 }
 type accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig = {
+  disabled: string,
   active: string,
   default: string,
   hover: string,
-  disabled: string,
   @as("open") open_: string,
 }
 type accordionAccordionTokenTypeTriggerBackgroundColorConfig = {

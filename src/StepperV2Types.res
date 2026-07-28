@@ -9,9 +9,9 @@ type stepperV2Type =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
 type stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig = {
+  disabled: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
   default: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
   hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
-  disabled: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
   focus: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
 }
 type stepperV2StepperV2TokensTypeContainerStepCircleConfig = {

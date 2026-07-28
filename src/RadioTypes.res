@@ -5,9 +5,9 @@ type radioResponsiveRadioTokensSmGroupConfig = {
   gap: string,
 }
 type radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig = {
+  disabled: string,
   default: string,
   hover: string,
-  disabled: string,
   error: string,
 }
 type radioResponsiveRadioTokensSmIndicatorActiveConfig = {
@@ -19,8 +19,8 @@ type radioResponsiveRadioTokensSmIndicatorConfig = {
   inactive: radioResponsiveRadioTokensSmIndicatorActiveConfig,
 }
 type radioResponsiveRadioTokensSmActiveIndicatorActiveBackgroundColorConfig = {
-  default: string,
   disabled: string,
+  default: string,
 }
 type radioResponsiveRadioTokensSmActiveIndicatorActiveConfig = {
   backgroundColor: radioResponsiveRadioTokensSmActiveIndicatorActiveBackgroundColorConfig,
@@ -48,9 +48,9 @@ type radioResponsiveRadioTokensSmContentConfig = {
   sublabel: radioResponsiveRadioTokensSmContentSublabelConfig,
 }
 type radioResponsiveRadioTokensSmBorderWidthActiveConfig = {
+  disabled: float,
   default: float,
   hover: float,
-  disabled: float,
   error: float,
 }
 type radioResponsiveRadioTokensSmBorderWidthConfig = {

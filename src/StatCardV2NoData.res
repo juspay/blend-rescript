@@ -1,9 +1,9 @@
 type props = {
   width?: string,
   height?: string,
+  title: string,
   minWidth?: string,
   maxWidth?: string,
-  title: string,
   titleIcon?: React.element,
   helpIconText?: string,
   subtitle?: string,
