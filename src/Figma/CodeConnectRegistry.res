@@ -7,15 +7,10 @@
 // IMPORTANT: figmaComponentName is whatever identifier blend-design-system's
 // own *.figma.tsx uses in its figma.connect(<ComponentName>, ...) call --
 // NOT necessarily the literal name shown in Figma's layers/Inspect panel.
-// These can differ: Button's real Figma component set is named "Buttons"
-// (plural, confirmed via Figma Desktop's Inspect panel), while blend's
-// figma.connect() call uses the React identifier "Button" (singular), so
-// this registry's "Button" key won't match a raw Figma layer name of
-// "Buttons" without the caller normalizing first (same idea as
-// juspay-portal's existing ^ComponentName \d+$ instance-suffix
-// normalization). Resolving the actual Figma component name from a live
-// node, and reconciling it against this registry's keys, is the caller's
-// problem -- this package only supplies the mapping.
+// Where the two are known to differ (e.g. Button's real Figma component set
+// is named "Buttons", plural), figma/figmaComponentAliases.mjs supplies the
+// extra name(s) below, so the caller can still pass the raw Figma name
+// straight through with no normalization of its own.
 //
 // Returns Some((props, codeComponent)) for anything synced/verified, None
 // otherwise -- the caller supplies its own tag prefix/wrapper (e.g.
@@ -27,7 +22,7 @@ let resolve = (figmaComponentName: string, props: CodeConnectUtils.figmaProps): 
 )> =>
   switch figmaComponentName {
   | "AvatarGroup" => Some((AvatarGroupCodeConnect.toProps(props), "AvatarGroup"))
-  | "Button" => Some((ButtonCodeConnect.toProps(props), "Button"))
+  | "Button" | "Buttons" => Some((ButtonCodeConnect.toProps(props), "Button"))
   | "ButtonGroup" => Some((ButtonGroupCodeConnect.toProps(props), "ButtonGroup"))
   | "Charts" => Some((ChartsCodeConnect.toProps(props), "Charts"))
   | "DropdownInput" => Some((DropdownInputCodeConnect.toProps(props), "DropdownInput"))

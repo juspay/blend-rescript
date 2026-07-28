@@ -196,7 +196,7 @@ Add `@juspay/rescript-blend` as a dependency, then call `toProps` directly
 wrapper/state composition exactly as it already is:
 
 ```rescript
-| "Buttons" =>
+| "Button" =>
   (JuspayRescriptBlend.ButtonCodeConnect.toProps(componentProps), "Blend.Button", "")
   ->convertPropsNodeStateVariable("")
 ```
@@ -225,7 +225,7 @@ nested icon instances.
 
 ### CodeConnectRegistry: no per-component code at all
 
-The `| "Buttons" => ...` switch above still has to be hand-written per
+The `| "Button" => ...` switch above still has to be hand-written per
 component, one arm per synced map -- the same duplication `toProps`
 already removed for property mappings, one level up for components.
 `src/Figma/CodeConnectRegistry.res` (generated alongside every other
@@ -246,19 +246,27 @@ edits -- no new switch arm to add. `resolve` returns
 still supplies its own tag prefix (`"Blend." ++ codeComponent` above) and
 composition, exactly like `~tagName` on `fromFigmaProps`.
 
-**Important naming caveat**, spelled out in the generated file's header
-too: `figmaComponentName` is whatever identifier blend-design-system's own
-`.figma.tsx` uses in its `figma.connect(<ComponentName>, ...)` call -- **not
-necessarily the literal name shown in Figma's layers/Inspect panel.** These
-can differ: Button's real Figma component set is named **"Buttons"**
-(plural, confirmed via Figma Desktop's Inspect panel), while blend's
-`figma.connect()` call uses the React identifier **"Button"** (singular) --
-so `resolve("Buttons", ...)` returns `None` even though a real mapping
-exists under the key `"Button"`. Reconciling a live Figma node's actual
-component name against this registry's keys (e.g. juspay-portal's existing
-`^ComponentName \d+$` instance-suffix normalization would need extending to
-handle plural/singular or other divergent names) is the caller's problem --
-this package only supplies the mapping, not Figma-node-name resolution.
+**Naming caveat, and how it's handled:** `figmaComponentName` is whatever
+identifier blend-design-system's own `.figma.tsx` uses in its
+`figma.connect(<ComponentName>, ...)` call -- **not necessarily the literal
+name shown in Figma's layers/Inspect panel.** These can differ: Button's
+real Figma component set is named **"Buttons"** (plural, confirmed via
+Figma Desktop's Inspect panel), while blend's `figma.connect()` call uses
+the React identifier **"Button"** (singular).
+
+Rather than push that reconciliation onto every caller, it's handled here:
+`figma/figmaComponentAliases.mjs` records known Figma-display-name ↔
+code-identifier divergences (each one verified against the real Figma
+component, never guessed), and `scripts/generate-figma-code-connect.mjs`
+folds them into extra `resolve` patterns automatically --
+`resolve("Buttons", ...)` and `resolve("Button", ...)` both hit the same
+arm. This file is separate from `figma/componentMaps/*.mjs` specifically so
+`figma:sync` never overwrites it (sync only knows blend's code identifier,
+never Figma's own display name). A caller can pass a raw Figma
+component/layer name straight through with zero normalization of its own;
+if `resolve` returns `None` for a name you know is really one of the synced
+components, the fix is a new entry in `figmaComponentAliases.mjs` here, not
+a normalization step in the caller.
 
 Scope: prop-mapped components only, same as `toProps`/`fromFigmaProps` --
 anything that needs to walk children (Modal/Table/Snackbar-style
