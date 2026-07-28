@@ -1,20 +1,25 @@
 name: Preview release (pkg.pr.new)
 
-# On-demand preview builds — NOT published to npm.
+# Preview builds — NOT published to npm.
 #
 # Publishes @juspay/rescript-blend to pkg.pr.new and prints an installable URL
 # you can drop into a consumer (e.g. `yarn add https://pkg.pr.new/...`) to test a
 # branch's exact build before it is ever released. This is the producer side of
 # the `pkg.pr.new` URL that the sync-bindings workflow already accepts as input.
 #
-# Trigger from the Actions tab ("Run workflow" → pick a branch), or:
-#   gh workflow run preview.yml --ref <branch>
+# Runs automatically on every push to a non-main branch, and can also be
+# triggered on demand (Actions tab → "Run workflow", or
+# `gh workflow run preview.yml --ref <branch>`). main is excluded from the
+# push trigger -- merges there go through the regular release path, not a
+# preview.
 #
 # Prerequisite (one-time, org admin): install the pkg.pr.new GitHub App on this
 # repo — https://github.com/apps/pkg-pr-new. No npm token/secret is needed;
 # pkg.pr.new authenticates via the App plus this workflow's OIDC token.
 
 on:
+  push:
+    branches-ignore: [main]
   workflow_dispatch:
 
 concurrency:
