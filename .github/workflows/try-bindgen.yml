@@ -188,7 +188,12 @@ jobs:
           SLUG=$(printf '%s' "${{ inputs.bindgen_version }}" \
             | sed -E 's#https?://##; s#[^a-zA-Z0-9._-]+#-#g; s#^-+|-+$##g' \
             | cut -c1-60)
-          echo "slug=${SLUG:-candidate}" >> $GITHUB_OUTPUT
+          SLUG="${SLUG:-candidate}"
+          echo "slug=$SLUG" >> $GITHUB_OUTPUT
+          # Emit the FULL branch name once: both the PR step and the publish step need it, and
+          # two copies of the same expression are two chances for them to drift apart — which
+          # would silently publish from a branch that does not exist.
+          echo "branch=bindgen-try/$SLUG-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       - name: Open draft PR with the regenerated bindings
         id: pr
@@ -197,7 +202,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
-          branch: bindgen-try/${{ steps.slug.outputs.slug }}-${{ github.run_number }}
+          branch: ${{ steps.slug.outputs.branch }}
           title: '[DO NOT MERGE] bindgen trial: ${{ inputs.bindgen_version }}'
           commit-message: |
             chore(trial): regenerate bindings with ${{ inputs.bindgen_version }}
@@ -256,12 +261,31 @@ jobs:
           add-paths: |
             src/**
 
-      # Optional, and only once a PR exists: publishes THIS branch so a consumer can install the
-      # exact output (`npm i https://pkg.pr.new/@juspay/rescript-blend@<PR#>`). Gated on a green
-      # build for the same reason preview.yml is — never hand out a preview that doesn't compile.
+      # Publishes the PR's branch, so a consumer can install the exact regenerated output
+      # (`npm i https://pkg.pr.new/@juspay/rescript-blend@<sha>`).
+      #
+      # The explicit fetch + checkout is LOAD-BEARING, not tidiness. `create-pull-request`
+      # commits the regenerated files to its own branch and pushes, then restores the local
+      # repository to its pre-action state — so by the time this step runs, the working tree
+      # is back to the BASE bindings. Publishing from it would hand out a preview containing
+      # the OLD output while the PR right next to it shows the new one: a silent mismatch, and
+      # exactly the class of "looks convincing, is wrong" failure the fingerprint step exists
+      # to prevent. Checking the branch out first also pins the pkg.pr.new URL to a commit that
+      # actually CONTAINS the content, rather than to the dispatched ref's SHA.
+      #
+      # node_modules is gitignored, so it survives the checkout — no reinstall needed.
+      #
+      # Gated on a green build for the same reason preview.yml is: never hand out a preview
+      # that doesn't compile.
       - name: Publish preview to pkg.pr.new
         if: inputs.publish_preview && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success'
-        run: npx pkg-pr-new publish
+        env:
+          BRANCH: ${{ steps.slug.outputs.branch }}
+        run: |
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          echo "Publishing from $BRANCH @ $(git rev-parse --short HEAD)"
+          npx pkg-pr-new publish
 
       # Report the candidate's real status LAST, so the PR is opened either way. A candidate that
       # fails to generate or compile must leave a red run, not a green one with a quiet note.
