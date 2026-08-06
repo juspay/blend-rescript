@@ -75,9 +75,6 @@ type dataTableColumnFilterOperator =
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
-type dataTableRowAnimationConfigTransitionType =
-  | @as("bezier") Bezier
-  | @as("spring") Spring
 type pivotAggregationType =
   | @as("sum") Sum
   | @as("count") Count
@@ -719,11 +716,25 @@ type rowActionsConfig<'a> = {
   slot1?: rowActionConfig<'a>,
   slot2?: rowActionConfig<'a>,
 }
-type rowAnimationConfig = {
-  enterDuration: float,
-  enterOffset: float,
-  transitionType: dataTableRowAnimationConfigTransitionType,
-}
+// #167: discriminated union — each branch keeps its OWN required fields.
+//       Build with Bezier({…}); `transitionType` is auto-filled by @tag.
+@tag("transitionType")
+type rowAnimationConfig =
+  | @as("bezier")
+  Bezier({
+      enterDuration: float,
+      enterOffset: float,
+      duration: float,
+      bezier: (float, float, float, float),
+    })
+  | @as("spring")
+  Spring({
+      enterDuration: float,
+      enterOffset: float,
+      stiffness: float,
+      damping: float,
+      mass: float,
+    })
 type dataTablePivotTableConfigInitialConfigValuesConfig = {
   field: string,
   aggregation: pivotAggregationType,
