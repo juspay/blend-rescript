@@ -906,7 +906,7 @@ external getMenuItemDescriptionColor: (
 ) => string = "getMenuItemDescriptionColor"
 @module("@juspay/blend-design-system")
 external flattenMenuV2Groups: array<MenuV2Types.menuV2GroupType> => array<
-  MenuV2Types.MenuV2FlatRow.t,
+  MenuV2Types.menuV2FlatRow,
 > = "flattenMenuV2Groups"
 @module("@juspay/blend-design-system")
 external filterMenuV2Groups: (
