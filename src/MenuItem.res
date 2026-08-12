@@ -4,6 +4,7 @@ type props = {
   onSelect: string => unit,
   singleSelectTokens?: EditorSharedTypes.singleSelectV2TokensType,
   index?: int,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")

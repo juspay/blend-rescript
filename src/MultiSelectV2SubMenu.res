@@ -3,6 +3,7 @@ type props = {
   onSelect: string => unit,
   selected: array<string>,
   maxSelections?: float,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")

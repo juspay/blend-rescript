@@ -68,6 +68,9 @@ type responsiveSnackbarV2Tokens = {
 type snackbarV2Props = {
   position?: snackbarV2Position,
   dismissOnClickAway?: bool,
+  visibleToasts?: float,
+  containerAriaLabel?: string,
+  hotkey?: array<string>,
   maxWidth?: CommonTypes.stringOrNumber,
 }
 type snackbarV2Action = {

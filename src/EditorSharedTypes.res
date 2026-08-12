@@ -12,9 +12,93 @@ type uploadStateInputsV2 =
   | @as("success") Success
   | @as("error") Error
   | @as("disabled") Disabled
+type contextMenuTokensTypeItemCheckmarkPosition =
+  | @as("leading") Leading
+  | @as("trailing") Trailing
 type contextCodeEditorV2TokensTheme =
   | @as("dark") Dark
   | @as("light") Light
+type menuItemVariant =
+  | @as("default") Default
+  | @as("action") Action
+type menuItemActionType =
+  | @as("primary") Primary
+  | @as("danger") Danger
+type menuSelectionStyle =
+  | @as("checkmark") Checkmark
+  | @as("highlight") Highlight
+type menuSelectionMode =
+  | @as("multiple") Multiple
+  | @as("single") Single
+type menuAlignment =
+  | @as("start") Start
+  | @as("center") CenterMenuAlignment
+  | @as("end") EndMenuAlignment
+type menuSide =
+  | @as("top") Top
+  | @as("left") LeftMenuSide
+  | @as("right") RightMenuSide
+  | @as("bottom") Bottom
+type dateRangePreset =
+  | @as("custom") Custom
+  | @as("today") Today
+  | @as("yesterday") Yesterday
+  | @as("tomorrow") Tomorrow
+  | @as("last30Minutes") Last30Minutes
+  | @as("last1Hour") Last1Hour
+  | @as("last6Hours") Last6Hours
+  | @as("last24Hours") Last24Hours
+  | @as("last7Days") Last7Days
+  | @as("last30Days") Last30Days
+  | @as("thisMonth") ThisMonth
+  | @as("lastMonth") LastMonth
+  | @as("last3Months") Last3Months
+  | @as("last12Months") Last12Months
+  | @as("next7Days") Next7Days
+  | @as("next30Days") Next30Days
+  | @as("next3Months") Next3Months
+  | @as("next12Months") Next12Months
+type dateRangePickerDateRangePickerPropsGranularity =
+  | @as("month") Month
+  | @as("day") Day
+type dateRangePickerSize =
+  | @as("sm") Sm
+  | @as("md") Md
+  | @as("lg") Lg
+type dateFormatPreset =
+  | @as("short-range") ShortRange
+  | @as("medium-range") MediumRange
+  | @as("long-range") LongRange
+  | @as("short-single") ShortSingle
+  | @as("medium-single") MediumSingle
+  | @as("long-single") LongSingle
+  | @as("iso-range") IsoRange
+  | @as("us-range") UsRange
+  | @as("custom") Custom
+type dateRangePickerDateFormatConfigTimeFormat =
+  | @as("12h") V12h
+  | @as("24h") V24h
+type dateRangePickerDateRangePickerPopoverConfigSide =
+  | @as("top") Top
+  | @as("left") LeftConfigSide
+  | @as("bottom") Bottom
+  | @as("right") RightConfigSide
+type dateRangePickerDateRangePickerPopoverConfigAlign =
+  | @as("center") CenterConfigAlign
+  | @as("end") EndConfigAlign
+  | @as("start") Start
+type menuItemSelectionStates =
+  | @as("disabled") Disabled
+  | @as("active") Active
+  | @as("default") Default
+  | @as("hover") HoverSelectionStates
+  | @as("focus") Focus
+  | @as("focusVisible") FocusVisible
+  | @as("selected") Selected
+type sidebarStateChangeType =
+  | @as("expanded") Expanded
+  | @as("collapsed") Collapsed
+  | @as("intermediate") Intermediate
 type textInputV2DropdownPosition =
   | @as("left") LeftDropdownPosition
   | @as("right") RightDropdownPosition
@@ -24,6 +108,10 @@ type inputStateV2 =
   | @as("focus") Focus
   | @as("error") Error
   | @as("disabled") Disabled
+type sidebarV2SidebarV2PropsOnSidebarStateChange =
+  | @as("expanded") Expanded
+  | @as("collapsed") Collapsed
+  | @as("intermediate") Intermediate
 type numberInputV2Direction =
   | @as("left") LeftV2Direction
   | @as("right") RightV2Direction
@@ -262,7 +350,7 @@ type keyCode =
   | @as(10) Space
   | @as(11) PageUp
   | @as(12) PageDown
-  | @as(13) End
+  | @as(13) EndKeyCode
   | @as(14) Home
   | @as(15) LeftArrow
   | @as(16) UpArrow
@@ -587,9 +675,9 @@ type codeEditorV2IEditorOptionsExperimentalWhitespaceRendering =
 type codeEditorV2IEditorOptionsRenderWhitespace =
   | @as("none") NoneRenderWhitespace
   | @as("all") All
+  | @as("trailing") Trailing
   | @as("boundary") Boundary
   | @as("selection") Selection
-  | @as("trailing") Trailing
 type codeEditorV2IEditorOptionsRenderLineHighlight =
   | @as("none") NoneLineHighlight
   | @as("all") All
@@ -624,7 +712,7 @@ type contentWidgetPositionPreference =
   | @as(2) BELOW
 type glyphMarginLane =
   | @as(1) LeftMarginLane
-  | @as(2) Center
+  | @as(2) CenterMarginLane
   | @as(3) RightMarginLane
 type codeEditorV2IStandaloneCodeEditorUpdateOptionsWordBasedSuggestions =
   | @as("off") Off
@@ -637,13 +725,33 @@ type codeEditorV2IDiffEditorOptionsDiffAlgorithm =
 type codeEditorV2IStandaloneDiffEditorGoToDiff =
   | @as("next") Next
   | @as("previous") Previous
+type menuV2ItemVariant =
+  | @as("default") Default
+  | @as("action") Action
+type menuV2ItemActionType =
+  | @as("primary") Primary
+  | @as("danger") Danger
+type menuV2Alignment =
+  | @as("start") Start
+  | @as("center") CenterV2Alignment
+  | @as("end") EndV2Alignment
+type menuV2Side =
+  | @as("top") Top
+  | @as("left") LeftV2Side
+  | @as("right") RightV2Side
+  | @as("bottom") Bottom
+type menuV2MatchRank =
+  | @as(0) EXACT
+  | @as(1) PREFIX
+  | @as(2) SUBSTRING
+  | @as(3) NONE
 type multiSelectV2SelectionTagType =
   | @as("count") Count
   | @as("text") TextTagType
 type multiSelectV2FlattenedMultiSelectV2ItemType =
-  | @as("separator") Separator
-  | @as("item") Item
-  | @as("label") Label
+  | @as("separator") SeparatorItemType
+  | @as("item") ItemItemType
+  | @as("label") LabelItemType
 type uploadFileV2 = {
   id?: string,
   file: Webapi.File.t,
@@ -735,6 +843,739 @@ type textAreaV2TokensType = {
 type responsiveTextAreaV2Tokens = {
   sm: textAreaV2TokensType,
   lg: textAreaV2TokensType,
+}
+type menuMenuTokensTypePaddingConfig = {
+  x: string,
+  y: string,
+}
+type menuItemStateTokensV1wa6w = {
+  disabled: string,
+  active: string,
+  default: string,
+  hover: string,
+  focus: string,
+  focusVisible: string,
+  selected?: string,
+}
+type menuMenuTokensTypeItemBackgroundColorDefaultConfig = {
+  enabled: menuItemStateTokensV1wa6w,
+  disabled: menuItemStateTokensV1wa6w,
+}
+type menuMenuTokensTypeItemBackgroundColorActionConfig = {
+  primary: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+  danger: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+}
+type menuMenuTokensTypeItemBackgroundColorConfig = {
+  default: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+  action: menuMenuTokensTypeItemBackgroundColorActionConfig,
+}
+type menuMenuTokensTypeItemCheckmarkConfig = {
+  position?: contextMenuTokensTypeItemCheckmarkPosition,
+  width?: string,
+  color?: string,
+}
+type menuMenuTokensTypeItemOptionsLabelConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+  padding: menuMenuTokensTypePaddingConfig,
+  margin: menuMenuTokensTypePaddingConfig,
+}
+type menuMenuTokensTypeItemOptionColorDefaultConfig = {
+  enabled: menuItemStateTokensV1wa6w,
+  disabled: menuItemStateTokensV1wa6w,
+}
+type menuMenuTokensTypeItemOptionColorActionConfig = {
+  primary: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+  danger: menuMenuTokensTypeItemBackgroundColorDefaultConfig,
+}
+type menuMenuTokensTypeItemOptionColorConfig = {
+  default: menuMenuTokensTypeItemOptionColorDefaultConfig,
+  action: menuMenuTokensTypeItemOptionColorActionConfig,
+}
+type menuMenuTokensTypeItemOptionConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: menuMenuTokensTypeItemOptionColorConfig,
+}
+type menuMenuTokensTypeItemSeperatorConfig = {
+  color: string,
+  height: string,
+  margin: menuMenuTokensTypePaddingConfig,
+}
+type menuMenuTokensTypeItemConfig = {
+  padding: menuMenuTokensTypePaddingConfig,
+  margin: menuMenuTokensTypePaddingConfig,
+  borderRadius: string,
+  backgroundColor: menuMenuTokensTypeItemBackgroundColorConfig,
+  gap: string,
+  checkmark?: menuMenuTokensTypeItemCheckmarkConfig,
+  optionsLabel: menuMenuTokensTypeItemOptionsLabelConfig,
+  option: menuMenuTokensTypeItemOptionConfig,
+  description: menuMenuTokensTypeItemOptionConfig,
+  seperator: menuMenuTokensTypeItemSeperatorConfig,
+}
+type menuTokensType = {
+  boxShadow: string,
+  backgroundColor: string,
+  padding: menuMenuTokensTypePaddingConfig,
+  border: string,
+  borderRadius: string,
+  item: menuMenuTokensTypeItemConfig,
+}
+type responsiveMenuTokensType = {
+  sm: menuTokensType,
+  lg: menuTokensType,
+}
+type menuV2MenuV2TokensTypeSearchIconConfig = {
+  width: string,
+}
+type menuV2MenuV2TokensTypeGroupLabelConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  color: string,
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  marginTop: string,
+  marginRight: string,
+  marginBottom: string,
+  marginLeft: string,
+}
+type stateTokenMenuV2 = {
+  disabled: string,
+  active: string,
+  default: string,
+  hover: string,
+  focus: string,
+  focusVisible: string,
+  selected: string,
+}
+type menuV2MenuV2VariantTokenActionConfig = {
+  primary: stateTokenMenuV2,
+  danger: stateTokenMenuV2,
+}
+type menuV2VariantToken = {
+  default: stateTokenMenuV2,
+  action: menuV2MenuV2VariantTokenActionConfig,
+}
+type menuV2MenuV2TokensTypeGroupItemTextSubTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  color: menuV2VariantToken,
+}
+type menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig = {
+  maxWidth: string,
+  maxHeight: string,
+}
+type menuV2MenuV2TokensTypeGroupItemTextCheckmarkConfig = {
+  position: contextMenuTokensTypeItemCheckmarkPosition,
+  width: string,
+  color: string,
+}
+type menuV2MenuV2TokensTypeGroupItemTextRightChevronConfig = {
+  color: string,
+  width: string,
+}
+type menuV2MenuV2TokensTypeGroupItemTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  color: menuV2VariantToken,
+  subText: menuV2MenuV2TokensTypeGroupItemTextSubTextConfig,
+  leftSlot: menuV2MenuV2TokensTypeGroupItemTextLeftSlotConfig,
+  checkmark?: menuV2MenuV2TokensTypeGroupItemTextCheckmarkConfig,
+  rightChevron: menuV2MenuV2TokensTypeGroupItemTextRightChevronConfig,
+}
+type menuV2MenuV2TokensTypeGroupItemConfig = {
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  marginTop: string,
+  marginRight: string,
+  marginBottom: string,
+  marginLeft: string,
+  gap: string,
+  borderRadius: string,
+  backgroundColor: menuV2VariantToken,
+  text: menuV2MenuV2TokensTypeGroupItemTextConfig,
+}
+type menuV2MenuV2TokensTypeGroupConfig = {
+  label: menuV2MenuV2TokensTypeGroupLabelConfig,
+  item: menuV2MenuV2TokensTypeGroupItemConfig,
+}
+type menuV2MenuV2TokensTypeSeparatorConfig = {
+  color: string,
+  height: string,
+  marginTop: string,
+  marginRight: string,
+  marginBottom: string,
+  marginLeft: string,
+}
+type menuV2TokensType = {
+  backgroundColor: string,
+  border: string,
+  borderRadius: string,
+  boxShadow: string,
+  zIndex: string,
+  minWidth: string,
+  maxWidth: string,
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  searchIcon: menuV2MenuV2TokensTypeSearchIconConfig,
+  group: menuV2MenuV2TokensTypeGroupConfig,
+  separator: menuV2MenuV2TokensTypeSeparatorConfig,
+}
+type responsiveMenuV2TokensType = {
+  sm: menuV2TokensType,
+  lg: menuV2TokensType,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderRadiusConfig = {
+  topLeft: string,
+  topRight: string,
+  bottomLeft: string,
+  bottomRight: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig = {
+  x: string,
+  y: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingConfig = {
+  sm: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  md: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  lg: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig = {
+  left: string,
+  top: string,
+  bottom: string,
+  right: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderConfig = {
+  disabled: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  active: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  default: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+  hover: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderDisabledConfig,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextFontSizeConfig = {
+  sm: string,
+  md: string,
+  lg: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextConfig = {
+  color: string,
+  fontWeight: string,
+  fontSize: dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextFontSizeConfig,
+}
+type dateRangePickerCalendarTokenTypeTriggerQuickSelectorConfig = {
+  borderRadius: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderRadiusConfig,
+  backgroundColor: string,
+  gap: string,
+  padding: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingConfig,
+  border: dateRangePickerCalendarTokenTypeTriggerQuickSelectorBorderConfig,
+  text: dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextConfig,
+  iconSize: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerDateInputBorderRadiusConfig = {
+  withQuickSelector: string,
+  withoutQuickSelector: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerDateInputTextConfig = {
+  color: string,
+  fontSize: dateRangePickerCalendarTokenTypeTriggerQuickSelectorTextFontSizeConfig,
+  fontWeight: string,
+}
+type contextCalendarTokenTypeTriggerDateInputBorderConfig = {
+  disabled: string,
+  active: string,
+  default: string,
+  hover: string,
+  error?: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerDateInputConfig = {
+  borderRadius: dateRangePickerCalendarTokenTypeTriggerDateInputBorderRadiusConfig,
+  padding: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingConfig,
+  text: dateRangePickerCalendarTokenTypeTriggerDateInputTextConfig,
+  border: contextCalendarTokenTypeTriggerDateInputBorderConfig,
+  backgroundColor: string,
+  iconSize: string,
+  gap: string,
+}
+type dateRangePickerCalendarTokenTypeTriggerConfig = {
+  quickSelector: dateRangePickerCalendarTokenTypeTriggerQuickSelectorConfig,
+  dateInput: dateRangePickerCalendarTokenTypeTriggerDateInputConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarHeaderDateInputLabelConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarHeaderDateInputConfig = {
+  gap: string,
+  label: dateRangePickerCalendarTokenTypeCalendarHeaderDateInputLabelConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarHeaderConfig = {
+  padding: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  dateInput: dateRangePickerCalendarTokenTypeCalendarHeaderDateInputConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridMonthHeaderConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+  padding: string, // ⚪ loose — was `{ x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }`
+  gap: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridMonthConfig = {
+  header: dateRangePickerCalendarTokenTypeCalendarCalendarGridMonthHeaderConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridWeekRowConfig = {
+  gap: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridWeekConfig = {
+  gap: string,
+  fontSize: string,
+  fontWeight: string,
+  boxShadow: string,
+  color: string,
+  padding: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  row: dateRangePickerCalendarTokenTypeCalendarCalendarGridWeekRowConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayCellConfig = {
+  padding: string, // ⚪ loose — was `{ x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }`
+  fontWeight: string,
+  fontSize: string,
+  lineHeight: string,
+  border: string, // ⚪ loose — was `{ disabled: Border<number | (string & {})>; active: Border<number | (string & {})>; default: Border<number | (`
+  borderRadius: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayStatesConfig = {
+  startDate: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderRadius: { topLeft: BorderTopLeftRadius<number | (string & {})>; bott`
+  endDate: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderRadius: { topRight: BorderTopRightRadius<number | (string & {})>; bo`
+  singleDate: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderRadius: BorderRadius<number | (string & {})>; }`
+  rangeDay: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; }`
+  todayDay: string, // ⚪ loose — was `{ fontWeight: FontWeight; }`
+  disabledDay: string, // ⚪ loose — was `{ color: Color; }`
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayTextConfig = {
+  dayNumber: string, // ⚪ loose — was `{ color: Color; }`
+  selectedDay: string, // ⚪ loose — was `{ color: Color; }`
+  rangeDay: string, // ⚪ loose — was `{ color: Color; }`
+  todayDay: string, // ⚪ loose — was `{ color: Color; }`
+  disabledDate: string, // ⚪ loose — was `{ color: Color; }`
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayTodayIndicatorConfig = {
+  width: string,
+  backgroundColor: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridDayConfig = {
+  cell: dateRangePickerCalendarTokenTypeCalendarCalendarGridDayCellConfig,
+  states: dateRangePickerCalendarTokenTypeCalendarCalendarGridDayStatesConfig,
+  text: dateRangePickerCalendarTokenTypeCalendarCalendarGridDayTextConfig,
+  todayIndicator: dateRangePickerCalendarTokenTypeCalendarCalendarGridDayTodayIndicatorConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarCalendarGridConfig = {
+  month: dateRangePickerCalendarTokenTypeCalendarCalendarGridMonthConfig,
+  week: dateRangePickerCalendarTokenTypeCalendarCalendarGridWeekConfig,
+  day: dateRangePickerCalendarTokenTypeCalendarCalendarGridDayConfig,
+}
+type dateRangePickerCalendarTokenTypeCalendarFooterConfig = {
+  padding: dateRangePickerCalendarTokenTypeTriggerQuickSelectorPaddingSmConfig,
+  borderTop: string,
+  gap: string,
+}
+type dateRangePickerCalendarTokenTypeCalendarConfig = {
+  minWidth: string,
+  width: string,
+  backgroundColor: string,
+  border: string,
+  borderRadius: string,
+  boxShadow: string,
+  header: dateRangePickerCalendarTokenTypeCalendarHeaderConfig,
+  calendarGrid: dateRangePickerCalendarTokenTypeCalendarCalendarGridConfig,
+  footer: dateRangePickerCalendarTokenTypeCalendarFooterConfig,
+}
+type calendarTokenType = {
+  trigger: dateRangePickerCalendarTokenTypeTriggerConfig,
+  calendar: dateRangePickerCalendarTokenTypeCalendarConfig,
+}
+type responsiveCalendarTokens = {
+  sm: calendarTokenType,
+  lg: calendarTokenType,
+}
+type topbarV2TopbarV2TokenTypeSeparatorConfig = {
+  width: string,
+  color: string,
+}
+type topbarV2TopbarV2TokenTypeToggleButtonBackgroundColorConfig = {
+  active: string,
+  default: string,
+  hover: string,
+}
+type topbarV2TopbarV2TokenTypeToggleButtonIconConfig = {
+  size: string,
+  color: string,
+}
+type topbarV2TopbarV2TokenTypeToggleButtonConfig = {
+  borderRadius: string,
+  padding: string,
+  backgroundColor: topbarV2TopbarV2TokenTypeToggleButtonBackgroundColorConfig,
+  transition: string,
+  icon: topbarV2TopbarV2TokenTypeToggleButtonIconConfig,
+}
+type topbarV2TopbarV2TokenTypeActionButtonConfig = {
+  borderRadius: string,
+  padding: string,
+  minWidth: string,
+  height: string,
+  backgroundColor: topbarV2TopbarV2TokenTypeToggleButtonBackgroundColorConfig,
+  transition: string,
+  icon: topbarV2TopbarV2TokenTypeToggleButtonIconConfig,
+}
+type topbarV2TopbarV2TokenTypeTenantIconButtonConfig = {
+  borderRadius: string,
+  minHeight: string,
+  backgroundColor: topbarV2TopbarV2TokenTypeToggleButtonBackgroundColorConfig,
+  transition: string,
+}
+type topbarV2TopbarV2TokenTypeMerchantSelectTriggerTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+}
+type topbarV2TopbarV2TokenTypeMerchantSelectTriggerConfig = {
+  gap: string,
+  icon: topbarV2TopbarV2TokenTypeToggleButtonIconConfig,
+  text: topbarV2TopbarV2TokenTypeMerchantSelectTriggerTextConfig,
+}
+type topbarV2TopbarV2TokenTypeLeftSectionConfig = {
+  gap: string,
+  maxHeight: string,
+  divider: topbarV2TopbarV2TokenTypeMerchantSelectTriggerTextConfig,
+}
+type topbarV2TopbarV2TokenTypeRightSectionConfig = {
+  gap: string,
+}
+type topbarV2TokenType = {
+  zIndex: string,
+  height: string,
+  borderBottom: string,
+  backgroundColor: string,
+  backdropFilter: string,
+  padding: string,
+  gap: string,
+  separator: topbarV2TopbarV2TokenTypeSeparatorConfig,
+  toggleButton: topbarV2TopbarV2TokenTypeToggleButtonConfig,
+  actionButton: topbarV2TopbarV2TokenTypeActionButtonConfig,
+  tenantIconButton: topbarV2TopbarV2TokenTypeTenantIconButtonConfig,
+  merchantSelectTrigger: topbarV2TopbarV2TokenTypeMerchantSelectTriggerConfig,
+  leftSection: topbarV2TopbarV2TokenTypeLeftSectionConfig,
+  rightSection: topbarV2TopbarV2TokenTypeRightSectionConfig,
+  sidebarSection: topbarV2TopbarV2TokenTypeRightSectionConfig,
+}
+type responsiveTopbarV2Tokens = {
+  sm: topbarV2TokenType,
+  lg: topbarV2TokenType,
+}
+type sidebarSidebarTokenTypeMaxWidthConfig = {
+  withLeftPanel: string,
+  withoutLeftPanel: string,
+  iconOnly?: string,
+}
+type sidebarSidebarTokenTypeLeftPanelPaddingConfig = {
+  x: string,
+  y: string,
+}
+type sidebarSidebarTokenTypeLeftPanelItemBorderConfig = {
+  active: string,
+  default: string,
+  hover: string,
+}
+type sidebarSidebarTokenTypeLeftPanelItemConfig = {
+  width: string,
+  borderRadius: string,
+  border: sidebarSidebarTokenTypeLeftPanelItemBorderConfig,
+  backgroundColor: sidebarSidebarTokenTypeLeftPanelItemBorderConfig,
+}
+type sidebarSidebarTokenTypeLeftPanelConfig = {
+  width: string,
+  backgroundColor: string,
+  borderRight: string,
+  padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
+  gap: string,
+  item: sidebarSidebarTokenTypeLeftPanelItemConfig,
+}
+type sidebarSidebarTokenTypeHeaderToggleButtonConfig = {
+  backgroundColor: sidebarSidebarTokenTypeLeftPanelItemBorderConfig,
+  width: string,
+}
+type sidebarSidebarTokenTypeHeaderConfig = {
+  backgroundColor: string,
+  padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
+  gap: string,
+  borderBottom: string,
+  toggleButton: sidebarSidebarTokenTypeHeaderToggleButtonConfig,
+}
+type sidebarSidebarTokenTypeDirectoryConfig = {
+  gap: string,
+  paddingX: string,
+  paddingY: string,
+}
+type sidebarSidebarTokenTypeFooterConfig = {
+  backgroundColor: string,
+  padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
+  borderTop: string,
+}
+type sidebarTokenType = {
+  maxWidth: sidebarSidebarTokenTypeMaxWidthConfig,
+  backgroundColor: string,
+  borderRight: string,
+  leftPanel: sidebarSidebarTokenTypeLeftPanelConfig,
+  header: sidebarSidebarTokenTypeHeaderConfig,
+  directory: sidebarSidebarTokenTypeDirectoryConfig,
+  footer: sidebarSidebarTokenTypeFooterConfig,
+}
+type responsiveSidebarTokens = {
+  sm: sidebarTokenType,
+  lg: sidebarTokenType,
+}
+type directoryDirectoryTokenTypeSectionHeaderPaddingConfig = {
+  x: string,
+  y: string,
+}
+type directoryDirectoryTokenTypeSectionHeaderLabelConfig = {
+  fontSize: string,
+  color: string,
+  fontWeight: string,
+}
+type directoryDirectoryTokenTypeSectionHeaderChevronConfig = {
+  width: string,
+  color: string,
+}
+type directoryDirectoryTokenTypeSectionHeaderConfig = {
+  padding: directoryDirectoryTokenTypeSectionHeaderPaddingConfig,
+  label: directoryDirectoryTokenTypeSectionHeaderLabelConfig,
+  chevron: directoryDirectoryTokenTypeSectionHeaderChevronConfig,
+}
+type directoryDirectoryTokenTypeSectionItemListItemIconOnlyPaddingConfig = {
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+}
+type contextDirectoryTokenTypeSectionItemListItemBackgroundColorConfig = {
+  active: string,
+  default: string,
+  hover: string,
+  activePath?: string,
+  muted?: string,
+}
+type directoryDirectoryTokenTypeSectionItemListItemIconConfig = {
+  width: string,
+}
+type directoryDirectoryTokenTypeSectionItemListItemConfig = {
+  padding: directoryDirectoryTokenTypeSectionHeaderPaddingConfig,
+  iconOnlyPadding: directoryDirectoryTokenTypeSectionItemListItemIconOnlyPaddingConfig,
+  gap: string,
+  borderRadius: string,
+  fontWeight: string,
+  fontSize: string,
+  transition: string,
+  backgroundColor: contextDirectoryTokenTypeSectionItemListItemBackgroundColorConfig,
+  color: contextDirectoryTokenTypeSectionItemListItemBackgroundColorConfig,
+  icon: directoryDirectoryTokenTypeSectionItemListItemIconConfig,
+  chevron: directoryDirectoryTokenTypeSectionHeaderChevronConfig,
+}
+type directoryDirectoryTokenTypeSectionItemListNestedBorderConfig = {
+  width: string,
+  color: string,
+  leftOffset: string,
+}
+type directoryDirectoryTokenTypeSectionItemListNestedConnectorConfig = {
+  itemInset: string,
+  itemPaddingLeft: string,
+  elbowTop: string,
+  elbowHeight: string,
+  elbowWidthOffset: string,
+}
+type directoryDirectoryTokenTypeSectionItemListNestedConfig = {
+  paddingLeft: string,
+  marginTop: string,
+  border: directoryDirectoryTokenTypeSectionItemListNestedBorderConfig,
+  connector: directoryDirectoryTokenTypeSectionItemListNestedConnectorConfig,
+}
+type directoryDirectoryTokenTypeSectionItemListConfig = {
+  gap: string,
+  item: directoryDirectoryTokenTypeSectionItemListItemConfig,
+  nested: directoryDirectoryTokenTypeSectionItemListNestedConfig,
+}
+type directoryDirectoryTokenTypeSectionConfig = {
+  gap: string,
+  header: directoryDirectoryTokenTypeSectionHeaderConfig,
+  itemList: directoryDirectoryTokenTypeSectionItemListConfig,
+}
+type directoryTokenType = {
+  gap: string,
+  paddingX: string,
+  paddingY: string,
+  section: directoryDirectoryTokenTypeSectionConfig,
+}
+type responsiveDirectoryTokens = {
+  sm: directoryTokenType,
+  lg: directoryTokenType,
+}
+type sidebarMobileNavigationTokenTypeContainerConfig = {
+  backgroundColor: string,
+  background?: string,
+  border: string,
+  borderRadius: string,
+  backdropFilter: string,
+  zIndex?: string,
+  transition?: string,
+}
+type sidebarMobileNavigationTokenTypeDrawerConfig = {
+  borderRadius: string,
+  borderTop: string,
+}
+type sidebarMobileNavigationTokenTypeRowItemBackgroundColorConfig = {
+  active: string,
+  default: string,
+}
+type sidebarMobileNavigationTokenTypeRowItemIconConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  transition: string,
+}
+type sidebarMobileNavigationTokenTypeRowItemTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  textAlign: string,
+}
+type sidebarMobileNavigationTokenTypeRowItemConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  gap: string,
+  backgroundColor: sidebarMobileNavigationTokenTypeRowItemBackgroundColorConfig,
+  color: sidebarMobileNavigationTokenTypeRowItemBackgroundColorConfig,
+  fontWeight: string,
+  icon: sidebarMobileNavigationTokenTypeRowItemIconConfig,
+  text: sidebarMobileNavigationTokenTypeRowItemTextConfig,
+}
+type sidebarMobileNavigationTokenTypeRowPrimaryActionIconConfig = {
+  width: string,
+  height: string,
+}
+type sidebarMobileNavigationTokenTypeRowPrimaryActionConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  background: string,
+  boxShadow: string,
+  color: string,
+  icon: sidebarMobileNavigationTokenTypeRowPrimaryActionIconConfig,
+}
+type sidebarMobileNavigationTokenTypeRowConfig = {
+  padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
+  gap: string,
+  item: sidebarMobileNavigationTokenTypeRowItemConfig,
+  primaryAction: sidebarMobileNavigationTokenTypeRowPrimaryActionConfig,
+}
+type mobileNavigationTokenType = {
+  container: sidebarMobileNavigationTokenTypeContainerConfig,
+  backgroundColor: string,
+  drawer: sidebarMobileNavigationTokenTypeDrawerConfig,
+  padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
+  gap: string,
+  row: sidebarMobileNavigationTokenTypeRowConfig,
+}
+type responsiveMobileNavigationTokens = {
+  sm: mobileNavigationTokenType,
+  lg: mobileNavigationTokenType,
+}
+type sidebarV2MobileNavigationV2TokenTypeContainerConfig = {
+  zIndex: string,
+  backgroundColor: string,
+  background?: string,
+  border: string,
+  borderWidth: string,
+  borderRadius: string,
+  backdropFilter: string,
+  transition: string,
+}
+type sidebarV2MobileNavigationV2TokenTypeLayoutConfig = {
+  safeAreaOffset: string,
+  floatingPadding: string,
+  primaryActionMarginX: string,
+  itemLabelMarginTop: string,
+  itemLabelLineHeight: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  gap: string,
+  rowPaddingTop: string,
+  rowPaddingBottom: string,
+  rowPaddingLeft: string,
+  rowPaddingRight: string,
+  rowGap: string,
+}
+type sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig = {
+  active: string,
+  default: string,
+}
+type sidebarV2MobileNavigationV2TokenTypeItemIconConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  transition: string,
+  strokeWidth: float,
+}
+type sidebarV2MobileNavigationV2TokenTypeItemTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  textAlign: string,
+}
+type sidebarV2MobileNavigationV2TokenTypeItemConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  gap: string,
+  backgroundColor: sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig,
+  color: sidebarV2MobileNavigationV2TokenTypeItemBackgroundColorConfig,
+  fontWeight: string,
+  icon: sidebarV2MobileNavigationV2TokenTypeItemIconConfig,
+  text: sidebarV2MobileNavigationV2TokenTypeItemTextConfig,
+}
+type sidebarV2MobileNavigationV2TokenTypePrimaryActionIconConfig = {
+  width: string,
+  height: string,
+  strokeWidth: float,
+}
+type sidebarV2MobileNavigationV2TokenTypePrimaryActionConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  background: string,
+  boxShadow: string,
+  color: string,
+  icon: sidebarV2MobileNavigationV2TokenTypePrimaryActionIconConfig,
+}
+type mobileNavigationV2TokenType = {
+  container: sidebarV2MobileNavigationV2TokenTypeContainerConfig,
+  layout: sidebarV2MobileNavigationV2TokenTypeLayoutConfig,
+  item: sidebarV2MobileNavigationV2TokenTypeItemConfig,
+  primaryAction: sidebarV2MobileNavigationV2TokenTypePrimaryActionConfig,
+}
+type responsiveMobileNavigationV2Tokens = {
+  sm: mobileNavigationV2TokenType,
+  lg: mobileNavigationV2TokenType,
 }
 type inputsV2ChatInputV2TokensTypeContainerAttachedFilesContainerOverflowMenuConfig = {
   gap: string,
@@ -1302,6 +2143,114 @@ type responsiveTextInputV2Tokens = {
   sm: textInputV2TokensType,
   lg: textInputV2TokensType,
 }
+type sidebarV2SidebarV2TokensTypeContainerHoverPreviewConfig = {
+  boxShadow: string,
+}
+type sidebarV2SidebarV2TokensTypeContainerMaxWidthConfig = {
+  withLeftPanel: string,
+  withoutLeftPanel: string,
+  iconOnly: string,
+}
+type sidebarV2SidebarV2TokensTypeContainerConfig = {
+  zIndex: string,
+  backgroundColor: string,
+  borderRight: string,
+  hoverPreview: sidebarV2SidebarV2TokensTypeContainerHoverPreviewConfig,
+  maxWidth: sidebarV2SidebarV2TokensTypeContainerMaxWidthConfig,
+}
+type sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig = {
+  active: string,
+  default: string,
+  hover: string,
+}
+type sidebarV2SidebarV2TokensTypeLeftPanelItemConfig = {
+  width: string,
+  borderRadius: string,
+  border: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+}
+type sidebarV2SidebarV2TokensTypeLeftPanelConfig = {
+  width: string,
+  backgroundColor: string,
+  borderRight: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  gap: string,
+  item: sidebarV2SidebarV2TokensTypeLeftPanelItemConfig,
+}
+type sidebarV2SidebarV2TokensTypeHeaderToggleButtonConfig = {
+  borderRadius: string,
+  padding: string,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+  width: string,
+  iconColor: string,
+}
+type sidebarV2SidebarV2TokensTypeHeaderConfig = {
+  zIndex: string,
+  backgroundColor: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  gap: string,
+  borderBottom: string,
+  borderBottomWidth: string,
+  scrolledBorderColor: string,
+  toggleButton: sidebarV2SidebarV2TokensTypeHeaderToggleButtonConfig,
+}
+type sidebarV2SidebarV2TokensTypeDirectoryConfig = {
+  gap: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+}
+type sidebarV2SidebarV2TokensTypeFooterConfig = {
+  zIndex: string,
+  backgroundColor: string,
+  gap: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  borderTop: string,
+}
+type sidebarV2SidebarV2TokensTypePrimarySidebarConfig = {
+  width: string,
+}
+type sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  border: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+  backgroundColor: sidebarV2SidebarV2TokensTypeLeftPanelItemBorderConfig,
+}
+type sidebarV2SidebarV2TokensTypeSecondarySidebarConfig = {
+  width: string,
+  borderRight: string,
+  backgroundColor: string,
+  gap: string,
+  paddingTop: string,
+  paddingBottom: string,
+  paddingLeft: string,
+  paddingRight: string,
+  item: sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig,
+}
+type sidebarV2TokensType = {
+  container: sidebarV2SidebarV2TokensTypeContainerConfig,
+  leftPanel: sidebarV2SidebarV2TokensTypeLeftPanelConfig,
+  header: sidebarV2SidebarV2TokensTypeHeaderConfig,
+  directory: sidebarV2SidebarV2TokensTypeDirectoryConfig,
+  footer: sidebarV2SidebarV2TokensTypeFooterConfig,
+  primarySidebar: sidebarV2SidebarV2TokensTypePrimarySidebarConfig,
+  secondarySidebar: sidebarV2SidebarV2TokensTypeSecondarySidebarConfig,
+}
+type responsiveSidebarV2Tokens = {
+  sm: sidebarV2TokensType,
+  lg: sidebarV2TokensType,
+}
 type codeEditorV2CodeEditorV2TokensHeaderIconConfig = {
   width: string,
 }
@@ -1685,12 +2634,13 @@ type componentTokenType = {
   @as("MODAL") modal?: ModalTypes.responsiveModalTokens,
   @as("BREADCRUMB") breadcrumb?: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") popover?: PopoverTypes.responsivePopoverTokens,
-  @as("MENU") menu?: MenuTypes.responsiveMenuTokensType,
-  @as("MENU_V2") menuV2?: MenuV2Types.responsiveMenuV2TokensType,
+  @as("MENU") menu?: responsiveMenuTokensType,
+  @as("MENU_V2") menuV2?: responsiveMenuV2TokensType,
   @as("MULTI_SELECT") multiSelect?: MultiSelectTypes.responsiveMultiSelectTokens,
   @as("SINGLE_SELECT") singleSelect?: SingleSelectTypes.responsiveSingleSelectTokens,
   @as("TABLE") table?: DataTableTypes.responsiveTableTokens,
-  @as("CALENDAR") calendar?: DateRangePickerTypes.responsiveCalendarTokens,
+  @as("CALENDAR") calendar?: responsiveCalendarTokens,
+  @as("TIME_PICKER") timePicker?: TimePickerTypes.responsiveTimePickerTokens,
   @as("ACCORDION") accordion?: AccordionTypes.responsiveAccordionTokens,
   @as("STAT_CARD") statCard?: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar?: ProgressBarTypes.responsiveProgressBarTokens,
@@ -1702,17 +2652,19 @@ type componentTokenType = {
   @as("CARD") card?: CardTypes.responsiveCardTokens,
   @as("CARDV2") cardv2?: CardV2Types.responsiveCardV2Tokens,
   @as("SKELETON") skeleton?: SkeletonTypes.responsiveSkeletonTokens,
+  @as("SPINNER") spinner?: SpinnerTypes.responsiveSpinnerTokens,
+  @as("EMPTY_STATE") emptyState?: EmptyStateTypes.responsiveEmptyStateTokens,
   @as("TOPBAR") topbar?: TopbarTypes.responsiveTopbarTokens,
-  @as("TOPBARV2") topbarv2?: TopbarV2Types.responsiveTopbarV2Tokens,
+  @as("TOPBARV2") topbarv2?: responsiveTopbarV2Tokens,
   @as("AVATAR") avatar?: AvatarTypes.responsiveAvatarTokens,
   @as("AVATAR_GROUP") avatarGroup?: AvatarGroupTypes.responsiveAvatarGroupTokens,
-  @as("SIDEBAR") sidebar?: SidebarTypes.responsiveSidebarTokens,
-  @as("DIRECTORY") directory?: DirectoryTypes.responsiveDirectoryTokens,
-  @as("MOBILE_NAVIGATION") mobileNavigation?: SidebarTypes.responsiveMobileNavigationTokens,
-  @as("MOBILE_NAVIGATION_V2")
-  mobileNavigationV2?: SidebarV2Types.responsiveMobileNavigationV2Tokens,
+  @as("SIDEBAR") sidebar?: responsiveSidebarTokens,
+  @as("DIRECTORY") directory?: responsiveDirectoryTokens,
+  @as("MOBILE_NAVIGATION") mobileNavigation?: responsiveMobileNavigationTokens,
+  @as("MOBILE_NAVIGATION_V2") mobileNavigationV2?: responsiveMobileNavigationV2Tokens,
   @as("UPLOAD") upload?: UploadTypes.responsiveUploadTokens,
   @as("CODE_BLOCK") codeBlock?: CodeBlockTypes.responsiveCodeBlockTokens,
+  @as("BUTTON_GROUP") buttonGroup?: ButtonGroupTypes.responsiveButtonGroupTokens,
   @as("CHAT_INPUT") chatInput?: ChatInputTypes.responsiveChatInputTokensType,
   @as("CHAT_INPUTV2") chatInputv2?: responsiveChatInputV2TokensType,
   @as("TIMELINE") timeline?: TimelineTypes.responsiveTimelineTokens,
@@ -1733,7 +2685,7 @@ type componentTokenType = {
   @as("TOOLTIPV2") tooltipv2?: TooltipV2Types.responsiveTooltipV2Tokens,
   @as("RADIOV2") radiov2?: SelectorV2Types.responsiveRadioV2Tokens,
   @as("POPOVERV2") popoverv2?: PopoverV2Types.responsivePopoverV2Tokens,
-  @as("SIDEBARV2") sidebarv2?: SidebarV2Types.responsiveSidebarV2Tokens,
+  @as("SIDEBARV2") sidebarv2?: responsiveSidebarV2Tokens,
   @as("TABSV2") tabsv2?: TabsV2Types.responsiveTabsV2Tokens,
   @as("BREADCRUMBV2") breadcrumbv2?: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
   @as("CODEEDITORV2") codeeditorv2?: responsiveCodeEditorV2Tokens,
@@ -1747,6 +2699,8 @@ type componentTokenType = {
   @as("STEPPERV2") stepperv2?: StepperV2Types.responsiveStepperV2Tokens,
   @as("UPLOADV2") uploadv2?: responsiveUploadV2Tokens,
   @as("MODALV2") modalv2?: ModalV2Types.responsiveModalV2Tokens,
+  @as("SLIDER") slider?: SliderTypes.responsiveSliderTokens,
+  @as("SELECT") select?: SelectTypes.responsiveSelectTokens,
 }
 type contextThemeContextTypeComponentTokensConfig = {
   @as("TAGS") tags: TagsTypes.responsiveTagTokens,
@@ -1769,12 +2723,13 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("MODAL") modal: ModalTypes.responsiveModalTokens,
   @as("BREADCRUMB") breadcrumb: BreadcrumbTypes.responsiveBreadcrumbTokens,
   @as("POPOVER") popover: PopoverTypes.responsivePopoverTokens,
-  @as("MENU") menu: MenuTypes.responsiveMenuTokensType,
-  @as("MENU_V2") menuV2: MenuV2Types.responsiveMenuV2TokensType,
+  @as("MENU") menu: responsiveMenuTokensType,
+  @as("MENU_V2") menuV2: responsiveMenuV2TokensType,
   @as("MULTI_SELECT") multiSelect: MultiSelectTypes.responsiveMultiSelectTokens,
   @as("SINGLE_SELECT") singleSelect: SingleSelectTypes.responsiveSingleSelectTokens,
   @as("TABLE") table: DataTableTypes.responsiveTableTokens,
-  @as("CALENDAR") calendar: DateRangePickerTypes.responsiveCalendarTokens,
+  @as("CALENDAR") calendar: responsiveCalendarTokens,
+  @as("TIME_PICKER") timePicker: TimePickerTypes.responsiveTimePickerTokens,
   @as("ACCORDION") accordion: AccordionTypes.responsiveAccordionTokens,
   @as("STAT_CARD") statCard: StatCardTypes.responsiveStatCardTokens,
   @as("PROGRESS_BAR") progressBar: ProgressBarTypes.responsiveProgressBarTokens,
@@ -1786,16 +2741,19 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("CARD") card: CardTypes.responsiveCardTokens,
   @as("CARDV2") cardv2: CardV2Types.responsiveCardV2Tokens,
   @as("SKELETON") skeleton: SkeletonTypes.responsiveSkeletonTokens,
+  @as("SPINNER") spinner: SpinnerTypes.responsiveSpinnerTokens,
+  @as("EMPTY_STATE") emptyState: EmptyStateTypes.responsiveEmptyStateTokens,
   @as("TOPBAR") topbar: TopbarTypes.responsiveTopbarTokens,
-  @as("TOPBARV2") topbarv2: TopbarV2Types.responsiveTopbarV2Tokens,
+  @as("TOPBARV2") topbarv2: responsiveTopbarV2Tokens,
   @as("AVATAR") avatar: AvatarTypes.responsiveAvatarTokens,
   @as("AVATAR_GROUP") avatarGroup: AvatarGroupTypes.responsiveAvatarGroupTokens,
-  @as("SIDEBAR") sidebar: SidebarTypes.responsiveSidebarTokens,
-  @as("DIRECTORY") directory: DirectoryTypes.responsiveDirectoryTokens,
-  @as("MOBILE_NAVIGATION") mobileNavigation: SidebarTypes.responsiveMobileNavigationTokens,
-  @as("MOBILE_NAVIGATION_V2") mobileNavigationV2: SidebarV2Types.responsiveMobileNavigationV2Tokens,
+  @as("SIDEBAR") sidebar: responsiveSidebarTokens,
+  @as("DIRECTORY") directory: responsiveDirectoryTokens,
+  @as("MOBILE_NAVIGATION") mobileNavigation: responsiveMobileNavigationTokens,
+  @as("MOBILE_NAVIGATION_V2") mobileNavigationV2: responsiveMobileNavigationV2Tokens,
   @as("UPLOAD") upload: UploadTypes.responsiveUploadTokens,
   @as("CODE_BLOCK") codeBlock: CodeBlockTypes.responsiveCodeBlockTokens,
+  @as("BUTTON_GROUP") buttonGroup: ButtonGroupTypes.responsiveButtonGroupTokens,
   @as("CHAT_INPUT") chatInput: ChatInputTypes.responsiveChatInputTokensType,
   @as("CHAT_INPUTV2") chatInputv2: responsiveChatInputV2TokensType,
   @as("TIMELINE") timeline: TimelineTypes.responsiveTimelineTokens,
@@ -1816,7 +2774,7 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("TOOLTIPV2") tooltipv2: TooltipV2Types.responsiveTooltipV2Tokens,
   @as("RADIOV2") radiov2: SelectorV2Types.responsiveRadioV2Tokens,
   @as("POPOVERV2") popoverv2: PopoverV2Types.responsivePopoverV2Tokens,
-  @as("SIDEBARV2") sidebarv2: SidebarV2Types.responsiveSidebarV2Tokens,
+  @as("SIDEBARV2") sidebarv2: responsiveSidebarV2Tokens,
   @as("TABSV2") tabsv2: TabsV2Types.responsiveTabsV2Tokens,
   @as("BREADCRUMBV2") breadcrumbv2: BreadcrumbV2Types.responsiveBreadcrumbV2Tokens,
   @as("CODEEDITORV2") codeeditorv2: responsiveCodeEditorV2Tokens,
@@ -1830,6 +2788,8 @@ type contextThemeContextTypeComponentTokensConfig = {
   @as("STEPPERV2") stepperv2: StepperV2Types.responsiveStepperV2Tokens,
   @as("UPLOADV2") uploadv2: responsiveUploadV2Tokens,
   @as("MODALV2") modalv2: ModalV2Types.responsiveModalV2Tokens,
+  @as("SLIDER") slider: SliderTypes.responsiveSliderTokens,
+  @as("SELECT") select: SelectTypes.responsiveSelectTokens,
 }
 type themeContextType = {
   foundationTokens: TokensTypes.foundationTokenType,
@@ -1840,6 +2800,271 @@ type themeContextType = {
 type shadowRootContextType = {
   shadowRoot: Nullable.t<Dom.shadowRoot>,
   target: Nullable.t<Dom.element>,
+}
+type menuMenuItemTypeTooltipPropsConfig = {
+  side?: TooltipTypes.tooltipSide,
+  align?: TooltipTypes.tooltipAlign,
+  size?: TooltipTypes.tooltipSize,
+  showArrow?: bool,
+  delayDuration?: float,
+  offset?: float,
+}
+type rec menuItemType = {
+  label: string,
+  subLabel?: string,
+  slot1?: React.element,
+  slot2?: React.element,
+  slot3?: React.element,
+  slot4?: React.element,
+  variant?: menuItemVariant,
+  actionType?: menuItemActionType,
+  disabled?: bool,
+  selected?: bool,
+  onClick?: unit => unit,
+  subMenu?: array<menuItemType>,
+  enableSubMenuSearch?: bool,
+  subMenuSearchPlaceholder?: string,
+  subMenuSearchSortFn?: (array<menuItemType>, string) => array<menuItemType>,
+  onSubMenuSearchEnter?: (string, array<menuItemType>) => unit,
+  tooltip?: React.element,
+  tooltipProps?: menuMenuItemTypeTooltipPropsConfig,
+  enableSubMenuVirtualScrolling?: bool,
+  subMenuVirtualItemHeight?: float,
+  subMenuVirtualOverscan?: float,
+  subMenuVirtualScrollThreshold?: float,
+}
+type menuGroupType = {
+  label?: string,
+  items: array<menuItemType>,
+  showSeparator?: bool,
+  selectionStyle?: menuSelectionStyle,
+  selectionMode?: menuSelectionMode,
+}
+@unboxed type menuItemTypeVirtualItemHeight = Num(float) | Fn((menuItemType, float) => float)
+type menuSkeletonProps = {
+  count?: int,
+  show?: bool,
+  variant?: SkeletonTypes.skeletonVariant,
+}
+type menuOverflowMenuPropsConfig = {
+  trigger?: React.element,
+  items?: array<menuGroupType>,
+  maxHeight?: float,
+  minHeight?: float,
+  maxWidth?: float,
+  minWidth?: float,
+  enableSearch?: bool,
+  searchPlaceholder?: string,
+  searchSortFn?: (array<menuItemType>, string) => array<menuItemType>,
+  onEnter?: (string, array<menuGroupType>) => unit,
+  enableVirtualScrolling?: bool,
+  virtualItemHeight?: menuItemTypeVirtualItemHeight,
+  virtualOverscan?: float,
+  virtualScrollThreshold?: float,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  asModal?: bool,
+  selectionStyle?: menuSelectionStyle,
+  selectionMode?: menuSelectionMode,
+  closeOnSelect?: bool,
+  alignment?: menuAlignment,
+  side?: menuSide,
+  sideOffset?: float,
+  alignOffset?: float,
+  collisonBoundaryRef?: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t,
+  skeleton?: menuSkeletonProps,
+}
+type dateRange = {
+  startDate: Date.t,
+  endDate?: Date.t,
+  showTimePicker?: bool,
+}
+type presetSelectionData = {
+  preset: dateRangePreset,
+  label: string,
+  dateRange: dateRange,
+  formattedStartDate: string,
+  formattedEndDate: string,
+  formattedStartTime: string,
+  formattedEndTime: string,
+}
+type customPresetConfig = {
+  preset: dateRangePreset,
+  label?: string,
+  visible?: bool,
+}
+type customPresetDefinition = {
+  id: string,
+  label: string,
+  getDateRange: unit => dateRange,
+  visible?: bool,
+}
+module PresetsConfig = {
+  type t
+  external fromDateRangePreset: dateRangePreset => t = "%identity"
+  external asDateRangePreset: t => dateRangePreset = "%identity"
+  external fromCustomPresetConfig: customPresetConfig => t = "%identity"
+  external asCustomPresetConfig: t => customPresetConfig = "%identity"
+  external fromCustomPresetDefinition: customPresetDefinition => t = "%identity"
+  external asCustomPresetDefinition: t => customPresetDefinition = "%identity"
+}
+type customRangeConfig = {
+  calculateEndDate?: (Date.t, option<dateRange>) => Nullable.t<Date.t>,
+  fixedDayRange?: float,
+  referenceRange?: dateRange,
+  backwardDays?: float,
+  allowManualEndDateSelection?: bool,
+  applyToPresets?: bool,
+}
+type dateRangePickerDateFormatConfigCustomFormatConfig = {
+  includeTime?: bool,
+  includeYear?: bool,
+  separator?: string,
+  locale?: string,
+}
+type dateFormatConfig = {
+  preset?: dateFormatPreset,
+  customFormat?: (dateRange, option<dateRangePickerDateFormatConfigCustomFormatConfig>) => string,
+  includeTime?: bool,
+  includeYear?: bool,
+  separator?: string,
+  locale?: string,
+  timeFormat?: dateRangePickerDateFormatConfigTimeFormat,
+}
+type dateRangePickerTriggerConfigRenderTriggerConfig = {
+  selectedRange?: dateRange,
+  isOpen: bool,
+  isDisabled: bool,
+  formattedValue: string,
+  onClick: unit => unit,
+}
+type triggerConfig = {
+  element?: React.element,
+  placeholder?: string,
+  showIcon?: bool,
+  icon?: React.element,
+  style?: JsxDOM.style,
+  renderTrigger?: dateRangePickerTriggerConfigRenderTriggerConfig => React.element,
+}
+type dateRangePickerPopoverConfig = {
+  side?: dateRangePickerDateRangePickerPopoverConfigSide,
+  align?: dateRangePickerDateRangePickerPopoverConfigAlign,
+  sideOffset?: float,
+}
+type dateRangePickerProps = {
+  value?: dateRange,
+  onChange?: dateRange => unit,
+  onPresetSelection?: presetSelectionData => unit,
+  showDateTimePicker?: bool,
+  showDateInput?: bool,
+  showPresets?: bool,
+  customPresets?: array<PresetsConfig.t>,
+  placeholder?: string,
+  isDisabled?: bool,
+  icon?: React.element,
+  minDate?: Date.t,
+  maxDate?: Date.t,
+  maxRangeDays?: float,
+  dateFormat?: string,
+  granularity?: dateRangePickerDateRangePickerPropsGranularity,
+  allowSingleDateSelection?: bool,
+  isSingleDatePicker?: bool,
+  disableFutureDates?: bool,
+  disablePastDates?: bool,
+  hideFutureDates?: bool,
+  hidePastDates?: bool,
+  customDisableDates?: (Date.t, option<dateRange>) => bool,
+  customRangeConfig?: customRangeConfig,
+  triggerElement?: React.element,
+  useDrawerOnMobile?: bool,
+  skipQuickFiltersOnMobile?: bool,
+  size?: dateRangePickerSize,
+  formatConfig?: dateFormatConfig,
+  triggerConfig?: triggerConfig,
+  popoverConfig?: dateRangePickerPopoverConfig,
+  maxMenuHeight?: float,
+  showPreset?: bool,
+  timezone?: string,
+  maxYearOffset?: float,
+}
+type rec navbarItem = {
+  label: string,
+  id?: string,
+  items?: array<navbarItem>,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  onClick?: unit => unit,
+  href?: string,
+  isSelected?: bool,
+  showOnMobile?: bool,
+}
+type directoryData = {
+  label?: string,
+  items?: array<navbarItem>,
+  isCollapsible?: bool,
+  defaultOpen?: bool,
+}
+type directoryVirtualizationConfig = {
+  viewportRef?: React.ref<Nullable.t<Dom.element>>,
+  rowHeight?: float,
+  sectionHeight?: float,
+  viewportHeight?: float,
+  overscan?: float,
+  threshold?: float,
+}
+type menuItemStateTokensV1lywh<'a> = {
+  disabled: 'a,
+  active: 'a,
+  default: 'a,
+  hover: 'a,
+  focus: 'a,
+  focusVisible: 'a,
+  selected?: 'a,
+}
+module DirectoryExpandedItems = {
+  type t
+  external fromArray: array<string> => t = "%identity"
+  external asArray: t => array<string> = "%identity"
+  external fromSet: Set.t<string> => t = "%identity"
+  external asSet: t => Set.t<string> = "%identity"
+}
+type sidebarProps<'a> = {
+  showLeftPanel?: bool,
+  children: React.element,
+  data: Nullable.t<array<directoryData>>,
+  leftPanel?: SharedTypes.leftPanelInfo,
+  topbar: React.element,
+  footer?: React.element,
+  sidebarTopSlot?: React.element,
+  sidebarCollapseKey?: string,
+  merchantInfo?: SharedTypes.merchantInfo,
+  rightActions?: React.element,
+  enableTopbarAutoHide?: bool,
+  isTopbarVisible?: bool,
+  onTopbarVisibilityChange?: bool => unit,
+  defaultIsTopbarVisible?: bool,
+  isExpanded?: bool,
+  onExpandedChange?: bool => unit,
+  onSidebarStateChange?: sidebarStateChangeType => unit,
+  defaultIsExpanded?: bool,
+  panelOnlyMode?: bool,
+  disableIntermediateState?: bool,
+  iconOnlyMode?: bool,
+  hideOnIconOnlyToggle?: bool,
+  showPrimaryActionButton?: bool,
+  primaryActionButtonProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
+  activeItem?: Nullable.t<string>,
+  onActiveItemChange?: Nullable.t<string> => unit,
+  defaultActiveItem?: Nullable.t<string>,
+  onHoveringChange?: bool => unit,
+  showHierarchyLines?: bool,
+  hierarchyLineBorderRadius?: string,
+  expandedItems?: DirectoryExpandedItems.t,
+  defaultExpandedItems?: DirectoryExpandedItems.t,
+  onExpandedItemsChange?: array<string> => unit,
+  onItemExpand?: (navbarItem, string) => 'a,
+  enableVirtualization?: bool,
+  virtualization?: directoryVirtualizationConfig,
 }
 type rec singleSelectV2ItemType = {
   label: string,
@@ -1863,6 +3088,10 @@ type singleSelectV2GroupType = {
   showSeparator?: bool,
 }
 type selectV2SearchConfig = {
+  searchText?: string,
+  onSearchChange?: string => unit,
+  isSearchLoading?: bool,
+  emptyStateText?: string,
   show?: bool,
   placeholder?: string,
 }
@@ -1989,6 +3218,103 @@ type inputsV2GetVerticalInputPaddingV0Config = {
 type inputsV2GetVerticalInputPaddingConfig = {
   top: float,
   bottom: float,
+}
+type secondarySidebarItem = {
+  label: string,
+  value: string,
+  icon: React.element,
+  badge?: SharedTypes.tenantBadge,
+}
+type secondarySidebarInfo = {
+  items: array<secondarySidebarItem>,
+  selected: string,
+  onSelect: string => unit,
+  buttonProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
+  footerSlot?: React.element,
+}
+type sidebarV2Props<'a> = {
+  height?: string,
+  children?: React.element,
+  data?: Nullable.t<array<directoryData>>,
+  secondarySidebar?: secondarySidebarInfo,
+  topbar?: React.element,
+  footer?: React.element,
+  sidebarTopSlot?: React.element,
+  sidebarCollapseKey?: string,
+  merchantInfo?: SharedTypes.merchantInfo,
+  rightActions?: React.element,
+  enableTopbarAutoHide?: bool,
+  isTopbarVisible?: bool,
+  onTopbarVisibilityChange?: bool => unit,
+  defaultIsTopbarVisible?: bool,
+  isExpanded?: bool,
+  onExpandedChange?: bool => unit,
+  onSidebarStateChange?: sidebarV2SidebarV2PropsOnSidebarStateChange => unit,
+  defaultIsExpanded?: bool,
+  showMobilePrimaryActionButton?: bool,
+  mobilePrimaryActionButtonProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
+  activeItem?: Nullable.t<string>,
+  onActiveItemChange?: Nullable.t<string> => unit,
+  defaultActiveItem?: Nullable.t<string>,
+  showHierarchyLines?: bool,
+  hierarchyLineBorderRadius?: string,
+  expandedItems?: DirectoryExpandedItems.t,
+  defaultExpandedItems?: DirectoryExpandedItems.t,
+  onExpandedItemsChange?: array<string> => unit,
+  onItemExpand?: (navbarItem, string) => 'a,
+  enableVirtualization?: bool,
+  virtualization?: directoryVirtualizationConfig,
+}
+type sidebarV2MerchantInfoItemsConfig = {
+  label: string,
+  value: string,
+  icon?: React.element,
+}
+type sidebarV2MerchantInfoConfig = {
+  items: array<sidebarV2MerchantInfoItemsConfig>,
+  selected: string,
+  onSelect: string => unit,
+}
+type sidebarV2MobileNavigationItem = {
+  label: string,
+  id?: string,
+  items?: array<navbarItem>,
+  leftSlot?: React.element,
+  rightSlot?: React.element,
+  onClick?: unit => unit,
+  href?: string,
+  isSelected?: bool,
+  showOnMobile?: bool,
+  sectionLabel?: string,
+}
+type topbarV2MerchantInfoV2ItemsConfig = {
+  label: string,
+  value: string,
+  icon?: React.element,
+}
+type merchantInfoV2 = {
+  items: array<topbarV2MerchantInfoV2ItemsConfig>,
+  selected: string,
+  onSelect: string => unit,
+}
+type topbarV2Props = {
+  children?: React.element,
+  isExpanded?: bool,
+  onToggleExpansion?: unit => unit,
+  showToggleButton?: bool,
+  panelOnlyMode?: bool,
+  isVisible?: bool,
+  onVisibilityChange?: bool => unit,
+  defaultIsVisible?: bool,
+  sidebarTopSlot?: React.element,
+  topbar?: React.element,
+  leftAction?: React.element,
+  rightActions?: React.element,
+  showBackButton?: bool,
+  onBackClick?: unit => unit,
+  secondarySidebar?: secondarySidebarInfo,
+  merchantInfo?: merchantInfoV2,
+  ariaControls?: string,
 }
 type inputsV2TagsConfig = {
   value: array<string>,
@@ -4541,6 +5867,130 @@ type codeEditorV2BackupColorConfig = {
   body: codeEditorV2BackupColorBodyConfig,
   header: codeEditorV2BackupColorBodyHighlightedLineConfig,
 }
+type menuV2ItemLabel = {
+  text: string,
+  leftSlot?: React.element,
+}
+type menuV2ItemTooltipProps = {
+  side?: TooltipTypes.tooltipSide,
+  align?: TooltipTypes.tooltipAlign,
+  size?: TooltipTypes.tooltipSize,
+  showArrow?: bool,
+  delayDuration?: float,
+  offset?: float,
+}
+type rec menuV2ItemType = {
+  id?: string,
+  label: menuV2ItemLabel,
+  subLabel?: string,
+  variant?: menuV2ItemVariant,
+  actionType?: menuV2ItemActionType,
+  disabled?: bool,
+  selected?: bool,
+  onClick?: unit => unit,
+  subMenu?: array<menuV2ItemType>,
+  enableSubMenuSearch?: bool,
+  subMenuSearchPlaceholder?: string,
+  subMenuSearchSortFn?: (array<menuV2ItemType>, string) => array<menuV2ItemType>,
+  onSubMenuSearchEnter?: (string, array<menuV2ItemType>) => unit,
+  tooltip?: React.element,
+  tooltipProps?: menuV2ItemTooltipProps,
+}
+type menuV2GroupType = {
+  id?: string,
+  label?: string,
+  items: array<menuV2ItemType>,
+  showSeparator?: bool,
+  selectionStyle?: menuSelectionStyle,
+  selectionMode?: menuSelectionMode,
+}
+type menuV2Dimensions = {
+  minWidth?: string,
+  maxWidth?: string,
+  minHeight?: string,
+  maxHeight?: string,
+}
+type menuV2VirtualScrollingConfig = {
+  itemHeight?: float,
+  overscan?: float,
+  threshold?: float,
+}
+module MenuV2MenuV2PropsCollisionBoundaryRef = {
+  type t
+  external fromHTMLElement: Dom.element => t = "%identity"
+  external asHTMLElement: t => Dom.element = "%identity"
+  external fromHTMLElements: array<Dom.element> => t = "%identity"
+  external asHTMLElements: t => array<Dom.element> = "%identity"
+}
+type menuV2Props = {
+  trigger: React.element,
+  items?: array<menuV2GroupType>,
+  dimensions?: menuV2Dimensions,
+  enableSearch?: bool,
+  searchPlaceholder?: string,
+  searchSortFn?: (array<menuV2ItemType>, string) => array<menuV2ItemType>,
+  onEnter?: (string, array<menuV2GroupType>) => unit,
+  enableVirtualScrolling?: bool,
+  virtualScrolling?: menuV2VirtualScrollingConfig,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  asModal?: bool,
+  selectionStyle?: menuSelectionStyle,
+  selectionMode?: menuSelectionMode,
+  closeOnSelect?: bool,
+  alignment?: menuV2Alignment,
+  side?: menuV2Side,
+  sideOffset?: float,
+  alignOffset?: float,
+  collisionBoundaryRef?: MenuV2MenuV2PropsCollisionBoundaryRef.t,
+  triggerProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
+}
+type menuV2ContentProps = {
+  filteredItems: array<menuV2GroupType>,
+  menuTokens: menuV2TokensType,
+  enableSearch: bool,
+  searchPlaceholder: string,
+  searchText: string,
+  onSearchTextChange: string => unit,
+  onEnter?: unit => unit,
+  maxHeight?: string,
+  minHeight?: string,
+  minWidth?: string,
+  maxWidth?: string,
+  enableVirtualScrolling?: bool,
+  virtualScrolling?: menuV2VirtualScrollingConfig,
+  alignment?: dateRangePickerDateRangePickerPopoverConfigAlign,
+  side?: dateRangePickerDateRangePickerPopoverConfigSide,
+  sideOffset?: float,
+  alignOffset?: float,
+  collisionBoundaryRef?: MenuV2MenuV2PropsCollisionBoundaryRef.t,
+  onInteractOutside?: JSON.t => unit,
+  onPointerDownOutside?: JSON.t => unit,
+  onFocusCapture?: ReactEvent.Focus.t => unit,
+  onKeyDown?: ReactEvent.Keyboard.t => unit,
+}
+type menuV2ItemProps = {
+  item: menuV2ItemType,
+  index: int,
+  itemTokens: menuV2MenuV2TokensTypeGroupItemConfig,
+  selectionStyle?: menuSelectionStyle,
+  selectionMode?: menuSelectionMode,
+}
+// #167: discriminated union — each branch keeps its OWN required fields.
+//       Build with LabelFlatRow({…}); `type` is auto-filled by @tag.
+@tag("type")
+type menuV2FlatRow =
+  | @as("label") LabelFlatRow({id: string, label: string, groupId?: float})
+  | @as("separator") SeparatorFlatRow({id: string, groupId?: float})
+  | @as("item")
+  ItemFlatRow({
+      id: string,
+      item: menuV2ItemType,
+      groupId: float,
+      itemIndex: float,
+      selectionStyle?: menuSelectionStyle,
+      selectionMode?: menuSelectionMode,
+    })
 type rec multiSelectV2ItemType = {
   label: string,
   value: string,
@@ -4600,6 +6050,7 @@ type menuListSharedProps = {
   singleSelectTokens: singleSelectV2TokensType,
   size: SelectV2Types.selectV2Size,
   variant: SelectV2Types.selectV2Variant,
+  focusIdentityEnabled?: bool,
 }
 type flattenedItem = {
   id: string,

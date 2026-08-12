@@ -1,5 +1,5 @@
 type props = {
-  ...DateRangePickerTypes.dateRangePickerProps,
+  ...EditorSharedTypes.dateRangePickerProps,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

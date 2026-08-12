@@ -67,6 +67,9 @@ module ElementType = {
     | #option
     | #"switch"
     | #time
+    | #clipPath
+    | #mask
+    | #path
     | #polygon
     | #linearGradient
     | #radialGradient
@@ -165,7 +168,6 @@ module ElementType = {
     | #webview
     | #animateMotion
     | #animateTransform
-    | #clipPath
     | #defs
     | #desc
     | #ellipse
@@ -196,10 +198,8 @@ module ElementType = {
     | #feTurbulence
     | #foreignObject
     | #g
-    | #mask
     | #metadata
     | #mpath
-    | #path
     | #polyline
     | #set
     | #tspan

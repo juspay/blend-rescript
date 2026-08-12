@@ -77,6 +77,12 @@ type dataTableColumnFilterOperator =
   | @as("lt") Lt
   | @as("gte") Gte
   | @as("lte") Lte
+type dataTableExportFormat =
+  | @as("csv") Csv
+  | @as("xlsx") Xlsx
+type dataTableExportScope =
+  | @as("currentPage") CurrentPage
+  | @as("allLoaded") AllLoaded
 type pivotAggregationType =
   | @as("sum") Sum
   | @as("count") Count
@@ -736,6 +742,21 @@ type bulkActionsConfig = {
   onDeselectAll?: unit => unit,
   customActions?: React.element,
   showExport?: bool,
+}
+type dataTableExportContext = {
+  visibleColumns: array<ColumnDefinition.t>,
+  filters: array<columnFilter>,
+  advancedFilters: array<JSON.t>,
+  search: searchConfig,
+  sort: Nullable.t<sortConfig>,
+  scope: dataTableExportScope,
+}
+type dataTableExportConfig<'a> = {
+  enabled: bool,
+  fileName?: string,
+  formats?: array<dataTableExportFormat>,
+  scope?: dataTableExportScope,
+  onExport?: dataTableExportContext => 'a,
 }
 type rowActionConfig<'a> = {
   id: string,

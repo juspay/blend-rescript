@@ -8,6 +8,7 @@ type chartType =
   | @as("scatter") Scatter
   | @as("area") Area
   | @as("sankey") Sankey
+  | @as("funnel") Funnel
 type axisType =
   | @as("dateTime") DateTime
   | @as("currency") Currency
@@ -19,6 +20,12 @@ type chartLegendPosition =
 type legendsChangeType =
   | @as("increase") Increase
   | @as("decrease") Decrease
+type chartsTooltipPropsTrigger =
+  | @as("hover") Hover
+  | @as("click") Click
+type chartsFunnelConfigPercentageBase =
+  | @as("first") First
+  | @as("previous") Previous
 type dashStyleValue =
   | @as("Dash") Dash
   | @as("DashDot") DashDot
@@ -81,6 +88,7 @@ type chartsSeriesSetState =
   | @as("hover") Hover
   | @as("select") Select
 type svgPathCommand =
+  | @as("z") Z
   | @as("a") A
   | @as("c") C
   | @as("h") H
@@ -90,7 +98,6 @@ type svgPathCommand =
   | @as("s") S
   | @as("t") T
   | @as("v") V
-  | @as("z") Z
   | @as("A") A2
   | @as("C") C2
   | @as("H") H2
@@ -452,12 +459,13 @@ type chartsBlendChartPropsConstructorType =
   | @as("find") Find
   | @as("backgroundSize") BackgroundSize
   | @as("offset") Offset
+  | @as("format") Format
+  | @as("r") R
   | @as("chart") Chart
   | @as("animate") Animate
   | @as("arc") Arc
   | @as("callout") Callout
   | @as("diamond") Diamond
-  | @as("format") Format
   | @as("rect") Rect
   | @as("addEvent") AddEvent
   | @as("animObject") AnimObject
@@ -552,7 +560,6 @@ type chartsBlendChartPropsConstructorType =
   | @as("context") Context
   | @as("innerR") InnerR
   | @as("longArc") LongArc
-  | @as("r") R
 type chartsChartTokensTypeHeaderPaddingConfig = {
   x: string,
   y: string,
@@ -685,9 +692,131 @@ type chartsTooltipConfigAllowEscapeViewBoxConfig = {
   x?: bool,
   y?: bool,
 }
+type rec payload = {
+  @as("type") type_?: [#none],
+  color?: string,
+  formatter?: (
+    CommonTypes.stringOrNumberOrStringOrNumberArray,
+    CommonTypes.stringOrNumber,
+    payload,
+    float,
+    array<payload>,
+  ) => React.element,
+  name?: CommonTypes.stringOrNumber,
+  value?: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  unit?: React.element,
+  dataKey?: CommonTypes.stringOrNumber,
+  payload?: string, // 🛑 BROKEN — contains `any`
+  chartType?: string,
+  stroke?: string,
+  strokeDasharray?: CommonTypes.stringOrNumber,
+  strokeWidth?: CommonTypes.stringOrNumber,
+  className?: string,
+  hide?: bool,
+}
+@unboxed type payloadPayloadUniqBy = Bool(bool) | Fn(payload => JSON.t)
+type tooltipContentProps = {
+  separator?: string,
+  wrapperClassName?: string,
+  labelClassName?: string,
+  formatter?: (
+    CommonTypes.stringOrNumberOrStringOrNumberArray,
+    CommonTypes.stringOrNumber,
+    payload,
+    float,
+    array<payload>,
+  ) => React.element,
+  contentStyle?: JsxDOM.style,
+  itemStyle?: JsxDOM.style,
+  labelStyle?: JsxDOM.style,
+  labelFormatter?: (string, array<payload>) => React.element, // 🛑 BROKEN — contains `any`
+  label?: string, // 🛑 BROKEN — contains `any`
+  payload?: array<payload>,
+  itemSorter?: payload => CommonTypes.stringOrNumber,
+  accessibilityLayer?: bool,
+  active?: bool,
+  includeHidden?: bool,
+  allowEscapeViewBox?: UtilTypes.allowInDimension,
+  animationDuration?: float,
+  animationEasing?: UtilTypes.animationTiming,
+  content?: React.element,
+  coordinate?: UtilTypes.utilTooltipPropsCoordinateConfig,
+  cursor?: React.element,
+  filterNull?: bool,
+  defaultIndex?: float,
+  isAnimationActive?: bool,
+  offset?: float,
+  payloadUniqBy?: payloadPayloadUniqBy,
+  position?: UtilTypes.utilTooltipPropsCoordinateConfig,
+  reverseDirection?: UtilTypes.allowInDimension,
+  shared?: bool,
+  trigger?: chartsTooltipPropsTrigger,
+  useTranslate3d?: bool,
+  viewBox?: UtilTypes.cartesianViewBox,
+  wrapperStyle?: JsxDOM.style,
+  originalData: array<newNestedDataPoint>,
+  chartType: chartType,
+  selectedKeys: array<string>,
+  xAxis?: axisConfig,
+  yAxis?: axisConfig,
+}
+type tooltipFormatterParams = {
+  seriesName: CommonTypes.stringOrNumber,
+  value: CommonTypes.stringOrNumberOrStringOrNumberArray,
+  dataIndex: float,
+  color: string,
+  payload: JSON.t,
+}
 type tooltipConfig = {
   position?: chartsTooltipConfigPositionConfig,
   allowEscapeViewBox?: chartsTooltipConfigAllowEscapeViewBoxConfig,
+  content?: tooltipContentProps => React.element,
+  formatter?: tooltipFormatterParams => React.element,
+  labelFormatter?: CommonTypes.stringOrNumber => React.element,
+}
+type tooltipProps = {
+  separator?: string,
+  wrapperClassName?: string,
+  labelClassName?: string,
+  formatter?: (
+    CommonTypes.stringOrNumberOrStringOrNumberArray,
+    CommonTypes.stringOrNumber,
+    payload,
+    float,
+    array<payload>,
+  ) => React.element,
+  contentStyle?: JsxDOM.style,
+  itemStyle?: JsxDOM.style,
+  labelStyle?: JsxDOM.style,
+  labelFormatter?: (string, array<payload>) => React.element, // 🛑 BROKEN — contains `any`
+  label?: string, // 🛑 BROKEN — contains `any`
+  payload?: array<payload>,
+  itemSorter?: payload => CommonTypes.stringOrNumber,
+  accessibilityLayer?: bool,
+  active?: bool,
+  includeHidden?: bool,
+  allowEscapeViewBox?: UtilTypes.allowInDimension,
+  animationDuration?: float,
+  animationEasing?: UtilTypes.animationTiming,
+  content?: JSON.t,
+  coordinate?: UtilTypes.utilTooltipPropsCoordinateConfig,
+  cursor?: React.element,
+  filterNull?: bool,
+  defaultIndex?: float,
+  isAnimationActive?: bool,
+  offset?: float,
+  payloadUniqBy?: payloadPayloadUniqBy,
+  position?: UtilTypes.utilTooltipPropsCoordinateConfig,
+  reverseDirection?: UtilTypes.allowInDimension,
+  shared?: bool,
+  trigger?: chartsTooltipPropsTrigger,
+  useTranslate3d?: bool,
+  viewBox?: UtilTypes.cartesianViewBox,
+  wrapperStyle?: JsxDOM.style,
+}
+type funnelConfig = {
+  percentageBase?: chartsFunnelConfigPercentageBase,
+  showLabels?: bool,
 }
 type noDataProps = {
   title?: string,

@@ -1,6 +1,7 @@
 type props = {
   tokens: EditorSharedTypes.multiSelectV2TokensType,
   showSearch: bool,
+  showSearchWhenEmpty?: bool,
   itemsCount: float,
   searchValue: string,
   searchPlaceholder?: string,

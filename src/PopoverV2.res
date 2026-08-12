@@ -17,6 +17,7 @@ type props = {
   alignOffset?: float,
   size?: PopoverV2Types.popoverV2Size,
   onClose?: unit => unit,
+  shadow?: PopoverTypes.popoverShadow,
   useDrawerOnMobile?: bool,
   avoidCollisions?: bool,
   skeleton?: PopoverV2Types.popoverV2SkeletonProps,

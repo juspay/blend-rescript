@@ -1,3 +1,15 @@
+type pickerGranularity =
+  | @as("year") Year
+  | @as("month") Month
+  | @as("day") Day
+type timeFormat =
+  | @as("12h") V12h
+  | @as("24h") V24h
+type timeValue = {
+  hours: float,
+  minutes: float,
+  seconds: float,
+}
 type tenantBadge = {
   text: string,
   size?: BadgeTypes.badgeSize,

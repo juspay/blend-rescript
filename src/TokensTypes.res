@@ -234,6 +234,9 @@ type tokensFoundationTokenTypeUnitConfig = {
   @as("120") _120: string, // ⚪ loose — was `UnitType`
   @as("144") _144: string, // ⚪ loose — was `UnitType`
   @as("150") _150: string, // ⚪ loose — was `UnitType`
+  @as("200") _200: string, // ⚪ loose — was `UnitType`
+  @as("280") _280: string, // ⚪ loose — was `UnitType`
+  @as("350") _350: string, // ⚪ loose — was `UnitType`
   auto: string, // ⚪ loose — was `UnitType`
 }
 @set_index

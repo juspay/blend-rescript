@@ -17,7 +17,7 @@ type props<'a, 'b> = {
   modal?: bool,
   nested?: bool,
   onClose?: unit => unit,
-  direction?: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide,
+  direction?: EditorSharedTypes.dateRangePickerDateRangePickerPopoverConfigSide,
   defaultOpen?: bool,
   disablePreventScroll?: bool,
   repositionInputs?: bool,

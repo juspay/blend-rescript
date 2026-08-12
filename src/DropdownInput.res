@@ -11,6 +11,7 @@ type props = {
   slot?: React.element,
   size?: InputsTypes.textInputSize,
   dropDownValue?: string,
+  dropDownPlaceholder?: string,
   onDropDownChange?: string => unit,
   dropDownItems: array<SelectTypes.selectMenuGroupType>,
   dropdownName?: string,

@@ -12,6 +12,7 @@ type props = {
   onEndReached?: unit => unit,
   endReachedThreshold?: float,
   hasMore?: bool,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")

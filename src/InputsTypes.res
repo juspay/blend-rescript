@@ -243,6 +243,7 @@ type unitInputTokensType = {
   hintText: inputsSearchInputTokensTypeLabelConfig,
   errorMessage: inputsSearchInputTokensTypeErrorMessageConfig,
   required: inputsSearchInputTokensTypeRequiredConfig,
+  placeholder?: inputsSearchInputTokensTypeRequiredConfig,
   inputContainer: inputsUnitInputTokensTypeInputContainerConfig,
 }
 type responsiveUnitInputTokens = {
@@ -292,6 +293,7 @@ type dropdownInputTokensType = {
   hintText: inputsSearchInputTokensTypeLabelConfig,
   errorMessage: inputsSearchInputTokensTypeErrorMessageConfig,
   required: inputsSearchInputTokensTypeRequiredConfig,
+  placeholder?: inputsSearchInputTokensTypeRequiredConfig,
   helpIcon: inputsTextAreaTokensTypeHelpIconConfig,
   inputContainer: inputsDropdownInputTokensTypeInputContainerConfig,
 }

@@ -12,6 +12,7 @@ type avatarGroupAvatarGroupTokensTypeAvatarSelectedConfig = {
   ringColor: string,
   ringWidth: string,
   ringOffset: string,
+  outlineColor: string,
 }
 type avatarGroupAvatarGroupTokensTypeAvatarBorderConfig = {
   width: string,

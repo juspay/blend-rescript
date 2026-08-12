@@ -3,6 +3,7 @@ type props = {
   selected: string,
   onSelect: string => unit,
   singleSelectTokens: EditorSharedTypes.singleSelectV2TokensType,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")
