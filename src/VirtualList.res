@@ -9,6 +9,7 @@ type props<'a> = {
   endReachedThreshold?: float,
   isLoading?: bool,
   hasMore?: bool,
+  paginationKey?: CommonTypes.stringOrNumber,
   className?: string,
   style?: JsxDOM.style,
   ref?: React.ref<Nullable.t<VirtualListTypes.virtualListRef>>,

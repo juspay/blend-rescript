@@ -167,6 +167,10 @@ type singleSelectSkeletonProps = {
   variant?: SkeletonTypes.skeletonVariant,
 }
 type singleSelectProps = {
+  searchText?: string,
+  onSearchChange?: string => unit,
+  isSearchLoading?: bool,
+  emptyStateText?: string,
   label?: string,
   subLabel?: string,
   hintText?: string,

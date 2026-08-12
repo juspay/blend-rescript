@@ -10,6 +10,7 @@ type props = {
   required: bool,
   selectionTagType: EditorSharedTypes.multiSelectV2SelectionTagType,
   valueLabelMap: Dict.t<string>,
+  fallbackToValue?: bool,
   @as("open") open_: bool,
   multiSelectTokens: EditorSharedTypes.multiSelectV2TokensType,
   inline?: bool,

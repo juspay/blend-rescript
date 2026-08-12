@@ -4,6 +4,7 @@ type props = {
   onSelectAll: bool => unit,
   selectAllText: string,
   disabled?: bool,
+  asMenuItem?: bool,
 }
 
 @module("@juspay/blend-design-system")

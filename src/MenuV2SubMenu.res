@@ -1,7 +1,9 @@
 type props = {
-  item: MenuV2Types.menuV2ItemType,
+  item: EditorSharedTypes.menuV2ItemType,
   index: int,
   maxHeight?: string,
+  selectionStyle?: EditorSharedTypes.menuSelectionStyle,
+  selectionMode?: EditorSharedTypes.menuSelectionMode,
 }
 
 @module("@juspay/blend-design-system")

@@ -20,6 +20,47 @@ type sliderGetSliderLabelStylesPosition =
   | @as("top") Top
   | @as("bottom") Bottom
   | @as("inline") Inline
+type sliderTokenSizeBlock = {
+  height: string,
+  trackHeight: string,
+  thumbSize: string,
+  thumbBorder: string,
+}
+type sliderTokenVariantBlock = {
+  trackBackground: string,
+  rangeBackground: string,
+  thumbBackground: string,
+  thumbBorder: string,
+  thumbFocusRing: string,
+}
+type sliderSliderTokensTypeLabelConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+  backgroundColor: string,
+  border: string,
+  boxShadow: string,
+  borderRadius: string,
+  padding: string,
+  margin: string,
+}
+type sliderTokensType = {
+  sm: sliderTokenSizeBlock,
+  md: sliderTokenSizeBlock,
+  lg: sliderTokenSizeBlock,
+  primary: sliderTokenVariantBlock,
+  secondary: sliderTokenVariantBlock,
+  borderRadius: string,
+  thumbBorderRadius: string,
+  thumbBoxShadow: string,
+  thumbHoverBoxShadow: string,
+  disabledOpacity: string,
+  label: sliderSliderTokensTypeLabelConfig,
+}
+type responsiveSliderTokens = {
+  sm: sliderTokensType,
+  lg: sliderTokensType,
+}
 type sliderValueFormatConfig = {
   @as("type") type_: sliderValueType,
   decimalPlaces?: float,
@@ -40,6 +81,7 @@ type sliderSliderCSSPropertiesHoverConfig = {
 }
 type sliderSliderCSSPropertiesFocusConfig = {
   outline?: string,
+  outlineOffset?: string,
   boxShadow?: string,
 }
 type sliderSliderCSSPropertiesActiveConfig = {

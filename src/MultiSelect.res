@@ -1,8 +1,10 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitDisabledNameOnChangeSlot,
+  ...SelectTypes.selectSearchControlProps,
   height?: float,
   selectedValues: array<string>,
-  onChange: string => unit,
+  onChange?: string => unit,
+  onSelectionChange?: array<string> => unit,
   items: array<MultiSelectTypes.multiSelectMenuGroupType>,
   label: string,
   sublabel?: string,

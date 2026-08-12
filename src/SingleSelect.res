@@ -1,5 +1,6 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitDisabledNameOnSelectSlot,
+  ...SelectTypes.selectSearchControlProps,
   label?: string,
   subLabel?: string,
   hintText?: string,

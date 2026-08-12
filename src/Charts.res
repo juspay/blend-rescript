@@ -14,6 +14,7 @@ type props = {
   xAxis?: HighchartsSharedTypes.axisConfig,
   yAxis?: HighchartsSharedTypes.axisConfig,
   tooltip?: HighchartsSharedTypes.tooltipConfig,
+  funnelConfig?: HighchartsSharedTypes.funnelConfig,
   noData?: HighchartsSharedTypes.noDataProps,
   height?: float,
   showHeader?: bool,

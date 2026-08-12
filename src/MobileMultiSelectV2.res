@@ -1,7 +1,8 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameOnChangeSlotStyle,
   selectedValues: array<string>,
-  onChange: CommonTypes.stringOrStringArray => unit,
+  onChange?: CommonTypes.stringOrStringArray => unit,
+  onSelectionChange?: array<string> => unit,
   items?: array<EditorSharedTypes.multiSelectV2GroupType>,
   label: string,
   subLabel?: string,

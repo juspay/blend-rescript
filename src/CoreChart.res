@@ -6,6 +6,7 @@ type props = {
   xAxis?: HighchartsSharedTypes.axisConfig,
   yAxis?: HighchartsSharedTypes.axisConfig,
   tooltip?: HighchartsSharedTypes.tooltipConfig,
+  funnelConfig?: HighchartsSharedTypes.funnelConfig,
   height?: CommonTypes.stringOrNumber,
   width?: CommonTypes.stringOrNumber,
   isSmallScreen?: bool,

@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.37`
+# Binding report — `@juspay/blend-design-system@0.0.38-beta.0`
 
-**226** components · ✅ **219** usable · 🔍 **7** need review · 🛑 **0** broken
+**235** components · ✅ **226** usable · 🔍 **9** need review · 🛑 **0** broken
 
-**253** function binding(s) → `BlendDesignSystemBindings.res`.
+**263** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**3365** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3459** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 🔤 Constructor name collisions
 
@@ -17,14 +17,19 @@ A bare constant, an identity payload and a `@tag`-injected object are different 
 | Module | Constructor | Conflicting runtime representations | Renamed to |
 |---|---|---|---|
 | `EditorSharedTypes` | `Alt` | `6` / `"alt"` | `AltCursorModifier`, `AltKeyCode` |
+| `EditorSharedTypes` | `Center` | `"center"` / `2` | `CenterConfigAlign`, `CenterMarginLane`, `CenterMenuAlignment`, `CenterV2Alignment` |
 | `EditorSharedTypes` | `CRLF` | `2` / `1` | `CRLFOfLine`, `CRLFLinePreference`, `CRLFLineSequence` |
+| `EditorSharedTypes` | `End` | `"end"` / `13` | `EndConfigAlign`, `EndKeyCode`, `EndMenuAlignment`, `EndV2Alignment` |
 | `EditorSharedTypes` | `Explicit` | `3` / `"explicit"` | `ExplicitCaretAnimation`, `ExplicitChangeReason` |
-| `EditorSharedTypes` | `Hover` | `"hover"` / `69` | `HoverActivatedOn`, `HoverEditorOption`, `HoverStateV2` |
+| `EditorSharedTypes` | `Hover` | `"hover"` / `69` | `HoverActivatedOn`, `HoverEditorOption`, `HoverStateV2`, `HoverSelectionStates` |
 | `EditorSharedTypes` | `Insert` | `19` / `"insert"` | `InsertInsertMode`, `InsertKeyCode` |
-| `EditorSharedTypes` | `Left` | `"left"` / `0` / `1` | `LeftOutsidePosition`, `LeftMarginLane`, `LeftV2Direction`, `LeftPositionAffinity`, `LeftDropdownPosition` |
+| `EditorSharedTypes` | `Item` | `{type: "item", …}` / `"item"` | `ItemFlatRow`, `ItemItemType` |
+| `EditorSharedTypes` | `Label` | `{type: "label", …}` / `"label"` | `LabelFlatRow`, `LabelItemType` |
+| `EditorSharedTypes` | `Left` | `"left"` / `0` / `1` | `LeftOutsidePosition`, `LeftConfigSide`, `LeftMarginLane`, `LeftMenuSide`, `LeftV2Side`, `LeftV2Direction`, `LeftPositionAffinity`, `LeftDropdownPosition` |
 | `EditorSharedTypes` | `LF` | `1` / `0` | `LFOfLine`, `LFLinePreference`, `LFLineSequence` |
 | `EditorSharedTypes` | `None` | `0` / `"none"` / `2` | `NoneOptionsAutohide`, `NoneAutoIndent`, `NoneLineHighlight`, `NoneRenderWhitespace`, `NoneSnippetSuggestions`, `NoneWrappingIndent`, `NonePositionAffinity`, `NoneRenderMinimap` |
-| `EditorSharedTypes` | `Right` | `"right"` / `1` / `3` | `RightOutsidePosition`, `RightMarginLane`, `RightV2Direction`, `RightPositionAffinity`, `RightDropdownPosition` |
+| `EditorSharedTypes` | `Right` | `"right"` / `1` / `3` | `RightOutsidePosition`, `RightConfigSide`, `RightMarginLane`, `RightMenuSide`, `RightV2Side`, `RightV2Direction`, `RightPositionAffinity`, `RightDropdownPosition` |
+| `EditorSharedTypes` | `Separator` | `{type: "separator", …}` / `"separator"` | `SeparatorFlatRow`, `SeparatorItemType` |
 | `EditorSharedTypes` | `Smooth` | `"smooth"` / `0` | `SmoothCursorBlinking`, `SmoothScrollType` |
 | `EditorSharedTypes` | `Text` | `1` / `"text"` | `TextMouseStyle`, `TextTagType`, `TextRenderMinimap` |
 | `EditorSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
@@ -37,25 +42,24 @@ A bare constant, an identity payload and a `@tag`-injected object are different 
 | `HighchartsSharedTypes` | `TriangleDown` | `"triangle-down"` / `"triangleDown"` | `TriangleDownConstructorType`, `TriangleDownKeyValue` |
 | `HighchartsSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValuePointSetState`, `ValueSeriesSetState`, `ValueOptionsCompare`, `ValueOptionsGapUnit`, `ValueOptionsOperator` |
 
-### Left as-is — same name, same runtime representation (145)
+### Left as-is — same name, same runtime representation (162)
 
 These produce the same runtime shape whichever definition wins, so renaming them would churn every consumer for no correctness gain. Listed because the ambiguity is still there to read.
 
-- `EditorSharedTypes`: `Advanced`, `All`, `Always`, `Auto`, `Bool`, `Brackets`, `Default`, `Disabled`, `Error`, `Fn`, `Full`, `LanguageDefined`, `Line`, `Mouseover`, `Never`, `Off`, `On`, `Selection`, `SelectionArr`, `Str`
+- `EditorSharedTypes`: `Action`, `Advanced`, `All`, `Always`, `Auto`, `Bool`, `Bottom`, `Brackets`, `Collapsed`, `Custom`, `Danger`, `Default`, `Disabled`, `Error`, `EXACT`, `Expanded`, `Fn`, `Focus`, `Full`, `Intermediate`, `LanguageDefined`, `Lg`, `Line`, `Md`, `Mouseover`, `Never`, `Num`, `Off`, `On`, `Primary` … +7 more
 - `TagsTypes`: `Lg`, `Md`, `Sm`, `Xs`
 - `InputsTypes`: `Left`, `Lg`, `Md`, `Right`, `Sm`
 - `TooltipTypes`: `Left`, `Right`
 - `ButtonTypes`: `Default`
 - `DataTableTypes`: `Avatar`, `Custom`, `Date`, `Decimal`, `Dropdown`, `Error`, `Multiselect`, `Number`, `Percentage`, `Primary`, `Progress`, `ReactElement`, `Secondary`, `Select`, `Slider`, `Success`, `Tag`, `Text`, `Warning`
-- `DateRangePickerTypes`: `Custom`
 - `ProgressBarTypes`: `Segmented`, `Solid`
-- `HighchartsSharedTypes`: `All`, `Allow`, `Alt`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Callout`, `Category`, `Center`, `Chart`, `Circle`, `Close`, `CssObject`, `Ctrl`, `Day`, `Diamond`, `End`, `Flap`, `Fn`, `High`, `Horizontal`, `Hover`, `Inactive`, `Inside`, `Justify`, `Left` … +35 more
+- `HighchartsSharedTypes`: `All`, `Allow`, `Alt`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Callout`, `Category`, `Center`, `Chart`, `Circle`, `Close`, `CssObject`, `Ctrl`, `Day`, `Diamond`, `End`, `First`, `Flap`, `Fn`, `High`, `Horizontal`, `Hover`, `Inactive`, `Inside`, `Justify` … +36 more
 - `SkeletonTypes`: `Circle`
 - `UploadTypes`: `Error`, `Success`
 - `ButtonV2Types`: `Default`, `Disabled`
 - `TooltipV2Types`: `Left`, `Right`
-- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
 - `SliderTypes`: `Bottom`, `Inline`, `Top`
+- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
 
 ## 📦 Dependencies
 
@@ -79,6 +83,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getBreadcrumbTokens`
 - `normalizeBreadcrumbItems`
 - `getButtonTokens`
+- `getButtonGroupTokens`
 - `getCardTokens`
 - `getChartTokens`
 - `BlendChartBaseInstance`
@@ -87,6 +92,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getColumnTypeConfig`
 - `getTableToken`
 - `getCalendarToken`
+- `getTimePickerTokens`
 - `getDirectoryTokens`
 - `getTextInputTokens`
 - `getNumberInputTokens`
@@ -96,6 +102,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getUnitInputTokens`
 - `getMultiValueInputTokens`
 - `getKeyValuePairTokens`
+- `getMenuItemStateToken`
 - `getMenuTokens`
 - `getModalComponentTokens`
 - `getMultiSelectTokens`
@@ -108,6 +115,7 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getSkeletonDefaults`
 - `getSkeletonTokens`
 - `getSingleSelectTokens`
+- `getSliderTokens`
 - `getSliderTokenStyles`
 - `formatSliderValue`
 - `parseSliderValue`
@@ -192,6 +200,8 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `getCircularDimensions`
 - `parseCircularDashToken`
 - `calculateCircularProgressStroke`
+- `getSpinnerTokens`
+- `getEmptyStateTokens`
 - `STATCARD_FALLBACK_DISPLAY`
 - `renderVariantFallbackValue`
 - `buildStatCardV2ChartOptions`
@@ -320,6 +330,10 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `buildAriaAttributes`
 - `setupAccessibility`
 - `VIRTUAL_ROW_ESTIMATES`
+- `useSelectListNavigation`
+- `flattenSelectListV2Groups`
+- `countSelectListV2Options`
+- `getSelectListV2FocusTargets`
 - `getChatInputV2Tokens`
 
 ## ✅ Usable
@@ -368,7 +382,6 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ChartHeader
 - ChartHeaderV2
 - ChartLegends
-- Charts
 - ChartV2Fullscreen
 - ChartV2NoData
 - ChartV2Skeleton
@@ -381,7 +394,6 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - CodeEditor
 - CodeEditorV2
 - CodeEditorV2Header
-- CoreChart
 - DateRangePicker
 - Directory
 - Drawer
@@ -408,6 +420,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - DrawerV2Title
 - DrawerV2Trigger
 - DropdownInput
+- EmptyState
 - IconButton
 - KeyValuePair
 - KeyValuePairLayout
@@ -428,6 +441,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - ModalV2
 - MultiSelect
 - MultiSelectDrawer
+- MultiSelectListV2
 - MultiSelectTrigger
 - MultiSelectV2
 - MultiSelectV2Menu
@@ -464,13 +478,18 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - SearchInput
 - SearchInputV2
 - SecondarySidebar
+- SelectItemIndicator
 - SelectItemV2
+- SelectListV2
+- SelectListV2Rows
+- SelectListV2Surface
 - ShadowAware
 - Sidebar
 - SidebarV2
 - SidebarV2Footer
 - SidebarV2Header
 - SidebarV2Panel
+- SingleDatePicker
 - SingleSelect
 - SingleSelectDrawer
 - SingleSelectV2
@@ -490,6 +509,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - Slider
 - Snackbar
 - SnackbarV2
+- Spinner
 - SplitTag
 - StatCard
 - StatCardV2Change
@@ -537,6 +557,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TimelineNode
 - TimelineShowMore
 - TimelineSubstep
+- TimePicker
 - Tooltip
 - TooltipV2
 - Topbar
@@ -565,6 +586,12 @@ A multi-type prop couldn't be auto-discriminated at runtime (e.g. two object sha
 | `options` | `Options` — binds, but references shared field(s) `options.defs` (`review`), `accessibilityOptions.customComponents` (`any`), `accessibilityOptions.highContrastTheme` (`any`), `accessibilityOptions.linkedDescription` (`review`) emitted as `string` |
 | `callback` | `ChartCallbackFunction` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
 
+### Charts
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `tooltip` | `tooltip?: TooltipConfig;` — binds, but references shared field(s) `tooltipContentProps.labelFormatter` (`any`), `tooltipContentProps.label` (`any`), `payload.payload` (`any`) emitted as `string` |
+
 ### ChartV2
 
 | Prop | Real TypeScript |
@@ -581,12 +608,19 @@ A multi-type prop couldn't be auto-discriminated at runtime (e.g. two object sha
 | `chartRefs` | `chartRefs?: ReadonlyArray<RefObject<ChartV2ReactRefObject \| null>>;` — binds, but references shared field(s) `axis.crosshair` (`review`), `axis.addPlotBand` (`review`), `axis.getPlotBandPath` (`review`), `axis.setExtremes` (`any`) emitted as `string` |
 | `renderItem` | `renderItem?: (params: { item: ChartV2LegendItem; name: string; visible: boolean; color: string; value?: string \| number; onClick: () => void; }) => ReactNode;` — binds, but references shared field(s) `seriesPieDataLabelsOptionsObject.animation` (`review`), `seriesPieDataLabelsOptionsObject.connectorShape` (`review`), `seriesNetworkgraphDataLabelsOptionsObject.animation` (`review`), `seriesPackedBubbleDataLabelsOptionsObject.animation` (`review`) emitted as `string` |
 
+### CoreChart
+
+| Prop | Real TypeScript |
+|------|-----------------|
+| `tooltip` | `tooltip?: TooltipConfig;` — binds, but references shared field(s) `tooltipContentProps.labelFormatter` (`any`), `tooltipContentProps.label` (`any`), `payload.payload` (`any`) emitted as `string` |
+
 ### DataTable
 
 | Prop | Real TypeScript |
 |------|-----------------|
 | `columns` | `columns: ColumnDefinition<T>[];` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
 | `onColumnReorder` | `onColumnReorder?: (columns: ColumnDefinition<T>[]) => void;` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
+| `exportConfig` | `exportConfig?: DataTableExportConfig<T>;` — binds, but references shared field(s) `dateColumnProps.date` (`review`) emitted as `string` |
 
 ### PivotTableModal
 

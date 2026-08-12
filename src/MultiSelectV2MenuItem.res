@@ -5,6 +5,7 @@ type props = {
   maxSelections?: float,
   allItems?: array<EditorSharedTypes.multiSelectV2ItemType>,
   index?: int,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")

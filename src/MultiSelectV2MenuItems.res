@@ -7,6 +7,7 @@ type props = {
   tokens: EditorSharedTypes.multiSelectV2TokensType,
   size: SelectV2Types.selectV2Size,
   variant: SelectV2Types.selectV2Variant,
+  focusIdentityEnabled?: bool,
 }
 
 @module("@juspay/blend-design-system")
