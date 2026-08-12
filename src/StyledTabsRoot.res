@@ -57,10 +57,10 @@ type props = {
   theme?: JSON.t,
   asChild?: bool,
   onValueChange?: string => unit,
-  @as("as") as_?: string, // ⚪ loose — was `void`
+  @as("as") as_?: unit,
   orientation?: SliderTypes.sliderOrientation,
   activationMode?: TabsTypes.tabsActivationMode,
-  forwardedAs?: string, // ⚪ loose — was `void`
+  forwardedAs?: unit,
   @as("$tabsToken") _tabsToken: TabsV2Types.tabsV2TokensType,
   style?: DistTypes.SelectorV2Style.t, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
   ref?: React.ref<Nullable.t<Dom.element>>,

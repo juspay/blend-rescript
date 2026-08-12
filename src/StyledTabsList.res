@@ -54,9 +54,9 @@ type props = {
   onWheel?: ReactEvent.Wheel.t => unit,
   theme?: JSON.t,
   asChild?: bool,
-  @as("as") as_?: string, // ⚪ loose — was `void`
+  @as("as") as_?: unit,
   loop?: bool,
-  forwardedAs?: string, // ⚪ loose — was `void`
+  forwardedAs?: unit,
   @as("$tabsToken") _tabsToken: TabsV2Types.tabsV2TokensType,
   @as("$variant") _variant: TabsV2Types.tabsV2Variant,
   @as("$size") _size: TabsV2Types.tabsV2Size,

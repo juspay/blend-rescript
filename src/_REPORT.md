@@ -4,7 +4,58 @@
 
 **253** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**3356** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3365** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+
+## 🔤 Constructor name collisions
+
+ReScript scopes variant constructors to the **module**, not to their type, so one `*Types.res` can define the same name twice. Where the expected type is known from context ReScript picks correctly; where it **isn't**, it binds the *last* definition in the file — with no error or warning.
+
+### Renamed — the same name carried DIFFERENT runtime representations
+
+A bare constant, an identity payload and a `@tag`-injected object are different shapes at runtime. Left alone, an unannotated use would have compiled cleanly and produced the **wrong one**. Each colliding definition is suffixed with the tail of its owning type's name.
+
+| Module | Constructor | Conflicting runtime representations | Renamed to |
+|---|---|---|---|
+| `EditorSharedTypes` | `Alt` | `6` / `"alt"` | `AltCursorModifier`, `AltKeyCode` |
+| `EditorSharedTypes` | `CRLF` | `2` / `1` | `CRLFOfLine`, `CRLFLinePreference`, `CRLFLineSequence` |
+| `EditorSharedTypes` | `Explicit` | `3` / `"explicit"` | `ExplicitCaretAnimation`, `ExplicitChangeReason` |
+| `EditorSharedTypes` | `Hover` | `"hover"` / `69` | `HoverActivatedOn`, `HoverEditorOption`, `HoverStateV2` |
+| `EditorSharedTypes` | `Insert` | `19` / `"insert"` | `InsertInsertMode`, `InsertKeyCode` |
+| `EditorSharedTypes` | `Left` | `"left"` / `0` / `1` | `LeftOutsidePosition`, `LeftMarginLane`, `LeftV2Direction`, `LeftPositionAffinity`, `LeftDropdownPosition` |
+| `EditorSharedTypes` | `LF` | `1` / `0` | `LFOfLine`, `LFLinePreference`, `LFLineSequence` |
+| `EditorSharedTypes` | `None` | `0` / `"none"` / `2` | `NoneOptionsAutohide`, `NoneAutoIndent`, `NoneLineHighlight`, `NoneRenderWhitespace`, `NoneSnippetSuggestions`, `NoneWrappingIndent`, `NonePositionAffinity`, `NoneRenderMinimap` |
+| `EditorSharedTypes` | `Right` | `"right"` / `1` / `3` | `RightOutsidePosition`, `RightMarginLane`, `RightV2Direction`, `RightPositionAffinity`, `RightDropdownPosition` |
+| `EditorSharedTypes` | `Smooth` | `"smooth"` / `0` | `SmoothCursorBlinking`, `SmoothScrollType` |
+| `EditorSharedTypes` | `Text` | `1` / `"text"` | `TextMouseStyle`, `TextTagType`, `TextRenderMinimap` |
+| `EditorSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
+| `DataTableTypes` | `DateRange` | `"date_range"` / `"dateRange"` | `DateRangeColumnType`, `DateRangeTypeType`, `DateRangeFilterComponent` |
+| `HighchartsSharedTypes` | `Point` | `"point"` / `(payload, passed through)` / `"Point"` | `PointConstructorType`, `PointObjectScope`, `PointPointArray` |
+| `HighchartsSharedTypes` | `Pointer` | `"pointer"` / `"Pointer"` | `PointerConstructorType`, `PointerCursorValue` |
+| `HighchartsSharedTypes` | `Polygon` | `"polygon"` / `"Polygon"` | `PolygonTypeValue`, `PolygonInterpolationValue` |
+| `HighchartsSharedTypes` | `Series` | `"series"` / `"Series"` | `SeriesConstructorType`, `SeriesWithinValue` |
+| `HighchartsSharedTypes` | `Solid` | `"Solid"` / `"solid"` | `SolidStyleValue`, `SolidShapeValue` |
+| `HighchartsSharedTypes` | `TriangleDown` | `"triangle-down"` / `"triangleDown"` | `TriangleDownConstructorType`, `TriangleDownKeyValue` |
+| `HighchartsSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValuePointSetState`, `ValueSeriesSetState`, `ValueOptionsCompare`, `ValueOptionsGapUnit`, `ValueOptionsOperator` |
+
+### Left as-is — same name, same runtime representation (145)
+
+These produce the same runtime shape whichever definition wins, so renaming them would churn every consumer for no correctness gain. Listed because the ambiguity is still there to read.
+
+- `EditorSharedTypes`: `Advanced`, `All`, `Always`, `Auto`, `Bool`, `Brackets`, `Default`, `Disabled`, `Error`, `Fn`, `Full`, `LanguageDefined`, `Line`, `Mouseover`, `Never`, `Off`, `On`, `Selection`, `SelectionArr`, `Str`
+- `TagsTypes`: `Lg`, `Md`, `Sm`, `Xs`
+- `InputsTypes`: `Left`, `Lg`, `Md`, `Right`, `Sm`
+- `TooltipTypes`: `Left`, `Right`
+- `ButtonTypes`: `Default`
+- `DataTableTypes`: `Avatar`, `Custom`, `Date`, `Decimal`, `Dropdown`, `Error`, `Multiselect`, `Number`, `Percentage`, `Primary`, `Progress`, `ReactElement`, `Secondary`, `Select`, `Slider`, `Success`, `Tag`, `Text`, `Warning`
+- `DateRangePickerTypes`: `Custom`
+- `ProgressBarTypes`: `Segmented`, `Solid`
+- `HighchartsSharedTypes`: `All`, `Allow`, `Alt`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Callout`, `Category`, `Center`, `Chart`, `Circle`, `Close`, `CssObject`, `Ctrl`, `Day`, `Diamond`, `End`, `Flap`, `Fn`, `High`, `Horizontal`, `Hover`, `Inactive`, `Inside`, `Justify`, `Left` … +35 more
+- `SkeletonTypes`: `Circle`
+- `UploadTypes`: `Error`, `Success`
+- `ButtonV2Types`: `Default`, `Disabled`
+- `TooltipV2Types`: `Left`, `Right`
+- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
+- `SliderTypes`: `Bottom`, `Inline`, `Top`
 
 ## 📦 Dependencies
 
@@ -450,13 +501,13 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - StatusDrawer
 - Stepper
 - StepperV2
-- StyledCheckboxIndicator  _(2 loose)_
-- StyledCheckboxRoot  _(2 loose)_
-- StyledRadioV2Root  _(2 loose)_
-- StyledTabsContent  _(2 loose)_
-- StyledTabsList  _(2 loose)_
-- StyledTabsRoot  _(2 loose)_
-- StyledTabsTrigger  _(2 loose)_
+- StyledCheckboxIndicator
+- StyledCheckboxRoot
+- StyledRadioV2Root
+- StyledTabsContent
+- StyledTabsList
+- StyledTabsRoot
+- StyledTabsTrigger
 - StyledToast
 - SubMenu
 - Switch
@@ -468,7 +519,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 - TabsTrigger
 - TabsV2
 - TabsV2Content
-- TabsV2IconContainer  _(2 loose)_
+- TabsV2IconContainer
 - TabsV2List
 - TabsV2Provider
 - TabsV2Trigger
@@ -500,9 +551,7 @@ _(n loose)_ = some props widened to `string`; they still work, just loosely type
 
 These resolved to a real but complex type and were widened to `string` (they compile and work). Grouped by type so you can review each pattern once — confirm `string` is acceptable, or it may deserve a tighter mapping.
 
-| Resolved TypeScript type | → emitted | count | example props |
-|--------------------------|-----------|-------|---------------|
-| `void` | `string` | 16 | as, forwardedAs … |
+_(none)_
 
 ## 🔍 Needs review
 
