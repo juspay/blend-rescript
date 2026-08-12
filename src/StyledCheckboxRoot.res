@@ -67,11 +67,11 @@ type props<'a> = {
   onWheel?: ReactEvent.Wheel.t => unit,
   theme?: JSON.t,
   asChild?: bool,
-  @as("as") as_?: string, // ⚪ loose — was `void`
+  @as("as") as_?: unit,
   @as("$isDisabled") _isDisabled: bool,
   @as("$checked") _checked: CommonTypes.boolOrIndeterminate,
   @as("$error") _error?: bool,
-  forwardedAs?: string, // ⚪ loose — was `void`
+  forwardedAs?: unit,
   onCheckedChange?: CommonTypes.boolOrIndeterminate => unit,
   style?: DistTypes.SelectorV2Style.t, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
   ref?: React.ref<Nullable.t<Dom.element>>,

@@ -80,10 +80,10 @@ type props<'a> = {
   onScroll?: ReactEvent.UI.t => unit,
   onWheel?: ReactEvent.Wheel.t => unit,
   theme?: JSON.t,
-  @as("as") as_?: string, // ⚪ loose — was `void`
+  @as("as") as_?: unit,
   @as("$isDisabled") _isDisabled: bool,
   @as("$error") _error?: bool,
-  forwardedAs?: string, // ⚪ loose — was `void`
+  forwardedAs?: unit,
   @as("$isChecked") _isChecked: bool,
   @as("$tokens") _tokens: SelectorV2Types.radioV2TokensType,
   style?: DistTypes.SelectorV2Style.t, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars

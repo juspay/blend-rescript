@@ -53,8 +53,8 @@ type props = {
   onScroll?: ReactEvent.UI.t => unit,
   onWheel?: ReactEvent.Wheel.t => unit,
   theme?: JSON.t,
-  @as("as") as_?: string, // ⚪ loose — was `void`
-  forwardedAs?: string, // ⚪ loose — was `void`
+  @as("as") as_?: unit,
+  forwardedAs?: unit,
   @as("$tabsToken") _tabsToken: TabsV2Types.tabsV2TokensType,
   style?: DistTypes.SelectorV2Style.t, // ⓘ was `CSSProperties | CSSPropertiesWithVars` — opaque; build with SelectorV2Style.fromCSSProperties / SelectorV2Style.fromCSSPropertiesWithVars
   ref?: React.ref<Nullable.t<Dom.element>>,

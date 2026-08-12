@@ -414,9 +414,8 @@ external renderFallbackContent: (~fallbackText: string=?, ~alt: string=?, unit) 
 external getColorFromText: string => string = "getColorFromText"
 @module("@juspay/blend-design-system")
 external getAccessibleLabel: (string, string, string) => string = "getAccessibleLabel"
-// ⚪ loose: `getAriaLiveValue` has a param/return widened to `string`.
 @module("@juspay/blend-design-system")
-external getAriaLiveValue: string => string = "getAriaLiveValue"
+external getAriaLiveValue: string => [#polite] = "getAriaLiveValue"
 @module("@juspay/blend-design-system")
 external getStatusPositionStyles: (
   AvatarV2Types.avatarV2StatusPosition,
@@ -611,12 +610,12 @@ external useChartRefs: array<
 > => array<HighchartsSharedTypes.chart<'a, 'b, 'c>> = "useChartRefs"
 @module("@juspay/blend-design-system")
 external getLegendItems: HighchartsSharedTypes.chart<'a, 'b, 'c> => array<
-  HighchartsSharedTypes.ChartV2LegendItem.t,
+  HighchartsSharedTypes.ChartsLegendAllItems.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")
 external applyHoverState: (
-  array<HighchartsSharedTypes.ChartV2LegendItem.t>,
-  HighchartsSharedTypes.ChartV2LegendItem.t,
+  array<HighchartsSharedTypes.ChartsLegendAllItems.t>,
+  HighchartsSharedTypes.ChartsLegendAllItems.t,
 ) => unit = "applyHoverState"
 @module("@juspay/blend-design-system")
 external mergeChartOptions: (
