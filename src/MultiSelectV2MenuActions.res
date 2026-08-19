@@ -1,7 +1,7 @@
 type props = {
-  tokens: ContextSharedTypes.multiSelectV2TokensType,
-  primaryAction?: ContextSharedTypes.multiSelectV2PrimaryActionConfig,
-  secondaryAction?: ContextSharedTypes.multiSelectV2SecondaryActionConfig,
+  tokens: EditorSharedTypes.multiSelectV2TokensType,
+  primaryAction?: EditorSharedTypes.multiSelectV2PrimaryActionConfig,
+  secondaryAction?: EditorSharedTypes.multiSelectV2SecondaryActionConfig,
   selected: array<string>,
   onClose: unit => unit,
 }

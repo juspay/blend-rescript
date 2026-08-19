@@ -55,13 +55,8 @@ type tagV2ResponsiveTagV2TokensSmPaddingConfig = {
 type tagV2ResponsiveTagV2TokensSmLeftSlotConfig = {
   maxHeight: tagV2ResponsiveTagV2TokensSmHeightConfig,
 }
-type tagV2ResponsiveTagV2TokensSmTextColorConfig = {
-  noFill: tagV2ResponsiveTagV2TokensSmBorderNoFillConfig,
-  attentive: tagV2ResponsiveTagV2TokensSmBorderNoFillConfig,
-  subtle: tagV2ResponsiveTagV2TokensSmBorderNoFillConfig,
-}
 type tagV2ResponsiveTagV2TokensSmTextConfig = {
-  color: tagV2ResponsiveTagV2TokensSmTextColorConfig,
+  color: tagV2ResponsiveTagV2TokensSmBorderConfig,
   fontSize: tagV2ResponsiveTagV2TokensSmHeightConfig,
   fontWeight: tagV2ResponsiveTagV2TokensSmHeightConfig,
   lineHeight: tagV2ResponsiveTagV2TokensSmHeightConfig,

@@ -21,9 +21,9 @@ type popoverPopoverTokenTypePaddingConfig = {
 }
 type popoverPopoverTokenTypeHeaderContainerHeadingConfig = {
   color: string,
-  fontSize: string, // ⚪ loose — was `{ small: FontSize<number | (string & {})>; medium: FontSize<number | (string & {})>; }`
-  fontWeight: string, // ⚪ loose — was `{ small: FontWeight; medium: FontWeight; }`
-  lineHeight: string, // ⚪ loose — was `{ small: LineHeight<number | (string & {})>; medium: LineHeight<number | (string & {})>; }`
+  fontSize: popoverPopoverTokenTypeGapConfig,
+  fontWeight: popoverPopoverTokenTypeGapConfig,
+  lineHeight: popoverPopoverTokenTypeGapConfig,
 }
 type popoverPopoverTokenTypeHeaderContainerConfig = {
   heading: popoverPopoverTokenTypeHeaderContainerHeadingConfig,
@@ -54,7 +54,6 @@ type popoverActionType = {
   onClick?: option<ReactEvent.Mouse.t> => unit,
   text?: string,
   justifyContent?: string,
-  state?: ButtonTypes.buttonState,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,
@@ -62,6 +61,7 @@ type popoverActionType = {
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   fullWidth?: bool,
+  state?: ButtonTypes.buttonState,
 }
 type bodySkeletonPropsPopover = {
   show?: bool,

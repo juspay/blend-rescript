@@ -25,8 +25,17 @@ type alertAlertTokenTypeBackgroundConfig = {
   orange: alertAlertTokenTypeBackgroundPrimaryConfig,
   neutral: alertAlertTokenTypeBackgroundPrimaryConfig,
 }
+type alertAlertTokenTypeTextHeadingColorConfig = {
+  primary: string,
+  success: string,
+  warning: string,
+  error: string,
+  purple: string,
+  orange: string,
+  neutral: string,
+}
 type alertAlertTokenTypeTextHeadingConfig = {
-  color: string, // ⚪ loose — was `{ primary: Color; success: Color; warning: Color; error: Color; purple: Color; orange: Color; neutral: Color; `
+  color: alertAlertTokenTypeTextHeadingColorConfig,
   fontWeight: string,
   fontSize: string,
   lineHeight: string,

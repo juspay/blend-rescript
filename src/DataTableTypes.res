@@ -25,8 +25,8 @@ type dataTableTagColumnPropsVariant =
 type dataTableTagColumnPropsColor =
   | @as("error") Error
   | @as("primary") Primary
-  | @as("success") Success
   | @as("secondary") Secondary
+  | @as("success") Success
   | @as("warning") Warning
   | @as("neutral") Neutral
 type dataTableTagColumnPropsSize =
@@ -37,8 +37,8 @@ type pROGRESS = | @as("progress") Progress
 type dataTableProgressColumnPropsColor =
   | @as("error") Error
   | @as("primary") Primary
-  | @as("success") Success
   | @as("secondary") Secondary
+  | @as("success") Success
   | @as("warning") Warning
 type dROPDOWN = | @as("dropdown") Dropdown
 type dATE = | @as("date") Date
@@ -140,12 +140,32 @@ type dataTableHeaderTypeTitleRowConfig = {
 type dataTableHeaderTypeDescriptionRowConfig = {
   marginTop: string,
 }
+type dataTableHeaderTypeActionIconsSearchIconConfig = {
+  width: string,
+  height: string,
+}
+type dataTableHeaderTypeActionIconsColumnManagerIconConfig = {
+  width: string,
+  height: string,
+  color: string,
+}
+type dataTableHeaderTypeActionIconsColumnManagerTriggerFocusVisibleConfig = {
+  outline: string,
+  outlineOffset: string,
+  borderRadius: string,
+  boxShadow: string,
+}
+type dataTableHeaderTypeActionIconsColumnManagerTriggerConfig = {
+  backgroundColor: string,
+  opacity: string, // ⚠️ REVIEW — was `string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>` — match the real type by hand
+  focusVisible: dataTableHeaderTypeActionIconsColumnManagerTriggerFocusVisibleConfig,
+}
 type dataTableHeaderTypeActionIconsConfig = {
   gap: string,
-  searchIcon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  filterIcon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  columnManagerIcon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; color: Color; }`
-  columnManagerTrigger?: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; opacity: string | number | RuleSet<any> | StyledObject<BaseObject> | Style`
+  searchIcon: dataTableHeaderTypeActionIconsSearchIconConfig,
+  filterIcon: dataTableHeaderTypeActionIconsSearchIconConfig,
+  columnManagerIcon: dataTableHeaderTypeActionIconsColumnManagerIconConfig,
+  columnManagerTrigger?: dataTableHeaderTypeActionIconsColumnManagerTriggerConfig,
 }
 type headerType = {
   display: string,
@@ -165,6 +185,12 @@ type headerType = {
   descriptionRow: dataTableHeaderTypeDescriptionRowConfig,
   actionIcons: dataTableHeaderTypeActionIconsConfig,
 }
+type dataTableBulkActionsTypeSelectTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  flex?: string,
+  color: string,
+}
 type bulkActionsType = {
   top: string,
   left: string,
@@ -182,8 +208,101 @@ type bulkActionsType = {
   width?: string,
   maxWidth?: string,
   border: string,
-  selectText: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; flex?: Flex<number | (string & {})>; col`
+  selectText: dataTableBulkActionsTypeSelectTextConfig,
   height: string,
+}
+type dataTableTableTokenTypeDataTableTableHeaderRowConfig = {
+  height: string,
+  @as("&:hover") __hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; }`
+}
+type dataTableTableTokenTypeDataTableTableHeaderCellConfig = {
+  padding: string,
+  textAlign: string,
+  fontWeight: string,
+  color: string,
+  fontSize: string,
+  width?: string,
+  backgroundColor?: string,
+}
+type dataTableTableTokenTypeDataTableTableHeaderSortableConfig = {
+  cursor: string,
+  userSelect: string,
+}
+type dataTableTableTokenTypeDataTableTableHeaderFilterConfig = {
+  backgroundColor: string,
+  borderRadius: string,
+  border: string,
+  cursor: string,
+  textColor: string,
+  maxHeight: string,
+  overflowY: string,
+  gap: string,
+  sortOption: string, // ⚪ loose — was `{ padding: Padding<number | (string & {})>; borderRadius: BorderRadius<number | (string & {})>; hoverBackgroun`
+  selectedBackground: string,
+  hoverBackground: string,
+  selectedTextColor: string,
+  normalTextColor: string,
+  selectedFontWeight: string,
+  normalFontWeight: string,
+  itemPadding: string,
+  itemGap: string,
+  itemBorderRadius: string,
+  itemFontSize: string,
+  groupLabelFontSize: string,
+  groupLabelFontWeight: string,
+  groupLabelColor: string,
+  groupLabelPadding: string,
+  groupLabelTextTransform: string,
+  separatorHeight: string,
+  separatorColor: string,
+}
+type dataTableTableTokenTypeDataTableTableHeaderConfig = {
+  backgroundColor: string,
+  borderBottom: string,
+  height: string,
+  row: dataTableTableTokenTypeDataTableTableHeaderRowConfig,
+  cell: dataTableTableTokenTypeDataTableTableHeaderCellConfig,
+  sortable: dataTableTableTokenTypeDataTableTableHeaderSortableConfig,
+  filter: dataTableTableTokenTypeDataTableTableHeaderFilterConfig,
+}
+type dataTableTableTokenTypeDataTableTableBodyRowConfig = {
+  height: string,
+  @as("&:hover") __hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; cursor: Cursor; }`
+  backgroundColor: string,
+}
+type dataTableTableTokenTypeDataTableTableBodyCellConfig = {
+  padding: string,
+  fontWeight: string,
+  color: string,
+  fontSize: string,
+  borderTop: string,
+  dateLabel: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; }`
+  expandable: string, // ⚪ loose — was `{ padding: Padding<number | (string & {})>; borderTop: BorderTop<number | (string & {})>; expandButton: { disp`
+}
+type dataTableTableTokenTypeDataTableTableBodyConfig = {
+  backgroundColor: string,
+  borderTop: string,
+  row: dataTableTableTokenTypeDataTableTableBodyRowConfig,
+  cell: dataTableTableTokenTypeDataTableTableBodyCellConfig,
+}
+type dataTableTableTokenTypeDataTableTableFooterPaginationConfig = {
+  pageText: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; }`
+  pageSizeSelector: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; padding: Padding<number | (string & {})>; borderRadius: BorderRadius<numbe`
+  pageNavigation: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; }`
+}
+type dataTableTableTokenTypeDataTableTableFooterConfig = {
+  display: string,
+  justifyContent: string,
+  alignItems: string,
+  padding: string,
+  borderTop: string,
+  height: string,
+  position: string,
+  bottom: string,
+  backgroundColor: string,
+  zIndex: string,
+  flexShrink: string,
+  pagination: dataTableTableTokenTypeDataTableTableFooterPaginationConfig,
 }
 type dataTableTableTokenTypeDataTableTableConfig = {
   width: string,
@@ -192,9 +311,9 @@ type dataTableTableTokenTypeDataTableTableConfig = {
   borderSpacing: string,
   position: string,
   minWidth: string,
-  header: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderBottom: BorderBottom<number | (string & {})>; height: Height<number `
-  body: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderTop: BorderTop<number | (string & {})>; row: { height: Height<number`
-  footer: string, // ⚪ loose — was `{ display: Display; justifyContent: JustifyContent; alignItems: AlignItems; padding: Padding<number | (string `
+  header: dataTableTableTokenTypeDataTableTableHeaderConfig,
+  body: dataTableTableTokenTypeDataTableTableBodyConfig,
+  footer: dataTableTableTokenTypeDataTableTableFooterConfig,
 }
 type dataTableTableTokenTypeDataTableConfig = {
   borderRadius: string,
@@ -278,7 +397,7 @@ type sliderColumnProps = {
   suffix?: string,
 }
 type columnDefinition_t
-type rec dataTableColumnsFilterTypeConfigD3aey<'a> = {
+type rec dataTableColumnsFilterTypeConfigP9jq5<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -301,7 +420,7 @@ type rec dataTableColumnsFilterTypeConfigD3aey<'a> = {
   @as("type") type_: dataTableColumnsFilterTypeType,
   renderCell?: (JSON.t, 'a, option<float>) => React.element,
 }
-and dataTableColumnsReactElementConfigPge2t<'a> = {
+and dataTableColumnsReactElementConfigC6qr6<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -324,7 +443,7 @@ and dataTableColumnsReactElementConfigPge2t<'a> = {
   @as("type") type_: rEACT_ELEMENT,
   renderCell: (JSON.t, 'a, float) => React.element,
 }
-and dataTableColumnsSliderConfigC071l<'a> = {
+and dataTableColumnsSliderConfigCvsw6<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -348,7 +467,7 @@ and dataTableColumnsSliderConfigC071l<'a> = {
   renderCell?: (float, 'a, float) => React.element,
   sliderConfig: sliderColumnProps,
 }
-and dataTableColumnsDateConfigSgn7d<'a> = {
+and dataTableColumnsDateConfigV18ybi<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -374,7 +493,7 @@ and dataTableColumnsDateConfigSgn7d<'a> = {
   showTime?: bool,
   dateLabel?: string,
 }
-and dataTableColumnsDropdownConfigV16eou<'a> = {
+and dataTableColumnsDropdownConfigV7e3so<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -398,7 +517,7 @@ and dataTableColumnsDropdownConfigV16eou<'a> = {
   renderCell?: (dropdownColumnProps, 'a, float) => React.element,
   dropdownOptions?: array<dataTableColumnsDropdownDropdownOptionsConfig>,
 }
-and dataTableColumnsProgressConfigMox82<'a> = {
+and dataTableColumnsProgressConfigP4qr5<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -421,7 +540,7 @@ and dataTableColumnsProgressConfigMox82<'a> = {
   @as("type") type_: pROGRESS,
   renderCell?: (progressColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsTagConfigV1aqch<'a> = {
+and dataTableColumnsTagConfigGig1r<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -444,7 +563,7 @@ and dataTableColumnsTagConfigV1aqch<'a> = {
   @as("type") type_: tAG,
   renderCell?: (tagColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsAvatarConfigD5gy6<'a> = {
+and dataTableColumnsAvatarConfigKonex<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -467,7 +586,7 @@ and dataTableColumnsAvatarConfigD5gy6<'a> = {
   @as("type") type_: aVATAR,
   renderCell?: (avatarColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsNumberConfigV8gewe<'a> = {
+and dataTableColumnsNumberConfigV18y9f<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -492,7 +611,7 @@ and dataTableColumnsNumberConfigV8gewe<'a> = {
   format?: dataTableColumnsNumberFormat,
   precision?: float,
 }
-and dataTableColumnsTextConfigV1rwhh<'a> = {
+and dataTableColumnsTextConfigWph6w<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -517,37 +636,37 @@ and dataTableColumnsTextConfigV1rwhh<'a> = {
 }
 module ColumnDefinition = {
   type t = columnDefinition_t
-  external fromDataTableColumnsTextConfig: dataTableColumnsTextConfigV1rwhh<'a> => t = "%identity"
-  external asDataTableColumnsTextConfig: t => dataTableColumnsTextConfigV1rwhh<'a> = "%identity"
-  external fromDataTableColumnsNumberConfig: dataTableColumnsNumberConfigV8gewe<'a> => t =
+  external fromDataTableColumnsTextConfig: dataTableColumnsTextConfigWph6w<'a> => t = "%identity"
+  external asDataTableColumnsTextConfig: t => dataTableColumnsTextConfigWph6w<'a> = "%identity"
+  external fromDataTableColumnsNumberConfig: dataTableColumnsNumberConfigV18y9f<'a> => t =
     "%identity"
-  external asDataTableColumnsNumberConfig: t => dataTableColumnsNumberConfigV8gewe<'a> = "%identity"
-  external fromDataTableColumnsAvatarConfig: dataTableColumnsAvatarConfigD5gy6<'a> => t =
+  external asDataTableColumnsNumberConfig: t => dataTableColumnsNumberConfigV18y9f<'a> = "%identity"
+  external fromDataTableColumnsAvatarConfig: dataTableColumnsAvatarConfigKonex<'a> => t =
     "%identity"
-  external asDataTableColumnsAvatarConfig: t => dataTableColumnsAvatarConfigD5gy6<'a> = "%identity"
-  external fromDataTableColumnsTagConfig: dataTableColumnsTagConfigV1aqch<'a> => t = "%identity"
-  external asDataTableColumnsTagConfig: t => dataTableColumnsTagConfigV1aqch<'a> = "%identity"
-  external fromDataTableColumnsProgressConfig: dataTableColumnsProgressConfigMox82<'a> => t =
+  external asDataTableColumnsAvatarConfig: t => dataTableColumnsAvatarConfigKonex<'a> = "%identity"
+  external fromDataTableColumnsTagConfig: dataTableColumnsTagConfigGig1r<'a> => t = "%identity"
+  external asDataTableColumnsTagConfig: t => dataTableColumnsTagConfigGig1r<'a> = "%identity"
+  external fromDataTableColumnsProgressConfig: dataTableColumnsProgressConfigP4qr5<'a> => t =
     "%identity"
-  external asDataTableColumnsProgressConfig: t => dataTableColumnsProgressConfigMox82<'a> =
+  external asDataTableColumnsProgressConfig: t => dataTableColumnsProgressConfigP4qr5<'a> =
     "%identity"
-  external fromDataTableColumnsDropdownConfig: dataTableColumnsDropdownConfigV16eou<'a> => t =
+  external fromDataTableColumnsDropdownConfig: dataTableColumnsDropdownConfigV7e3so<'a> => t =
     "%identity"
-  external asDataTableColumnsDropdownConfig: t => dataTableColumnsDropdownConfigV16eou<'a> =
+  external asDataTableColumnsDropdownConfig: t => dataTableColumnsDropdownConfigV7e3so<'a> =
     "%identity"
-  external fromDataTableColumnsDateConfig: dataTableColumnsDateConfigSgn7d<'a> => t = "%identity"
-  external asDataTableColumnsDateConfig: t => dataTableColumnsDateConfigSgn7d<'a> = "%identity"
-  external fromDataTableColumnsSliderConfig: dataTableColumnsSliderConfigC071l<'a> => t =
+  external fromDataTableColumnsDateConfig: dataTableColumnsDateConfigV18ybi<'a> => t = "%identity"
+  external asDataTableColumnsDateConfig: t => dataTableColumnsDateConfigV18ybi<'a> = "%identity"
+  external fromDataTableColumnsSliderConfig: dataTableColumnsSliderConfigCvsw6<'a> => t =
     "%identity"
-  external asDataTableColumnsSliderConfig: t => dataTableColumnsSliderConfigC071l<'a> = "%identity"
-  external fromDataTableColumnsReactElementConfig: dataTableColumnsReactElementConfigPge2t<
+  external asDataTableColumnsSliderConfig: t => dataTableColumnsSliderConfigCvsw6<'a> = "%identity"
+  external fromDataTableColumnsReactElementConfig: dataTableColumnsReactElementConfigC6qr6<
     'a,
   > => t = "%identity"
-  external asDataTableColumnsReactElementConfig: t => dataTableColumnsReactElementConfigPge2t<'a> =
+  external asDataTableColumnsReactElementConfig: t => dataTableColumnsReactElementConfigC6qr6<'a> =
     "%identity"
-  external fromDataTableColumnsFilterTypeConfig: dataTableColumnsFilterTypeConfigD3aey<'a> => t =
+  external fromDataTableColumnsFilterTypeConfig: dataTableColumnsFilterTypeConfigP9jq5<'a> => t =
     "%identity"
-  external asDataTableColumnsFilterTypeConfig: t => dataTableColumnsFilterTypeConfigD3aey<'a> =
+  external asDataTableColumnsFilterTypeConfig: t => dataTableColumnsFilterTypeConfigP9jq5<'a> =
     "%identity"
 }
 type dataTableDescriptionTooltipPropsConfig = {
@@ -740,7 +859,7 @@ type columnTypeConfig = {
   filterComponent?: dataTableColumnTypeConfigFilterComponent,
 }
 type columnDefinition2_t
-type rec dataTableColumnsFilterTypeConfigVgv03<'a> = {
+type rec dataTableColumnsFilterTypeConfigFxvle<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -763,7 +882,7 @@ type rec dataTableColumnsFilterTypeConfigVgv03<'a> = {
   @as("type") type_: dataTableColumnsFilterTypeType,
   renderCell?: (JSON.t, 'a, option<float>) => React.element,
 }
-and dataTableColumnsReactElementConfigV1b1dd<'a> = {
+and dataTableColumnsReactElementConfigZchzr<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -786,7 +905,7 @@ and dataTableColumnsReactElementConfigV1b1dd<'a> = {
   @as("type") type_: rEACT_ELEMENT,
   renderCell: (JSON.t, 'a, float) => React.element,
 }
-and dataTableColumnsSliderConfigOx3tn<'a> = {
+and dataTableColumnsSliderConfigV1hdjq<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -810,7 +929,7 @@ and dataTableColumnsSliderConfigOx3tn<'a> = {
   renderCell?: (float, 'a, float) => React.element,
   sliderConfig: sliderColumnProps,
 }
-and dataTableColumnsDateConfigV1r9jm<'a> = {
+and dataTableColumnsDateConfigV8ihku<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -836,7 +955,7 @@ and dataTableColumnsDateConfigV1r9jm<'a> = {
   showTime?: bool,
   dateLabel?: string,
 }
-and dataTableColumnsDropdownConfigV1oyvy<'a> = {
+and dataTableColumnsDropdownConfigV1hvd8<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -860,7 +979,7 @@ and dataTableColumnsDropdownConfigV1oyvy<'a> = {
   renderCell?: (dropdownColumnProps, 'a, float) => React.element,
   dropdownOptions?: array<dataTableColumnsDropdownDropdownOptionsConfig>,
 }
-and dataTableColumnsProgressConfigV1i5w7<'a> = {
+and dataTableColumnsProgressConfigQ9049<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -883,7 +1002,7 @@ and dataTableColumnsProgressConfigV1i5w7<'a> = {
   @as("type") type_: pROGRESS,
   renderCell?: (progressColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsTagConfigV6gt3k<'a> = {
+and dataTableColumnsTagConfigNu7ii<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -906,7 +1025,7 @@ and dataTableColumnsTagConfigV6gt3k<'a> = {
   @as("type") type_: tAG,
   renderCell?: (tagColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsAvatarConfigV5zt3<'a> = {
+and dataTableColumnsAvatarConfigV2493d<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -929,7 +1048,7 @@ and dataTableColumnsAvatarConfigV5zt3<'a> = {
   @as("type") type_: aVATAR,
   renderCell?: (avatarColumnProps, 'a, float) => React.element,
 }
-and dataTableColumnsNumberConfigIpgvx<'a> = {
+and dataTableColumnsNumberConfigV1dwht<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -954,7 +1073,7 @@ and dataTableColumnsNumberConfigIpgvx<'a> = {
   format?: dataTableColumnsNumberFormat,
   precision?: float,
 }
-and dataTableColumnsTextConfigV15r4z<'a> = {
+and dataTableColumnsTextConfigV1il43<'a> = {
   field: string,
   header: string,
   headerSubtext?: string,
@@ -979,38 +1098,40 @@ and dataTableColumnsTextConfigV15r4z<'a> = {
 }
 module ColumnDefinition2 = {
   type t = columnDefinition2_t
-  external fromDataTableColumnsTextConfig2: dataTableColumnsTextConfigV15r4z<'a> => t = "%identity"
-  external asDataTableColumnsTextConfig2: t => dataTableColumnsTextConfigV15r4z<'a> = "%identity"
-  external fromDataTableColumnsNumberConfig2: dataTableColumnsNumberConfigIpgvx<'a> => t =
+  external fromDataTableColumnsTextConfig2: dataTableColumnsTextConfigV1il43<'a> => t = "%identity"
+  external asDataTableColumnsTextConfig2: t => dataTableColumnsTextConfigV1il43<'a> = "%identity"
+  external fromDataTableColumnsNumberConfig2: dataTableColumnsNumberConfigV1dwht<'a> => t =
     "%identity"
-  external asDataTableColumnsNumberConfig2: t => dataTableColumnsNumberConfigIpgvx<'a> = "%identity"
-  external fromDataTableColumnsAvatarConfig2: dataTableColumnsAvatarConfigV5zt3<'a> => t =
+  external asDataTableColumnsNumberConfig2: t => dataTableColumnsNumberConfigV1dwht<'a> =
     "%identity"
-  external asDataTableColumnsAvatarConfig2: t => dataTableColumnsAvatarConfigV5zt3<'a> = "%identity"
-  external fromDataTableColumnsTagConfig2: dataTableColumnsTagConfigV6gt3k<'a> => t = "%identity"
-  external asDataTableColumnsTagConfig2: t => dataTableColumnsTagConfigV6gt3k<'a> = "%identity"
-  external fromDataTableColumnsProgressConfig2: dataTableColumnsProgressConfigV1i5w7<'a> => t =
+  external fromDataTableColumnsAvatarConfig2: dataTableColumnsAvatarConfigV2493d<'a> => t =
     "%identity"
-  external asDataTableColumnsProgressConfig2: t => dataTableColumnsProgressConfigV1i5w7<'a> =
+  external asDataTableColumnsAvatarConfig2: t => dataTableColumnsAvatarConfigV2493d<'a> =
     "%identity"
-  external fromDataTableColumnsDropdownConfig2: dataTableColumnsDropdownConfigV1oyvy<'a> => t =
+  external fromDataTableColumnsTagConfig2: dataTableColumnsTagConfigNu7ii<'a> => t = "%identity"
+  external asDataTableColumnsTagConfig2: t => dataTableColumnsTagConfigNu7ii<'a> = "%identity"
+  external fromDataTableColumnsProgressConfig2: dataTableColumnsProgressConfigQ9049<'a> => t =
     "%identity"
-  external asDataTableColumnsDropdownConfig2: t => dataTableColumnsDropdownConfigV1oyvy<'a> =
+  external asDataTableColumnsProgressConfig2: t => dataTableColumnsProgressConfigQ9049<'a> =
     "%identity"
-  external fromDataTableColumnsDateConfig2: dataTableColumnsDateConfigV1r9jm<'a> => t = "%identity"
-  external asDataTableColumnsDateConfig2: t => dataTableColumnsDateConfigV1r9jm<'a> = "%identity"
-  external fromDataTableColumnsSliderConfig2: dataTableColumnsSliderConfigOx3tn<'a> => t =
+  external fromDataTableColumnsDropdownConfig2: dataTableColumnsDropdownConfigV1hvd8<'a> => t =
     "%identity"
-  external asDataTableColumnsSliderConfig2: t => dataTableColumnsSliderConfigOx3tn<'a> = "%identity"
-  external fromDataTableColumnsReactElementConfig2: dataTableColumnsReactElementConfigV1b1dd<
+  external asDataTableColumnsDropdownConfig2: t => dataTableColumnsDropdownConfigV1hvd8<'a> =
+    "%identity"
+  external fromDataTableColumnsDateConfig2: dataTableColumnsDateConfigV8ihku<'a> => t = "%identity"
+  external asDataTableColumnsDateConfig2: t => dataTableColumnsDateConfigV8ihku<'a> = "%identity"
+  external fromDataTableColumnsSliderConfig2: dataTableColumnsSliderConfigV1hdjq<'a> => t =
+    "%identity"
+  external asDataTableColumnsSliderConfig2: t => dataTableColumnsSliderConfigV1hdjq<'a> =
+    "%identity"
+  external fromDataTableColumnsReactElementConfig2: dataTableColumnsReactElementConfigZchzr<
     'a,
   > => t = "%identity"
-  external asDataTableColumnsReactElementConfig2: t => dataTableColumnsReactElementConfigV1b1dd<
-    'a,
-  > = "%identity"
-  external fromDataTableColumnsFilterTypeConfig2: dataTableColumnsFilterTypeConfigVgv03<'a> => t =
+  external asDataTableColumnsReactElementConfig2: t => dataTableColumnsReactElementConfigZchzr<'a> =
     "%identity"
-  external asDataTableColumnsFilterTypeConfig2: t => dataTableColumnsFilterTypeConfigVgv03<'a> =
+  external fromDataTableColumnsFilterTypeConfig2: dataTableColumnsFilterTypeConfigFxvle<'a> => t =
+    "%identity"
+  external asDataTableColumnsFilterTypeConfig2: t => dataTableColumnsFilterTypeConfigFxvle<'a> =
     "%identity"
 }
 type pivotPreviewRow = {

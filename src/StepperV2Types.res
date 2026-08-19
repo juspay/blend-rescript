@@ -8,21 +8,72 @@ type stepperV2StepStatus =
 type stepperV2Type =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
+type stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig = {
+  disabled: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  default: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  hover: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+  focus: string, // ⚪ loose — was `{ backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<number | (string & {})>`
+}
+type stepperV2StepperV2TokensTypeContainerStepCircleConfig = {
+  default: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  completed: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  current: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  pending: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  disabled: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+  skipped: stepperV2StepperV2TokensTypeContainerStepCircleDefaultConfig,
+}
 type stepperV2StepperV2TokensTypeContainerStepConfig = {
-  circle: string, // ⚪ loose — was `{ default: { disabled: { backgroundColor: BackgroundColor; borderColor: BorderColor; borderWidth: BorderWidth<`
-  icon: string, // ⚪ loose — was `{ default: { disabled: { color: Color; }; default: { color: Color; }; hover: { color: Color; }; focus: { color`
+  circle: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
+  icon: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
+}
+type stepperV2StepperV2TokensTypeContainerConnectorLineConfig = {
+  color: string,
+  height: string,
 }
 type stepperV2StepperV2TokensTypeContainerConnectorConfig = {
-  line: string, // ⚪ loose — was `{ color: Color; height: Height<number | (string & {})>; }`
+  line: stepperV2StepperV2TokensTypeContainerConnectorLineConfig,
+}
+type stepperV2StepperV2TokensTypeContainerSubConnectorDotConfig = {
+  border: string,
+  borderRadius: string,
+  height: string,
+  width: string,
+  paddingTop: string,
+  paddingRight: string,
+  paddingBottom: string,
+  paddingLeft: string,
+}
+type stepperV2StepperV2TokensTypeContainerSubConnectorExpanderIconConfig = {
+  color: string,
+}
+type stepperV2StepperV2TokensTypeContainerSubConnectorExpanderConfig = {
+  icon: stepperV2StepperV2TokensTypeContainerSubConnectorExpanderIconConfig,
+  width: string,
+}
+type stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+}
+type stepperV2StepperV2TokensTypeContainerSubConnectorTextConfig = {
+  default: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  completed: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  current: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  pending: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  disabled: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
+  skipped: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
 }
 type stepperV2StepperV2TokensTypeContainerSubConnectorConfig = {
-  line: string, // ⚪ loose — was `{ color: Color; height: Height<number | (string & {})>; }`
-  dot: string, // ⚪ loose — was `{ border: Border<number | (string & {})>; borderRadius: BorderRadius<number | (string & {})>; height: Height<n`
-  expander: string, // ⚪ loose — was `{ icon: { color: Color; }; width: Width<number | (string & {})>; }`
-  text: string, // ⚪ loose — was `{ default: { color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; }; completed: {`
+  line: stepperV2StepperV2TokensTypeContainerConnectorLineConfig,
+  dot: stepperV2StepperV2TokensTypeContainerSubConnectorDotConfig,
+  expander: stepperV2StepperV2TokensTypeContainerSubConnectorExpanderConfig,
+  text: stepperV2StepperV2TokensTypeContainerSubConnectorTextConfig,
 }
 type stepperV2StepperV2TokensTypeContainerTitleConfig = {
-  text: string, // ⚪ loose — was `{ default: { disabled: { color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; gap`
+  text: stepperV2StepperV2TokensTypeContainerStepCircleConfig,
+}
+type stepperV2StepperV2TokensTypeContainerDescriptionConfig = {
+  text: stepperV2StepperV2TokensTypeContainerSubConnectorTextDefaultConfig,
 }
 type stepperV2StepperV2TokensTypeContainerConfig = {
   gap: string,
@@ -30,7 +81,7 @@ type stepperV2StepperV2TokensTypeContainerConfig = {
   connector: stepperV2StepperV2TokensTypeContainerConnectorConfig,
   subConnector: stepperV2StepperV2TokensTypeContainerSubConnectorConfig,
   title: stepperV2StepperV2TokensTypeContainerTitleConfig,
-  description: stepperV2StepperV2TokensTypeContainerTitleConfig,
+  description: stepperV2StepperV2TokensTypeContainerDescriptionConfig,
 }
 type stepperV2TokensType = {
   container: stepperV2StepperV2TokensTypeContainerConfig,

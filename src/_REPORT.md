@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.38-beta.1`
+# Binding report — `@juspay/blend-design-system@0.0.38-beta.0`
 
 **235** components · ✅ **226** usable · 🔍 **9** need review · 🛑 **0** broken
 
 **263** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**4132** shared types deduplicated into **82** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**3459** shared types deduplicated into **76** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 🔤 Constructor name collisions
 
@@ -16,52 +16,50 @@ A bare constant, an identity payload and a `@tag`-injected object are different 
 
 | Module | Constructor | Conflicting runtime representations | Renamed to |
 |---|---|---|---|
-| `ContextSharedTypes` | `Alt` | `6` / `"alt"` | `AltCursorModifier`, `AltKeyCode` |
-| `ContextSharedTypes` | `Center` | `"center"` / `2` | `CenterMarginLane`, `CenterMenuAlignment`, `CenterV2Alignment`, `CenterRevertEtc1mkx8`, `CenterRevertEtc1w3ez`, `CenterRevertEtc2zoye`, `CenterRevertEtcoic7x` |
-| `ContextSharedTypes` | `ContextMenu` | `"context-menu"` / `58` | `ContextMenuKeyCode`, `ContextMenuRevertEtcop7hp` |
-| `ContextSharedTypes` | `CRLF` | `2` / `1` | `CRLFOfLine`, `CRLFLinePreference`, `CRLFLineSequence` |
-| `ContextSharedTypes` | `End` | `"end"` / `13` | `EndKeyCode`, `EndMenuAlignment`, `EndV2Alignment`, `EndRevertEtc1w3ez`, `EndRevertEtcoic7x` |
-| `ContextSharedTypes` | `Explicit` | `3` / `"explicit"` | `ExplicitCaretAnimation`, `ExplicitChangeReason` |
-| `ContextSharedTypes` | `Highlight` | `"Highlight"` / `"highlight"` | `HighlightSelectionStyle`, `HighlightRevertEtc1270i`, `HighlightRevertEtc1i3k7`, `HighlightRevertEtc1mkx8`, `HighlightRevertEtc1yz1q`, `HighlightRevertEtcgjquu`, `HighlightRevertEtcsclw8` |
-| `ContextSharedTypes` | `Hover` | `"hover"` / `69` | `HoverActivatedOn`, `HoverEditorOption`, `HoverStateV2`, `HoverSelectionStates` |
-| `ContextSharedTypes` | `Insert` | `19` / `"insert"` | `InsertInsertMode`, `InsertKeyCode` |
-| `ContextSharedTypes` | `Item` | `{type: "item", …}` / `"item"` | `ItemFlatRow`, `ItemItemType` |
-| `ContextSharedTypes` | `Label` | `{type: "label", …}` / `"label"` | `LabelFlatRow`, `LabelItemType` |
-| `ContextSharedTypes` | `Left` | `"left"` / `0` / `1` | `LeftOutsidePosition`, `LeftMarginLane`, `LeftMenuSide`, `LeftV2Side`, `LeftRevertEtc1mkx8`, `LeftRevertEtc1w3ez`, `LeftRevertEtc2zoye`, `LeftV2Direction`, `LeftPositionAffinity`, `LeftDropdownPosition` |
-| `ContextSharedTypes` | `LF` | `1` / `0` | `LFOfLine`, `LFLinePreference`, `LFLineSequence` |
-| `ContextSharedTypes` | `None` | `"none"` / `0` / `2` | `NoneOptionsAutohide`, `NoneAutoIndent`, `NoneLineHighlight`, `NoneRenderWhitespace`, `NoneSnippetSuggestions`, `NoneWrappingIndent`, `NoneRevertEtc1i3k7`, `NoneRevertEtc1mkx8`, `NoneRevertEtc1ufa7`, `NoneRevertEtc1x0av`, `NoneRevertEtc1yz1q`, `NoneRevertEtc2zoye`, `NoneRevertEtcc55tl`, `NoneRevertEtcop7hp`, `NoneRevertEtcsclw8`, `NoneRevertEtcydel2`, `NoneRevertEtcz3a4s`, `NonePositionAffinity`, `NoneRenderMinimap` |
-| `ContextSharedTypes` | `Right` | `"right"` / `1` / `3` | `RightOutsidePosition`, `RightMarginLane`, `RightMenuSide`, `RightV2Side`, `RightRevertEtc1mkx8`, `RightRevertEtc1w3ez`, `RightRevertEtc2zoye`, `RightV2Direction`, `RightPositionAffinity`, `RightDropdownPosition` |
-| `ContextSharedTypes` | `Scrollbar` | `"Scrollbar"` / `117` | `ScrollbarEditorOption`, `ScrollbarRevertEtc1270i`, `ScrollbarRevertEtc1i3k7`, `ScrollbarRevertEtc1mkx8`, `ScrollbarRevertEtc1yz1q`, `ScrollbarRevertEtcgjquu`, `ScrollbarRevertEtcsclw8` |
-| `ContextSharedTypes` | `Separator` | `{type: "separator", …}` / `"separator"` | `SeparatorFlatRow`, `SeparatorItemType` |
-| `ContextSharedTypes` | `Smooth` | `"smooth"` / `0` | `SmoothCursorBlinking`, `SmoothScrollType` |
-| `ContextSharedTypes` | `Space` | `"space"` / `10` | `SpaceKeyCode`, `SpaceRevertEtc1mkx8` |
-| `ContextSharedTypes` | `Text` | `"text"` / `1` | `TextMouseStyle`, `TextRevertEtcop7hp`, `TextTagType`, `TextRenderMinimap` |
-| `ContextSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
+| `EditorSharedTypes` | `Alt` | `6` / `"alt"` | `AltCursorModifier`, `AltKeyCode` |
+| `EditorSharedTypes` | `Center` | `"center"` / `2` | `CenterConfigAlign`, `CenterMarginLane`, `CenterMenuAlignment`, `CenterV2Alignment` |
+| `EditorSharedTypes` | `CRLF` | `2` / `1` | `CRLFOfLine`, `CRLFLinePreference`, `CRLFLineSequence` |
+| `EditorSharedTypes` | `End` | `"end"` / `13` | `EndConfigAlign`, `EndKeyCode`, `EndMenuAlignment`, `EndV2Alignment` |
+| `EditorSharedTypes` | `Explicit` | `3` / `"explicit"` | `ExplicitCaretAnimation`, `ExplicitChangeReason` |
+| `EditorSharedTypes` | `Hover` | `"hover"` / `69` | `HoverActivatedOn`, `HoverEditorOption`, `HoverStateV2`, `HoverSelectionStates` |
+| `EditorSharedTypes` | `Insert` | `19` / `"insert"` | `InsertInsertMode`, `InsertKeyCode` |
+| `EditorSharedTypes` | `Item` | `{type: "item", …}` / `"item"` | `ItemFlatRow`, `ItemItemType` |
+| `EditorSharedTypes` | `Label` | `{type: "label", …}` / `"label"` | `LabelFlatRow`, `LabelItemType` |
+| `EditorSharedTypes` | `Left` | `"left"` / `0` / `1` | `LeftOutsidePosition`, `LeftConfigSide`, `LeftMarginLane`, `LeftMenuSide`, `LeftV2Side`, `LeftV2Direction`, `LeftPositionAffinity`, `LeftDropdownPosition` |
+| `EditorSharedTypes` | `LF` | `1` / `0` | `LFOfLine`, `LFLinePreference`, `LFLineSequence` |
+| `EditorSharedTypes` | `None` | `0` / `"none"` / `2` | `NoneOptionsAutohide`, `NoneAutoIndent`, `NoneLineHighlight`, `NoneRenderWhitespace`, `NoneSnippetSuggestions`, `NoneWrappingIndent`, `NonePositionAffinity`, `NoneRenderMinimap` |
+| `EditorSharedTypes` | `Right` | `"right"` / `1` / `3` | `RightOutsidePosition`, `RightConfigSide`, `RightMarginLane`, `RightMenuSide`, `RightV2Side`, `RightV2Direction`, `RightPositionAffinity`, `RightDropdownPosition` |
+| `EditorSharedTypes` | `Separator` | `{type: "separator", …}` / `"separator"` | `SeparatorFlatRow`, `SeparatorItemType` |
+| `EditorSharedTypes` | `Smooth` | `"smooth"` / `0` | `SmoothCursorBlinking`, `SmoothScrollType` |
+| `EditorSharedTypes` | `Text` | `1` / `"text"` | `TextMouseStyle`, `TextTagType`, `TextRenderMinimap` |
+| `EditorSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
 | `DataTableTypes` | `DateRange` | `"date_range"` / `"dateRange"` | `DateRangeColumnType`, `DateRangeTypeType`, `DateRangeFilterComponent` |
-| `ChartsSharedTypes` | `Point` | `"point"` / `"Point"` | `PointConstructorType`, `PointObjectScope` |
+| `HighchartsSharedTypes` | `Point` | `"point"` / `(payload, passed through)` / `"Point"` | `PointConstructorType`, `PointObjectScope`, `PointPointArray` |
+| `HighchartsSharedTypes` | `Pointer` | `"pointer"` / `"Pointer"` | `PointerConstructorType`, `PointerCursorValue` |
+| `HighchartsSharedTypes` | `Polygon` | `"polygon"` / `"Polygon"` | `PolygonTypeValue`, `PolygonInterpolationValue` |
+| `HighchartsSharedTypes` | `Series` | `"series"` / `"Series"` | `SeriesConstructorType`, `SeriesWithinValue` |
 | `HighchartsSharedTypes` | `Solid` | `"Solid"` / `"solid"` | `SolidStyleValue`, `SolidShapeValue` |
-| `HighchartsSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValueOptionsCompare`, `ValueGapUnit`, `ValueOptionsOperator` |
+| `HighchartsSharedTypes` | `TriangleDown` | `"triangle-down"` / `"triangleDown"` | `TriangleDownConstructorType`, `TriangleDownKeyValue` |
+| `HighchartsSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValuePointSetState`, `ValueSeriesSetState`, `ValueOptionsCompare`, `ValueOptionsGapUnit`, `ValueOptionsOperator` |
 
-### Left as-is — same name, same runtime representation (393)
+### Left as-is — same name, same runtime representation (162)
 
 These produce the same runtime shape whichever definition wins, so renaming them would churn every consumer for no correctness gain. Listed because the ambiguity is still there to read.
 
-- `ContextSharedTypes`: `AccentColor`, `AccentColorText`, `Action`, `ActiveBorder`, `ActiveCaption`, `ActiveText`, `Advanced`, `Aliceblue`, `All`, `Always`, `Antiquewhite`, `AppWorkspace`, `Aqua`, `Aquamarine`, `Auto`, `Azure`, `Background`, `Beige`, `Bisque`, `Black`, `Blanchedalmond`, `Block`, `Blue`, `Blueviolet`, `Bool`, `BorderBox`, `Bottom`, `Brackets`, `Brown`, `Burlywood` … +241 more
-- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
+- `EditorSharedTypes`: `Action`, `Advanced`, `All`, `Always`, `Auto`, `Bool`, `Bottom`, `Brackets`, `Collapsed`, `Custom`, `Danger`, `Default`, `Disabled`, `Error`, `EXACT`, `Expanded`, `Fn`, `Focus`, `Full`, `Intermediate`, `LanguageDefined`, `Lg`, `Line`, `Md`, `Mouseover`, `Never`, `Num`, `Off`, `On`, `Primary` … +7 more
 - `TagsTypes`: `Lg`, `Md`, `Sm`, `Xs`
 - `InputsTypes`: `Left`, `Lg`, `Md`, `Right`, `Sm`
 - `TooltipTypes`: `Left`, `Right`
 - `ButtonTypes`: `Default`
 - `DataTableTypes`: `Avatar`, `Custom`, `Date`, `Decimal`, `Dropdown`, `Error`, `Multiselect`, `Number`, `Percentage`, `Primary`, `Progress`, `ReactElement`, `Secondary`, `Select`, `Slider`, `Success`, `Tag`, `Text`, `Warning`
-- `DateRangePickerTypes`: `Custom`
 - `ProgressBarTypes`: `Segmented`, `Solid`
-- `ChartsSharedTypes`: `Chart`, `End`, `Hover`, `Inactive`, `Normal`, `Offset`, `Right`, `Select`, `Top`, `Value`
+- `HighchartsSharedTypes`: `All`, `Allow`, `Alt`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Callout`, `Category`, `Center`, `Chart`, `Circle`, `Close`, `CssObject`, `Ctrl`, `Day`, `Diamond`, `End`, `First`, `Flap`, `Fn`, `High`, `Horizontal`, `Hover`, `Inactive`, `Inside`, `Justify` … +36 more
 - `SkeletonTypes`: `Circle`
 - `UploadTypes`: `Error`, `Success`
 - `ButtonV2Types`: `Default`, `Disabled`
 - `TooltipV2Types`: `Left`, `Right`
 - `SliderTypes`: `Bottom`, `Inline`, `Top`
-- `HighchartsSharedTypes`: `All`, `Allow`, `Alt`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Callout`, `Category`, `Center`, `Chart`, `Circle`, `Close`, `CssObject`, `Ctrl`, `Day`, `Diamond`, `Fn`, `High`, `Horizontal`, `Inside`, `Justify`, `Left`, `Linear`, `Logarithmic`, `Low`, `Meta`, `Middle` … +22 more
+- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
 
 ## 📦 Dependencies
 
@@ -640,7 +638,7 @@ A multi-type prop couldn't be auto-discriminated at runtime (e.g. two object sha
 
 | Prop | Real TypeScript |
 |------|-----------------|
-| `componentTokens` | `componentTokens?: ComponentTokenOverrides;` — binds, but references shared field(s) `contextComponentTokensTABLESmHeaderActionIconsColumnManagerTriggerConfig.opacity` (`review`) emitted as `string` |
+| `componentTokens` | `componentTokens?: ComponentTokenType;` — binds, but references shared field(s) `dataTableHeaderTypeActionIconsColumnManagerTriggerConfig.opacity` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.sm` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.md` (`review`), `popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig.lg` (`review`) emitted as `string` |
 
 ## 🛑 Broken — needs serious component change
 

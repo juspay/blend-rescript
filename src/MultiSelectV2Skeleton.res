@@ -1,5 +1,5 @@
 type props = {
-  ...ContextSharedTypes.multiSelectV2SkeletonComponentProps,
+  ...EditorSharedTypes.multiSelectV2SkeletonComponentProps,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

@@ -5,9 +5,15 @@ type modalV2ModalV2TokensTypeOverlayConfig = {
 type modalV2ModalV2TokensTypeHeaderSlotConfig = {
   gap: string,
 }
+type modalV2ModalV2TokensTypeHeaderTextTitleConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+}
 type modalV2ModalV2TokensTypeHeaderTextConfig = {
-  title: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<num`
-  subtitle: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<num`
+  title: modalV2ModalV2TokensTypeHeaderTextTitleConfig,
+  subtitle: modalV2ModalV2TokensTypeHeaderTextTitleConfig,
 }
 type modalV2ModalV2TokensTypeHeaderConfig = {
   gap: string,
@@ -95,13 +101,12 @@ type modalV2ButtonAction = {
   maxWidth?: CommonTypes.stringOrNumber,
   text?: string,
   leftSlot?: ButtonV2Types.buttonSlot,
-  justifyContent?: string,
-  state?: ButtonV2Types.buttonV2State,
   rightSlot?: ButtonV2Types.buttonSlot,
   skeleton?: ButtonV2Types.buttonSkeleton,
   buttonType?: ButtonV2Types.buttonV2Type,
   subType?: ButtonV2Types.buttonV2SubType,
   loading?: bool,
+  state?: ButtonV2Types.buttonV2State,
 }
 type modalV2Dimensions = {
   width?: string,

@@ -5,9 +5,14 @@ type modalModalTokensTypeHeaderPaddingConfig = {
   x: string,
   y: string,
 }
+type modalModalTokensTypeHeaderTextTitleConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+}
 type modalModalTokensTypeHeaderTextConfig = {
-  title: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; }`
-  subtitle: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; }`
+  title: modalModalTokensTypeHeaderTextTitleConfig,
+  subtitle: modalModalTokensTypeHeaderTextTitleConfig,
 }
 type modalModalTokensTypeHeaderConfig = {
   padding: modalModalTokensTypeHeaderPaddingConfig,
@@ -48,7 +53,6 @@ type modalButtonAction = {
   onClick?: option<ReactEvent.Mouse.t> => unit,
   text?: string,
   justifyContent?: string,
-  state?: ButtonTypes.buttonState,
   buttonType?: ButtonTypes.buttonType,
   subType?: ButtonTypes.buttonSubType,
   leadingIcon?: React.element,
@@ -57,6 +61,7 @@ type modalButtonAction = {
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   fullWidth?: bool,
+  state?: ButtonTypes.buttonState,
 }
 type bodySkeletonPropsModal = {
   show?: bool,

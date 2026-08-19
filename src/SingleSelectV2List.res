@@ -1,6 +1,6 @@
 type props = {
-  ...ContextSharedTypes.menuListSharedProps,
-  filteredItems: array<ContextSharedTypes.singleSelectV2GroupType>,
+  ...EditorSharedTypes.menuListSharedProps,
+  filteredItems: array<EditorSharedTypes.singleSelectV2GroupType>,
   enableSearch?: bool,
 }
 

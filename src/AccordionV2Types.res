@@ -11,7 +11,7 @@ type accordionV2AccordionV2TokensTypeGapConfig = {
 type accordionV2AccordionV2TokensTypeTriggerContentConfig = {
   gap: string,
 }
-type accordionV2AccordionV2TokensTypeChevronColorConfig = {
+type accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig = {
   disabled: string,
   active: string,
   default: string,
@@ -19,13 +19,26 @@ type accordionV2AccordionV2TokensTypeChevronColorConfig = {
   @as("open") open_: string,
 }
 type accordionV2AccordionV2TokensTypeTriggerBackgroundColorConfig = {
-  border: accordionV2AccordionV2TokensTypeChevronColorConfig,
-  noBorder: accordionV2AccordionV2TokensTypeChevronColorConfig,
+  border: accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig,
+  noBorder: accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig,
+}
+type accordionV2AccordionV2TokensTypeTriggerTextTitleConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  color: accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig,
+}
+type accordionV2AccordionV2TokensTypeTriggerTextSubtextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  gap: string,
+  color: accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig,
 }
 type accordionV2AccordionV2TokensTypeTriggerTextConfig = {
   gap: string,
-  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<number | (string `
-  subtext: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<number | (string `
+  title: accordionV2AccordionV2TokensTypeTriggerTextTitleConfig,
+  subtext: accordionV2AccordionV2TokensTypeTriggerTextSubtextConfig,
 }
 type accordionV2AccordionV2TokensTypeTriggerSlotConfig = {
   height: string,
@@ -43,7 +56,7 @@ type accordionV2AccordionV2TokensTypeSeparatorConfig = {
 }
 type accordionV2AccordionV2TokensTypeChevronConfig = {
   height: string,
-  color: accordionV2AccordionV2TokensTypeChevronColorConfig,
+  color: accordionV2AccordionV2TokensTypeTriggerBackgroundColorBorderConfig,
 }
 type accordionV2TokensType = {
   gap: accordionV2AccordionV2TokensTypeGapConfig,

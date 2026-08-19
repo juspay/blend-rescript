@@ -13,24 +13,24 @@ type progressBarV2ProgressBarV2TokenTypeLinearHeightConfig = {
   md: string,
   lg: string,
 }
-type progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig = {
+type progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig = {
   solid: string,
   segmented: string,
 }
 type progressBarV2ProgressBarV2TokenTypeLinearFillConfig = {
-  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
-  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
+  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
 }
 type progressBarV2ProgressBarV2TokenTypeLinearEmptyConfig = {
-  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
-  backgroundImage: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
-  backgroundSize: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
+  backgroundColor: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  backgroundImage: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  backgroundSize: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
 }
 type progressBarV2ProgressBarV2TokenTypeLinearConfig = {
   height: progressBarV2ProgressBarV2TokenTypeLinearHeightConfig,
   fill: progressBarV2ProgressBarV2TokenTypeLinearFillConfig,
   empty: progressBarV2ProgressBarV2TokenTypeLinearEmptyConfig,
-  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
+  borderRadius: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
   gap: string,
 }
 type progressBarV2ProgressBarV2TokenTypeCircularStrokeWidthConfig = {
@@ -41,9 +41,9 @@ type progressBarV2ProgressBarV2TokenTypeCircularStrokeWidthConfig = {
 type progressBarV2ProgressBarV2TokenTypeCircularConfig = {
   size: progressBarV2ProgressBarV2TokenTypeLinearHeightConfig,
   strokeWidth: progressBarV2ProgressBarV2TokenTypeCircularStrokeWidthConfig,
-  stroke: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
-  background: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
-  dashArray: progressBarV2ProgressBarV2TokenTypeLinearBorderRadiusConfig,
+  stroke: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  background: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
+  dashArray: progressBarV2ProgressBarV2TokenTypeLinearFillBackgroundColorConfig,
   motion: string,
 }
 type progressBarV2ProgressBarV2TokenTypeLabelConfig = {

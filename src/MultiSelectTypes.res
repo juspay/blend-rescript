@@ -39,18 +39,53 @@ type multiSelectMultiSelectTokensTypeErrorMessageConfig = {
 type multiSelectMultiSelectTokensTypeRequiredConfig = {
   color: string,
 }
-type multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig = {
+type multiSelectMultiSelectTokensTypeTriggerHeightSmConfig = {
   container: string,
   @as("no-container") noContainer: string,
 }
 type multiSelectMultiSelectTokensTypeTriggerHeightConfig = {
-  sm: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
-  md: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
-  lg: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
+  sm: multiSelectMultiSelectTokensTypeTriggerHeightSmConfig,
+  md: multiSelectMultiSelectTokensTypeTriggerHeightSmConfig,
+  lg: multiSelectMultiSelectTokensTypeTriggerHeightSmConfig,
+}
+type multiSelectMultiSelectTokensTypeTriggerPaddingSmContainerConfig = {
+  x: string,
+  y: string,
+}
+type multiSelectMultiSelectTokensTypeTriggerPaddingSmConfig = {
+  container: multiSelectMultiSelectTokensTypeTriggerPaddingSmContainerConfig,
+  @as("no-container") noContainer: multiSelectMultiSelectTokensTypeTriggerPaddingSmContainerConfig,
+}
+type multiSelectMultiSelectTokensTypeTriggerPaddingConfig = {
+  sm: multiSelectMultiSelectTokensTypeTriggerPaddingSmConfig,
+  md: multiSelectMultiSelectTokensTypeTriggerPaddingSmConfig,
+  lg: multiSelectMultiSelectTokensTypeTriggerPaddingSmConfig,
+}
+type multiSelectMultiSelectTokensTypeTriggerBackgroundColorContainerConfig = {
+  hover: string,
+  error: string,
+  focus: string,
+  @as("open") open_: string,
+  closed: string,
 }
 type multiSelectMultiSelectTokensTypeTriggerBackgroundColorConfig = {
-  container: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
-  @as("no-container") noContainer: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
+  container: multiSelectMultiSelectTokensTypeTriggerBackgroundColorContainerConfig,
+  @as("no-container")
+  noContainer: multiSelectMultiSelectTokensTypeTriggerBackgroundColorContainerConfig,
+}
+type multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerCountConfig = {
+  color: string,
+  backgroundColor: string,
+  fontWeight: string,
+}
+type multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerConfig = {
+  count: multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerCountConfig,
+  text: multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerCountConfig,
+}
+type multiSelectMultiSelectTokensTypeTriggerSelectionTagConfig = {
+  container: multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerConfig,
+  @as("no-container")
+  noContainer: multiSelectMultiSelectTokensTypeTriggerSelectionTagContainerConfig,
 }
 type multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig = {
   color: string,
@@ -59,31 +94,36 @@ type multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig = {
 }
 type multiSelectMultiSelectTokensTypeTriggerConfig = {
   height: multiSelectMultiSelectTokensTypeTriggerHeightConfig,
-  padding: multiSelectMultiSelectTokensTypeTriggerHeightConfig,
+  padding: multiSelectMultiSelectTokensTypeTriggerPaddingConfig,
   borderRadius: multiSelectMultiSelectTokensTypeTriggerHeightConfig,
-  boxShadow: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
+  boxShadow: multiSelectMultiSelectTokensTypeTriggerHeightSmConfig,
   backgroundColor: multiSelectMultiSelectTokensTypeTriggerBackgroundColorConfig,
   outline: multiSelectMultiSelectTokensTypeTriggerBackgroundColorConfig,
-  selectionTag: multiSelectMultiSelectTokensTypeTriggerBackgroundColorConfig,
+  selectionTag: multiSelectMultiSelectTokensTypeTriggerSelectionTagConfig,
   placeholder: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
   selectedValue: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
+}
+type multiSelectMultiSelectTokensTypeMenuItemSeperatorConfig = {
+  color: string,
+  height: string,
+  margin: string,
 }
 type multiSelectMultiSelectTokensTypeMenuItemConfig = {
   padding: string,
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: string, // ⚪ loose — was `{ disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; focus:`
-  optionsLabel: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  option: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  description: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  seperator: string, // ⚪ loose — was `{ color: Color; height: Height<number | (string & {})>; margin: Margin<number | (string & {})>; }`
+  backgroundColor: multiSelectMultiSelectTokensTypeLabelColorConfig,
+  optionsLabel: multiSelectMultiSelectTokensTypeLabelConfig,
+  option: multiSelectMultiSelectTokensTypeLabelConfig,
+  description: multiSelectMultiSelectTokensTypeLabelConfig,
+  seperator: multiSelectMultiSelectTokensTypeMenuItemSeperatorConfig,
 }
 type multiSelectMultiSelectTokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: multiSelectMultiSelectTokensTypeTriggerHeightConfig,
+  padding: multiSelectMultiSelectTokensTypeTriggerPaddingConfig,
   item: multiSelectMultiSelectTokensTypeMenuItemConfig,
 }
 type multiSelectMultiSelectTokensTypeDrawerHeaderConfig = {
