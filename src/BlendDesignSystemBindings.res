@@ -1,11 +1,11 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
-external uploadErrorReason: EditorSharedTypes.inputsV2UploadErrorReasonConfig = "UploadErrorReason"
+external uploadErrorReason: ContextSharedTypes.inputsV2UploadErrorReasonConfig = "UploadErrorReason"
 @module("@juspay/blend-design-system")
-external useTheme: unit => EditorSharedTypes.themeContextType = "useTheme"
+external useTheme: unit => ContextSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
-external useShadowRoot: unit => EditorSharedTypes.shadowRootContextType = "useShadowRoot"
+external useShadowRoot: unit => ContextSharedTypes.shadowRootContextType = "useShadowRoot"
 @module("@juspay/blend-design-system")
 external getAccordionToken: TokensTypes.foundationTokenType => AccordionTypes.responsiveAccordionTokens =
   "getAccordionToken"
@@ -44,7 +44,7 @@ external getCardTokens: (
   unit,
 ) => CardTypes.responsiveCardTokens = "getCardTokens"
 @module("@juspay/blend-design-system")
-external getChartTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveChartTokens =
+external getChartTokens: TokensTypes.foundationTokenType => ChartsSharedTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
 external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
@@ -67,7 +67,7 @@ external getCalendarToken: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveCalendarTokens = "getCalendarToken"
+) => DateRangePickerTypes.responsiveCalendarTokens = "getCalendarToken"
 @module("@juspay/blend-design-system")
 external getTimePickerTokens: (
   TokensTypes.foundationTokenType,
@@ -79,7 +79,7 @@ external getDirectoryTokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveDirectoryTokens = "getDirectoryTokens"
+) => DirectoryTypes.responsiveDirectoryTokens = "getDirectoryTokens"
 @module("@juspay/blend-design-system")
 external getTextInputTokens: TokensTypes.foundationTokenType => InputsTypes.responsiveTextInputTokens =
   "getTextInputTokens"
@@ -112,11 +112,11 @@ external getKeyValuePairTokens: TokensTypes.foundationTokenType => KeyValuePairT
   "getKeyValuePairTokens"
 @module("@juspay/blend-design-system")
 external getMenuItemStateToken: (
-  EditorSharedTypes.menuItemStateTokensV1lywh<'a>,
-  EditorSharedTypes.menuItemSelectionStates,
+  ContextSharedTypes.menuItemStateTokens<'a>,
+  ContextSharedTypes.menuItemSelectionStates,
 ) => 'a = "getMenuItemStateToken"
 @module("@juspay/blend-design-system")
-external getMenuTokens: TokensTypes.foundationTokenType => EditorSharedTypes.responsiveMenuTokensType =
+external getMenuTokens: TokensTypes.foundationTokenType => ContextSharedTypes.responsiveMenuTokensType =
   "getMenuTokens"
 @module("@juspay/blend-design-system")
 external getModalComponentTokens: (
@@ -134,7 +134,7 @@ external getPopoverTokens: TokensTypes.foundationTokenType => PopoverTypes.respo
 external getProgressBarTokens: TokensTypes.foundationTokenType => ProgressBarTypes.responsiveProgressBarTokens =
   "getProgressBarTokens"
 @module("@juspay/blend-design-system")
-external getSidebarTokens: TokensTypes.foundationTokenType => EditorSharedTypes.responsiveSidebarTokens =
+external getSidebarTokens: TokensTypes.foundationTokenType => SidebarTypes.responsiveSidebarTokens =
   "getSidebarTokens"
 @module("@juspay/blend-design-system")
 external useSkeletonBase: (
@@ -262,8 +262,8 @@ external getIconMaxHeight: (
   ButtonV2Types.buttonV2SubType,
   CommonTypes.stringOrNumber,
   CommonTypes.stringOrNumber,
-  ButtonV2Types.buttonV2Size,
-) => string = "getIconMaxHeight"
+  CommonTypes.stringOrNumber,
+) => ButtonV2Types.buttonV2GetIconMaxHeightConfig = "getIconMaxHeight"
 @module("@juspay/blend-design-system")
 external getButtonStatus: (bool, bool) => ButtonV2Types.buttonV2GetButtonStatus = "getButtonStatus"
 @module("@juspay/blend-design-system")
@@ -594,30 +594,30 @@ external getTextInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveTextInputV2Tokens = "getTextInputV2Tokens"
+) => ContextSharedTypes.responsiveTextInputV2Tokens = "getTextInputV2Tokens"
 @module("@juspay/blend-design-system")
 external toEmbeddedSingleSelectV2Props: (
-  EditorSharedTypes.singleSelectV2Props,
-  EditorSharedTypes.embeddedSingleSelectOptions,
-) => EditorSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
+  ContextSharedTypes.singleSelectV2Props,
+  ContextSharedTypes.embeddedSingleSelectOptions,
+) => ContextSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
 @module("@juspay/blend-design-system")
-external focusRingStyles: EditorSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
+external focusRingStyles: ContextSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
 @module("@juspay/blend-design-system") external transition: string = "TRANSITION"
 @module("@juspay/blend-design-system")
 external getInputState: (
-  ~error: EditorSharedTypes.inputsV2GetInputStateErrorConfig=?,
+  ~error: ContextSharedTypes.inputsV2GetInputStateErrorConfig=?,
   ~disabled: bool=?,
   unit,
-) => EditorSharedTypes.inputStateV2 = "getInputState"
+) => ContextSharedTypes.inputStateV2 = "getInputState"
 @module("@juspay/blend-design-system")
-external getVerticalInputPadding: EditorSharedTypes.inputsV2GetVerticalInputPaddingV0Config => EditorSharedTypes.inputsV2GetVerticalInputPaddingConfig =
+external getVerticalInputPadding: ContextSharedTypes.inputsV2GetVerticalInputPaddingV0Config => ContextSharedTypes.inputsV2GetVerticalInputPaddingConfig =
   "getVerticalInputPadding"
 @module("@juspay/blend-design-system")
 external getTextAreaV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveTextAreaV2Tokens = "getTextAreaV2Tokens"
+) => ContextSharedTypes.responsiveTextAreaV2Tokens = "getTextAreaV2Tokens"
 @module("@juspay/blend-design-system")
 external useTabsV2Context: unit => TabsV2Types.tabsV2ContextValue = "useTabsV2Context"
 @module("@juspay/blend-design-system")
@@ -724,14 +724,14 @@ external getSidebarV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveSidebarV2Tokens = "getSidebarV2Tokens"
+) => SidebarV2Types.responsiveSidebarV2Tokens = "getSidebarV2Tokens"
 @module("@juspay/blend-design-system")
 external isControlledSidebarV2: bool => bool = "isControlledSidebarV2"
 @module("@juspay/blend-design-system")
 external getSidebarV2Status: (
   bool,
   bool,
-) => EditorSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
+) => SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
 @module("@juspay/blend-design-system")
 external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
 @module("@juspay/blend-design-system")
@@ -742,8 +742,8 @@ external getTopbarV2Styles: (
   unit,
 ) => JSON.t = "getTopbarV2Styles"
 @module("@juspay/blend-design-system")
-external getSidebarV2MobileNavigationItems: array<EditorSharedTypes.directoryData> => array<
-  EditorSharedTypes.sidebarV2MobileNavigationItem,
+external getSidebarV2MobileNavigationItems: array<DirectoryTypes.directoryData> => array<
+  SidebarV2Types.sidebarV2MobileNavigationItem,
 > = "getSidebarV2MobileNavigationItems"
 @module("@juspay/blend-design-system")
 external useTopbarV2AutoHide: bool => bool = "useTopbarV2AutoHide"
@@ -772,7 +772,7 @@ external getTopbarV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
+) => TopbarV2Types.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
 @module("@juspay/blend-design-system") external selectV2MenuZIndex: float = "SELECT_V2_MENU_Z_INDEX"
 @module("@juspay/blend-design-system")
 external useSelectV2MenuBehavior: SelectV2Types.useSelectV2MenuBehaviorParams => SelectV2Types.useSelectV2MenuBehaviorResult =
@@ -782,25 +782,25 @@ external getMultiValueInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveMultiValueInputV2Tokens = "getMultiValueInputV2Tokens"
+) => ContextSharedTypes.responsiveMultiValueInputV2Tokens = "getMultiValueInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getNumberInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveNumberInputV2Tokens = "getNumberInputV2Tokens"
+) => ContextSharedTypes.responsiveNumberInputV2Tokens = "getNumberInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getOTPInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveOTPInputV2Tokens = "getOTPInputV2Tokens"
+) => ContextSharedTypes.responsiveOTPInputV2Tokens = "getOTPInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getSearchInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
+) => ContextSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
 @module("@juspay/blend-design-system")
 external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber =
   "addSnackbarV2"
@@ -815,59 +815,59 @@ external getCodeEditorV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveCodeEditorV2Tokens = "getCodeEditorV2Tokens"
+) => ContextSharedTypes.responsiveCodeEditorV2Tokens = "getCodeEditorV2Tokens"
 @module("@juspay/blend-design-system")
 external getEditorMetrics: (
-  EditorSharedTypes.codeEditorV2Tokens,
+  ContextSharedTypes.codeEditorV2Tokens,
   bool,
-) => EditorSharedTypes.editorMetrics = "getEditorMetrics"
+) => ContextSharedTypes.editorMetrics = "getEditorMetrics"
 @module("@juspay/blend-design-system")
 external getContainerDimensions: (
   string,
   string,
   ~maxHeight: string=?,
   unit,
-) => EditorSharedTypes.codeEditorV2GetContainerDimensionsConfig = "getContainerDimensions"
+) => ContextSharedTypes.codeEditorV2GetContainerDimensionsConfig = "getContainerDimensions"
 @module("@juspay/blend-design-system")
 external getPlaceholderPosition: (
-  EditorSharedTypes.editorMetrics,
+  ContextSharedTypes.editorMetrics,
   bool,
-) => EditorSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
+) => ContextSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
 @module("@juspay/blend-design-system")
 external configureLanguageDefaults: InstanceTypes.editorApiModule => unit =
   "configureLanguageDefaults"
 @module("@juspay/blend-design-system")
-external blurMonacoEditorDom: EditorSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
+external blurMonacoEditorDom: ContextSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
 @module("@juspay/blend-design-system")
 external getMonacoViewModeOptions: (
   bool,
   bool,
-) => EditorSharedTypes.editorGetMonacoViewModeOptionsConfig = "getMonacoViewModeOptions"
+) => ContextSharedTypes.editorGetMonacoViewModeOptionsConfig = "getMonacoViewModeOptions"
 @module("@juspay/blend-design-system")
 external syncDiffEditorPaneViewMode: (
-  EditorSharedTypes.iStandaloneDiffEditor<'a, 'b>,
+  ContextSharedTypes.iStandaloneDiffEditor<'a, 'b>,
   bool,
   bool,
 ) => unit = "syncDiffEditorPaneViewMode"
 @module("@juspay/blend-design-system")
 external getMountEditorOptions: (
-  EditorSharedTypes.editorMetrics,
-  EditorSharedTypes.codeEditorV2Tokens,
+  ContextSharedTypes.editorMetrics,
+  ContextSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
-) => EditorSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getMountEditorOptions"
+) => ContextSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getMountEditorOptions"
 @module("@juspay/blend-design-system")
 external getUpdateEditorOptions: (
-  EditorSharedTypes.editorMetrics,
+  ContextSharedTypes.editorMetrics,
   bool,
   bool,
   bool,
-) => EditorSharedTypes.iEditorOptions = "getUpdateEditorOptions"
+) => ContextSharedTypes.iEditorOptions = "getUpdateEditorOptions"
 @module("@juspay/blend-design-system")
 external getDiffEditorOptions: (
-  EditorSharedTypes.editorMetrics,
-  EditorSharedTypes.codeEditorV2Tokens,
+  ContextSharedTypes.editorMetrics,
+  ContextSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
@@ -875,15 +875,15 @@ external getDiffEditorOptions: (
   bool,
   float,
   float,
-) => EditorSharedTypes.iDiffEditorConstructionOptions = "getDiffEditorOptions"
+) => ContextSharedTypes.iDiffEditorConstructionOptions = "getDiffEditorOptions"
 @module("@juspay/blend-design-system")
 external getInitialEditorOptions: (
-  EditorSharedTypes.editorMetrics,
-  EditorSharedTypes.codeEditorV2Tokens,
+  ContextSharedTypes.editorMetrics,
+  ContextSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
-) => EditorSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getInitialEditorOptions"
+) => ContextSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getInitialEditorOptions"
 @module("@juspay/blend-design-system") external editorFocusDelayMs: float = "EDITOR_FOCUS_DELAY_MS"
 @module("@juspay/blend-design-system")
 external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
@@ -892,15 +892,15 @@ external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
 external copyToClipboardWithTemporaryFeedback: (
   string,
   CommonTypes.reactCopyToClipboardWithTemporaryFeedbackSetIsCopied => unit,
-  EditorSharedTypes.copyFeedbackTimeoutRef,
+  ContextSharedTypes.copyFeedbackTimeoutRef,
   ~resetMs: float=?,
   unit,
 ) => unit = "copyToClipboardWithTemporaryFeedback"
 @module("@juspay/blend-design-system")
-external shouldShowLineNumbers: (bool, EditorSharedTypes.codeEditorV2Variant) => bool =
+external shouldShowLineNumbers: (bool, ContextSharedTypes.codeEditorV2Variant) => bool =
   "shouldShowLineNumbers"
 @module("@juspay/blend-design-system")
-external isDiffEditorMode: (bool, EditorSharedTypes.codeEditorV2Variant) => bool =
+external isDiffEditorMode: (bool, ContextSharedTypes.codeEditorV2Variant) => bool =
   "isDiffEditorMode"
 @module("@juspay/blend-design-system")
 external getCodeEditorV2ContainerStyles: (
@@ -914,7 +914,7 @@ external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "t
 external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
   "toNumericValue"
 @module("@juspay/blend-design-system")
-external backupColor: EditorSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
+external backupColor: ContextSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
 @module("@juspay/blend-design-system")
 external getKeyValuePairV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -939,68 +939,68 @@ external getMenuV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveMenuV2TokensType = "getMenuV2Tokens"
+) => ContextSharedTypes.responsiveMenuV2TokensType = "getMenuV2Tokens"
 @module("@juspay/blend-design-system")
-external getItemSlots: EditorSharedTypes.menuV2ItemType => array<React.element> = "getItemSlots"
+external getItemSlots: ContextSharedTypes.menuV2ItemType => array<React.element> = "getItemSlots"
 @module("@juspay/blend-design-system")
 external getItemMatchRank: (
-  EditorSharedTypes.menuV2ItemType,
+  ContextSharedTypes.menuV2ItemType,
   string,
-) => EditorSharedTypes.menuV2MatchRank = "getItemMatchRank"
+) => ContextSharedTypes.menuV2MatchRank = "getItemMatchRank"
 @module("@juspay/blend-design-system")
 external defaultSearchSortFn: (
-  array<EditorSharedTypes.menuV2ItemType>,
+  array<ContextSharedTypes.menuV2ItemType>,
   string,
-) => array<EditorSharedTypes.menuV2ItemType> = "defaultSearchSortFn"
+) => array<ContextSharedTypes.menuV2ItemType> = "defaultSearchSortFn"
 @module("@juspay/blend-design-system")
 external filterMenuV2Item: (
-  EditorSharedTypes.menuV2ItemType,
+  ContextSharedTypes.menuV2ItemType,
   string,
-) => EditorSharedTypes.menuV2ItemType = "filterMenuV2Item"
+) => ContextSharedTypes.menuV2ItemType = "filterMenuV2Item"
 @module("@juspay/blend-design-system")
 external getMenuItemBackgroundColor: (
   SelectV2Types.selectV2ItemStates,
-  EditorSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  EditorSharedTypes.menuV2ItemType,
+  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  ContextSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemBackgroundColor"
 @module("@juspay/blend-design-system")
 external getMenuItemOptionColor: (
   SelectV2Types.selectV2ItemStates,
-  EditorSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  EditorSharedTypes.menuV2ItemType,
+  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  ContextSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemOptionColor"
 @module("@juspay/blend-design-system")
 external getMenuItemDescriptionColor: (
   SelectV2Types.selectV2ItemStates,
-  EditorSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  EditorSharedTypes.menuV2ItemType,
+  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  ContextSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemDescriptionColor"
 @module("@juspay/blend-design-system")
-external flattenMenuV2Groups: array<EditorSharedTypes.menuV2GroupType> => array<
-  EditorSharedTypes.menuV2FlatRow,
+external flattenMenuV2Groups: array<ContextSharedTypes.menuV2GroupType> => array<
+  ContextSharedTypes.menuV2FlatRow,
 > = "flattenMenuV2Groups"
 @module("@juspay/blend-design-system")
 external filterMenuV2Groups: (
-  array<EditorSharedTypes.menuV2GroupType>,
+  array<ContextSharedTypes.menuV2GroupType>,
   string,
   ~searchSortFn: (
-    array<EditorSharedTypes.menuV2ItemType>,
+    array<ContextSharedTypes.menuV2ItemType>,
     string,
-  ) => array<EditorSharedTypes.menuV2ItemType>=?,
+  ) => array<ContextSharedTypes.menuV2ItemType>=?,
   unit,
-) => array<EditorSharedTypes.menuV2GroupType> = "filterMenuV2Groups"
+) => array<ContextSharedTypes.menuV2GroupType> = "filterMenuV2Groups"
 @module("@juspay/blend-design-system")
 external getMultiSelectV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveMultiSelectV2Tokens = "getMultiSelectV2Tokens"
+) => ContextSharedTypes.responsiveMultiSelectV2Tokens = "getMultiSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getMultiSelectBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  EditorSharedTypes.multiSelectV2TokensType,
+  ContextSharedTypes.multiSelectV2TokensType,
   bool,
 ) => string = "getMultiSelectBorderRadius"
 @module("@juspay/blend-design-system")
@@ -1008,65 +1008,65 @@ external getMultiSelectCrossBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  EditorSharedTypes.multiSelectV2TokensType,
-) => EditorSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
+  ContextSharedTypes.multiSelectV2TokensType,
+) => ContextSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
   "getMultiSelectCrossBorderRadius"
 @module("@juspay/blend-design-system")
 external getSelectAllState: (
   array<string>,
   array<string>,
-) => EditorSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
+) => ContextSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
 @module("@juspay/blend-design-system")
-external getMultiSelectV2ValueLabelMap: array<EditorSharedTypes.multiSelectV2GroupType> => Dict.t<
+external getMultiSelectV2ValueLabelMap: array<ContextSharedTypes.multiSelectV2GroupType> => Dict.t<
   string,
 > = "getMultiSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
 external getFilteredMenuItem: (
-  EditorSharedTypes.multiSelectV2ItemType,
+  ContextSharedTypes.multiSelectV2ItemType,
   string,
-) => EditorSharedTypes.multiSelectV2ItemType = "getFilteredMenuItem"
+) => ContextSharedTypes.multiSelectV2ItemType = "getFilteredMenuItem"
 @module("@juspay/blend-design-system")
 external filterMultiSelectV2MenuGroups: (
-  array<EditorSharedTypes.multiSelectV2GroupType>,
+  array<ContextSharedTypes.multiSelectV2GroupType>,
   string,
-) => array<EditorSharedTypes.multiSelectV2GroupType> = "filterMultiSelectV2MenuGroups"
+) => array<ContextSharedTypes.multiSelectV2GroupType> = "filterMultiSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
-external getAllAvailableValues: array<EditorSharedTypes.multiSelectV2GroupType> => array<string> =
+external getAllAvailableValues: array<ContextSharedTypes.multiSelectV2GroupType> => array<string> =
   "getAllAvailableValues"
 @module("@juspay/blend-design-system")
 external handleSelectAll: (
   bool,
-  array<EditorSharedTypes.multiSelectV2GroupType>,
+  array<ContextSharedTypes.multiSelectV2GroupType>,
   array<string>,
   string => unit,
   ~maxSelections: float=?,
   unit,
 ) => unit = "handleSelectAll"
 @module("@juspay/blend-design-system")
-external flattenMenuGroups: array<EditorSharedTypes.multiSelectV2GroupType> => array<
-  EditorSharedTypes.flattenedMultiSelectV2Item,
+external flattenMenuGroups: array<ContextSharedTypes.multiSelectV2GroupType> => array<
+  ContextSharedTypes.flattenedMultiSelectV2Item,
 > = "flattenMenuGroups"
 @module("@juspay/blend-design-system")
 external getTriggerLeftPadding: (
-  EditorSharedTypes.multiSelectV2TokensType,
+  ContextSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerLeftPadding"
 @module("@juspay/blend-design-system")
 external getTriggerTopPadding: (
-  EditorSharedTypes.multiSelectV2TokensType,
+  ContextSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerTopPadding"
 @module("@juspay/blend-design-system")
 external getTriggerHorizontalPadding: (
-  EditorSharedTypes.multiSelectV2TokensType,
+  ContextSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerHorizontalPadding"
 @module("@juspay/blend-design-system")
 external getTriggerVerticalPadding: (
-  EditorSharedTypes.multiSelectV2TokensType,
+  ContextSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerVerticalPadding"
@@ -1075,46 +1075,46 @@ external getSingleSelectV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveSingleSelectV2Tokens = "getSingleSelectV2Tokens"
+) => ContextSharedTypes.responsiveSingleSelectV2Tokens = "getSingleSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2BorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  EditorSharedTypes.singleSelectV2TokensType,
-) => EditorSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
+  ContextSharedTypes.singleSelectV2TokensType,
+) => ContextSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
   "getSingleSelectV2BorderRadius"
 @module("@juspay/blend-design-system")
-external getSingleSelectV2ValueLabelMap: array<EditorSharedTypes.singleSelectV2GroupType> => Dict.t<
-  string,
-> = "getSingleSelectV2ValueLabelMap"
+external getSingleSelectV2ValueLabelMap: array<
+  ContextSharedTypes.singleSelectV2GroupType,
+> => Dict.t<string> = "getSingleSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
-external flattenGroups: array<EditorSharedTypes.singleSelectV2GroupType> => array<
-  EditorSharedTypes.flattenedItem,
+external flattenGroups: array<ContextSharedTypes.singleSelectV2GroupType> => array<
+  ContextSharedTypes.flattenedItem,
 > = "flattenGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2MenuGroups: (
-  array<EditorSharedTypes.singleSelectV2GroupType>,
+  array<ContextSharedTypes.singleSelectV2GroupType>,
   string,
-) => array<EditorSharedTypes.singleSelectV2GroupType> = "filterSingleSelectV2MenuGroups"
+) => array<ContextSharedTypes.singleSelectV2GroupType> = "filterSingleSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2Item: (
-  EditorSharedTypes.singleSelectV2ItemType,
+  ContextSharedTypes.singleSelectV2ItemType,
   string,
-) => EditorSharedTypes.singleSelectV2ItemType = "filterSingleSelectV2Item"
+) => ContextSharedTypes.singleSelectV2ItemType = "filterSingleSelectV2Item"
 @module("@juspay/blend-design-system")
 external isTooltipWrappingTrigger: React.element => bool = "isTooltipWrappingTrigger"
 @module("@juspay/blend-design-system")
 external getMenuItemIndex: (
-  array<EditorSharedTypes.singleSelectV2GroupType>,
+  array<ContextSharedTypes.singleSelectV2GroupType>,
   float,
   float,
 ) => float = "getMenuItemIndex"
 @module("@juspay/blend-design-system")
-external getVirtualRowEstimate: (array<EditorSharedTypes.flattenedItem>, int) => float =
+external getVirtualRowEstimate: (array<ContextSharedTypes.flattenedItem>, int) => float =
   "getVirtualRowEstimate"
 @module("@juspay/blend-design-system")
-external getItemOrdinalIndex: (array<EditorSharedTypes.flattenedItem>, float) => float =
+external getItemOrdinalIndex: (array<ContextSharedTypes.flattenedItem>, float) => float =
   "getItemOrdinalIndex"
 @module("@juspay/blend-design-system")
 external defaultSingleSelectV2Skeleton: SelectV2Types.selectV2SkeletonProps =
@@ -1127,22 +1127,22 @@ external defaultEndReachedThreshold: float = "DEFAULT_END_REACHED_THRESHOLD"
 @module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
-  EditorSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
-) => EditorSharedTypes.singleSelectV2GenerateAccessibilityIdsConfig = "generateAccessibilityIds"
+  ContextSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
+) => ContextSharedTypes.singleSelectV2GenerateAccessibilityIdsConfig = "generateAccessibilityIds"
 @module("@juspay/blend-design-system")
-external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => EditorSharedTypes.extractedAriaProps =
+external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => ContextSharedTypes.extractedAriaProps =
   "extractSingleSelectV2AriaProps"
 @module("@juspay/blend-design-system") @variadic
 external mergeSingleSelectV2AriaDescribedBy: array<string> => string =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
-external buildAriaAttributes: EditorSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => EditorSharedTypes.ariaAttributes =
+external buildAriaAttributes: ContextSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => ContextSharedTypes.ariaAttributes =
   "buildAriaAttributes"
 @module("@juspay/blend-design-system")
-external setupAccessibility: EditorSharedTypes.accessibilitySetupOptions => EditorSharedTypes.accessibilitySetupResult =
+external setupAccessibility: ContextSharedTypes.accessibilitySetupOptions => ContextSharedTypes.accessibilitySetupResult =
   "setupAccessibility"
 @module("@juspay/blend-design-system")
-external virtualRowEstimates: EditorSharedTypes.singleSelectV2VIRTUALROWESTIMATESConfig =
+external virtualRowEstimates: ContextSharedTypes.singleSelectV2VIRTUALROWESTIMATESConfig =
   "VIRTUAL_ROW_ESTIMATES"
 @module("@juspay/blend-design-system")
 external useSelectListNavigation: SelectListV2Types.useSelectListNavigationOptions => SelectListV2Types.selectListV2UseSelectListNavigationConfig =
@@ -1164,4 +1164,4 @@ external getChatInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => EditorSharedTypes.responsiveChatInputV2TokensType = "getChatInputV2Tokens"
+) => ContextSharedTypes.responsiveChatInputV2TokensType = "getChatInputV2Tokens"

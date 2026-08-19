@@ -21,28 +21,14 @@ type snackbarV2SnackbarV2TokensTypeSlotConfig = {
   width: string,
   color: snackbarV2SnackbarV2TokensTypeSlotColorConfig,
 }
-type snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerHeaderConfig = {
-  color: string, // ⚪ loose — was `{ info: Color; success: Color; warning: Color; error: Color; }`
-  fontSize: string,
-  fontWeight: string,
-  lineHeight: string,
-}
-type snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerConfig = {
-  gap: string,
-  header: snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerHeaderConfig,
-  description: snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerHeaderConfig,
-}
-type snackbarV2SnackbarV2TokensTypeMainContainerContentActionContainerConfig = {
-  primaryAction: snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerHeaderConfig,
-}
 type snackbarV2SnackbarV2TokensTypeMainContainerContentConfig = {
   gap: string,
-  textContainer: snackbarV2SnackbarV2TokensTypeMainContainerContentTextContainerConfig,
-  actionContainer: snackbarV2SnackbarV2TokensTypeMainContainerContentActionContainerConfig,
+  textContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; header: { color: { info: Color; success: Color; warning: Color; error: Col`
+  actionContainer: string, // ⚪ loose — was `{ primaryAction: { color: { info: Color; success: Color; warning: Color; error: Color; }; fontSize: FontSize<n`
 }
 type snackbarV2SnackbarV2TokensTypeMainContainerCloseButtonConfig = {
   height: string,
-  color: snackbarV2SnackbarV2TokensTypeSlotColorConfig,
+  color: string, // ⚪ loose — was `{ info: Color; success: Color; warning: Color; error: Color; }`
 }
 type snackbarV2SnackbarV2TokensTypeMainContainerConfig = {
   gap: string,

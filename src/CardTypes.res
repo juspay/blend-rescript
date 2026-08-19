@@ -14,25 +14,14 @@ type cardCardTokenTypePaddingConfig = {
   aligned: cardCardTokenTypePaddingDefaultConfig,
   custom: unit,
 }
-type cardCardTokenTypeHeaderTextTitleConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: string,
-  gap: string,
-}
-type cardCardTokenTypeHeaderTextSubTitleConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: string,
-}
 type cardCardTokenTypeHeaderTextConfig = {
-  title: cardCardTokenTypeHeaderTextTitleConfig,
-  subTitle: cardCardTokenTypeHeaderTextSubTitleConfig,
+  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; gap: Gap<number | (string `
+  subTitle: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
   gap: string,
 }
 type cardCardTokenTypeHeaderDefaultConfig = {
   backgroundColor: string,
-  padding: cardCardTokenTypePaddingDefaultConfig,
+  padding: string, // ⚪ loose — was `{ x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }`
   borderBottom: string,
 }
 type cardCardTokenTypeHeaderConfig = {
@@ -42,7 +31,7 @@ type cardCardTokenTypeHeaderConfig = {
   custom: unit,
 }
 type cardCardTokenTypeBodyPaddingConfig = {
-  default: cardCardTokenTypePaddingDefaultConfig,
+  default: string, // ⚪ loose — was `{ x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }`
   aligned: unit,
   custom: unit,
 }
@@ -51,29 +40,17 @@ type cardCardTokenTypeBodyGapConfig = {
   aligned: string,
   custom: string,
 }
-type cardCardTokenTypeBodyTextContentConfig = {
-  fontSize: string,
-  color: string,
-  fontWeight: string,
-}
 type cardCardTokenTypeBodyTextConfig = {
-  title: cardCardTokenTypeHeaderTextSubTitleConfig,
-  content: cardCardTokenTypeBodyTextContentConfig,
+  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
+  content: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; fontWeight: FontWeight; }`
   gap: string,
 }
 type cardCardTokenTypeBodyActionsConfig = {
   gap: string,
   centerAlignGap: string,
 }
-type cardCardTokenTypeBodyAlignmentAlignedCardSlotConfig = {
-  vertical: string, // ⚪ loose — was `{ marginBottom: MarginBottom<number | (string & {})>; minHeight: MinHeight<number | (string & {})>; }`
-  horizontal: string, // ⚪ loose — was `{ marginRight: MarginRight<number | (string & {})>; width: Width<number | (string & {})>; height: Height<numbe`
-}
-type cardCardTokenTypeBodyAlignmentAlignedConfig = {
-  cardSlot: cardCardTokenTypeBodyAlignmentAlignedCardSlotConfig,
-}
 type cardCardTokenTypeBodyAlignmentConfig = {
-  aligned: cardCardTokenTypeBodyAlignmentAlignedConfig,
+  aligned: string, // ⚪ loose — was `{ cardSlot: { vertical: { marginBottom: MarginBottom<number | (string & {})>; minHeight: MinHeight<number | (s`
   default: unit,
   custom: unit,
 }

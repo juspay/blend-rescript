@@ -1,7 +1,8 @@
 type props = {
   id: string,
-  secondarySidebar?: EditorSharedTypes.secondarySidebarInfo,
-  tokens: EditorSharedTypes.sidebarV2TokensType,
+  secondarySidebar?: SidebarV2Types.secondarySidebarInfo,
+  isExpanded?: bool,
+  tokens: SidebarV2Types.sidebarV2TokensType,
 }
 
 @module("@juspay/blend-design-system")

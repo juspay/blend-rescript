@@ -1,8 +1,8 @@
 type drawerDirection =
   | @as("top") Top
-  | @as("left") Left
-  | @as("bottom") Bottom
   | @as("right") Right
+  | @as("bottom") Bottom
+  | @as("left") Left
 type drawerOverflowY =
   | @as("auto") Auto
   | @as("hidden") Hidden

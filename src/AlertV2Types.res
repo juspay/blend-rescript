@@ -38,38 +38,13 @@ type alertV2AlertV2TokensTypeGapConfig = {
 type alertV2AlertV2TokensTypeSlotConfig = {
   maxHeight: string,
 }
-type alertV2AlertV2TokensTypeMainContainerContentTextContainerHeadingConfig = {
-  color: string, // ⚪ loose — was `{ primary: Color; success: Color; warning: Color; error: Color; purple: Color; orange: Color; neutral: Color; `
-  fontWeight: string,
-  fontSize: string,
-  lineHeight: string,
-}
-type alertV2AlertV2TokensTypeMainContainerContentTextContainerConfig = {
-  gap: string,
-  heading: alertV2AlertV2TokensTypeMainContainerContentTextContainerHeadingConfig,
-  description: alertV2AlertV2TokensTypeMainContainerContentTextContainerHeadingConfig,
-}
-type alertV2AlertV2TokensTypeMainContainerContentActionContainerConfig = {
-  gap: string,
-  primaryAction: alertV2AlertV2TokensTypeMainContainerContentTextContainerHeadingConfig,
-  secondaryAction: alertV2AlertV2TokensTypeMainContainerContentTextContainerHeadingConfig,
-}
 type alertV2AlertV2TokensTypeMainContainerContentConfig = {
-  gap: alertV2AlertV2TokensTypeGapConfig,
-  textContainer: alertV2AlertV2TokensTypeMainContainerContentTextContainerConfig,
-  actionContainer: alertV2AlertV2TokensTypeMainContainerContentActionContainerConfig,
-}
-type alertV2AlertV2TokensTypeMainContainerCloseButtonColorConfig = {
-  primary: string,
-  success: string,
-  warning: string,
-  error: string,
-  purple: string,
-  orange: string,
-  neutral: string,
+  gap: string, // ⚪ loose — was `{ bottom: Gap<number | (string & {})>; right: Gap<number | (string & {})>; }`
+  textContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; heading: { color: { primary: Color; success: Color; warning: Color; error:`
+  actionContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; primaryAction: { color: { primary: Color; success: Color; warning: Color; `
 }
 type alertV2AlertV2TokensTypeMainContainerCloseButtonConfig = {
-  color: alertV2AlertV2TokensTypeMainContainerCloseButtonColorConfig,
+  color: string, // ⚪ loose — was `{ primary: Color; success: Color; warning: Color; error: Color; purple: Color; orange: Color; neutral: Color; `
   height: string,
   width: string,
 }
