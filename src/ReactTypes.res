@@ -9,11 +9,11 @@ type htmlInputTypeAttribute =
   | @as("radio") Radio
   | @as("reset") Reset
   | @as("range") Range
-  | @as("date") Date
-  | @as("time") Time
   | @as("month") Month
   | @as("week") Week
+  | @as("time") Time
   | @as("image") Image
+  | @as("date") Date
   | @as("tel") Tel
   | @as("url") Url
   | @as("email") Email
@@ -39,15 +39,26 @@ module ElementType = {
     | #pattern
     | #title
     | #text
-    | #center
-    | #ruby
-    | #table
     | #search
     | #big
     | #link
     | #sub
     | #sup
+    | #label
     | #button
+    | #input
+    | #center
+    | #header
+    | #footer
+    | #option
+    | #menu
+    | #ruby
+    | #table
+    | #clipPath
+    | #filter
+    | #marker
+    | #mask
+    | #map
     | #meter
     | #textarea
     | #progress
@@ -55,28 +66,24 @@ module ElementType = {
     | #embed
     | #pre
     | #caption
-    | #menu
     | #menuitem
-    | #map
-    | #filter
+    | #line
+    | #area
+    | #legend
+    | #section
+    | #track
+    | #time
+    | #"switch"
+    | #image
     | #article
     | #dialog
     | #figure
     | #img
     | #main
-    | #option
-    | #"switch"
-    | #time
-    | #clipPath
-    | #mask
     | #path
     | #polygon
     | #linearGradient
     | #radialGradient
-    | #area
-    | #line
-    | #label
-    | #marker
     | #select
     | #a
     | #q
@@ -88,12 +95,10 @@ module ElementType = {
     | #rect
     | #source
     | #stop
-    | #image
     | #html
     | #div
     | #h2
     | #h3
-    | #input
     | #li
     | #nav
     | #ol
@@ -124,13 +129,11 @@ module ElementType = {
     | #em
     | #fieldset
     | #figcaption
-    | #footer
     | #h1
     | #h4
     | #h5
     | #h6
     | #head
-    | #header
     | #hgroup
     | #hr
     | #i
@@ -138,7 +141,6 @@ module ElementType = {
     | #ins
     | #kbd
     | #keygen
-    | #legend
     | #mark
     | #noindex
     | #noscript
@@ -150,7 +152,6 @@ module ElementType = {
     | #rt
     | #samp
     | #script
-    | #section
     | #strong
     | #summary
     | #template
@@ -160,7 +161,6 @@ module ElementType = {
     | #th
     | #thead
     | #tr
-    | #track
     | #u
     | #var
     | #video

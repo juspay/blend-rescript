@@ -39,9 +39,9 @@ type dashStyleValue =
   | @as("ShortDot") ShortDot
   | @as("Solid") SolidStyleValue
 type alignValue =
+  | @as("right") Right
   | @as("left") Left
   | @as("center") Center
-  | @as("right") Right
 type verticalAlignValue =
   | @as("top") Top
   | @as("bottom") Bottom
@@ -77,9 +77,9 @@ type chartsXAxisTitleOptionsPosition3d =
   | @as("ortho") Ortho
 type axisTypeValue =
   | @as("linear") Linear
+  | @as("datetime") Datetime
   | @as("treegrid") Treegrid
   | @as("category") Category
-  | @as("datetime") Datetime
   | @as("logarithmic") Logarithmic
 type chartsSeriesSetState =
   | @as("") ValueSeriesSetState
@@ -208,8 +208,8 @@ type colorAxisTypeValue =
 type optionsColumnTypesValue =
   | @as("string") String
   | @as("number") Number
-  | @as("date") Date
   | @as("float") Float
+  | @as("date") Date
 type optionsDateFormatValue =
   | @as("dd/mm/YY") DdMmYY
   | @as("dd/mm/YYYY") DdMmYYYY
@@ -243,9 +243,9 @@ type optionsLegendSymbolValue =
   | @as("areaMarker") AreaMarker
   | @as("lineMarker") LineMarker
 type optionsStepValue =
+  | @as("right") Right
   | @as("left") Left
   | @as("center") Center
-  | @as("right") Right
 type optionsRelativeToValue =
   | @as("chart") Chart
   | @as("pane") Pane
@@ -255,13 +255,13 @@ type optionsCompareValue =
   | @as("value") ValueOptionsCompare
   | @as("percent") Percent
 type chartsSeriesArcdiagramOptionsLinkColorMode =
+  | @as("gradient") Gradient
   | @as("from") From
   | @as("to") To
-  | @as("gradient") Gradient
 type optionsPointIntervalUnitValue =
-  | @as("year") Year
   | @as("month") Month
   | @as("day") Day
+  | @as("year") Year
 type optionsStackingValue =
   | @as("normal") Normal
   | @as("percent") Percent
@@ -280,8 +280,8 @@ type optionsPointValKeyValue =
   | @as("low") Low
   | @as("close") Close
 type optionsOnKeyValue =
-  | @as("open") Open
   | @as("y") Y
+  | @as("open") Open
   | @as("high") High
   | @as("low") Low
   | @as("close") Close
@@ -290,9 +290,9 @@ type flagsShapeValue =
   | @as("flag") Flag
   | @as("squarepin") Squarepin
 type optionsTextAlignValue =
+  | @as("right") Right
   | @as("left") Left
   | @as("center") Center
-  | @as("right") Right
 type optionsHLCPointValKeyValue =
   | @as("high") High
   | @as("low") Low
@@ -308,8 +308,8 @@ type organizationHangingIndentTranslationValue =
   | @as("cumulative") Cumulative
   | @as("shrink") Shrink
 type chartsSeriesOrganizationOptionsHangingSide =
-  | @as("left") Left
   | @as("right") Right
+  | @as("left") Left
 type chartsPlotOrganizationLinkOptionsType =
   | @as("straight") Straight
   | @as("curved") Curved
@@ -389,14 +389,14 @@ type optionsAlgorithmValue =
   | @as("minmax") Minmax
 type rangeSelectorButtonTypeValue =
   | @as("all") All
-  | @as("year") Year
   | @as("month") Month
+  | @as("week") Week
   | @as("day") Day
+  | @as("year") Year
   | @as("hour") Hour
   | @as("minute") Minute
   | @as("second") Second
   | @as("millisecond") Millisecond
-  | @as("week") Week
   | @as("ytd") Ytd
 type optionsDropdownValue =
   | @as("always") Always
@@ -419,9 +419,9 @@ type optionsMapFunctionValue =
   | @as("logarithmic") Logarithmic
 type optionsWithinValue =
   | @as("chart") Chart
-  | @as("series") SeriesWithinValue
   | @as("xAxis") XAxis
   | @as("yAxis") YAxis
+  | @as("series") SeriesWithinValue
 type optionsValueMapFunctionValue =
   | @as("linear") Linear
   | @as("logarithmic") Logarithmic
@@ -447,21 +447,22 @@ type chartsBlendChartPropsConstructorType =
   | @as("width") Width
   | @as("height") Height
   | @as("color") Color
+  | @as("x") X
+  | @as("y") Y
   | @as("error") Error
+  | @as("offset") Offset
   | @as("open") Open
   | @as("end") End
   | @as("start") Start
+  | @as("backgroundSize") BackgroundSize
+  | @as("r") R
+  | @as("find") Find
   | @as("wrap") Wrap
-  | @as("x") X
-  | @as("y") Y
   | @as("circle") Circle
   | @as("triangle") Triangle
-  | @as("find") Find
-  | @as("backgroundSize") BackgroundSize
-  | @as("offset") Offset
-  | @as("format") Format
-  | @as("r") R
   | @as("chart") Chart
+  | @as("theme") Theme
+  | @as("format") Format
   | @as("animate") Animate
   | @as("arc") Arc
   | @as("callout") Callout
@@ -553,7 +554,6 @@ type chartsBlendChartPropsConstructorType =
   | @as("charts") Charts
   | @as("dateFormats") DateFormats
   | @as("defaultOptions") DefaultOptions
-  | @as("theme") Theme
   | @as("anchorX") AnchorX
   | @as("anchorY") AnchorY
   | @as("clockwise") Clockwise
@@ -574,25 +574,10 @@ type chartsChartTokensTypeHeaderConfig = {
   borderRadius: string,
   slots: chartsChartTokensTypeHeaderSlotsConfig,
 }
-type chartsChartTokensTypeContentLegendDropdownConfig = {
-  maxHeight: string,
-}
-type chartsChartTokensTypeContentLegendItemColorConfig = {
-  active: string,
-  default: string,
-  hover: string,
-  total: string,
-}
-type chartsChartTokensTypeContentLegendItemConfig = {
-  gap: string,
-  color: chartsChartTokensTypeContentLegendItemColorConfig,
-  fontSize: string,
-  fontWeight: string,
-}
 type chartsChartTokensTypeContentLegendConfig = {
   gap: string,
-  dropdown: chartsChartTokensTypeContentLegendDropdownConfig,
-  item: chartsChartTokensTypeContentLegendItemConfig,
+  dropdown: string, // ⚪ loose — was `{ maxHeight: MaxHeight<number | (string & {})>; }`
+  item: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; color: { active: Color; default: Color; hover: Color; total: Color; }; fon`
 }
 type chartsChartTokensTypeContentPaddingConfig = {
   top: string,
@@ -8865,17 +8850,17 @@ and unknownSeriesOptions<'a, 'b, 'c> = {
   className?: string,
   name?: string,
   id?: string,
+  description?: string,
   visible?: bool,
-  events?: seriesEventsOptionsObject<'a, 'b, 'c>,
-  index?: int,
   xAxis?: CommonTypes.stringOrNumber,
   yAxis?: CommonTypes.stringOrNumber,
+  events?: seriesEventsOptionsObject<'a, 'b, 'c>,
+  index?: int,
   accessibility?: seriesAccessibilityOptionsObject,
   zoomEnabled?: bool,
   showInLegend?: bool,
   stack?: CommonTypes.stringOrNumber,
   custom?: Dict.t<string>, // ⚪ loose — was `any`
-  description?: string,
   inactiveOtherPoints?: bool,
   includeInDataExport?: bool,
   legendSymbol?: optionsLegendSymbolValue,

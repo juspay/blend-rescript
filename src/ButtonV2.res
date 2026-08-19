@@ -1,6 +1,7 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameStyle,
   ...ButtonV2Types.buttonBaseProps,
+  justifyContent?: string,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

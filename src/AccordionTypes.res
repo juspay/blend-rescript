@@ -8,30 +8,13 @@ type accordionAccordionTokenTypeGapConfig = {
   border: string,
   noBorder: string,
 }
-type accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig = {
-  disabled: string,
-  active: string,
-  default: string,
-  hover: string,
-  @as("open") open_: string,
-}
 type accordionAccordionTokenTypeTriggerBackgroundColorConfig = {
-  border: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
-  noBorder: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
-}
-type accordionAccordionTokenTypeTriggerTextTitleConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
-}
-type accordionAccordionTokenTypeTriggerTextSubtextConfig = {
-  fontSize: string,
-  gap: string,
-  color: accordionAccordionTokenTypeTriggerBackgroundColorBorderConfig,
+  border: string, // ⚪ loose — was `{ disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; open: `
+  noBorder: string, // ⚪ loose — was `{ disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; open: `
 }
 type accordionAccordionTokenTypeTriggerTextConfig = {
-  title: accordionAccordionTokenTypeTriggerTextTitleConfig,
-  subtext: accordionAccordionTokenTypeTriggerTextSubtextConfig,
+  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
+  subtext: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; gap: Gap<number | (string & {})>; color: { disabled: Color; acti`
 }
 type accordionAccordionTokenTypeTriggerSlotConfig = {
   maxWidth: string,

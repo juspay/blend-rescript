@@ -36,40 +36,18 @@ type singleSelectSingleSelectTokensTypeErrorMessageConfig = {
 type singleSelectSingleSelectTokensTypeRequiredConfig = {
   color: string,
 }
-type singleSelectSingleSelectTokensTypeTriggerHeightSmConfig = {
+type singleSelectSingleSelectTokensTypeTriggerBoxShadowConfig = {
   container: string,
   @as("no-container") noContainer: string,
 }
 type singleSelectSingleSelectTokensTypeTriggerHeightConfig = {
-  sm: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
-  md: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
-  lg: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
-}
-type singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig = {
-  x: string,
-  y: string,
-}
-type singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig = {
-  container: singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig,
-  @as("no-container")
-  noContainer: singleSelectSingleSelectTokensTypeTriggerPaddingSmContainerConfig,
-}
-type singleSelectSingleSelectTokensTypeTriggerPaddingConfig = {
-  sm: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
-  md: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
-  lg: singleSelectSingleSelectTokensTypeTriggerPaddingSmConfig,
-}
-type singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig = {
-  hover: string,
-  error: string,
-  focus: string,
-  @as("open") open_: string,
-  closed: string,
+  sm: singleSelectSingleSelectTokensTypeTriggerBoxShadowConfig,
+  md: singleSelectSingleSelectTokensTypeTriggerBoxShadowConfig,
+  lg: singleSelectSingleSelectTokensTypeTriggerBoxShadowConfig,
 }
 type singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig = {
-  container: singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig,
-  @as("no-container")
-  noContainer: singleSelectSingleSelectTokensTypeTriggerBackgroundColorContainerConfig,
+  container: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
+  @as("no-container") noContainer: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
 }
 type singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig = {
   color: string,
@@ -78,35 +56,30 @@ type singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig = {
 }
 type singleSelectSingleSelectTokensTypeTriggerConfig = {
   height: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
-  padding: singleSelectSingleSelectTokensTypeTriggerPaddingConfig,
+  padding: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
   borderRadius: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
-  boxShadow: singleSelectSingleSelectTokensTypeTriggerHeightSmConfig,
+  boxShadow: singleSelectSingleSelectTokensTypeTriggerBoxShadowConfig,
   backgroundColor: singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig,
   outline: singleSelectSingleSelectTokensTypeTriggerBackgroundColorConfig,
   placeholder: singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig,
   selectedValue: singleSelectSingleSelectTokensTypeTriggerPlaceholderConfig,
-}
-type singleSelectSingleSelectTokensTypeMenuItemSeperatorConfig = {
-  color: string,
-  height: string,
-  margin: string,
 }
 type singleSelectSingleSelectTokensTypeMenuItemConfig = {
   padding: string,
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: singleSelectSingleSelectTokensTypeLabelColorConfig,
-  optionsLabel: singleSelectSingleSelectTokensTypeLabelConfig,
-  option: singleSelectSingleSelectTokensTypeLabelConfig,
-  description: singleSelectSingleSelectTokensTypeLabelConfig,
-  seperator: singleSelectSingleSelectTokensTypeMenuItemSeperatorConfig,
+  backgroundColor: string, // ⚪ loose — was `{ disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; focus:`
+  optionsLabel: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
+  option: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
+  description: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
+  seperator: string, // ⚪ loose — was `{ color: Color; height: Height<number | (string & {})>; margin: Margin<number | (string & {})>; }`
 }
 type singleSelectSingleSelectTokensTypeMenuConfig = {
   backgroundColor: string,
   border: string,
   borderRadius: string,
-  padding: singleSelectSingleSelectTokensTypeTriggerPaddingConfig,
+  padding: singleSelectSingleSelectTokensTypeTriggerHeightConfig,
   item: singleSelectSingleSelectTokensTypeMenuItemConfig,
 }
 type singleSelectSingleSelectTokensTypeDrawerHeaderConfig = {

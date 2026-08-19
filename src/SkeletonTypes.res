@@ -1,19 +1,19 @@
 type skeletonVariant =
+  | @as("shimmer") Shimmer
   | @as("pulse") Pulse
   | @as("wave") Wave
-  | @as("shimmer") Shimmer
 type skeletonAs =
+  | @as("label") Label
   | @as("button") Button
+  | @as("header") Header
+  | @as("footer") Footer
+  | @as("section") Section
   | @as("article") Article
   | @as("main") Main
-  | @as("label") Label
   | @as("div") Div
   | @as("nav") Nav
   | @as("span") Span
-  | @as("footer") Footer
-  | @as("header") Header
   | @as("hr") Hr
-  | @as("section") Section
 type skeletonShapeV27sir =
   | @as("circle") Circle
   | @as("rectangle") Rectangle
