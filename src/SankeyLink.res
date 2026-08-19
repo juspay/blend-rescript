@@ -7,9 +7,9 @@ type props = {
   targetControlX?: float,
   linkWidth?: float,
   index?: int,
-  payload?: ChartsSharedTypes.sankeyLink,
-  linkColors?: array<ChartsSharedTypes.stringOrChartsColorsConfig>,
-  onMouseEnter?: (ChartsSharedTypes.sankeyTooltipData, ReactEvent.Mouse.t) => unit,
+  payload?: HighchartsSharedTypes.sankeyLink,
+  linkColors?: array<HighchartsSharedTypes.stringOrChartsColorsConfig>,
+  onMouseEnter?: (HighchartsSharedTypes.sankeyTooltipData, ReactEvent.Mouse.t) => unit,
   onMouseLeave?: unit => unit,
 }
 

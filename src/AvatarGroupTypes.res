@@ -30,12 +30,17 @@ type avatarGroupAvatarGroupTokensTypeOverflowCounterBackgroundConfig = {
 type avatarGroupAvatarGroupTokensTypeOverflowCounterTextConfig = {
   color: string,
 }
+type avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig = {
+  width: string,
+  height: string,
+  fontSize: string,
+}
 type avatarGroupAvatarGroupTokensTypeOverflowCounterSizeConfig = {
-  sm: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  regular: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  md: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  lg: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  xl: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
+  sm: avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig,
+  regular: avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig,
+  md: avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig,
+  lg: avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig,
+  xl: avatarGroupAvatarGroupTokensTypeOverflowCounterSizeSmConfig,
 }
 type avatarGroupAvatarGroupTokensTypeOverflowCounterBorderRadiusConfig = {
   circular: string,
@@ -70,10 +75,10 @@ type avatarData = {
   src?: string,
   online?: bool,
   shape?: AvatarTypes.avatarShape,
-  skeleton?: AvatarTypes.avatarSkeletonConfig,
   onlinePosition?: AvatarTypes.avatarOnlinePosition,
   leadingSlot?: React.element,
   trailingSlot?: React.element,
+  skeleton?: AvatarTypes.avatarSkeletonConfig,
 }
 type avatarGroupSkeletonConfig = {
   show: bool,

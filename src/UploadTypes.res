@@ -6,13 +6,25 @@ type uploadState2 =
 type uploadUploadedFileWithStatusStatus =
   | @as("error") Error
   | @as("success") Success
+type uploadUploadTokenTypeHeaderLabelTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+}
 type uploadUploadTokenTypeHeaderLabelConfig = {
-  text: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
+  text: uploadUploadTokenTypeHeaderLabelTextConfig,
   marginBottom: string,
   gap: string,
 }
+type uploadUploadTokenTypeHeaderRequiredTextConfig = {
+  color: string,
+}
 type uploadUploadTokenTypeHeaderRequiredConfig = {
-  text: string, // ⚪ loose — was `{ color: Color; }`
+  text: uploadUploadTokenTypeHeaderRequiredTextConfig,
+  gap: string,
+}
+type uploadUploadTokenTypeHeaderSubLabelConfig = {
+  text: uploadUploadTokenTypeHeaderLabelTextConfig,
   gap: string,
 }
 type uploadUploadTokenTypeHeaderHelpIconConfig = {
@@ -22,7 +34,7 @@ type uploadUploadTokenTypeHeaderHelpIconConfig = {
 type uploadUploadTokenTypeHeaderConfig = {
   label: uploadUploadTokenTypeHeaderLabelConfig,
   required: uploadUploadTokenTypeHeaderRequiredConfig,
-  subLabel: uploadUploadTokenTypeHeaderRequiredConfig,
+  subLabel: uploadUploadTokenTypeHeaderSubLabelConfig,
   helpIcon: uploadUploadTokenTypeHeaderHelpIconConfig,
 }
 type uploadUploadTokenTypeContainerBorderConfig = {
@@ -32,10 +44,28 @@ type uploadUploadTokenTypeContainerBorderConfig = {
   error: string,
   dragActive: string,
 }
+type uploadUploadTokenTypeContainerContentSlotConfig = {
+  width: string,
+  gap: string,
+}
+type uploadUploadTokenTypeContainerContentTextTitleConfig = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+}
+type uploadUploadTokenTypeContainerContentTextConfig = {
+  title: uploadUploadTokenTypeContainerContentTextTitleConfig,
+  subtitle: uploadUploadTokenTypeContainerContentTextTitleConfig,
+  gap: string,
+}
+type uploadUploadTokenTypeContainerContentActionableConfig = {
+  gap: string,
+  errorText: uploadUploadTokenTypeContainerContentTextTitleConfig,
+}
 type uploadUploadTokenTypeContainerContentConfig = {
-  slot: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; gap: Gap<number | (string & {})>; }`
-  text: string, // ⚪ loose — was `{ title: { color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; }; subtitle: { co`
-  actionable: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; errorText: { color: Color; fontSize: FontSize<number | (string & {})>; fon`
+  slot: uploadUploadTokenTypeContainerContentSlotConfig,
+  text: uploadUploadTokenTypeContainerContentTextConfig,
+  actionable: uploadUploadTokenTypeContainerContentActionableConfig,
 }
 type uploadUploadTokenTypeContainerConfig = {
   border: uploadUploadTokenTypeContainerBorderConfig,

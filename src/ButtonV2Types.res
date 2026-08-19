@@ -21,29 +21,19 @@ type buttonV2GetButtonStatus =
   | @as("enabled") Enabled
   | @as("loading") Loading
 type buttonGroupPosition =
-  | @as("right") Right
   | @as("left") Left
   | @as("center") Center
-type buttonV2ResponsiveButtonV2TokensSmSlotMaxHeightConfig = {
-  sm: CommonTypes.stringOrNumber,
-  md: CommonTypes.stringOrNumber,
-  lg: CommonTypes.stringOrNumber,
-}
-type buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig = {
+  | @as("right") Right
+type buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryDefaultConfig = {
   default: string,
-  iconOnly: string,
-  inline: string,
-}
-type buttonV2ResponsiveButtonV2TokensSmFocusRingConfig = {
-  primary: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  secondary: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  danger: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  success: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
+  hover: string,
+  active: string,
+  disabled: string,
 }
 type buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig = {
-  default: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
-  iconOnly: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
-  inline: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
+  default: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryDefaultConfig,
+  iconOnly: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryDefaultConfig,
+  inline: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryDefaultConfig,
 }
 type buttonV2ResponsiveButtonV2TokensSmBackgroundColorConfig = {
   primary: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig,
@@ -51,27 +41,27 @@ type buttonV2ResponsiveButtonV2TokensSmBackgroundColorConfig = {
   danger: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig,
   success: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig,
 }
+type buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmPrimaryConfig = {
+  default: string,
+  iconOnly: string,
+  inline: string,
+}
 type buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmConfig = {
-  primary: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  secondary: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  danger: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
-  success: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
+  primary: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmPrimaryConfig,
+  secondary: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmPrimaryConfig,
+  danger: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmPrimaryConfig,
+  success: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmPrimaryConfig,
 }
 type buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig = {
   sm: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmConfig,
   md: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmConfig,
   lg: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmConfig,
 }
-type buttonV2ResponsiveButtonV2TokensSmPaddingTopConfig = {
-  sm: buttonV2ResponsiveButtonV2TokensSmFocusRingConfig,
-  md: buttonV2ResponsiveButtonV2TokensSmFocusRingConfig,
-  lg: buttonV2ResponsiveButtonV2TokensSmFocusRingConfig,
-}
 type buttonV2ResponsiveButtonV2TokensSmPaddingConfig = {
-  top: buttonV2ResponsiveButtonV2TokensSmPaddingTopConfig,
-  right: buttonV2ResponsiveButtonV2TokensSmPaddingTopConfig,
-  bottom: buttonV2ResponsiveButtonV2TokensSmPaddingTopConfig,
-  left: buttonV2ResponsiveButtonV2TokensSmPaddingTopConfig,
+  top: buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig,
+  right: buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig,
+  bottom: buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig,
+  left: buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig,
 }
 type buttonV2ResponsiveButtonV2TokensSmTextFontSizeConfig = {
   sm: string,
@@ -79,15 +69,13 @@ type buttonV2ResponsiveButtonV2TokensSmTextFontSizeConfig = {
   lg: string,
 }
 type buttonV2ResponsiveButtonV2TokensSmTextConfig = {
-  color: buttonV2ResponsiveButtonV2TokensSmBorderRadiusSmConfig,
+  color: buttonV2ResponsiveButtonV2TokensSmBackgroundColorConfig,
   fontSize: buttonV2ResponsiveButtonV2TokensSmTextFontSizeConfig,
   fontWeight: buttonV2ResponsiveButtonV2TokensSmTextFontSizeConfig,
   lineHeight: buttonV2ResponsiveButtonV2TokensSmTextFontSizeConfig,
 }
 type buttonV2ResponsiveButtonV2TokensSmConfig = {
   gap: string,
-  slotMaxHeight: buttonV2ResponsiveButtonV2TokensSmSlotMaxHeightConfig,
-  focusRing: buttonV2ResponsiveButtonV2TokensSmFocusRingConfig,
   backgroundColor: buttonV2ResponsiveButtonV2TokensSmBackgroundColorConfig,
   borderRadius: buttonV2ResponsiveButtonV2TokensSmBorderRadiusConfig,
   padding: buttonV2ResponsiveButtonV2TokensSmPaddingConfig,
@@ -127,10 +115,6 @@ type buttonGroupV2Props = {
   gap?: CommonTypes.stringOrNumber,
   children: React.element,
 }
-type buttonV2GetIconMaxHeightConfig = {
-  left: string,
-  right: string,
-}
 type buttonV2GetButtonBorderStylesConfig = {
   border?: string,
   borderTop?: string,
@@ -158,41 +142,24 @@ type buttonV2GetButtonPaddingConfig = {
   bottom: string,
   left: string,
 }
-type buttonV2Props = {
-  buttonType?: buttonV2Type,
-  size?: buttonV2Size,
-  subType?: buttonV2SubType,
-  text?: string,
-  leftSlot?: buttonSlot,
-  rightSlot?: buttonSlot,
-  loading?: bool,
-  skeleton?: buttonSkeleton,
-  buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  width?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
-  state?: buttonV2State,
-  justifyContent?: string,
-}
 type buttonV2TimelineShowMorePropsButtonPropsConfig = {
   width?: CommonTypes.stringOrNumber,
   size?: buttonV2Size,
   minWidth?: CommonTypes.stringOrNumber,
   maxWidth?: CommonTypes.stringOrNumber,
   leftSlot?: buttonSlot,
-  justifyContent?: string,
-  state?: buttonV2State,
   rightSlot?: buttonSlot,
   skeleton?: buttonSkeleton,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   buttonType?: buttonV2Type,
   subType?: buttonV2SubType,
   loading?: bool,
+  state?: buttonV2State,
 }
 module CardV2Actions = {
   type t
-  external fromButtonV2Props: buttonV2Props => t = "%identity"
-  external asButtonV2Props: t => buttonV2Props = "%identity"
-  external fromButtonV2Propss: array<buttonV2Props> => t = "%identity"
-  external asButtonV2Propss: t => array<buttonV2Props> = "%identity"
+  external fromButtonV2Props: buttonBaseProps => t = "%identity"
+  external asButtonV2Props: t => buttonBaseProps = "%identity"
+  external fromButtonV2Propss: array<buttonBaseProps> => t = "%identity"
+  external asButtonV2Propss: t => array<buttonBaseProps> = "%identity"
 }

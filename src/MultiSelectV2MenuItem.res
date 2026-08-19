@@ -1,9 +1,9 @@
 type props = {
-  item: ContextSharedTypes.multiSelectV2ItemType,
+  item: EditorSharedTypes.multiSelectV2ItemType,
   onSelect: string => unit,
   selected: array<string>,
   maxSelections?: float,
-  allItems?: array<ContextSharedTypes.multiSelectV2ItemType>,
+  allItems?: array<EditorSharedTypes.multiSelectV2ItemType>,
   index?: int,
   focusIdentityEnabled?: bool,
 }

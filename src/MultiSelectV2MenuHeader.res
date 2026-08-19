@@ -1,5 +1,5 @@
 type props = {
-  tokens: ContextSharedTypes.multiSelectV2TokensType,
+  tokens: EditorSharedTypes.multiSelectV2TokensType,
   showSearch: bool,
   showSearchWhenEmpty?: bool,
   itemsCount: float,
@@ -11,8 +11,8 @@ type props = {
   showSelectAll: bool,
   selected: array<string>,
   availableValues: array<string>,
-  filteredItems: array<ContextSharedTypes.multiSelectV2GroupType>,
-  onSelectAll?: (bool, array<ContextSharedTypes.multiSelectV2GroupType>) => unit,
+  filteredItems: array<EditorSharedTypes.multiSelectV2GroupType>,
+  onSelectAll?: (bool, array<EditorSharedTypes.multiSelectV2GroupType>) => unit,
   selectAllText?: string,
   disabled?: bool,
 }

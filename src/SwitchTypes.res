@@ -5,15 +5,36 @@ type switch_SwitchTokensTypeSwitchContainerHeightConfig = {
   sm: string,
   md: string,
 }
+type switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig = {
+  disabled: string,
+  default: string,
+  hover: string,
+  error: string,
+}
 type switch_SwitchTokensTypeSwitchContainerBackgroundColorConfig = {
-  active: string, // ⚪ loose — was `{ disabled: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; error: BackgroundColor; }`
-  inactive: string, // ⚪ loose — was `{ disabled: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; error: BackgroundColor; }`
+  active: switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig,
+  inactive: switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig,
+}
+type switch_SwitchTokensTypeSwitchContainerThumbBorderConfig = {
+  color: string,
+  width: string,
+}
+type switch_SwitchTokensTypeSwitchContainerThumbSizeSmConfig = {
+  width: string,
+  height: string,
+  top: string,
+  left: string,
+  offset: string, // ⚪ loose — was `{ active: Left<number | (string & {})>; inactive: Left<number | (string & {})>; }`
+}
+type switch_SwitchTokensTypeSwitchContainerThumbSizeConfig = {
+  sm: switch_SwitchTokensTypeSwitchContainerThumbSizeSmConfig,
+  md: switch_SwitchTokensTypeSwitchContainerThumbSizeSmConfig,
 }
 type switch_SwitchTokensTypeSwitchContainerThumbConfig = {
   backgroundColor: string,
-  border: string, // ⚪ loose — was `{ color: BorderColor; width: BorderWidth<number | (string & {})>; }`
-  borderRadius: string, // ⚪ loose — was `{ sm: BorderRadius<number | (string & {})>; md: BorderRadius<number | (string & {})>; }`
-  size: string, // ⚪ loose — was `{ sm: { width: Width<number | (string & {})>; height: Height<number | (string & {})>; top: Top<number | (strin`
+  border: switch_SwitchTokensTypeSwitchContainerThumbBorderConfig,
+  borderRadius: switch_SwitchTokensTypeSwitchContainerHeightConfig,
+  size: switch_SwitchTokensTypeSwitchContainerThumbSizeConfig,
   outline: string,
   outlineOffset: string,
   boxShadow: string,
@@ -26,15 +47,15 @@ type switch_SwitchTokensTypeSwitchContainerConfig = {
   thumb: switch_SwitchTokensTypeSwitchContainerThumbConfig,
 }
 type switch_SwitchTokensTypeContentLabelConfig = {
-  color: string, // ⚪ loose — was `{ disabled: Color; default: Color; hover: Color; error: Color; }`
-  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; }`
-  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; }`
+  color: switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig,
+  fontSize: switch_SwitchTokensTypeSwitchContainerHeightConfig,
+  fontWeight: switch_SwitchTokensTypeSwitchContainerHeightConfig,
   gap: string,
 }
 type switch_SwitchTokensTypeContentSubtextConfig = {
-  color: string, // ⚪ loose — was `{ disabled: Color; default: Color; hover: Color; error: Color; }`
-  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; }`
-  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; }`
+  color: switch_SwitchTokensTypeSwitchContainerBackgroundColorActiveConfig,
+  fontSize: switch_SwitchTokensTypeSwitchContainerHeightConfig,
+  fontWeight: switch_SwitchTokensTypeSwitchContainerHeightConfig,
 }
 type switch_SwitchTokensTypeContentConfig = {
   label: switch_SwitchTokensTypeContentLabelConfig,

@@ -1,8 +1,8 @@
 type props = {
-  ...ContextSharedTypes.menuListSharedProps,
-  flattenedItems: array<ContextSharedTypes.flattenedItem>,
+  ...EditorSharedTypes.menuListSharedProps,
+  flattenedItems: array<EditorSharedTypes.flattenedItem>,
   virtualViewportHeight: float,
-  virtualItems: array<ContextSharedTypes.virtualItemShape>,
+  virtualItems: array<EditorSharedTypes.virtualItemShape>,
   totalSize: float,
   measureElement: Nullable.t<Dom.element> => unit,
   loadingComponent?: React.element,

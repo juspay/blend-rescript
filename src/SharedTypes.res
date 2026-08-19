@@ -1,7 +1,7 @@
 type pickerGranularity =
+  | @as("year") Year
   | @as("month") Month
   | @as("day") Day
-  | @as("year") Year
 type timeFormat =
   | @as("12h") V12h
   | @as("24h") V24h

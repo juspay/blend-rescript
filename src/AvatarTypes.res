@@ -10,20 +10,24 @@ type avatarShape =
 type avatarOnlinePosition =
   | @as("top") Top
   | @as("bottom") Bottom
-type avatarAvatarTokensTypeContainerSizeConfig = {
-  sm: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  regular: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  md: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  lg: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
-  xl: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
+type avatarAvatarTokensTypeContainerSizeSmConfig = {
+  width: string,
+  height: string,
 }
-type avatarAvatarTokensTypeTextColorConfig = {
+type avatarAvatarTokensTypeContainerSizeConfig = {
+  sm: avatarAvatarTokensTypeContainerSizeSmConfig,
+  regular: avatarAvatarTokensTypeContainerSizeSmConfig,
+  md: avatarAvatarTokensTypeContainerSizeSmConfig,
+  lg: avatarAvatarTokensTypeContainerSizeSmConfig,
+  xl: avatarAvatarTokensTypeContainerSizeSmConfig,
+}
+type avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig = {
   default: string,
   online: string,
 }
 type avatarAvatarTokensTypeContainerBackgroundColorConfig = {
-  withImage: avatarAvatarTokensTypeTextColorConfig,
-  withoutImage: avatarAvatarTokensTypeTextColorConfig,
+  withImage: avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig,
+  withoutImage: avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig,
 }
 type avatarAvatarTokensTypeContainerBorderRadiusConfig = {
   circular: string,
@@ -43,20 +47,35 @@ type avatarAvatarTokensTypeTextFontSizeConfig = {
   xl: string,
 }
 type avatarAvatarTokensTypeTextConfig = {
-  color: avatarAvatarTokensTypeTextColorConfig,
+  color: avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig,
   fontSize: avatarAvatarTokensTypeTextFontSizeConfig,
   fontWeight: avatarAvatarTokensTypeTextFontSizeConfig,
 }
+type avatarAvatarTokensTypeIndicatorBorderSmDefaultConfig = {
+  color: string,
+  width: string,
+}
+type avatarAvatarTokensTypeIndicatorBorderSmConfig = {
+  default: avatarAvatarTokensTypeIndicatorBorderSmDefaultConfig,
+  online: avatarAvatarTokensTypeIndicatorBorderSmDefaultConfig,
+}
+type avatarAvatarTokensTypeIndicatorBorderConfig = {
+  sm: avatarAvatarTokensTypeIndicatorBorderSmConfig,
+  regular: avatarAvatarTokensTypeIndicatorBorderSmConfig,
+  md: avatarAvatarTokensTypeIndicatorBorderSmConfig,
+  lg: avatarAvatarTokensTypeIndicatorBorderSmConfig,
+  xl: avatarAvatarTokensTypeIndicatorBorderSmConfig,
+}
 type avatarAvatarTokensTypeIndicatorConfig = {
-  backgroundColor: avatarAvatarTokensTypeTextColorConfig,
-  border: avatarAvatarTokensTypeContainerSizeConfig,
+  backgroundColor: avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig,
+  border: avatarAvatarTokensTypeIndicatorBorderConfig,
   size: avatarAvatarTokensTypeContainerSizeConfig,
   borderRadius: string,
   boxShadow: string,
 }
 type avatarAvatarTokensTypeSlotConfig = {
   spacing: string,
-  color: avatarAvatarTokensTypeTextColorConfig,
+  color: avatarAvatarTokensTypeContainerBackgroundColorWithImageConfig,
 }
 type avatarTokensType = {
   gap: string,

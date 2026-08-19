@@ -9,20 +9,52 @@ type chartsV2ChartV2TokensTypeHeaderConfig = {
   backgroundColor: string,
   borderBottom: string,
 }
+type chartsV2ChartV2TokensTypeLegendsLegendItemShapeConfig = {
+  width: string,
+  height: string,
+  borderRadius: string,
+}
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig = {
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+  color: string,
+}
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextSeparatorConfig = {
+  color: string,
+  width: string,
+  height: string,
+}
+type chartsV2ChartV2TokensTypeLegendsLegendItemTextConfig = {
+  gap: string,
+  name: chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig,
+  value: chartsV2ChartV2TokensTypeLegendsLegendItemTextNameConfig,
+  separator: chartsV2ChartV2TokensTypeLegendsLegendItemTextSeparatorConfig,
+}
 type chartsV2ChartV2TokensTypeLegendsLegendItemConfig = {
   gap: string,
-  shape: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; borderRadius: BorderRadius<num`
-  text: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; name: { fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight`
+  shape: chartsV2ChartV2TokensTypeLegendsLegendItemShapeConfig,
+  text: chartsV2ChartV2TokensTypeLegendsLegendItemTextConfig,
 }
 type chartsV2ChartV2TokensTypeLegendsConfig = {
   gap: string,
   legendItem: chartsV2ChartV2TokensTypeLegendsLegendItemConfig,
 }
+type chartsV2ChartV2TokensTypeChartXAxisTitleConfig = {
+  fontSize: string,
+  color: string,
+  fontWeight: string,
+  lineHeight: string,
+}
+type chartsV2ChartV2TokensTypeChartXAxisLineConfig = {
+  width: string,
+  color: string,
+}
 type chartsV2ChartV2TokensTypeChartXAxisConfig = {
-  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; fontWeight: FontWeight; lineHeight: LineHeight<num`
-  labels: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; color: Color; fontWeight: FontWeight; lineHeight: LineHeight<num`
-  line: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; color: Color; }`
-  gridLine: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; color: Color; }`
+  title: chartsV2ChartV2TokensTypeChartXAxisTitleConfig,
+  labels: chartsV2ChartV2TokensTypeChartXAxisTitleConfig,
+  line: chartsV2ChartV2TokensTypeChartXAxisLineConfig,
+  gridLine: chartsV2ChartV2TokensTypeChartXAxisLineConfig,
 }
 type chartsV2ChartV2TokensTypeChartConfig = {
   backgroundColor: string,

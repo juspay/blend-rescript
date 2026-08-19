@@ -14,15 +14,22 @@ type selectorV2SwitchV2TokensTypeSwitchHeightConfig = {
   md: string,
   lg: string,
 }
+type selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig = {
+  default: string,
+  hover: string,
+  focus: string,
+  error: string,
+  disabled: string,
+}
 type selectorV2SwitchV2TokensTypeSwitchBackgroundColorConfig = {
-  checked: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: BackgroundColor; disabled: `
-  unchecked: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: BackgroundColor; disabled: `
+  checked: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+  unchecked: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
 }
 type selectorV2SwitchV2TokensTypeSwitchThumbConfig = {
   backgroundColor: string,
   border: string,
-  width: string, // ⚪ loose — was `{ sm: Width<number | (string & {})>; md: Width<number | (string & {})>; lg: Width<number | (string & {})>; }`
-  height: string, // ⚪ loose — was `{ sm: Height<number | (string & {})>; md: Height<number | (string & {})>; lg: Height<number | (string & {})>; `
+  width: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  height: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
   outline: string,
 }
 type selectorV2SwitchV2TokensTypeSwitchConfig = {
@@ -31,19 +38,22 @@ type selectorV2SwitchV2TokensTypeSwitchConfig = {
   backgroundColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorConfig,
   thumb: selectorV2SwitchV2TokensTypeSwitchThumbConfig,
 }
+type selectorV2SwitchV2TokensTypeContentLabelSlotConfig = {
+  maxHeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+}
 type selectorV2SwitchV2TokensTypeContentLabelConfig = {
   gap: string,
-  color: string, // ⚪ loose — was `{ default: Color; hover: Color; focus: Color; error: Color; disabled: Color; }`
-  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
-  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; lg: FontWeight; }`
-  lineHeight: string, // ⚪ loose — was `{ sm: LineHeight<number | (string & {})>; md: LineHeight<number | (string & {})>; lg: LineHeight<number | (str`
-  slot: string, // ⚪ loose — was `{ maxHeight: { sm: MaxHeight<number | (string & {})>; md: MaxHeight<number | (string & {})>; lg: MaxHeight<num`
+  color: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+  fontSize: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  fontWeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  lineHeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  slot: selectorV2SwitchV2TokensTypeContentLabelSlotConfig,
 }
 type selectorV2SwitchV2TokensTypeContentSubLabelConfig = {
-  color: string, // ⚪ loose — was `{ default: Color; hover: Color; focus: Color; error: Color; disabled: Color; }`
-  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
-  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; lg: FontWeight; }`
-  lineHeight: string, // ⚪ loose — was `{ sm: LineHeight<number | (string & {})>; md: LineHeight<number | (string & {})>; lg: LineHeight<number | (str`
+  color: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+  fontSize: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  fontWeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  lineHeight: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
 }
 type selectorV2SwitchV2TokensTypeContentRequiredConfig = {
   color: string,
@@ -63,16 +73,32 @@ type responsiveSwitchV2Tokens = {
   sm: switchV2TokensType,
   lg: switchV2TokensType,
 }
+type selectorV2CheckboxV2TokensTypeCheckboxBackgroundColorCheckedConfig = {
+  default?: string,
+  hover?: string,
+  focus?: string,
+  error?: string,
+  disabled?: string,
+}
 type selectorV2CheckboxV2TokensTypeCheckboxBackgroundColorConfig = {
-  checked?: string, // ⚪ loose — was `{ default?: BackgroundColor; hover?: BackgroundColor; focus?: BackgroundColor; error?: BackgroundColor; disabl`
-  unchecked?: string, // ⚪ loose — was `{ default?: BackgroundColor; hover?: BackgroundColor; focus?: BackgroundColor; error?: BackgroundColor; disabl`
-  indeterminate?: string, // ⚪ loose — was `{ default?: BackgroundColor; hover?: BackgroundColor; focus?: BackgroundColor; error?: BackgroundColor; disabl`
+  checked?: selectorV2CheckboxV2TokensTypeCheckboxBackgroundColorCheckedConfig,
+  unchecked?: selectorV2CheckboxV2TokensTypeCheckboxBackgroundColorCheckedConfig,
+  indeterminate?: selectorV2CheckboxV2TokensTypeCheckboxBackgroundColorCheckedConfig,
+}
+type selectorV2CheckboxV2TokensTypeCheckboxIconColorCheckedConfig = {
+  default?: string,
+  disabled?: string,
+}
+type selectorV2CheckboxV2TokensTypeCheckboxIconColorConfig = {
+  checked?: selectorV2CheckboxV2TokensTypeCheckboxIconColorCheckedConfig,
+  unchecked?: selectorV2CheckboxV2TokensTypeCheckboxIconColorCheckedConfig,
+  indeterminate?: selectorV2CheckboxV2TokensTypeCheckboxIconColorCheckedConfig,
 }
 type selectorV2CheckboxV2TokensTypeCheckboxIconConfig = {
-  color: string, // ⚪ loose — was `{ checked?: { default?: Color; disabled?: Color; }; unchecked?: { default?: Color; disabled?: Color; }; indete`
-  width: string, // ⚪ loose — was `{ sm: Width<number | (string & {})>; md: Width<number | (string & {})>; lg: Width<number | (string & {})>; }`
-  height: string, // ⚪ loose — was `{ sm: Height<number | (string & {})>; md: Height<number | (string & {})>; lg: Height<number | (string & {})>; `
-  strokeWidth: string, // ⚪ loose — was `{ sm: StrokeWidth<number | (string & {})>; md: StrokeWidth<number | (string & {})>; lg: StrokeWidth<number | (`
+  color: selectorV2CheckboxV2TokensTypeCheckboxIconColorConfig,
+  width: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  height: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
+  strokeWidth: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
 }
 type selectorV2CheckboxV2TokensTypeCheckboxConfig = {
   height: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
@@ -98,18 +124,41 @@ type responsiveCheckboxV2Tokens = {
 type selectorV2RadioV2TokensTypeGroupConfig = {
   gap: string,
 }
+type selectorV2RadioV2TokensTypeRadioIndicatorActiveConfig = {
+  backgroundColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+  borderColor: selectorV2SwitchV2TokensTypeSwitchBackgroundColorCheckedConfig,
+}
 type selectorV2RadioV2TokensTypeRadioIndicatorConfig = {
-  active: string, // ⚪ loose — was `{ backgroundColor: { default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: Backgrou`
-  inactive: string, // ⚪ loose — was `{ backgroundColor: { default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: Backgrou`
+  active: selectorV2RadioV2TokensTypeRadioIndicatorActiveConfig,
+  inactive: selectorV2RadioV2TokensTypeRadioIndicatorActiveConfig,
+}
+type selectorV2RadioV2TokensTypeRadioActiveIndicatorActiveBackgroundColorConfig = {
+  default: string,
+  focus: string,
+  disabled: string,
+}
+type selectorV2RadioV2TokensTypeRadioActiveIndicatorActiveConfig = {
+  backgroundColor: selectorV2RadioV2TokensTypeRadioActiveIndicatorActiveBackgroundColorConfig,
 }
 type selectorV2RadioV2TokensTypeRadioActiveIndicatorConfig = {
-  active: string, // ⚪ loose — was `{ backgroundColor: { default: BackgroundColor; focus: BackgroundColor; disabled: BackgroundColor; }; }`
+  active: selectorV2RadioV2TokensTypeRadioActiveIndicatorActiveConfig,
+}
+type selectorV2RadioV2TokensTypeRadioBorderWidthActiveConfig = {
+  default: float,
+  hover: float,
+  focus: float,
+  error: float,
+  disabled: float,
+}
+type selectorV2RadioV2TokensTypeRadioBorderWidthConfig = {
+  active: selectorV2RadioV2TokensTypeRadioBorderWidthActiveConfig,
+  inactive: selectorV2RadioV2TokensTypeRadioBorderWidthActiveConfig,
 }
 type selectorV2RadioV2TokensTypeRadioConfig = {
   indicator: selectorV2RadioV2TokensTypeRadioIndicatorConfig,
   activeIndicator: selectorV2RadioV2TokensTypeRadioActiveIndicatorConfig,
   height: selectorV2SwitchV2TokensTypeSwitchHeightConfig,
-  borderWidth: selectorV2RadioV2TokensTypeRadioIndicatorConfig,
+  borderWidth: selectorV2RadioV2TokensTypeRadioBorderWidthConfig,
 }
 type radioV2TokensType = {
   gap: string,
