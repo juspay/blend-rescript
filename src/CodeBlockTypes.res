@@ -40,34 +40,21 @@ type codeBlockCodeBlockTokenTypeHeaderConfig = {
   icon: codeBlockCodeBlockTokenTypeHeaderIconConfig,
   text: codeBlockCodeBlockTokenTypeHeaderTextConfig,
 }
-type codeBlockCodeBlockTokenTypeBodyGutterBackgroundColorConfig = {
-  added: string,
-  removed: string,
-  unchanged: string,
-}
 type codeBlockCodeBlockTokenTypeBodyGutterConfig = {
   width: string,
   color: string,
-  backgroundColor: codeBlockCodeBlockTokenTypeBodyGutterBackgroundColorConfig,
-  borderLeft: codeBlockCodeBlockTokenTypeBodyGutterBackgroundColorConfig,
-  borderColor: codeBlockCodeBlockTokenTypeBodyGutterBackgroundColorConfig,
-}
-type codeBlockCodeBlockTokenTypeBodyCodePaddingXConfig = {
-  left: string,
-  right: string,
-}
-type codeBlockCodeBlockTokenTypeBodyCodePaddingConfig = {
-  x: codeBlockCodeBlockTokenTypeBodyCodePaddingXConfig,
-  y: string,
+  backgroundColor: string, // ⚪ loose — was `{ added: BackgroundColor; removed: BackgroundColor; unchanged: BackgroundColor; }`
+  borderLeft: string, // ⚪ loose — was `{ added: BorderLeft<number | (string & {})>; removed: BorderLeft<number | (string & {})>; unchanged: BorderLef`
+  borderColor: string, // ⚪ loose — was `{ added: Color; removed: Color; unchanged: Color; }`
 }
 type codeBlockCodeBlockTokenTypeBodyCodeConfig = {
   fontFamily: string,
   fontSize: string,
   lineHeight: string,
-  padding: codeBlockCodeBlockTokenTypeBodyCodePaddingConfig,
+  padding: string, // ⚪ loose — was `{ x: { left: PaddingLeft<number | (string & {})>; right: PaddingRight<number | (string & {})>; }; y: Padding<n`
 }
 type codeBlockCodeBlockTokenTypeBodyHighlightedLineConfig = {
-  backgroundColor: codeBlockCodeBlockTokenTypeBodyGutterBackgroundColorConfig,
+  backgroundColor: string, // ⚪ loose — was `{ added: BackgroundColor; removed: BackgroundColor; unchanged: BackgroundColor; }`
 }
 type codeBlockCodeBlockTokenTypeBodySyntaxConfig = {
   keyword: string,
@@ -79,15 +66,6 @@ type codeBlockCodeBlockTokenTypeBodySyntaxConfig = {
   comment: string,
   text: string,
 }
-type codeBlockCodeBlockTokenTypeBodyExpandContextButtonConfig = {
-  padding: string,
-  dotsPadding: string,
-  opacity: string,
-  disabledOpacity: string,
-  hoverBackgroundColor: string,
-  borderRadius: string,
-  iconSize: float,
-}
 type codeBlockCodeBlockTokenTypeBodyExpandContextConfig = {
   backgroundColor: string,
   borderTop: string,
@@ -96,7 +74,7 @@ type codeBlockCodeBlockTokenTypeBodyExpandContextConfig = {
   color: string,
   fontSize: string,
   letterSpacing: string,
-  button: codeBlockCodeBlockTokenTypeBodyExpandContextButtonConfig,
+  button: string, // ⚪ loose — was `{ padding: Padding<number | (string & {})>; dotsPadding: Padding<number | (string & {})>; opacity: Opacity; di`
 }
 type codeBlockCodeBlockTokenTypeBodyConfig = {
   padding: codeBlockCodeBlockTokenTypeHeaderPaddingConfig,

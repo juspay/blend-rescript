@@ -20,32 +20,26 @@ type snackbarResponsiveSnackbarTokensSmInfoIconConfig = {
   color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
   height: string, // ⚪ loose — was `number | (string & {}) | "-moz-initial" | "inherit" | "initial" | "revert" | "revert-layer" | "unset" | "-moz-`
 }
-type snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig = {
-  color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
-  fontSize: string,
-  fontWeight: string,
-  lineHeight: string,
-}
-type snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig = {
-  color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
-  fontSize: string,
-  fontWeight: string,
-}
 type snackbarResponsiveSnackbarTokensSmContentTextContainerConfig = {
   gap: string,
-  header: snackbarResponsiveSnackbarTokensSmContentTextContainerHeaderConfig,
-  description: snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig,
+  header: string, // ⚪ loose — was `{ color: { info: Color; success: Color; warning: Color; error: Color; }; fontSize: FontSize<number | (string &`
+  description: string, // ⚪ loose — was `{ color: { info: Color; success: Color; warning: Color; error: Color; }; fontSize: FontSize<number | (string &`
 }
 type snackbarResponsiveSnackbarTokensSmContentConfig = {
   gap: string,
   textContainer: snackbarResponsiveSnackbarTokensSmContentTextContainerConfig,
+}
+type snackbarResponsiveSnackbarTokensSmActionsPrimaryActionConfig = {
+  color: string, // ⚪ loose — was `{ info: Color; success: Color; warning: Color; error: Color; }`
+  fontSize: string,
+  fontWeight: string,
 }
 type snackbarResponsiveSnackbarTokensSmActionsCloseButtonConfig = {
   height: string, // ⚪ loose — was `number | (string & {}) | "-moz-initial" | "inherit" | "initial" | "revert" | "revert-layer" | "unset" | "-moz-`
   color: snackbarResponsiveSnackbarTokensSmInfoIconColorConfig,
 }
 type snackbarResponsiveSnackbarTokensSmActionsConfig = {
-  primaryAction: snackbarResponsiveSnackbarTokensSmContentTextContainerDescriptionConfig,
+  primaryAction: snackbarResponsiveSnackbarTokensSmActionsPrimaryActionConfig,
   closeButton: snackbarResponsiveSnackbarTokensSmActionsCloseButtonConfig,
 }
 type snackbarResponsiveSnackbarTokensSmConfig = {

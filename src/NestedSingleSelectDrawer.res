@@ -14,7 +14,7 @@ type props = {
   onCancel?: unit => unit,
   onConfirm?: unit => unit,
   showCancelButton?: bool,
-  direction?: EditorSharedTypes.dateRangePickerDateRangePickerPopoverConfigSide,
+  direction?: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide,
   modal?: bool,
   dismissible?: bool,
   mobileOffset?: DrawerTypes.drawerMobileOffsetConfig,

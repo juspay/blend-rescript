@@ -4,10 +4,10 @@ type props = {
   width?: float,
   height?: float,
   index?: int,
-  payload?: HighchartsSharedTypes.chartsPayloadConfig,
+  payload?: ChartsSharedTypes.chartsPayloadConfig,
   containerWidth?: float,
-  nodeColors?: array<HighchartsSharedTypes.stringOrChartsColorsConfig>,
-  onMouseEnter?: (HighchartsSharedTypes.sankeyTooltipData, ReactEvent.Mouse.t) => unit,
+  nodeColors?: array<ChartsSharedTypes.stringOrChartsColorsConfig>,
+  onMouseEnter?: (ChartsSharedTypes.sankeyTooltipData, ReactEvent.Mouse.t) => unit,
   onMouseLeave?: unit => unit,
 }
 

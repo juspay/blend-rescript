@@ -1,5 +1,5 @@
 type props = {
-  ...EditorSharedTypes.menuV2Props,
+  ...ContextSharedTypes.menuV2Props,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

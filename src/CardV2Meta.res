@@ -1,8 +1,8 @@
 type props = {
   title?: React.element,
   subtitle?: React.element,
-  truncateTitle?: bool,
   eyebrow?: React.element,
+  truncateTitle?: bool,
   centered?: bool,
 }
 

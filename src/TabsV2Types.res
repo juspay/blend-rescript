@@ -18,30 +18,10 @@ type tabsV2TabsV2TokensTypeTabListBorderRadiusConfig = {
   md: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   lg: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
 }
-type tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig = {
-  top: string,
-  right: string,
-  bottom: string,
-  left: string,
-}
-type tabsV2TabsV2TokensTypeTabListPaddingSmConfig = {
-  boxed: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  floating: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  underline: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  pills: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-}
-type tabsV2TabsV2TokensTypeTabListPaddingConfig = {
-  sm: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
-  md: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
-  lg: tabsV2TabsV2TokensTypeTabListPaddingSmConfig,
-}
-type tabsV2TabsV2TokensTypeTabListActiveIndicatorPositionConfig = {
-  bottom: string,
-}
 type tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig = {
   height: string,
   color: string,
-  position: tabsV2TabsV2TokensTypeTabListActiveIndicatorPositionConfig,
+  position: string, // ⚪ loose — was `{ bottom: Bottom<number | (string & {})>; }`
   transition: string,
   zIndex: string,
 }
@@ -49,63 +29,22 @@ type tabsV2TabsV2TokensTypeTabListStickyHeaderConfig = {
   boxShadow: string,
   zIndex: string,
 }
-type tabsV2TabsV2TokensTypeTabListTriggerIconConfig = {
-  maxWidth: string,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig = {
-  disabled: string,
-  active: string,
-  default: string,
-  hover: string,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig = {
-  boxed: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
-  floating: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
-  underline: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
-  pills: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig = {
-  boxed: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  floating: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  underline: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-  pills: tabsV2TabsV2TokensTypeTabListPaddingSmBoxedConfig,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerPaddingConfig = {
-  sm: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
-  md: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
-  lg: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerTextConfig = {
-  color: tabsV2TabsV2TokensTypeTabListTriggerPaddingSmConfig,
-  fontSize: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
-  fontWeight: tabsV2TabsV2TokensTypeTabListTriggerTextFontSizeConfig,
-}
-type tabsV2TabsV2TokensTypeTabListTriggerCloseButtonConfig = {
-  width: string,
-  borderRadius: string,
-  backgroundColor: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorBoxedConfig,
-}
 type tabsV2TabsV2TokensTypeTabListTriggerConfig = {
   gap: string,
-  icon: tabsV2TabsV2TokensTypeTabListTriggerIconConfig,
-  backgroundColor: tabsV2TabsV2TokensTypeTabListTriggerBackgroundColorConfig,
-  borderRadius: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
-  border: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
-  padding: tabsV2TabsV2TokensTypeTabListTriggerPaddingConfig,
-  text: tabsV2TabsV2TokensTypeTabListTriggerTextConfig,
-  closeButton: tabsV2TabsV2TokensTypeTabListTriggerCloseButtonConfig,
+  icon: string, // ⚪ loose — was `{ maxWidth: MaxWidth<number | (string & {})>; }`
+  backgroundColor: string, // ⚪ loose — was `{ boxed: { disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColo`
+  borderRadius: string, // ⚪ loose — was `{ sm: { boxed: BorderRadius<number | (string & {})>; floating: BorderRadius<number | (string & {})>; underline`
+  border: string, // ⚪ loose — was `{ boxed: Border<number | (string & {})>; floating: Border<number | (string & {})>; underline: Border<number | `
+  padding: string, // ⚪ loose — was `{ sm: { boxed: { top: PaddingTop<number | (string & {})>; right: PaddingRight<number | (string & {})>; bottom:`
+  text: string, // ⚪ loose — was `{ color: { boxed: { disabled: Color; active: Color; default: Color; hover: Color; }; floating: { disabled: Col`
+  closeButton: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; borderRadius: BorderRadius<number | (string & {})>; backgroundColor: {`
   transition: string,
 }
 type tabsV2TabsV2TokensTypeTabListConfig = {
   gap: string,
   backgroundColor: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   borderRadius: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
-  padding: tabsV2TabsV2TokensTypeTabListPaddingConfig,
+  padding: tabsV2TabsV2TokensTypeTabListBorderRadiusConfig,
   borderBottom: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   activeIndicator: tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig,
   stickyHeader: tabsV2TabsV2TokensTypeTabListStickyHeaderConfig,

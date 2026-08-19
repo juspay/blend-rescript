@@ -22,23 +22,18 @@ type popoverV2PopoverV2TokenTypePaddingConfig = {
   top: popoverV2PopoverV2TokenTypeGapConfig,
   bottom: popoverV2PopoverV2TokenTypeGapConfig,
 }
-type popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig = {
-  sm: string, // ⚠️ REVIEW — was `string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>` — match the real type by hand
-  md: string, // ⚠️ REVIEW — was `string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>` — match the real type by hand
-  lg: string, // ⚠️ REVIEW — was `string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>` — match the real type by hand
-}
 type popoverV2PopoverV2TokenTypeTopContainerHeadingConfig = {
   color: string,
-  fontSize: popoverV2PopoverV2TokenTypeGapConfig,
-  fontWeight: popoverV2PopoverV2TokenTypeGapConfig,
-  lineHeight: popoverV2PopoverV2TokenTypeGapConfig,
-  @as("IconSize") iconSize: popoverV2PopoverV2TokenTypeTopContainerHeadingIconSizeConfig,
+  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
+  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; lg: FontWeight; }`
+  lineHeight: string, // ⚪ loose — was `{ sm: LineHeight<number | (string & {})>; md: LineHeight<number | (string & {})>; lg: LineHeight<number | (str`
+  @as("IconSize") iconSize: string, // ⚪ loose — was `{ sm: string | number | RuleSet<any> | StyledObject<BaseObject> | StyleFunction<BaseObject>; md: string | numb`
 }
 type popoverV2PopoverV2TokenTypeTopContainerDescriptionConfig = {
   color: string,
-  fontSize: popoverV2PopoverV2TokenTypeGapConfig,
-  fontWeight: popoverV2PopoverV2TokenTypeGapConfig,
-  lineHeight: popoverV2PopoverV2TokenTypeGapConfig,
+  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
+  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; lg: FontWeight; }`
+  lineHeight: string, // ⚪ loose — was `{ sm: LineHeight<number | (string & {})>; md: LineHeight<number | (string & {})>; lg: LineHeight<number | (str`
 }
 type popoverV2PopoverV2TokenTypeTopContainerConfig = {
   gap: popoverV2PopoverV2TokenTypeGapConfig,
@@ -70,6 +65,7 @@ type popoverV2ActionType = {
   onClick?: option<ReactEvent.Mouse.t> => unit,
   text?: string,
   justifyContent?: string,
+  state?: ButtonTypes.buttonState,
   buttonType?: ButtonTypes.buttonType,
   leadingIcon?: React.element,
   trailingIcon?: React.element,
@@ -77,7 +73,6 @@ type popoverV2ActionType = {
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   fullWidth?: bool,
-  state?: ButtonTypes.buttonState,
 }
 type bodySkeletonV2Props = {
   show?: bool,
