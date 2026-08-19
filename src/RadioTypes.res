@@ -4,48 +4,38 @@ type radioSize =
 type radioResponsiveRadioTokensSmGroupConfig = {
   gap: string,
 }
-type radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig = {
-  disabled: string,
-  default: string,
-  hover: string,
-  error: string,
-}
 type radioResponsiveRadioTokensSmIndicatorActiveConfig = {
-  backgroundColor: radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig,
-  borderColor: radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig,
+  backgroundColor: string, // ⚪ loose — was `{ disabled: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; error: BackgroundColor; }`
+  borderColor: string, // ⚪ loose — was `{ disabled: BorderColor; default: BorderColor; hover: BorderColor; error: BorderColor; }`
 }
 type radioResponsiveRadioTokensSmIndicatorConfig = {
   active: radioResponsiveRadioTokensSmIndicatorActiveConfig,
   inactive: radioResponsiveRadioTokensSmIndicatorActiveConfig,
 }
-type radioResponsiveRadioTokensSmActiveIndicatorActiveBackgroundColorConfig = {
-  disabled: string,
-  default: string,
-}
 type radioResponsiveRadioTokensSmActiveIndicatorActiveConfig = {
-  backgroundColor: radioResponsiveRadioTokensSmActiveIndicatorActiveBackgroundColorConfig,
+  backgroundColor: string, // ⚪ loose — was `{ disabled: BackgroundColor; default: BackgroundColor; }`
 }
 type radioResponsiveRadioTokensSmActiveIndicatorConfig = {
   active: radioResponsiveRadioTokensSmActiveIndicatorActiveConfig,
 }
-type radioResponsiveRadioTokensSmContentLabelFontSizeConfig = {
-  sm: string,
-  md: string,
-}
 type radioResponsiveRadioTokensSmContentLabelConfig = {
   gap: string,
-  color: radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig,
-  fontSize: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
-  fontWeight: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
+  color: string, // ⚪ loose — was `{ disabled: Color; default: Color; hover: Color; error: Color; }`
+  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; }`
+  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; }`
 }
 type radioResponsiveRadioTokensSmContentSublabelConfig = {
-  color: radioResponsiveRadioTokensSmIndicatorActiveBackgroundColorConfig,
-  fontSize: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
-  fontWeight: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
+  color: string, // ⚪ loose — was `{ disabled: Color; default: Color; hover: Color; error: Color; }`
+  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; }`
+  fontWeight: string, // ⚪ loose — was `{ sm: FontWeight; md: FontWeight; }`
 }
 type radioResponsiveRadioTokensSmContentConfig = {
   label: radioResponsiveRadioTokensSmContentLabelConfig,
   sublabel: radioResponsiveRadioTokensSmContentSublabelConfig,
+}
+type radioResponsiveRadioTokensSmHeightConfig = {
+  sm: string,
+  md: string,
 }
 type radioResponsiveRadioTokensSmBorderWidthActiveConfig = {
   disabled: float,
@@ -66,9 +56,9 @@ type radioResponsiveRadioTokensSmConfig = {
   indicator: radioResponsiveRadioTokensSmIndicatorConfig,
   activeIndicator: radioResponsiveRadioTokensSmActiveIndicatorConfig,
   content: radioResponsiveRadioTokensSmContentConfig,
-  height: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
+  height: radioResponsiveRadioTokensSmHeightConfig,
   borderWidth: radioResponsiveRadioTokensSmBorderWidthConfig,
-  slot: radioResponsiveRadioTokensSmContentLabelFontSizeConfig,
+  slot: radioResponsiveRadioTokensSmHeightConfig,
   required: radioResponsiveRadioTokensSmRequiredConfig,
 }
 type responsiveRadioTokens = {

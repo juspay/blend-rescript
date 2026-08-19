@@ -1,6 +1,6 @@
+@unboxed type stringOrNumber = Str(string) | Num(float)
 @unboxed type themeOrString = | @as("light") Light | @as("dark") Dark | Custom(string)
 @unboxed type stringOrStringArray = Str(string) | StrArr(array<string>)
-@unboxed type stringOrNumber = Str(string) | Num(float)
 @unboxed type stringOrNumberOrStringArray = Str(string) | Num(float) | StrArr(array<string>)
 @unboxed
 type preserveStartOrPreserveEndOrPreserveStartEndOrNumber =

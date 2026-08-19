@@ -8,42 +8,11 @@ type statCardV2ChangeType =
 type statCardV2ArrowDirection =
   | @as("up") Up
   | @as("down") Down
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig = {
-  fontSize: string,
-  fontWeight: string,
-  color: string,
-  lineHeight: string,
-}
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerHelpIconConfig = {
-  width: string,
-  height: string,
-  color: string, // ⚪ loose — was `{ default: Color; hover: Color; }`
-}
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerConfig = {
-  gap: string,
-  title: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
-  helpIcon: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerHelpIconConfig,
-}
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerValueConfig = {
-  chart: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
-  progress: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
-  number: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
-}
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerChangeContainerConfig = {
-  gap: string,
-  change: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { increase: Color; decrease: Colo`
-  arrow: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; color: { increase: Color; decr`
-}
-type statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerConfig = {
-  gap: string,
-  value: statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerValueConfig,
-  changeContainer: statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerChangeContainerConfig,
-}
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerConfig = {
   gap: string,
-  titleContainer: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerConfig,
-  statsContainer: statCardV2StatCardV2TokensTypeTopContainerDataContainerStatsContainerConfig,
-  subtitle: statCardV2StatCardV2TokensTypeTopContainerDataContainerTitleContainerTitleConfig,
+  titleContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; title: { fontSize: FontSize<number | (string & {})>; fontWeight: FontWeigh`
+  statsContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; value: { chart: { fontSize: FontSize<number | (string & {})>; fontWeight: `
+  subtitle: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; lineHeight: LineHeight<num`
 }
 type statCardV2StatCardV2TokensTypeTopContainerConfig = {
   gap: string,

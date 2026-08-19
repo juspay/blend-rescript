@@ -1,6 +1,6 @@
 type props = {
   ...SelectListV2Types.selectListV2BaseProps,
-  items: array<EditorSharedTypes.multiSelectV2GroupType>,
+  items: array<ContextSharedTypes.multiSelectV2GroupType>,
   selectedValues: array<string>,
   onChange?: CommonTypes.stringOrStringArray => unit,
   onSelectionChange?: array<string> => unit,

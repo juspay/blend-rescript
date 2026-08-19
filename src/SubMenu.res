@@ -1,8 +1,8 @@
 type props = {
-  item: EditorSharedTypes.singleSelectV2ItemType,
+  item: ContextSharedTypes.singleSelectV2ItemType,
   selected: string,
   onSelect: string => unit,
-  singleSelectTokens: EditorSharedTypes.singleSelectV2TokensType,
+  singleSelectTokens: ContextSharedTypes.singleSelectV2TokensType,
   focusIdentityEnabled?: bool,
 }
 

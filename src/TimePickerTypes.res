@@ -2,42 +2,20 @@ type timePickerSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type timePickerTimePickerTokensTypeDropdownColumnHeaderConfig = {
-  color: string,
-  fontSize: string,
-  fontWeight: string,
-  paddingY: string,
-}
 type timePickerTimePickerTokensTypeDropdownColumnConfig = {
   width: string,
   gap: string,
   separator: string,
-  header: timePickerTimePickerTokensTypeDropdownColumnHeaderConfig,
-}
-type timePickerTimePickerTokensTypeDropdownOptionFontSizeConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
-type timePickerTimePickerTokensTypeDropdownOptionColorConfig = {
-  default: string,
-  selected: string,
-  disabled: string,
-}
-type timePickerTimePickerTokensTypeDropdownOptionBackgroundColorConfig = {
-  default: string,
-  hover: string,
-  selected: string,
-  disabled: string,
+  header: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; paddingY: Padding<number |`
 }
 type timePickerTimePickerTokensTypeDropdownOptionConfig = {
   height: string,
   paddingX: string,
   borderRadius: string,
-  fontSize: timePickerTimePickerTokensTypeDropdownOptionFontSizeConfig,
+  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
   fontWeight: string,
-  color: timePickerTimePickerTokensTypeDropdownOptionColorConfig,
-  backgroundColor: timePickerTimePickerTokensTypeDropdownOptionBackgroundColorConfig,
+  color: string, // ⚪ loose — was `{ default: Color; selected: Color; disabled: Color; }`
+  backgroundColor: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; selected: BackgroundColor; disabled: BackgroundColor; }`
   focusOutline: string,
 }
 type timePickerTimePickerTokensTypeDropdownConfig = {
