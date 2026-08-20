@@ -1,6 +1,6 @@
 type props = {
   foundationTokens?: TokensTypes.foundationTokenType,
-  componentTokens?: EditorSharedTypes.componentTokenType,
+  componentTokens?: ContextSharedTypes.contextComponentTokensConfig,
   breakpoints?: BreakpointsTypes.breakpointType,
   theme?: CommonTypes.themeOrString,
   children: React.element,

@@ -1,6 +1,6 @@
 type props = {
   sidebarTopSlot?: React.element,
-  merchantInfo?: EditorSharedTypes.sidebarV2MerchantInfoConfig,
+  merchantInfo?: SidebarV2Types.sidebarV2MerchantInfoConfig,
   isExpanded: bool,
   isScrolled: bool,
   sidebarCollapseKey: string,
@@ -8,7 +8,7 @@ type props = {
   sidebarNavId?: string,
   hideToggleButton?: bool,
   iconOnlyMode?: bool,
-  tokens: EditorSharedTypes.sidebarV2TokensType,
+  tokens: SidebarV2Types.sidebarV2TokensType,
 }
 
 @module("@juspay/blend-design-system")

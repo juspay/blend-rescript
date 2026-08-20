@@ -12,9 +12,9 @@ type buttonSubType =
   | @as("iconOnly") IconOnly
   | @as("inline") Inline
 type buttonButtonGroupPosition =
+  | @as("right") Right
   | @as("left") Left
   | @as("center") Center
-  | @as("right") Right
 type buttonState =
   | @as("default") Default
   | @as("hover") Hover
@@ -25,16 +25,10 @@ type buttonButtonTokensTypeSlotMaxHeightConfig = {
   md: string,
   lg: string,
 }
-type buttonButtonTokensTypeBackgroundColorPrimaryDefaultConfig = {
-  default: string,
-  hover: string,
-  active: string,
-  disabled: string,
-}
 type buttonButtonTokensTypeBackgroundColorPrimaryConfig = {
-  default: buttonButtonTokensTypeBackgroundColorPrimaryDefaultConfig,
-  iconOnly: buttonButtonTokensTypeBackgroundColorPrimaryDefaultConfig,
-  inline: buttonButtonTokensTypeBackgroundColorPrimaryDefaultConfig,
+  default: string, // ⚪ loose — was `{ default: Background<number | (string & {})>; hover: Background<number | (string & {})>; active: Background<n`
+  iconOnly: string, // ⚪ loose — was `{ default: Background<number | (string & {})>; hover: Background<number | (string & {})>; active: Background<n`
+  inline: string, // ⚪ loose — was `{ default: Background<number | (string & {})>; hover: Background<number | (string & {})>; active: Background<n`
 }
 type buttonButtonTokensTypeBackgroundColorConfig = {
   primary: buttonButtonTokensTypeBackgroundColorPrimaryConfig,
@@ -42,33 +36,19 @@ type buttonButtonTokensTypeBackgroundColorConfig = {
   danger: buttonButtonTokensTypeBackgroundColorPrimaryConfig,
   success: buttonButtonTokensTypeBackgroundColorPrimaryConfig,
 }
+type buttonButtonTokensTypeBorderRadiusSmConfig = {
+  primary: string, // ⚪ loose — was `{ default: { default: BorderRadius<number | (string & {})>; hover: BorderRadius<number | (string & {})>; activ`
+  secondary: string, // ⚪ loose — was `{ default: { default: BorderRadius<number | (string & {})>; hover: BorderRadius<number | (string & {})>; activ`
+  danger: string, // ⚪ loose — was `{ default: { default: BorderRadius<number | (string & {})>; hover: BorderRadius<number | (string & {})>; activ`
+  success: string, // ⚪ loose — was `{ default: { default: BorderRadius<number | (string & {})>; hover: BorderRadius<number | (string & {})>; activ`
+}
 type buttonButtonTokensTypeBorderRadiusConfig = {
-  sm: buttonButtonTokensTypeBackgroundColorConfig,
-  md: buttonButtonTokensTypeBackgroundColorConfig,
-  lg: buttonButtonTokensTypeBackgroundColorConfig,
-}
-type buttonButtonTokensTypePaddingSmPrimaryDefaultConfig = {
-  x: string,
-  y: string,
-}
-type buttonButtonTokensTypePaddingSmPrimaryConfig = {
-  default: buttonButtonTokensTypePaddingSmPrimaryDefaultConfig,
-  iconOnly: buttonButtonTokensTypePaddingSmPrimaryDefaultConfig,
-  inline: buttonButtonTokensTypePaddingSmPrimaryDefaultConfig,
-}
-type buttonButtonTokensTypePaddingSmConfig = {
-  primary: buttonButtonTokensTypePaddingSmPrimaryConfig,
-  secondary: buttonButtonTokensTypePaddingSmPrimaryConfig,
-  danger: buttonButtonTokensTypePaddingSmPrimaryConfig,
-  success: buttonButtonTokensTypePaddingSmPrimaryConfig,
-}
-type buttonButtonTokensTypePaddingConfig = {
-  sm: buttonButtonTokensTypePaddingSmConfig,
-  md: buttonButtonTokensTypePaddingSmConfig,
-  lg: buttonButtonTokensTypePaddingSmConfig,
+  sm: buttonButtonTokensTypeBorderRadiusSmConfig,
+  md: buttonButtonTokensTypeBorderRadiusSmConfig,
+  lg: buttonButtonTokensTypeBorderRadiusSmConfig,
 }
 type buttonButtonTokensTypeTextConfig = {
-  color: buttonButtonTokensTypeBackgroundColorConfig,
+  color: buttonButtonTokensTypeBorderRadiusSmConfig,
   fontSize: buttonButtonTokensTypeSlotMaxHeightConfig,
   fontWeight: buttonButtonTokensTypeSlotMaxHeightConfig,
 }
@@ -77,7 +57,7 @@ type buttonTokensType = {
   slotMaxHeight: buttonButtonTokensTypeSlotMaxHeightConfig,
   backgroundColor: buttonButtonTokensTypeBackgroundColorConfig,
   borderRadius: buttonButtonTokensTypeBorderRadiusConfig,
-  padding: buttonButtonTokensTypePaddingConfig,
+  padding: buttonButtonTokensTypeBorderRadiusConfig,
   border: buttonButtonTokensTypeBackgroundColorConfig,
   shadow: buttonButtonTokensTypeBackgroundColorConfig,
   outline: buttonButtonTokensTypeBackgroundColorConfig,

@@ -1,10 +1,10 @@
 type props = {
-  filteredItems: array<EditorSharedTypes.multiSelectV2GroupType>,
-  allItemsFlat: array<EditorSharedTypes.multiSelectV2ItemType>,
+  filteredItems: array<ContextSharedTypes.multiSelectV2GroupType>,
+  allItemsFlat: array<ContextSharedTypes.multiSelectV2ItemType>,
   selected: array<string>,
   onSelect: string => unit,
   maxSelections?: float,
-  tokens: EditorSharedTypes.multiSelectV2TokensType,
+  tokens: ContextSharedTypes.multiSelectV2TokensType,
   size: SelectV2Types.selectV2Size,
   variant: SelectV2Types.selectV2Variant,
   focusIdentityEnabled?: bool,

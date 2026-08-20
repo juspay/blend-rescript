@@ -1,6 +1,6 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameOnSelectSlotStyle,
-  ...EditorSharedTypes.singleSelectV2Props,
+  ...ContextSharedTypes.singleSelectV2Props,
 }
 
 @module("@juspay/blend-design-system")

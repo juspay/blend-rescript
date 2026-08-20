@@ -14,27 +14,24 @@ type progressBarProgressBarTokenTypeLinearHeightConfig = {
   md: string,
   lg: string,
 }
-type progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig = {
+type progressBarProgressBarTokenTypeLinearBorderRadiusConfig = {
   solid: string,
   segmented: string,
 }
 type progressBarProgressBarTokenTypeLinearFillConfig = {
-  backgroundColor: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-  borderRadius: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-}
-type progressBarProgressBarTokenTypeLinearEmptyBackgroundImageConfig = {
-  segmented: string,
+  backgroundColor: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
+  borderRadius: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
 }
 type progressBarProgressBarTokenTypeLinearEmptyConfig = {
-  backgroundColor: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-  backgroundImage: progressBarProgressBarTokenTypeLinearEmptyBackgroundImageConfig,
-  backgroundSize: progressBarProgressBarTokenTypeLinearEmptyBackgroundImageConfig,
+  backgroundColor: string, // ⚪ loose — was `{ solid: BackgroundColor; segmented: BackgroundColor; }`
+  backgroundImage: string, // ⚪ loose — was `{ segmented: BackgroundImage; }`
+  backgroundSize: string, // ⚪ loose — was `{ segmented: BackgroundSize<number | (string & {})>; }`
 }
 type progressBarProgressBarTokenTypeLinearConfig = {
   height: progressBarProgressBarTokenTypeLinearHeightConfig,
   fill: progressBarProgressBarTokenTypeLinearFillConfig,
   empty: progressBarProgressBarTokenTypeLinearEmptyConfig,
-  borderRadius: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
+  borderRadius: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
 }
 type progressBarProgressBarTokenTypeCircularStrokeWidthConfig = {
   sm: float,
@@ -44,10 +41,10 @@ type progressBarProgressBarTokenTypeCircularStrokeWidthConfig = {
 type progressBarProgressBarTokenTypeCircularConfig = {
   size: progressBarProgressBarTokenTypeLinearHeightConfig,
   strokeWidth: progressBarProgressBarTokenTypeCircularStrokeWidthConfig,
-  stroke: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-  background: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-  dashArray: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
-  dashOffset: progressBarProgressBarTokenTypeLinearFillBackgroundColorConfig,
+  stroke: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
+  background: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
+  dashArray: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
+  dashOffset: progressBarProgressBarTokenTypeLinearBorderRadiusConfig,
 }
 type progressBarProgressBarTokenTypeLabelConfig = {
   fontSize: string,

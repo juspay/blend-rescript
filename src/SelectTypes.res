@@ -6,28 +6,10 @@ type selectSelectTokenTypesTriggerLabelConfig = {
   fontWeight: string,
   fontSize: string,
 }
-type selectSelectTokenTypesTriggerSelectedValueFontSizeConfig = {
-  sm: string,
-  md: string,
-  lg: string,
-}
-type selectSelectTokenTypesTriggerSelectedValueFontConfig = {
-  weight: string,
-  size: selectSelectTokenTypesTriggerSelectedValueFontSizeConfig,
-}
-type selectSelectTokenTypesTriggerSelectedValuePaddingSmConfig = {
-  x: string,
-  y: string,
-}
-type selectSelectTokenTypesTriggerSelectedValuePaddingConfig = {
-  sm: selectSelectTokenTypesTriggerSelectedValuePaddingSmConfig,
-  md: selectSelectTokenTypesTriggerSelectedValuePaddingSmConfig,
-  lg: selectSelectTokenTypesTriggerSelectedValuePaddingSmConfig,
-}
 type selectSelectTokenTypesTriggerSelectedValueConfig = {
   color: string,
-  font: selectSelectTokenTypesTriggerSelectedValueFontConfig,
-  padding: selectSelectTokenTypesTriggerSelectedValuePaddingConfig,
+  font: string, // ⚪ loose — was `{ weight: FontWeight; size: { sm: string; md: string; lg: string; }; }`
+  padding: string, // ⚪ loose — was `{ sm: { x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }; md: { x: Padding<number | (`
 }
 type selectSelectTokenTypesTriggerConfig = {
   container: selectSelectTokenTypesTriggerContainerConfig,
