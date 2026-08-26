@@ -560,6 +560,11 @@ type chartsBlendChartPropsConstructorType =
   | @as("context") Context
   | @as("innerR") InnerR
   | @as("longArc") LongArc
+type chartsChartTokensTypeAxisConfig = {
+  lineColor: string,
+  gridLineColor: string,
+  labelColor: string,
+}
 type chartsChartTokensTypeHeaderPaddingConfig = {
   x: string,
   y: string,
@@ -594,6 +599,7 @@ type chartsChartTokensTypeContentConfig = {
 type chartTokensType = {
   border: string,
   borderRadius: string,
+  axis: chartsChartTokensTypeAxisConfig,
   header: chartsChartTokensTypeHeaderConfig,
   content: chartsChartTokensTypeContentConfig,
 }
