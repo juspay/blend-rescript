@@ -89,7 +89,7 @@ type sliderSliderCSSPropertiesActiveConfig = {
 }
 type sliderSliderCSSPropertiesDisabledConfig = {
   cursor?: string,
-  opacity?: CommonTypes.stringOrNumber2,
+  opacity?: CommonTypes.stringOrNumber,
 }
 type sliderCSSProperties = {
   accentColor?: string,

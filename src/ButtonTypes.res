@@ -92,7 +92,7 @@ type buttonProps = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   buttonGroupPosition?: buttonButtonGroupPosition,
   fullWidth?: bool,
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   justifyContent?: string,
   state?: buttonState,
 }

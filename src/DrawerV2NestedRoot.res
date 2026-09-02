@@ -1,6 +1,6 @@
 type props<'a, 'b> = {
-  activeSnapPoint?: Nullable.t<CommonTypes.stringOrNumber2>,
-  setActiveSnapPoint?: Nullable.t<CommonTypes.stringOrNumber2> => unit,
+  activeSnapPoint?: Nullable.t<CommonTypes.stringOrNumber>,
+  setActiveSnapPoint?: Nullable.t<CommonTypes.stringOrNumber> => unit,
   children?: React.element,
   @as("open") open_?: bool,
   closeThreshold?: float,
@@ -26,7 +26,7 @@ type props<'a, 'b> = {
   onAnimationEnd?: bool => unit,
   preventScrollRestoration?: bool,
   autoFocus?: bool,
-  snapPoints?: array<CommonTypes.stringOrNumber2>,
+  snapPoints?: array<CommonTypes.stringOrNumber>,
   fadeFromIndex?: float,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }

@@ -1,5 +1,40 @@
 // #190: compatibility re-exports — these identities moved to another module when a
 // dependency cycle merged this home. Old `HighchartsSharedTypes.<name>` annotations keep resolving.
+type responsiveChartTokens = ChartsSharedTypes.responsiveChartTokens
+type chartTokensType = ChartsSharedTypes.chartTokensType
+type chartType = ChartsSharedTypes.chartType
+type newNestedDataPoint = ChartsSharedTypes.newNestedDataPoint
+type dataPoint = ChartsSharedTypes.dataPoint
+type chartsDataPointPrimaryConfig = ChartsSharedTypes.chartsDataPointPrimaryConfig
+type chartsDataPointAuxConfig = ChartsSharedTypes.chartsDataPointAuxConfig
+type axisType = ChartsSharedTypes.axisType
+type chartsDataPointErrorConfig = ChartsSharedTypes.chartsDataPointErrorConfig
+type chartsDataPointErrorErrorDataConfig = ChartsSharedTypes.chartsDataPointErrorErrorDataConfig
+type chartsColorsConfig = ChartsSharedTypes.chartsColorsConfig
+type chartLegendPosition = ChartsSharedTypes.chartLegendPosition
+type stackedLegendsDataPoint = ChartsSharedTypes.stackedLegendsDataPoint
+type legendsChangeType = ChartsSharedTypes.legendsChangeType
+type axisConfig = ChartsSharedTypes.axisConfig
+type tickProps = ChartsSharedTypes.tickProps
+type chartsTickPropsPayloadConfig = ChartsSharedTypes.chartsTickPropsPayloadConfig
+type tooltipConfig = ChartsSharedTypes.tooltipConfig
+type chartsTooltipConfigPositionConfig = ChartsSharedTypes.chartsTooltipConfigPositionConfig
+type chartsTooltipConfigAllowEscapeViewBoxConfig = ChartsSharedTypes.chartsTooltipConfigAllowEscapeViewBoxConfig
+type tooltipContentProps = ChartsSharedTypes.tooltipContentProps
+type tooltipProps = ChartsSharedTypes.tooltipProps
+type chartsTooltipPropsTrigger = ChartsSharedTypes.chartsTooltipPropsTrigger
+type tooltipFormatterParams = ChartsSharedTypes.tooltipFormatterParams
+type funnelConfig = ChartsSharedTypes.funnelConfig
+type chartsFunnelConfigPercentageBase = ChartsSharedTypes.chartsFunnelConfigPercentageBase
+type noDataProps = ChartsSharedTypes.noDataProps
+type chartsSkeletonProps = ChartsSharedTypes.chartsSkeletonProps
+type chartsLegendsConfig = ChartsSharedTypes.chartsLegendsConfig
+type dotItemDotProps = ChartsSharedTypes.dotItemDotProps
+type chartsDotItemDotPropsPayloadConfig = ChartsSharedTypes.chartsDotItemDotPropsPayloadConfig
+type chartsPayloadConfig = ChartsSharedTypes.chartsPayloadConfig
+type sankeyTooltipData = ChartsSharedTypes.sankeyTooltipData
+type chartsSankeyTooltipDataPayloadConfig = ChartsSharedTypes.chartsSankeyTooltipDataPayloadConfig
+type sankeyLink = ChartsSharedTypes.sankeyLink
 type chart<'a, 'b, 'c> = HighchartsSharedSharedTypes.chart<'a, 'b, 'c>
 type axis<'a, 'b, 'c> = HighchartsSharedSharedTypes.axis<'a, 'b, 'c>
 type tick<'a, 'b, 'c> = HighchartsSharedSharedTypes.tick<'a, 'b, 'c>
@@ -57,6 +92,7 @@ type optionsTickmarkPlacementValue = HighchartsSharedSharedTypes.optionsTickmark
 type optionsTickPositionValue = HighchartsSharedSharedTypes.optionsTickPositionValue
 type xAxisTitleOptions = HighchartsSharedSharedTypes.xAxisTitleOptions
 type axisTitleAlignValue = HighchartsSharedSharedTypes.axisTitleAlignValue
+type chartsXAxisTitleOptionsPosition3d = ChartsSharedTypes.chartsXAxisTitleOptionsPosition3d
 type axisTypeValue = HighchartsSharedSharedTypes.axisTypeValue
 type yAxisOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.yAxisOptions<'a, 'b, 'c>
 type yAxisLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.yAxisLabelsOptions<'a, 'b, 'c>
@@ -67,6 +103,7 @@ type yAxisResizeControlledAxisOptions = HighchartsSharedSharedTypes.yAxisResizeC
 type zAxisOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.zAxisOptions<'a, 'b, 'c>
 type zAxisLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.zAxisLabelsOptions<'a, 'b, 'c>
 type series<'a, 'b, 'c> = HighchartsSharedSharedTypes.series<'a, 'b, 'c>
+type chartsSeriesSetState = ChartsSharedTypes.chartsSeriesSetState
 type axisTickPositionsArray = HighchartsSharedSharedTypes.axisTickPositionsArray
 type timeTicksInfoObject = HighchartsSharedSharedTypes.timeTicksInfoObject
 type plotLineOrBand<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotLineOrBand<'a, 'b, 'c>
@@ -74,6 +111,7 @@ module AxisPlotLinesOptions = HighchartsSharedSharedTypes.AxisPlotLinesOptions
 type pointerEventObject = HighchartsSharedSharedTypes.pointerEventObject
 type point<'a, 'b, 'c> = HighchartsSharedSharedTypes.point<'a, 'b, 'c>
 type svgPathCommand = HighchartsSharedSharedTypes.svgPathCommand
+type chartsPointSetState = ChartsSharedTypes.chartsPointSetState
 type extremesObject = HighchartsSharedSharedTypes.extremesObject
 module GetLinePathTarget = HighchartsSharedSharedTypes.GetLinePathTarget
 type axisPlotLinePathOptionsObject = HighchartsSharedSharedTypes.axisPlotLinePathOptionsObject
@@ -572,6 +610,7 @@ type seriesArcDiagramDataLabelsOptionsObjectEtc147el<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.seriesArcDiagramDataLabelsOptionsObjectEtc147el<'a, 'b, 'c>
+type chartsSeriesArcdiagramOptionsLinkColorMode = ChartsSharedTypes.chartsSeriesArcdiagramOptionsLinkColorMode
 type plotArcdiagramOnPointOptions = HighchartsSharedSharedTypes.plotArcdiagramOnPointOptions
 module ChartsPlotArcdiagramOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotArcdiagramOnPointOptionsConnectorOptions
 module ChartsPlotArcdiagramOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotArcdiagramOnPointOptionsPosition
@@ -679,6 +718,8 @@ module ChartsPlotAtrOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsP
 module ChartsSeriesAtrOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesAtrOptionsOnPoint
 type seriesBarOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesBarOptions<'b, 'a, 'c>
 type borderRadiusOptionsObject = HighchartsSharedSharedTypes.borderRadiusOptionsObject
+type chartsBorderRadiusOptionsObjectScope = ChartsSharedTypes.chartsBorderRadiusOptionsObjectScope
+type chartsBorderRadiusOptionsObjectWhere = ChartsSharedTypes.chartsBorderRadiusOptionsObjectWhere
 type stringOrNumberOrBorderRadiusOptionsObject = HighchartsSharedSharedTypes.stringOrNumberOrBorderRadiusOptionsObject
 type plotBarDataLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotBarDataLabelsOptions<
   'a,
@@ -1516,7 +1557,10 @@ type seriesOrganizationDataLabelsOptionsObjecEtcmf6ti<
   'c,
 > = HighchartsSharedSharedTypes.seriesOrganizationDataLabelsOptionsObjecEtcmf6ti<'a, 'b, 'c>
 type organizationHangingIndentTranslationValue = HighchartsSharedSharedTypes.organizationHangingIndentTranslationValue
+type chartsSeriesOrganizationOptionsHangingSide = ChartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide
 type plotOrganizationLinkOptions = HighchartsSharedSharedTypes.plotOrganizationLinkOptions
+type chartsPlotOrganizationLinkOptionsType = ChartsSharedTypes.chartsPlotOrganizationLinkOptionsType
+type chartsSeriesOrganizationOptionsNodeAlignment = ChartsSharedTypes.chartsSeriesOrganizationOptionsNodeAlignment
 type plotOrganizationOnPointOptions = HighchartsSharedSharedTypes.plotOrganizationOnPointOptions
 module ChartsPlotOrganizationOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotOrganizationOnPointOptionsConnectorOptions
 module ChartsPlotOrganizationOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotOrganizationOnPointOptionsPosition
@@ -2856,4 +2900,5 @@ type chartIsInsideOptionsObject<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.chartIsInsideOptionsObject<'a, 'b, 'c>
+type chartsBlendChartPropsConstructorType = ChartsSharedTypes.chartsBlendChartPropsConstructorType
 module SetStateAction = HighchartsSharedSharedTypes.SetStateAction

@@ -25,9 +25,9 @@ type buttonGroupPosition =
   | @as("left") Left
   | @as("center") Center
 type buttonV2ResponsiveButtonV2TokensSmSlotMaxHeightConfig = {
-  sm: CommonTypes.stringOrNumber2,
-  md: CommonTypes.stringOrNumber2,
-  lg: CommonTypes.stringOrNumber2,
+  sm: CommonTypes.stringOrNumber,
+  md: CommonTypes.stringOrNumber,
+  lg: CommonTypes.stringOrNumber,
 }
 type buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig = {
   default: string,
@@ -107,7 +107,7 @@ type responsiveButtonV2Tokens = {
 }
 type buttonSlot = {
   slot: React.element,
-  maxHeight?: CommonTypes.stringOrNumber2,
+  maxHeight?: CommonTypes.stringOrNumber,
 }
 type buttonSkeleton = {
   showSkeleton?: bool,
@@ -123,14 +123,14 @@ type buttonBaseProps = {
   loading?: bool,
   skeleton?: buttonSkeleton,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  width?: CommonTypes.stringOrNumber2,
-  minWidth?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
   state?: buttonV2State,
 }
 type buttonGroupV2Props = {
   stacked?: bool,
-  gap?: CommonTypes.stringOrNumber2,
+  gap?: CommonTypes.stringOrNumber,
   children: React.element,
 }
 type buttonV2GetIconMaxHeightConfig = {
@@ -153,10 +153,10 @@ type buttonStylesReturn = {
   borderLeft?: string,
   borderRight?: string,
   cursor?: string,
-  _active?: Dict.t<CommonTypes.stringOrNumber2>,
-  _hover?: Dict.t<CommonTypes.stringOrNumber2>,
-  _focusVisible?: Dict.t<CommonTypes.stringOrNumber2>,
-  _disabled?: Dict.t<CommonTypes.stringOrNumber2>,
+  _active?: Dict.t<CommonTypes.stringOrNumber>,
+  _hover?: Dict.t<CommonTypes.stringOrNumber>,
+  _focusVisible?: Dict.t<CommonTypes.stringOrNumber>,
+  _disabled?: Dict.t<CommonTypes.stringOrNumber>,
 }
 type buttonV2GetButtonPaddingConfig = {
   top: string,
@@ -174,17 +174,17 @@ type buttonV2Props = {
   loading?: bool,
   skeleton?: buttonSkeleton,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  width?: CommonTypes.stringOrNumber2,
-  minWidth?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
   state?: buttonV2State,
   justifyContent?: string,
 }
 type buttonV2TimelineShowMorePropsButtonPropsConfig = {
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   size?: buttonV2Size,
-  minWidth?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
   leftSlot?: buttonSlot,
   justifyContent?: string,
   state?: buttonV2State,

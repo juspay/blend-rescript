@@ -47,7 +47,7 @@ type responsiveModalTokens = {
   lg: modalTokensType,
 }
 type modalButtonAction = {
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
   disabled?: bool,
   onClick?: option<ReactEvent.Mouse.t> => unit,

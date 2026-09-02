@@ -157,7 +157,7 @@ type chartDataPoint = {
 }
 type statCardAxisConfig = {
   @as("type") type_?: ChartsSharedTypes.axisType,
-  tickFormatter?: CommonTypes.stringOrNumber2 => string,
+  tickFormatter?: CommonTypes.stringOrNumber => string,
   dateOnly?: bool,
   useUTC?: bool,
   formatString?: string,
@@ -168,7 +168,7 @@ type statCardAxisConfig = {
 type statCardSkeletonProps = {
   variant: SkeletonTypes.skeletonVariant,
   show: bool,
-  height?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
-  minWidth?: CommonTypes.stringOrNumber2,
+  height?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
 }

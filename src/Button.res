@@ -13,7 +13,7 @@ type props = {
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   fullWidth?: bool,
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   justifyContent?: string,
   state?: ButtonTypes.buttonState,
   ref?: React.ref<Nullable.t<Dom.element>>,

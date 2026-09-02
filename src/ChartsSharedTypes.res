@@ -230,7 +230,7 @@ type stackedLegendsDataPoint = {
   changeType: legendsChangeType,
 }
 type chartsTickPropsPayloadConfig = {
-  value: CommonTypes.stringOrNumber2,
+  value: CommonTypes.stringOrNumber,
   index?: int,
   coordinate?: float,
 }
@@ -246,14 +246,14 @@ type axisConfig = {
   interval?: CommonTypes.preserveStartOrPreserveEndOrPreserveStartEndOrNumber,
   show?: bool,
   @as("type") type_?: axisType,
-  tickFormatter?: CommonTypes.stringOrNumber2 => string,
+  tickFormatter?: CommonTypes.stringOrNumber => string,
   customTick?: React.component<tickProps>,
   dateOnly?: bool,
   useUTC?: bool,
   formatString?: string,
   timeOnly?: bool,
   showYear?: bool,
-  ticks?: array<CommonTypes.stringOrNumber2>,
+  ticks?: array<CommonTypes.stringOrNumber>,
   autoConsistentTicks?: bool,
   maxTicks?: float,
   smartDateTimeFormat?: bool,
@@ -271,20 +271,20 @@ type rec payload = {
   color?: string,
   formatter?: (
     CommonTypes.stringOrNumberOrStringOrNumberArray,
-    CommonTypes.stringOrNumber2,
+    CommonTypes.stringOrNumber,
     payload,
     float,
     array<payload>,
   ) => React.element,
-  name?: CommonTypes.stringOrNumber2,
+  name?: CommonTypes.stringOrNumber,
   value?: CommonTypes.stringOrNumberOrStringOrNumberArray,
   unit?: React.element,
-  dataKey?: CommonTypes.stringOrNumber2,
+  dataKey?: CommonTypes.stringOrNumber,
   payload?: string, // 🛑 BROKEN — contains `any`
   chartType?: string,
   stroke?: string,
-  strokeDasharray?: CommonTypes.stringOrNumber2,
-  strokeWidth?: CommonTypes.stringOrNumber2,
+  strokeDasharray?: CommonTypes.stringOrNumber,
+  strokeWidth?: CommonTypes.stringOrNumber,
   className?: string,
   hide?: bool,
 }
@@ -295,7 +295,7 @@ type tooltipContentProps = {
   labelClassName?: string,
   formatter?: (
     CommonTypes.stringOrNumberOrStringOrNumberArray,
-    CommonTypes.stringOrNumber2,
+    CommonTypes.stringOrNumber,
     payload,
     float,
     array<payload>,
@@ -306,7 +306,7 @@ type tooltipContentProps = {
   labelFormatter?: (string, array<payload>) => React.element, // 🛑 BROKEN — contains `any`
   label?: string, // 🛑 BROKEN — contains `any`
   payload?: array<payload>,
-  itemSorter?: payload => CommonTypes.stringOrNumber2,
+  itemSorter?: payload => CommonTypes.stringOrNumber,
   accessibilityLayer?: bool,
   active?: bool,
   includeHidden?: bool,
@@ -335,7 +335,7 @@ type tooltipContentProps = {
   yAxis?: axisConfig,
 }
 type tooltipFormatterParams = {
-  seriesName: CommonTypes.stringOrNumber2,
+  seriesName: CommonTypes.stringOrNumber,
   value: CommonTypes.stringOrNumberOrStringOrNumberArray,
   dataIndex: float,
   color: string,
@@ -346,7 +346,7 @@ type tooltipConfig = {
   allowEscapeViewBox?: chartsTooltipConfigAllowEscapeViewBoxConfig,
   content?: tooltipContentProps => React.element,
   formatter?: tooltipFormatterParams => React.element,
-  labelFormatter?: CommonTypes.stringOrNumber2 => React.element,
+  labelFormatter?: CommonTypes.stringOrNumber => React.element,
 }
 type tooltipProps = {
   separator?: string,
@@ -354,7 +354,7 @@ type tooltipProps = {
   labelClassName?: string,
   formatter?: (
     CommonTypes.stringOrNumberOrStringOrNumberArray,
-    CommonTypes.stringOrNumber2,
+    CommonTypes.stringOrNumber,
     payload,
     float,
     array<payload>,
@@ -365,7 +365,7 @@ type tooltipProps = {
   labelFormatter?: (string, array<payload>) => React.element, // 🛑 BROKEN — contains `any`
   label?: string, // 🛑 BROKEN — contains `any`
   payload?: array<payload>,
-  itemSorter?: payload => CommonTypes.stringOrNumber2,
+  itemSorter?: payload => CommonTypes.stringOrNumber,
   accessibilityLayer?: bool,
   active?: bool,
   includeHidden?: bool,
@@ -424,8 +424,8 @@ type chartsPayloadConfig = {
 type chartsSankeyTooltipDataPayloadConfig = {
   name?: string,
   value?: float,
-  source?: CommonTypes.stringOrNumber2,
-  target?: CommonTypes.stringOrNumber2,
+  source?: CommonTypes.stringOrNumber,
+  target?: CommonTypes.stringOrNumber,
   sourceName?: string,
   targetName?: string,
   color?: string,
@@ -435,8 +435,8 @@ type sankeyTooltipData = {
   payload: chartsSankeyTooltipDataPayloadConfig,
 }
 type sankeyLink = {
-  source: CommonTypes.stringOrNumber2,
-  target: CommonTypes.stringOrNumber2,
+  source: CommonTypes.stringOrNumber,
+  target: CommonTypes.stringOrNumber,
   value: float,
   color?: string,
   hoverColor?: string,

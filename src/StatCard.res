@@ -1,6 +1,6 @@
 type props = {
   title: string,
-  value: CommonTypes.stringOrNumber2,
+  value: CommonTypes.stringOrNumber,
   valueTooltip?: React.element,
   change?: Nullable.t<StatCardTypes.statCardChange>,
   subtitle?: string,

@@ -32,7 +32,7 @@ type responsiveBreadcrumbV2Tokens = {
   lg: breadcrumbV2TokensType,
 }
 type breadcrumbV2ItemType = {
-  id?: CommonTypes.stringOrNumber2,
+  id?: CommonTypes.stringOrNumber,
   leftSlot?: React.element,
   rightSlot?: React.element,
   label: string,

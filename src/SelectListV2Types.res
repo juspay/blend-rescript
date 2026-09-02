@@ -80,7 +80,7 @@ type selectListV2VirtualizationConfig = {
   endReachedThreshold?: float,
   hasMore?: bool,
   isLoadingMore?: bool,
-  paginationKey?: CommonTypes.stringOrNumber2,
+  paginationKey?: CommonTypes.stringOrNumber,
 }
 type selectListV2FocusTarget = {
   itemIndex: float,

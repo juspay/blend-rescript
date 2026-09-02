@@ -71,7 +71,7 @@ type snackbarV2Props = {
   visibleToasts?: float,
   containerAriaLabel?: string,
   hotkey?: array<string>,
-  maxWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber,
 }
 type snackbarV2Action = {
   label: string,
@@ -87,9 +87,9 @@ type snackbarV2ToastOptions = {
   actionButton?: snackbarV2Action,
   duration?: float,
   position?: snackbarV2Position,
-  maxWidth?: CommonTypes.stringOrNumber2,
-  width?: CommonTypes.stringOrNumber2,
-  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber,
 }
 type snackbarV2Dimensions = {
   width?: string,

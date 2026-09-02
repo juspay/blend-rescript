@@ -74,7 +74,7 @@ type props<'a> = {
   getRowStyle?: ('a, float) => JsxDOM.style,
   enableRowAnimation?: bool,
   rowAnimationConfig?: DataTableTypes.rowAnimationConfig,
-  tableBodyHeight?: CommonTypes.stringOrNumber2,
+  tableBodyHeight?: CommonTypes.stringOrNumber,
   mobileColumnsToShow?: float,
   dateLabel?: string,
   enablePivotTable?: bool,

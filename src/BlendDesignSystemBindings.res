@@ -203,7 +203,7 @@ external getSliderLabelStyles: (
   unit,
 ) => SliderTypes.sliderCSSProperties = "getSliderLabelStyles"
 @module("@juspay/blend-design-system")
-external addSnackbar: SnackbarTypes.addToastOptions => CommonTypes.stringOrNumber2 = "addSnackbar"
+external addSnackbar: SnackbarTypes.addToastOptions => CommonTypes.stringOrNumber = "addSnackbar"
 @module("@juspay/blend-design-system")
 external getSnackbarTokens: TokensTypes.foundationTokenType => SnackbarTypes.responsiveSnackbarTokens =
   "getSnackbarTokens"
@@ -261,9 +261,9 @@ external getButtonHeight: ButtonV2Types.buttonV2SubType => string = "getButtonHe
 @module("@juspay/blend-design-system")
 external getIconMaxHeight: (
   ButtonV2Types.buttonV2SubType,
-  CommonTypes.stringOrNumber2,
-  CommonTypes.stringOrNumber2,
-  CommonTypes.stringOrNumber2,
+  CommonTypes.stringOrNumber,
+  CommonTypes.stringOrNumber,
+  CommonTypes.stringOrNumber,
 ) => ButtonV2Types.buttonV2GetIconMaxHeightConfig = "getIconMaxHeight"
 @module("@juspay/blend-design-system")
 external getButtonStatus: (bool, bool) => ButtonV2Types.buttonV2GetButtonStatus = "getButtonStatus"
@@ -278,7 +278,7 @@ external getSkeletonBorderRadius: (
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getSkeletonBorderRadius"
 @module("@juspay/blend-design-system")
-external getSkeletonWidth: (~width: CommonTypes.stringOrNumber2=?, unit) => string =
+external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => string =
   "getSkeletonWidth"
 @module("@juspay/blend-design-system")
 external getButtonBorderStyles: (
@@ -518,7 +518,7 @@ external getProgressBarValueState: (
 @module("@juspay/blend-design-system")
 external calculatePercentage: (float, float, float) => float = "calculatePercentage"
 @module("@juspay/blend-design-system")
-external parseTokenValue: (CommonTypes.stringOrNumber2, float) => float = "parseTokenValue"
+external parseTokenValue: (CommonTypes.stringOrNumber, float) => float = "parseTokenValue"
 @module("@juspay/blend-design-system")
 external extractProgressBarV2AriaProps: Dict.t<
   JSON.t,
@@ -706,9 +706,9 @@ external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPositi
 @module("@juspay/blend-design-system")
 external getButtonGroupGap: (
   bool,
-  ~providedGap: CommonTypes.stringOrNumber2=?,
+  ~providedGap: CommonTypes.stringOrNumber=?,
   unit,
-) => CommonTypes.stringOrNumber2 = "getButtonGroupGap"
+) => CommonTypes.stringOrNumber = "getButtonGroupGap"
 @module("@juspay/blend-design-system")
 external getPopoverV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -740,7 +740,7 @@ external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateCha
 external getTopbarV2Styles: (
   bool,
   bool,
-  ~topbarHeight: CommonTypes.stringOrNumber2=?,
+  ~topbarHeight: CommonTypes.stringOrNumber=?,
   unit,
 ) => JSON.t = "getTopbarV2Styles"
 @module("@juspay/blend-design-system")
@@ -805,7 +805,7 @@ external getSearchInputV2Tokens: (
   unit,
 ) => HighchartsSharedSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
 @module("@juspay/blend-design-system")
-external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber2 =
+external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber =
   "addSnackbarV2"
 @module("@juspay/blend-design-system")
 external getSnackbarV2Tokens: (
@@ -909,14 +909,14 @@ external isDiffEditorMode: (bool, HighchartsSharedSharedTypes.codeEditorV2Varian
   "isDiffEditorMode"
 @module("@juspay/blend-design-system")
 external getCodeEditorV2ContainerStyles: (
-  ~minHeight: CommonTypes.stringOrNumber2=?,
-  ~maxHeight: CommonTypes.stringOrNumber2=?,
+  ~minHeight: CommonTypes.stringOrNumber=?,
+  ~maxHeight: CommonTypes.stringOrNumber=?,
   unit,
 ) => JsxDOM.style = "getCodeEditorV2ContainerStyles"
 @module("@juspay/blend-design-system")
-external toCssValue: (~value: CommonTypes.stringOrNumber2=?, unit) => string = "toCssValue"
+external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "toCssValue"
 @module("@juspay/blend-design-system")
-external toNumericValue: (CommonTypes.stringOrNumber2, ~fallback: float=?, unit) => float =
+external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
   "toNumericValue"
 @module("@juspay/blend-design-system")
 external backupColor: HighchartsSharedSharedTypes.codeEditorV2BackupColorConfig = "backupColor"

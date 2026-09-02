@@ -95,10 +95,10 @@ type responsiveModalV2Tokens = {
   lg: modalV2TokensType,
 }
 type modalV2ButtonAction = {
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   size?: ButtonV2Types.buttonV2Size,
-  minWidth?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
   text?: string,
   leftSlot?: ButtonV2Types.buttonSlot,
   justifyContent?: string,
@@ -120,7 +120,7 @@ type modalV2Dimensions = {
 type bodySkeletonPropsModalV2 = {
   show?: bool,
   width?: string,
-  height?: CommonTypes.stringOrNumber2,
+  height?: CommonTypes.stringOrNumber,
 }
 type modalV2BodySkeletonProps = {
   show?: bool,

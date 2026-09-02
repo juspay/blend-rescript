@@ -1,7 +1,7 @@
 type props<'a> = {
   items: array<'a>,
   renderItem: VirtualListTypes.virtualListRenderParams<'a> => React.element,
-  height?: CommonTypes.stringOrNumber2,
+  height?: CommonTypes.stringOrNumber,
   itemHeight?: float,
   overscan?: float,
   onScroll?: float => unit,
@@ -9,7 +9,7 @@ type props<'a> = {
   endReachedThreshold?: float,
   isLoading?: bool,
   hasMore?: bool,
-  paginationKey?: CommonTypes.stringOrNumber2,
+  paginationKey?: CommonTypes.stringOrNumber,
   className?: string,
   style?: JsxDOM.style,
   ref?: React.ref<Nullable.t<VirtualListTypes.virtualListRef>>,

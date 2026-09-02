@@ -15,4 +15,7 @@ src/**/*.js
 # bindgen run scratch — regenerated on every `npm run generate`.
 # (src/_REPORT.md IS committed, as a human-readable review artifact.)
 src/_bindgen-summary.json
-src/.bindgen-manifest.json
+# NOTE: src/.bindgen-manifest.json is deliberately NOT ignored. It is bindgen's permanent
+# public-name registry (rescript-bindgen #190): it pins every generated type's name and home
+# module and emits compatibility re-exports when one has to move. Without it every run is a
+# cold start and type paths churn — see rescript-bindgen #219. Commit it with the bindings.

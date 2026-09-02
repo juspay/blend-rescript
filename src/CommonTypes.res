@@ -1,4 +1,4 @@
-@unboxed type stringOrNumber2 = Str(string) | Num(float)
+@unboxed type stringOrNumber = Str(string) | Num(float)
 @unboxed type themeOrString = | @as("light") Light | @as("dark") Dark | Custom(string)
 @unboxed type stringOrStringArray = Str(string) | StrArr(array<string>)
 @unboxed type stringOrNumberOrStringArray = Str(string) | Num(float) | StrArr(array<string>)
@@ -99,10 +99,10 @@ type truncatedTextWithTooltipV2Props = {
   @as("data-id") dataId?: string,
 }
 @unboxed
-type stringOrNumberOrStringOrNumberArray = Str(string) | Num(float) | Arr(array<stringOrNumber2>)
+type stringOrNumberOrStringOrNumberArray = Str(string) | Num(float) | Arr(array<stringOrNumber>)
 @unboxed
 type numberOrValueOrStringOrNumberArray =
-  Num(float) | Obj(Dict.t<JSON.t>) | Arr(array<stringOrNumber2>)
+  Num(float) | Obj(Dict.t<JSON.t>) | Arr(array<stringOrNumber>)
 @unboxed
 type contextKeyValue =
   | Bool(bool)

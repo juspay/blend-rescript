@@ -64,7 +64,7 @@ type responsivePopoverV2Tokens = {
   lg: popoverV2TokenType,
 }
 type popoverV2ActionType = {
-  width?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
   size?: ButtonTypes.buttonSize,
   disabled?: bool,
   onClick?: option<ReactEvent.Mouse.t> => unit,
@@ -82,7 +82,7 @@ type popoverV2ActionType = {
 type bodySkeletonV2Props = {
   show?: bool,
   width?: string,
-  height?: CommonTypes.stringOrNumber2,
+  height?: CommonTypes.stringOrNumber,
 }
 type popoverV2SkeletonProps = {
   show?: bool,

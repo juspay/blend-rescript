@@ -1,5 +1,5 @@
 type tagGroupV2Props = {
   stacked?: bool,
-  gap?: CommonTypes.stringOrNumber2,
+  gap?: CommonTypes.stringOrNumber,
   children: React.element,
 }

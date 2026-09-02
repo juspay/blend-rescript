@@ -5,9 +5,9 @@ type props = {
   handle?: React.element,
   hasSnapPoints?: bool,
   contentDriven?: bool,
-  width?: CommonTypes.stringOrNumber2,
-  maxWidth?: CommonTypes.stringOrNumber2,
-  offSet?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber,
+  offSet?: CommonTypes.stringOrNumber,
   mobileOffset?: DrawerTypes.drawerMobileOffsetConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }

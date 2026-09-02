@@ -68,7 +68,7 @@ type responsiveAvatarGroupTokens = {
   lg: avatarGroupTokensType,
 }
 type avatarData = {
-  id: CommonTypes.stringOrNumber2,
+  id: CommonTypes.stringOrNumber,
   alt?: string,
   fallback?: React.element,
   size?: AvatarTypes.avatarSize,

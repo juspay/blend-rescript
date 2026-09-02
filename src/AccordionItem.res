@@ -10,7 +10,7 @@ type props = {
   rightSlot?: React.element,
   subtextSlot?: React.element,
   triggerSlot?: React.element, // ⓘ function form: wrap with `triggerSlotFn` (zero-cost)
-  triggerSlotWidth?: CommonTypes.stringOrNumber2,
+  triggerSlotWidth?: CommonTypes.stringOrNumber,
   children: React.element,
   isDisabled?: bool,
   chevronPosition?: AccordionTypes.accordionChevronPosition,
