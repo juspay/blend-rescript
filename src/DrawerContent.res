@@ -1,13 +1,13 @@
 type props = {
   ...DrawerTypes.drawerContentProps,
-  direction?: DateRangePickerTypes.dateRangePickerDateRangePickerPopoverConfigSide,
+  direction?: HighchartsSharedSharedTypes.dateRangePickerDateRangePickerPopoverConfigSide,
   showHandle?: bool,
   handle?: React.element,
   hasSnapPoints?: bool,
   contentDriven?: bool,
-  width?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
-  offSet?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
+  offSet?: CommonTypes.stringOrNumber2,
   mobileOffset?: DrawerTypes.drawerMobileOffsetConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }

@@ -25,9 +25,9 @@ type buttonGroupPosition =
   | @as("left") Left
   | @as("center") Center
 type buttonV2ResponsiveButtonV2TokensSmSlotMaxHeightConfig = {
-  sm: CommonTypes.stringOrNumber,
-  md: CommonTypes.stringOrNumber,
-  lg: CommonTypes.stringOrNumber,
+  sm: CommonTypes.stringOrNumber2,
+  md: CommonTypes.stringOrNumber2,
+  lg: CommonTypes.stringOrNumber2,
 }
 type buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig = {
   default: string,
@@ -40,10 +40,16 @@ type buttonV2ResponsiveButtonV2TokensSmFocusRingConfig = {
   danger: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
   success: buttonV2ResponsiveButtonV2TokensSmFocusRingPrimaryConfig,
 }
+type buttonV2UseThemeDefaultConfig = {
+  default: string,
+  hover: string,
+  active: string,
+  disabled: string,
+}
 type buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig = {
-  default: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
-  iconOnly: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
-  inline: string, // ⚪ loose — was `{ default: Background<string | number>; hover: Background<string | number>; active: Background<string | number`
+  default: buttonV2UseThemeDefaultConfig,
+  iconOnly: buttonV2UseThemeDefaultConfig,
+  inline: buttonV2UseThemeDefaultConfig,
 }
 type buttonV2ResponsiveButtonV2TokensSmBackgroundColorConfig = {
   primary: buttonV2ResponsiveButtonV2TokensSmBackgroundColorPrimaryConfig,
@@ -101,7 +107,7 @@ type responsiveButtonV2Tokens = {
 }
 type buttonSlot = {
   slot: React.element,
-  maxHeight?: CommonTypes.stringOrNumber,
+  maxHeight?: CommonTypes.stringOrNumber2,
 }
 type buttonSkeleton = {
   showSkeleton?: bool,
@@ -117,14 +123,14 @@ type buttonBaseProps = {
   loading?: bool,
   skeleton?: buttonSkeleton,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  width?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
   state?: buttonV2State,
 }
 type buttonGroupV2Props = {
   stacked?: bool,
-  gap?: CommonTypes.stringOrNumber,
+  gap?: CommonTypes.stringOrNumber2,
   children: React.element,
 }
 type buttonV2GetIconMaxHeightConfig = {
@@ -147,10 +153,10 @@ type buttonStylesReturn = {
   borderLeft?: string,
   borderRight?: string,
   cursor?: string,
-  _active?: Dict.t<CommonTypes.stringOrNumber>,
-  _hover?: Dict.t<CommonTypes.stringOrNumber>,
-  _focusVisible?: Dict.t<CommonTypes.stringOrNumber>,
-  _disabled?: Dict.t<CommonTypes.stringOrNumber>,
+  _active?: Dict.t<CommonTypes.stringOrNumber2>,
+  _hover?: Dict.t<CommonTypes.stringOrNumber2>,
+  _focusVisible?: Dict.t<CommonTypes.stringOrNumber2>,
+  _disabled?: Dict.t<CommonTypes.stringOrNumber2>,
 }
 type buttonV2GetButtonPaddingConfig = {
   top: string,
@@ -168,17 +174,17 @@ type buttonV2Props = {
   loading?: bool,
   skeleton?: buttonSkeleton,
   buttonGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  width?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
   state?: buttonV2State,
   justifyContent?: string,
 }
 type buttonV2TimelineShowMorePropsButtonPropsConfig = {
-  width?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
   size?: buttonV2Size,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
   leftSlot?: buttonSlot,
   justifyContent?: string,
   state?: buttonV2State,

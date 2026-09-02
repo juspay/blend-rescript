@@ -5,9 +5,15 @@ type modalV2ModalV2TokensTypeOverlayConfig = {
 type modalV2ModalV2TokensTypeHeaderSlotConfig = {
   gap: string,
 }
+type __typeV9r18w = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+}
 type modalV2ModalV2TokensTypeHeaderTextConfig = {
-  title: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<num`
-  subtitle: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; lineHeight: LineHeight<num`
+  title: __typeV9r18w,
+  subtitle: __typeV9r18w,
 }
 type modalV2ModalV2TokensTypeHeaderConfig = {
   gap: string,
@@ -89,10 +95,10 @@ type responsiveModalV2Tokens = {
   lg: modalV2TokensType,
 }
 type modalV2ButtonAction = {
-  width?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
   size?: ButtonV2Types.buttonV2Size,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
   text?: string,
   leftSlot?: ButtonV2Types.buttonSlot,
   justifyContent?: string,
@@ -114,7 +120,7 @@ type modalV2Dimensions = {
 type bodySkeletonPropsModalV2 = {
   show?: bool,
   width?: string,
-  height?: CommonTypes.stringOrNumber,
+  height?: CommonTypes.stringOrNumber2,
 }
 type modalV2BodySkeletonProps = {
   show?: bool,

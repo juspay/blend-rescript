@@ -1,7 +1,7 @@
 type props = {
   footer?: React.element,
-  sidebarState: SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange,
-  tokens: SidebarV2Types.sidebarV2TokensType,
+  sidebarState: HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange,
+  tokens: HighchartsSharedSharedTypes.sidebarV2TokensType,
 }
 
 @module("@juspay/blend-design-system")

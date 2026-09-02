@@ -4,8 +4,8 @@ type props = {
   maxCount?: float,
   size?: AvatarTypes.avatarSize,
   shape?: AvatarTypes.avatarShape,
-  selectedAvatarIds?: array<CommonTypes.stringOrNumber>,
-  onSelectionChange?: array<CommonTypes.stringOrNumber> => unit,
+  selectedAvatarIds?: array<CommonTypes.stringOrNumber2>,
+  onSelectionChange?: array<CommonTypes.stringOrNumber2> => unit,
   skeleton?: AvatarGroupTypes.avatarGroupSkeletonConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }

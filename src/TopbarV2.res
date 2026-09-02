@@ -1,5 +1,5 @@
 type props = {
-  ...TopbarV2Types.topbarV2Props,
+  ...HighchartsSharedSharedTypes.topbarV2Props,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

@@ -38,7 +38,7 @@ type props<'a> = {
   @as("aria-pressed") ariaPressed?: [#"true" | #"false" | #mixed],
   @as("aria-required") ariaRequired?: bool,
   @as("aria-selected") ariaSelected?: bool,
-  children: CommonTypes.stringOrNumber,
+  children: CommonTypes.stringOrNumber2,
   onCopy?: ReactEvent.Clipboard.t => unit,
   onCut?: ReactEvent.Clipboard.t => unit,
   onPaste?: ReactEvent.Clipboard.t => unit,

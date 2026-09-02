@@ -24,7 +24,7 @@ type props = {
   endReachedThreshold?: float,
   hasMore?: bool,
   isLoadingMore?: bool,
-  paginationKey?: CommonTypes.stringOrNumber,
+  paginationKey?: CommonTypes.stringOrNumber2,
   loadingComponent?: React.element,
 }
 

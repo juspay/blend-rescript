@@ -5,7 +5,7 @@ type selectListV2BaseProps = {
   disabled?: bool,
   size?: SelectV2Types.selectV2Size,
   variant?: SelectV2Types.selectV2Variant,
-  search?: ContextSharedTypes.selectV2SearchConfig,
+  search?: HighchartsSharedSharedTypes.selectV2SearchConfig,
   maxHeight?: float,
   enableVirtualization?: bool,
   virtualListItemHeight?: float,
@@ -80,7 +80,7 @@ type selectListV2VirtualizationConfig = {
   endReachedThreshold?: float,
   hasMore?: bool,
   isLoadingMore?: bool,
-  paginationKey?: CommonTypes.stringOrNumber,
+  paginationKey?: CommonTypes.stringOrNumber2,
 }
 type selectListV2FocusTarget = {
   itemIndex: float,

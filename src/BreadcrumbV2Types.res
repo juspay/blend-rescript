@@ -1,7 +1,12 @@
+type breadcrumbV2UseThemeColorConfig = {
+  active: string,
+  default: string,
+  hover: string,
+}
 type breadcrumbV2BreadcrumbV2TokensTypeItemTextConfig = {
   fontSize: string,
   fontWeight: string,
-  color: string, // ⚪ loose — was `{ active: Color; default: Color; hover: Color; }`
+  color: breadcrumbV2UseThemeColorConfig,
 }
 type breadcrumbV2BreadcrumbV2TokensTypeItemConfig = {
   padding: string,
@@ -27,7 +32,7 @@ type responsiveBreadcrumbV2Tokens = {
   lg: breadcrumbV2TokensType,
 }
 type breadcrumbV2ItemType = {
-  id?: CommonTypes.stringOrNumber,
+  id?: CommonTypes.stringOrNumber2,
   leftSlot?: React.element,
   rightSlot?: React.element,
   label: string,

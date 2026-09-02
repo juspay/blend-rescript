@@ -1,5 +1,5 @@
 type props<'a> = {
-  directoryData: Nullable.t<array<DirectoryTypes.directoryData>>,
+  directoryData: Nullable.t<array<HighchartsSharedSharedTypes.directoryData>>,
   idPrefix?: string,
   activeItem?: Nullable.t<string>,
   onActiveItemChange?: Nullable.t<string> => unit,
@@ -7,16 +7,16 @@ type props<'a> = {
   iconOnlyMode?: bool,
   showHierarchyLines?: bool,
   hierarchyLineBorderRadius?: string,
-  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
-  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  expandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
+  defaultExpandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
   onExpandedItemsChange?: array<string> => unit,
-  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
+  onItemExpand?: (HighchartsSharedSharedTypes.navbarItem, string) => 'a,
   onEndReached?: unit => 'a,
   endReachedThreshold?: float,
   enableParentSelection?: bool,
   highlightActivePath?: bool,
   enableVirtualization?: bool,
-  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
+  virtualization?: HighchartsSharedSharedTypes.directoryVirtualizationConfig,
 }
 
 @module("@juspay/blend-design-system")

@@ -2,8 +2,8 @@ type props<'a> = {
   ref?: React.ref<Nullable.t<Dom.element>>,
   height?: string,
   children?: React.element,
-  data?: array<DirectoryTypes.directoryData>,
-  secondarySidebar?: SidebarV2Types.secondarySidebarInfo,
+  data?: array<HighchartsSharedSharedTypes.directoryData>,
+  secondarySidebar?: HighchartsSharedSharedTypes.secondarySidebarInfo,
   topbar?: React.element,
   footer?: React.element,
   sidebarTopSlot?: React.element,
@@ -16,7 +16,7 @@ type props<'a> = {
   defaultIsTopbarVisible?: bool,
   isExpanded?: bool,
   onExpandedChange?: bool => unit,
-  onSidebarStateChange?: SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange => unit,
+  onSidebarStateChange?: HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange => unit,
   enableIntermediateState?: bool,
   defaultIsExpanded?: bool,
   showMobilePrimaryActionButton?: bool,
@@ -26,12 +26,12 @@ type props<'a> = {
   defaultActiveItem?: string,
   showHierarchyLines?: bool,
   hierarchyLineBorderRadius?: string,
-  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
-  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  expandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
+  defaultExpandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
   onExpandedItemsChange?: array<string> => unit,
-  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
+  onItemExpand?: (HighchartsSharedSharedTypes.navbarItem, string) => 'a,
   enableVirtualization?: bool,
-  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
+  virtualization?: HighchartsSharedSharedTypes.directoryVirtualizationConfig,
 }
 
 @module("@juspay/blend-design-system")

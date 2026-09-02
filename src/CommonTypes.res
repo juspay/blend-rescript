@@ -1,4 +1,4 @@
-@unboxed type stringOrNumber = Str(string) | Num(float)
+@unboxed type stringOrNumber2 = Str(string) | Num(float)
 @unboxed type themeOrString = | @as("light") Light | @as("dark") Dark | Custom(string)
 @unboxed type stringOrStringArray = Str(string) | StrArr(array<string>)
 @unboxed type stringOrNumberOrStringArray = Str(string) | Num(float) | StrArr(array<string>)
@@ -46,7 +46,6 @@ type boolOrInlineOrOffOrOn = Bool(bool) | @as("inline") Inline | @as("off") Off 
 @unboxed
 type boolOrInUntrustedWorkspace = Bool(bool) | @as("inUntrustedWorkspace") InUntrustedWorkspace
 @unboxed type v0OrV1OrV2 = | @as(0) N0 | @as(1) N1 | @as(2) N2
-@unboxed type v0OrV1OrV2OrV3OrV4 = | @as(0) N0 | @as(1) N1 | @as(2) N2 | @as(3) N3 | @as(4) N4
 @unboxed
 type editorGetMonacoViewModeOptionsLineNumbers =
   | @as("relative") Relative
@@ -100,7 +99,15 @@ type truncatedTextWithTooltipV2Props = {
   @as("data-id") dataId?: string,
 }
 @unboxed
-type stringOrNumberOrStringOrNumberArray = Str(string) | Num(float) | Arr(array<stringOrNumber>)
+type stringOrNumberOrStringOrNumberArray = Str(string) | Num(float) | Arr(array<stringOrNumber2>)
 @unboxed
 type numberOrValueOrStringOrNumberArray =
-  Num(float) | Obj(Dict.t<JSON.t>) | Arr(array<stringOrNumber>)
+  Num(float) | Obj(Dict.t<JSON.t>) | Arr(array<stringOrNumber2>)
+@unboxed
+type contextKeyValue =
+  | Bool(bool)
+  | Str(string)
+  | Num(float)
+  | Arr(array<boolOrStringOrNumber>)
+  | Dict(Dict.t<boolOrStringOrNumber>)
+type boolOrStringOrNumberOrBoolOrStringOrNumberArrayOrValue = contextKeyValue

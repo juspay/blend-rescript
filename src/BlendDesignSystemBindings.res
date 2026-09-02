@@ -1,11 +1,12 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
-external uploadErrorReason: ContextSharedTypes.inputsV2UploadErrorReasonConfig = "UploadErrorReason"
+external uploadErrorReason: HighchartsSharedSharedTypes.inputsV2UploadErrorReasonConfig =
+  "UploadErrorReason"
 @module("@juspay/blend-design-system")
-external useTheme: unit => ContextSharedTypes.themeContextType = "useTheme"
+external useTheme: unit => HighchartsSharedSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
-external useShadowRoot: unit => ContextSharedTypes.shadowRootContextType = "useShadowRoot"
+external useShadowRoot: unit => HighchartsSharedSharedTypes.shadowRootContextType = "useShadowRoot"
 @module("@juspay/blend-design-system")
 external getAccordionToken: TokensTypes.foundationTokenType => AccordionTypes.responsiveAccordionTokens =
   "getAccordionToken"
@@ -44,7 +45,7 @@ external getCardTokens: (
   unit,
 ) => CardTypes.responsiveCardTokens = "getCardTokens"
 @module("@juspay/blend-design-system")
-external getChartTokens: TokensTypes.foundationTokenType => HighchartsSharedTypes.responsiveChartTokens =
+external getChartTokens: TokensTypes.foundationTokenType => ChartsSharedTypes.responsiveChartTokens =
   "getChartTokens"
 @module("@juspay/blend-design-system")
 external blendChartBaseInstance: InstanceTypes.highchartsModule = "BlendChartBaseInstance"
@@ -67,7 +68,7 @@ external getCalendarToken: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => DateRangePickerTypes.responsiveCalendarTokens = "getCalendarToken"
+) => HighchartsSharedSharedTypes.responsiveCalendarTokens = "getCalendarToken"
 @module("@juspay/blend-design-system")
 external getTimePickerTokens: (
   TokensTypes.foundationTokenType,
@@ -79,7 +80,7 @@ external getDirectoryTokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => DirectoryTypes.responsiveDirectoryTokens = "getDirectoryTokens"
+) => HighchartsSharedSharedTypes.responsiveDirectoryTokens = "getDirectoryTokens"
 @module("@juspay/blend-design-system")
 external getTextInputTokens: TokensTypes.foundationTokenType => InputsTypes.responsiveTextInputTokens =
   "getTextInputTokens"
@@ -112,11 +113,11 @@ external getKeyValuePairTokens: TokensTypes.foundationTokenType => KeyValuePairT
   "getKeyValuePairTokens"
 @module("@juspay/blend-design-system")
 external getMenuItemStateToken: (
-  ContextSharedTypes.menuItemStateTokens<'a>,
-  ContextSharedTypes.menuItemSelectionStates,
+  HighchartsSharedSharedTypes.menuItemStateTokens<'a>,
+  HighchartsSharedSharedTypes.menuItemSelectionStates,
 ) => 'a = "getMenuItemStateToken"
 @module("@juspay/blend-design-system")
-external getMenuTokens: TokensTypes.foundationTokenType => ContextSharedTypes.responsiveMenuTokensType =
+external getMenuTokens: TokensTypes.foundationTokenType => HighchartsSharedSharedTypes.responsiveMenuTokensType =
   "getMenuTokens"
 @module("@juspay/blend-design-system")
 external getModalComponentTokens: (
@@ -202,7 +203,7 @@ external getSliderLabelStyles: (
   unit,
 ) => SliderTypes.sliderCSSProperties = "getSliderLabelStyles"
 @module("@juspay/blend-design-system")
-external addSnackbar: SnackbarTypes.addToastOptions => CommonTypes.stringOrNumber = "addSnackbar"
+external addSnackbar: SnackbarTypes.addToastOptions => CommonTypes.stringOrNumber2 = "addSnackbar"
 @module("@juspay/blend-design-system")
 external getSnackbarTokens: TokensTypes.foundationTokenType => SnackbarTypes.responsiveSnackbarTokens =
   "getSnackbarTokens"
@@ -260,9 +261,9 @@ external getButtonHeight: ButtonV2Types.buttonV2SubType => string = "getButtonHe
 @module("@juspay/blend-design-system")
 external getIconMaxHeight: (
   ButtonV2Types.buttonV2SubType,
-  CommonTypes.stringOrNumber,
-  CommonTypes.stringOrNumber,
-  CommonTypes.stringOrNumber,
+  CommonTypes.stringOrNumber2,
+  CommonTypes.stringOrNumber2,
+  CommonTypes.stringOrNumber2,
 ) => ButtonV2Types.buttonV2GetIconMaxHeightConfig = "getIconMaxHeight"
 @module("@juspay/blend-design-system")
 external getButtonStatus: (bool, bool) => ButtonV2Types.buttonV2GetButtonStatus = "getButtonStatus"
@@ -277,7 +278,7 @@ external getSkeletonBorderRadius: (
   ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
 ) => string = "getSkeletonBorderRadius"
 @module("@juspay/blend-design-system")
-external getSkeletonWidth: (~width: CommonTypes.stringOrNumber=?, unit) => string =
+external getSkeletonWidth: (~width: CommonTypes.stringOrNumber2=?, unit) => string =
   "getSkeletonWidth"
 @module("@juspay/blend-design-system")
 external getButtonBorderStyles: (
@@ -517,7 +518,7 @@ external getProgressBarValueState: (
 @module("@juspay/blend-design-system")
 external calculatePercentage: (float, float, float) => float = "calculatePercentage"
 @module("@juspay/blend-design-system")
-external parseTokenValue: (CommonTypes.stringOrNumber, float) => float = "parseTokenValue"
+external parseTokenValue: (CommonTypes.stringOrNumber2, float) => float = "parseTokenValue"
 @module("@juspay/blend-design-system")
 external extractProgressBarV2AriaProps: Dict.t<
   JSON.t,
@@ -564,9 +565,9 @@ external renderVariantFallbackValue: (
 ) => Dom.element = "renderVariantFallbackValue"
 @module("@juspay/blend-design-system")
 external buildStatCardV2ChartOptions: (
-  ~overrides: HighchartsSharedTypes.options<'a, 'b, 'c>=?,
+  ~overrides: HighchartsSharedSharedTypes.options<'a, 'b, 'c>=?,
   unit,
-) => HighchartsSharedTypes.options<'a, 'b, 'c> = "buildStatCardV2ChartOptions"
+) => HighchartsSharedSharedTypes.options<'a, 'b, 'c> = "buildStatCardV2ChartOptions"
 @module("@juspay/blend-design-system")
 external getStatCardV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -594,30 +595,31 @@ external getTextInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveTextInputV2Tokens = "getTextInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveTextInputV2Tokens = "getTextInputV2Tokens"
 @module("@juspay/blend-design-system")
 external toEmbeddedSingleSelectV2Props: (
-  ContextSharedTypes.singleSelectV2Props,
-  ContextSharedTypes.embeddedSingleSelectOptions,
-) => ContextSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
+  HighchartsSharedSharedTypes.singleSelectV2Props,
+  HighchartsSharedSharedTypes.embeddedSingleSelectOptions,
+) => HighchartsSharedSharedTypes.singleSelectV2Props = "toEmbeddedSingleSelectV2Props"
 @module("@juspay/blend-design-system")
-external focusRingStyles: ContextSharedTypes.inputsV2FOCUSRINGSTYLESConfig = "FOCUS_RING_STYLES"
+external focusRingStyles: HighchartsSharedSharedTypes.inputsV2FOCUSRINGSTYLESConfig =
+  "FOCUS_RING_STYLES"
 @module("@juspay/blend-design-system") external transition: string = "TRANSITION"
 @module("@juspay/blend-design-system")
 external getInputState: (
-  ~error: ContextSharedTypes.inputsV2GetInputStateErrorConfig=?,
+  ~error: HighchartsSharedSharedTypes.inputsV2GetInputStateErrorConfig=?,
   ~disabled: bool=?,
   unit,
-) => ContextSharedTypes.inputStateV2 = "getInputState"
+) => HighchartsSharedSharedTypes.inputStateV2 = "getInputState"
 @module("@juspay/blend-design-system")
-external getVerticalInputPadding: ContextSharedTypes.inputsV2GetVerticalInputPaddingV0Config => ContextSharedTypes.inputsV2GetVerticalInputPaddingConfig =
+external getVerticalInputPadding: HighchartsSharedSharedTypes.inputsV2GetVerticalInputPaddingV0Config => HighchartsSharedSharedTypes.inputsV2GetVerticalInputPaddingConfig =
   "getVerticalInputPadding"
 @module("@juspay/blend-design-system")
 external getTextAreaV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveTextAreaV2Tokens = "getTextAreaV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveTextAreaV2Tokens = "getTextAreaV2Tokens"
 @module("@juspay/blend-design-system")
 external useTabsV2Context: unit => TabsV2Types.tabsV2ContextValue = "useTabsV2Context"
 @module("@juspay/blend-design-system")
@@ -666,36 +668,36 @@ external applyTabItemDisplayDefaults: (
 external useChartLegend: (
   React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>,
   array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>>,
-) => ChartsV2Types.chartsV2UseChartLegendConfig<'a, 'b, 'c> = "useChartLegend"
+) => HighchartsSharedSharedTypes.chartsV2UseChartLegendConfig<'a, 'b, 'c> = "useChartLegend"
 @module("@juspay/blend-design-system")
 external useChartLegendHover: (
-  HighchartsSharedTypes.chart<'a, 'b, 'c>,
-  array<HighchartsSharedTypes.chart<'a, 'b, 'c>>,
-) => ChartsV2Types.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
+  HighchartsSharedSharedTypes.chart<'a, 'b, 'c>,
+  array<HighchartsSharedSharedTypes.chart<'a, 'b, 'c>>,
+) => HighchartsSharedSharedTypes.chartsV2UseChartLegendHoverConfig = "useChartLegendHover"
 @module("@juspay/blend-design-system")
 external useChartRefs: array<
-  React.ref<Nullable.t<ChartsV2Types.chartsV2UseChartRefsRefsConfig<'a, 'b, 'c>>>,
-> => array<HighchartsSharedTypes.chart<'a, 'b, 'c>> = "useChartRefs"
+  React.ref<Nullable.t<HighchartsSharedSharedTypes.chartsV2UseChartRefsRefsConfig<'a, 'b, 'c>>>,
+> => array<HighchartsSharedSharedTypes.chart<'a, 'b, 'c>> = "useChartRefs"
 @module("@juspay/blend-design-system")
-external getLegendItems: HighchartsSharedTypes.chart<'a, 'b, 'c> => array<
-  HighchartsSharedTypes.ChartsLegendAllItems.t,
+external getLegendItems: HighchartsSharedSharedTypes.chart<'a, 'b, 'c> => array<
+  HighchartsSharedSharedTypes.ChartsLegendAllItems.t,
 > = "getLegendItems"
 @module("@juspay/blend-design-system")
 external applyHoverState: (
-  array<HighchartsSharedTypes.ChartsLegendAllItems.t>,
-  HighchartsSharedTypes.ChartsLegendAllItems.t,
+  array<HighchartsSharedSharedTypes.ChartsLegendAllItems.t>,
+  HighchartsSharedSharedTypes.ChartsLegendAllItems.t,
 ) => unit = "applyHoverState"
 @module("@juspay/blend-design-system")
 external mergeChartOptions: (
-  HighchartsSharedTypes.options<'a, 'b, 'c>,
-  ChartsV2Types.chartV2TokensType,
+  HighchartsSharedSharedTypes.options<'a, 'b, 'c>,
+  HighchartsSharedSharedTypes.chartV2TokensType,
 ) => Dict.t<JSON.t> = "mergeChartOptions"
 @module("@juspay/blend-design-system")
 external getChartV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ChartsV2Types.responsiveChartV2Tokens = "getChartV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveChartV2Tokens = "getChartV2Tokens"
 @module("@juspay/blend-design-system")
 external chartV2BaseInstance: InstanceTypes.highchartsModule = "ChartV2BaseInstance"
 @module("@juspay/blend-design-system")
@@ -704,9 +706,9 @@ external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPositi
 @module("@juspay/blend-design-system")
 external getButtonGroupGap: (
   bool,
-  ~providedGap: CommonTypes.stringOrNumber=?,
+  ~providedGap: CommonTypes.stringOrNumber2=?,
   unit,
-) => CommonTypes.stringOrNumber = "getButtonGroupGap"
+) => CommonTypes.stringOrNumber2 = "getButtonGroupGap"
 @module("@juspay/blend-design-system")
 external getPopoverV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -724,27 +726,28 @@ external getSidebarV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => SidebarV2Types.responsiveSidebarV2Tokens = "getSidebarV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveSidebarV2Tokens = "getSidebarV2Tokens"
 @module("@juspay/blend-design-system")
 external isControlledSidebarV2: bool => bool = "isControlledSidebarV2"
 @module("@juspay/blend-design-system")
 external getSidebarV2Status: (
   bool,
   bool,
-) => SidebarV2Types.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
+) => HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
 @module("@juspay/blend-design-system")
 external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
 @module("@juspay/blend-design-system")
 external getTopbarV2Styles: (
   bool,
   bool,
-  ~topbarHeight: CommonTypes.stringOrNumber=?,
+  ~topbarHeight: CommonTypes.stringOrNumber2=?,
   unit,
 ) => JSON.t = "getTopbarV2Styles"
 @module("@juspay/blend-design-system")
-external getSidebarV2MobileNavigationItems: array<DirectoryTypes.directoryData> => array<
-  SidebarV2Types.sidebarV2MobileNavigationItem,
-> = "getSidebarV2MobileNavigationItems"
+external getSidebarV2MobileNavigationItems: array<
+  HighchartsSharedSharedTypes.directoryData,
+> => array<HighchartsSharedSharedTypes.sidebarV2MobileNavigationItem> =
+  "getSidebarV2MobileNavigationItems"
 @module("@juspay/blend-design-system")
 external useTopbarV2AutoHide: bool => bool = "useTopbarV2AutoHide"
 @module("@juspay/blend-design-system")
@@ -772,7 +775,7 @@ external getTopbarV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => TopbarV2Types.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveTopbarV2Tokens = "getTopbarV2Tokens"
 @module("@juspay/blend-design-system") external selectV2MenuZIndex: float = "SELECT_V2_MENU_Z_INDEX"
 @module("@juspay/blend-design-system")
 external useSelectV2MenuBehavior: SelectV2Types.useSelectV2MenuBehaviorParams => SelectV2Types.useSelectV2MenuBehaviorResult =
@@ -782,27 +785,27 @@ external getMultiValueInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveMultiValueInputV2Tokens = "getMultiValueInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveMultiValueInputV2Tokens = "getMultiValueInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getNumberInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveNumberInputV2Tokens = "getNumberInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveNumberInputV2Tokens = "getNumberInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getOTPInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveOTPInputV2Tokens = "getOTPInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveOTPInputV2Tokens = "getOTPInputV2Tokens"
 @module("@juspay/blend-design-system")
 external getSearchInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveSearchInputV2Tokens = "getSearchInputV2Tokens"
 @module("@juspay/blend-design-system")
-external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber =
+external addSnackbarV2: SnackbarV2Types.snackbarV2ToastOptions => CommonTypes.stringOrNumber2 =
   "addSnackbarV2"
 @module("@juspay/blend-design-system")
 external getSnackbarV2Tokens: (
@@ -815,59 +818,60 @@ external getCodeEditorV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveCodeEditorV2Tokens = "getCodeEditorV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveCodeEditorV2Tokens = "getCodeEditorV2Tokens"
 @module("@juspay/blend-design-system")
 external getEditorMetrics: (
-  ContextSharedTypes.codeEditorV2Tokens,
+  HighchartsSharedSharedTypes.codeEditorV2Tokens,
   bool,
-) => ContextSharedTypes.editorMetrics = "getEditorMetrics"
+) => HighchartsSharedSharedTypes.editorMetrics = "getEditorMetrics"
 @module("@juspay/blend-design-system")
 external getContainerDimensions: (
   string,
   string,
   ~maxHeight: string=?,
   unit,
-) => ContextSharedTypes.codeEditorV2GetContainerDimensionsConfig = "getContainerDimensions"
+) => HighchartsSharedSharedTypes.codeEditorV2GetContainerDimensionsConfig = "getContainerDimensions"
 @module("@juspay/blend-design-system")
 external getPlaceholderPosition: (
-  ContextSharedTypes.editorMetrics,
+  HighchartsSharedSharedTypes.editorMetrics,
   bool,
-) => ContextSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
+) => HighchartsSharedSharedTypes.codeEditorV2GetPlaceholderPositionConfig = "getPlaceholderPosition"
 @module("@juspay/blend-design-system")
 external configureLanguageDefaults: InstanceTypes.editorApiModule => unit =
   "configureLanguageDefaults"
 @module("@juspay/blend-design-system")
-external blurMonacoEditorDom: ContextSharedTypes.iCodeEditor<'a> => unit = "blurMonacoEditorDom"
+external blurMonacoEditorDom: HighchartsSharedSharedTypes.iCodeEditor<'a> => unit =
+  "blurMonacoEditorDom"
 @module("@juspay/blend-design-system")
 external getMonacoViewModeOptions: (
   bool,
   bool,
-) => ContextSharedTypes.editorGetMonacoViewModeOptionsConfig = "getMonacoViewModeOptions"
+) => HighchartsSharedSharedTypes.editorGetMonacoViewModeOptionsConfig = "getMonacoViewModeOptions"
 @module("@juspay/blend-design-system")
 external syncDiffEditorPaneViewMode: (
-  ContextSharedTypes.iStandaloneDiffEditor<'a, 'b>,
+  HighchartsSharedSharedTypes.iStandaloneDiffEditor<'a, 'b>,
   bool,
   bool,
 ) => unit = "syncDiffEditorPaneViewMode"
 @module("@juspay/blend-design-system")
 external getMountEditorOptions: (
-  ContextSharedTypes.editorMetrics,
-  ContextSharedTypes.codeEditorV2Tokens,
+  HighchartsSharedSharedTypes.editorMetrics,
+  HighchartsSharedSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
-) => ContextSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getMountEditorOptions"
+) => HighchartsSharedSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getMountEditorOptions"
 @module("@juspay/blend-design-system")
 external getUpdateEditorOptions: (
-  ContextSharedTypes.editorMetrics,
+  HighchartsSharedSharedTypes.editorMetrics,
   bool,
   bool,
   bool,
-) => ContextSharedTypes.iEditorOptions = "getUpdateEditorOptions"
+) => HighchartsSharedSharedTypes.iEditorOptions = "getUpdateEditorOptions"
 @module("@juspay/blend-design-system")
 external getDiffEditorOptions: (
-  ContextSharedTypes.editorMetrics,
-  ContextSharedTypes.codeEditorV2Tokens,
+  HighchartsSharedSharedTypes.editorMetrics,
+  HighchartsSharedSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
@@ -875,15 +879,16 @@ external getDiffEditorOptions: (
   bool,
   float,
   float,
-) => ContextSharedTypes.iDiffEditorConstructionOptions = "getDiffEditorOptions"
+) => HighchartsSharedSharedTypes.iDiffEditorConstructionOptions = "getDiffEditorOptions"
 @module("@juspay/blend-design-system")
 external getInitialEditorOptions: (
-  ContextSharedTypes.editorMetrics,
-  ContextSharedTypes.codeEditorV2Tokens,
+  HighchartsSharedSharedTypes.editorMetrics,
+  HighchartsSharedSharedTypes.codeEditorV2Tokens,
   bool,
   bool,
   bool,
-) => ContextSharedTypes.iStandaloneEditorConstructionOptions<'a> = "getInitialEditorOptions"
+) => HighchartsSharedSharedTypes.iStandaloneEditorConstructionOptions<'a> =
+  "getInitialEditorOptions"
 @module("@juspay/blend-design-system") external editorFocusDelayMs: float = "EDITOR_FOCUS_DELAY_MS"
 @module("@juspay/blend-design-system")
 external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
@@ -892,29 +897,29 @@ external copyFeedbackResetMs: float = "COPY_FEEDBACK_RESET_MS"
 external copyToClipboardWithTemporaryFeedback: (
   string,
   CommonTypes.reactCopyToClipboardWithTemporaryFeedbackSetIsCopied => unit,
-  ContextSharedTypes.copyFeedbackTimeoutRef,
+  HighchartsSharedSharedTypes.copyFeedbackTimeoutRef,
   ~resetMs: float=?,
   unit,
 ) => unit = "copyToClipboardWithTemporaryFeedback"
 @module("@juspay/blend-design-system")
-external shouldShowLineNumbers: (bool, ContextSharedTypes.codeEditorV2Variant) => bool =
+external shouldShowLineNumbers: (bool, HighchartsSharedSharedTypes.codeEditorV2Variant) => bool =
   "shouldShowLineNumbers"
 @module("@juspay/blend-design-system")
-external isDiffEditorMode: (bool, ContextSharedTypes.codeEditorV2Variant) => bool =
+external isDiffEditorMode: (bool, HighchartsSharedSharedTypes.codeEditorV2Variant) => bool =
   "isDiffEditorMode"
 @module("@juspay/blend-design-system")
 external getCodeEditorV2ContainerStyles: (
-  ~minHeight: CommonTypes.stringOrNumber=?,
-  ~maxHeight: CommonTypes.stringOrNumber=?,
+  ~minHeight: CommonTypes.stringOrNumber2=?,
+  ~maxHeight: CommonTypes.stringOrNumber2=?,
   unit,
 ) => JsxDOM.style = "getCodeEditorV2ContainerStyles"
 @module("@juspay/blend-design-system")
-external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "toCssValue"
+external toCssValue: (~value: CommonTypes.stringOrNumber2=?, unit) => string = "toCssValue"
 @module("@juspay/blend-design-system")
-external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
+external toNumericValue: (CommonTypes.stringOrNumber2, ~fallback: float=?, unit) => float =
   "toNumericValue"
 @module("@juspay/blend-design-system")
-external backupColor: ContextSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
+external backupColor: HighchartsSharedSharedTypes.codeEditorV2BackupColorConfig = "backupColor"
 @module("@juspay/blend-design-system")
 external getKeyValuePairV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -939,68 +944,69 @@ external getMenuV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveMenuV2TokensType = "getMenuV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveMenuV2TokensType = "getMenuV2Tokens"
 @module("@juspay/blend-design-system")
-external getItemSlots: ContextSharedTypes.menuV2ItemType => array<React.element> = "getItemSlots"
+external getItemSlots: HighchartsSharedSharedTypes.menuV2ItemType => array<React.element> =
+  "getItemSlots"
 @module("@juspay/blend-design-system")
 external getItemMatchRank: (
-  ContextSharedTypes.menuV2ItemType,
+  HighchartsSharedSharedTypes.menuV2ItemType,
   string,
-) => ContextSharedTypes.menuV2MatchRank = "getItemMatchRank"
+) => HighchartsSharedSharedTypes.menuV2MatchRank = "getItemMatchRank"
 @module("@juspay/blend-design-system")
 external defaultSearchSortFn: (
-  array<ContextSharedTypes.menuV2ItemType>,
+  array<HighchartsSharedSharedTypes.menuV2ItemType>,
   string,
-) => array<ContextSharedTypes.menuV2ItemType> = "defaultSearchSortFn"
+) => array<HighchartsSharedSharedTypes.menuV2ItemType> = "defaultSearchSortFn"
 @module("@juspay/blend-design-system")
 external filterMenuV2Item: (
-  ContextSharedTypes.menuV2ItemType,
+  HighchartsSharedSharedTypes.menuV2ItemType,
   string,
-) => ContextSharedTypes.menuV2ItemType = "filterMenuV2Item"
+) => HighchartsSharedSharedTypes.menuV2ItemType = "filterMenuV2Item"
 @module("@juspay/blend-design-system")
 external getMenuItemBackgroundColor: (
   SelectV2Types.selectV2ItemStates,
-  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  ContextSharedTypes.menuV2ItemType,
+  HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  HighchartsSharedSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemBackgroundColor"
 @module("@juspay/blend-design-system")
 external getMenuItemOptionColor: (
   SelectV2Types.selectV2ItemStates,
-  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  ContextSharedTypes.menuV2ItemType,
+  HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  HighchartsSharedSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemOptionColor"
 @module("@juspay/blend-design-system")
 external getMenuItemDescriptionColor: (
   SelectV2Types.selectV2ItemStates,
-  ContextSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
-  ContextSharedTypes.menuV2ItemType,
+  HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
+  HighchartsSharedSharedTypes.menuV2ItemType,
 ) => string = "getMenuItemDescriptionColor"
 @module("@juspay/blend-design-system")
-external flattenMenuV2Groups: array<ContextSharedTypes.menuV2GroupType> => array<
-  ContextSharedTypes.menuV2FlatRow,
+external flattenMenuV2Groups: array<HighchartsSharedSharedTypes.menuV2GroupType> => array<
+  HighchartsSharedSharedTypes.menuV2FlatRow,
 > = "flattenMenuV2Groups"
 @module("@juspay/blend-design-system")
 external filterMenuV2Groups: (
-  array<ContextSharedTypes.menuV2GroupType>,
+  array<HighchartsSharedSharedTypes.menuV2GroupType>,
   string,
   ~searchSortFn: (
-    array<ContextSharedTypes.menuV2ItemType>,
+    array<HighchartsSharedSharedTypes.menuV2ItemType>,
     string,
-  ) => array<ContextSharedTypes.menuV2ItemType>=?,
+  ) => array<HighchartsSharedSharedTypes.menuV2ItemType>=?,
   unit,
-) => array<ContextSharedTypes.menuV2GroupType> = "filterMenuV2Groups"
+) => array<HighchartsSharedSharedTypes.menuV2GroupType> = "filterMenuV2Groups"
 @module("@juspay/blend-design-system")
 external getMultiSelectV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveMultiSelectV2Tokens = "getMultiSelectV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveMultiSelectV2Tokens = "getMultiSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getMultiSelectBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  ContextSharedTypes.multiSelectV2TokensType,
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
   bool,
 ) => string = "getMultiSelectBorderRadius"
 @module("@juspay/blend-design-system")
@@ -1008,65 +1014,66 @@ external getMultiSelectCrossBorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  ContextSharedTypes.multiSelectV2TokensType,
-) => ContextSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
+) => HighchartsSharedSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
   "getMultiSelectCrossBorderRadius"
 @module("@juspay/blend-design-system")
 external getSelectAllState: (
   array<string>,
   array<string>,
-) => ContextSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
+) => HighchartsSharedSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
 @module("@juspay/blend-design-system")
-external getMultiSelectV2ValueLabelMap: array<ContextSharedTypes.multiSelectV2GroupType> => Dict.t<
-  string,
-> = "getMultiSelectV2ValueLabelMap"
+external getMultiSelectV2ValueLabelMap: array<
+  HighchartsSharedSharedTypes.multiSelectV2GroupType,
+> => Dict.t<string> = "getMultiSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
 external getFilteredMenuItem: (
-  ContextSharedTypes.multiSelectV2ItemType,
+  HighchartsSharedSharedTypes.multiSelectV2ItemType,
   string,
-) => ContextSharedTypes.multiSelectV2ItemType = "getFilteredMenuItem"
+) => HighchartsSharedSharedTypes.multiSelectV2ItemType = "getFilteredMenuItem"
 @module("@juspay/blend-design-system")
 external filterMultiSelectV2MenuGroups: (
-  array<ContextSharedTypes.multiSelectV2GroupType>,
+  array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
   string,
-) => array<ContextSharedTypes.multiSelectV2GroupType> = "filterMultiSelectV2MenuGroups"
+) => array<HighchartsSharedSharedTypes.multiSelectV2GroupType> = "filterMultiSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
-external getAllAvailableValues: array<ContextSharedTypes.multiSelectV2GroupType> => array<string> =
-  "getAllAvailableValues"
+external getAllAvailableValues: array<HighchartsSharedSharedTypes.multiSelectV2GroupType> => array<
+  string,
+> = "getAllAvailableValues"
 @module("@juspay/blend-design-system")
 external handleSelectAll: (
   bool,
-  array<ContextSharedTypes.multiSelectV2GroupType>,
+  array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
   array<string>,
   string => unit,
   ~maxSelections: float=?,
   unit,
 ) => unit = "handleSelectAll"
 @module("@juspay/blend-design-system")
-external flattenMenuGroups: array<ContextSharedTypes.multiSelectV2GroupType> => array<
-  ContextSharedTypes.flattenedMultiSelectV2Item,
+external flattenMenuGroups: array<HighchartsSharedSharedTypes.multiSelectV2GroupType> => array<
+  HighchartsSharedSharedTypes.flattenedMultiSelectV2Item,
 > = "flattenMenuGroups"
 @module("@juspay/blend-design-system")
 external getTriggerLeftPadding: (
-  ContextSharedTypes.multiSelectV2TokensType,
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerLeftPadding"
 @module("@juspay/blend-design-system")
 external getTriggerTopPadding: (
-  ContextSharedTypes.multiSelectV2TokensType,
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerTopPadding"
 @module("@juspay/blend-design-system")
 external getTriggerHorizontalPadding: (
-  ContextSharedTypes.multiSelectV2TokensType,
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerHorizontalPadding"
 @module("@juspay/blend-design-system")
 external getTriggerVerticalPadding: (
-  ContextSharedTypes.multiSelectV2TokensType,
+  HighchartsSharedSharedTypes.multiSelectV2TokensType,
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
 ) => float = "getTriggerVerticalPadding"
@@ -1075,46 +1082,46 @@ external getSingleSelectV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveSingleSelectV2Tokens = "getSingleSelectV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveSingleSelectV2Tokens = "getSingleSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2BorderRadius: (
   SelectV2Types.selectV2Size,
   SelectV2Types.selectV2Variant,
   ButtonTypes.buttonButtonGroupPosition,
-  ContextSharedTypes.singleSelectV2TokensType,
-) => ContextSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
+  HighchartsSharedSharedTypes.singleSelectV2TokensType,
+) => HighchartsSharedSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
   "getSingleSelectV2BorderRadius"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2ValueLabelMap: array<
-  ContextSharedTypes.singleSelectV2GroupType,
+  HighchartsSharedSharedTypes.singleSelectV2GroupType,
 > => Dict.t<string> = "getSingleSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
-external flattenGroups: array<ContextSharedTypes.singleSelectV2GroupType> => array<
-  ContextSharedTypes.flattenedItem,
+external flattenGroups: array<HighchartsSharedSharedTypes.singleSelectV2GroupType> => array<
+  HighchartsSharedSharedTypes.flattenedItem,
 > = "flattenGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2MenuGroups: (
-  array<ContextSharedTypes.singleSelectV2GroupType>,
+  array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
   string,
-) => array<ContextSharedTypes.singleSelectV2GroupType> = "filterSingleSelectV2MenuGroups"
+) => array<HighchartsSharedSharedTypes.singleSelectV2GroupType> = "filterSingleSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2Item: (
-  ContextSharedTypes.singleSelectV2ItemType,
+  HighchartsSharedSharedTypes.singleSelectV2ItemType,
   string,
-) => ContextSharedTypes.singleSelectV2ItemType = "filterSingleSelectV2Item"
+) => HighchartsSharedSharedTypes.singleSelectV2ItemType = "filterSingleSelectV2Item"
 @module("@juspay/blend-design-system")
 external isTooltipWrappingTrigger: React.element => bool = "isTooltipWrappingTrigger"
 @module("@juspay/blend-design-system")
 external getMenuItemIndex: (
-  array<ContextSharedTypes.singleSelectV2GroupType>,
+  array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
   float,
   float,
 ) => float = "getMenuItemIndex"
 @module("@juspay/blend-design-system")
-external getVirtualRowEstimate: (array<ContextSharedTypes.flattenedItem>, int) => float =
+external getVirtualRowEstimate: (array<HighchartsSharedSharedTypes.flattenedItem>, int) => float =
   "getVirtualRowEstimate"
 @module("@juspay/blend-design-system")
-external getItemOrdinalIndex: (array<ContextSharedTypes.flattenedItem>, float) => float =
+external getItemOrdinalIndex: (array<HighchartsSharedSharedTypes.flattenedItem>, float) => float =
   "getItemOrdinalIndex"
 @module("@juspay/blend-design-system")
 external defaultSingleSelectV2Skeleton: SelectV2Types.selectV2SkeletonProps =
@@ -1127,22 +1134,24 @@ external defaultEndReachedThreshold: float = "DEFAULT_END_REACHED_THRESHOLD"
 @module("@juspay/blend-design-system")
 external generateAccessibilityIds: (
   string,
-  ContextSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
-) => ContextSharedTypes.singleSelectV2GenerateAccessibilityIdsConfig = "generateAccessibilityIds"
+  HighchartsSharedSharedTypes.singleSelectV2GenerateAccessibilityIdsOptionsConfig,
+) => HighchartsSharedSharedTypes.singleSelectV2GenerateAccessibilityIdsConfig =
+  "generateAccessibilityIds"
 @module("@juspay/blend-design-system")
-external extractSingleSelectV2AriaProps: Dict.t<JSON.t> => ContextSharedTypes.extractedAriaProps =
-  "extractSingleSelectV2AriaProps"
+external extractSingleSelectV2AriaProps: Dict.t<
+  JSON.t,
+> => HighchartsSharedSharedTypes.extractedAriaProps = "extractSingleSelectV2AriaProps"
 @module("@juspay/blend-design-system") @variadic
 external mergeSingleSelectV2AriaDescribedBy: array<string> => string =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
-external buildAriaAttributes: ContextSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => ContextSharedTypes.ariaAttributes =
+external buildAriaAttributes: HighchartsSharedSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => HighchartsSharedSharedTypes.ariaAttributes =
   "buildAriaAttributes"
 @module("@juspay/blend-design-system")
-external setupAccessibility: ContextSharedTypes.accessibilitySetupOptions => ContextSharedTypes.accessibilitySetupResult =
+external setupAccessibility: HighchartsSharedSharedTypes.accessibilitySetupOptions => HighchartsSharedSharedTypes.accessibilitySetupResult =
   "setupAccessibility"
 @module("@juspay/blend-design-system")
-external virtualRowEstimates: ContextSharedTypes.singleSelectV2VIRTUALROWESTIMATESConfig =
+external virtualRowEstimates: HighchartsSharedSharedTypes.singleSelectV2VIRTUALROWESTIMATESConfig =
   "VIRTUAL_ROW_ESTIMATES"
 @module("@juspay/blend-design-system")
 external useSelectListNavigation: SelectListV2Types.useSelectListNavigationOptions => SelectListV2Types.selectListV2UseSelectListNavigationConfig =
@@ -1164,4 +1173,4 @@ external getChatInputV2Tokens: (
   TokensTypes.foundationTokenType,
   ~theme: string=?,
   unit,
-) => ContextSharedTypes.responsiveChatInputV2TokensType = "getChatInputV2Tokens"
+) => HighchartsSharedSharedTypes.responsiveChatInputV2TokensType = "getChatInputV2Tokens"

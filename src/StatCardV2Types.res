@@ -8,11 +8,61 @@ type statCardV2ChangeType =
 type statCardV2ArrowDirection =
   | @as("up") Up
   | @as("down") Down
+type __typeV1h18p = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+  lineHeight: string,
+}
+type __typeV1bifo = {
+  default: string,
+  hover: string,
+}
+type __typeV136nr = {
+  width: string,
+  height: string,
+  color: __typeV1bifo,
+}
+type __typeV1ge6o = {
+  gap: string,
+  title: __typeV1h18p,
+  helpIcon: __typeV136nr,
+}
+type statCardV2UseThemeStatsContainerValueConfig = {
+  chart: __typeV1h18p,
+  progress: __typeV1h18p,
+  number: __typeV1h18p,
+}
+type statCardV2UseThemeStatsContainerChangeContainerChangeColorConfig = {
+  increase: string,
+  decrease: string,
+}
+type statCardV2UseThemeStatsContainerChangeContainerChangeConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: statCardV2UseThemeStatsContainerChangeContainerChangeColorConfig,
+  lineHeight: string,
+}
+type statCardV2UseThemeStatsContainerChangeContainerArrowConfig = {
+  width: string,
+  height: string,
+  color: statCardV2UseThemeStatsContainerChangeContainerChangeColorConfig,
+}
+type statCardV2UseThemeStatsContainerChangeContainerConfig = {
+  gap: string,
+  change: statCardV2UseThemeStatsContainerChangeContainerChangeConfig,
+  arrow: statCardV2UseThemeStatsContainerChangeContainerArrowConfig,
+}
+type statCardV2UseThemeStatsContainerConfig = {
+  gap: string,
+  value: statCardV2UseThemeStatsContainerValueConfig,
+  changeContainer: statCardV2UseThemeStatsContainerChangeContainerConfig,
+}
 type statCardV2StatCardV2TokensTypeTopContainerDataContainerConfig = {
   gap: string,
-  titleContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; title: { fontSize: FontSize<number | (string & {})>; fontWeight: FontWeigh`
-  statsContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; value: { chart: { fontSize: FontSize<number | (string & {})>; fontWeight: `
-  subtitle: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; lineHeight: LineHeight<num`
+  titleContainer: __typeV1ge6o,
+  statsContainer: statCardV2UseThemeStatsContainerConfig,
+  subtitle: __typeV1h18p,
 }
 type statCardV2StatCardV2TokensTypeTopContainerConfig = {
   gap: string,

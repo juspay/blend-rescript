@@ -48,9 +48,16 @@ type multiSelectMultiSelectTokensTypeTriggerHeightConfig = {
   md: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
   lg: multiSelectMultiSelectTokensTypeTriggerBoxShadowConfig,
 }
+type multiSelectUseThemeContainerConfig = {
+  hover: string,
+  error: string,
+  focus: string,
+  @as("open") open_: string,
+  closed: string,
+}
 type multiSelectMultiSelectTokensTypeTriggerBackgroundColorConfig = {
-  container: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
-  @as("no-container") noContainer: string, // ⚪ loose — was `{ hover: BackgroundColor; error: BackgroundColor; focus: BackgroundColor; open: BackgroundColor; closed: Backg`
+  container: multiSelectUseThemeContainerConfig,
+  @as("no-container") noContainer: multiSelectUseThemeContainerConfig,
 }
 type multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig = {
   color: string,
@@ -68,16 +75,21 @@ type multiSelectMultiSelectTokensTypeTriggerConfig = {
   placeholder: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
   selectedValue: multiSelectMultiSelectTokensTypeTriggerPlaceholderConfig,
 }
+type __typeXfhe5 = {
+  color: string,
+  height: string,
+  margin: string,
+}
 type multiSelectMultiSelectTokensTypeMenuItemConfig = {
   padding: string,
   margin: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: string, // ⚪ loose — was `{ disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; focus:`
-  optionsLabel: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  option: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  description: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: { disabled: Color; active: Color;`
-  seperator: string, // ⚪ loose — was `{ color: Color; height: Height<number | (string & {})>; margin: Margin<number | (string & {})>; }`
+  backgroundColor: multiSelectMultiSelectTokensTypeLabelColorConfig,
+  optionsLabel: multiSelectMultiSelectTokensTypeLabelConfig,
+  option: multiSelectMultiSelectTokensTypeLabelConfig,
+  description: multiSelectMultiSelectTokensTypeLabelConfig,
+  seperator: __typeXfhe5,
 }
 type multiSelectMultiSelectTokensTypeMenuConfig = {
   backgroundColor: string,

@@ -7,7 +7,7 @@ type props = {
   slot?: React.element,
   onClose?: unit => unit,
   actionButton?: SnackbarV2Types.snackbarV2Action,
-  toastId?: CommonTypes.stringOrNumber,
+  toastId?: CommonTypes.stringOrNumber2,
 }
 
 @module("@juspay/blend-design-system")

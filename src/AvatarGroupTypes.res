@@ -30,12 +30,17 @@ type avatarGroupAvatarGroupTokensTypeOverflowCounterBackgroundConfig = {
 type avatarGroupAvatarGroupTokensTypeOverflowCounterTextConfig = {
   color: string,
 }
+type __typeV1y96o = {
+  width: string,
+  height: string,
+  fontSize: string,
+}
 type avatarGroupAvatarGroupTokensTypeOverflowCounterSizeConfig = {
-  sm: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  regular: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  md: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  lg: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
-  xl: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; fontSize: FontSize<number | (s`
+  sm: __typeV1y96o,
+  regular: __typeV1y96o,
+  md: __typeV1y96o,
+  lg: __typeV1y96o,
+  xl: __typeV1y96o,
 }
 type avatarGroupAvatarGroupTokensTypeOverflowCounterBorderRadiusConfig = {
   circular: string,
@@ -63,7 +68,7 @@ type responsiveAvatarGroupTokens = {
   lg: avatarGroupTokensType,
 }
 type avatarData = {
-  id: CommonTypes.stringOrNumber,
+  id: CommonTypes.stringOrNumber2,
   alt?: string,
   fallback?: React.element,
   size?: AvatarTypes.avatarSize,

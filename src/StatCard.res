@@ -1,6 +1,6 @@
 type props = {
   title: string,
-  value: CommonTypes.stringOrNumber,
+  value: CommonTypes.stringOrNumber2,
   valueTooltip?: React.element,
   change?: Nullable.t<StatCardTypes.statCardChange>,
   subtitle?: string,
@@ -15,7 +15,7 @@ type props = {
   minWidth?: string,
   xAxis?: StatCardTypes.statCardAxisConfig,
   yAxis?: StatCardTypes.statCardAxisConfig,
-  valueFormatter?: HighchartsSharedTypes.axisType,
+  valueFormatter?: ChartsSharedTypes.axisType,
   height?: string,
   direction?: StatCardTypes.statCardDirection,
   skeleton?: StatCardTypes.statCardSkeletonProps,

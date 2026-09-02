@@ -16,48 +16,107 @@ type statCardStatCardTokenTypePaddingConfig = {
   x: string,
   y: string,
 }
+type __typeUx2o0 = {
+  fontSize: string,
+  fontWeight: string,
+  color: string,
+}
+type __typeQklzj = {
+  width: string,
+}
+type statCardUseThemeHelpIconColorConfig = {
+  default: string,
+  hover: string,
+}
+type statCardUseThemeHelpIconConfig = {
+  width: string,
+  color: statCardUseThemeHelpIconColorConfig,
+}
 type statCardStatCardTokenTypeTextContainerHeaderConfig = {
   gap: string,
-  title: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
-  titleIcon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; }`
-  helpIcon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; color: { default: Color; hover: Color; }; }`
+  title: __typeUx2o0,
+  titleIcon: __typeQklzj,
+  helpIcon: statCardUseThemeHelpIconConfig,
+}
+type statCardUseThemeTitleValueConfig = {
+  line: __typeUx2o0,
+  progress: __typeUx2o0,
+  bar: __typeUx2o0,
+  number: __typeUx2o0,
+}
+type __typeSmi8o = {
+  increase: string,
+  decrease: string,
+}
+type statCardUseThemeTitleChangeTextConfig = {
+  fontSize: string,
+  fontWeight: string,
+  color: __typeSmi8o,
+}
+type statCardUseThemeTitleChangeConfig = {
+  margin: string,
+  arrow: __typeQklzj,
+  text: statCardUseThemeTitleChangeTextConfig,
+}
+type statCardUseThemeTitleConfig = {
+  gap: string,
+  value: statCardUseThemeTitleValueConfig,
+  change: statCardUseThemeTitleChangeConfig,
 }
 type statCardStatCardTokenTypeTextContainerStatsConfig = {
   gap: string,
-  title: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; value: { line: { fontSize: FontSize<number | (string & {})>; fontWeight: F`
-  subtitle: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
+  title: statCardUseThemeTitleConfig,
+  subtitle: __typeUx2o0,
 }
 type statCardStatCardTokenTypeTextContainerConfig = {
   gap: string,
   header: statCardStatCardTokenTypeTextContainerHeaderConfig,
   stats: statCardStatCardTokenTypeTextContainerStatsConfig,
 }
+type __typeV16qvn = {
+  end: string,
+  startOpacity: float,
+  endOpacity: float,
+}
 type statCardStatCardTokenTypeChartColorsConfig = {
-  line: string, // ⚪ loose — was `{ increase: Color; decrease: Color; }`
-  area: string, // ⚪ loose — was `{ increase: Color; decrease: Color; }`
-  gradient: string, // ⚪ loose — was `{ end: Color; startOpacity: number; endOpacity: number; }`
+  line: __typeSmi8o,
+  area: __typeSmi8o,
+  gradient: __typeV16qvn,
+}
+type __typeV1xaug = {
+  width: string,
+  fill: string,
 }
 type statCardStatCardTokenTypeChartLineConfig = {
   strokeWidth: string,
-  activeDot: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; fill: Fill; }`
+  activeDot: __typeV1xaug,
 }
 type statCardStatCardTokenTypeChartBarConfig = {
   borderTopRightRadius: string,
   borderTopLeftRadius: string,
   borderBottomRightRadius: string,
   borderBottomLeftRadius: string,
-  fill: string, // ⚪ loose — was `{ default: Fill; hover: Fill; }`
+  fill: statCardUseThemeHelpIconColorConfig,
+}
+type __typeQlu7n = {
+  color: string,
+  size: string,
+}
+type __typeHnfo1 = {
+  fill: string,
+  empty: string,
+  pattern: __typeQlu7n,
 }
 type statCardStatCardTokenTypeChartProgressBarConfig = {
   height: string,
   borderRadius: string,
   gap: string,
-  background: string, // ⚪ loose — was `{ fill: BackgroundColor; empty: BackgroundColor; pattern: { color: Color; size: BackgroundSize<number | (strin`
-  label: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; color: Color; }`
+  background: __typeHnfo1,
+  label: __typeUx2o0,
 }
 type statCardStatCardTokenTypeChartTooltipConfig = {
   backgroundColor: string,
-  padding: string, // ⚪ loose — was `{ x: Padding<number | (string & {})>; y: Padding<number | (string & {})>; }`
+  padding: statCardStatCardTokenTypePaddingConfig,
   borderRadius: string,
   color: string,
   fontSize: string,
@@ -97,8 +156,8 @@ type chartDataPoint = {
   name: string,
 }
 type statCardAxisConfig = {
-  @as("type") type_?: HighchartsSharedTypes.axisType,
-  tickFormatter?: CommonTypes.stringOrNumber => string,
+  @as("type") type_?: ChartsSharedTypes.axisType,
+  tickFormatter?: CommonTypes.stringOrNumber2 => string,
   dateOnly?: bool,
   useUTC?: bool,
   formatString?: string,
@@ -109,7 +168,7 @@ type statCardAxisConfig = {
 type statCardSkeletonProps = {
   variant: SkeletonTypes.skeletonVariant,
   show: bool,
-  height?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
+  height?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber2,
 }

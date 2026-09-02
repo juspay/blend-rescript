@@ -21,14 +21,28 @@ type snackbarV2SnackbarV2TokensTypeSlotConfig = {
   width: string,
   color: snackbarV2SnackbarV2TokensTypeSlotColorConfig,
 }
+type snackbarV2UseThemeTextContainerHeaderConfig = {
+  color: snackbarV2SnackbarV2TokensTypeSlotColorConfig,
+  fontSize: string,
+  fontWeight: string,
+  lineHeight: string,
+}
+type snackbarV2UseThemeTextContainerConfig = {
+  gap: string,
+  header: snackbarV2UseThemeTextContainerHeaderConfig,
+  description: snackbarV2UseThemeTextContainerHeaderConfig,
+}
+type snackbarV2UseThemeActionContainerConfig = {
+  primaryAction: snackbarV2UseThemeTextContainerHeaderConfig,
+}
 type snackbarV2SnackbarV2TokensTypeMainContainerContentConfig = {
   gap: string,
-  textContainer: string, // ⚪ loose — was `{ gap: Gap<number | (string & {})>; header: { color: { info: Color; success: Color; warning: Color; error: Col`
-  actionContainer: string, // ⚪ loose — was `{ primaryAction: { color: { info: Color; success: Color; warning: Color; error: Color; }; fontSize: FontSize<n`
+  textContainer: snackbarV2UseThemeTextContainerConfig,
+  actionContainer: snackbarV2UseThemeActionContainerConfig,
 }
 type snackbarV2SnackbarV2TokensTypeMainContainerCloseButtonConfig = {
   height: string,
-  color: string, // ⚪ loose — was `{ info: Color; success: Color; warning: Color; error: Color; }`
+  color: snackbarV2SnackbarV2TokensTypeSlotColorConfig,
 }
 type snackbarV2SnackbarV2TokensTypeMainContainerConfig = {
   gap: string,
@@ -57,7 +71,7 @@ type snackbarV2Props = {
   visibleToasts?: float,
   containerAriaLabel?: string,
   hotkey?: array<string>,
-  maxWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber2,
 }
 type snackbarV2Action = {
   label: string,
@@ -73,9 +87,9 @@ type snackbarV2ToastOptions = {
   actionButton?: snackbarV2Action,
   duration?: float,
   position?: snackbarV2Position,
-  maxWidth?: CommonTypes.stringOrNumber,
-  width?: CommonTypes.stringOrNumber,
-  minWidth?: CommonTypes.stringOrNumber,
+  maxWidth?: CommonTypes.stringOrNumber2,
+  width?: CommonTypes.stringOrNumber2,
+  minWidth?: CommonTypes.stringOrNumber2,
 }
 type snackbarV2Dimensions = {
   width?: string,

@@ -1,10 +1,10 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitAriaLabelClassNameStyle,
-  width?: CommonTypes.stringOrNumber,
+  width?: CommonTypes.stringOrNumber2,
   size?: ButtonV2Types.buttonV2Size,
   @as("aria-label") ariaLabel: string,
-  minWidth?: CommonTypes.stringOrNumber,
-  maxWidth?: CommonTypes.stringOrNumber,
+  minWidth?: CommonTypes.stringOrNumber2,
+  maxWidth?: CommonTypes.stringOrNumber2,
   icon: React.element,
   justifyContent?: string,
   state?: ButtonV2Types.buttonV2State,
