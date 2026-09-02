@@ -2,20 +2,42 @@ type timePickerSize =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
+type __typeV1s6yg = {
+  color: string,
+  fontSize: string,
+  fontWeight: string,
+  paddingY: string,
+}
 type timePickerTimePickerTokensTypeDropdownColumnConfig = {
   width: string,
   gap: string,
   separator: string,
-  header: string, // ⚪ loose — was `{ color: Color; fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; paddingY: Padding<number |`
+  header: __typeV1s6yg,
+}
+type timePickerUseThemeFontSizeConfig = {
+  sm: string,
+  md: string,
+  lg: string,
+}
+type __typeV102ib = {
+  default: string,
+  selected: string,
+  disabled: string,
+}
+type __typeV1912q = {
+  default: string,
+  hover: string,
+  selected: string,
+  disabled: string,
 }
 type timePickerTimePickerTokensTypeDropdownOptionConfig = {
   height: string,
   paddingX: string,
   borderRadius: string,
-  fontSize: string, // ⚪ loose — was `{ sm: FontSize<number | (string & {})>; md: FontSize<number | (string & {})>; lg: FontSize<number | (string & `
+  fontSize: timePickerUseThemeFontSizeConfig,
   fontWeight: string,
-  color: string, // ⚪ loose — was `{ default: Color; selected: Color; disabled: Color; }`
-  backgroundColor: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; selected: BackgroundColor; disabled: BackgroundColor; }`
+  color: __typeV102ib,
+  backgroundColor: __typeV1912q,
   focusOutline: string,
 }
 type timePickerTimePickerTokensTypeDropdownConfig = {

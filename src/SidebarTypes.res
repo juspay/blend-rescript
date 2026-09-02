@@ -11,11 +11,16 @@ type sidebarSidebarTokenTypeLeftPanelPaddingConfig = {
   x: string,
   y: string,
 }
+type sidebarUseThemeBorderConfig = {
+  active: string,
+  default: string,
+  hover: string,
+}
 type sidebarSidebarTokenTypeLeftPanelItemConfig = {
   width: string,
   borderRadius: string,
-  border: string, // ⚪ loose — was `{ active: Border<number | (string & {})>; default: Border<number | (string & {})>; hover: Border<number | (str`
-  backgroundColor: string, // ⚪ loose — was `{ active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; }`
+  border: sidebarUseThemeBorderConfig,
+  backgroundColor: sidebarUseThemeBorderConfig,
 }
 type sidebarSidebarTokenTypeLeftPanelConfig = {
   width: string,
@@ -26,7 +31,7 @@ type sidebarSidebarTokenTypeLeftPanelConfig = {
   item: sidebarSidebarTokenTypeLeftPanelItemConfig,
 }
 type sidebarSidebarTokenTypeHeaderToggleButtonConfig = {
-  backgroundColor: string, // ⚪ loose — was `{ active: BackgroundColor; default: BackgroundColor; hover: BackgroundColor; }`
+  backgroundColor: sidebarUseThemeBorderConfig,
   width: string,
 }
 type sidebarSidebarTokenTypeHeaderConfig = {
@@ -72,16 +77,35 @@ type sidebarMobileNavigationTokenTypeDrawerConfig = {
   borderRadius: string,
   borderTop: string,
 }
+type sidebarUseThemeBackgroundColorConfig = {
+  active: string,
+  default: string,
+}
+type __typeHdipr = {
+  width: string,
+  height: string,
+  borderRadius: string,
+  transition: string,
+}
+type __typeNl3f3 = {
+  fontSize: string,
+  fontWeight: string,
+  textAlign: string,
+}
 type sidebarMobileNavigationTokenTypeRowItemConfig = {
   width: string,
   height: string,
   borderRadius: string,
   gap: string,
-  backgroundColor: string, // ⚪ loose — was `{ active: BackgroundColor; default: BackgroundColor; }`
-  color: string, // ⚪ loose — was `{ active: Color; default: Color; }`
+  backgroundColor: sidebarUseThemeBackgroundColorConfig,
+  color: sidebarUseThemeBackgroundColorConfig,
   fontWeight: string,
-  icon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; borderRadius: BorderRadius<num`
-  text: string, // ⚪ loose — was `{ fontSize: FontSize<number | (string & {})>; fontWeight: FontWeight; textAlign: TextAlign; }`
+  icon: __typeHdipr,
+  text: __typeNl3f3,
+}
+type __typeV44l1h3 = {
+  width: string,
+  height: string,
 }
 type sidebarMobileNavigationTokenTypeRowPrimaryActionConfig = {
   width: string,
@@ -90,7 +114,7 @@ type sidebarMobileNavigationTokenTypeRowPrimaryActionConfig = {
   background: string,
   boxShadow: string,
   color: string,
-  icon: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; height: Height<number | (string & {})>; }`
+  icon: __typeV44l1h3,
 }
 type sidebarMobileNavigationTokenTypeRowConfig = {
   padding: sidebarSidebarTokenTypeLeftPanelPaddingConfig,
@@ -109,42 +133,4 @@ type mobileNavigationTokenType = {
 type responsiveMobileNavigationTokens = {
   sm: mobileNavigationTokenType,
   lg: mobileNavigationTokenType,
-}
-type sidebarProps<'a> = {
-  showLeftPanel?: bool,
-  children: React.element,
-  data: Nullable.t<array<DirectoryTypes.directoryData>>,
-  leftPanel?: SharedTypes.leftPanelInfo,
-  topbar: React.element,
-  footer?: React.element,
-  sidebarTopSlot?: React.element,
-  sidebarCollapseKey?: string,
-  merchantInfo?: SharedTypes.merchantInfo,
-  rightActions?: React.element,
-  enableTopbarAutoHide?: bool,
-  isTopbarVisible?: bool,
-  onTopbarVisibilityChange?: bool => unit,
-  defaultIsTopbarVisible?: bool,
-  isExpanded?: bool,
-  onExpandedChange?: bool => unit,
-  onSidebarStateChange?: sidebarStateChangeType => unit,
-  defaultIsExpanded?: bool,
-  panelOnlyMode?: bool,
-  disableIntermediateState?: bool,
-  iconOnlyMode?: bool,
-  hideOnIconOnlyToggle?: bool,
-  showPrimaryActionButton?: bool,
-  primaryActionButtonProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
-  activeItem?: Nullable.t<string>,
-  onActiveItemChange?: Nullable.t<string> => unit,
-  defaultActiveItem?: Nullable.t<string>,
-  onHoveringChange?: bool => unit,
-  showHierarchyLines?: bool,
-  hierarchyLineBorderRadius?: string,
-  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
-  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
-  onExpandedItemsChange?: array<string> => unit,
-  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
-  enableVirtualization?: bool,
-  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
 }

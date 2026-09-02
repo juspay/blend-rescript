@@ -1,5 +1,5 @@
 type props = {
-  ...DateRangePickerTypes.dateRangePickerProps,
+  ...HighchartsSharedSharedTypes.dateRangePickerProps,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

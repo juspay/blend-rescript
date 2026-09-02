@@ -1,7 +1,7 @@
 type props = {
   chartContainerRef: React.ref<Nullable.t<Dom.element>>,
   keys: array<string>,
-  colors: array<HighchartsSharedTypes.chartsColorsConfig>,
+  colors: array<ChartsSharedTypes.chartsColorsConfig>,
   handleLegendClick: string => unit,
   handleLegendEnter: string => unit,
   handleLegendLeave: unit => unit,
@@ -11,8 +11,8 @@ type props = {
   activeKeys: Nullable.t<array<string>>,
   stacked?: bool,
   isSmallScreen?: bool,
-  stackedLegendsData?: array<HighchartsSharedTypes.stackedLegendsDataPoint>,
-  legends?: array<HighchartsSharedTypes.chartsLegendsConfig>,
+  stackedLegendsData?: array<ChartsSharedTypes.stackedLegendsDataPoint>,
+  legends?: array<ChartsSharedTypes.chartsLegendsConfig>,
   showAllLegends?: bool,
 }
 

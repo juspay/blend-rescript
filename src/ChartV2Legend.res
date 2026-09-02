@@ -2,8 +2,8 @@ type props<'a, 'b, 'c> = {
   ...HtmlAttrs.htmlAttributesOmitClassNameStyle,
   chartRef?: React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>,
   chartRefs?: array<React.ref<Nullable.t<DistTypes.highchartsReactRefObject<'a, 'b, 'c>>>>,
-  customLegendItems?: array<ChartsV2Types.chartV2CustomLegendItem>,
-  renderItem?: ChartsV2Types.chartsV2RenderItemConfig => React.element,
+  customLegendItems?: array<HighchartsSharedSharedTypes.chartV2CustomLegendItem>,
+  renderItem?: HighchartsSharedSharedTypes.chartsV2RenderItemConfig => React.element,
   layout?: SliderTypes.sliderOrientation,
 }
 

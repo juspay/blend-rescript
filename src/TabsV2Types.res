@@ -18,10 +18,13 @@ type tabsV2TabsV2TokensTypeTabListBorderRadiusConfig = {
   md: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
   lg: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
 }
+type __typeN52nn = {
+  bottom: string,
+}
 type tabsV2TabsV2TokensTypeTabListActiveIndicatorConfig = {
   height: string,
   color: string,
-  position: string, // ⚪ loose — was `{ bottom: Bottom<number | (string & {})>; }`
+  position: __typeN52nn,
   transition: string,
   zIndex: string,
 }
@@ -29,15 +32,67 @@ type tabsV2TabsV2TokensTypeTabListStickyHeaderConfig = {
   boxShadow: string,
   zIndex: string,
 }
+type __typeV75sq = {
+  maxWidth: string,
+}
+type tabsV2UseThemeBackgroundColorBoxedConfig = {
+  disabled: string,
+  active: string,
+  default: string,
+  hover: string,
+}
+type tabsV2UseThemeBackgroundColorConfig = {
+  boxed: tabsV2UseThemeBackgroundColorBoxedConfig,
+  floating: tabsV2UseThemeBackgroundColorBoxedConfig,
+  underline: tabsV2UseThemeBackgroundColorBoxedConfig,
+  pills: tabsV2UseThemeBackgroundColorBoxedConfig,
+}
+type tabsV2UseThemeBorderRadiusConfig = {
+  sm: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  md: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  lg: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+}
+type tabsV2UseThemePaddingSmBoxedConfig = {
+  top: string,
+  right: string,
+  bottom: string,
+  left: string,
+}
+type tabsV2UseThemePaddingSmConfig = {
+  boxed: tabsV2UseThemePaddingSmBoxedConfig,
+  floating: tabsV2UseThemePaddingSmBoxedConfig,
+  underline: tabsV2UseThemePaddingSmBoxedConfig,
+  pills: tabsV2UseThemePaddingSmBoxedConfig,
+}
+type tabsV2UseThemePaddingConfig = {
+  sm: tabsV2UseThemePaddingSmConfig,
+  md: tabsV2UseThemePaddingSmConfig,
+  lg: tabsV2UseThemePaddingSmConfig,
+}
+type tabsV2UseThemeTextFontSizeConfig = {
+  sm: string,
+  md: string,
+  lg: string,
+}
+type tabsV2UseThemeTextConfig = {
+  color: tabsV2UseThemeBackgroundColorConfig,
+  fontSize: tabsV2UseThemeTextFontSizeConfig,
+  fontWeight: tabsV2UseThemeTextFontSizeConfig,
+}
+type tabsV2UseThemeCloseButtonConfig = {
+  width: string,
+  borderRadius: string,
+  backgroundColor: tabsV2UseThemeBackgroundColorBoxedConfig,
+}
 type tabsV2TabsV2TokensTypeTabListTriggerConfig = {
   gap: string,
-  icon: string, // ⚪ loose — was `{ maxWidth: MaxWidth<number | (string & {})>; }`
-  backgroundColor: string, // ⚪ loose — was `{ boxed: { disabled: BackgroundColor; active: BackgroundColor; default: BackgroundColor; hover: BackgroundColo`
-  borderRadius: string, // ⚪ loose — was `{ sm: { boxed: BorderRadius<number | (string & {})>; floating: BorderRadius<number | (string & {})>; underline`
-  border: string, // ⚪ loose — was `{ boxed: Border<number | (string & {})>; floating: Border<number | (string & {})>; underline: Border<number | `
-  padding: string, // ⚪ loose — was `{ sm: { boxed: { top: PaddingTop<number | (string & {})>; right: PaddingRight<number | (string & {})>; bottom:`
-  text: string, // ⚪ loose — was `{ color: { boxed: { disabled: Color; active: Color; default: Color; hover: Color; }; floating: { disabled: Col`
-  closeButton: string, // ⚪ loose — was `{ width: Width<number | (string & {})>; borderRadius: BorderRadius<number | (string & {})>; backgroundColor: {`
+  icon: __typeV75sq,
+  backgroundColor: tabsV2UseThemeBackgroundColorConfig,
+  borderRadius: tabsV2UseThemeBorderRadiusConfig,
+  border: tabsV2TabsV2TokensTypeTabListBackgroundColorConfig,
+  padding: tabsV2UseThemePaddingConfig,
+  text: tabsV2UseThemeTextConfig,
+  closeButton: tabsV2UseThemeCloseButtonConfig,
   transition: string,
 }
 type tabsV2TabsV2TokensTypeTabListConfig = {

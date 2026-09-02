@@ -1,6 +1,6 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameOnSelectSlotStyle,
-  ...ContextSharedTypes.singleSelectV2Props,
+  ...HighchartsSharedSharedTypes.singleSelectV2Props,
 }
 
 @module("@juspay/blend-design-system")

@@ -98,7 +98,7 @@ type props = {
   shape?: TagsTypes.tagShape,
   leftSlot?: React.element,
   rightSlot?: React.element,
-  splitTagPosition?: HighchartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
+  splitTagPosition?: ChartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   ref?: React.ref<Nullable.t<Dom.element>>,

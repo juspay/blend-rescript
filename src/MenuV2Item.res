@@ -1,5 +1,5 @@
 type props = {
-  ...ContextSharedTypes.menuV2ItemProps,
+  ...HighchartsSharedSharedTypes.menuV2ItemProps,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

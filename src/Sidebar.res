@@ -2,7 +2,7 @@ type props<'a> = {
   ref?: React.ref<Nullable.t<Dom.element>>,
   showLeftPanel?: bool,
   children: React.element,
-  data: array<DirectoryTypes.directoryData>,
+  data: array<HighchartsSharedSharedTypes.directoryData>,
   leftPanel?: SharedTypes.leftPanelInfo,
   topbar: React.element,
   footer?: React.element,
@@ -30,12 +30,12 @@ type props<'a> = {
   onHoveringChange?: bool => unit,
   showHierarchyLines?: bool,
   hierarchyLineBorderRadius?: string,
-  expandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
-  defaultExpandedItems?: DirectoryTypes.DirectoryExpandedItems.t,
+  expandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
+  defaultExpandedItems?: HighchartsSharedSharedTypes.DirectoryExpandedItems.t, // ⓘ was `DirectoryExpandedItems` — opaque; build with DirectoryExpandedItems.fromArray / DirectoryExpandedItems.fromSet
   onExpandedItemsChange?: array<string> => unit,
-  onItemExpand?: (DirectoryTypes.navbarItem, string) => 'a,
+  onItemExpand?: (HighchartsSharedSharedTypes.navbarItem, string) => 'a,
   enableVirtualization?: bool,
-  virtualization?: DirectoryTypes.directoryVirtualizationConfig,
+  virtualization?: HighchartsSharedSharedTypes.directoryVirtualizationConfig,
 }
 
 @module("@juspay/blend-design-system")

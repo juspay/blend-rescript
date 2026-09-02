@@ -1,5 +1,5 @@
 type props = {
-  ...ContextSharedTypes.singleSelectV2SkeletonComponentProps,
+  ...HighchartsSharedSharedTypes.singleSelectV2SkeletonComponentProps,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

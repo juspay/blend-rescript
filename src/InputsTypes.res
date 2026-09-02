@@ -154,10 +154,14 @@ type responsiveTextInputTokens = {
   sm: textInputTokensType,
   lg: textInputTokensType,
 }
+type inputsUseThemeIconConfig = {
+  color: inputsSearchInputTokensTypeLabelColorConfig,
+  width: inputsTextInputTokensTypeInputContainerFontSizeConfig,
+}
 type inputsNumberInputTokensTypeInputContainerStepperButtonConfig = {
-  width: string, // ⚪ loose — was `{ sm: Width<number | (string & {})>; md: Width<number | (string & {})>; lg: Width<number | (string & {})>; }`
-  backgroundColor: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: BackgroundColor; disabled: `
-  icon: string, // ⚪ loose — was `{ color: { default: Color; hover: Color; focus: Color; error: Color; disabled: Color; }; width: { sm: Width<nu`
+  width: inputsTextInputTokensTypeInputContainerFontSizeConfig,
+  backgroundColor: inputsSearchInputTokensTypeLabelColorConfig,
+  icon: inputsUseThemeIconConfig,
 }
 type inputsNumberInputTokensTypeInputContainerConfig = {
   fontSize: inputsTextInputTokensTypeInputContainerFontSizeConfig,
@@ -189,11 +193,11 @@ type inputsOTPInputTokensTypeInputContainerInputConfig = {
   width: string,
   fontSize: string,
   fontWeight: string,
-  color: string, // ⚪ loose — was `{ default: Color; hover: Color; focus: Color; error: Color; disabled: Color; }`
+  color: inputsSearchInputTokensTypeLabelColorConfig,
   borderRadius: string,
   boxShadow: string,
-  border: string, // ⚪ loose — was `{ default: Border<number | (string & {})>; hover: Border<number | (string & {})>; focus: Border<number | (stri`
-  backgroundColor: string, // ⚪ loose — was `{ default: BackgroundColor; hover: BackgroundColor; focus: BackgroundColor; error: BackgroundColor; disabled: `
+  border: inputsSearchInputTokensTypeLabelColorConfig,
+  backgroundColor: inputsSearchInputTokensTypeLabelColorConfig,
 }
 type inputsOTPInputTokensTypeInputContainerConfig = {
   gap: string,

@@ -11,7 +11,7 @@ type props<'a, 'b, 'c> = {
   valueTooltip?: React.element,
   change?: StatCardV2Types.statCardV2Change,
   subtitle?: string,
-  options?: HighchartsSharedTypes.options<'a, 'b, 'c>,
+  options?: HighchartsSharedSharedTypes.options<'a, 'b, 'c>,
   skeleton?: StatCardV2Types.statCardV2SkeletonProps,
   dropdownProps?: SingleSelectTypes.singleSelectProps,
   showBorder?: bool,
