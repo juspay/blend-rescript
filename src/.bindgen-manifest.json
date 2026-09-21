@@ -3307,7 +3307,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1ii3z",
+      "signature": "144s1",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Charts/BlendChart.d.ts|path:BlendChart.LegendItemClickEventObject.legendItem|slot:ChartsLegendItemClickEventObjectLegendItem|composition:named:Point&named:Series&named:LegendItemObject": {
@@ -11003,7 +11003,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1ii3z",
+      "signature": "144s1",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/ChartsV2/chartV2.types.d.ts|named:ChartV2NoDataProps": {
@@ -51822,7 +51822,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AccessibilityScreenReaderSectionOptions": {
@@ -52026,7 +52026,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "zvkva",
+      "signature": "1g4lh",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsLabelOptions": {
@@ -52037,7 +52037,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsLabelsControlPointsStyleOptions": {
@@ -52146,7 +52146,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesCrookedLineOptions": {
@@ -52157,7 +52157,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "sm00u",
+      "signature": "onjw4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesCrookedLineTypeLineOptions": {
@@ -52308,7 +52308,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesFibonacciTimeZonesOptions": {
@@ -52423,7 +52423,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesInfinityLineOptions": {
@@ -52434,7 +52434,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "sm00u",
+      "signature": "onjw4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesInfinityLineTypeLineOptions": {
@@ -52585,7 +52585,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesPitchforkOptions": {
@@ -52708,7 +52708,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AnnotationsTypesTunnelOptions": {
@@ -52893,7 +52893,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "8k8cx",
+      "signature": "n1n9u",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:AxisCrosshairOptions": {
@@ -53287,7 +53287,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ChartParallelAxesLabelsOptions": {
@@ -53782,7 +53782,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "18yzf",
+      "signature": "yjve1",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:DrilldownBreadcrumbsOptions": {
@@ -54701,7 +54701,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "zvkva",
+      "signature": "1g4lh",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsLabelOptions": {
@@ -54712,7 +54712,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsLabelsControlPointsStyleOptions": {
@@ -54821,7 +54821,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesCrookedLineOptions": {
@@ -54829,7 +54829,7 @@
       "module": "HighchartsSharedSharedTypes",
       "name": "navigationAnnotationsTypesCrookedLineOptions",
       "aliases": [],
-      "signature": "1rj9q",
+      "signature": "amlg2",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesCrookedLineTypeLineOptions": {
@@ -54924,7 +54924,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesElliottWaveTypePointsOptions": {
@@ -54983,7 +54983,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesFibonacciTimeZonesOptions": {
@@ -55045,7 +55045,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesFibonacciTypeLineOptions": {
@@ -55093,7 +55093,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesInfinityLineOptions": {
@@ -55101,7 +55101,7 @@
       "module": "HighchartsSharedSharedTypes",
       "name": "navigationAnnotationsTypesCrookedLineOptions",
       "aliases": [],
-      "signature": "1rj9q",
+      "signature": "amlg2",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesInfinityLineTypeLineOptions": {
@@ -55249,7 +55249,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesPitchforkOptions": {
@@ -55357,7 +55357,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xdv0",
+      "signature": "1mcnr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationAnnotationsTypesTunnelOptions": {
@@ -58321,7 +58321,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "18yzf",
+      "signature": "yjve1",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigationBreadcrumbsOptions": {
@@ -58496,7 +58496,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3qfxs",
+      "signature": "1i9nt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisCurrentDateIndicatorLabelOptions": {
@@ -58507,7 +58507,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "q8bdt",
+      "signature": "10tvl",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisCurrentDateIndicatorLabelsOptions": {
@@ -58529,7 +58529,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisGridOptions": {
@@ -58540,7 +58540,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "ukrrk",
+      "signature": "9yrvx",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisLabelsOptions": {
@@ -58582,7 +58582,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisPlotBandsLabelOptions": {
@@ -58604,7 +58604,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "siq1l",
+      "signature": "22iua",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisPlotLinesEventsOptions": {
@@ -58615,7 +58615,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisPlotLinesLabelOptions": {
@@ -58626,7 +58626,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1u7gy",
+      "signature": "1692z",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisPlotLinesLabelsOptions": {
@@ -58648,7 +58648,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "yilbp",
+      "signature": "hjlzg",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorXAxisTitleOptions": {
@@ -58691,7 +58691,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisGridOptions": {
@@ -58702,7 +58702,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "ukrrk",
+      "signature": "9yrvx",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisLabelsLevelsOptions": {
@@ -58765,7 +58765,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisPlotBandsLabelOptions": {
@@ -58787,7 +58787,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1rfcy",
+      "signature": "1vlfc",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisPlotLinesEventsOptions": {
@@ -58798,7 +58798,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisPlotLinesLabelOptions": {
@@ -58809,7 +58809,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1u7gy",
+      "signature": "1692z",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisPlotLinesLabelsOptions": {
@@ -58831,7 +58831,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "yilbp",
+      "signature": "hjlzg",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:NavigatorYAxisTitleOptions": {
@@ -59581,7 +59581,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAdDataLabelsOptions": {
@@ -59592,7 +59592,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "2htsg",
+      "signature": "1e01p",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAdLabelStyleOptions": {
@@ -59749,7 +59749,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotApoDataLabelsOptions": {
@@ -59760,7 +59760,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "bbezp",
+      "signature": "zpmjj",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotApoLabelStyleOptions": {
@@ -59929,7 +59929,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAreaDataLabelsOptions": {
@@ -59940,7 +59940,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "bnlst",
+      "signature": "1l3o4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAreaLabelStyleOptions": {
@@ -59984,7 +59984,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotArearangeDataSortingOptions": {
@@ -60067,7 +60067,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAreasplineDataLabelsOptions": {
@@ -60078,7 +60078,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1b9e5",
+      "signature": "1bh7g",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAreasplineLabelStyleOptions": {
@@ -60122,7 +60122,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAreasplinerangeDataSortingOptions": {
@@ -60257,7 +60257,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAroonAroonDownStylesOptions": {
@@ -60279,7 +60279,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1dm37",
+      "signature": "1jpug",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAroonLabelStyleOptions": {
@@ -60323,7 +60323,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAroonoscillatorDataLabelsOptions": {
@@ -60334,7 +60334,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "6e4yb",
+      "signature": "t9383",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAroonoscillatorLabelStyleOptions": {
@@ -60439,7 +60439,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAtrDataLabelsOptions": {
@@ -60450,7 +60450,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "14pee",
+      "signature": "166mq",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotAtrLabelStyleOptions": {
@@ -60596,7 +60596,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotBbBottomLineStylesOptions": {
@@ -60618,7 +60618,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1wh0q",
+      "signature": "4feme",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotBbLabelStyleOptions": {
@@ -60913,7 +60913,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotBulletDataLabelsOptions": {
@@ -60924,7 +60924,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "104dn",
+      "signature": "9ouad",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotBulletOnPointConnectorOptions": {
@@ -61061,7 +61061,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotCciDataLabelsOptions": {
@@ -61072,7 +61072,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1bc9y",
+      "signature": "mixzv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotCciLabelStyleOptions": {
@@ -61229,7 +61229,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotCmfDataLabelsOptions": {
@@ -61240,7 +61240,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1tg5h",
+      "signature": "1jcb1",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotCmfLabelStyleOptions": {
@@ -61397,7 +61397,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotColumnDataLabelsOptions": {
@@ -61408,7 +61408,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1wcu7",
+      "signature": "16hau",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotColumnLabelStyleOptions": {
@@ -61517,7 +61517,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotColumnrangeDataLabelsAnimationOptions": {
@@ -61758,7 +61758,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDemaDataLabelsOptions": {
@@ -61769,7 +61769,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1924y",
+      "signature": "gcqau",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDemaLabelStyleOptions": {
@@ -61938,7 +61938,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDisparityindexDataLabelsOptions": {
@@ -61949,7 +61949,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "lvxa1",
+      "signature": "1kquo",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDisparityindexLabelStyleOptions": {
@@ -62127,7 +62127,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDpoDataLabelsOptions": {
@@ -62138,7 +62138,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "di7lt",
+      "signature": "10srk",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotDpoLabelStyleOptions": {
@@ -62371,7 +62371,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotErrorbarDataLabelsOptions": {
@@ -62382,7 +62382,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "162px",
+      "signature": "1bdwy",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotErrorbarLabelStyleOptions": {
@@ -62424,7 +62424,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotFlagsDataLabelsOptions": {
@@ -62435,7 +62435,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "119ci",
+      "signature": "1n6xf",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotFlagsLabelStyleOptions": {
@@ -62761,7 +62761,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotGeoheatmapDataLabelsOptions": {
@@ -62772,7 +62772,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "e7v61",
+      "signature": "1c4d9",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotGeoheatmapOptions": {
@@ -62947,7 +62947,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotHistogramDataLabelsOptions": {
@@ -62958,7 +62958,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "n4uga",
+      "signature": "zqvtr",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotHistogramLabelStyleOptions": {
@@ -63091,7 +63091,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotHollowcandlestickDataLabelsOptions": {
@@ -63102,7 +63102,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "nen4t",
+      "signature": "v1ai5",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotHollowcandlestickLabelStyleOptions": {
@@ -63365,7 +63365,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotKeltnerchannelsBottomLineStylesOptions": {
@@ -63387,7 +63387,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1q4uu",
+      "signature": "95tfo",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotKeltnerchannelsLabelStyleOptions": {
@@ -63566,7 +63566,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressionangleAccessibilityPointOptions": {
@@ -63577,7 +63577,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressionangleDataLabelsOptions": {
@@ -63588,7 +63588,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "vv0wk",
+      "signature": "1w3t6",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressionangleLabelStyleOptions": {
@@ -63667,7 +63667,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1oqdv",
+      "signature": "9vhab",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressioninterceptAccessibilityPointOptions": {
@@ -63678,7 +63678,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressioninterceptDataLabelsOptions": {
@@ -63689,7 +63689,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "phuzp",
+      "signature": "12r5j",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressioninterceptLabelStyleOptions": {
@@ -63801,7 +63801,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressionslopeDataLabelsOptions": {
@@ -63812,7 +63812,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1607v",
+      "signature": "1j4ap",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLinearregressionslopeLabelStyleOptions": {
@@ -63915,7 +63915,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "jzl86",
+      "signature": "7sbtw",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLineLabelStyleOptions": {
@@ -63995,7 +63995,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotLollipopDataSortingOptions": {
@@ -64078,7 +64078,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMacdDataLabelsOptions": {
@@ -64089,7 +64089,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1p5hw",
+      "signature": "18pwg",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMacdLabelStyleOptions": {
@@ -64189,7 +64189,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMapbubbleDataLabelsOptions": {
@@ -64200,7 +64200,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1wj5d",
+      "signature": "1ejvt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMapbubbleOnPointConnectorOptions": {
@@ -64254,7 +64254,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMaplineDataLabelsOptions": {
@@ -64265,7 +64265,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "mpryh",
+      "signature": "vfa8h",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMaplineOnPointOptions": {
@@ -64425,7 +64425,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMfiDataLabelsOptions": {
@@ -64436,7 +64436,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "xxtea",
+      "signature": "16hop",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotMfiLabelStyleOptions": {
@@ -64592,7 +64592,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotNatrDataLabelsOptions": {
@@ -64603,7 +64603,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "xcg8l",
+      "signature": "vkjti",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotNatrLabelStyleOptions": {
@@ -64835,7 +64835,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotOhlcDataLabelsOptions": {
@@ -64846,7 +64846,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "6r9o5",
+      "signature": "17w9g",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotOhlcLabelStyleOptions": {
@@ -65022,7 +65022,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPackedbubbleDataLabelsStyleOptions": {
@@ -65112,7 +65112,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotParetoDataLabelsOptions": {
@@ -65123,7 +65123,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1tw7k",
+      "signature": "1ao2k",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotParetoLabelStyleOptions": {
@@ -65193,7 +65193,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPcBottomLineStylesOptions": {
@@ -65215,7 +65215,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1o0fs",
+      "signature": "kuqg5",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPcLabelStyleOptions": {
@@ -65350,7 +65350,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPieOnPointConnectorOptions": {
@@ -65409,7 +65409,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPivotpointsDataLabelsOptions": {
@@ -65420,7 +65420,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "55p83",
+      "signature": "1l6nf",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPivotpointsLabelStyleOptions": {
@@ -65509,7 +65509,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "7hk5a",
+      "signature": "1nhw7",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPointandfigureJitterOptions": {
@@ -65591,7 +65591,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPolygonDataLabelsOptions": {
@@ -65602,7 +65602,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "cok9v",
+      "signature": "10f0e",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPolygonLabelStyleOptions": {
@@ -65672,7 +65672,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPpoDataLabelsOptions": {
@@ -65683,7 +65683,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "10ehs",
+      "signature": "12ock",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPpoLabelStyleOptions": {
@@ -65862,7 +65862,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPsarDataLabelsOptions": {
@@ -65873,7 +65873,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1yyn5",
+      "signature": "lrdjz",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotPsarLabelStyleOptions": {
@@ -66076,7 +66076,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "19f72",
+      "signature": "m1s2y",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotRenkoNavigatorOptions": {
@@ -66219,7 +66219,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotRsiDataLabelsOptions": {
@@ -66230,7 +66230,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "15gl0",
+      "signature": "1hi1y",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotRsiLabelStyleOptions": {
@@ -66472,7 +66472,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotScatterClusterEventsOptions": {
@@ -66483,7 +66483,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "u54la",
+      "signature": "1h94x",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotScatterClusterOptions": {
@@ -66593,7 +66593,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSeriesDataLabelsOptions": {
@@ -66604,7 +66604,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "wk3g1",
+      "signature": "crdre",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSeriesLabelStyleOptions": {
@@ -66771,7 +66771,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSmaDataLabelsOptions": {
@@ -66782,7 +66782,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "i7gz2",
+      "signature": "19iym",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSmaLabelStyleOptions": {
@@ -66900,7 +66900,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSplineDataLabelsOptions": {
@@ -66911,7 +66911,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "10533",
+      "signature": "1yced",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSplineLabelStyleOptions": {
@@ -66981,7 +66981,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotStochasticDataLabelsOptions": {
@@ -66992,7 +66992,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "i540x",
+      "signature": "ycfpn",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotStochasticLabelStyleOptions": {
@@ -67168,7 +67168,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "18yzf",
+      "signature": "yjve1",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSunburstBreadcrumbsPositionOptions": {
@@ -67270,7 +67270,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSupertrendChangeTrendLineStylesOptions": {
@@ -67291,7 +67291,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "145jq",
+      "signature": "vt76u",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotSupertrendLabelStyleOptions": {
@@ -67447,7 +67447,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTiledwebmapProviderOptions": {
@@ -67468,7 +67468,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTilemapDataLabelsOptions": {
@@ -67479,7 +67479,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1vjwy",
+      "signature": "bzqiw",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTilemapOnPointConnectorOptions": {
@@ -67742,7 +67742,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "18yzf",
+      "signature": "yjve1",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTreemapBreadcrumbsPositionOptions": {
@@ -67957,7 +67957,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTrixDataLabelsOptions": {
@@ -67968,7 +67968,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "5em2a",
+      "signature": "1vqqp",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotTrixLabelStyleOptions": {
@@ -68166,7 +68166,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVbpDataLabelsOptions": {
@@ -68177,7 +68177,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3rnbm",
+      "signature": "wxlbd",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVbpLabelStyleOptions": {
@@ -68265,7 +68265,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVectorClusterEventsOptions": {
@@ -68276,7 +68276,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "u54la",
+      "signature": "1h94x",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVectorClusterOptions": {
@@ -68375,7 +68375,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVennClusterEventsOptions": {
@@ -68386,7 +68386,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "u54la",
+      "signature": "1h94x",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVennClusterOptions": {
@@ -68474,7 +68474,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVwapDataLabelsOptions": {
@@ -68485,7 +68485,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "u0wk0",
+      "signature": "jy362",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotVwapLabelStyleOptions": {
@@ -68631,7 +68631,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotWilliamsrDataLabelsOptions": {
@@ -68642,7 +68642,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1dhhb",
+      "signature": "1t1gj",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotWilliamsrLabelStyleOptions": {
@@ -68788,7 +68788,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotWmaDataLabelsOptions": {
@@ -68799,7 +68799,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1ux7l",
+      "signature": "zl0pv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotWmaLabelStyleOptions": {
@@ -68935,7 +68935,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotXrangeDataLabelsOptions": {
@@ -69013,7 +69013,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "oq4c5",
+      "signature": "q4cfu",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotZigzagDataLabelsOptions": {
@@ -69024,7 +69024,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1vyqq",
+      "signature": "b0ny4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:PlotZigzagLabelStyleOptions": {
@@ -70093,7 +70093,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "8k8cx",
+      "signature": "n1n9u",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:SeriesLastPriceOptionsObject": {
@@ -70104,7 +70104,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "19wki",
+      "signature": "1p5y4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:SeriesLastVisiblePriceLabelOptionsObject": {
@@ -70115,7 +70115,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "8k8cx",
+      "signature": "n1n9u",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:SeriesLastVisiblePriceOptionsObject": {
@@ -70126,7 +70126,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "19wki",
+      "signature": "1p5y4",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:SeriesLegendItemClickEventObject": {
@@ -72375,7 +72375,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3qfxs",
+      "signature": "1i9nt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisCurrentDateIndicatorLabelOptions": {
@@ -72386,7 +72386,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "q8bdt",
+      "signature": "10tvl",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisCurrentDateIndicatorLabelsOptions": {
@@ -72408,7 +72408,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisGridOptions": {
@@ -72419,7 +72419,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "ukrrk",
+      "signature": "9yrvx",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisLabelsOptions": {
@@ -72461,7 +72461,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisPlotBandsLabelOptions": {
@@ -72483,7 +72483,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "siq1l",
+      "signature": "22iua",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisPlotLinesEventsOptions": {
@@ -72494,7 +72494,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3qfxs",
+      "signature": "1i9nt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisPlotLinesLabelOptions": {
@@ -72505,7 +72505,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mov3",
+      "signature": "8f1ve",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisPlotLinesLabelsOptions": {
@@ -72527,7 +72527,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1e6n5",
+      "signature": "yihqj",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:XAxisScrollbarOptions": {
@@ -72578,7 +72578,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisGridOptions": {
@@ -72589,7 +72589,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "ukrrk",
+      "signature": "9yrvx",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisLabelsLevelsOptions": {
@@ -72652,7 +72652,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisPlotBandsLabelOptions": {
@@ -72674,7 +72674,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1rfcy",
+      "signature": "1vlfc",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisPlotLinesEventsOptions": {
@@ -72685,7 +72685,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3qfxs",
+      "signature": "1i9nt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisPlotLinesLabelOptions": {
@@ -72696,7 +72696,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mov3",
+      "signature": "8f1ve",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisPlotLinesLabelsOptions": {
@@ -72718,7 +72718,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1e6n5",
+      "signature": "yihqj",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:YAxisResizeControlledAxisOptions": {
@@ -72793,7 +72793,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mb87",
+      "signature": "10ju3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisLabelsOptions": {
@@ -72835,7 +72835,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "44qwc",
+      "signature": "12aef",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisPlotBandsLabelOptions": {
@@ -72857,7 +72857,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "siq1l",
+      "signature": "22iua",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisPlotLinesEventsOptions": {
@@ -72868,7 +72868,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "3qfxs",
+      "signature": "1i9nt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisPlotLinesLabelOptions": {
@@ -72879,7 +72879,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mov3",
+      "signature": "8f1ve",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisPlotLinesLabelsOptions": {
@@ -72901,7 +72901,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1e6n5",
+      "signature": "yihqj",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/highcharts.d.ts|named:ZAxisTitleOptions": {
@@ -72923,7 +72923,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/abands.d.ts|named:PlotAbandsBottomLineStylesOptions": {
@@ -73112,7 +73112,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ao.d.ts|named:PlotAoDataLabelsOptions": {
@@ -73123,7 +73123,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1013z",
+      "signature": "8oih6",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ao.d.ts|named:PlotAoLabelStyleOptions": {
@@ -73269,7 +73269,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/arcdiagram.d.ts|named:PlotArcdiagramLabelStyleOptions": {
@@ -73291,7 +73291,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "facc4",
+      "signature": "v5a7e",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/arcdiagram.d.ts|named:PlotArcdiagramLevelsStatesInactiveAnimationOptions": {
@@ -73907,7 +73907,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bar.d.ts|named:PlotBarDataLabelsOptions": {
@@ -73918,7 +73918,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "mu1xg",
+      "signature": "10auf",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bar.d.ts|named:PlotBarLabelStyleOptions": {
@@ -74090,7 +74090,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bellcurve.d.ts|named:PlotBellcurveDataLabelsOptions": {
@@ -74101,7 +74101,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "4ccxh",
+      "signature": "15sel",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bellcurve.d.ts|named:PlotBellcurveLabelStyleOptions": {
@@ -74161,7 +74161,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/boxplot.d.ts|named:PlotBoxplotDataLabelsOptions": {
@@ -74172,7 +74172,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "14q1w",
+      "signature": "trf9u",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/boxplot.d.ts|named:PlotBoxplotLabelStyleOptions": {
@@ -74222,7 +74222,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bubble.d.ts|named:PlotBubbleDataLabelsOptions": {
@@ -74233,7 +74233,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "16ziz",
+      "signature": "5enu9",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/bubble.d.ts|named:PlotBubbleJitterOptions": {
@@ -74403,7 +74403,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/candlestick.d.ts|named:PlotCandlestickDataLabelsOptions": {
@@ -74414,7 +74414,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1yf7g",
+      "signature": "1ipfa",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/candlestick.d.ts|named:PlotCandlestickLabelStyleOptions": {
@@ -74548,7 +74548,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/chaikin.d.ts|named:PlotChaikinDataLabelsOptions": {
@@ -74559,7 +74559,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1i59z",
+      "signature": "bhyl2",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/chaikin.d.ts|named:PlotChaikinLabelStyleOptions": {
@@ -74705,7 +74705,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/cmo.d.ts|named:PlotCmoDataLabelsOptions": {
@@ -74716,7 +74716,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1phz8",
+      "signature": "n8kdv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/cmo.d.ts|named:PlotCmoLabelStyleOptions": {
@@ -74873,7 +74873,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/columnpyramid.d.ts|named:PlotColumnpyramidDataLabelsOptions": {
@@ -74884,7 +74884,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1eyqp",
+      "signature": "nwcxp",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/columnpyramid.d.ts|named:PlotColumnpyramidLabelStyleOptions": {
@@ -75020,7 +75020,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/contour.d.ts|named:PlotContourDataLabelsOptions": {
@@ -75031,7 +75031,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "e7l0f",
+      "signature": "oh908",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/contour.d.ts|named:PlotContourLabelStyleOptions": {
@@ -75109,7 +75109,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/cylinder.d.ts|named:PlotCylinderDataLabelsOptions": {
@@ -75120,7 +75120,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1g1co",
+      "signature": "165az",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/cylinder.d.ts|named:PlotCylinderLabelStyleOptions": {
@@ -75270,7 +75270,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/dependencywheel.d.ts|named:PlotDependencywheelDataLabelsTextPathAttributesOptions": {
@@ -75427,7 +75427,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/dmi.d.ts|named:PlotDmiDataLabelsOptions": {
@@ -75438,7 +75438,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "133f1",
+      "signature": "352lt",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/dmi.d.ts|named:PlotDmiLabelStyleOptions": {
@@ -75607,7 +75607,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/dumbbell.d.ts|named:PlotDumbbellDataSortingOptions": {
@@ -75683,7 +75683,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ema.d.ts|named:PlotEmaDataLabelsOptions": {
@@ -75694,7 +75694,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1fj1j",
+      "signature": "1a2kq",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ema.d.ts|named:PlotEmaLabelStyleOptions": {
@@ -75897,7 +75897,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/flowmap.d.ts|named:PlotFlowmapStatesInactiveAnimationOptions": {
@@ -75916,7 +75916,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/funnel.d.ts|named:PlotFunnel3dDataLabelsOptions": {
@@ -75927,7 +75927,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "14hut",
+      "signature": "1lkrl",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/funnel.d.ts|named:PlotFunnel3dOnPointConnectorOptions": {
@@ -75976,7 +75976,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/funnel.d.ts|named:PlotFunnelOnPointConnectorOptions": {
@@ -76061,7 +76061,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/gantt.d.ts|named:PlotGanttDataLabelsOptions": {
@@ -76129,7 +76129,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/gauge.d.ts|named:PlotGaugeDataLabelsOptions": {
@@ -76140,7 +76140,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "16tbk",
+      "signature": "rhtl3",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/gauge.d.ts|named:PlotGaugeLabelStyleOptions": {
@@ -76235,7 +76235,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/heatmap.d.ts|named:PlotHeatmapDataLabelsOptions": {
@@ -76246,7 +76246,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1tsyo",
+      "signature": "1h4et",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/heatmap.d.ts|named:PlotHeatmapLabelStyleOptions": {
@@ -76324,7 +76324,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/heikinashi.d.ts|named:PlotHeikinashiDataLabelsOptions": {
@@ -76335,7 +76335,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "lhtdm",
+      "signature": "163ph",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/heikinashi.d.ts|named:PlotHeikinashiLabelStyleOptions": {
@@ -76463,7 +76463,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/hlc.d.ts|named:PlotHlcDataLabelsOptions": {
@@ -76474,7 +76474,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "70rrs",
+      "signature": "34nbo",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/hlc.d.ts|named:PlotHlcLabelStyleOptions": {
@@ -76608,7 +76608,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ikh.d.ts|named:PlotIkhChikouLineStylesOptions": {
@@ -76630,7 +76630,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1h97o",
+      "signature": "1ezgp",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/ikh.d.ts|named:PlotIkhKijunLineOptions": {
@@ -76754,7 +76754,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/item.d.ts|named:PlotItemMarkerStatesHoverAnimationOptions": {
@@ -76907,7 +76907,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/klinger.d.ts|named:PlotKlingerDataLabelsOptions": {
@@ -76918,7 +76918,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1mrac",
+      "signature": "1eg27",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/klinger.d.ts|named:PlotKlingerLabelStyleOptions": {
@@ -77094,7 +77094,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/linearregression.d.ts|named:PlotLinearregressionDataLabelsAnimationOptions": {
@@ -77561,7 +77561,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/map.d.ts|named:PlotMapDataLabelsOptions": {
@@ -77728,7 +77728,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/mappoint.d.ts|named:PlotMappointClusterEventsOptions": {
@@ -77889,7 +77889,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/momentum.d.ts|named:PlotMomentumDataLabelsOptions": {
@@ -77900,7 +77900,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1tf2g",
+      "signature": "joho7",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/momentum.d.ts|named:PlotMomentumLabelStyleOptions": {
@@ -78047,7 +78047,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/networkgraph.d.ts|named:PlotNetworkgraphDataLabelsStyleOptions": {
@@ -78142,7 +78142,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/obv.d.ts|named:PlotObvDataLabelsOptions": {
@@ -78153,7 +78153,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "66hav",
+      "signature": "1miu5",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/obv.d.ts|named:PlotObvLabelStyleOptions": {
@@ -78291,7 +78291,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/organization.d.ts|named:PlotOrganizationDataLabelsLinkTextPathAttributesOptions": {
@@ -78323,7 +78323,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "facc4",
+      "signature": "v5a7e",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/organization.d.ts|named:PlotOrganizationLevelsStatesInactiveAnimationOptions": {
@@ -78682,7 +78682,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pictorial.d.ts|named:PlotPictorialDataLabelsOptions": {
@@ -78693,7 +78693,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "xfgcm",
+      "signature": "f1jk2",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pictorial.d.ts|named:PlotPictorialOptions": {
@@ -78877,7 +78877,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pointandfigure.d.ts|named:PlotPointandfigureDataLabelsAnimationOptions": {
@@ -79130,7 +79130,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/priceenvelopes.d.ts|named:PlotPriceenvelopesBottomLineStylesOptions": {
@@ -79152,7 +79152,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "13mde",
+      "signature": "7rjio",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/priceenvelopes.d.ts|named:PlotPriceenvelopesLabelStyleOptions": {
@@ -79309,7 +79309,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pyramid.d.ts|named:PlotPyramid3dDataLabelsOptions": {
@@ -79320,7 +79320,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "t8fzi",
+      "signature": "noei6",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pyramid.d.ts|named:PlotPyramid3dOnPointConnectorOptions": {
@@ -79369,7 +79369,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/pyramid.d.ts|named:PlotPyramidOnPointConnectorOptions": {
@@ -79442,7 +79442,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/renko.d.ts|named:PlotRenkoDataLabelsAnimationOptions": {
@@ -79536,7 +79536,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/roc.d.ts|named:PlotRocDataLabelsOptions": {
@@ -79547,7 +79547,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "193fb",
+      "signature": "v2x06",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/roc.d.ts|named:PlotRocLabelStyleOptions": {
@@ -79694,7 +79694,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/sankey.d.ts|named:PlotSankeyLabelStyleOptions": {
@@ -79716,7 +79716,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "facc4",
+      "signature": "v5a7e",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/sankey.d.ts|named:PlotSankeyLevelsStatesInactiveAnimationOptions": {
@@ -79791,7 +79791,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/scatter.d.ts|named:PlotScatter3dDataLabelsOptions": {
@@ -79802,7 +79802,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "sqneg",
+      "signature": "14tgb",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/scatter.d.ts|named:PlotScatter3dJitterOptions": {
@@ -79915,7 +79915,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "169ve",
+      "signature": "qzzj6",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/scatter.d.ts|named:PlotScatterJitterOptions": {
@@ -80073,7 +80073,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/slowstochastic.d.ts|named:PlotSlowstochasticDataLabelsOptions": {
@@ -80084,7 +80084,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "7qhr9",
+      "signature": "3w6lv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/slowstochastic.d.ts|named:PlotSlowstochasticLabelStyleOptions": {
@@ -80241,7 +80241,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/solidgauge.d.ts|named:PlotSolidgaugeDataLabelsOptions": {
@@ -80252,7 +80252,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1qxq7",
+      "signature": "ynhz6",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/solidgauge.d.ts|named:PlotSolidgaugeOnPointConnectorOptions": {
@@ -80472,7 +80472,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/streamgraph.d.ts|named:PlotStreamgraphDataLabelsOptions": {
@@ -80483,7 +80483,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1xoos",
+      "signature": "n592m",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/streamgraph.d.ts|named:PlotStreamgraphLabelStyleOptions": {
@@ -80551,7 +80551,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/sunburst.d.ts|named:PlotSunburstBreadcrumbsButtonThemeStyleOptions": {
@@ -80757,7 +80757,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/tema.d.ts|named:PlotTemaDataLabelsOptions": {
@@ -80768,7 +80768,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "t80wz",
+      "signature": "1nddb",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/tema.d.ts|named:PlotTemaLabelStyleOptions": {
@@ -80937,7 +80937,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/timeline.d.ts|named:PlotTimelineLabelStyleOptions": {
@@ -81007,7 +81007,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/treegraph.d.ts|named:PlotTreegraphCollapseButtonStyleOptions": {
@@ -81132,7 +81132,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/treemap.d.ts|named:PlotTreemapBreadcrumbsButtonThemeStyleOptions": {
@@ -81290,7 +81290,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/trendline.d.ts|named:PlotTrendlineDataLabelsOptions": {
@@ -81301,7 +81301,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "7jci5",
+      "signature": "b4g2h",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/trendline.d.ts|named:PlotTrendlineLabelStyleOptions": {
@@ -81447,7 +81447,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/variablepie.d.ts|named:PlotVariablepieOnPointConnectorOptions": {
@@ -81506,7 +81506,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/variwide.d.ts|named:PlotVariwideDataLabelsOptions": {
@@ -81517,7 +81517,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1ujxt",
+      "signature": "1odg5",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/variwide.d.ts|named:PlotVariwideLabelStyleOptions": {
@@ -81715,7 +81715,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1rhev",
+      "signature": "mjxkk",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/vector.d.ts|named:PlotVectorLabelStyleOptions": {
@@ -81838,7 +81838,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1l5yh",
+      "signature": "1ssak",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/venn.d.ts|named:PlotVennOnPointOptions": {
@@ -81961,7 +81961,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/waterfall.d.ts|named:PlotWaterfallDataLabelsOptions": {
@@ -81972,7 +81972,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "14p41",
+      "signature": "10o9x",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/waterfall.d.ts|named:PlotWaterfallLabelStyleOptions": {
@@ -82114,7 +82114,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/windbarb.d.ts|named:PlotWindbarbDataLabelsOptions": {
@@ -82125,7 +82125,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1tb07",
+      "signature": "4nwul",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/windbarb.d.ts|named:PlotWindbarbLabelStyleOptions": {
@@ -82267,7 +82267,7 @@
       "formerModules": [
         "HighchartsSharedTypes"
       ],
-      "signature": "1kfgm",
+      "signature": "1p2cv",
       "active": true
     },
     "scope:@juspay/blend-design-system|highcharts/options/wordcloud.d.ts|named:PlotWordcloudOnPointConnectorOptions": {
@@ -84195,7 +84195,9 @@
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
       "name": "partialLxlpp",
-      "aliases": [],
+      "aliases": [
+        "partialV15w8b"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|typescript/lib/lib.es5.d.ts|named:Partial<named:Coordinate>": {
