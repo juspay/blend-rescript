@@ -1,13 +1,13 @@
-type popoverV2Side =
+type popoverV2Side2 =
   | @as("top") Top
   | @as("right") Right
   | @as("bottom") Bottom
   | @as("left") Left
-type popoverV2Align =
+type popoverV2Align2 =
   | @as("start") Start
   | @as("center") Center
   | @as("end") End
-type popoverV2Size =
+type popoverV2Size2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
@@ -88,6 +88,19 @@ type popoverV2SkeletonProps = {
   show?: bool,
   variant?: SkeletonTypes.skeletonVariant,
   bodySkeletonProps?: bodySkeletonV2Props,
+}
+type popoverBaseProps = {
+  heading?: string,
+  description?: string,
+  showCloseButton?: bool,
+  onOpenChange?: bool => unit,
+  @as("open") open_?: bool,
+  sideOffset?: float,
+  side?: popoverV2Side2,
+  align?: popoverV2Align2,
+  alignOffset?: float,
+  size?: popoverV2Size2,
+  onClose?: unit => unit,
 }
 type popoverV2Dimensions = {
   width?: float,

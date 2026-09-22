@@ -1,14 +1,8 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameSlotStyle,
-  checked?: bool,
-  onCheckedChange?: bool => unit,
-  required?: bool,
-  error?: bool,
-  label?: string,
-  subLabel?: string,
-  size?: SelectorV2Types.selectorV2Size,
+  ...SelectorV2Types.switchBaseProps,
   slot?: SelectorV2Types.selectorV2SlotConfig,
-  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
+  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig2,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

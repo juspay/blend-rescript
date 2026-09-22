@@ -69,6 +69,13 @@ type responsiveAccordionV2Tokens = {
   sm: accordionV2TokensType,
   lg: accordionV2TokensType,
 }
+type accordionBaseProps = {
+  accordionType?: accordionV2Type,
+  defaultValue?: CommonTypes.stringOrStringArray,
+  value?: CommonTypes.stringOrStringArray,
+  isMultiple?: bool,
+  onValueChange?: CommonTypes.stringOrStringArray => unit,
+}
 type accordionV2Dimensions = {
   width?: string,
   maxWidth?: string,

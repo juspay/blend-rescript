@@ -1,5 +1,5 @@
 type props = {
-  items: array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
+  items: array<SingleSelectV2Types.singleSelectV2GroupType2>,
   selected: string,
   onSelect: string => unit,
   trigger: React.element,
@@ -10,8 +10,8 @@ type props = {
   collisionBoundary?: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t, // ⓘ was `Element | Element[]` — opaque; build with ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElement / ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElements
   @as("open") open_: bool,
   onOpenChange: bool => unit,
-  size?: SelectV2Types.selectV2Size,
-  variant?: SelectV2Types.selectV2Variant,
+  size?: SelectV2Types.selectV2Size2,
+  variant?: SelectV2Types.selectV2Variant2,
   enableVirtualization?: bool,
   virtualListItemHeight?: float,
   virtualListOverscan?: float,

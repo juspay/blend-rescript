@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.38-beta.2`
+# Binding report — `@juspay/blend-design-system@0.0.38-beta.3`
 
 **235** components · ✅ **226** usable · 🔍 **9** need review · 🛑 **0** broken
 
 **263** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**4658** shared types deduplicated into **81** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**4666** shared types deduplicated into **83** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 🔤 Constructor name collisions
 
@@ -36,17 +36,17 @@ A bare constant, an identity payload and a `@tag`-injected object are different 
 | `HighchartsSharedSharedTypes` | `Shift` | `"shift"` / `4` | `ShiftKeyCode`, `ShiftOptionsKeyValue`, `ShiftPanKeyValue` |
 | `HighchartsSharedSharedTypes` | `Smooth` | `"smooth"` / `0` | `SmoothCursorBlinking`, `SmoothScrollType` |
 | `HighchartsSharedSharedTypes` | `Solid` | `"Solid"` / `"solid"` | `SolidCursorBlinking`, `SolidStyleValue`, `SolidShapeValue` |
-| `HighchartsSharedSharedTypes` | `Text` | `"text"` / `1` | `TextMouseStyle`, `TextCursorValue`, `TextTagType`, `TextRenderMinimap` |
+| `HighchartsSharedSharedTypes` | `Text` | `"text"` / `1` | `TextMouseStyle`, `TextCursorValue`, `TextRenderMinimap` |
 | `HighchartsSharedSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValueOptionsCompare`, `ValueGapUnit`, `ValueOptionsOperator` |
 | `HighchartsSharedSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
 | `DataTableTypes` | `DateRange` | `"date_range"` / `"dateRange"` | `DateRangeColumnType`, `DateRangeTypeType`, `DateRangeFilterComponent` |
 | `ChartsSharedTypes` | `Point` | `"point"` / `"Point"` | `PointConstructorType`, `PointObjectScope` |
 
-### Left as-is — same name, same runtime representation (151)
+### Left as-is — same name, same runtime representation (150)
 
 These produce the same runtime shape whichever definition wins, so renaming them would churn every consumer for no correctness gain. Listed because the ambiguity is still there to read.
 
-- `HighchartsSharedSharedTypes`: `Action`, `Advanced`, `All`, `Allow`, `Always`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Brackets`, `C`, `Callout`, `Category`, `Chart`, `Circle`, `Close`, `Copy`, `CssObject`, `Custom`, `Danger`, `Day`, `Default`, `Diamond`, `Disabled`, `Error`, `EXACT`, `First` … +47 more
+- `HighchartsSharedSharedTypes`: `Action`, `Advanced`, `All`, `Allow`, `Always`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Brackets`, `C`, `Callout`, `Category`, `Chart`, `Circle`, `Close`, `Copy`, `CssObject`, `Custom`, `Danger`, `Day`, `Default`, `Diamond`, `Disabled`, `EXACT`, `First`, `Fn` … +46 more
 - `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
 - `TagsTypes`: `Lg`, `Md`, `Sm`, `Xs`
 - `InputsTypes`: `Left`, `Lg`, `Md`, `Right`, `Sm`

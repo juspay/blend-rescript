@@ -1,7 +1,7 @@
 type props = {
-  flattenedItems: array<HighchartsSharedSharedTypes.flattenedMultiSelectV2Item>,
+  flattenedItems: array<MultiSelectV2Types.flattenedMultiSelectV2Item2>,
   itemIndexMap: Map.t<string, float>,
-  allItemsFlat: array<HighchartsSharedSharedTypes.multiSelectV2ItemType>,
+  allItemsFlat: array<MultiSelectV2Types.multiSelectV2ItemType2>,
   selected: array<string>,
   onSelect: string => unit,
   maxSelections?: float,

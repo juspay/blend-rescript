@@ -1,5 +1,5 @@
 type props = {
-  item: HighchartsSharedSharedTypes.singleSelectV2ItemType,
+  item: SingleSelectV2Types.singleSelectV2ItemType2,
   selected: string,
   onSelect: string => unit,
   singleSelectTokens: HighchartsSharedSharedTypes.singleSelectV2TokensType,

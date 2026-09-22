@@ -114,6 +114,13 @@ type responsiveTabsV2Tokens = {
   sm: tabsV2TokensType,
   lg: tabsV2TokensType,
 }
+type tabsBaseProps = {
+  variant?: tabsV2Variant,
+  size?: tabsV2Size,
+  expanded?: bool,
+  fitContent?: bool,
+  disabled?: bool,
+}
 type tabsV2ContextValue = {
   variant: tabsV2Variant,
   size: tabsV2Size,

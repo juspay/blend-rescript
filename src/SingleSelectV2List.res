@@ -1,6 +1,6 @@
 type props = {
   ...HighchartsSharedSharedTypes.menuListSharedProps,
-  filteredItems: array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
+  filteredItems: array<SingleSelectV2Types.singleSelectV2GroupType2>,
   enableSearch?: bool,
 }
 

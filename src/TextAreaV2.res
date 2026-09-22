@@ -5,9 +5,6 @@ type props = {
   placeholder: string,
   disabled?: bool,
   autoFocus?: bool,
-  onChange: ReactEvent.Form.t => unit,
-  onFocus?: ReactEvent.Focus.t => unit,
-  onBlur?: ReactEvent.Focus.t => unit,
   rows?: int,
   label?: string,
   sublabel?: string,
@@ -16,6 +13,9 @@ type props = {
   required?: bool,
   error?: HighchartsSharedSharedTypes.inputsV2ErrorConfig,
   resize?: InputsTypes.inputsResize,
+  onChange: ReactEvent.Form.t => unit,
+  onFocus?: ReactEvent.Focus.t => unit,
+  onBlur?: ReactEvent.Focus.t => unit,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

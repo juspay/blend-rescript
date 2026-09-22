@@ -13,6 +13,27 @@ type __typeV1gm13 = {
   paddingLeft: string,
   boxShadow: string,
 }
+type rec singleSelectV2ItemType2 = {
+  label: string,
+  value: string,
+  checked?: bool,
+  subLabel?: string,
+  slot1?: React.element,
+  slot2?: React.element,
+  slot3?: React.element,
+  slot4?: React.element,
+  disabled?: bool,
+  onClick?: unit => unit,
+  tooltip?: React.element,
+  tooltipProps?: SelectV2Types.selectV2TooltipProps,
+  disableTruncation?: bool,
+  subMenu?: array<singleSelectV2ItemType2>,
+}
+type singleSelectV2GroupType2 = {
+  groupLabel?: string,
+  items: array<singleSelectV2ItemType2>,
+  showSeparator?: bool,
+}
 type triggerStateTokenSingleSelectV2 = {
   hover: string,
   error: string,

@@ -1,8 +1,7 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
-external uploadErrorReason: HighchartsSharedSharedTypes.inputsV2UploadErrorReasonConfig =
-  "UploadErrorReason"
+external uploadErrorReason: InputsV2Types.inputsV2UploadErrorReasonConfig2 = "UploadErrorReason"
 @module("@juspay/blend-design-system")
 external useTheme: unit => HighchartsSharedSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
@@ -1004,16 +1003,16 @@ external getMultiSelectV2Tokens: (
 ) => HighchartsSharedSharedTypes.responsiveMultiSelectV2Tokens = "getMultiSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getMultiSelectBorderRadius: (
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
   ButtonTypes.buttonButtonGroupPosition,
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
   bool,
 ) => string = "getMultiSelectBorderRadius"
 @module("@juspay/blend-design-system")
 external getMultiSelectCrossBorderRadius: (
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
   ButtonTypes.buttonButtonGroupPosition,
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
 ) => HighchartsSharedSharedTypes.multiSelectV2GetMultiSelectCrossBorderRadiusConfig =
@@ -1024,59 +1023,58 @@ external getSelectAllState: (
   array<string>,
 ) => HighchartsSharedSharedTypes.multiSelectV2GetSelectAllStateConfig = "getSelectAllState"
 @module("@juspay/blend-design-system")
-external getMultiSelectV2ValueLabelMap: array<
-  HighchartsSharedSharedTypes.multiSelectV2GroupType,
-> => Dict.t<string> = "getMultiSelectV2ValueLabelMap"
+external getMultiSelectV2ValueLabelMap: array<MultiSelectV2Types.multiSelectV2GroupType2> => Dict.t<
+  string,
+> = "getMultiSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
 external getFilteredMenuItem: (
-  HighchartsSharedSharedTypes.multiSelectV2ItemType,
+  MultiSelectV2Types.multiSelectV2ItemType2,
   string,
-) => Nullable.t<HighchartsSharedSharedTypes.multiSelectV2ItemType> = "getFilteredMenuItem"
+) => Nullable.t<MultiSelectV2Types.multiSelectV2ItemType2> = "getFilteredMenuItem"
 @module("@juspay/blend-design-system")
 external filterMultiSelectV2MenuGroups: (
-  array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
+  array<MultiSelectV2Types.multiSelectV2GroupType2>,
   string,
-) => array<HighchartsSharedSharedTypes.multiSelectV2GroupType> = "filterMultiSelectV2MenuGroups"
+) => array<MultiSelectV2Types.multiSelectV2GroupType2> = "filterMultiSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
-external getAllAvailableValues: array<HighchartsSharedSharedTypes.multiSelectV2GroupType> => array<
-  string,
-> = "getAllAvailableValues"
+external getAllAvailableValues: array<MultiSelectV2Types.multiSelectV2GroupType2> => array<string> =
+  "getAllAvailableValues"
 @module("@juspay/blend-design-system")
 external handleSelectAll: (
   bool,
-  array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
+  array<MultiSelectV2Types.multiSelectV2GroupType2>,
   array<string>,
   string => unit,
   ~maxSelections: float=?,
   unit,
 ) => unit = "handleSelectAll"
 @module("@juspay/blend-design-system")
-external flattenMenuGroups: array<HighchartsSharedSharedTypes.multiSelectV2GroupType> => array<
-  HighchartsSharedSharedTypes.flattenedMultiSelectV2Item,
+external flattenMenuGroups: array<MultiSelectV2Types.multiSelectV2GroupType2> => array<
+  MultiSelectV2Types.flattenedMultiSelectV2Item2,
 > = "flattenMenuGroups"
 @module("@juspay/blend-design-system")
 external getTriggerLeftPadding: (
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
 ) => float = "getTriggerLeftPadding"
 @module("@juspay/blend-design-system")
 external getTriggerTopPadding: (
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
 ) => float = "getTriggerTopPadding"
 @module("@juspay/blend-design-system")
 external getTriggerHorizontalPadding: (
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
 ) => float = "getTriggerHorizontalPadding"
 @module("@juspay/blend-design-system")
 external getTriggerVerticalPadding: (
   HighchartsSharedSharedTypes.multiSelectV2TokensType,
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
 ) => float = "getTriggerVerticalPadding"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2Tokens: (
@@ -1086,35 +1084,35 @@ external getSingleSelectV2Tokens: (
 ) => HighchartsSharedSharedTypes.responsiveSingleSelectV2Tokens = "getSingleSelectV2Tokens"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2BorderRadius: (
-  SelectV2Types.selectV2Size,
-  SelectV2Types.selectV2Variant,
+  SelectV2Types.selectV2Size2,
+  SelectV2Types.selectV2Variant2,
   ButtonTypes.buttonButtonGroupPosition,
   HighchartsSharedSharedTypes.singleSelectV2TokensType,
 ) => HighchartsSharedSharedTypes.singleSelectV2GetSingleSelectV2BorderRadiusConfig =
   "getSingleSelectV2BorderRadius"
 @module("@juspay/blend-design-system")
 external getSingleSelectV2ValueLabelMap: array<
-  HighchartsSharedSharedTypes.singleSelectV2GroupType,
+  SingleSelectV2Types.singleSelectV2GroupType2,
 > => Dict.t<string> = "getSingleSelectV2ValueLabelMap"
 @module("@juspay/blend-design-system")
-external flattenGroups: array<HighchartsSharedSharedTypes.singleSelectV2GroupType> => array<
+external flattenGroups: array<SingleSelectV2Types.singleSelectV2GroupType2> => array<
   HighchartsSharedSharedTypes.flattenedItem,
 > = "flattenGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2MenuGroups: (
-  array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
+  array<SingleSelectV2Types.singleSelectV2GroupType2>,
   string,
-) => array<HighchartsSharedSharedTypes.singleSelectV2GroupType> = "filterSingleSelectV2MenuGroups"
+) => array<SingleSelectV2Types.singleSelectV2GroupType2> = "filterSingleSelectV2MenuGroups"
 @module("@juspay/blend-design-system")
 external filterSingleSelectV2Item: (
-  HighchartsSharedSharedTypes.singleSelectV2ItemType,
+  SingleSelectV2Types.singleSelectV2ItemType2,
   string,
-) => Nullable.t<HighchartsSharedSharedTypes.singleSelectV2ItemType> = "filterSingleSelectV2Item"
+) => Nullable.t<SingleSelectV2Types.singleSelectV2ItemType2> = "filterSingleSelectV2Item"
 @module("@juspay/blend-design-system")
 external isTooltipWrappingTrigger: React.element => bool = "isTooltipWrappingTrigger"
 @module("@juspay/blend-design-system")
 external getMenuItemIndex: (
-  array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
+  array<SingleSelectV2Types.singleSelectV2GroupType2>,
   float,
   float,
 ) => float = "getMenuItemIndex"

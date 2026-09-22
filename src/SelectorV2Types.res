@@ -163,9 +163,18 @@ type selectorV2SlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
-type selectorV2MaxLengthConfig = {
+type selectorV2MaxLengthConfig2 = {
   label?: float,
   subLabel?: float,
+}
+type checkboxBaseProps = {
+  checked?: CommonTypes.boolOrIndeterminate,
+  onCheckedChange?: CommonTypes.boolOrIndeterminate => unit,
+  required?: bool,
+  error?: bool,
+  label?: string,
+  subLabel?: string,
+  size?: selectorV2Size,
 }
 type selectorV2GetCheckboxTextPropsConfig = {
   fontSize: string,
@@ -188,4 +197,13 @@ type selectorV2GetAccessibilityAttributesConfig = {
   @as("aria-checked") ariaChecked?: string,
   @as("aria-labelledby") ariaLabelledby: string,
   @as("aria-describedby") ariaDescribedby: string,
+}
+type switchBaseProps = {
+  checked?: bool,
+  onCheckedChange?: bool => unit,
+  required?: bool,
+  error?: bool,
+  label?: string,
+  subLabel?: string,
+  size?: selectorV2Size,
 }

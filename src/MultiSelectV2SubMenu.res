@@ -1,5 +1,5 @@
 type props = {
-  item: HighchartsSharedSharedTypes.multiSelectV2ItemType,
+  item: MultiSelectV2Types.multiSelectV2ItemType2,
   onSelect: string => unit,
   selected: array<string>,
   maxSelections?: float,
