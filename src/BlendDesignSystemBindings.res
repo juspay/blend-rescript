@@ -257,7 +257,7 @@ external createButtonClickHandler: (
   unit,
 ) => ReactEvent.Mouse.t => unit = "createButtonClickHandler"
 @module("@juspay/blend-design-system")
-external getButtonHeight: ButtonV2Types.buttonV2SubType => string = "getButtonHeight"
+external getButtonHeight: ButtonV2Types.buttonV2SubType => option<string> = "getButtonHeight"
 @module("@juspay/blend-design-system")
 external getIconMaxHeight: (
   ButtonV2Types.buttonV2SubType,
@@ -344,13 +344,14 @@ external getTagBorderRadius: (
   TagV2Types.tagV2ResponsiveTagV2TokensSmConfig,
 ) => string = "getTagBorderRadius"
 @module("@juspay/blend-design-system")
-external getAccessibleName: (string, bool, CommonTypes.boolOrMixed) => string = "getAccessibleName"
+external getAccessibleName: (string, bool, CommonTypes.boolOrMixed) => option<string> =
+  "getAccessibleName"
 @module("@juspay/blend-design-system")
 external createKeyboardHandler: (
   bool,
   ~onClick: ReactEvent.Mouse.t => unit=?,
   unit,
-) => ReactEvent.Keyboard.t => unit = "createKeyboardHandler"
+) => option<ReactEvent.Keyboard.t => unit> = "createKeyboardHandler"
 @module("@juspay/blend-design-system")
 external getCheckboxV2Tokens: (
   TokensTypes.foundationTokenType,
@@ -394,13 +395,13 @@ external getAccessibilityAttributes: (
   bool,
 ) => SelectorV2Types.selectorV2GetAccessibilityAttributesConfig = "getAccessibilityAttributes"
 @module("@juspay/blend-design-system")
-external getSubtextId: (string, bool) => string = "getSubtextId"
+external getSubtextId: (string, bool) => option<string> = "getSubtextId"
 @module("@juspay/blend-design-system")
 external mergeCheckboxV2AriaDescribedBy: (
   string,
   ~customAriaDescribedBy: string=?,
   unit,
-) => string = "mergeCheckboxV2AriaDescribedBy"
+) => option<string> = "mergeCheckboxV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
 external handleCheckboxKeyDown: (
   ReactEvent.Keyboard.t,
@@ -472,7 +473,7 @@ external getColorFromText: string => string = "getColorFromText"
 @module("@juspay/blend-design-system")
 external getAccessibleLabel: (string, string, string) => string = "getAccessibleLabel"
 @module("@juspay/blend-design-system")
-external getAriaLiveValue: string => [#polite] = "getAriaLiveValue"
+external getAriaLiveValue: string => option<[#polite]> = "getAriaLiveValue"
 @module("@juspay/blend-design-system")
 external getStatusPositionStyles: (
   AvatarV2Types.avatarV2StatusPosition,
@@ -481,9 +482,9 @@ external getStatusPositionStyles: (
   AvatarV2Types.avatarV2TokensType,
 ) => AvatarV2Types.avatarV2GetStatusPositionStylesConfig = "getStatusPositionStyles"
 @module("@juspay/blend-design-system")
-external createAvatarKeyboardHandler: (
-  ReactEvent.Mouse.t => unit
-) => ReactEvent.Keyboard.t => unit = "createAvatarKeyboardHandler"
+external createAvatarKeyboardHandler: (ReactEvent.Mouse.t => unit) => option<
+  ReactEvent.Keyboard.t => unit,
+> = "createAvatarKeyboardHandler"
 @module("@juspay/blend-design-system")
 external isInteractive: (ReactEvent.Mouse.t => unit) => bool = "isInteractive"
 @module("@juspay/blend-design-system") external defaultAvatarAlt: string = "DEFAULT_AVATAR_ALT"
@@ -701,7 +702,7 @@ external getChartV2Tokens: (
 @module("@juspay/blend-design-system")
 external chartV2BaseInstance: InstanceTypes.highchartsModule = "ChartV2BaseInstance"
 @module("@juspay/blend-design-system")
-external getButtonGroupPosition: (int, float) => ButtonV2Types.buttonGroupPosition =
+external getButtonGroupPosition: (int, float) => option<ButtonV2Types.buttonGroupPosition> =
   "getButtonGroupPosition"
 @module("@juspay/blend-design-system")
 external getButtonGroupGap: (
@@ -914,7 +915,7 @@ external getCodeEditorV2ContainerStyles: (
   unit,
 ) => JsxDOM.style = "getCodeEditorV2ContainerStyles"
 @module("@juspay/blend-design-system")
-external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => string = "toCssValue"
+external toCssValue: (~value: CommonTypes.stringOrNumber=?, unit) => option<string> = "toCssValue"
 @module("@juspay/blend-design-system")
 external toNumericValue: (CommonTypes.stringOrNumber, ~fallback: float=?, unit) => float =
   "toNumericValue"
@@ -962,25 +963,25 @@ external defaultSearchSortFn: (
 external filterMenuV2Item: (
   HighchartsSharedSharedTypes.menuV2ItemType,
   string,
-) => HighchartsSharedSharedTypes.menuV2ItemType = "filterMenuV2Item"
+) => Nullable.t<HighchartsSharedSharedTypes.menuV2ItemType> = "filterMenuV2Item"
 @module("@juspay/blend-design-system")
 external getMenuItemBackgroundColor: (
   SelectV2Types.selectV2ItemStates,
   HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
   HighchartsSharedSharedTypes.menuV2ItemType,
-) => string = "getMenuItemBackgroundColor"
+) => option<string> = "getMenuItemBackgroundColor"
 @module("@juspay/blend-design-system")
 external getMenuItemOptionColor: (
   SelectV2Types.selectV2ItemStates,
   HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
   HighchartsSharedSharedTypes.menuV2ItemType,
-) => string = "getMenuItemOptionColor"
+) => option<string> = "getMenuItemOptionColor"
 @module("@juspay/blend-design-system")
 external getMenuItemDescriptionColor: (
   SelectV2Types.selectV2ItemStates,
   HighchartsSharedSharedTypes.menuV2MenuV2TokensTypeGroupItemConfig,
   HighchartsSharedSharedTypes.menuV2ItemType,
-) => string = "getMenuItemDescriptionColor"
+) => option<string> = "getMenuItemDescriptionColor"
 @module("@juspay/blend-design-system")
 external flattenMenuV2Groups: array<HighchartsSharedSharedTypes.menuV2GroupType> => array<
   HighchartsSharedSharedTypes.menuV2FlatRow,
@@ -1030,7 +1031,7 @@ external getMultiSelectV2ValueLabelMap: array<
 external getFilteredMenuItem: (
   HighchartsSharedSharedTypes.multiSelectV2ItemType,
   string,
-) => HighchartsSharedSharedTypes.multiSelectV2ItemType = "getFilteredMenuItem"
+) => Nullable.t<HighchartsSharedSharedTypes.multiSelectV2ItemType> = "getFilteredMenuItem"
 @module("@juspay/blend-design-system")
 external filterMultiSelectV2MenuGroups: (
   array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
@@ -1108,7 +1109,7 @@ external filterSingleSelectV2MenuGroups: (
 external filterSingleSelectV2Item: (
   HighchartsSharedSharedTypes.singleSelectV2ItemType,
   string,
-) => HighchartsSharedSharedTypes.singleSelectV2ItemType = "filterSingleSelectV2Item"
+) => Nullable.t<HighchartsSharedSharedTypes.singleSelectV2ItemType> = "filterSingleSelectV2Item"
 @module("@juspay/blend-design-system")
 external isTooltipWrappingTrigger: React.element => bool = "isTooltipWrappingTrigger"
 @module("@juspay/blend-design-system")
@@ -1142,7 +1143,7 @@ external extractSingleSelectV2AriaProps: Dict.t<
   JSON.t,
 > => HighchartsSharedSharedTypes.extractedAriaProps = "extractSingleSelectV2AriaProps"
 @module("@juspay/blend-design-system") @variadic
-external mergeSingleSelectV2AriaDescribedBy: array<string> => string =
+external mergeSingleSelectV2AriaDescribedBy: array<string> => option<string> =
   "mergeSingleSelectV2AriaDescribedBy"
 @module("@juspay/blend-design-system")
 external buildAriaAttributes: HighchartsSharedSharedTypes.singleSelectV2BuildAriaAttributesOptionsConfig => HighchartsSharedSharedTypes.ariaAttributes =
