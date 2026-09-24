@@ -1,5 +1,9 @@
 type props = {
-  ...TooltipV2Types.tooltipV2Props,
+  ...TooltipV2Types.tooltipBaseProps,
+  children: React.element,
+  content: React.element,
+  slot?: React.element,
+  maxWidth?: string,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

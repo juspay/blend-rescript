@@ -11,8 +11,8 @@ type props = {
   showSelectAll: bool,
   selected: array<string>,
   availableValues: array<string>,
-  filteredItems: array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
-  onSelectAll?: (bool, array<HighchartsSharedSharedTypes.multiSelectV2GroupType>) => unit,
+  filteredItems: array<MultiSelectV2Types.multiSelectV2GroupType2>,
+  onSelectAll?: (bool, array<MultiSelectV2Types.multiSelectV2GroupType2>) => unit,
   selectAllText?: string,
   disabled?: bool,
 }

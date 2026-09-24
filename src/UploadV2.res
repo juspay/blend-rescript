@@ -14,7 +14,7 @@ type props = {
   slot?: React.element,
   files?: array<HighchartsSharedSharedTypes.uploadFileV2>,
   onChange?: array<HighchartsSharedSharedTypes.uploadFileV2> => unit,
-  state?: HighchartsSharedSharedTypes.uploadStateInputsV2,
+  state?: InputsV2Types.uploadStateInputsV22,
   error?: HighchartsSharedSharedTypes.inputsV2ErrorConfig,
   errorText?: string,
   hintText?: string,

@@ -1,13 +1,10 @@
 type props = {
   ...HtmlAttrs.htmlAttributesOmitClassNameSlotStyle,
+  ...AlertV2Types.alertBaseProps,
   ...AlertV2Types.alertV2Dimensions,
-  @as("type") type_?: AlertV2Types.alertV2Type,
-  subType?: AlertV2Types.alertV2SubType,
-  slot?: AlertV2Types.alertV2SlotConfig,
-  heading?: string,
-  description?: string,
+  slot?: AlertV2Types.alertV2SlotConfig2,
   actions?: AlertV2Types.alertV2Actions,
-  closeButton?: AlertV2Types.alertV2CloseButtonConfig,
+  closeButton?: AlertV2Types.alertV2CloseButtonConfig2,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

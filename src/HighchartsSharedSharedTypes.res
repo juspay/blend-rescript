@@ -4,16 +4,6 @@ type inputSizeV2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type uploadErrorReasonValue =
-  | @as("oversized") Oversized
-  | @as("maxFiles") MaxFiles
-  | @as("invalidType") InvalidType
-type uploadStateInputsV2 =
-  | @as("idle") Idle
-  | @as("uploading") Uploading
-  | @as("success") Success
-  | @as("error") Error
-  | @as("disabled") Disabled
 type contextComponentTokensMENUSmItemCheckmarkPosition =
   | @as("leading") Leading
   | @as("trailing") Trailing
@@ -1111,9 +1101,6 @@ type menuV2MatchRank =
   | @as(1) PREFIX
   | @as(2) SUBSTRING
   | @as(3) NONE
-type multiSelectV2SelectionTagType =
-  | @as("count") Count
-  | @as("text") TextTagType
 type multiSelectV2FlattenedMultiSelectV2ItemType =
   | @as("label") LabelItemType
   | @as("item") ItemItemType
@@ -1125,16 +1112,11 @@ type uploadFileV2 = {
   id?: string,
   file: Webapi.File.t,
   isValid: bool,
-  errorReason?: uploadErrorReasonValue,
+  errorReason?: InputsV2Types.uploadErrorReasonValue2,
 }
 type inputsV2ErrorConfig = {
   show: bool,
   message?: string,
-}
-type inputsV2UploadErrorReasonConfig = {
-  @as("OVERSIZED") oversized: string,
-  @as("MAX_FILES") maxFiles: string,
-  @as("INVALID_TYPE") invalidType: string,
 }
 type contextComponentTokensTAGSSmBackgroundColorNoFillConfig = {
   neutral?: string,
@@ -3955,12 +3937,13 @@ type contextComponentTokensDIRECTORYSmSectionItemListItemConfig = {
   transition?: string,
   backgroundColor?: contextComponentTokensDIRECTORYSmSectionItemListItemBackgroundColorConfig,
   color?: contextComponentTokensDIRECTORYSmSectionItemListItemBackgroundColorConfig,
-  icon?: contextComponentTokensMENUV2SmSearchIconConfig,
+  icon?: contextComponentTokensAVATARGROUPSmAvatarBorderConfig,
   chevron?: contextComponentTokensAVATARGROUPSmAvatarBorderConfig,
 }
 type contextComponentTokensDIRECTORYSmSectionItemListNestedBorderConfig = {
   width?: string,
   color?: string,
+  activeColor?: string,
   leftOffset?: string,
 }
 type contextComponentTokensDIRECTORYSmSectionItemListNestedConnectorConfig = {
@@ -7135,6 +7118,7 @@ type contextUseThemeItemBackgroundColorConfig = {
 }
 type directoryUseThemeItemIconConfig = {
   width: string,
+  color?: string,
 }
 type directoryUseThemeItemConfig = {
   padding: __typeV1okzr2,
@@ -7152,8 +7136,10 @@ type directoryUseThemeItemConfig = {
 type __typeV1c78s = {
   width: string,
   color: string,
+  activeColor?: string,
   leftOffset: string,
 }
+type __typeV1g3k0 = __typeV1c78s
 type __typeV1cbrj = {
   itemInset: string,
   itemPaddingLeft: string,
@@ -7167,6 +7153,7 @@ type __typeQic2i = {
   border: __typeV1c78s,
   connector: __typeV1cbrj,
 }
+type __typeUgntd = __typeQic2i
 type directoryDirectoryTokenTypeSectionItemListConfig = {
   gap: string,
   item: directoryUseThemeItemConfig,
@@ -50093,27 +50080,6 @@ type menuItemStateTokens<'a> = {
   selected?: 'a,
 }
 type menuItemStateTokensV1lywh<'a> = menuItemStateTokens<'a>
-type rec singleSelectV2ItemType = {
-  label: string,
-  value: string,
-  checked?: bool,
-  subLabel?: string,
-  slot1?: React.element,
-  slot2?: React.element,
-  slot3?: React.element,
-  slot4?: React.element,
-  disabled?: bool,
-  onClick?: unit => unit,
-  tooltip?: React.element,
-  tooltipProps?: SelectV2Types.selectV2TooltipProps,
-  disableTruncation?: bool,
-  subMenu?: array<singleSelectV2ItemType>,
-}
-type singleSelectV2GroupType = {
-  groupLabel?: string,
-  items: array<singleSelectV2ItemType>,
-  showSeparator?: bool,
-}
 type selectV2SearchConfig = {
   searchText?: string,
   onSearchChange?: string => unit,
@@ -50123,8 +50089,8 @@ type selectV2SearchConfig = {
   placeholder?: string,
 }
 type selectV2MenuPosition = {
-  alignment?: SelectV2Types.selectV2Alignment,
-  side?: SelectV2Types.selectV2Side,
+  alignment?: SelectV2Types.selectV2Alignment2,
+  side?: SelectV2Types.selectV2Side2,
   sideOffset?: float,
   alignOffset?: float,
 }
@@ -50138,10 +50104,6 @@ type selectV2TriggerDimensions = {
   maxWidth?: string,
   width?: string,
 }
-type selectV2ErrorState = {
-  show?: bool,
-  message?: string,
-}
 type textInputV2Dropdown = {
   label?: string,
   subLabel?: string,
@@ -50149,39 +50111,35 @@ type textInputV2Dropdown = {
   required?: bool,
   helpIconText?: string,
   placeholder: string,
-  size?: SelectV2Types.selectV2Size,
-  variant?: SelectV2Types.selectV2Variant,
-  items: array<singleSelectV2GroupType>,
+  size?: SelectV2Types.selectV2Size2,
+  variant?: SelectV2Types.selectV2Variant2,
+  items: array<SingleSelectV2Types.singleSelectV2GroupType2>,
   selected: string,
   onSelect: string => unit,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  inline?: bool,
+  error?: SelectV2Types.selectV2ErrorState2,
+  onEndReached?: unit => unit,
+  endReachedThreshold?: float,
+  hasMore?: bool,
+  allowCustomValue?: bool,
+  customValueLabel?: string,
   search?: selectV2SearchConfig,
   slot?: React.element,
   customTrigger?: React.element,
-  @as("open") open_?: bool,
-  onOpenChange?: bool => unit,
   usePanelOnMobile?: bool,
   menuPosition?: selectV2MenuPosition,
   menuDimensions?: selectV2MenuDimensions,
   triggerDimensions?: selectV2TriggerDimensions,
-  inline?: bool,
-  error?: selectV2ErrorState,
   enableVirtualization?: bool,
   virtualListItemHeight?: float,
   virtualListOverscan?: float,
-  onEndReached?: unit => unit,
-  endReachedThreshold?: float,
-  hasMore?: bool,
   loadingComponent?: React.element,
   skeleton?: SelectV2Types.selectV2SkeletonProps,
-  allowCustomValue?: bool,
-  customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   menuFooter?: React.element,
   position: textInputV2DropdownPosition,
-}
-type inputsV2LeftSlotConfig = {
-  slot: React.element,
-  maxHeight?: string,
 }
 type singleSelectV2Props = {
   label?: string,
@@ -50190,40 +50148,40 @@ type singleSelectV2Props = {
   required?: bool,
   helpIconText?: string,
   placeholder: string,
-  size?: SelectV2Types.selectV2Size,
-  variant?: SelectV2Types.selectV2Variant,
-  items: array<singleSelectV2GroupType>,
+  size?: SelectV2Types.selectV2Size2,
+  variant?: SelectV2Types.selectV2Variant2,
+  items: array<SingleSelectV2Types.singleSelectV2GroupType2>,
   selected: string,
   onSelect: string => unit,
+  @as("open") open_?: bool,
+  onOpenChange?: bool => unit,
+  inline?: bool,
+  error?: SelectV2Types.selectV2ErrorState2,
+  onEndReached?: unit => unit,
+  endReachedThreshold?: float,
+  hasMore?: bool,
+  allowCustomValue?: bool,
+  customValueLabel?: string,
   search?: selectV2SearchConfig,
   slot?: React.element,
   customTrigger?: React.element,
-  @as("open") open_?: bool,
-  onOpenChange?: bool => unit,
   usePanelOnMobile?: bool,
   menuPosition?: selectV2MenuPosition,
   menuDimensions?: selectV2MenuDimensions,
   triggerDimensions?: selectV2TriggerDimensions,
-  inline?: bool,
-  error?: selectV2ErrorState,
   enableVirtualization?: bool,
   virtualListItemHeight?: float,
   virtualListOverscan?: float,
-  onEndReached?: unit => unit,
-  endReachedThreshold?: float,
-  hasMore?: bool,
   loadingComponent?: React.element,
   skeleton?: SelectV2Types.selectV2SkeletonProps,
-  allowCustomValue?: bool,
-  customValueLabel?: string,
   singleSelectGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
   menuFooter?: React.element,
 }
 type embeddedSingleSelectOptions = {
   fieldLabel?: string,
   fieldDisabled: bool,
-  singleSelectV2Size: SelectV2Types.selectV2Size,
-  menuAlignment: SelectV2Types.selectV2Alignment,
+  singleSelectV2Size: SelectV2Types.selectV2Size2,
+  menuAlignment: SelectV2Types.selectV2Alignment2,
   menuSideOffset: float,
   menuAlignOffset: float,
   defaultSingleSelectGroupPosition: ChartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide,
@@ -50371,14 +50329,6 @@ type inputsV2TagsConfig = {
   size: TagsTypes.tagSize,
   shape: TagsTypes.tagShape,
   variant: TagsTypes.tagVariant,
-}
-type inputsV2SlotConfig = {
-  left?: React.element,
-  right?: React.element,
-}
-type inputsV2LabelConfig = {
-  text: string,
-  subtext?: string,
 }
 type codeEditorV2HeaderConfig = {
   showHeader?: bool,
@@ -52917,6 +52867,17 @@ type codeEditorV2BackupColorConfig = {
   body: codeEditorV2BackupColorBodyConfig,
   header: codeEditorV2BackupColorBodyHighlightedLineConfig,
 }
+type menuV2Dimensions = {
+  minWidth?: string,
+  maxWidth?: string,
+  minHeight?: string,
+  maxHeight?: string,
+}
+type menuV2VirtualScrollingConfig = {
+  itemHeight?: float,
+  overscan?: float,
+  threshold?: float,
+}
 type menuV2ItemLabel = {
   text: string,
   leftSlot?: React.element,
@@ -52954,37 +52915,14 @@ type menuV2GroupType = {
   selectionStyle?: menuSelectionStyle,
   selectionMode?: menuSelectionMode,
 }
-type menuV2Dimensions = {
-  minWidth?: string,
-  maxWidth?: string,
-  minHeight?: string,
-  maxHeight?: string,
-}
-type menuV2VirtualScrollingConfig = {
-  itemHeight?: float,
-  overscan?: float,
-  threshold?: float,
-}
-module MenuV2MenuV2PropsCollisionBoundaryRef = {
-  type t
-  external fromHTMLElement: Dom.element => t = "%identity"
-  external asHTMLElement: t => Dom.element = "%identity"
-  external fromHTMLElements: array<Dom.element> => t = "%identity"
-  external asHTMLElements: t => array<Dom.element> = "%identity"
-}
-type menuV2Props = {
-  trigger: React.element,
+type menuBaseProps = {
   items?: array<menuV2GroupType>,
-  dimensions?: menuV2Dimensions,
   enableSearch?: bool,
   searchPlaceholder?: string,
   searchSortFn?: (array<menuV2ItemType>, string) => array<menuV2ItemType>,
   onEnter?: (string, array<menuV2GroupType>) => unit,
-  enableVirtualScrolling?: bool,
-  virtualScrolling?: menuV2VirtualScrollingConfig,
   @as("open") open_?: bool,
   onOpenChange?: bool => unit,
-  asModal?: bool,
   selectionStyle?: menuSelectionStyle,
   selectionMode?: menuSelectionMode,
   closeOnSelect?: bool,
@@ -52992,8 +52930,13 @@ type menuV2Props = {
   side?: menuV2Side,
   sideOffset?: float,
   alignOffset?: float,
-  collisionBoundaryRef?: MenuV2MenuV2PropsCollisionBoundaryRef.t,
-  triggerProps?: ReactTypes.reactSidebarPropsPrimaryActionButtonPropsConfig,
+}
+module MenuV2CollisionBoundaryRef = {
+  type t
+  external fromHTMLElement: Dom.element => t = "%identity"
+  external asHTMLElement: t => Dom.element = "%identity"
+  external fromHTMLElements: array<Dom.element> => t = "%identity"
+  external asHTMLElements: t => array<Dom.element> = "%identity"
 }
 type menuV2ContentProps = {
   filteredItems: array<menuV2GroupType>,
@@ -53013,7 +52956,7 @@ type menuV2ContentProps = {
   side?: dateRangePickerDateRangePickerPopoverConfigSide,
   sideOffset?: float,
   alignOffset?: float,
-  collisionBoundaryRef?: MenuV2MenuV2PropsCollisionBoundaryRef.t,
+  collisionBoundaryRef?: MenuV2CollisionBoundaryRef.t,
   onInteractOutside?: JSON.t => unit,
   onPointerDownOutside?: JSON.t => unit,
   onFocusCapture?: ReactEvent.Focus.t => unit,
@@ -53041,50 +52984,23 @@ type menuV2FlatRow =
       selectionStyle?: menuSelectionStyle,
       selectionMode?: menuSelectionMode,
     })
-type rec multiSelectV2ItemType = {
-  label: string,
-  value: string,
-  checked?: bool,
-  subLabel?: string,
-  slot1?: React.element,
-  slot2?: React.element,
-  slot3?: React.element,
-  slot4?: React.element,
-  disabled?: bool,
-  onClick?: unit => unit,
-  tooltip?: React.element,
-  tooltipProps?: SelectV2Types.selectV2TooltipProps,
-  disableTruncation?: bool,
-  alwaysSelected?: bool,
-  subMenu?: array<multiSelectV2ItemType>,
-}
-type multiSelectV2GroupType = {
-  groupLabel?: string,
-  items: array<multiSelectV2ItemType>,
-  showSeparator?: bool,
-}
 type multiSelectV2PrimaryActionConfig = {
   text: string,
   onClick: array<string> => unit,
   disabled?: bool,
   loading?: bool,
 }
+type multiSelectV2PrimaryAction = multiSelectV2PrimaryActionConfig
 type multiSelectV2SecondaryActionConfig = {
   text: string,
   onClick: unit => unit,
   disabled?: bool,
   loading?: bool,
 }
+type multiSelectV2SecondaryAction = multiSelectV2SecondaryActionConfig
 type multiSelectV2SkeletonComponentProps = {
   multiSelectTokens: multiSelectV2TokensType,
   skeleton: SelectV2Types.selectV2SkeletonProps,
-}
-type flattenedMultiSelectV2Item = {
-  id: string,
-  @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
-  item?: multiSelectV2ItemType,
-  label?: string,
-  groupId?: float,
 }
 type multiSelectV2GetMultiSelectCrossBorderRadiusConfig = {
   borderRadius: string,
@@ -53098,14 +53014,14 @@ type menuListSharedProps = {
   selected: string,
   onSelect: string => unit,
   singleSelectTokens: singleSelectV2TokensType,
-  size: SelectV2Types.selectV2Size,
-  variant: SelectV2Types.selectV2Variant,
+  size: SelectV2Types.selectV2Size2,
+  variant: SelectV2Types.selectV2Variant2,
   focusIdentityEnabled?: bool,
 }
 type flattenedItem = {
   id: string,
   @as("type") type_: multiSelectV2FlattenedMultiSelectV2ItemType,
-  item?: singleSelectV2ItemType,
+  item?: SingleSelectV2Types.singleSelectV2ItemType2,
   label?: string,
   groupId?: float,
 }

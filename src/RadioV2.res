@@ -1,12 +1,12 @@
 type props = {
   ...HtmlAttrs.inputHTMLAttributesOmitCheckedChildrenClassNameMaxLengthRequiredSizeSlotStyle,
   checked?: bool,
-  onCheckedChange?: ReactEvent.Form.t => unit,
   required?: bool,
   error?: bool,
   label?: string,
   subLabel?: string,
   size?: SelectorV2Types.selectorV2Size,
+  onCheckedChange?: ReactEvent.Form.t => unit,
   slot?: SelectorV2Types.selectorV2SlotConfig,
   maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,

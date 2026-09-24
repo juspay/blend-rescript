@@ -1,6 +1,6 @@
 type props = {
   ...SelectListV2Types.selectListV2BaseProps,
-  items: array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
+  items: array<MultiSelectV2Types.multiSelectV2GroupType2>,
   selectedValues: array<string>,
   onChange?: CommonTypes.stringOrStringArray => unit,
   onSelectionChange?: array<string> => unit,

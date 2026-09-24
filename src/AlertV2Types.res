@@ -1,3 +1,6 @@
+type alertV2ActionPosition =
+  | @as("bottom") Bottom
+  | @as("right") Right
 type alertV2Type =
   | @as("primary") Primary
   | @as("success") Success
@@ -9,9 +12,6 @@ type alertV2Type =
 type alertV2SubType =
   | @as("subtle") Subtle
   | @as("noFill") NoFill
-type alertV2ActionPosition =
-  | @as("bottom") Bottom
-  | @as("right") Right
 type alertV2AlertV2TokensTypeBorderPrimaryConfig = {
   subtle: string,
   noFill: string,
@@ -94,7 +94,7 @@ type responsiveAlertV2Tokens = {
   sm: alertV2TokensType,
   lg: alertV2TokensType,
 }
-type alertV2SlotConfig = {
+type alertV2SlotConfig2 = {
   slot: React.element,
   maxHeight?: string,
 }
@@ -107,9 +107,15 @@ type alertV2Actions = {
   primaryAction?: alertV2Action,
   secondaryAction?: alertV2Action,
 }
-type alertV2CloseButtonConfig = {
+type alertV2CloseButtonConfig2 = {
   show?: bool,
   onClick?: ReactEvent.Mouse.t => unit,
+}
+type alertBaseProps = {
+  @as("type") type_?: alertV2Type,
+  subType?: alertV2SubType,
+  heading?: string,
+  description?: string,
 }
 type alertV2Dimensions = {
   width?: string,

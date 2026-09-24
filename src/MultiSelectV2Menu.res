@@ -1,5 +1,5 @@
 type props = {
-  items: array<HighchartsSharedSharedTypes.multiSelectV2GroupType>,
+  items: array<MultiSelectV2Types.multiSelectV2GroupType2>,
   selected: array<string>,
   onSelect: string => unit,
   trigger: React.element,
@@ -8,7 +8,7 @@ type props = {
   search?: HighchartsSharedSharedTypes.selectV2SearchConfig,
   enableSelectAll?: bool,
   selectAllText?: string,
-  onSelectAll?: (bool, array<HighchartsSharedSharedTypes.multiSelectV2GroupType>) => unit,
+  onSelectAll?: (bool, array<MultiSelectV2Types.multiSelectV2GroupType2>) => unit,
   maxSelections?: float,
   menuPosition?: HighchartsSharedSharedTypes.selectV2MenuPosition,
   collisionBoundary?: ChatInputTypes.ChatInputOverflowMenuPropsCollisonBoundaryRef.t, // ⓘ was `Element | Element[]` — opaque; build with ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElement / ChatInputOverflowMenuPropsCollisonBoundaryRef.fromElements
@@ -25,8 +25,8 @@ type props = {
   hasMore?: bool,
   loadingComponent?: React.element,
   skeleton?: SelectV2Types.selectV2SkeletonProps,
-  size?: SelectV2Types.selectV2Size,
-  variant?: SelectV2Types.selectV2Variant,
+  size?: SelectV2Types.selectV2Size2,
+  variant?: SelectV2Types.selectV2Variant2,
   allowCustomValue?: bool,
   customValueLabel?: string,
   menuId?: string,

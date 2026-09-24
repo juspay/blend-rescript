@@ -127,3 +127,14 @@ type modalV2BodySkeletonProps = {
   variant?: SkeletonTypes.skeletonVariant,
   bodySkeletonProps?: bodySkeletonPropsModalV2,
 }
+type modalBaseProps = {
+  isOpen: bool,
+  onClose: unit => unit,
+  title?: string,
+  subtitle?: string,
+  showCloseButton?: bool,
+  showHeader?: bool,
+  showFooter?: bool,
+  closeOnBackdropClick?: bool,
+  showDivider?: bool,
+}

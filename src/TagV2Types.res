@@ -81,11 +81,12 @@ type responsiveTagV2Tokens = {
   sm: tagV2ResponsiveTagV2TokensSmConfig,
   lg: tagV2ResponsiveTagV2TokensSmConfig,
 }
+type tagV2SkeletonConfig2 = {
+  showSkeleton?: bool,
+  skeletonVariant?: SkeletonTypes.skeletonVariant,
+}
 type tagV2LeftSlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
-type tagV2SkeletonConfig = {
-  showSkeleton?: bool,
-  skeletonVariant?: SkeletonTypes.skeletonVariant,
-}
+type tagV2LeftSlotConfig2 = tagV2LeftSlotConfig

@@ -1,4 +1,5 @@
 type props = {
+  ...TabsV2Types.tabsBaseProps,
   style?: JsxDOM.style,
   className?: string,
   onChange?: ReactEvent.Form.t => unit,
@@ -59,11 +60,6 @@ type props = {
   asChild?: bool,
   onValueChange?: string => unit,
   activationMode?: TabsTypes.tabsActivationMode,
-  variant?: TabsV2Types.tabsV2Variant,
-  size?: TabsV2Types.tabsV2Size,
-  expanded?: bool,
-  fitContent?: bool,
-  disabled?: bool,
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
   stickyHeader?: bool,

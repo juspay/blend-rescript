@@ -1,15 +1,15 @@
-type selectV2Size =
+type selectV2Size2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
-type selectV2Variant =
+type selectV2Variant2 =
   | @as("container") Container
   | @as("no-container") NoContainer
-type selectV2Alignment =
+type selectV2Alignment2 =
   | @as("start") Start
   | @as("center") Center
   | @as("end") End
-type selectV2Side =
+type selectV2Side2 =
   | @as("top") Top
   | @as("left") Left
   | @as("right") Right
@@ -38,6 +38,10 @@ type selectV2TooltipProps = {
   showArrow?: bool,
   delayDuration?: float,
   offset?: float,
+}
+type selectV2ErrorState2 = {
+  show?: bool,
+  message?: string,
 }
 type selectV2SkeletonProps = {
   count?: int,

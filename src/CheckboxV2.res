@@ -1,12 +1,6 @@
 type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameOnChangeSlotStyle,
-  checked?: CommonTypes.boolOrIndeterminate,
-  onCheckedChange?: CommonTypes.boolOrIndeterminate => unit,
-  required?: bool,
-  error?: bool,
-  label?: string,
-  subLabel?: string,
-  size?: SelectorV2Types.selectorV2Size,
+  ...SelectorV2Types.checkboxBaseProps,
   slot?: SelectorV2Types.selectorV2SlotConfig,
   maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,

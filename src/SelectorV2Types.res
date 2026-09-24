@@ -167,6 +167,16 @@ type selectorV2MaxLengthConfig = {
   label?: float,
   subLabel?: float,
 }
+type selectorV2MaxLengthConfig2 = selectorV2MaxLengthConfig
+type checkboxBaseProps = {
+  checked?: CommonTypes.boolOrIndeterminate,
+  onCheckedChange?: CommonTypes.boolOrIndeterminate => unit,
+  required?: bool,
+  error?: bool,
+  label?: string,
+  subLabel?: string,
+  size?: selectorV2Size,
+}
 type selectorV2GetCheckboxTextPropsConfig = {
   fontSize: string,
   fontWeight: string,
@@ -188,4 +198,13 @@ type selectorV2GetAccessibilityAttributesConfig = {
   @as("aria-checked") ariaChecked?: string,
   @as("aria-labelledby") ariaLabelledby: string,
   @as("aria-describedby") ariaDescribedby: string,
+}
+type switchBaseProps = {
+  checked?: bool,
+  onCheckedChange?: bool => unit,
+  required?: bool,
+  error?: bool,
+  label?: string,
+  subLabel?: string,
+  size?: selectorV2Size,
 }

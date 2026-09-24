@@ -1,5 +1,5 @@
 type props = {
-  size: SelectV2Types.selectV2Size,
+  size: SelectV2Types.selectV2Size2,
   selected: string,
   label: string,
   name: string,
@@ -8,7 +8,7 @@ type props = {
   valueLabelMap: Dict.t<string>,
   @as("open") open_: bool,
   slot?: React.element,
-  variant: SelectV2Types.selectV2Variant,
+  variant: SelectV2Types.selectV2Variant2,
   isSmallScreenWithLargeSize: bool,
   isItemSelected: bool,
   singleSelectTokens: HighchartsSharedSharedTypes.singleSelectV2TokensType,

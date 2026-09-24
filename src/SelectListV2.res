@@ -1,6 +1,6 @@
 type props = {
   ...SelectListV2Types.selectListV2BaseProps,
-  items: array<HighchartsSharedSharedTypes.singleSelectV2GroupType>,
+  items: array<SingleSelectV2Types.singleSelectV2GroupType2>,
   selected: string,
   onSelect: string => unit,
   allowDeselect?: bool,
