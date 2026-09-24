@@ -2,7 +2,7 @@ type props = {
   ...HtmlAttrs.buttonHTMLAttributesOmitClassNameSlotStyle,
   ...SelectorV2Types.switchBaseProps,
   slot?: SelectorV2Types.selectorV2SlotConfig,
-  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig2,
+  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

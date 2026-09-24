@@ -163,10 +163,11 @@ type selectorV2SlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
-type selectorV2MaxLengthConfig2 = {
+type selectorV2MaxLengthConfig = {
   label?: float,
   subLabel?: float,
 }
+type selectorV2MaxLengthConfig2 = selectorV2MaxLengthConfig
 type checkboxBaseProps = {
   checked?: CommonTypes.boolOrIndeterminate,
   onCheckedChange?: CommonTypes.boolOrIndeterminate => unit,

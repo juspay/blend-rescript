@@ -13,10 +13,11 @@ type inputsV2UploadErrorReasonConfig2 = {
   @as("MAX_FILES") maxFiles: string,
   @as("INVALID_TYPE") invalidType: string,
 }
-type inputsV2LeftSlotConfig2 = {
+type inputsV2LeftSlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
+type inputsV2LeftSlotConfig2 = inputsV2LeftSlotConfig
 type inputsV2LabelConfig2 = {
   text: string,
   subtext?: string,

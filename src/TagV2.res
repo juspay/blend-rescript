@@ -7,8 +7,8 @@ type props = {
   color?: TagV2Types.tagV2Color,
   skeleton?: TagV2Types.tagV2SkeletonConfig2,
   tagGroupPosition?: ButtonTypes.buttonButtonGroupPosition,
-  leftSlot?: TagV2Types.tagV2LeftSlotConfig2,
-  rightSlot?: TagV2Types.tagV2LeftSlotConfig2,
+  leftSlot?: TagV2Types.tagV2LeftSlotConfig,
+  rightSlot?: TagV2Types.tagV2LeftSlotConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

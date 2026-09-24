@@ -18000,8 +18000,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.d.ts|path:TextInputV2.leftSlot|decl:VariableDeclaration:TextInputV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[1]/PropertySignature:leftSlot/PropertySignature.type": {
       "kind": "record",
       "module": "InputsV2Types",
-      "name": "inputsV2LeftSlotConfig2",
-      "aliases": [],
+      "name": "inputsV2LeftSlotConfig",
+      "aliases": [
+        "inputsV2LeftSlotConfig2"
+      ],
       "signature": "180aw",
       "active": true
     },
@@ -18019,8 +18021,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.d.ts|path:TextInputV2.rightSlot|decl:VariableDeclaration:TextInputV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[2]/PropertySignature:rightSlot/PropertySignature.type": {
       "kind": "record",
       "module": "InputsV2Types",
-      "name": "inputsV2LeftSlotConfig2",
-      "aliases": [],
+      "name": "inputsV2LeftSlotConfig",
+      "aliases": [
+        "inputsV2LeftSlotConfig2"
+      ],
       "signature": "180aw",
       "active": true
     },
@@ -22009,8 +22013,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/SelectorV2/CheckboxV2/CheckboxV2.d.ts|path:CheckboxV2.maxLength|decl:VariableDeclaration:CheckboxV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[1]/PropertySignature:maxLength/PropertySignature.type": {
       "kind": "record",
       "module": "SelectorV2Types",
-      "name": "selectorV2MaxLengthConfig2",
-      "aliases": [],
+      "name": "selectorV2MaxLengthConfig",
+      "aliases": [
+        "selectorV2MaxLengthConfig2"
+      ],
       "signature": "12dl8",
       "active": true
     },
@@ -22249,8 +22255,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/SelectorV2/RadioV2/RadioV2.d.ts|path:RadioV2.maxLength|decl:VariableDeclaration:RadioV2/VariableDeclaration.type/TypeReference.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[2]/PropertySignature:maxLength/PropertySignature.type": {
       "kind": "record",
       "module": "SelectorV2Types",
-      "name": "selectorV2MaxLengthConfig2",
-      "aliases": [],
+      "name": "selectorV2MaxLengthConfig",
+      "aliases": [
+        "selectorV2MaxLengthConfig2"
+      ],
       "signature": "12dl8",
       "active": true
     },
@@ -22424,8 +22432,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/SelectorV2/SwitchV2/SwitchV2.d.ts|path:SwitchV2.maxLength|decl:VariableDeclaration:SwitchV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[1]/PropertySignature:maxLength/PropertySignature.type": {
       "kind": "record",
       "module": "SelectorV2Types",
-      "name": "selectorV2MaxLengthConfig2",
-      "aliases": [],
+      "name": "selectorV2MaxLengthConfig",
+      "aliases": [
+        "selectorV2MaxLengthConfig2"
+      ],
       "signature": "12dl8",
       "active": true
     },
@@ -26813,8 +26823,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/TagV2/TagV2.d.ts|path:TagV2.leftSlot|decl:VariableDeclaration:TagV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[0]/PropertySignature:leftSlot/PropertySignature.type": {
       "kind": "record",
       "module": "TagV2Types",
-      "name": "tagV2LeftSlotConfig2",
-      "aliases": [],
+      "name": "tagV2LeftSlotConfig",
+      "aliases": [
+        "tagV2LeftSlotConfig2"
+      ],
       "signature": "180aw",
       "active": true
     },
@@ -26829,8 +26841,10 @@
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/TagV2/TagV2.d.ts|path:TagV2.rightSlot|decl:VariableDeclaration:TagV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[1]/PropertySignature:rightSlot/PropertySignature.type": {
       "kind": "record",
       "module": "TagV2Types",
-      "name": "tagV2LeftSlotConfig2",
-      "aliases": [],
+      "name": "tagV2LeftSlotConfig",
+      "aliases": [
+        "tagV2LeftSlotConfig2"
+      ],
       "signature": "180aw",
       "active": true
     },

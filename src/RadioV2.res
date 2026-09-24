@@ -8,7 +8,7 @@ type props = {
   size?: SelectorV2Types.selectorV2Size,
   onCheckedChange?: ReactEvent.Form.t => unit,
   slot?: SelectorV2Types.selectorV2SlotConfig,
-  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig2,
+  maxLength?: SelectorV2Types.selectorV2MaxLengthConfig,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

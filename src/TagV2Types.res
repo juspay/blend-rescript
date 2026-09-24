@@ -85,7 +85,8 @@ type tagV2SkeletonConfig2 = {
   showSkeleton?: bool,
   skeletonVariant?: SkeletonTypes.skeletonVariant,
 }
-type tagV2LeftSlotConfig2 = {
+type tagV2LeftSlotConfig = {
   slot: React.element,
   maxHeight?: string,
 }
+type tagV2LeftSlotConfig2 = tagV2LeftSlotConfig
