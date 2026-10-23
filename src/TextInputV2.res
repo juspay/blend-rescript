@@ -8,8 +8,9 @@ type props = {
   hintText?: string,
   helpIconText?: string,
   dropdown?: HighchartsSharedSharedTypes.InputsV2Dropdown.t, // ⓘ was `TextInputV2Dropdown | TextInputV2Dropdown[]` — opaque; build with InputsV2Dropdown.fromTextInputV2Dropdown / InputsV2Dropdown.fromTextInputV2Dropdowns
-  leftSlot?: InputsV2Types.inputsV2LeftSlotConfig,
-  rightSlot?: InputsV2Types.inputsV2LeftSlotConfig,
+  leftSlot?: HighchartsSharedSharedTypes.inputsV2LeftSlotConfig,
+  rightSlot?: HighchartsSharedSharedTypes.inputsV2LeftSlotConfig,
+  passwordToggle?: bool,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 

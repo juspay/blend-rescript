@@ -1,5 +1,6 @@
 type modalV2ModalV2TokensTypeOverlayConfig = {
   backgroundColor: string,
+  backdropFilter: string,
   offset: string,
 }
 type modalV2ModalV2TokensTypeHeaderSlotConfig = {

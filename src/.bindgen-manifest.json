@@ -14897,7 +14897,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -14913,7 +14915,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -14921,7 +14925,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -14930,7 +14936,7 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
       "aliases": [],
-      "signature": "qyv00",
+      "signature": "joyxa",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/DropdownInput/dropdownInput.tokens.types.d.ts|path:DropdownInputTokensType.inputContainer|decl:TypeAliasDeclaration:DropdownInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type": {
@@ -15085,7 +15091,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15093,7 +15101,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15102,7 +15112,7 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
       "aliases": [],
-      "signature": "qyv00",
+      "signature": "joyxa",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/MultiValueInput/multiValueInput.tokens.d.ts|path:MultiValueInputTokensType.inputContainer|decl:TypeAliasDeclaration:MultiValueInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[7]/PropertySignature:inputContainer/PropertySignature.type": {
@@ -15226,7 +15236,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15242,7 +15254,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15250,7 +15264,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15259,7 +15275,7 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
       "aliases": [],
-      "signature": "qyv00",
+      "signature": "joyxa",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/NumberInput/numberInput.tokens.d.ts|path:NumberInputTokensType.inputContainer.stepperButton|decl:TypeAliasDeclaration:NumberInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[7]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[8]/PropertySignature:stepperButton/PropertySignature.type": {
@@ -15336,7 +15352,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15351,7 +15369,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15832,9 +15852,25 @@
       "name": "inputsSearchInputTokensTypeLabelColorConfig",
       "aliases": [],
       "signature": "1jmxk",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.backgroundColor|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[7]/PropertySignature:backgroundColor/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsSearchInputTokensTypeLabelColorConfig",
+      "aliases": [],
+      "signature": "1jmxk",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.border|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[6]/PropertySignature:border/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsSearchInputTokensTypeLabelColorConfig",
+      "aliases": [],
+      "signature": "1jmxk",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.border|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[6]/PropertySignature:border/PropertySignature.type": {
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsSearchInputTokensTypeLabelColorConfig",
@@ -15848,9 +15884,27 @@
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
       "aliases": [],
       "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.borderRadius|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[3]/PropertySignature:borderRadius/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
+      "signature": "1hngb",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.color|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[2]/PropertySignature:color/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsSearchInputTokensTypeLabelColorConfig",
+      "aliases": [],
+      "signature": "1jmxk",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.color|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[2]/PropertySignature:color/PropertySignature.type": {
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsSearchInputTokensTypeLabelColorConfig",
@@ -15864,6 +15918,16 @@
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
       "aliases": [],
       "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.fontSize|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[0]/PropertySignature:fontSize/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
+      "signature": "1hngb",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.fontWeight|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:fontWeight/PropertySignature.type": {
@@ -15871,6 +15935,16 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
       "aliases": [],
+      "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.fontWeight|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:fontWeight/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -15880,12 +15954,27 @@
       "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
       "aliases": [],
       "signature": "qyv00",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer.padding|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[5]/PropertySignature:padding/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
+      "aliases": [],
+      "signature": "joyxa",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type": {
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerConfig",
+      "aliases": [],
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.inputContainer|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerConfig2",
       "aliases": [],
       "active": true
     },
@@ -15903,6 +15992,31 @@
       "name": "inputsSearchInputTokensTypeLabelConfig",
       "aliases": [],
       "signature": "1seyg",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.passwordToggle.color|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:passwordToggle/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:color/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsSearchInputTokensTypeLabelColorConfig",
+      "aliases": [],
+      "signature": "1jmxk",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.passwordToggle.iconSize|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:passwordToggle/PropertySignature.type/TypeLiteral.members[0]/PropertySignature:iconSize/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
+      "signature": "1hngb",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.passwordToggle|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:passwordToggle/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypePasswordToggleConfig",
+      "aliases": [],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:TextInputTokensType.placeholder|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[0]/PropertySignature:placeholder/PropertySignature.type": {
@@ -15942,6 +16056,16 @@
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
       "aliases": [],
       "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:useTheme.x|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[5]/PropertySignature:padding/PropertySignature.type/TypeLiteral.members[0]/PropertySignature:x/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
+      "signature": "1hngb",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:useTheme.y|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[5]/PropertySignature:padding/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:y/PropertySignature.type": {
@@ -15949,6 +16073,16 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
       "aliases": [],
+      "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/TextInput/textInput.tokens.d.ts|path:useTheme.y|decl:TypeAliasDeclaration:TextInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[9]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[5]/PropertySignature:padding/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:y/PropertySignature.type": {
+      "kind": "record",
+      "module": "InputsTypes",
+      "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16054,7 +16188,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16070,7 +16206,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16078,7 +16216,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16087,7 +16227,7 @@
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerPaddingConfig",
       "aliases": [],
-      "signature": "qyv00",
+      "signature": "joyxa",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Inputs/UnitInput/unitInput.tokens.types.d.ts|path:UnitInputTokensType.inputContainer.unit|decl:TypeAliasDeclaration:UnitInputTokensType/TypeAliasDeclaration.type/TypeLiteral.members[8]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[8]/PropertySignature:unit/PropertySignature.type": {
@@ -16172,7 +16312,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16180,7 +16322,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16188,7 +16332,9 @@
       "kind": "record",
       "module": "InputsTypes",
       "name": "inputsTextInputTokensTypeInputContainerFontSizeConfig",
-      "aliases": [],
+      "aliases": [
+        "inputsTextInputTokensTypePasswordToggleIconSizeConfig"
+      ],
       "signature": "1hngb",
       "active": true
     },
@@ -16979,9 +17125,12 @@
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/NumberInputV2/NumberInputV2.d.ts|path:NumberInputV2.slot|decl:VariableDeclaration:NumberInputV2/VariableDeclaration.type/TypeReference.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[0]/PropertySignature:slot/PropertySignature.type": {
       "kind": "record",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2SlotConfig2",
       "aliases": [],
+      "formerModules": [
+        "InputsV2Types"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/NumberInputV2/numberInputV2.tokens.types.d.ts|named:NumberInputV2TokensType": {
@@ -17431,9 +17580,12 @@
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/NumberInputV2/numberInputV2.types.d.ts|path:NumberInputV2.label|decl:TypeAliasDeclaration:NumberInputBaseProps/TypeAliasDeclaration.type/TypeLiteral.members[7]/PropertySignature:label/PropertySignature.type": {
       "kind": "record",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2LabelConfig2",
       "aliases": [],
+      "formerModules": [
+        "InputsV2Types"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/OTPInputV2/OTPInputV2.tokens.types.d.ts|named:OTPInputV2TokensType": {
@@ -17999,10 +18151,13 @@
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.d.ts|path:TextInputV2.leftSlot|decl:VariableDeclaration:TextInputV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[1]/PropertySignature:leftSlot/PropertySignature.type": {
       "kind": "record",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2LeftSlotConfig",
       "aliases": [
         "inputsV2LeftSlotConfig2"
+      ],
+      "formerModules": [
+        "InputsV2Types"
       ],
       "signature": "180aw",
       "active": true
@@ -18020,10 +18175,13 @@
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.d.ts|path:TextInputV2.rightSlot|decl:VariableDeclaration:TextInputV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[1]/TypeLiteral.members[2]/PropertySignature:rightSlot/PropertySignature.type": {
       "kind": "record",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2LeftSlotConfig",
       "aliases": [
         "inputsV2LeftSlotConfig2"
+      ],
+      "formerModules": [
+        "InputsV2Types"
       ],
       "signature": "180aw",
       "active": true
@@ -18090,6 +18248,17 @@
         "ContextSharedTypes"
       ],
       "signature": "1jmxk",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.backgroundColor|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[8]/PropertySignature:backgroundColor/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerBorderConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1jmxk",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.border|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[6]/PropertySignature:border/PropertySignature.type": {
@@ -18101,9 +18270,31 @@
         "ContextSharedTypes"
       ],
       "signature": "1jmxk",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.border|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[7]/PropertySignature:border/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerBorderConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1jmxk",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.borderRadius|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[3]/PropertySignature:borderRadius/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1hngb",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.borderRadius|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[4]/PropertySignature:borderRadius/PropertySignature.type": {
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig",
@@ -18134,6 +18325,24 @@
         "ContextSharedTypes"
       ],
       "signature": "pl464",
+      "active": false
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.padding|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[6]/PropertySignature:padding/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerPaddingConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "pl464",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.passwordToggle|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[3]/PropertySignature:passwordToggle/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextInputV2TokensTypeInputContainerPasswordToggleConfig",
+      "aliases": [],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:TextInputV2TokensType.inputContainer.placeholder|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:placeholder/PropertySignature.type": {
@@ -18223,6 +18432,17 @@
       "signature": "1jmxk",
       "active": true
     },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:useTheme.color|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[3]/PropertySignature:passwordToggle/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:color/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerBorderConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1jmxk",
+      "active": true
+    },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:useTheme.fontSize|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:placeholder/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:fontSize/PropertySignature.type": {
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
@@ -18235,6 +18455,17 @@
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:useTheme.fontWeight|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[1]/PropertySignature:placeholder/PropertySignature.type/TypeLiteral.members[2]/PropertySignature:fontWeight/PropertySignature.type": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig",
+      "aliases": [],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1hngb",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/TextInputV2/TextInputV2.tokens.types.d.ts|path:useTheme.iconSize|decl:TypeAliasDeclaration:TextInputV2TokensType/TypeAliasDeclaration.type/TypeLiteral.members[2]/PropertySignature:inputContainer/PropertySignature.type/TypeLiteral.members[3]/PropertySignature:passwordToggle/PropertySignature.type/TypeLiteral.members[0]/PropertySignature:iconSize/PropertySignature.type": {
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig",
@@ -18339,23 +18570,32 @@
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/UploadV2/uploadV2.base.types.d.ts|named:UploadErrorReasonValue": {
       "kind": "enum",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "uploadErrorReasonValue2",
       "aliases": [],
+      "formerModules": [
+        "InputsV2Types"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/UploadV2/uploadV2.base.types.d.ts|named:UploadState": {
       "kind": "enum",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "uploadStateInputsV22",
       "aliases": [],
+      "formerModules": [
+        "InputsV2Types"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/UploadV2/uploadV2.base.types.d.ts|path:UploadErrorReason|decl:VariableDeclaration:UploadErrorReason/VariableDeclaration.type": {
       "kind": "record",
-      "module": "InputsV2Types",
+      "module": "HighchartsSharedSharedTypes",
       "name": "inputsV2UploadErrorReasonConfig2",
       "aliases": [],
+      "formerModules": [
+        "InputsV2Types"
+      ],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/InputsV2/UploadV2/UploadV2.d.ts|path:UploadV2.error|decl:VariableDeclaration:UploadV2/VariableDeclaration.type/LastTypeNode.typeArguments[0]/IntersectionType.types[0]/TypeLiteral.members[15]/PropertySignature:error/PropertySignature.type": {
@@ -25738,6 +25978,34 @@
       "aliases": [],
       "active": true
     },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.base.types.d.ts|named:StepperV2Step": {
+      "kind": "record",
+      "module": "StepperV2Types",
+      "name": "stepperV2Step2",
+      "aliases": [],
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.base.types.d.ts|named:StepperV2StepStatus": {
+      "kind": "enum",
+      "module": "StepperV2Types",
+      "name": "stepperV2StepStatus2",
+      "aliases": [],
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.base.types.d.ts|named:StepperV2SubStep": {
+      "kind": "record",
+      "module": "StepperV2Types",
+      "name": "stepperV2SubStep2",
+      "aliases": [],
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.base.types.d.ts|named:StepperV2Type": {
+      "kind": "enum",
+      "module": "StepperV2Types",
+      "name": "stepperV2Type2",
+      "aliases": [],
+      "active": true
+    },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.tokens.types.d.ts|named:ResponsiveStepperV2Tokens": {
       "kind": "record",
       "module": "StepperV2Types",
@@ -25928,28 +26196,28 @@
       "module": "StepperV2Types",
       "name": "stepperV2Step",
       "aliases": [],
-      "active": true
+      "active": false
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.types.d.ts|named:StepperV2StepStatus": {
       "kind": "enum",
       "module": "StepperV2Types",
       "name": "stepperV2StepStatus",
       "aliases": [],
-      "active": true
+      "active": false
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.types.d.ts|named:StepperV2SubStep": {
       "kind": "record",
       "module": "StepperV2Types",
       "name": "stepperV2SubStep",
       "aliases": [],
-      "active": true
+      "active": false
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/StepperV2/stepperV2.types.d.ts|named:StepperV2Type": {
       "kind": "enum",
       "module": "StepperV2Types",
       "name": "stepperV2Type",
       "aliases": [],
-      "active": true
+      "active": false
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/Switch/switch.token.d.ts|named:ResponsiveSwitchTokens": {
       "kind": "record",
@@ -48547,6 +48815,50 @@
       "signature": "93gv8",
       "active": true
     },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUT.sm.passwordToggle.color|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensSEARCHINPUTSmLabelColorConfig",
+      "aliases": [
+        "contextComponentTokensCHATINPUTV2MOBILEInputContainerBorderRadiusConfig",
+        "contextComponentTokensCHATINPUTV2SmContainerInputContainerOutlineConfig",
+        "contextComponentTokensMULTIVALUEINPUTSmInputContainerBoxShadowConfig",
+        "contextComponentTokensSEARCHINPUTSmInputContainerBorderBottomConfig"
+      ],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1xn0i",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUT.sm.passwordToggle.iconSize|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensPROGRESSBARSmLinearHeightConfig",
+      "aliases": [
+        "contextComponentTokensBADGESmPillMinWidthConfig",
+        "contextComponentTokensBUTTONSmSlotMaxHeightConfig",
+        "contextComponentTokensNUMBERINPUTV2SmInputContainerSlotLeftMarginConfig",
+        "contextComponentTokensSELECTSmTriggerSelectedValueFontSizeConfig",
+        "contextComponentTokensTEXTAREAV2SmInputContainerPaddingTopConfig",
+        "contextComponentTokensTEXTAREAV2SmTopContainerHelpIconWidthConfig",
+        "contextComponentTokensTEXTAREAV2SmTopContainerLabelFontSizeConfig",
+        "contextComponentTokensTOOLTIPV2SmGapConfig"
+      ],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "16h1l",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUT.sm.passwordToggle|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensTEXTINPUTSmPasswordToggleConfig",
+      "aliases": [],
+      "signature": "ajefv",
+      "active": true
+    },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUT.sm.placeholder|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
@@ -49013,6 +49325,50 @@
         "ContextSharedTypes"
       ],
       "signature": "ezj70",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUTV2.sm.inputContainer.passwordToggle.color|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensSEARCHINPUTSmLabelColorConfig",
+      "aliases": [
+        "contextComponentTokensCHATINPUTV2MOBILEInputContainerBorderRadiusConfig",
+        "contextComponentTokensCHATINPUTV2SmContainerInputContainerOutlineConfig",
+        "contextComponentTokensMULTIVALUEINPUTSmInputContainerBoxShadowConfig",
+        "contextComponentTokensSEARCHINPUTSmInputContainerBorderBottomConfig"
+      ],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "1xn0i",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUTV2.sm.inputContainer.passwordToggle.iconSize|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensPROGRESSBARSmLinearHeightConfig",
+      "aliases": [
+        "contextComponentTokensBADGESmPillMinWidthConfig",
+        "contextComponentTokensBUTTONSmSlotMaxHeightConfig",
+        "contextComponentTokensNUMBERINPUTV2SmInputContainerSlotLeftMarginConfig",
+        "contextComponentTokensSELECTSmTriggerSelectedValueFontSizeConfig",
+        "contextComponentTokensTEXTAREAV2SmInputContainerPaddingTopConfig",
+        "contextComponentTokensTEXTAREAV2SmTopContainerHelpIconWidthConfig",
+        "contextComponentTokensTEXTAREAV2SmTopContainerLabelFontSizeConfig",
+        "contextComponentTokensTOOLTIPV2SmGapConfig"
+      ],
+      "formerModules": [
+        "ContextSharedTypes"
+      ],
+      "signature": "16h1l",
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUTV2.sm.inputContainer.passwordToggle|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "contextComponentTokensTEXTINPUTSmPasswordToggleConfig",
+      "aliases": [],
+      "signature": "ajefv",
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/context/ThemeContext.d.ts|path:ThemeProvider.componentTokens.TEXT_INPUTV2.sm.inputContainer.placeholder.color|decl:TypeAliasDeclaration:DeepPartial/TypeAliasDeclaration.type/ConditionalType.falseType/ConditionalType.trueType": {

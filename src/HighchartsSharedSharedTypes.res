@@ -4,6 +4,16 @@ type inputSizeV2 =
   | @as("sm") Sm
   | @as("md") Md
   | @as("lg") Lg
+type uploadErrorReasonValue2 =
+  | @as("oversized") Oversized
+  | @as("maxFiles") MaxFiles
+  | @as("invalidType") InvalidType
+type uploadStateInputsV22 =
+  | @as("idle") Idle
+  | @as("uploading") Uploading
+  | @as("success") Success
+  | @as("error") Error
+  | @as("disabled") Disabled
 type contextComponentTokensMENUSmItemCheckmarkPosition =
   | @as("leading") Leading
   | @as("trailing") Trailing
@@ -1112,11 +1122,16 @@ type uploadFileV2 = {
   id?: string,
   file: Webapi.File.t,
   isValid: bool,
-  errorReason?: InputsV2Types.uploadErrorReasonValue2,
+  errorReason?: uploadErrorReasonValue2,
 }
 type inputsV2ErrorConfig = {
   show: bool,
   message?: string,
+}
+type inputsV2UploadErrorReasonConfig2 = {
+  @as("OVERSIZED") oversized: string,
+  @as("MAX_FILES") maxFiles: string,
+  @as("INVALID_TYPE") invalidType: string,
 }
 type contextComponentTokensTAGSSmBackgroundColorNoFillConfig = {
   neutral?: string,
@@ -1479,6 +1494,10 @@ type contextComponentTokensSWITCHConfig = {
   sm?: contextComponentTokensSWITCHSmConfig,
   lg?: contextComponentTokensSWITCHSmConfig,
 }
+type contextComponentTokensTEXTINPUTSmPasswordToggleConfig = {
+  iconSize?: contextComponentTokensPROGRESSBARSmLinearHeightConfig,
+  color?: contextComponentTokensSEARCHINPUTSmLabelColorConfig,
+}
 type contextComponentTokensTEXTINPUTSmInputContainerPaddingConfig = {
   x?: contextComponentTokensPROGRESSBARSmLinearHeightConfig,
   y?: contextComponentTokensPROGRESSBARSmLinearHeightConfig,
@@ -1502,6 +1521,7 @@ type contextComponentTokensTEXTINPUTSmConfig = {
   helpIcon?: contextComponentTokensTEXTAREASmHelpIconConfig,
   errorMessage?: contextComponentTokensSEARCHINPUTSmErrorMessageConfig,
   required?: contextComponentTokensSEARCHINPUTSmRequiredConfig,
+  passwordToggle?: contextComponentTokensTEXTINPUTSmPasswordToggleConfig,
   inputContainer?: contextComponentTokensTEXTINPUTSmInputContainerConfig,
 }
 type contextComponentTokensTEXTINPUTConfig = {
@@ -5317,6 +5337,7 @@ type contextComponentTokensTEXTINPUTV2SmInputContainerConfig = {
   gap?: string,
   placeholder?: contextComponentTokensSWITCHV2SmContentSubLabelConfig,
   inputText?: contextComponentTokensTEXTAREAV2SmTopContainerLabelConfig,
+  passwordToggle?: contextComponentTokensTEXTINPUTSmPasswordToggleConfig,
   borderRadius?: contextComponentTokensPROGRESSBARSmLinearHeightConfig,
   boxShadow?: string,
   padding?: contextComponentTokensTEXTAREAV2SmInputContainerPaddingConfig,
@@ -6268,6 +6289,7 @@ type contextComponentTokensUPLOADV2Config = {
 }
 type contextComponentTokensMODALV2SmOverlayConfig = {
   backgroundColor?: string,
+  backdropFilter?: string,
   offset?: string,
 }
 type contextComponentTokensMODALV2SmHeaderTextTitleConfig = {
@@ -7734,10 +7756,15 @@ type inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig = {
   fontWeight: inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig,
   lineHeight: inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig,
 }
+type inputsV2TextInputV2TokensTypeInputContainerPasswordToggleConfig = {
+  iconSize: inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig,
+  color: inputsV2TextAreaV2TokensTypeInputContainerBorderConfig,
+}
 type inputsV2TextInputV2TokensTypeInputContainerConfig = {
   gap: string,
   placeholder: inputsV2TextInputV2TokensTypeInputContainerPlaceholderConfig,
   inputText: inputsV2InputLabelsV2TokensLabelConfig,
+  passwordToggle: inputsV2TextInputV2TokensTypeInputContainerPasswordToggleConfig,
   borderRadius: inputsV2TextAreaV2TokensTypeInputContainerLineHeightConfig,
   boxShadow: string,
   padding: inputsV2TextAreaV2TokensTypeInputContainerPaddingConfig,
@@ -50141,6 +50168,11 @@ type textInputV2Dropdown = {
   menuFooter?: React.element,
   position: textInputV2DropdownPosition,
 }
+type inputsV2LeftSlotConfig = {
+  slot: React.element,
+  maxHeight?: string,
+}
+type inputsV2LeftSlotConfig2 = inputsV2LeftSlotConfig
 type singleSelectV2Props = {
   label?: string,
   subLabel?: string,
@@ -50329,6 +50361,14 @@ type inputsV2TagsConfig = {
   size: TagsTypes.tagSize,
   shape: TagsTypes.tagShape,
   variant: TagsTypes.tagVariant,
+}
+type inputsV2LabelConfig2 = {
+  text: string,
+  subtext?: string,
+}
+type inputsV2SlotConfig2 = {
+  left?: React.element,
+  right?: React.element,
 }
 type codeEditorV2HeaderConfig = {
   showHeader?: bool,

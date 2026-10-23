@@ -1,5 +1,6 @@
 type rec styledBlockProps = {
   _hover?: styledBlockProps,
+  _highlighted?: styledBlockProps,
   _focus?: styledBlockProps,
   _active?: styledBlockProps,
   _disabled?: styledBlockProps,
