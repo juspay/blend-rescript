@@ -1,30 +1,14 @@
-// #190: compatibility re-exports — these identities moved to another module when a
-// dependency cycle merged this home. Old `DateRangePickerTypes.<name>` annotations keep resolving.
-type responsiveCalendarTokens = HighchartsSharedSharedTypes.responsiveCalendarTokens
-type calendarTokenType = HighchartsSharedSharedTypes.calendarTokenType
-type dateRangePickerCalendarTokenTypeTriggerConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeTriggerConfig
-type dateRangePickerCalendarTokenTypeTriggerQuickSelectorConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeTriggerQuickSelectorConfig
-type dateRangePickerCalendarTokenTypeTriggerDateInputConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeTriggerDateInputConfig
-type dateRangePickerCalendarTokenTypeCalendarConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeCalendarConfig
-type dateRangePickerCalendarTokenTypeCalendarHeaderConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeCalendarHeaderConfig
-type dateRangePickerCalendarTokenTypeCalendarCalendarGridConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeCalendarCalendarGridConfig
-type dateRangePickerCalendarTokenTypeCalendarFooterConfig = HighchartsSharedSharedTypes.dateRangePickerCalendarTokenTypeCalendarFooterConfig
-type dateRangePickerProps = HighchartsSharedSharedTypes.dateRangePickerProps
-type dateRange = HighchartsSharedSharedTypes.dateRange
-type presetSelectionData = HighchartsSharedSharedTypes.presetSelectionData
-type dateRangePreset = HighchartsSharedSharedTypes.dateRangePreset
-module PresetsConfig = HighchartsSharedSharedTypes.PresetsConfig
-type customPresetConfig = HighchartsSharedSharedTypes.customPresetConfig
-type customPresetDefinition = HighchartsSharedSharedTypes.customPresetDefinition
-type dateRangePickerDateRangePickerPropsGranularity = HighchartsSharedSharedTypes.dateRangePickerDateRangePickerPropsGranularity
-type customRangeConfig = HighchartsSharedSharedTypes.customRangeConfig
-type dateRangePickerSize = HighchartsSharedSharedTypes.dateRangePickerSize
-type dateFormatConfig = HighchartsSharedSharedTypes.dateFormatConfig
-type dateFormatPreset = HighchartsSharedSharedTypes.dateFormatPreset
-type dateRangePickerDateFormatConfigCustomFormatConfig = HighchartsSharedSharedTypes.dateRangePickerDateFormatConfigCustomFormatConfig
-type dateRangePickerDateFormatConfigTimeFormat = HighchartsSharedSharedTypes.dateRangePickerDateFormatConfigTimeFormat
-type triggerConfig = HighchartsSharedSharedTypes.triggerConfig
-type dateRangePickerTriggerConfigRenderTriggerConfig = HighchartsSharedSharedTypes.dateRangePickerTriggerConfigRenderTriggerConfig
-type dateRangePickerPopoverConfig = HighchartsSharedSharedTypes.dateRangePickerPopoverConfig
-type dateRangePickerDateRangePickerPopoverConfigSide = HighchartsSharedSharedTypes.dateRangePickerDateRangePickerPopoverConfigSide
-type dateRangePickerDateRangePickerPopoverConfigAlign = HighchartsSharedSharedTypes.dateRangePickerDateRangePickerPopoverConfigAlign
+type renderDayConfig = {
+  date: Date.t,
+  isStart: bool,
+  isEnd: bool,
+  isSingleDate: bool,
+  isRangeDay: bool,
+  isTodayDay: bool,
+  isDisabled: bool,
+}
+type calendarMonth = {
+  month: float,
+  year: float,
+  index?: int,
+}

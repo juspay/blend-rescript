@@ -88,6 +88,7 @@ type props = {
   animate?: bool,
   @as("as") as_?: SkeletonTypes.skeletonAs,
   _hover?: PrimitivesTypes.styledBlockProps,
+  _highlighted?: PrimitivesTypes.styledBlockProps,
   _focus?: PrimitivesTypes.styledBlockProps,
   _active?: PrimitivesTypes.styledBlockProps,
   _disabled?: PrimitivesTypes.styledBlockProps,

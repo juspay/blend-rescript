@@ -1,7 +1,8 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
-external uploadErrorReason: InputsV2Types.inputsV2UploadErrorReasonConfig2 = "UploadErrorReason"
+external uploadErrorReason: HighchartsSharedSharedTypes.inputsV2UploadErrorReasonConfig2 =
+  "UploadErrorReason"
 @module("@juspay/blend-design-system")
 external useTheme: unit => HighchartsSharedSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
@@ -760,10 +761,10 @@ external getStepperV2Tokens: (
 external scheduleLiveRegionAnnouncement: string => unit => unit = "scheduleLiveRegionAnnouncement"
 @module("@juspay/blend-design-system")
 external getStepState: (
-  StepperV2Types.stepperV2Step,
+  StepperV2Types.stepperV2Step2,
   bool,
   bool,
-) => StepperV2Types.stepperV2StepStatus = "getStepState"
+) => StepperV2Types.stepperV2StepStatus2 = "getStepState"
 @module("@juspay/blend-design-system")
 external getTimelineTokens: (
   TokensTypes.foundationTokenType,

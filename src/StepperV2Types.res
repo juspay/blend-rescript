@@ -1,11 +1,11 @@
-type stepperV2StepStatus =
+type stepperV2StepStatus2 =
   | @as("default") Default
   | @as("completed") Completed
   | @as("current") Current
   | @as("pending") Pending
   | @as("disabled") Disabled
   | @as("skipped") Skipped
-type stepperV2Type =
+type stepperV2Type2 =
   | @as("horizontal") Horizontal
   | @as("vertical") Vertical
 type stepperV2UseThemeCircleDefaultDisabledConfig = {
@@ -143,20 +143,20 @@ type responsiveStepperV2Tokens = {
   sm: stepperV2TokensType,
   lg: stepperV2TokensType,
 }
-type stepperV2SubStep = {
+type stepperV2SubStep2 = {
   id: float,
   title: string,
-  status?: stepperV2StepStatus,
+  status?: stepperV2StepStatus2,
   disabled?: bool,
 }
-type stepperV2Step = {
+type stepperV2Step2 = {
   id: float,
   title: string,
-  status?: stepperV2StepStatus,
+  status?: stepperV2StepStatus2,
   disabled?: bool,
   description?: string,
   icon?: React.element,
-  substeps?: array<stepperV2SubStep>,
+  substeps?: array<stepperV2SubStep2>,
   isExpandable?: bool,
   isExpanded?: bool,
 }
