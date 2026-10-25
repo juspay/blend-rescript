@@ -50036,6 +50036,20 @@ type dateRangePickerPopoverConfig = {
   align?: dateRangePickerDateRangePickerPopoverConfigAlign,
   sideOffset?: float,
 }
+type renderDayConfig = {
+  date: Date.t,
+  isStart: bool,
+  isEnd: bool,
+  isSingleDate: bool,
+  isRangeDay: bool,
+  isTodayDay: bool,
+  isDisabled: bool,
+}
+type calendarMonth = {
+  month: float,
+  year: float,
+  index?: int,
+}
 type dateRangePickerProps = {
   value?: dateRange,
   onChange?: dateRange => unit,
@@ -50071,6 +50085,8 @@ type dateRangePickerProps = {
   showPreset?: bool,
   timezone?: string,
   maxYearOffset?: float,
+  renderDay?: renderDayConfig => React.element,
+  onVisibleMonthsChange?: array<calendarMonth> => unit,
 }
 type rec navbarItem = {
   label: string,
