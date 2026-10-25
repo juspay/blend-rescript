@@ -125,6 +125,11 @@ type inputsTextInputTokensTypeInputContainerFontSizeConfig = {
   md: string,
   lg: string,
 }
+type inputsTextInputTokensTypePasswordToggleIconSizeConfig = inputsTextInputTokensTypeInputContainerFontSizeConfig
+type inputsTextInputTokensTypePasswordToggleConfig = {
+  iconSize: inputsTextInputTokensTypeInputContainerFontSizeConfig,
+  color: inputsSearchInputTokensTypeLabelColorConfig,
+}
 type inputsTextInputTokensTypeInputContainerPaddingConfig = {
   x: inputsTextInputTokensTypeInputContainerFontSizeConfig,
   y: inputsTextInputTokensTypeInputContainerFontSizeConfig,
@@ -148,6 +153,7 @@ type textInputTokensType = {
   helpIcon: inputsTextAreaTokensTypeHelpIconConfig,
   errorMessage: inputsSearchInputTokensTypeErrorMessageConfig,
   required: inputsSearchInputTokensTypeRequiredConfig,
+  passwordToggle: inputsTextInputTokensTypePasswordToggleConfig,
   inputContainer: inputsTextInputTokensTypeInputContainerConfig,
 }
 type responsiveTextInputTokens = {
