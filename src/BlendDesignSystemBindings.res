@@ -1,7 +1,8 @@
 @module("@juspay/blend-design-system")
 external foundationTheme: TokensTypes.foundationTokenType = "FOUNDATION_THEME"
 @module("@juspay/blend-design-system")
-external uploadErrorReason: InputsV2Types.inputsV2UploadErrorReasonConfig2 = "UploadErrorReason"
+external uploadErrorReason: HighchartsSharedSharedTypes.inputsV2UploadErrorReasonConfig2 =
+  "UploadErrorReason"
 @module("@juspay/blend-design-system")
 external useTheme: unit => HighchartsSharedSharedTypes.themeContextType = "useTheme"
 @module("@juspay/blend-design-system")
