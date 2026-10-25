@@ -19,4 +19,6 @@ type singleDatePickerProps = {
   size?: HighchartsSharedSharedTypes.dateRangePickerSize,
   triggerConfig?: HighchartsSharedSharedTypes.triggerConfig,
   popoverConfig?: HighchartsSharedSharedTypes.dateRangePickerPopoverConfig,
+  renderDay?: HighchartsSharedSharedTypes.renderDayConfig => React.element,
+  onVisibleMonthsChange?: array<HighchartsSharedSharedTypes.calendarMonth> => unit,
 }

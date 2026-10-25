@@ -14258,6 +14258,13 @@
       "aliases": [],
       "active": true
     },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/DateRangePicker/types.d.ts|named:CalendarMonth": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "calendarMonth",
+      "aliases": [],
+      "active": true
+    },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/DateRangePicker/types.d.ts|named:CustomPresetConfig": {
       "kind": "record",
       "module": "HighchartsSharedSharedTypes",
@@ -14366,6 +14373,13 @@
       "formerModules": [
         "DateRangePickerTypes"
       ],
+      "active": true
+    },
+    "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/DateRangePicker/types.d.ts|named:RenderDayConfig": {
+      "kind": "record",
+      "module": "HighchartsSharedSharedTypes",
+      "name": "renderDayConfig",
+      "aliases": [],
       "active": true
     },
     "scope:@juspay/blend-design-system|@juspay/blend-design-system/dist/components/DateRangePicker/types.d.ts|named:TriggerConfig": {
