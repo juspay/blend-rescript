@@ -52,7 +52,7 @@ jobs:
           ref: ${{ github.event.inputs.ref || github.ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: "npm"
@@ -89,7 +89,7 @@ jobs:
       # This avoids the fragile `npm install -g npm@latest` upgrade, which can fail
       # against a corrupted GitHub toolcache (actions/runner-images#13883).
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
@@ -202,7 +202,7 @@ jobs:
           fi
 
       - name: Setup Node for GitHub Packages
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
           registry-url: "https://npm.pkg.github.com"
