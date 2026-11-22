@@ -1,5 +1,9 @@
 @unboxed type stringOrNumber = Str(string) | Num(float)
 @unboxed type themeOrString = | @as("light") Light | @as("dark") Dark | Custom(string)
+@unboxed
+type blendFirstDayOfWeek =
+  | @as(0) N0 | @as(1) N1 | @as(2) N2 | @as(3) N3 | @as(4) N4 | @as(6) N6 | @as(5) N5
+type v0OrV1OrV2OrV3OrV4OrV6OrV5 = blendFirstDayOfWeek
 @unboxed type stringOrStringArray = Str(string) | StrArr(array<string>)
 @unboxed type stringOrNumberOrStringArray = Str(string) | Num(float) | StrArr(array<string>)
 @unboxed

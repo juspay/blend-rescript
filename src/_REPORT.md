@@ -1,10 +1,10 @@
-# Binding report — `@juspay/blend-design-system@0.0.39-beta.1`
+# Binding report — `@juspay/blend-design-system@0.0.39-beta.4`
 
 **235** components · ✅ **226** usable · 🔍 **9** need review · 🛑 **0** broken
 
-**263** function binding(s) → `BlendDesignSystemBindings.res`.
+**277** function binding(s) → `BlendDesignSystemBindings.res`.
 
-**4671** shared types deduplicated into **82** `*Types.res` modules (referenced qualified — no per-file redeclaration).
+**4680** shared types deduplicated into **85** `*Types.res` modules (referenced qualified — no per-file redeclaration).
 
 ## 🔤 Constructor name collisions
 
@@ -40,27 +40,27 @@ A bare constant, an identity payload and a `@tag`-injected object are different 
 | `HighchartsSharedSharedTypes` | `Value` | `""` / `"!="` / `"value"` | `ValueAnnotationDraggable`, `ValueOptionsCompare`, `ValueGapUnit`, `ValueOptionsOperator` |
 | `HighchartsSharedSharedTypes` | `WordWrapColumn` | `152` / `"wordWrapColumn"` | `WordWrapColumnWordWrap`, `WordWrapColumnEditorOption` |
 | `DataTableTypes` | `DateRange` | `"date_range"` / `"dateRange"` | `DateRangeColumnType`, `DateRangeTypeType`, `DateRangeFilterComponent` |
-| `ChartsSharedTypes` | `Point` | `"point"` / `"Point"` | `PointConstructorType`, `PointObjectScope` |
 
-### Left as-is — same name, same runtime representation (151)
+### Left as-is — same name, same runtime representation (148)
 
 These produce the same runtime shape whichever definition wins, so renaming them would churn every consumer for no correctness gain. Listed because the ambiguity is still there to read.
 
 - `HighchartsSharedSharedTypes`: `Action`, `Advanced`, `All`, `Allow`, `Always`, `AnnotationMockPointOptionsObject`, `Arc`, `Area`, `Arr`, `Auto`, `Bool`, `Bottom`, `Brackets`, `C`, `Callout`, `Category`, `Chart`, `Circle`, `Close`, `Copy`, `CssObject`, `Custom`, `Danger`, `Day`, `Default`, `Diamond`, `Disabled`, `Error`, `EXACT`, `First` … +47 more
-- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
+- `CommonTypes`: `Arr`, `Auto`, `Bool`, `Fn`, `Interval`, `N0`, `N1`, `N2`, `N3`, `N4`, `N5`, `Num`, `Off`, `On`, `Relative`, `Str`, `StrArr`
 - `TagsTypes`: `Lg`, `Md`, `Sm`, `Xs`
 - `InputsTypes`: `Left`, `Lg`, `Md`, `Right`, `Sm`
 - `TooltipTypes`: `Left`, `Right`
 - `ButtonTypes`: `Default`
 - `DataTableTypes`: `Avatar`, `Custom`, `Date`, `Decimal`, `Dropdown`, `Error`, `Multiselect`, `Number`, `Percentage`, `Primary`, `Progress`, `ReactElement`, `Secondary`, `Select`, `Slider`, `Success`, `Tag`, `Text`, `Warning`
 - `ProgressBarTypes`: `Segmented`, `Solid`
-- `ChartsSharedTypes`: `Chart`, `End`, `Hover`, `Inactive`, `Normal`, `Offset`, `Right`, `Select`, `Top`, `Value`
-- `ChartsTypes`: `Long`, `Narrow`, `Numeric`, `Short`, `V2Digit`
+- `ChartsSharedTypes`: `Hover`, `Inactive`, `Normal`, `Right`, `Select`, `Top`, `Value`
+- `ChartsTypes`: `Numeric`, `V2Digit`
 - `SkeletonTypes`: `Circle`
 - `UploadTypes`: `Error`, `Success`
 - `ButtonV2Types`: `Default`, `Disabled`
 - `TooltipV2Types`: `Left`, `Right`
 - `SliderTypes`: `Bottom`, `Inline`, `Top`
+- `FormatTypes`: `Long`, `Short`
 
 ## 📦 Dependencies
 
@@ -77,6 +77,20 @@ Standalone function exports, emitted as positional `@module external` bindings i
 - `UploadErrorReason`
 - `useTheme`
 - `useShadowRoot`
+- `I18nContext`
+- `useI18n`
+- `useMessages`
+- `createTranslator`
+- `resolveMessage`
+- `resetI18nWarnings`
+- `interpolate`
+- `resolveFirstDayOfWeek`
+- `DEFAULT_LOCALE`
+- `DEFAULT_FIRST_DAY_OF_WEEK`
+- `MESSAGE_GROUPS`
+- `getMonthNames`
+- `getWeekdayNames`
+- `BLEND_MESSAGES`
 - `getAccordionToken`
 - `getAlertTokens`
 - `getAvatarTokens`

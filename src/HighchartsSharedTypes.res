@@ -2900,5 +2900,4 @@ type chartIsInsideOptionsObject<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.chartIsInsideOptionsObject<'a, 'b, 'c>
-type chartsBlendChartPropsConstructorType = ChartsSharedTypes.chartsBlendChartPropsConstructorType
 module SetStateAction = HighchartsSharedSharedTypes.SetStateAction

@@ -8581,7 +8581,7 @@ module ChartsCurrentDateIndicatorOptionsLabels = {
 }
 type dateTimeFormatOptionsHighcharts = {
   day?: ChartsTypes.chartsDay,
-  era?: ChartsTypes.chartsEra,
+  era?: FormatTypes.formatGetWeekdayNamesWidth,
   formatMatcher?: string,
   fractionalSecondDigits?: CommonTypes.v1OrV2OrV3,
   hour?: ChartsTypes.chartsDay,
@@ -8593,8 +8593,8 @@ type dateTimeFormatOptionsHighcharts = {
   second?: ChartsTypes.chartsDay,
   suffix?: [#string],
   timeZone?: string,
-  timeZoneName?: ChartsTypes.chartsTimeZoneName,
-  weekday?: ChartsTypes.chartsEra,
+  timeZoneName?: FormatTypes.formatGetMonthNamesWidth,
+  weekday?: FormatTypes.formatGetWeekdayNamesWidth,
   year?: ChartsTypes.chartsDay,
 }
 @unboxed
@@ -47464,6 +47464,7 @@ and boolOrCurrentDateIndicatorOptions =
 and boolOrAxisCrosshairOptions<'a, 'b, 'c> =
   Bool(bool) | AxisCrosshairOptions(axisCrosshairOptions<'a, 'b, 'c>)
 type partialV15w8b<'a, 'b, 'c> = partialLxlpp<'a, 'b, 'c>
+type partialV1qcm1<'a, 'b, 'c> = partialLxlpp<'a, 'b, 'c>
 module GetTarget = {
   type t = getTarget_t
   external fromAxis: axis<'a, 'b, 'c> => t = "%identity"
@@ -50227,6 +50228,7 @@ type singleSelectV2Props = {
 }
 type embeddedSingleSelectOptions = {
   fieldLabel?: string,
+  fallbackAriaLabel?: string,
   fieldDisabled: bool,
   singleSelectV2Size: SelectV2Types.selectV2Size2,
   menuAlignment: SelectV2Types.selectV2Alignment2,

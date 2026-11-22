@@ -14,6 +14,7 @@ type props = {
   filteredItems: array<MultiSelectV2Types.multiSelectV2GroupType2>,
   onSelectAll?: (bool, array<MultiSelectV2Types.multiSelectV2GroupType2>) => unit,
   selectAllText?: string,
+  selectAllDataId?: string,
   disabled?: bool,
 }
 

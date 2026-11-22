@@ -108,9 +108,15 @@ type statCardV2Dimensions = {
   minWidth?: string,
   height?: string,
 }
+type statCardV2LabelMessages = {
+  increased: string => string,
+  decreased: string => string,
+  join: array<string> => string,
+}
 type statCardV2BuildStatCardV2AriaLabelParamsConfig = {
   title?: string,
   value?: string,
   subtitle?: string,
   change?: statCardV2Change,
+  messages?: statCardV2LabelMessages,
 }

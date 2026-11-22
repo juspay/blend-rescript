@@ -3,6 +3,9 @@ type props = {
   componentTokens?: HighchartsSharedSharedTypes.contextComponentTokensConfig,
   breakpoints?: BreakpointsTypes.breakpointType,
   theme?: CommonTypes.themeOrString,
+  locale?: string,
+  t?: (string, option<Dict.t<string>>) => option<string>,
+  firstDayOfWeek?: CommonTypes.blendFirstDayOfWeek,
   children: React.element,
   target?: Dom.element,
 }

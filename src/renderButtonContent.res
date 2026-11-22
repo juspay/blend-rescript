@@ -7,6 +7,7 @@ type props = {
   subType: ButtonV2Types.buttonV2SubType,
   size: ButtonV2Types.buttonV2Size,
   text?: string,
+  loadingLabel?: string,
   leftSlot?: ButtonV2Types.buttonSlot,
   rightSlot?: ButtonV2Types.buttonSlot,
   tokens: ButtonV2Types.buttonV2ResponsiveButtonV2TokensSmConfig,
