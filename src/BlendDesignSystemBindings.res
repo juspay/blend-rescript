@@ -8,6 +8,48 @@ external useTheme: unit => HighchartsSharedSharedTypes.themeContextType = "useTh
 @module("@juspay/blend-design-system")
 external useShadowRoot: unit => HighchartsSharedSharedTypes.shadowRootContextType = "useShadowRoot"
 @module("@juspay/blend-design-system")
+external i18nContext: React.Context.t<I18nTypes.blendI18nValue> = "I18nContext"
+@module("@juspay/blend-design-system")
+external useI18n: unit => I18nTypes.blendI18nValue = "useI18n"
+@module("@juspay/blend-design-system")
+external useMessages: Dict.t<string> => I18nTypes.useMessagesResult = "useMessages"
+// ⚪ loose: `createTranslator` has a param/return widened to `string`.
+@module("@juspay/blend-design-system") @variadic
+external createTranslator: array<string> => (string, option<Dict.t<string>>) => option<string> =
+  "createTranslator"
+@module("@juspay/blend-design-system")
+external resolveMessage: (
+  Dict.t<string>,
+  string,
+  ~options: I18nTypes.resolveOptions=?,
+  unit,
+) => string = "resolveMessage"
+@module("@juspay/blend-design-system")
+external resetI18nWarnings: unit => unit = "resetI18nWarnings"
+@module("@juspay/blend-design-system")
+external interpolate: (string, ~vars: Dict.t<string>=?, unit) => string = "interpolate"
+@module("@juspay/blend-design-system")
+external resolveFirstDayOfWeek: string => CommonTypes.blendFirstDayOfWeek = "resolveFirstDayOfWeek"
+@module("@juspay/blend-design-system") external defaultLocale: string = "DEFAULT_LOCALE"
+@module("@juspay/blend-design-system")
+external defaultFirstDayOfWeek: float = "DEFAULT_FIRST_DAY_OF_WEEK"
+@module("@juspay/blend-design-system") external messageGroups: array<string> = "MESSAGE_GROUPS"
+@module("@juspay/blend-design-system")
+external getMonthNames: (
+  string,
+  ~width: FormatTypes.formatGetMonthNamesWidth=?,
+  unit,
+) => array<string> = "getMonthNames"
+@module("@juspay/blend-design-system")
+external getWeekdayNames: (
+  string,
+  ~width: FormatTypes.formatGetWeekdayNamesWidth=?,
+  ~firstDayOfWeek: CommonTypes.blendFirstDayOfWeek=?,
+  unit,
+) => array<string> = "getWeekdayNames"
+@module("@juspay/blend-design-system")
+external blendMessages: CatalogTypes.catalogBLENDMESSAGESConfig = "BLEND_MESSAGES"
+@module("@juspay/blend-design-system")
 external getAccordionToken: TokensTypes.foundationTokenType => AccordionTypes.responsiveAccordionTokens =
   "getAccordionToken"
 @module("@juspay/blend-design-system")
@@ -344,8 +386,13 @@ external getTagBorderRadius: (
   TagV2Types.tagV2ResponsiveTagV2TokensSmConfig,
 ) => string = "getTagBorderRadius"
 @module("@juspay/blend-design-system")
-external getAccessibleName: (string, bool, CommonTypes.boolOrMixed) => option<string> =
-  "getAccessibleName"
+external getAccessibleName: (
+  string,
+  bool,
+  CommonTypes.boolOrMixed,
+  ~messages: TagV2Types.tagV2LabelMessages=?,
+  unit,
+) => option<string> = "getAccessibleName"
 @module("@juspay/blend-design-system")
 external createKeyboardHandler: (
   bool,
@@ -471,7 +518,13 @@ external renderFallbackContent: (~fallbackText: string=?, ~alt: string=?, unit) 
 @module("@juspay/blend-design-system")
 external getColorFromText: string => string = "getColorFromText"
 @module("@juspay/blend-design-system")
-external getAccessibleLabel: (string, string, string) => string = "getAccessibleLabel"
+external getAccessibleLabel: (
+  string,
+  string,
+  string,
+  ~messages: AvatarV2Types.avatarV2LabelMessages=?,
+  unit,
+) => string = "getAccessibleLabel"
 @module("@juspay/blend-design-system")
 external getAriaLiveValue: string => option<[#polite]> = "getAriaLiveValue"
 @module("@juspay/blend-design-system")
@@ -736,7 +789,8 @@ external getSidebarV2Status: (
   bool,
 ) => HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange = "getSidebarV2Status"
 @module("@juspay/blend-design-system")
-external announceSidebarV2StateChange: bool => unit = "announceSidebarV2StateChange"
+external announceSidebarV2StateChange: (bool, ~message: string=?, unit) => unit =
+  "announceSidebarV2StateChange"
 @module("@juspay/blend-design-system")
 external getTopbarV2Styles: (
   bool,

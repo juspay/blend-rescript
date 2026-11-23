@@ -973,6 +973,11 @@ type sliderCreateSliderRangeConfig = {
   defaultValue: array<float>,
   valueFormat: sliderValueFormatConfig,
 }
+type sliderThumbLabelMessages = {
+  labelled: (string, float, string) => string,
+  thumb: (float, string) => string,
+  single: string => string,
+}
 type sliderBuildThumbAriaAttributesOptionsConfig = {
   min: float,
   max: float,
@@ -984,4 +989,5 @@ type sliderBuildThumbAriaAttributesOptionsConfig = {
   ariaDescribedBy?: string,
   thumbIndex: float,
   thumbCount: float,
+  messages?: sliderThumbLabelMessages,
 }
