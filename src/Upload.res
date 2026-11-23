@@ -13,6 +13,8 @@ type props = {
   description?: string,
   className?: string,
   errorText?: string,
+  browseFilesText?: string,
+  replaceFileText?: string,
   state?: UploadTypes.uploadState2,
   uploadingFiles?: array<UploadTypes.uploadFile>,
   uploadedFiles?: array<UploadTypes.uploadedFileWithStatus>,

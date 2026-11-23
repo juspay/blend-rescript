@@ -3,6 +3,7 @@ type props = {
   availableValues: array<string>,
   onSelectAll: bool => unit,
   selectAllText: string,
+  dataIdText?: string,
   disabled?: bool,
   asMenuItem?: bool,
 }

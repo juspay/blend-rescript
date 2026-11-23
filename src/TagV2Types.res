@@ -90,3 +90,7 @@ type tagV2LeftSlotConfig = {
   maxHeight?: string,
 }
 type tagV2LeftSlotConfig2 = tagV2LeftSlotConfig
+type tagV2LabelMessages = {
+  pressed: string => string,
+  mixed: string => string,
+}

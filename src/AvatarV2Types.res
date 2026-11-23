@@ -109,6 +109,10 @@ type avatarV2Dimensions = {
   width?: string,
   height?: string,
 }
+type avatarV2LabelMessages = {
+  fallbackName: string,
+  formatStatus: (string, string) => option<string>,
+}
 type avatarV2DEFAULTPOSITIONConfig = {
   top: string,
   right: string,

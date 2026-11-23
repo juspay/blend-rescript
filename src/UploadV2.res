@@ -23,6 +23,8 @@ type props = {
   progressBarValue?: float,
   progressBarMaxWidth?: string,
   uploadHeaderText?: string,
+  browseFilesText?: string,
+  replaceFileText?: string,
   ref?: React.ref<Nullable.t<Dom.element>>,
 }
 
