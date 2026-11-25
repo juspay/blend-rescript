@@ -1,5 +1,5 @@
 // #190: compatibility re-exports — these identities moved to another module when a
-// dependency cycle merged this home. Old `SidebarV2Types.<name>` annotations keep resolving.
+// dependency cycle merged this home. Old `SidebarV2Types.<name>` annotations keep resolving, and enum constructors with them (#241).
 type responsiveMobileNavigationV2Tokens = HighchartsSharedSharedTypes.responsiveMobileNavigationV2Tokens
 type mobileNavigationV2TokenType = HighchartsSharedSharedTypes.mobileNavigationV2TokenType
 type sidebarV2MobileNavigationV2TokenTypeContainerConfig = HighchartsSharedSharedTypes.sidebarV2MobileNavigationV2TokenTypeContainerConfig
@@ -26,7 +26,10 @@ type sidebarV2SidebarV2TokensTypeSecondarySidebarConfig = HighchartsSharedShared
 type sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig = HighchartsSharedSharedTypes.sidebarV2SidebarV2TokensTypeSecondarySidebarItemConfig
 type secondarySidebarInfo = HighchartsSharedSharedTypes.secondarySidebarInfo
 type secondarySidebarItem = HighchartsSharedSharedTypes.secondarySidebarItem
-type sidebarV2SidebarV2PropsOnSidebarStateChange = HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange
+type sidebarV2SidebarV2PropsOnSidebarStateChange = HighchartsSharedSharedTypes.sidebarV2SidebarV2PropsOnSidebarStateChange =
+  | @as("expanded") Expanded
+  | @as("collapsed") Collapsed
+  | @as("intermediate") Intermediate
 type sidebarV2MerchantInfoConfig = HighchartsSharedSharedTypes.sidebarV2MerchantInfoConfig
 type sidebarV2MerchantInfoItemsConfig = HighchartsSharedSharedTypes.sidebarV2MerchantInfoItemsConfig
 type sidebarV2MobileNavigationItem = HighchartsSharedSharedTypes.sidebarV2MobileNavigationItem

@@ -1,5 +1,5 @@
 // #190: compatibility re-exports — these identities moved to another module when a
-// dependency cycle merged this home. Old `ChartsV2Types.<name>` annotations keep resolving.
+// dependency cycle merged this home. Old `ChartsV2Types.<name>` annotations keep resolving, and enum constructors with them (#241).
 type responsiveChartV2Tokens = HighchartsSharedSharedTypes.responsiveChartV2Tokens
 type chartV2TokensType = HighchartsSharedSharedTypes.chartV2TokensType
 type chartsV2ChartV2TokensTypeHeaderConfig = HighchartsSharedSharedTypes.chartsV2ChartV2TokensTypeHeaderConfig
