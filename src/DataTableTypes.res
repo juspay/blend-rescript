@@ -728,6 +728,8 @@ module ColumnDefinition = {
     "%identity"
   external asDataTableColumnsFilterTypeConfig: t => dataTableColumnsFilterTypeConfigD3aey<'a> =
     "%identity"
+  @get external field: t => string = "field"
+  @get external header: t => string = "header"
 }
 type dataTableDescriptionTooltipPropsConfig = {
   side?: TooltipTypes.tooltipSide,
@@ -1191,6 +1193,8 @@ module ColumnDefinition2 = {
     "%identity"
   external asDataTableColumnsFilterTypeConfig2: t => dataTableColumnsFilterTypeConfigVgv03<'a> =
     "%identity"
+  @get external field: t => string = "field"
+  @get external header: t => string = "header"
 }
 type pivotPreviewRow = {
   __pivotId: string,

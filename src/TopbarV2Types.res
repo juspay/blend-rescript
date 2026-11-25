@@ -1,5 +1,5 @@
 // #190: compatibility re-exports — these identities moved to another module when a
-// dependency cycle merged this home. Old `TopbarV2Types.<name>` annotations keep resolving.
+// dependency cycle merged this home. Old `TopbarV2Types.<name>` annotations keep resolving, and enum constructors with them (#241).
 type responsiveTopbarV2Tokens = HighchartsSharedSharedTypes.responsiveTopbarV2Tokens
 type topbarV2TokenType = HighchartsSharedSharedTypes.topbarV2TokenType
 type topbarV2TopbarV2TokenTypeSeparatorConfig = HighchartsSharedSharedTypes.topbarV2TopbarV2TokenTypeSeparatorConfig

@@ -1,19 +1,35 @@
 // #190: compatibility re-exports — these identities moved to another module when a
-// dependency cycle merged this home. Old `HighchartsSharedTypes.<name>` annotations keep resolving.
+// dependency cycle merged this home. Old `HighchartsSharedTypes.<name>` annotations keep resolving, and enum constructors with them (#241).
 type responsiveChartTokens = ChartsSharedTypes.responsiveChartTokens
 type chartTokensType = ChartsSharedTypes.chartTokensType
-type chartType = ChartsSharedTypes.chartType
+type chartType = ChartsSharedTypes.chartType =
+  | @as("line") Line
+  | @as("bar") Bar
+  | @as("lineBar") LineBar
+  | @as("pie") Pie
+  | @as("scatter") Scatter
+  | @as("area") Area
+  | @as("sankey") Sankey
+  | @as("funnel") Funnel
 type newNestedDataPoint = ChartsSharedTypes.newNestedDataPoint
 type dataPoint = ChartsSharedTypes.dataPoint
 type chartsDataPointPrimaryConfig = ChartsSharedTypes.chartsDataPointPrimaryConfig
 type chartsDataPointAuxConfig = ChartsSharedTypes.chartsDataPointAuxConfig
-type axisType = ChartsSharedTypes.axisType
+type axisType = ChartsSharedTypes.axisType =
+  | @as("dateTime") DateTime
+  | @as("currency") Currency
+  | @as("percentage") Percentage
+  | @as("number") Number
 type chartsDataPointErrorConfig = ChartsSharedTypes.chartsDataPointErrorConfig
 type chartsDataPointErrorErrorDataConfig = ChartsSharedTypes.chartsDataPointErrorErrorDataConfig
 type chartsColorsConfig = ChartsSharedTypes.chartsColorsConfig
-type chartLegendPosition = ChartsSharedTypes.chartLegendPosition
+type chartLegendPosition = ChartsSharedTypes.chartLegendPosition =
+  | @as("top") Top
+  | @as("right") Right
 type stackedLegendsDataPoint = ChartsSharedTypes.stackedLegendsDataPoint
-type legendsChangeType = ChartsSharedTypes.legendsChangeType
+type legendsChangeType = ChartsSharedTypes.legendsChangeType =
+  | @as("increase") Increase
+  | @as("decrease") Decrease
 type axisConfig = ChartsSharedTypes.axisConfig
 type tickProps = ChartsSharedTypes.tickProps
 type chartsTickPropsPayloadConfig = ChartsSharedTypes.chartsTickPropsPayloadConfig
@@ -22,10 +38,14 @@ type chartsTooltipConfigPositionConfig = ChartsSharedTypes.chartsTooltipConfigPo
 type chartsTooltipConfigAllowEscapeViewBoxConfig = ChartsSharedTypes.chartsTooltipConfigAllowEscapeViewBoxConfig
 type tooltipContentProps = ChartsSharedTypes.tooltipContentProps
 type tooltipProps = ChartsSharedTypes.tooltipProps
-type chartsTooltipPropsTrigger = ChartsSharedTypes.chartsTooltipPropsTrigger
+type chartsTooltipPropsTrigger = ChartsSharedTypes.chartsTooltipPropsTrigger =
+  | @as("hover") Hover
+  | @as("click") Click
 type tooltipFormatterParams = ChartsSharedTypes.tooltipFormatterParams
 type funnelConfig = ChartsSharedTypes.funnelConfig
-type chartsFunnelConfigPercentageBase = ChartsSharedTypes.chartsFunnelConfigPercentageBase
+type chartsFunnelConfigPercentageBase = ChartsSharedTypes.chartsFunnelConfigPercentageBase =
+  | @as("first") First
+  | @as("previous") Previous
 type noDataProps = ChartsSharedTypes.noDataProps
 type chartsSkeletonProps = ChartsSharedTypes.chartsSkeletonProps
 type chartsLegendsConfig = ChartsSharedTypes.chartsLegendsConfig
@@ -43,7 +63,18 @@ type xAxisOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.xAxisOptions<'a, 'b,
 type axisAccessibilityOptionsObject = HighchartsSharedSharedTypes.axisAccessibilityOptionsObject
 type xAxisBreaksOptions = HighchartsSharedSharedTypes.xAxisBreaksOptions
 type currentDateIndicatorOptions = HighchartsSharedSharedTypes.currentDateIndicatorOptions
-type dashStyleValue = HighchartsSharedSharedTypes.dashStyleValue
+type dashStyleValue = HighchartsSharedSharedTypes.dashStyleValue =
+  | @as("Dash") Dash
+  | @as("DashDot") DashDot
+  | @as("Dot") Dot
+  | @as("LongDash") LongDash
+  | @as("LongDashDot") LongDashDot
+  | @as("LongDashDotDot") LongDashDotDot
+  | @as("ShortDash") ShortDash
+  | @as("ShortDashDot") ShortDashDot
+  | @as("ShortDashDotDot") ShortDashDotDot
+  | @as("ShortDot") ShortDot
+  | @as("Solid") SolidStyleValue
 type navigatorXAxisCurrentDateIndicatorEventsOptions<
   'a,
   'b,
@@ -55,7 +86,10 @@ type navigatorXAxisCurrentDateIndicatorLabelOptions<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.navigatorXAxisCurrentDateIndicatorLabelOptions<'a, 'b, 'c>
-type alignValue = HighchartsSharedSharedTypes.alignValue
+type alignValue = HighchartsSharedSharedTypes.alignValue =
+  | @as("right") RightAlignValue
+  | @as("left") LeftAlignValue
+  | @as("center") CenterAlignValue
 type verticalAlignValue = HighchartsSharedSharedTypes.verticalAlignValue
 module ChartsCurrentDateIndicatorOptionsLabel = HighchartsSharedSharedTypes.ChartsCurrentDateIndicatorOptionsLabel
 type navigatorXAxisCurrentDateIndicatorLabelsOptions = HighchartsSharedSharedTypes.navigatorXAxisCurrentDateIndicatorLabelsOptions
@@ -68,16 +102,26 @@ type stringOrDateTimeFormatOptions2 = HighchartsSharedSharedTypes.stringOrDateTi
 type stringOrAxisDateTimeLabelFormatsOptionsObject = HighchartsSharedSharedTypes.stringOrAxisDateTimeLabelFormatsOptionsObject
 type xAxisEventsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.xAxisEventsOptions<'a, 'b, 'c>
 type xAxisGridOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.xAxisGridOptions<'a, 'b, 'c>
-type optionsGridLineInterpolationValue = HighchartsSharedSharedTypes.optionsGridLineInterpolationValue
+type optionsGridLineInterpolationValue = HighchartsSharedSharedTypes.optionsGridLineInterpolationValue =
+  | @as("circle") Circle
+  | @as("polygon") Polygon
 type xAxisLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.xAxisLabelsOptions<'a, 'b, 'c>
 type axisLabelsFormatterContextObject<
   'a,
   'b,
   'c,
 > = HighchartsSharedSharedTypes.axisLabelsFormatterContextObject<'a, 'b, 'c>
-type optionsOverflowValue = HighchartsSharedSharedTypes.optionsOverflowValue
-type optionsPosition3dValue = HighchartsSharedSharedTypes.optionsPosition3dValue
-type optionsMinorTickPositionValue = HighchartsSharedSharedTypes.optionsMinorTickPositionValue
+type optionsOverflowValue = HighchartsSharedSharedTypes.optionsOverflowValue =
+  | @as("justify") Justify
+  | @as("allow") Allow
+type optionsPosition3dValue = HighchartsSharedSharedTypes.optionsPosition3dValue =
+  | @as("offset") Offset
+  | @as("chart") Chart
+  | @as("flap") Flap
+  | @as("ortho") Ortho
+type optionsMinorTickPositionValue = HighchartsSharedSharedTypes.optionsMinorTickPositionValue =
+  | @as("inside") Inside
+  | @as("outside") Outside
 type xAxisPlotLinesOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.xAxisPlotLinesOptions<
   'a,
   'b,
@@ -88,12 +132,22 @@ type xAxisPlotLinesLabelOptions<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.xAxisPlotLinesLabelOptions<'a, 'b, 'c>
-type optionsTickmarkPlacementValue = HighchartsSharedSharedTypes.optionsTickmarkPlacementValue
+type optionsTickmarkPlacementValue = HighchartsSharedSharedTypes.optionsTickmarkPlacementValue =
+  | @as("between") Between
+  | @as("on") On
 type optionsTickPositionValue = HighchartsSharedSharedTypes.optionsTickPositionValue
 type xAxisTitleOptions = HighchartsSharedSharedTypes.xAxisTitleOptions
-type axisTitleAlignValue = HighchartsSharedSharedTypes.axisTitleAlignValue
+type axisTitleAlignValue = HighchartsSharedSharedTypes.axisTitleAlignValue =
+  | @as("middle") Middle
+  | @as("high") High
+  | @as("low") Low
 type chartsXAxisTitleOptionsPosition3d = ChartsSharedTypes.chartsXAxisTitleOptionsPosition3d
-type axisTypeValue = HighchartsSharedSharedTypes.axisTypeValue
+type axisTypeValue = HighchartsSharedSharedTypes.axisTypeValue =
+  | @as("linear") Linear
+  | @as("datetime") Datetime
+  | @as("treegrid") Treegrid
+  | @as("category") Category
+  | @as("logarithmic") Logarithmic
 type yAxisOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.yAxisOptions<'a, 'b, 'c>
 type yAxisLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.yAxisLabelsOptions<'a, 'b, 'c>
 type yAxisLabelsLevelsOptions = HighchartsSharedSharedTypes.yAxisLabelsLevelsOptions
@@ -110,7 +164,27 @@ type plotLineOrBand<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotLineOrBand<'a,
 module AxisPlotLinesOptions = HighchartsSharedSharedTypes.AxisPlotLinesOptions
 type pointerEventObject = HighchartsSharedSharedTypes.pointerEventObject
 type point<'a, 'b, 'c> = HighchartsSharedSharedTypes.point<'a, 'b, 'c>
-type svgPathCommand = HighchartsSharedSharedTypes.svgPathCommand
+type svgPathCommand = HighchartsSharedSharedTypes.svgPathCommand =
+  | @as("z") Z
+  | @as("a") A
+  | @as("c") C
+  | @as("h") H
+  | @as("l") L
+  | @as("m") M
+  | @as("q") Q
+  | @as("s") S
+  | @as("t") T
+  | @as("v") V
+  | @as("A") A2
+  | @as("C") C2
+  | @as("H") H2
+  | @as("L") L2
+  | @as("M") M2
+  | @as("Q") Q2
+  | @as("S") S2
+  | @as("T") T2
+  | @as("V") V2
+  | @as("Z") Z2
 type chartsPointSetState = ChartsSharedTypes.chartsPointSetState
 type extremesObject = HighchartsSharedSharedTypes.extremesObject
 module GetLinePathTarget = HighchartsSharedSharedTypes.GetLinePathTarget
@@ -134,8 +208,47 @@ type legendBubbleLegendRangesOptions = HighchartsSharedSharedTypes.legendBubbleL
 type bubbleSizeByValue = HighchartsSharedSharedTypes.bubbleSizeByValue
 type legendEventsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.legendEventsOptions<'a, 'b, 'c>
 type cssObjectHighcharts = HighchartsSharedSharedTypes.cssObjectHighcharts
-type cursorValue = HighchartsSharedSharedTypes.cursorValue
-type optionsLayoutValue = HighchartsSharedSharedTypes.optionsLayoutValue
+type cursorValue = HighchartsSharedSharedTypes.cursorValue =
+  | @as("none") NoneCursorValue
+  | @as("auto") Auto
+  | @as("text") TextCursorValue
+  | @as("default") Default
+  | @as("alias") Alias
+  | @as("all-scroll") AllScroll
+  | @as("cell") Cell
+  | @as("col-resize") ColResize
+  | @as("context-menu") ContextMenuCursorValue
+  | @as("copy") Copy
+  | @as("crosshair") Crosshair
+  | @as("e-resize") EResize
+  | @as("ew-resize") EwResize
+  | @as("grab") Grab
+  | @as("grabbing") Grabbing
+  | @as("help") Help
+  | @as("move") Move
+  | @as("n-resize") NResize
+  | @as("ne-resize") NeResize
+  | @as("nesw-resize") NeswResize
+  | @as("no-drop") NoDrop
+  | @as("not-allowed") NotAllowed
+  | @as("ns-resize") NsResize
+  | @as("nw-resize") NwResize
+  | @as("nwse-resize") NwseResize
+  | @as("pointer") Pointer
+  | @as("progress") Progress
+  | @as("row-resize") RowResize
+  | @as("s-resize") SResize
+  | @as("se-resize") SeResize
+  | @as("sw-resize") SwResize
+  | @as("vertical-text") VerticalText
+  | @as("w-resize") WResize
+  | @as("wait") Wait
+  | @as("zoom-in") ZoomIn
+  | @as("zoom-out") ZoomOut
+type optionsLayoutValue = HighchartsSharedSharedTypes.optionsLayoutValue =
+  | @as("horizontal") Horizontal
+  | @as("vertical") Vertical
+  | @as("proximate") Proximate
 type legendNavigationOptions = HighchartsSharedSharedTypes.legendNavigationOptions
 type boolOrCssObject = HighchartsSharedSharedTypes.boolOrCssObject
 type legendTitleOptions = HighchartsSharedSharedTypes.legendTitleOptions
@@ -149,8 +262,13 @@ type accessibilityAnnounceNewDataOptionsObject<
 type keyboardNavigationOptionsObject = HighchartsSharedSharedTypes.keyboardNavigationOptionsObject
 type keyboardNavigationFocusBorderOptionsObject = HighchartsSharedSharedTypes.keyboardNavigationFocusBorderOptionsObject
 type keyboardNavigationSeriesNavigationOptionsObject = HighchartsSharedSharedTypes.keyboardNavigationSeriesNavigationOptionsObject
-type optionsModeValue = HighchartsSharedSharedTypes.optionsModeValue
-type optionsLandmarkVerbosityValue = HighchartsSharedSharedTypes.optionsLandmarkVerbosityValue
+type optionsModeValue = HighchartsSharedSharedTypes.optionsModeValue =
+  | @as("normal") Normal
+  | @as("serialize") Serialize
+type optionsLandmarkVerbosityValue = HighchartsSharedSharedTypes.optionsLandmarkVerbosityValue =
+  | @as("disabled") Disabled
+  | @as("all") All
+  | @as("one") One
 type accessibilityPointOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.accessibilityPointOptions<
   'a,
   'b,
@@ -180,7 +298,11 @@ type annotationControlPoint<'a, 'b, 'c> = HighchartsSharedSharedTypes.annotation
   'c,
 >
 type positionObject = HighchartsSharedSharedTypes.positionObject
-type annotationDraggableValue = HighchartsSharedSharedTypes.annotationDraggableValue
+type annotationDraggableValue = HighchartsSharedSharedTypes.annotationDraggableValue =
+  | @as("") ValueAnnotationDraggable
+  | @as("x") X
+  | @as("y") Y
+  | @as("xy") Xy
 type annotationsEventsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.annotationsEventsOptions<
   'a,
   'b,
@@ -347,7 +469,11 @@ type geoJSONTranslation = HighchartsSharedSharedTypes.geoJSONTranslation
 type chart3dOptions = HighchartsSharedSharedTypes.chart3dOptions
 type chart3dFrameOptions = HighchartsSharedSharedTypes.chart3dFrameOptions
 type chart3dFrameBackOptions = HighchartsSharedSharedTypes.chart3dFrameBackOptions
-type optionsPanKeyValue = HighchartsSharedSharedTypes.optionsPanKeyValue
+type optionsPanKeyValue = HighchartsSharedSharedTypes.optionsPanKeyValue =
+  | @as("alt") AltPanKeyValue
+  | @as("shift") ShiftPanKeyValue
+  | @as("ctrl") CtrlPanKeyValue
+  | @as("meta") MetaPanKeyValue
 type chartPanningOptions = HighchartsSharedSharedTypes.chartPanningOptions
 type optionsChartPanningTypeValue = HighchartsSharedSharedTypes.optionsChartPanningTypeValue
 type chartParallelAxesOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.chartParallelAxesOptions<
@@ -384,10 +510,16 @@ type chartResetZoomButtonOptions = HighchartsSharedSharedTypes.chartResetZoomBut
 type alignObject = HighchartsSharedSharedTypes.alignObject
 type chartResetZoomButtonPositionOptions = HighchartsSharedSharedTypes.chartResetZoomButtonPositionOptions
 module ChartsChartResetZoomButtonOptionsPosition = HighchartsSharedSharedTypes.ChartsChartResetZoomButtonOptionsPosition
-type buttonRelativeToValue = HighchartsSharedSharedTypes.buttonRelativeToValue
+type buttonRelativeToValue = HighchartsSharedSharedTypes.buttonRelativeToValue =
+  | @as("plotBox") PlotBox
+  | @as("spacingBox") SpacingBox
 type chartScrollablePlotAreaOptions = HighchartsSharedSharedTypes.chartScrollablePlotAreaOptions
 type chartZoomingOptions = HighchartsSharedSharedTypes.chartZoomingOptions
-type optionsKeyValue = HighchartsSharedSharedTypes.optionsKeyValue
+type optionsKeyValue = HighchartsSharedSharedTypes.optionsKeyValue =
+  | @as("alt") AltOptionsKeyValue
+  | @as("shift") ShiftOptionsKeyValue
+  | @as("ctrl") CtrlOptionsKeyValue
+  | @as("meta") MetaOptionsKeyValue
 type chartZoomingMouseWheelOptions = HighchartsSharedSharedTypes.chartZoomingMouseWheelOptions
 type optionsTypeValue = HighchartsSharedSharedTypes.optionsTypeValue
 module ChartsChartZoomingOptionsMouseWheel = HighchartsSharedSharedTypes.ChartsChartZoomingOptionsMouseWheel
@@ -430,7 +562,12 @@ type creditsOptions = HighchartsSharedSharedTypes.creditsOptions
 module ChartsCreditsOptionsStyle = HighchartsSharedSharedTypes.ChartsCreditsOptionsStyle
 type dataOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.dataOptions<'a, 'b, 'c>
 type optionsColumnTypesValue = HighchartsSharedSharedTypes.optionsColumnTypesValue
-type optionsDateFormatValue = HighchartsSharedSharedTypes.optionsDateFormatValue
+type optionsDateFormatValue = HighchartsSharedSharedTypes.optionsDateFormatValue =
+  | @as("dd/mm/YY") DdMmYY
+  | @as("dd/mm/YYYY") DdMmYYYY
+  | @as("mm/dd/YY") MmDdYY
+  | @as("mm/dd/YYYY") MmDdYYYY
+  | @as("YYYY/mm/dd") YYYYMmDd
 type astNode = HighchartsSharedSharedTypes.astNode
 type drilldownOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.drilldownOptions<'a, 'b, 'c>
 type drilldownActiveDataLabelStyleOptions = HighchartsSharedSharedTypes.drilldownActiveDataLabelStyleOptions
@@ -456,7 +593,10 @@ type plotAbandsAccessibilityPointOptions<
   'c,
 > = HighchartsSharedSharedTypes.plotAbandsAccessibilityPointOptions<'a, 'b, 'c>
 module ChartsSeriesAccessibilityOptionsObjectPoint = HighchartsSharedSharedTypes.ChartsSeriesAccessibilityOptionsObjectPoint
-type optionsBoostBlendingValue = HighchartsSharedSharedTypes.optionsBoostBlendingValue
+type optionsBoostBlendingValue = HighchartsSharedSharedTypes.optionsBoostBlendingValue =
+  | @as("add") Add
+  | @as("darken") Darken
+  | @as("multiply") Multiply
 type plotAbandsBottomLineOptions = HighchartsSharedSharedTypes.plotAbandsBottomLineOptions
 type plotAbandsBottomLineStylesOptions = HighchartsSharedSharedTypes.plotAbandsBottomLineStylesOptions
 type dataGroupingOptionsObject = HighchartsSharedSharedTypes.dataGroupingOptionsObject
@@ -466,7 +606,15 @@ type plotAbandsDataLabelsOptions<
   'c,
 > = HighchartsSharedSharedTypes.plotAbandsDataLabelsOptions<'a, 'b, 'c>
 type dataLabelsFilterOptionsObject = HighchartsSharedSharedTypes.dataLabelsFilterOptionsObject
-type optionsOperatorValue = HighchartsSharedSharedTypes.optionsOperatorValue
+type optionsOperatorValue = HighchartsSharedSharedTypes.optionsOperatorValue =
+  | @as("!=") ValueOptionsOperator
+  | @as("!==") Value2
+  | @as("==") Value3
+  | @as("===") Value4
+  | @as(">") Value5
+  | @as(">=") Value6
+  | @as("<") Value7
+  | @as("<=") Value8
 type dataLabelsOverflowValue = HighchartsSharedSharedTypes.dataLabelsOverflowValue
 type dataLabelsTextPathOptionsObject = HighchartsSharedSharedTypes.dataLabelsTextPathOptionsObject
 type plotDependencywheelDataLabelsTextPathAttributesOptions = HighchartsSharedSharedTypes.plotDependencywheelDataLabelsTextPathAttributesOptions
@@ -500,7 +648,9 @@ type seriesClickEventObject<'a, 'b, 'c> = HighchartsSharedSharedTypes.seriesClic
   'c,
 >
 type optionsFindNearestPointByValue = HighchartsSharedSharedTypes.optionsFindNearestPointByValue
-type optionsGapUnitValue = HighchartsSharedSharedTypes.optionsGapUnitValue
+type optionsGapUnitValue = HighchartsSharedSharedTypes.optionsGapUnitValue =
+  | @as("value") ValueGapUnit
+  | @as("relative") Relative
 type seriesLabelOptionsObject<'a, 'b, 'c> = HighchartsSharedSharedTypes.seriesLabelOptionsObject<
   'a,
   'b,
@@ -514,7 +664,10 @@ type seriesLastPriceOptionsObject<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.seriesLastPriceOptionsObject<'a, 'b, 'c>
-type optionsLegendSymbolValue = HighchartsSharedSharedTypes.optionsLegendSymbolValue
+type optionsLegendSymbolValue = HighchartsSharedSharedTypes.optionsLegendSymbolValue =
+  | @as("rectangle") Rectangle
+  | @as("areaMarker") AreaMarker
+  | @as("lineMarker") LineMarker
 type plotAbandsOnPointOptions = HighchartsSharedSharedTypes.plotAbandsOnPointOptions
 type plotAbandsOnPointConnectorOptions = HighchartsSharedSharedTypes.plotAbandsOnPointConnectorOptions
 module ChartsPlotAbandsOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotAbandsOnPointOptionsConnectorOptions
@@ -532,7 +685,10 @@ type pointEventsOptionsObject<'a, 'b, 'c> = HighchartsSharedSharedTypes.pointEve
   'b,
   'c,
 >
-type optionsStepValue = HighchartsSharedSharedTypes.optionsStepValue
+type optionsStepValue = HighchartsSharedSharedTypes.optionsStepValue =
+  | @as("right") RightOptionsStepValue
+  | @as("left") LeftOptionsStepValue
+  | @as("center") CenterOptionsStepValue
 type seriesTooltipOptionsObject<
   'a,
   'b,
@@ -545,7 +701,9 @@ module ChartsSeriesTooltipOptionsObjectPosition = HighchartsSharedSharedTypes.Ch
 type seriesZonesOptionsObject = HighchartsSharedSharedTypes.seriesZonesOptionsObject
 module ChartsSeriesAbandsOptionsMapData = HighchartsSharedSharedTypes.ChartsSeriesAbandsOptionsMapData
 type seriesAdOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.seriesAdOptions<'a, 'b, 'c>
-type optionsCompareValue = HighchartsSharedSharedTypes.optionsCompareValue
+type optionsCompareValue = HighchartsSharedSharedTypes.optionsCompareValue =
+  | @as("value") ValueOptionsCompare
+  | @as("percent") Percent
 type plotAdDataLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotAdDataLabelsOptions<
   'a,
   'b,
@@ -610,7 +768,10 @@ type seriesArcDiagramDataLabelsOptionsObjectEtc147el<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.seriesArcDiagramDataLabelsOptionsObjectEtc147el<'a, 'b, 'c>
-type chartsSeriesArcdiagramOptionsLinkColorMode = ChartsSharedTypes.chartsSeriesArcdiagramOptionsLinkColorMode
+type chartsSeriesArcdiagramOptionsLinkColorMode = ChartsSharedTypes.chartsSeriesArcdiagramOptionsLinkColorMode =
+  | @as("gradient") Gradient
+  | @as("from") From
+  | @as("to") To
 type plotArcdiagramOnPointOptions = HighchartsSharedSharedTypes.plotArcdiagramOnPointOptions
 module ChartsPlotArcdiagramOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotArcdiagramOnPointOptionsConnectorOptions
 module ChartsPlotArcdiagramOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotArcdiagramOnPointOptionsPosition
@@ -628,7 +789,10 @@ type plotAreaOnPointOptions = HighchartsSharedSharedTypes.plotAreaOnPointOptions
 module ChartsPlotAreaOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotAreaOnPointOptionsConnectorOptions
 module ChartsPlotAreaOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotAreaOnPointOptionsPosition
 module ChartsSeriesAreaOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesAreaOptionsOnPoint
-type optionsPointIntervalUnitValue = HighchartsSharedSharedTypes.optionsPointIntervalUnitValue
+type optionsPointIntervalUnitValue = HighchartsSharedSharedTypes.optionsPointIntervalUnitValue =
+  | @as("month") Month
+  | @as("day") Day
+  | @as("year") Year
 type optionsStackingValue = HighchartsSharedSharedTypes.optionsStackingValue
 type seriesArearangeOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesArearangeOptions<
   'b,
@@ -718,7 +882,9 @@ module ChartsPlotAtrOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsP
 module ChartsSeriesAtrOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesAtrOptionsOnPoint
 type seriesBarOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesBarOptions<'b, 'a, 'c>
 type borderRadiusOptionsObject = HighchartsSharedSharedTypes.borderRadiusOptionsObject
-type chartsBorderRadiusOptionsObjectScope = ChartsSharedTypes.chartsBorderRadiusOptionsObjectScope
+type chartsBorderRadiusOptionsObjectScope = ChartsSharedTypes.chartsBorderRadiusOptionsObjectScope =
+  | @as("point") Point
+  | @as("stack") Stack
 type chartsBorderRadiusOptionsObjectWhere = ChartsSharedTypes.chartsBorderRadiusOptionsObjectWhere
 type stringOrNumberOrBorderRadiusOptionsObject = HighchartsSharedSharedTypes.stringOrNumberOrBorderRadiusOptionsObject
 type plotBarDataLabelsOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotBarDataLabelsOptions<
@@ -1059,8 +1225,14 @@ type plotFlagsOnPointOptions = HighchartsSharedSharedTypes.plotFlagsOnPointOptio
 module ChartsPlotFlagsOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotFlagsOnPointOptionsConnectorOptions
 module ChartsPlotFlagsOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotFlagsOnPointOptionsPosition
 module ChartsSeriesFlagsOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesFlagsOptionsOnPoint
-type flagsShapeValue = HighchartsSharedSharedTypes.flagsShapeValue
-type optionsTextAlignValue = HighchartsSharedSharedTypes.optionsTextAlignValue
+type flagsShapeValue = HighchartsSharedSharedTypes.flagsShapeValue =
+  | @as("circlepin") Circlepin
+  | @as("flag") Flag
+  | @as("squarepin") Squarepin
+type optionsTextAlignValue = HighchartsSharedSharedTypes.optionsTextAlignValue =
+  | @as("right") RightTextAlignValue
+  | @as("left") LeftTextAlignValue
+  | @as("center") CenterTextAlignValue
 type seriesFlowmapOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesFlowmapOptions<'b, 'a, 'c>
 type seriesFlowMapSeriesOptionsObject = HighchartsSharedSharedTypes.seriesFlowMapSeriesOptionsObject
 type seriesFunnel3dOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesFunnel3dOptions<
@@ -1509,8 +1681,12 @@ type seriesNetworkgraphDataLabelsOptionsObjecEtc14yc0<
   'c,
 > = HighchartsSharedSharedTypes.seriesNetworkgraphDataLabelsOptionsObjecEtc14yc0<'a, 'b, 'c>
 type plotNetworkgraphLayoutAlgorithmOptions = HighchartsSharedSharedTypes.plotNetworkgraphLayoutAlgorithmOptions
-type optionsApproximationValue = HighchartsSharedSharedTypes.optionsApproximationValue
-type optionsIntegrationValue = HighchartsSharedSharedTypes.optionsIntegrationValue
+type optionsApproximationValue = HighchartsSharedSharedTypes.optionsApproximationValue =
+  | @as("none") NoneApproximationValue
+  | @as("barnes-hut") BarnesHut
+type optionsIntegrationValue = HighchartsSharedSharedTypes.optionsIntegrationValue =
+  | @as("euler") Euler
+  | @as("verlet") Verlet
 type plotNetworkgraphLinkOptions = HighchartsSharedSharedTypes.plotNetworkgraphLinkOptions
 type plotNetworkgraphOnPointOptions = HighchartsSharedSharedTypes.plotNetworkgraphOnPointOptions
 module ChartsPlotNetworkgraphOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotNetworkgraphOnPointOptionsConnectorOptions
@@ -1556,10 +1732,16 @@ type seriesOrganizationDataLabelsOptionsObjecEtcmf6ti<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.seriesOrganizationDataLabelsOptionsObjecEtcmf6ti<'a, 'b, 'c>
-type organizationHangingIndentTranslationValue = HighchartsSharedSharedTypes.organizationHangingIndentTranslationValue
+type organizationHangingIndentTranslationValue = HighchartsSharedSharedTypes.organizationHangingIndentTranslationValue =
+  | @as("inherit") Inherit
+  | @as("cumulative") Cumulative
+  | @as("shrink") Shrink
 type chartsSeriesOrganizationOptionsHangingSide = ChartsSharedTypes.chartsSeriesOrganizationOptionsHangingSide
 type plotOrganizationLinkOptions = HighchartsSharedSharedTypes.plotOrganizationLinkOptions
-type chartsPlotOrganizationLinkOptionsType = ChartsSharedTypes.chartsPlotOrganizationLinkOptionsType
+type chartsPlotOrganizationLinkOptionsType = ChartsSharedTypes.chartsPlotOrganizationLinkOptionsType =
+  | @as("straight") Straight
+  | @as("curved") Curved
+  | @as("orthogonal") Orthogonal
 type chartsSeriesOrganizationOptionsNodeAlignment = ChartsSharedTypes.chartsSeriesOrganizationOptionsNodeAlignment
 type plotOrganizationOnPointOptions = HighchartsSharedSharedTypes.plotOrganizationOnPointOptions
 module ChartsPlotOrganizationOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotOrganizationOnPointOptionsConnectorOptions
@@ -1850,7 +2032,9 @@ type plotSolidgaugeDataLabelsOptions<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.plotSolidgaugeDataLabelsOptions<'a, 'b, 'c>
-type optionsLinecapValue = HighchartsSharedSharedTypes.optionsLinecapValue
+type optionsLinecapValue = HighchartsSharedSharedTypes.optionsLinecapValue =
+  | @as("round") Round
+  | @as("square") Square
 type plotSolidgaugeOnPointOptions = HighchartsSharedSharedTypes.plotSolidgaugeOnPointOptions
 module ChartsPlotSolidgaugeOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotSolidgaugeOnPointOptionsConnectorOptions
 module ChartsPlotSolidgaugeOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotSolidgaugeOnPointOptionsPosition
@@ -2022,10 +2206,16 @@ type plotTreegraphLevelsOptions<
   'b,
   'c,
 > = HighchartsSharedSharedTypes.plotTreegraphLevelsOptions<'a, 'b, 'c>
-type optionsLayoutAlgorithmValue = HighchartsSharedSharedTypes.optionsLayoutAlgorithmValue
+type optionsLayoutAlgorithmValue = HighchartsSharedSharedTypes.optionsLayoutAlgorithmValue =
+  | @as("squarified") Squarified
+  | @as("strip") Strip
+  | @as("stripes") Stripes
+  | @as("sliceAndDice") SliceAndDice
 type optionsLayoutStartingDirectionValue = HighchartsSharedSharedTypes.optionsLayoutStartingDirectionValue
 type plotTreegraphLinkOptions = HighchartsSharedSharedTypes.plotTreegraphLinkOptions
-type optionsNodeSizeByValue = HighchartsSharedSharedTypes.optionsNodeSizeByValue
+type optionsNodeSizeByValue = HighchartsSharedSharedTypes.optionsNodeSizeByValue =
+  | @as("group") Group
+  | @as("leaf") Leaf
 type plotTreegraphOnPointOptions = HighchartsSharedSharedTypes.plotTreegraphOnPointOptions
 module ChartsPlotTreegraphOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotTreegraphOnPointOptionsConnectorOptions
 module ChartsPlotTreegraphOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotTreegraphOnPointOptionsPosition
@@ -2158,7 +2348,10 @@ type plotVectorOnPointOptions = HighchartsSharedSharedTypes.plotVectorOnPointOpt
 module ChartsPlotVectorOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotVectorOnPointOptionsConnectorOptions
 module ChartsPlotVectorOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotVectorOnPointOptionsPosition
 module ChartsSeriesVectorOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesVectorOptionsOnPoint
-type optionsRotationOriginValue = HighchartsSharedSharedTypes.optionsRotationOriginValue
+type optionsRotationOriginValue = HighchartsSharedSharedTypes.optionsRotationOriginValue =
+  | @as("center") CenterRotationOriginValue
+  | @as("end") EndOriginValue
+  | @as("start") Start
 type seriesVennOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesVennOptions<'b, 'a, 'c>
 type plotVennClusterOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.plotVennClusterOptions<
   'a,
@@ -2251,7 +2444,9 @@ type plotWordcloudOnPointOptions = HighchartsSharedSharedTypes.plotWordcloudOnPo
 module ChartsPlotWordcloudOnPointOptionsConnectorOptions = HighchartsSharedSharedTypes.ChartsPlotWordcloudOnPointOptionsConnectorOptions
 module ChartsPlotWordcloudOnPointOptionsPosition = HighchartsSharedSharedTypes.ChartsPlotWordcloudOnPointOptionsPosition
 module ChartsSeriesWordcloudOptionsOnPoint = HighchartsSharedSharedTypes.ChartsSeriesWordcloudOptionsOnPoint
-type optionsPlacementStrategyValue = HighchartsSharedSharedTypes.optionsPlacementStrategyValue
+type optionsPlacementStrategyValue = HighchartsSharedSharedTypes.optionsPlacementStrategyValue =
+  | @as("center") CenterPlacementStrategyValue
+  | @as("random") Random
 type plotWordcloudRotationOptions = HighchartsSharedSharedTypes.plotWordcloudRotationOptions
 type optionsSpiralValue = HighchartsSharedSharedTypes.optionsSpiralValue
 type seriesXrangeOptions<'b, 'a, 'c> = HighchartsSharedSharedTypes.seriesXrangeOptions<'b, 'a, 'c>
@@ -2293,7 +2488,11 @@ type exportingButtonsContextButtonThemeOptions = HighchartsSharedSharedTypes.exp
 type exportingCsvOptions = HighchartsSharedSharedTypes.exportingCsvOptions
 type exportingCsvAnnotationsOptions = HighchartsSharedSharedTypes.exportingCsvAnnotationsOptions
 type exportingPdfFontOptions = HighchartsSharedSharedTypes.exportingPdfFontOptions
-type exportingMimeTypeValue = HighchartsSharedSharedTypes.exportingMimeTypeValue
+type exportingMimeTypeValue = HighchartsSharedSharedTypes.exportingMimeTypeValue =
+  | @as("application/pdf") ApplicationPdf
+  | @as("image/jpeg") ImageJpeg
+  | @as("image/png") ImagePng
+  | @as("image/svg+xml") ImageSvgXml
 type globalOptions = HighchartsSharedSharedTypes.globalOptions
 type globalButtonThemeOptions = HighchartsSharedSharedTypes.globalButtonThemeOptions
 type globalButtonThemeStatesOptions = HighchartsSharedSharedTypes.globalButtonThemeStatesOptions
@@ -2483,7 +2682,9 @@ type sonificationSpeechPlayDelayOptions = HighchartsSharedSharedTypes.sonificati
 module ChartsSonificationSpeechMappingOptionsRate = HighchartsSharedSharedTypes.ChartsSonificationSpeechMappingOptionsRate
 module ChartsSonificationSpeechMappingOptionsVolume = HighchartsSharedSharedTypes.ChartsSonificationSpeechMappingOptionsVolume
 type sonificationInstrumentPointGroupingOptions = HighchartsSharedSharedTypes.sonificationInstrumentPointGroupingOptions
-type sonifcationTypeValue = HighchartsSharedSharedTypes.sonifcationTypeValue
+type sonifcationTypeValue = HighchartsSharedSharedTypes.sonifcationTypeValue =
+  | @as("instrument") Instrument
+  | @as("speech") Speech
 type seriesSonificationPointGroupingOptions = HighchartsSharedSharedTypes.seriesSonificationPointGroupingOptions
 type optionsAlgorithmValue = HighchartsSharedSharedTypes.optionsAlgorithmValue
 type seriesStatesOptionsObject = HighchartsSharedSharedTypes.seriesStatesOptionsObject
@@ -2764,7 +2965,10 @@ type rangeSelectorButtonPositionOptions = HighchartsSharedSharedTypes.rangeSelec
 type rangeSelectorButtonsOptions = HighchartsSharedSharedTypes.rangeSelectorButtonsOptions
 type rangeSelectorButtonsEventsOptions = HighchartsSharedSharedTypes.rangeSelectorButtonsEventsOptions
 type rangeSelectorButtonTypeValue = HighchartsSharedSharedTypes.rangeSelectorButtonTypeValue
-type optionsDropdownValue = HighchartsSharedSharedTypes.optionsDropdownValue
+type optionsDropdownValue = HighchartsSharedSharedTypes.optionsDropdownValue =
+  | @as("always") Always
+  | @as("never") Never
+  | @as("responsive") Responsive
 type responsiveOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.responsiveOptions<'a, 'b, 'c>
 type responsiveRulesOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.responsiveRulesOptions<
   'a,
@@ -2805,7 +3009,9 @@ module ChartsSonificationInstrumentTremoloOptionsSpeed = HighchartsSharedSharedT
 type sonificationEventsOptions = HighchartsSharedSharedTypes.sonificationEventsOptions
 type sonificationContextTracksOptions = HighchartsSharedSharedTypes.sonificationContextTracksOptions
 type optionsValueMapFunctionValue = HighchartsSharedSharedTypes.optionsValueMapFunctionValue
-type optionsOrderValue = HighchartsSharedSharedTypes.optionsOrderValue
+type optionsOrderValue = HighchartsSharedSharedTypes.optionsOrderValue =
+  | @as("sequential") Sequential
+  | @as("simultaneous") Simultaneous
 type stockToolsOptions = HighchartsSharedSharedTypes.stockToolsOptions
 type stockToolsGuiOptions = HighchartsSharedSharedTypes.stockToolsGuiOptions
 type stockToolsGuiDefinitionsOptions = HighchartsSharedSharedTypes.stockToolsGuiDefinitionsOptions
@@ -2829,7 +3035,9 @@ type tooltipOptions<'a, 'b, 'c> = HighchartsSharedSharedTypes.tooltipOptions<'a,
 module ChartsTooltipOptionsAnimation = HighchartsSharedSharedTypes.ChartsTooltipOptionsAnimation
 type tooltip<'a, 'b, 'c> = HighchartsSharedSharedTypes.tooltip<'a, 'b, 'c>
 type pointOrPointArray<'a, 'b, 'c> = HighchartsSharedSharedTypes.pointOrPointArray<'a, 'b, 'c>
-type optionsHeaderShapeValue = HighchartsSharedSharedTypes.optionsHeaderShapeValue
+type optionsHeaderShapeValue = HighchartsSharedSharedTypes.optionsHeaderShapeValue =
+  | @as("callout") Callout
+  | @as("rect") Rect
 type tooltipPositionerPointObject<
   'a,
   'b,
